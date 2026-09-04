@@ -8,6 +8,7 @@ Arms (outputs/stage9/demo_songs/<name>__<arm>.mp4):
   beat_trigger   conductor/beat_trigger.py
   conductor      the shipped model (light_trunk_jd_none_smooth) through the hybrid conductor
   decoder_v1     group decoder v1 (regressed parameters; collapsed to a static look + chase)
+  decoder_v1_onbeat  the same with the engine's phase spread zeroed (every effect on the beat)
   decoder_v2     group decoder v2 (sampled look, rectified flow) + effects engine
   decoder_v2_plan  v2 with the offline section planner's knobs written on top
   engine_only    v2's slow knobs driving beat-trigger effects (the 9.9 engine-only baseline)
@@ -102,6 +103,8 @@ def main():
             return eng.render(p, t10, bus.beats, bus.channels["bar_phase"], dur, gain=g).frames if abs(g - 1) > 0.05 else fr
         if dec1 and "decoder_v1" in arms:
             renders["decoder_v1"] = engine(dec1.params(x, "rpmc"))
+        if dec1 and "decoder_v1_onbeat" in arms:                 # the zero-spread engine diagnostic (PLAN 6.9.10 point 5)
+            p1 = dec1.params(x, "rpmc"); p1["spread"] = np.zeros_like(p1["spread"]); renders["decoder_v1_onbeat"] = engine(p1)
         if dec2:
             p2 = dec2.params(x, "rpmc", seed=0)
             if "decoder_v2" in arms:

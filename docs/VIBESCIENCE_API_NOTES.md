@@ -124,3 +124,9 @@ unregistered for half a day while PLAN.md and four hypotheses referred to it. (2
 `update_problem(id=..., add_update=...)`. Passing `problem_id` fails with `Unexpected keyword
 argument` -- and because validation errors come back as strings, an unchecked call looks like it
 worked. Two updates (category test, Stage 8) were lost this way on 2026-09-04 and re-posted.
+
+## update_problem takes `add_update`, not `note`
+
+`update_problem(id=..., add_update="dated text")`. Passing `note` fails with `Unexpected keyword
+argument` (a string, so an unchecked call drops it silently — see repost_problem_updates.py). `update_runbook`
+is the one that takes `note`. (2026-09-05)
