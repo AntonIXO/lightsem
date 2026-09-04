@@ -1,0 +1,475 @@
+[1] [PDF] AUTOMATIC STAGE LIGHTING CONTROL: IS IT A RULE-DRIVEN ... | https://openreview.net/pdf?id=a4Got6azjF
+[2] Stage Light is Sequence2: Multi-Light Control via Imitation Learning | https://arxiv.org/html/2605.03660
+[3] BeatSaver API (openapi/api_beatsaver_swagger_json) | https://context7.com/openapi/api_beatsaver_swagger_json
+[4] beat-saber-community-wiki/mapping/glossary.md at master · bsmg/beat-saber-community-wiki | https://github.com/bsmg/beat-saber-community-wiki/blob/master/mapping/glossary.md
+[5] Help | https://beatsaver.com/policy/dmca
+[6] BeatSaver - Map - ILLIT - jellyous | https://beatsaver.com/maps/48189
+[7] Song Format Reference | mtolly/onyx | DeepWiki | https://deepwiki.com/mtolly/onyx/4-song-format-reference
+[8] Rock Band Network: get your music in the game | https://www.musicradar.com/news/tech/rock-band-network-get-your-music-in-the-game-251961
+[9] Export and Import - grandMA2 | https://help.malighting.com/grandMA2/en/help/key_export_and_import.html
+[10] My Virtual Rig (MVR) | https://help.malighting.com/grandMA3/2.3/HTML/patch_mvr.html
+[11] Music Video Dataset Downloads - IMP at IFS, UT Vienna | http://www.ifs.tuwien.ac.at/mir/mvd/download.html
+[12] [PDF] SARAGA AUDIOVISUAL: A LARGE MULTIMODAL OPEN DATA ... | https://www.colibri.udelar.edu.uy/jspui/bitstream/20.500.12008/47319/1/SPNRS24.pdf
+[13] Learning to Answer Questions in Dynamic Audio-Visual ... | https://gewu-lab.github.io/MUSIC-AVQA/static/files/MUSIC-AVQA.pdf
+[14] lightsem_brief.md | https://ppl-ai-file-upload.s3.amazonaws.com/web/direct-files/attachments/16322705/3d47fba9-1d2a-4ead-940a-d1ecf023e968/lightsem_brief.md?AWS
+[15] Published as a conference paper at ICLR 2026 | https://proceedings.iclr.cc/paper_files/paper/2026/file/dc48c738d3ef8c81b6e968453a84a819-Paper-Conference.pdf
+[16] RS2002/RPMC-L2 · Datasets at Hugging Face | https://huggingface.co/datasets/RS2002/RPMC-L2
+[17] Paper page - Stage Light is Sequence^2: Multi-Light Control via Imitation Learning | https://huggingface.co/papers/2605.03660
+[18] [Paper Note] Automatic Stage Lighting Control: Is it a Rule ... | https://en.papernotes.org/ICLR2026/audio_speech/automatic_stage_lighting_control_is_it_a_rule-driven_process_or_generative_task/
+[19] RS2002/Skip-BART | https://huggingface.co/RS2002/Skip-BART
+[20] [논문 리뷰] Automatic Stage Lighting Control: Is it a Rule-Driven Process or Generative Task? | https://www.themoonlight.io/ko/review/automatic-stage-lighting-control-is-it-a-rule-driven-process-or-generative-task
+[21] MaestroDMX - PEAKLUMEN GmbH | https://www.peaklumen.de/maestrodmxtm
+[22] [Papierüberprüfung] Automatic Stage Lighting Control: Is it ... | https://www.themoonlight.io/de/review/automatic-stage-lighting-control-is-it-a-rule-driven-process-or-generative-task
+[23] Automatic Stage Lighting Control: Is it a Rule-Driven ... | https://arxiv.org/html/2506.01482v1
+[24] Konductor — Automatic Music-Driven Lighting Shows | https://www.dmxdesktop.com/konductor
+[25] How to Make Lights React to Music (DMX + Free Software) | https://support.enttec.com/dmx-software/emu/how-to-make-lights-react-to-music
+[26] Help getting my DMX stage lights to automatically change color to random songs on spotify | https://www.reddit.com/r/lightingdesign/comments/oeex97/help_getting_my_dmx_stage_lights_to_automatically/
+[27] LightShow: Abstract Representations of Music | https://dspace.mit.edu/bitstream/handle/1721.1/147314/Wilson-benton-meng-eecs-2022-thesis.pdf?sequence=1&isAllowed=y
+[28] RS2002/Skip-BART: [ICLR 2026] Official ... | https://github.com/RS2002/Skip-BART
+[29] GitHub - maximecb/pyopendmx: Python OpenDMX stage light control | https://github.com/maximecb/pyopendmx
+[30] Beat Saber Beatmap Schema - bsmap | https://app.unpkg.com/bsmap@2.2.6/files/BEATMAP.md
+[31] Info | BSMG Wiki | https://bsmg.wiki/mapping/map-format/info.html
+[32] Terms of Service - BeatSaver | https://beatsaver.com/policy/tos
+[33] beat-saber-community-wiki/mapping.md at master · bsmg/beat-saber-community-wiki | https://github.com/bsmg/beat-saber-community-wiki/blob/master/mapping.md
+[34] Beat Saber - VR rhythm game | https://beatsaber.com/documentation.html
+[35] Lightshow | https://bsmg.wiki/mapping/map-format/lightshow.html
+[36] The Group Lighting Event System (F2 Mode) - Beat Saber | https://beatsaber.com/documentation/the-group-lighting-event-system/index.html
+[37] The Editor Interface for Note, Group and Static Event modes | https://beatsaber.com/documentation/editor-interface/index.html
+[38] Extended Lighting - BSMG Wiki | https://bsmg.wiki/mapping/extended-lighting.html
+[39] A BeatSaver API Wrapper for JavaScript/TypeScript | https://github.com/FranciscoRibeiro03/beatsaver-api
+[40] Bright Light - aushick.github.io | https://aushick.github.io/BeatSaberMappingTools/
+[41] beat_saber_map | https://lib.rs/crates/beat_saber_map
+[42] Map Format | https://bsmg.wiki/mapping/map-format.html
+[43] Beatmap - BSMG Wiki | https://bsmg.wiki/mapping/map-format/beatmap.html
+[44] Beatsaver CDN (beatmaps-io/beatsaver-cdn) - Context7 | https://context7.com/beatmaps-io/beatsaver-cdn
+[45] RBN2 Camera And Lights - RBN/C3 Documentation | http://docs.c3universe.com/rbndocs/index.php?title=RBN2_Camera_And_Lights
+[46] Mix and MIDI Setup - RBN/C3 Documentation | http://docs.c3universe.com/rbndocs/index.php?title=Mix_and_MIDI_Setup
+[47] GitHub - ZedekThePlagueDoctor/Guitar-Hero-III-Tools | https://github.com/ZedekThePlagueDoctor/Guitar-Hero-III-Tools
+[48] Addys-Guitar-Hero-Toolkit/README.md at main · AddyMills/Addys-Guitar-Hero-Toolkit | https://github.com/AddyMills/Addys-Guitar-Hero-Toolkit/blob/main/README.md
+[49] Animation Reference | mariteaux - Somnolescent | https://mariteaux.somnolescent.net/modding/guitar-hero/tutorials/animation-reference/
+[50] ScoreHero :: View topic | https://rockband.scorehero.com/forum/viewtopic.php?t=1711
+[51] GitHub - AddyMills/Addys-Guitar-Hero-Toolkit | https://github.com/AddyMills/Addys-Guitar-Hero-Toolkit
+[52] GitHub - C0Assassin/rb4-to-rb2: Complete recreation of Rock Band 4's venues/animations/lipsyncing in | https://github.com/C0Assassin/rb4-to-rb2
+[53] 💡 Stage Kit | https://docs.yarg.in/stage-kit/
+[54] GitHub - kueller/venuegen: Python ReaScript to generate venues for RB Customs | https://github.com/kueller/venuegen
+[55] Releases · AddyMills/Addys-Guitar-Hero-Toolkit | https://github.com/AddyMills/Addys-Guitar-Hero-Toolkit/releases?page=2
+[56] Magma - RBN/C3 Documentation | http://docs.c3universe.com/rbndocs/index.php?title=Magma
+[57] Quick Convert | mtolly/onyx | DeepWiki | https://deepwiki.com/mtolly/onyx/2.7-quick-convert
+[58] AUTHORING: Create the Lip Sync Data (MILO) | https://rock-band-customs.gitlab.io/authoring-milos.html
+[59] Authoring World Tour-Style Songs - Addy Mills's Site | https://www.addymills.com/authoring-world-tour-style-songs/
+[60] GitHub - dinosoeren/audiotrip-choreo-utils: Useful functions for easily reading, parsing, and manipu | https://github.com/dinosoeren/audiotrip-choreo-utils
+[61] installing custom songs? :: Audio Trip General Discussion | https://steamcommunity.com/app/826540/discussions/1/3114781060443886459/?l=english
+[62] Audio Trip- Quest2- Custom Songs?💥💥💥 | https://www.reddit.com/r/virtualreality/comments/k796dy/audio_trip_quest2_custom_songs/
+[63] Synth Riders - Rhythm League | https://www.rhythmleague.com/synthriders
+[64] Custom Maps and Unique Experiences? | https://www.reddit.com/r/SynthRiders/comments/1833zv6/custom_maps_and_unique_experiences/
+[65] Can you actually make your own environment maps for Synth Rider? | https://www.reddit.com/r/SynthRiders/comments/lr2daw/can_you_actually_make_your_own_environment_maps/
+[66] GitHub - Blogshot/audiotrip-importer: A tool to import custom songs into Audiotrip. | https://github.com/Blogshot/audiotrip-importer
+[67] GitHub - shogoki-vnz/SynthRiders-CustomStages: Unity project template for the making of SynthRiders  | https://github.com/shogoki-vnz/SynthRiders-CustomStages
+[68] Automatic generation of choreography for user added songs? | https://steamcommunity.com/app/826540/discussions/1/3060744206334753130/?l=german
+[69] Audio Trip - Rhythm League | https://www.rhythmleague.com/audiotrip
+[70] GitHub - adosikas/synth_mapping_helper: Helpful tools to assist in making Synth Riders maps | https://github.com/adosikas/synth_mapping_helper
+[71] VCD - Valve Developer Community | https://developer.valvesoftware.com/wiki/VCD
+[72] Your Guide To Programming Timecoded Lighting Shows | https://www.limelightwired.com/post/programming-timecoded-lighting-shows
+[73] rekordbox | https://cdn.rekordbox.com/files/20211111064929/rekordbox6.6.0_lighting_operation_guide_EN.pdf
+[74] Files | Maudica Wiki | https://wiki.maudica.com/files/
+[75] 'Audica' Adds Official Support for Custom Beat Maps (Using the Game's OST) | https://www.roadtovr.com/audica-adds-official-support-custom-beat-maps-using-games-ost/
+[76] Introducing Community Maps in Audica Update 0.1.5! | https://www.harmonixmusic.com/blog/introducing-community-maps-in-audica-update-015
+[77] AUTHORING: Creating Song Files as MOGGS | https://rock-band-customs.gitlab.io/authoring-dtas.html
+[78] GitHub - Goinn/Synth-Playlist-Wizard: Synth Playlist Wizard allows you to manage your Synth Riders p | https://github.com/Goinn/Synth-Playlist-Wizard
+[79] Introducing Audica's In-Game Map Creator - Harmonix Music Systems | https://www.harmonixmusic.com/blog/introducing-audicas-in-game-map-creator
+[80] Synth Riders - VRGameFAQs | https://vrgamefaqs.com/synth-riders/
+[81] Synth Riders Custom Songs: The Ultimate How-to Guide - AR/VR Tips | https://arvrtips.com/synth-riders-custom-songs/
+[82] Newbie confused about maps and custom songs | https://www.reddit.com/r/SynthRiders/comments/m35zwq/newbie_confused_about_maps_and_custom_songs/
+[83] AUTHORING: Creating Song Files as MOGGS | https://rock-band-customs.gitlab.io/authoring-moggs.html
+[84] AUDICA – Post-Launch Content Roadmap | https://www.harmonixmusic.com/blog?category=audica&page=2
+[85] Mapping Guide | https://wiki.synthriderz.com/en/mapping
+[86] Just a reminder that there are thousands of incredible custom songs for Audica you should be playing | https://www.reddit.com/r/virtualreality/comments/wn80fo/just_a_reminder_that_there_are_thousands_of/
+[87] GitHub - octoberU/AudicaConverter: A .NET Core based tool used for converting maps from other games  | https://github.com/octoberU/AudicaConverter
+[88] © 2021 Light-O-Rama, Inc. | https://www1.lightorama.com/downloads/5.6.4/LORHelp.pdf
+[89] © 2021 Light-O-Rama, Inc. | https://www1.lightorama.com/downloads/5.6.6/LORHelp.pdf
+[90] Light-O-Rama v4.4.4 | http://www.lightorama.com/downloads/4.4.4/LORHelp.pdf
+[91] Feature Comparison - Light-O-Rama | https://www1.lightorama.com/downloads/6.3.8/help/feature_comparison.htm
+[92] Light-O-Rama v6.3.2 | https://www1.lightorama.com/downloads/6.3.2/LORHelp.pdf
+[93] Light-O-Rama v4.3.24 | http://www.lightorama.com/downloads/4.3.24/LORHelp.pdf
+[94] File Extensions | https://www.vixenlights.com/developer/file-extensions/
+[95] Feature Comparison | https://www1.lightorama.com/help/feature_comparison.htm
+[96] DMX Lighting Sequence Player | https://dorkbotpdx.org/blog/paul/dmx_lighting_sequence_player/
+[97] 2024 Xlights Around The World Sequences released! | https://www.reddit.com/r/xlights/comments/1gpudeq/2024_xlights_around_the_world_sequences_released/
+[98] xLights Sequences | https://xlightsseq.com/
+[99] GitHub - VixenLights/Vixen: Vixen is a lighting sequencer for creating animated light shows. | https://github.com/VixenLights/Vixen
+[100] Channel Output Mapping | https://broomfieldlights.com/channel-output-mapping/
+[101] Light-Rama Sequence Store “RGBPlus” Sequences Datasheet | https://manuals.plus/m/ee001a9febb66d06862f9c5b120a7ef44575a5a0d7a07a0fff7ffc5345ce83ce
+[102] GitHub - xLightsSequencer/xLights: xLights is a sequencer for Lights. xLights has usb and E1.31 driv | https://github.com/xLightsSequencer/xLights
+[103] [PDF] Falcon Player Manual | https://falconchristmas.github.io/FPP_Manual(4.0).pdf
+[104] Sequences | xLights Manual | https://manual.xlights.org/xlights/chapters/chapter-five-menus/file/settings/sequences
+[105] GitHub - Cryptkeeper/fseq-file-format: Reverse engineered documentation of the Falcon sequence versi | https://github.com/Cryptkeeper/fseq-file-format
+[106] FPP Connect - xLights Manualmanual.xlights.org › xlights › chapters › chapter-five-menus › tools › f | https://manual.xlights.org/xlights/chapters/chapter-five-menus/tools/fpp-connect
+[107] python-fseq/FSEQ_Spec.md at master · federicobond/python-fseq | https://github.com/federicobond/python-fseq/blob/master/FSEQ_Spec.md
+[108] Falcon Player Manual | https://falconchristmas.github.io/FPP_Manual.pdf
+[109] Tools | xLights Manual | https://manual.xlights.org/xlights/chapters/chapter-five-menus/tools
+[110] README.md - bobbyfriday/xlight-autosequencer | https://github.com/bobbyfriday/xlight-autosequencer/blob/main/README.md
+[111] File | xLights Manual | https://manual.xlights.org/xlights/chapters/chapter-five-menus/file
+[112] README.txt | https://raw.githubusercontent.com/smeighan/xLights/master/README.txt
+[113] FSEQ Files Explained: Download, Create and Install Tesla Light Shows | https://lightmytesla.com/blog/fseq-files-explained-download-edit-install
+[114] results matching " " | https://falcon-player.gitbooks.io/falcon-player-manual/content/chapter_six_content_setup/file_manager.html
+[115] Falcon Pi Player | https://www.vixenlights.com/docs/usage/general/import-export/falcon-export/
+[116] GitHub - Cryptkeeper/go-fseq: Go library for encoding & decoding v1 and v2 PSEQ/FSEQ files. | https://github.com/Cryptkeeper/go-fseq
+[117] Tesla Light Show Creator Development Diary (Part 1) | https://medium.com/@zhandouxiaojiji/tesla-light-show-creator-development-diary-part-1-221241aad087
+[118] ILDA Technical Standards - International Laser Display Association | https://www.ilda.com/technical.htm
+[119] [PDF] ILDA Image Data Transfer Format Specification | https://www.ilda.com/resources/StandardsDocs/ILDA_IDTF14_rev011.pdf
+[120] Diplomarbeit | https://reposit.haw-hamburg.de/bitstream/20.500.12738/8968/1/Diplomarbeit.pdf
+[121] [PDF] ILDA Image Data Transfer Format | https://www.ilda.com/resources/StandardsDocs/ILDA_IDTF09_rev05pt1.pdf
+[122] ILDA_IDTF14_rev011 | https://www.scribd.com/document/628650069/ILDA-IDTF14-rev011
+[123] ILDA - MultimediaWiki - Multimedia.cx | https://wiki.multimedia.cx/index.php/ILDA
+[124] [PDF] The ILDA Digital Network | https://www.ilda.com/resources/Tech/IDN/IDN-File---2021-01-15-draft.pdf
+[125] ILDA - International Laser Display Association | https://paulbourke.net/dataformats/ilda/
+[126] Standards - ILDA Image Data Transfer Format - LaserFX.com | https://laserfx.com/Backstage.LaserFX.com/Standards/ILDAframes.html
+[127] [PDF] ILDA Image Data Transfer Format - LaserBoy | http://laserboy.org/formatt/IDTF05-finaldraft.pdf
+[128] Laser Wiki | https://www.photonlexicon.com/wiki/doku.php?id=old:ilda_files
+[129] ILDA parser tips.txt | http://www.ece.ualberta.ca/~elliott/ece492/appnotes/2010w/ILDA_Parsing_Tips/ILDA%20parser%20tips.txt
+[130] data types of consecutive bytes uniform section header ... - LaserBoy | http://laserboy.org/formatt/
+[131] Archives and Download - Download Index - www.LaserFX.com | https://www.laserfx.com/Backstage.LaserFX.com/Archives/DownloadIndex.html
+[132] How to create and upload custom Laser content | https://www.laserworld.com/en/laser-online-user-manual/how-to-create-and-upload-custom-laser-content.html
+[133] Coherent Deep-Net Fusion To Classify Shots In Concert ... | https://homepage.iis.sinica.edu.tw/papers/liao/21455-F.pdf
+[134] Interactive High-dimensional Audiovisual Feature Analysis | https://www.ifi.uzh.ch/dam/jcr:1acdb721-44f1-4249-bfe0-9d4171c511db/MJF_VisualAnalysis.pdf
+[135] Multi-sensor concert recording dataset including professional and user-generated content | Proceedin | https://dl.acm.org/doi/10.1145/2713168.2713191
+[136] BAAI/CI-VID · Datasets at Hugging Face | https://huggingface.co/datasets/BAAI/CI-VID/viewer/default/train?p=1
+[137] Free Concert Video LUTs for Vibrant Live Performances | https://filmora.wondershare.com/video-creative-tips/free-concert-video-luts-for-live-performances.html
+[138] URMP Dataset - University Lab Sites | https://labsites.rochester.edu/air/projects/URMP.html
+[139] [PDF] Audio-Visual Analysis of Music Performances | https://perso.telecom-paristech.fr/grichard/Publications/2018-spm-audio-visual.pdf
+[140] [PDF] AUTOMATIC SET LIST IDENTIFICATION AND SONG ... - ISMIR | https://archives.ismir.net/ismir2014/paper/000211.pdf
+[141] Audio-visual Analysis of Music Performance - University Lab Sites | https://labsites.rochester.edu/air/projects/av_music.html
+[142] Warm Stage Lights Behind a Rock Band Performance | https://elements.envato.com/warm-stage-lights-behind-a-rock-band-performance-FXWUMYR
+[143] MULTIVOX: A Spatial Audio-Visual Dataset of Singing ... | https://zenodo.org/records/17058101
+[144] Dynamic Stage Lights Radiating Green, Blue and White Hues | https://elements.envato.com/led-head-spots-giving-light-in-different-colors-73UKJHE
+[145] 1 | http://arxiv.org/pdf/1612.08727v3.pdf
+[146] GitHub - wzk1015/Awesome-Vision-to-Music-Generation: A curated list of vision-to-music generation: m | https://github.com/wzk1015/Awesome-Vision-to-Music-Generation
+[147] 152 | https://static1.squarespace.com/static/64487a14945a646fa6f7a229/t/65adbb2dfb0c2f0015f8faee/1705884464228/2022_Kraasch_Pasquier.pdf
+[148] MUSIC-AVQA - GeWu-Lab | https://gewu-lab.github.io/MUSIC-AVQA/
+[149] [PDF] Video Background Music Generation: Dataset, Method and Evaluation | https://openaccess.thecvf.com/content/ICCV2023/papers/Zhuo_Video_Background_Music_Generation_Dataset_Method_and_Evaluation_ICCV_2023_paper.p
+[150] [PDF] Audiovisual Analysis of Music Performances | https://hajim.rochester.edu/ece/sites/gsharma/papers/SP_Jan2019AVAnalysisMusicArticle.pdf
+[151] VJ Loops & Visual Content for Live Shows | VFXFREEK | https://loops.vfxfreek.com/
+[152] 6,792 VJ Loops & Pixel LED Effects — MEGA PACK #3 SUMMER 2026 | https://lededit.gumroad.com/l/vj-loops-mega-pack-mp4-videos-dj-club-loops
+[153] GitHub - GeWu-Lab/MUSIC-AVQA: MUSIC-AVQA, CVPR2022 (ORAL) | https://github.com/GeWu-Lab/MUSIC-AVQA
+[154] Creating a multi-track classical music performance dataset ... | https://datadryad.org/dataset/doi:10.5061/dryad.ng3r749
+[155] Dialogue-Aware Video-to-Music Generation Using Public ... | https://arxiv.org/html/2608.11576v1
+[156] Triangles LED Wall VJ Loops Pack, Motion Graphics | https://videohive.net/item/triangles-led-wall-vj-loops-pack/18425894
+[157] HarmonySet: A Comprehensive Dataset for Understanding ... | https://openaccess.thecvf.com/content/CVPR2025/papers/Zhou_HarmonySet_A_Comprehensive_Dataset_for_Understanding_Video-Music_Semantic_Alignme
+[158] URMP Music Performance Audiovisual Analysis Dataset - Hyper.AI | https://hyper.ai/en/datasets/17285
+[159] How to design fireworks shows | FWsim Documentation | https://www.fwsim.com/doc/show_designer.html
+[160] Handbook for FWsim v3 | https://www.fwsim.com/doc/en/manual.pdf
+[161] Export to PyroDigiT | https://www.fwsim.com/doc/data_export_pyrodigit.html
+[162] FWsim 3.5.0.60 Build 3401 Cracked Licensed ( Author By Aaron Miguel) : Lukas : Free Download, Borrow | https://archive.org/details/fwsim-3.5.0.60-build-3401-cracked-licensed-author-by-aaron-miguel_202405
+[163] FWsim Shows | https://community.fwsim.com/c/fwsim-shows/6
+[164] FWSim Pro 3D - Professional Pyrotechnic Simulator | https://www.breenafireworks.it/product-page/fwsim-pro-3d?lang=en
+[165] FWsim - Simple Fireworks Show Design and Visualization | https://www.fwsim.com/
+[166] The show editor | https://www.fwsim.com/doc/en/show_editor.html
+[167] Creating DALI, a Large Dataset of Synchronized Audio, ... | https://transactions.ismir.net/articles/10.5334/tismir.30
+[168] FWsim Pro | https://www.wp10551425.server-he.de/pro/
+[169] FWsim Version 3 Updates | https://www.fwsim.com/updates-v3.php
+[170] FWsim. Get the software safely and easily. | https://fwsim.software.informer.com/
+[171] Super-Fast Visual Scripting for your Cobra Shows - FWsim | https://www.fwsim.com/doc/data_export_cobra.html
+[172] FWsim Download Free (Windows) - 4.1.0.10 | https://www.softpedia.com/get/Others/Fun/FWsim.shtml
+[173] Export to Ignis Firing Systems | https://www.fwsim.com/doc/data_export_ignis.html
+[174] Santa Clara University | https://scholarcommons.scu.edu/cgi/viewcontent.cgi?article=1037&context=elec_senior
+[175] (PDF) Self-Choreographed Musical Fountain System | https://www.academia.edu/55632583/Self_Choreographed_Musical_Fountain_System
+[176] Best Musical Water Fountain Software: 2026 Comparison | https://gitnux.org/best/musical-water-fountain-software/
+[177] Self-Choreographed Musical Fountain System | https://www.internationaljournalssrg.org/IJECE/2016/Volume3-Issue10/IJECE-V3I10P103.pdf
+[178] The programming of musical dancing fountains | https://formedacqua.com/en/innovation-and-technology/the-programming-of-musical-dancing-fountains/
+[179] Top 10 Best Musical Water Fountain Software of 2026 - Worldmetrics | https://worldmetrics.org/best/musical-water-fountain-software/
+[180] DMX Real Time for musical dancing fountains - Cascade | https://www.cascade.it/en/prodotto/dmx-real-time/
+[181] GitHub - Ahornberg/helio-workstation: One music sequencer for all major platforms, desktop and mobil | https://github.com/Ahornberg/helio-workstation
+[182] 음악분수 시스템 및 연출방법 | https://patents.google.com/patent/WO2012150758A1/ko
+[183] Depence - Syncronorm | http://www.syncronorm.ru/images/objimg/syncronorm_depence20.pdf
+[184] Musical Fountain Programming by Experts | https://symphonyfountains.com/services/fountain-show-programming/musical-fountain-programming-by-experts/
+[185] Mini and Cost-Effective Musical Water Fountain | https://www.academia.edu/90473323/Mini_and_Cost_Effective_Musical_Water_Fountain
+[186] MIDI To Visuals | https://extensions.blender.org/add-ons/m2v/
+[187] A Flexible Coding Scheme Based on Block Krylov Subspace Approximation for Light Field Displays with  | https://www.mdpi.com/1424-8220/21/13/4574
+[188] Fountain Show Programming Services | https://symphonyfountains.com/services/fountain-show-programming/
+[189] [PDF] The Effect of Deep Learning-based Source Separation on ... | https://studenttheses.uu.nl/bitstream/handle/20.500.12932/43003/Master_Thesis_Diego_Ligtenberg.pdf?sequence=1
+[190] An Ensemble Approach to Music Source Separation | https://arxiv.org/html/2410.20773v1
+[191] Tackling the Cocktail Fork Problem for Separation and ... | https://arxiv.org/html/2212.07327v1
+[192] Music-Source-Separation-Training (MSST) | https://arxiv.org/pdf/2607.23395.pdf
+[193] Pre-training Music Classification Models via Music | http://cvsp.cs.ntua.gr/publications/confr/2024_Garoufis+PretrainMusicClassifModelsViaMSS_EUSIPCO.pdf
+[194] [PDF] A DATASET FOR SOURCE SEPARATION BEYOND 4-STEMS - ISMIR | https://archives.ismir.net/ismir2023/paper/000073.pdf
+[195] The Effect of Deep Learning-based Source Separation on Predominant Instrument Classification in Poly | https://studenttheses.uu.nl/handle/20.500.12932/43003
+[196] GitHub - cgaroufis/MSSPT: Companion repository for the EUSIPCO-24 accepted paper "Pre-Training Music | https://github.com/cgaroufis/MSSPT
+[197] Learning to Separate Musical Mixtures with Score as ... | https://www.merl.com/publications/docs/TR2021-069.pdf
+[198] A Stem-Agnostic Single-Decoder System for Music Source ... | https://arxiv.org/html/2406.18747v1
+[199] Applying source separation to music | https://inria.hal.science/hal-01945320v1/file/2018-audio-source-separation-Chapter16.pdf
+[200] Modeling the Compatibility of Stem Tracks to Generate Music Mashups | https://cdn.aaai.org/ojs/16092/16092-13-19586-1-2-20210518.pdf
+[201] Music Source Separation: A Generative Approach | https://www.atiam.ircam.fr/wp-content/uploads/2024/10/MERESMAN_HIGGS_Ivan_Memoire.pdf
+[202] [Literature Review] An Ensemble Approach to Music ... | https://www.themoonlight.io/en/review/an-ensemble-approach-to-music-source-separation-a-comparative-analysis-of-conventional-and-hierarchica
+[203] 000 | https://openreview.net/pdf/e2a8e7387f4021ff7a1f47070de5be4b3c2a65b7.pdf
+[204] [2310.01809] Mel-Band RoFormer for Music Source Separation - arXiv | https://arxiv.org/abs/2310.01809
+[205] 2310.01809v1 | https://www.scribd.com/document/864753119/2310-01809v1
+[206] MansfieldPlumbing/Demucs_v4_TRT | https://huggingface.co/MansfieldPlumbing/Demucs_v4_TRT
+[207] [PDF] Mel-RoFormer for Vocal Separation and Vocal Melody Transcription | Semantic Scholar | https://www.semanticscholar.org/paper/Mel-RoFormer-for-Vocal-Separation-and-Vocal-Melody-Wang-Lu/a23b434f67e70f7a61b6b70f08d4141e14a58913
+[208] facebookresearch/demucs: Code for the paper Hybrid ... | https://github.com/facebookresearch/demucs
+[209] README.md · MansfieldPlumbing/Demucs_v4_TRT at ... | https://huggingface.co/MansfieldPlumbing/Demucs_v4_TRT/blob/125b3e0aa9b553f625e92a6c2a1cf5d214be2ec0/README.md
+[210] musetric/vocal-separation-roformer-onnx - Hugging Face | https://huggingface.co/musetric/vocal-separation-roformer-onnx
+[211] [PDF] Music Source Separation With Band-Split Rope Transformer | Semantic Scholar | https://www.semanticscholar.org/paper/Music-Source-Separation-With-Band-Split-Rope-Lu-Wang/7682389d280060db36901366ae0dc55233d6a84c
+[212] Mel-Band RoFormer for Music Source Separation | Article Information | https://jglobal.jst.go.jp/en/detail?JGLOBAL_ID=202302210566917978
+[213] Mel-Band RoFormer for Music Source Separation - alphaXiv | https://www.alphaxiv.org/replicate/2310.01809v1
+[214] melband-roformer-infer | https://pypi.org/project/melband-roformer-infer/
+[215] Boost Inference speed #426 - facebookresearch/demucs | https://github.com/facebookresearch/demucs/issues/426
+[216] Music Source Separation with Band-Split RoPE Transformer - arXiv | https://arxiv.org/abs/2309.02612
+[217] BS-RoFormer: The SAMI-ByteDance Music Source ... | https://sdx-workshop.github.io/papers/Wang.pdf
+[218] Dual Learning Music Composition and Dance Choreography | https://ar5iv.labs.arxiv.org/html/2201.11999
+[219] Large Language Model-Guided Music-to-Dance Generation - arXiv | https://arxiv.org/html/2506.10574v1
+[220] Automatic Choreography for Virtual Agents | https://fenix.tecnico.ulisboa.pt/downloadFile/1970719973970608/89517-pedro-galhardo_resumo.pdf
+[221] MusicGen-Stem: Multi-stem music generation and edition ... | https://www.alphaxiv.org/abs/2501.01757
+[222] [PDF] Generating Music-Driven Choreography with Deep Learning | http://arno.uvt.nl/show.cgi?fid=156953
+[223] Free AI Dance Pop Music Generator for Upbeat Pop Songs Online | https://musicmaker.im/ai-dance-pop-music-generator/
+[224] icassp10.dvi | https://www.ferdaofli.com/_files/ugd/aff495_2c3d07aca8be4656b2ab488091173979.pdf?index=true
+[225] Separate-and-Detect: Unified Drum Transcription and Stem ... | https://arxiv.org/html/2608.01093v1
+[226] AI EDM Music Generator: Builds, Drops and Grooves | https://www.musicwave.ai/ai-edm-music-generator
+[227] System and Method for Generating Music-Driven Choreography Based on Music Feature Clusters and Dynam | https://www.cityu.edu.hk/en/kto/for-industry/find-new-opportunities-our-ip-portal-0/s/system-and-method-for-generating-music-driven-choreogr
+[228] Creative Chord Sequence Generation for Electronic Dance Music | https://pdfs.semanticscholar.org/e2c6/8da3a6d0385d6fe740e1ecf91dd54edada5c.pdf
+[229] ChoreoGraph: Music-conditioned Automatic Dance Choreography over a Style and Tempo Consistent Dynami | https://ar5iv.labs.arxiv.org/html/2207.07386
+[230] AI-Powered Music Creation Tools | MusicCreator AI - OpenMusic AI | https://www.openmusic.ai/more-tools
+[231] Accompanied Singing Voice Synthesis with Fully Text ... | https://melodylm666.github.io/
+[232] [PDF] An LSTM-autoencoder Approach to Music-oriented Dance Synthesis | https://hcsi.cs.tsinghua.edu.cn/Paper/Paper18/MM18-TANGTAORAN.pdf
+[233] detecting drops in electronic dance music: content based ... | https://archives.ismir.net/ismir2014/paper/000297.pdf
+[234] [PDF] TWO DATA SETS FOR TEMPO ESTIMATION AND KEY ... - ismir 2015 | https://www.ismir2015.uma.es/articles/246_Paper.pdf
+[235] Benchmarking Sub-Genre Classification For Mainstage ... | https://arxiv.org/html/2409.06690v3
+[236] Finding “The Drop” : Recognizing the climax in electronic music using classiﬁcation models. | http://essay.utwente.nl/82333/
+[237] Music-to-Dance Generation via Atomic Movements | https://arxiv.org/html/2607.13978v1
+[238] Automatic Detection of Cue Points for DJ Mixing | https://arxiv.org/html/2007.08411v1
+[239] Electronic Dance Music Analysis for Real-Time ... | https://www.iteam.upv.es/waves/2018/03-waves2018.pdf
+[240] 0118 | http://records.sigmm.org/category/issue/issues-2018/records1801/
+[241] [PDF] Two Data Sets for Tempo Estimation and Key Detection in Electronic Dance Music Annotated from  | https://www.semanticscholar.org/paper/Two-Data-Sets-for-Tempo-Estimation-and-Key-in-Dance-Knees-Faraldo/b44ea130b6dd339645d02b2bde37b5c7a661
+[242] A Music-Driven Dance Generation Method Based on a Spatial-Temporal Refinement Model to Optimize Abno | https://pdfs.semanticscholar.org/af5e/e0af885246cb2132d0b2635668f32bc27a90.pdf
+[243] Recognizing the climax in electronic music using ... | https://essay.utwente.nl/fileshare/file/82333/Bachelor_Thesis.pdf
+[244] MediaEval 2014: A Multimodal Approach to Drop Detection in Electronic Dance Music | https://www.slideshare.net/slideshow/multimodal-drop/42344736?nway-=
+[245] M2C: Concise Music Representation for 3D Dance Generation | https://openaccess.thecvf.com/content/ICCV2023W/AMFG/papers/Marchellus_M2C_Concise_Music_Representation_for_3D_Dance_Generation_ICCVW_2023_p
+[246] Genre-Controlled 3D Full Body Dance Generation Driven ... | https://arxiv.org/html/2502.18309v1
+[247] Raveform: A Dataset of Metrical and Functional Structure ... | https://transactions.ismir.net/articles/10.5334/tismir.288
+[248] MERT: Acoustic music understanding model with large- ... | https://eprints.whiterose.ac.uk/id/eprint/213152/1/2306.00107v4.pdf
+[249] Acoustic Music Understanding Model with Large-Scale Self ... | https://arxiv.org/html/2306.00107v5
+[250] MuQ: Self-Supervised Music Encoder | https://www.emergentmind.com/topics/muq
+[251] [PDF] Benchmarking Music Audio Pre-trained Representations | https://www.cs.cmu.edu/~music/cmp/theses/ruibin_yuan_thesis_2023.pdf
+[252] MERT: Acoustic Music Understanding Model with Large ... | https://liner.com/review/mert-acoustic-music-understanding-model-with-largescale-selfsupervised-training
+[253] [PDF] MERT: Acoustic Music Understanding Model with Large-Scale Self ... | https://iclr.cc/media/iclr-2024/Slides/17510.pdf
+[254] MuQ: Self-Supervised Music Representation Learning with Mel ... | https://arxiv.org/html/2501.01108v1
+[255] [Paper Review] MERT (Music undERstanding model with large-scale self-supervised Training) | https://jun-brro.kr/blogs/mert
+[256] Foundation Models for Music: A Survey - arXiv | https://arxiv.org/html/2408.14340v3
+[257] Under review as submission to TMLR | https://openreview.net/pdf/187b6e09de773a9ecf17ad18d2f2b56918dec0ca.pdf
+[258] tencent-ailab/MuQ | DeepWiki | https://deepwiki.com/tencent-ailab/MuQ/1-overview
+[259] Models | tencent-ailab/MuQ | DeepWiki | https://deepwiki.com/tencent-ailab/MuQ/3-models
+[260] MuQ Model | tencent-ailab/MuQ | DeepWiki | https://deepwiki.com/tencent-ailab/MuQ/3.1-muq-model
+[261] Self-Supervised Music Representation Learning with Mel ... | https://huggingface.co/papers/2501.01108
+[262] yizhilll/MERT | https://github.com/yizhilll/MERT
+[263] Accepted Papers | https://ismir2021.ismir.net/papers/
+[264] Natural Language Supervision for Audio Representations | https://www.emergentmind.com/papers/2309.05767
+[265] [2107.05677] Codified audio language modeling learns ... | https://arxiv.org/abs/2107.05677
+[266] p-lambda/jukemir: Perform transfer learning for MIR using ... | https://github.com/p-lambda/jukemir
+[267] BEAT AND DOWNBEAT TRACKING WITH GENERATIVE ... | https://tiianhk.github.io/asset/2023_ismir_beat.pdf
+[268] jukemir/README.md at main · p-lambda/jukemir | https://github.com/p-lambda/jukemir/blob/main/README.md
+[269] Do Foundational Audio Encoders Understand Music Structure? | https://web3.arxiv.org/pdf/2512.17209
+[270] Text-Prompted CLAP: Learning Query-Conditioned Audio ... | https://arxiv.org/pdf/2607.25085.pdf
+[271] minzwon/musicfm | https://github.com/minzwon/musicfm
+[272] Advancing Multi-Instrument Music Transcription | https://www.alphaxiv.org/abs/2603.27528
+[273] Large-scale Contrastive Language-Audio Pretraining with Feature ... | https://www.alphaxiv.org/abs/2211.06687
+[274] DMRN+17: DIGITAL MUSIC RESEARCH NETWORK | https://qmro.qmul.ac.uk/xmlui/bitstream/handle/123456789/83372/Ma%20Large-Scale%20Pretrained%20Model%202022%20Accepted.pdf?sequence=2&isAllo
+[275] [Literature Review] Layer-wise Investigation of Large-Scale Self ... | https://www.themoonlight.io/en/review/layer-wise-investigation-of-large-scale-self-supervised-music-representation-models
+[276] M2D-CLAP: Exploring General-purpose Audio-Language ... - arXiv | https://arxiv.org/html/2503.22104v2
+[277] CLAP: Learning Audio Concepts From Natural Language ... | https://arxiv.org/abs/2206.04769
+[278] Mapping | https://bsmg.wiki/mapping/
+[279] Beat Saber 1.0 level format conversion | https://gist.github.com/MCJack123/892b936ef0d18da43ab2764ba97402be
+[280] Beat Saber Beatmap Schema - bsmap | https://app.unpkg.com/bsmap@2.3.5/files/BEATMAP.md
+[281] GitHub - Aeroluna/CustomJSONData: Beat Saber plugin library to allow adding arbitrary data to beatma | https://github.com/Aeroluna/CustomJSONData
+[282] BEATMAP.md - KivalEvan/BeatSaber-JSMap | https://github.com/KivalEvan/BeatSaber-JSMap/blob/main/BEATMAP.md
+[283] Mappers | https://beatsaver.com/mappers
+[284] GitHub - megamaz/beatsaver-python | https://github.com/megamaz/beatsaver-python
+[285] Register - BeatSaver | https://beatsaver.com/register
+[286] make beat saber maps using machine learning (1) - Felix Gravila | https://gravila.net/make-beat-saber-maps-using-machine-learning-1/
+[287] BeatSaver - Map - Paradigm | https://beatsaver.com/maps/2246
+[288] Build software better, together | http://github.com/topics/beatsaver
+[289] Beat Saver - how to get a "total # of plays" on modded maps? | https://www.reddit.com/r/beatsaber/comments/13odrwn/beat_saver_how_to_get_a_total_of_plays_on_modded/
+[290] Beat Saber - vjmedia | https://vjmedia.wpi.edu/Beat_Saber
+[291] Maps Datasets API overview | https://developers.google.com/maps/documentation/datasets/overview
+[292] Map - Subtronics - Scream Saver | https://beatsaver.com/maps/3be1a
+[293] GitHub - PlusOneRabbit/ranked-sync: Downloads and installs the latest ranked Beat Saber maps from Sc | https://github.com/PlusOneRabbit/ranked-sync
+[294] beatmaps-io/beatsaver-main | https://github.com/beatmaps-io/beatsaver-main
+[295] icedmoca/beatmapmaker · Datasets at ... | https://huggingface.co/datasets/icedmoca/beatmapmaker
+[296] Tasty Stats on Custom Maps | https://www.reddit.com/r/beatsaber/comments/cnxc4j/tasty_stats_on_custom_maps/
+[297] Creation | https://rockband.fandom.com/wiki/Rock_Band_Custom_Songs
+[298] Rock Band Customs Blog | https://rockbandcustomsblog.wordpress.com/
+[299] ScoreHero :: View topic | https://www.scorehero.com/forum/viewtopic.php?t=1179
+[300] ScoreHero :: View topic | https://www.scorehero.com/forum/viewtopic.php?p=1769955
+[301] Rock Band 3 Customs Book | https://rockbandcustomsblog.wordpress.com/2024/05/16/rock-band-3-customs-book/
+[302] Authoring | http://docs.c3universe.com/rbndocs/index.php?title=Authoring
+[303] Sync Lighting to a Click Track: A Guide for Bands - uking online | https://www.uking-online.com/blogs/stage-lighting-dmx-knowledge-hub/sync-lighting-to-click-track
+[304] C3 Universe is here! | https://rhythmgamingworld.com/forums/topic/c3-universe-is-here/
+[305] TrojanNemo's Older Customs | https://rhythmgamingworld.com/forums/topic/trojannemos-older-customs/
+[306] Rock Band 3 Custom Charts - Other Games | https://parkcrafters.com/topic/17-rock-band-3-custom-charts/
+[307] A Guide to Creating Rock Band 3 Custom Songs | https://gbatemp.net/threads/a-guide-to-creating-rock-band-3-custom-songs.534832/
+[308] Where can i find Guitar Hero Rock Band 3 custom songs for ps3 | https://fretsonfire.org/forums/viewtopic.php?t=62177
+[309] News – Customs Creators Collective | https://customscreatorscollective.wordpress.com/category/news/
+[310] FAQ - Rhythm Gaming World | https://rhythmgamingworld.com/faq/
+[311] Tuto - Ajout de chansons "customs" Rock Band 3 - Discussions générales (jeux, hardware...) | https://www.logic-sunrise.com/forums/topic/61192-tuto-ajout-de-chansons-customs-rock-band-3/
+[312] List of downloadable songs for the Rock Band series - Wikipedia | https://en.wikipedia.org/wiki/List_of_downloadable_songs_for_the_Rock_Band_series
+[313] GitHub - Paturages/chorus: Clone Hero-friendly Organized Repository of User-provided Songs | https://github.com/Paturages/chorus
+[314] Customs Creators Collective website, database, forum, online and fully functional! | https://www.reddit.com/r/Rockband/comments/1cdm19/customs_creators_collective_website_database/
+[315] What websites can I download songs from? | https://www.reddit.com/r/CloneHero/comments/kdkl7q/what_websites_can_i_download_songs_from/
+[316] Where can I get some Phase Shift song packs? | https://www.reddit.com/r/Rockband/comments/4mlo60/where_can_i_get_some_phase_shift_song_packs/
+[317] I'm a C3 user! These are my custom songs that are under development! | https://www.reddit.com/r/Rockband/comments/231vz8/im_a_c3_user_these_are_my_custom_songs_that_are/
+[318] installing custom songs? :: Audio Trip General Discussion | https://steamcommunity.com/app/826540/discussions/1/3114781060443886459/?l=polish
+[319] Audio Trip Choreography not showing up with custom audio files I loaded | https://www.reddit.com/r/OculusQuest2/comments/10dqxwg/audio_trip_choreography_not_showing_up_with/
+[320] Has anyone tried manually writing synth charts (outside of the Editor)? | https://www.reddit.com/r/SynthRiders/comments/koi5ek/has_anyone_tried_manually_writing_synth_charts/
+[321] One File | https://www.reddit.com/r/SynthRiders/comments/1jmz9zk/one_file/
+[322] Audica Community Maps Contest: Create Maps, Win Prizes! | https://www.harmonixmusic.com/blog/audica-community-maps-contest-create-maps-win-prizes
+[323] Sync Audio Trip choreos from the Audio Trip Choreography Discord | https://flutterawesome.com/sync-audio-trip-choreos-from-the-audio-trip-choreography-discord/
+[324] GitHub - bookdude13/SRQuestDownloader: Easier downloading and managing of SynthRiderz songs on Quest | https://github.com/bookdude13/SRQuestDownloader
+[325] GitHub - tommaier123/NoodleManagerX: A standalone app to download Synth Riders custom content for PC | https://github.com/tommaier123/NoodleManagerX
+[326] Guide - Using Noodle Manager to get custom songs on Quest 3 (Dec 2023) | https://www.reddit.com/r/SynthRiders/comments/18f49tg/guide_using_noodle_manager_to_get_custom_songs_on/
+[327] Synth Riders Modding Community | Custom Songs ... | https://synthriderz.com/
+[328] Beat Saber Maps to Synth Riders Conversion Guide - Notion | https://beastsaber.notion.site/Beat-Saber-Maps-to-Synth-Riders-Conversion-Guide-77ff4ed2d5de431dac84fa8039463da1
+[329] Synth Riders Custom Songs Guide - | https://www.mejoress.com/synth-riders-custom-songs-guide/
+[330] Steam Community :: Synth Riders Beatmap Editor | https://steamcommunity.com/app/1121930
+[331] Light-O-Rama v5.3.2 | https://www1.lightorama.com/downloads/5.3.2/LORHelp.pdf
+[332] Light-O-Rama v5.4.2 | https://www1.lightorama.com/downloads/5.4.2/LORHelp.pdf
+[333] Light-O-Rama v3.12.2 | http://www.lightorama.com/downloads/3.12.2/LORHelp.pdf
+[334] The Light-O-Rama Software Package > Sequencer > Menu Bar | https://www.lightorama.com/help/sequencer_file_menu.htm
+[335] Light o rama-xmlfileformatusedbylor2-sfv6 | https://www.slideshare.net/slideshow/light-o-ramaxmlfileformatusedbylor2sfv6/4617904
+[336] Anyone want to share a Frozen sequence? | Page 2 | https://auschristmaslighting.com/threads/anyone-want-to-share-a-frozen-sequence.6363/page-2
+[337] Import / Export | https://www.vixenlights.com/docs/usage/general/import-export/
+[338] lightorama-protocol/LCS.md at master · Cryptkeeper/lightorama-protocol | https://github.com/Cryptkeeper/lightorama-protocol/blob/master/LCS.md
+[339] TIM File Extension | Associated Programs | Free Online Tools | https://fileproinfo.com/file-type/tim
+[340] XLights | https://auschristmaslighting.com/wiki/XLights
+[341] Why are some sequence files in XML format? - LOR Software | https://forums.lightorama.com/topic/15220-why-are-some-sequence-files-in-xml-format/
+[342] Import | xLights Manual | https://manual.xlights.org/xlights/chapters/chapter-five-menus/import
+[343] Light-O-Rama v5.3.4 | http://www.lightorama.com/downloads/5.3.4/LORHelp.pdf
+[344] Light-O-Rama v6.3.0 | http://www.lightorama.com/downloads/6.3.0/LORHelp.pdf
+[345] Share, Buy & Sell Sequences! | https://xlightsseq.com/threads/share-buy-sell-sequences.434/
+[346] xLights Sequences | https://xlightsseq.com/sequences/
+[347] Forums | https://xlightsseq.com/forums/
+[348] Sequences - Light-O-Rama v5.2.4 | https://www1.lightorama.com/downloads/5.2.4/help/concept_sequences.htm
+[349] Shop For Sequences | https://store.lightorama.com/pages/shop-for-sequences
+[350] xLights – Light sequencer and Show scheduler | https://xlights.org/
+[351] Latest reviews | https://xlightsseq.com/sequences/latest-reviews
+[352] Light-O-Rama Software | https://store.lightorama.com/products/newlicense
+[353] [Literature Review] Automatic Stage Lighting Control: Is it a Rule ... | https://www.themoonlight.io/en/review/automatic-stage-lighting-control-is-it-a-rule-driven-process-or-generative-task
+[354] Automatic Stage Lighting Control: Is it a Rule-Driven Process ... | https://nanless.github.io/audio-paper-digest-blog/posts/2026-05-04-automatic-stage-lighting-control-is-it-a-rule/
+[355] Is it a rule-driven process or generative task? | Xiaoyu Zhang | https://www.linkedin.com/posts/xiaoyu-zhang-vis_iclr-2026-automatic-stage-lighting-control-activity-7452181807841812480-PvlJ
+[356] AI-Assisted Creation of Ambient Lightscapes for Music ... | https://arxiv.org/html/2602.08838
+[357] https://dataverse.nl/file.xhtml?fileId=51358&versi... | https://dataverse.nl/file.xhtml?fileId=51358&version=1.0
+[358] Laserworld ShowNET incl. Showeditor | United Kingdom - Music Store | https://www.musicstore.com/en_GB/GBP/Laserworld-ShowNET-incl-Showeditor/art-LIG0013344-000
+[359] Moncha 2.5 Download (Free) | https://moncha.software.informer.com/2.5/
+[360] Showcontroller Software License Dongle | https://www.laserworld.com/en/laser-software/showcontroller-license.html
+[361] LaserShowGen | https://bitlasers.com/lasershowgen-sw/
+[362] Modulaser | ILDA Laser Show Software for Mac, Windows, Linux | https://modulaser.app/
+[363] ILD SOS_1.3 | https://www.scribd.com/document/129874171/ILD-SOS-1-3
+[364] ILDA Image Data Transfer Format | https://www.laserfx.com/Backstage.LaserFX.com/Standards/ILDAframeFormat.pdf
+[365] Microsoft Word - IMPLEPAL.DOC | https://www.ilda.com/resources/StandardsDocs/ILDA_ImplStdColPal95_rev001.pdf
+[366] License Agreement and Limited Warranty | https://pangolin.com/en-us/pages/license-agreement
+[367] ILDA.net 1.0.0.1 | https://www.nuget.org/packages/ILDA.net
+[368] Matlab ILD Files Format Reader (laser show animation) | https://exploreideasdaily.wordpress.com/2013/03/12/ild-file-format-reader/
+[369] ILDA - LaserBoy | https://laserboy.org/ilda_file_format.html
+[370] Fountain Show Programming Proposal – Additional Songs | https://mccmeetingspublic.blob.core.usgovcloudapi.net/gptx-meet-0eca15f6c5a94c05bbf7d57ac3399253/ITEM-Attachment-002-be53a955d2af434eba840cc
+[371] Objective: To Demonstrate A Musical Fountain With ... | https://www.scribd.com/doc/143858846/Cad-Project3
+[372] Music-Driven Group Choreography | https://arxiv.org/html/2303.12337v2
+[373] [PDF] Creating Musical-Fountain Shows | Semantic Scholar | https://www.semanticscholar.org/paper/Creating-Musical-Fountain-Shows-Yoo-Lee/57e974bff2fbf92aa26762365fcedf04a0696f45
+[374] SyncD | Watch Musical Fountain Videos by Dhyani Technologies | https://www.syncdconnect.com/videos
+[375] [PDF] Dhyani Technologies – Turnkey DMX Musical Fountain & Water ... | http://5.imimg.com/data5/SELLER/Doc/2025/11/556717676/SH/WD/AX/30536903/dmx-musical-fountains.pdf
+[376] VOL. 11, NO. 9, MAY 2016                                                                             | http://www.arpnjournals.org/jeas/research_papers/rp_2016/jeas_0516_4166.pdf
+[377] GitHub - NetEase-GameAI/ChoreoMaster: This repository contains the dataset used in paper "ChoreoMast | https://github.com/NetEase-GameAI/ChoreoMaster
+[378] Music Downloads | https://www.syncrolight.co.uk/music.aspx
+[379] Pyrocast - Apps on Google Play | https://play.google.com/store/apps/details?id=com.cobra.audioApp
+[380] PyroJam 2025 Fireworks Competition - Finale 3D | https://finale3d.com/contests/pyrojam-2025/
+[381] Getting Started with COBRA | https://www.cobrafiringsystems.com/getting_started
+[382] Script Format | https://help.cobrafiringsystems.com/hc/en-us/articles/5716119268251-Script-Format
+[383] Configure Script to Support the Audio Box | https://help.cobrafiringsystems.com/hc/en-us/articles/5643646923675-Configure-Script-to-Support-the-Audio-Box
+[384] COBRA Show Creator - One Year License | https://www.cobrafiringsystems.com/showcreator
+[385] What is COBRA Show Creator? | https://help.cobrafiringsystems.com/hc/en-us/articles/5669074781851-What-is-COBRA-Show-Creator
+[386] Positions & Effect Placement | https://finale3d.com/contests/pyrojam-2024/
+[387] Forum – English | https://finale3d.com/groups/english/forum/topic/official-pyrojam-2025-discussion-topic/
+[388] Finale 3D Pro | https://finale3d.com/downloads/finale-3d-pro-single-user-license-annual/
+[389] EasyCOBRA download | https://sourceforge.net/projects/easycobra/
+[390] Cobra | https://finale3d.com/documentation/cobra-script-file-format/
+[391] COBRA 18R2 | https://www.cobrafiringsystems.com/static/userguides/COBRA18R2CreatingandUploadingScripts.pdf
+[392] User Guides | https://help.cobrafiringsystems.com/hc/en-us/categories/5471171476763-User-Guides
+[393] COBRA Firing Systems : Professional Wireless Fireworks Firing System | https://www.cobrafiringsystems.com/show_software.html
+[394] Software Documentation | https://finale3d.com/software-documentation/
+[395] Fixation Database of Music Videos - The Research Repository @ WVU | https://researchrepository.wvu.edu/fixation-db-music-videos/
+[396] A Dataset for Music Question–Answering through Audio–Video Fusion | https://transactions.ismir.net/articles/10.5334/tismir.222
+[397] When and How to Cut Classical Concerts? A Multimodal ... | https://arxiv.org/html/2510.05661v1
+[398] 音響的類似度を用いた照明演出動画生成システム | https://www.ieice.org/publications/conference-FIT-DVDs/FIT2020/data/pdf/I-001.pdf
+[399] Multi‐Modal Instrument Performances (MMIP): A Musical Database | https://onlinelibrary.wiley.com/doi/10.1111/cgf.70025
+[400] Export Keyword | https://help.malighting.com/grandMA3/2.0/HTML/keyword_export.html
+[401] MA Lighting GrandMA2 Manual | PDF | https://www.scribd.com/document/739477505/MA-Lighting-GrandMA2-Manual
+[402] Q Light Controller Plus Documentation | https://www.qlcplus.org/downloads/4.12.6/QLC+_manual_en_EN_4.12.6.pdf
+[403] Import / Export | https://help.malighting.com/grandMA3/2.3/HTML/import-export.html
+[404] Supported file formats | https://help2.malighting.com/Page/grandMA2/image_supported_file_formats/en/3.3
+[405] Q Light Controller Plus download | https://sourceforge.net/projects/qlcplus/
+[406] Q Light Controller Plus Documentation | https://www.qlcplus.org/downloads/4.8.4/QLC+_manual_4.8.4.pdf
+[407] [PDF] grandMA3 User Manual - MA Lighting | https://xom.malighting.com/xom-rest/assets/1cc58546-0759-408b-a607-00e5d1598e5b/content?access_token=f3XCCG-xDpAq8I52APix4SLSw14
+[408] Manual of MA Lighting International GmbH | https://help2.malighting.com/Media/TopicPdf/86298/31
+[409] QLC+ Manual 4.5.1 | https://www.scribd.com/document/191535890/QLC-Manual-4-5-1
+[410] Automated DMX lights with QLC+, Python and some AI | Demo | https://www.reddit.com/r/lightingdesign/comments/1e7rph8/automated_dmx_lights_with_qlc_python_and_some_ai/
+[411] E1.31 - wiki.openlighting.org | https://wiki.openlighting.org/index.php/E1.31
+[412] Q Light Controller+ | https://www.qlcplus.org/forum/viewtopic.php?t=18151
+[413] How does DMX control improve concert lighting precision? | https://www.vellolight.com/guides/professional-stage-lighting-dmx-guide/
+[414] PDMX: Large Public Domain MusicXML Dataset | https://www.emergentmind.com/papers/2409.10831
+[415] GitHub - pnlong/PDMX: PDMX: A Large-Scale Public Domain MusicXML Dataset for Symbolic Music Processi | https://github.com/pnlong/PDMX/
+[416] PDMX: A Large-Scale Public Domain MusicXML Dataset ... | https://arxiv.org/html/2409.10831v1
+[417] High-Performance Stage Lighting Network with GigaJet Pro | https://entertainment.sundrax.com/blog/schematic-diagram-of-the-stage-lighting-control-system-in-a-concert-hall-using-giga-jet-pro-dmx-conve
+[418] DATA COLLECTION IN MUSIC GENERATION TRAINING ... | https://archives.ismir.net/ismir2023/paper/000003.pdf
+[419] DMX Lighting Case Studies: Real-World Success Stories | https://dmx-guide.com/dmx-case-studies.html
+[420] Stage Lighting Design & DMX Control Guide | VelloLight | https://www.vellolight.com/guides/stage-lighting-design-dmx-guide/
+[421] A Comprehensive Survey on Deep Music Generation - ar5iv | https://ar5iv.labs.arxiv.org/html/2011.06801
+[422] [PDF] PDMX: A Large-Scale Public Domain MusicXML Dataset for Symbolic Music Processing | Semantic Sc | https://www.semanticscholar.org/paper/PDMX:-A-Large-Scale-Public-Domain-MusicXML-Dataset-Long-Novack/6bd3bc8a1afd2654bf1610bdd84128eb4a0e1c2
+[423] Music-Visualizing DMX Controller - Chris Dzombak | https://www.dzombak.com/373project/
+[424] [Literature Review] PDMX: A Large-Scale Public Domain MusicXML ... | https://www.themoonlight.io/en/review/pdmx-a-large-scale-public-domain-musicxml-dataset-for-symbolic-music-processing
+[425] Midi2dmx - Marslite | https://www.marsledstage.com/midi2dmx.html
+[426] A Survey on Music Generation from Single-Modal, Cross ... - arXiv | https://arxiv.org/html/2504.00837v1
+[427] beatsaver · GitHub Topics | https://github.com/topics/beatsaver
+[428] Get a dataset | Maps Datasets API | https://developers.google.com/maps/documentation/datasets/get
+[429] GitHub - medAndro/Beatsaber-Map-Pack-Downloader: Download all Beat saber maps from the bplist or jso | https://github.com/medAndro/Beatsaber-Map-Pack-Downloader
+[430] Introducing BSDL: A map downloading tool : r/beatsaber | https://www.reddit.com/r/beatsaber/comments/f3hir7/introducing_bsdl_a_map_downloading_tool/
+[431] GitHub - wvsharber/BeatMapSynthesizer: Automatic Beat Saber mapper for custom songs | https://github.com/wvsharber/BeatMapSynthesizer
+[432] Custom songs and copyright | https://www.reddit.com/r/beatsaber/comments/8macry/custom_songs_and_copyright/
+[433] The Definitive Guide to Adding Custom Songs in Beat Saber: Transform Your Game Forever — How To Info | https://soporte.colineal.com/article/the-definitive-guide-to-adding-custom-songs-in-beat-saber-transform-your-game-forever
+[434] Clarification about legality of custom beat saber songs | https://www.reddit.com/r/beatsaber/comments/lixy7v/clarification_about_legality_of_custom_beat_saber/
+[435] Beat Saber & the Future of Custom Songs | https://medium.com/@idolize/beat-saber-the-future-of-custom-songs-d64756818be7
+[436] BeatSaver - Map - KATSEYE - Gameboy | https://beatsaver.com/maps/48ed2
+[437] Are Beat Saber custom songs legal? - Games Learning Society | https://www.gameslearningsociety.org/are-beat-saber-custom-songs-legal/
+[438] Google Maps APIs Terms of Service | https://developers.google.com/maps/terms-20180207
+[439] End User License Agreement | https://store.steampowered.com/eula/620980_eula_0
+[440] BeatSaver - Profile - Glacinefrox | https://beatsaver.com/profile/275575
+[441] BeatSaver.com | https://beatsaver.com/maps/3086a
+[442] Rock Band Series | mtolly/onyx | DeepWiki | https://deepwiki.com/mtolly/onyx/5.1-rock-band-series
+[443] How to: Recreate Rock Band tracks in Reaper | https://www.fretsonfire.org/forums/viewtopic.php?t=61088
+[444] Guide to the artificial lighting of indoor and outdoor sports ... | https://lightonline.ru/files/docs/Lighting-of-Indoor-and-Outdoor-Sports-Venues.pdf
+[445] Syncing DJ lights to Rockband | https://www.reddit.com/r/Rockband/comments/13btl6j/syncing_dj_lights_to_rockband/
+[446] Software Apps | Ross Williams | https://www.ross-williams.co.uk/software-apps
+[447] How do small/mid level touring bands do lighting? | https://www.reddit.com/r/lightingdesign/comments/zst0vb/how_do_smallmid_level_touring_bands_do_lighting/
+[448] qPlayer - Professional Audio & Video Media Player for Live Performers | https://qplayer.app/
+[449] Lighting Guide 4: Sports Lighting | http://ndl.ethernet.edu.et/bitstream/123456789/40241/1/181.pdf
+[450] Entertainment Licence Policy | Mid and East Antrim Borough Council | https://www.midandeastantrim.gov.uk/business/environmental-health/licensing/entertainment-licence/entertainment-licence-policy
+[451] RBN2 Audition Mode | http://docs.c3universe.com/rbndocs/index.php?title=RBN2_Audition_Mode
+[452] Clone Hero World Chart Community Monthly Song Pack Collection : Free Download, Borrow, and Streaming | https://archive.org/details/cloneheroworldchartcommunitymonthlycollection
+[453] GitHub - ChristianMendozaa/CH_MGVNUN: Este repositorio contiene una colección de charts de canciones | https://github.com/ChristianMendozaa/CH_MGVNUN
+[454] Custom Songs Central - Clone Hero Charts, Packs and Setlists | https://customsongscentral.com/
+[455] Trying to download custom songs for RB3 and having so ... | https://www.reddit.com/r/Rockband/comments/1rxh61s/trying_to_download_custom_songs_for_rb3_and/
+[456] How many Official DLC do you have? - Rhythm Gaming World | https://rhythmgamingworld.com/forums/topic/how-many-official-dlc-do-you-have/
+[457] C3 Authoring Tools - Rhythm Gaming World | https://rhythmgamingworld.com/c3-authoring-tools/
+[458] Clone Hero Songs, Setlists, and Backgrounds/Highways ... - Scribd | https://www.scribd.com/document/439555867/Clone-Hero-Songs-Setlists-and-Backgrounds-2FHighways-Master-List
+[459] How to Add Songs to Clone Hero on Windows/Mac/Android | https://audio.mediaio.net/guides/add-songs-to-clone-hero.html
+[460] Chart Manager — download & manage Clone Hero and ... | https://chartmanager.pages.dev/
+[461] Customs limit? | https://www.reddit.com/r/Rockband/comments/1dfk95/customs_limit/
+[462] PICO Store | https://store-global.picoxr.com/global/detail/1/2047
+[463] Getting Started | https://wiki.synthriderz.com/en/mapping/getting-started
+[464] Using the Editor | https://wiki.synthriderz.com/en/mapping/using-the-editor
+[465] Manually Installing Custom Content on PCVR | https://wiki.synthriderz.com/en/guides/custom-content/pcvr/manual
+[466] Custom Environments help : r/SynthRiders | https://www.reddit.com/r/SynthRiders/comments/1st6on3/custom_environments_help/
+[467] Synth Automapper · turn any track into a Synth Riders map | https://synth-automapper.com/
+[468] ‘Audica’ Custom Beat Map Modding Guide for Beginners | https://www.vrfitnessinsider.com/audica-modding-guide-beginners/
+[469] AudicaConverter/README.md at main · octoberU/AudicaConverter | https://github.com/octoberU/AudicaConverter/blob/main/README.md
+[470] # Guide | https://wiki.maudica.com/guide/
+[471] Audica Custom Songs & Custom Guns - EASY. Super short (less than 4 minutes) and easy to follow. I'll | https://www.reddit.com/r/OculusQuest/comments/f0za8n/audica_custom_songs_custom_guns_easy_super_short/
+[472] Simple guide to playing custom songs on AUDICA for Oculus Quest | https://www.reddit.com/r/Audica/comments/ewbvsp/simple_guide_to_playing_custom_songs_on_audica/
+[473] midi-playground/docs/SONGS.md at master · quasar098/midi-playground | https://github.com/quasar098/midi-playground/blob/master/docs/SONGS.md
+[474] osu! in VR? Play a Million+ osu! Maps / Songs in VR Expertly Converted to Audica | https://www.reddit.com/r/Audica/comments/jlog93/osu_in_vr_play_a_million_osu_maps_songs_in_vr/
+[475] 基本的なマッピング | https://rynan4818.github.io/bsmg_wiki_jp/basic-mapping.html

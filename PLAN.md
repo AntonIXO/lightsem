@@ -1,5 +1,11 @@
 # LightSem v2 — sound → light for concerts and festivals, trained on dance
 
+Date: 2026-09-04, **rev. 8** (Anton's three directions after the Stage 8 result — richer audio
+features, more authored-lighting corpora, transformer/multimodal methods — and his mixture-of-light
+idea, run through one Perplexity deep-research pass and four reasoning passes with the full project
+brief, the MIT MAS.S60 multimodal skill, and the Skip-BART and SeqLight papers read in full;
+section 6.9 is the new stage, section 5 gains the authored-lighting rows, section 9 gains its
+rule-outs). Previous header:
 Date: 2026-09-04, **rev. 7** (category test rated, section 1.5; the Just Dance corpus
 Anton downloaded becomes Stage 8, section 6.8; section 5 gains its row). Previous header:
 Date: 2026-09-04, **rev. 6** (Anton's call: the product is a **pre-rendered show**, not a live
@@ -79,7 +85,7 @@ exactly what a causal model cannot do and a human operator with a setlist always
 | piece | status |
 |---|---|
 | `lightsem/data/aist.py` — AIST++ loader/manifest (1408 seq, 60 tracks, 30 dancers, 21 choreos) | PASS |
-| `lightsem/data/rpmc_remote.py`, `extract_rpmc.py` — RPMC-L2 range reader; 140/699 songs cached | PASS |
+| `lightsem/data/rpmc_remote.py`, `extract_rpmc.py` — RPMC-L2 range reader; **699/699 songs cached** (`cache/rpmc_all`: OpenL3 512-d at 10 Hz + the 6-d scene vector; no waveform) | PASS |
 | `lightsem/audio/*` — librosa beats/downbeats, laplacian segmentation, EDM-role labeller (heuristic), causal/oracle tension | PASS |
 | `lightsem/dmx/*` — club rig, structure→scene rules, beat micro-layer, 512-ch universe @40 fps, cue list, Art-Net sender (untested on hardware) | PASS |
 | `lightsem/sim/*` — headless moderngl/EGL volumetric renderer → MP4 (~7× realtime) | PASS |
@@ -553,8 +559,12 @@ strobe gate (accent × hit/drop); v1 learned (Stage 5).
 | InfiniteDance (HF `huuuuuuuuu/InfiniteDance`) | 100.7 h, 30 genres, SMPL-X from video (FRDM-repaired), MuQ features | non-commercial academic | scale; kinematic noise expected |
 | OpenDanceSet (arXiv 2506.07565) | 100.3 h, 14 genres, 147 subjects, 2D + 3D; poses + source URLs, not pixels | research; ToS on the user | scale, if URLs resolve |
 | PopDanceSet, Let's Dance (arXiv 1801.07388), BRACE (2207.10120) | 3.6 h / ~1000 clips / breaking, pose from video | research | 2D-descriptor path |
-| RPMC-L2 (HF `RS2002/RPMC-L2`) | 699 songs, ~30 fps HSV histograms, 42.5 GB | CC-BY-4.0 | HEAD B events + palette |
-| **Just Dance gameplay captures (have: `/mnt/lightsem-data/justdance/`, 338 files, 19 GB)** | JD1–JD2020, 22.0 h, full commercial songs (median 236 s), one filmed and stylised coach per routine (5 multi-coach), 720p 234 / 1080p 80 / 480p 21, 29.97 fps dominant, stereo audio on all but 6 muted files | YouTube-sourced; Ubisoft choreography and art; **research only** (section 5 legal line) | **Stage 8**: block A/C targets from the coach via 2D pose; the background is a designed visual show (HEAD B-style events and palette); full songs give H-C its structure labels. Not a product training set |
+| RPMC-L2 (HF `RS2002/RPMC-L2`) | 699 songs from 35 livehouse shows, 10 Hz OpenL3 embeddings + HSV histograms / scene vector, 42.5 GB; **all 699 cached**; no waveform, so no stems and no beat grid of our own | CC-BY-4.0 | HEAD B events + palette; the only public stage-domain lighting corpus (Skip-BART / SeqLight train on it) |
+| **Just Dance gameplay captures (have: `/mnt/lightsem-data/justdance/`, 338 files, 19 GB)** | JD1–JD2020, 22.0 h, full commercial songs (median 236 s), one filmed and stylised coach per routine (multi-coach routines common: 252 of the 453 coach channels), 720p 234 / 1080p 80 / 480p 21, 29.97 fps dominant, stereo audio on all but 6 muted files | YouTube-sourced; Ubisoft choreography and art; **research only** (section 5 legal line) | **Stage 8**: block A/C targets from the coach via 2D pose; the background is a designed visual show (HEAD B-style events and palette); full songs give H-C its structure labels. Not a product training set |
+| **xLights free `.xsq` sequences** (xlightsseq.com: ≈ 556 free — 336 Christmas, 98 Halloween, 89 music, 33 misc; ~25–40 h) | per-model effect layers (bars, shockwave, strobe, twinkle, wash, faces) with palettes and parameters on a 25 ms grid — the authored object, remappable onto our groups; **audio not included** (media path only) | sequence = sequencer's copyright, song = separate copyright; vendor files single-home | **Stage 9** authored-light target, only where the song is legally on disk; research only; `.fseq` renders not wanted |
+| **Beat Saber lightshow maps** (BeatSaver API, `?tags=lightshow`; zip = `Info.dat` + `<diff>.beatmap.dat` + `.egg` audio) | v3 `lightColorEventBoxGroups` / `lightRotationEventBoxGroups`: group-level events with brightness, colour, strobe and a distribution / phase-spread filter per box (one map: 348 colour boxes, 9 082 events, 21 groups, 3.6 min); exact BPM grid; maps uploaded daily | per-map, varies; DMCA process; mapper-uploaded audio | **Stage 9** authored-light target after the 9.2 gate; research only |
+| console show files (grandMA2/3 XML + MVR patch, MagicQ, Onyx) | cues, sequences, effects, presets, fixtures, timecode — the professional object; **no public archive exists** | by contract only | the only commercially clean product corpus; business-development item, section 6.9.1 |
+| Raveform (TISMIR 2026) | 4 902 DJ-mix links, 1 423 tracks with expert metrical / functional structure (build, drop, breakdown) | research | EDM section conditioning for the 6.9.4 planner, never a target; no lights |
 | own recordings (events, consent) | video → pose | own | the only fully commercial-clean path |
 
 **Video → descriptors pipeline (Anton's YOLO idea).** 2D pose (YOLO11-pose / RTMPose / ViTPose)
@@ -566,7 +576,7 @@ AIST++ mocap before trusting it anywhere else. Legal line: datasets with video l
 research, or own footage; YouTube-scraped sets are usable for a paper, not a product.
 
 Infra: dedicated torch venv on `/mnt` (uv, cu130); `hf` CLI; ultralytics/RTMPose install;
-Perplexity Pro Search quota is back (Deep Research still 0 on 2026-09-04).
+Perplexity Pro Search quota is back; the one Deep Research call of the month was spent on the rev. 8 pass (2026-09-04 evening).
 
 ---
 
@@ -839,6 +849,267 @@ was re-rendered on 2026-09-04 (evening) from `light_trunk_v3causal_smooth.pt`, t
 model with H-B's smoothing, and is ready to rate: model against the beat trigger, ten
 brightness-matched pairs plus ten foils, same two questions as section 1.5.
 
+### 6.9 Stage 9 — from decent to designed: authored light as the target, the conductor as the model (rev. 8, `rb-ls2-09-designed-light`)
+
+**Where rev. 7 left the product, in the numbers that matter.** On held-out Just Dance songs the
+shipped model's light lands on the beat better than the coach's own motion does (Light-BAS
++0.135 [0.121, 0.150] against +0.087 for the real coach and +0.092 for the 30-line beat
+trigger), its feature distribution is still 4.5× off a real dancer's (FID_light 36.5 against a
+split-half floor of 8.1), and the descriptors it regresses are not predictable from audio at all
+(held-out block A R² −0.22; two coaches on the same song agree at r 0.22–0.42, which is the
+ceiling of any dance-trained model). Look-ahead did nothing (H-A), section channels into the
+per-frame model hurt (H-C), anticipation on the operator data failed (H-D), and the largest
+lever found so far was post-hoc smoothing (H-B). Anton's reading, 2026-09-04 evening: the result
+is decent and clearly short of a human designer.
+
+**Diagnosis, shared by five outside passes and the two 2025–26 stage-lighting papers.** The
+bottleneck is not the trunk, not causality, and not the amount of dance. It is three things:
+(i) the *target* — dance is a weak proxy for lighting, and coaches disagree with each other;
+(ii) the *hand-written conductor*, which owns every artistic decision (palette, fixture roles,
+cue grammar) while the model only steers 30 envelope channels; (iii) *no human preference*
+anywhere in the loop. Stage 9 attacks all three, in that order, and it does it with authored
+light as the target rather than with more dance.
+
+**Provenance of this section.** Anton's three directions (richer audio features, more concert
+corpora, transformer/multimodal methods) and his mixture-of-light idea were run through one
+Perplexity deep-research pass and four reasoning passes (audio decomposition, datasets in two
+halves, multimodal methods, mixture of light) with the full project brief attached
+(answers kept verbatim with the brief and sources under `docs/research/stage9/`; the rhythm-game half
+of the dataset pass returned empty twice and is covered by the deep pass plus a direct BeatSaver probe), against the MIT MAS.S60 `multimodal-ai` skill, and against
+two papers read in full: **Skip-BART** (arXiv 2506.01482, ICLR 2026: the RPMC-L2 authors treat
+lighting as generation, BART over OpenL3 at 10 Hz with a music→light skip connection; 38 raters
+put it at 4.35 vs ground truth 4.51 vs rule-based 2.67 on a 7-point scale) and **SeqLight**
+(arXiv 2605.03660, May 2026: Skip-BART predicts the *full* hue/value distribution of all lights,
+then a goal-conditioned imitation-learned policy decomposes it onto eight simulated point lights
+per venue with no per-fixture demonstrations; 30 raters, 4.54 vs Skip-BART 3.90 vs rule 2.70;
+fixed light order, saturation fixed at 100 %, hue and value only, no pan/tilt/gobo). SeqLight is
+the closest published system to what Stage 9 builds, and its two-stage split (venue-independent
+intent, venue-specific realisation) is the design this section adopts.
+
+#### 9.0 What the passes said, and what is kept
+
+| direction | verdict | kept | dropped |
+|---|---|---|---|
+| 1. audio decomposition | only features that *disambiguate sources the mix collapses* can add anything; the 92-channel bus already holds Burger's mix-level flux bands, RMS, onset and beat phase; a new family that is mostly "section energy" fails the way H-C did | HTDemucs 4-stem envelopes/onsets/2-band flux; per-stem Burger flux for the head/hands split; vocal *activity* (not lyrics); bar phase (not section labels); one frozen music-encoder layer group PCA'd to 32–64 d, only against a same-width random projection and a song-ID leak probe | chords/key/tension, LUFS/LRA, mix timbre, MSAF/SongFormer/EDMFormer *labels* as bus channels, Jukebox, CLAP, RoFormer separators (until stem bleed is shown to cap onset AP) |
+| 2. datasets | there is **no public, commercially clean corpus of full-song professional DMX programming**; RPMC-L2 is the only public stage-domain set (SeqLight adds none); authored light exists at scale in two hobby/game ecosystems | RPMC-L2 all 699 songs (now cached); xLights free `.xsq` sequences; Beat Saber lightshow maps; Raveform DJ-mix structure as *conditioning*; console show files by partnership | laser (ILDA/Pangolin), pyro (Finale 3D), fountain, VJ packs, SoundSwitch autoscripts (a beat-trigger, not a human), MVD-MIX except as a weak proxy; scraping anything for a product |
+| 3. transformers / multimodal | a contrastive audio↔light critic captures only *shared* information, which on this data is beat + loudness — the mode the model already occupies; an AR "light LM" does not replace the three-head design (Skip-BART regresses absolute hue/value, needed 2×4090+A100, and needed a skip connection to lock rhythm); Lodge-style two-level planning belongs on the *conductor*, not in the per-frame model | factorised critic with beat-trigger negatives as a best-of-N reranker; section planner writing conductor knobs; discrete look tokens as a planner; Bradley–Terry on ≤ 12 conductor knobs from 200–400 pairwise ratings; frozen encoder only as an offline dump | AR light-LM as decoder; RL on the flow head before the critic is validated; contrastive pretraining as the objective; diffusion forcing as a new head |
+| 4. mixture of light | of the three architectures — (a) one head per fixture *type*, (b) fixture-token set transformer, (c) group-level effect parameters + deterministic engine — **(c) wins**: it is how shows are programmed (groups, palettes, effects engine, cues), it is permutation- and mirror-safe by construction, and it is the only one trainable from data that has *no per-fixture DMX*; type is an output *mask*, not an expert (MAS.S60: hard-partitioned experts under-share) | group-effect head with type masks; loss on a rig-invariant observable through a cheap differentiable histogram renderer (SeqLight's move); random-rig dropout; rig-transfer test | type-MoE in the trunk; fixture-token decoder until console logs exist; learning pan/tilt/gobo from HSV histograms (invisible through haze and cameras); set-matching losses |
+
+The one sentence the deep-research pass ends on, and it agrees with everything measured here:
+*another music-to-motion transformer will not close the gap; the project needs authored lighting
+intent, a learned hierarchical planner, and a preference model that can tell deliberate
+composition from technically synchronised motion.*
+
+#### 9.1 Targets: authored light, three corpora, one format
+
+Every Stage 9 target is a **group-level light event stream plus per-group intensity/colour
+envelopes at 40 fps**, the same object for all three corpora so one audit script scores them all.
+
+- **RPMC-L2, 699/699** (`cache/rpmc_all`, CC-BY-4.0 on Hugging Face; OpenL3 512-d at 10 Hz +
+  the 6-d scene vector; **no waveform**, so no stems and no beat grid of our own — the operator
+  head stays on its published features). One mixed "fixture group", 10 Hz, hue mode + value
+  with S fixed at 100 %. Baseline to beat: with-hazard event lift 1.81× (rhythm-only 1.25×,
+  Δ +0.56 [0.38, 0.74]), audio-only Δ +0.10 [−0.05, +0.26].
+- **Just Dance visual** (`cache/justdance_visual`, 332 captures, wav on disk): background HSV
+  histograms with coach and UI masked; exp-016 lift 3.17× vs shift 1.48×, Δ +1.69 [1.19, 2.27],
+  shift peak 0. The one corpus here with waveform *and* an authored visual target, so it is where
+  H-G's stems are priced.
+- **xLights free `.xsq` sequences** (xlightsseq.com lists ≈ 556 free: 336 Christmas, 98
+  Halloween, 89 music, 33 misc; ~25–40 h): XML with per-model effect layers (bars, shockwave,
+  strobe, twinkle, wash, faces) with palettes and parameters on a 25 ms timing grid — *the
+  authored object itself*, remappable onto our groups. **Audio is not included**: the file
+  stores a media path and the song must be owned; sequences are the sequencer's copyright and
+  vendor files are single-home licences. Research only; keep only sequences whose song is
+  legally on disk; drop singing-face visemes. Conversion: parse `ElementEffects` →
+  `{t_start, t_end, model, effect, params, palette}`, map models to fixture groups (roofline,
+  matrix, tree, megatree → wash, pixel bar, spot, blinder), sample at 25 ms, hold at 40 fps.
+  Falcon `.fseq` renders are *not* wanted (per-channel 8-bit frames, effects destroyed).
+- **Beat Saber lightshow maps** (BeatSaver, `api.beatsaver.com`, `?tags=lightshow`, zip with
+  `Info.dat`, `<Difficulty>.beatmap.dat`, `.egg`/`.ogg` audio). Verified on one map
+  (`414ae`, v3 schema, 103.5 BPM, 3.6 min): `lightColorEventBoxGroups` 348 boxes over 21
+  environment group ids carrying 9 082 events with beat offset, colour index, brightness and
+  strobe fields and a *distribution/phase-spread filter per box* — i.e. a group effects engine,
+  exactly the abstraction 9.3 emits; `lightRotationEventBoxGroups` 126 boxes (the moving-light
+  analogue); the v2 `basicBeatmapEvents` lane (5 fixture groups: back lasers, rings, left/right
+  lasers, centre) is 16 events in this map, so the v3 groups are where the show is. Lightshow
+  maps are uploaded daily (ids 5417b–54184 on 2026-09-04). Per-map licences vary, BeatSaver runs
+  a DMCA process, audio is the mapper's upload: **research only**, and one corpus gate (9.2)
+  decides whether it is a lighting corpus or a beat-trigger corpus. Conversion: environment
+  group id → fixture role (per environment table), box filter → group cardinality and phase
+  spread, events → per-group intensity/colour at 40 fps on the map's BPM grid (BPM is exact,
+  so alignment error is zero — the cleanest beat grid in the project).
+- **Console show files** (grandMA2/3 XML export + MVR patch geometry, MagicQ, Onyx): no public
+  archive exists; the deep pass's verdict is that *fifty licensed shows with cue hierarchy beat
+  tens of thousands of dubious videos*. This is a business-development item, not a scraping
+  item: offer programmers an export/backup tool, pay for a training licence, prefer
+  production-owned or commissioned music, keep cue names, executors, palettes and effects, and
+  render everything onto the canonical rig. Recorded here as the only route to a
+  commercially clean product corpus; nothing in Stage 9 depends on it.
+
+Not targets: Rock Band / Guitar Hero `VENUE` tracks (proprietary assets and redistributed
+recordings; a legally clean corpus would have to be commissioned from former RBN authors),
+lasers, pyro, fountains, SoundSwitch autoscripts, VJ loop packs.
+
+#### 9.2 The predictability gate every corpus must pass first (H-H)
+
+The cross-modal audit (`rb-ls2-00b` recipe, on the new target format) runs before any training
+on a corpus, split by song and by show, with the two nulls the outside passes agree on:
+
+1. **Time-shift null**: same audio, lights shifted by a random offset in {±2, ±4, ±8} s; event
+   AP must collapse.
+2. **Beat-trigger baseline**: our own `conductor/beat_trigger.py` (beats and bar onsets fire a
+   flash / colour jump) — this is SoundSwitch's autoscript and Beat Saber's auto-lighting; it
+   will look decent on drops.
+
+*Gate G9.2*: AP_audio − AP_shift ≥ +0.15 **and** AP_audio ≥ AP_beat-trigger + 0.05, on both the
+event stream and the per-group envelope R², causal and offline reported together. A corpus that
+fails is fitting tempo, not lighting authorship, and stays out of every loss. xLights and Beat
+Saber are audited separately; Beat Saber additionally gets a *group-count* control (does the
+number of active groups track anything beyond loudness).
+
+#### 9.3 The model: a group-effects decoder replaces the rule table (H-I, the mixture of light)
+
+Anton's mixture-of-light idea, in the form the fourth pass and SeqLight both land on:
+
+```
+audio bus ──► frozen trunk + operator head ──► GROUP-EFFECT HEAD (0.5–2 M params, shared,
+              type-conditioned FiLM / output mask)
+              per group role g ∈ {wash, spot, beam, strobe, blinder, pixel bar, laser*, haze}:
+                intensity envelope (gain-normalised), palette / hue, effect id,
+                rate in beats, phase spread, participation density, look-change hazard
+         ──► DETERMINISTIC EFFECTS ENGINE (today's conductor with the if-then table removed):
+              binds groups to whatever is patched, sorted by (type, stage x), fans the waveform
+              over the group with the phase spread, keeps the H-B one-pole per channel
+         ──► DMX ──► EGL renderer
+```
+
+- **Why not per-type experts or a fixture-token transformer.** Six moving-head slots concatenated
+  is a canonical-rig overfit that cannot chase or mirror; a set transformer is the right geometry
+  but the wrong *target* — the corpora hold mixed HSV and group events, never pan/tilt, so a
+  decoder that emits pan/tilt/gobo is inventing degrees of freedom the loss cannot see. Type
+  enters as a parameter mask (a wash has no gobo, a strobe has no CMY), not as a router.
+- **Loss on a rig-invariant observable.** Ground truth is not a set of fixtures, so no
+  Hungarian/Chamfer matching. A cheap differentiable renderer (each active group an additive
+  coloured blob; spots as 2-D Gaussians on the stage plane) produces the per-frame HSV histogram
+  and the same delta-light features `eval/fid.py` already uses; train against RPMC-L2 histograms,
+  Just Dance visual histograms and, once 9.2 passes, xLights/Beat Saber group envelopes.
+  Per-type terms: wash/LED → hue+value histogram, never absolute level; strobe/blinder → onset
+  times and duty cycle, not brightness; spot/beam → histogram contribution plus an effect-rate
+  term, pan/tilt engine-procedural until console logs exist; pixel bars later (needs a 1-D
+  renderer). Auxiliary look-change cross-entropy from the operator head. Random rig: dropout
+  groups, jitter cardinality, shuffle positions within a type, sometimes remove the strobe —
+  because the loss lives on the render, two washes swapping places costs zero, which is the
+  invariance wanted. **No distillation of the current conductor's DMX**: that would clone the
+  bottleneck and turn random rigs into noise.
+- **The dance descriptors are demoted.** They stay as a training signal through the frozen
+  trunk (the product claim is unchanged) but the decoder reads the trunk and the operator head,
+  not the 30 channels — a decoder sitting on channels with R² −0.22 clones a bad clock.
+- **Gate G9.3**, held-out songs, mean Value matched to the reference and onset density capped to
+  the human band: FID_light vs the hand-written conductor must beat a shuffled-donor control by
+  > 2× (H-C fake-won 36.5 → 27.6 with shuffle at 33.1; that trap is pre-registered away);
+  Light-BAS not below the conductor *without raising onset density* (BAS bought by flashing every
+  beat is a fail); brightness-matched human A/B on "fits the music" vs the conductor with a
+  win-rate CI excluding 50 % at n ≥ 20 pairs, "looks like an engineer did it" and a new
+  "too metronomic" question kept separate; **rig transfer**: freeze the decoder, patch an unseen
+  rig (different N, no strobe, extra LED bars) and beat channel-copy on HSV-histogram distance to
+  the canonical render. Miss any two and the conductor was not the bottleneck: stop decorating
+  it and go get stems or console logs.
+- **Cost**: MVP in a week on the 5070 (frozen trunk, tiny head, existing expander, histogram
+  renderer in torch; no EGL in the loop; no pan/tilt learning).
+
+#### 9.4 The planner: section-level intent written onto the conductor knobs (H-J)
+
+H-C refuted *section channels into the per-frame model* (paired BAS −0.028, FID gain explained
+by a shuffled donor). It did not test the thing a lighting designer actually does, which is
+decide the *look* of a section before it starts and hold it. Lodge-style two-level: an
+audio-only, offline planner (bars and sections; Raveform-style role labels as conditioning; may
+look one bar ahead — the show is pre-rendered) emits scene family, palette, intensity class,
+strobe density and transition type per section as *knobs of the 9.3 engine* (or of the current
+conductor while 9.3 is built); the frame model is untouched. *Gate G9.4*: paired Light-BAS not
+below the no-planner model; FID_light and the human "feels intentionally structured" question
+must beat a **shuffled-section-plan control** (the real plan applied to the wrong sections) and
+a causal planner; time-to-drop is never an input (the H-D leak pattern).
+
+#### 9.5 The critic: factorised, beat-trigger-negative, best-of-N first (H-K)
+
+A dual encoder C(audio, light) on **bar-synchronous** tokens (audio = the 92-channel bus; light =
+HSV histogram + look-change flag + strobe density, not raw dimmer), positives from RPMC-L2, Just
+Dance visual and the 9.2 corpora, and three negative families — circular time-shift ≥ 1–2 bars,
+other-song light on this audio, and **beat-trigger light on this audio** (without the third,
+InfoNCE's cheapest solution is a beat detector and the reranker rewards the mode the model
+already occupies). Two heads, C_R (redundant: beat, RMS) and C_U (unique: look-change timing,
+palette jumps, section contrast); rank by C_U − λ·C_R, and require the ranking to *change* when
+the critic is projected to its nearest additive model (MAS.S60 lecture 07: otherwise it learned
+RMS and onsets). Use: best-of-N over the rectified-flow samples of block C (N ∈ {8, 16}, scored
+through the conductor, not the renderer). *Gate G9.5*: critic accuracy real-vs-beat-trigger
+clearly above chance (real-vs-shift alone is not enough); additive projection changes the
+best-of-8 order; best-of-8 beats random-of-8 on held-out human "fits the music". Only after that
+gate does the critic become a *reward*, and then on the conductor knobs (10–20 scalars) first,
+never on the flow head while BAS is already above the coach's +0.087.
+
+#### 9.6 Human preference on the knobs (H-L)
+
+Bradley–Terry P(i ≻ j) = σ(wᵀ(φ_i − φ_j)) over the ≤ 12 knobs of the rule table (or the 9.3
+engine), regularised toward today's defaults, fitted separately for the two questions that
+dissociated in section 1.5 ("fits the music" tied, "looks like an engineer did it" 8–1–1).
+Detectability: an 8–1 gap shows at ~30 decided pairs; a 60 % true win rate needs ~200 decided
+pairs to separate from 50 %; 55 % needs ~1000. So the study is 200–400 pairs, brightness-matched,
+generated by `render_song_demo.py`-style pairs on held-out songs with knob perturbations, rated
+by Anton and whoever he recruits. *Gate G9.6*: held-out preference accuracy > 60 % at n = 200;
+the fitted w must not raise BAS toward the metronome; a fresh batch prefers fitted knobs over the
+defaults. These ratings are *not* spent on DPO of the flow head.
+
+#### 9.7 Richer audio, gated by audit before any training (H-G)
+
+Order from the first pass, each with the one experiment that decides it, all on song-split
+beat-synchronous ridge / gradient boosting against the 92-channel bus, with a shuffled-donor and
+an L = 0 counterpart; nothing enters the Conformer until the audit beats the bus:
+
+1. **HTDemucs 4-stem** envelopes + onsets + 2-band flux (skip RoFormer until bleed is shown to
+   cap onset AP; Demucs chunks are non-causal ≈ 8 s, so the causal counterpart is the chunked
+   stem). Decider: Δ event-AP on Just Dance visual over the bus, and Δ 2 s R² on coach hand
+   speed vs footfall. Threshold +0.02 AP with a source-specific split (drums → feet/head,
+   hats/vocals → hands), else dead. Cost ≈ 4–8 h for 28 h of wav on the 5070, ~6–8 GB.
+   `demucs` is not in the torch venv yet (`uv pip install demucs`).
+2. **Per-stem Burger flux** as the explicit head/hands prior — free after 1; kill if the stem
+   split adds nothing over mix flux.
+3. **Vocal activity / phrase onsets** from the vocal stem (no lyric tokens: text overfits song
+   identity, Whisper hallucinates, JD is multilingual); keep only if vocals win a subset drums
+   lose; Oslo as the negative control (EDM, near-zero expected).
+4. **Bar phase** (All-In-One / Beat This! downbeats) as sin/cos next to the kick-flux beat phase;
+   70 % of coaches bounce at 1× or 2× the beat, so *bar* is the open question for metric level
+   and wash/pan-at-the-bar. Kill if ΔR² < 0.02. Section labels are not re-imported.
+5. **One frozen embedding**, PCA'd to 32–64 d — MuQ layers 9–12 or MERT-330M layers 10–13
+   (semantic/hue) plus MERT ~15–16 (rhythm), never the last layer, never Jukebox or CLAP —
+   against a same-width random projection of the bus and a song-ID kNN leak probe (pretraining
+   corpora contain these pop hits). Kill if residual ΔAP < 0.02 after subtracting the song-mean
+   embedding: it is a hash of the catalogue. (H-M in the vault; lowest priority.)
+
+RPMC-L2 has no waveform, so the stem arms are priced on Just Dance visual, the coach split, the
+Oslo mixes (±1 s alignment, 2 s envelopes only) and, after 9.2, Beat Saber (audio in the zip).
+
+#### 9.8 Order of work, cost, and what this stage does not do
+
+| week | item | GPU | decides |
+|---|---|---|---|
+| 1 | H-G audit (Demucs on the JD wavs, features, ridge) ‖ H-H pull + audit (BeatSaver `lightshow` top-rated ~300 maps; xLights free `.xsq` only where the song is on disk) | an evening | which features and which corpora exist for the project |
+| 2 | H-I MVP: histogram renderer, group-effect head on the frozen trunk, RPMC-L2 + JD visual targets, random-rig dropout | 1–2 days | whether the conductor was the bottleneck |
+| 3 | H-J planner on the knobs; H-K critic + best-of-8 | 1 day each | structure and reranking |
+| open | H-L preference study (200–400 pairs; needs raters) ; H-M frozen encoder ; console-file partnership | — | human-level or not |
+
+Every number is quoted with its L = 0 counterpart, priced against the beat trigger and the
+hand-written conductor, and split by song and show. Human A/B stays brightness-matched with the
+over-bright foil.
+
+**Not in Stage 9:** an autoregressive light LM as the decoder (Skip-BART regresses absolute
+hue/value, which is a recorded rule-out here); RL or DPO on the flow head before G9.5 passes;
+mixture-of-experts by fixture type inside the trunk; section labels, chords, loudness range or
+timbre descriptors as per-frame bus channels (H-C's trap); Jukebox or CLAP; a fixture-token
+decoder before per-fixture console data exists; more dance corpora as a first lever (the ceiling
+is the coaches' own agreement, r 0.22–0.42); any product training on BeatSaver, xLights, RPMC
+video or YouTube material (research only, section 5); scraping. Oslo remains the concert-domain
+test for every arm.
+
 ---
 
 ## 7. Evaluation protocol (what convinces a sceptic)
@@ -881,14 +1152,25 @@ because the product now knows the track in advance. The preregistered bar is unc
 4 s > +0.05 with a CI excluding zero, and the shift control peaking at 0. Also newly forbidden:
 **quoting any offline number without its `L = 0` counterpart on the same splits.**
 
+**Changed in rev. 8:** the dance descriptors are demoted from the decoder's input to a training
+signal through the frozen trunk (the product claim is unchanged); authored light becomes the
+target. Newly forbidden, from the five outside passes and section 6.9.8: an autoregressive light LM
+as the decoder (absolute hue/value regression); RL or DPO on the flow head before the critic gate
+G9.5 passes; mixture-of-experts by fixture type inside the trunk; section labels, chords, loudness
+range or timbre descriptors as per-frame bus channels; Jukebox or CLAP encoders; a fixture-token
+decoder before per-fixture console data exists; product training on BeatSaver, xLights, RPMC video
+or YouTube material.
+
 ## 10. File and vault map
 
 Code to add: `lightsem/motion/` (FK, 2D/3D pose extraction, descriptor blocks A/B/C),
 `lightsem/conductor/` (v0 table, rig adaptor), `lightsem/eval/` (Light-BAS, FID_light-delta,
 nulls, A/B tooling, latency/causality tests), `lightsem/audio/online.py` (causal features, PLP/
 BeatNet phase), `lightsem/model/light_trunk.py` + heads. Vault: problem
-`dancing-light-generative-20260903`; runbooks `rb-ls2-infra`, `00`, `00b`, `00c`, `01…06`, `07-offline-prerendered`, `08-justdance`;
+`dancing-light-generative-20260903`; runbooks `rb-ls2-infra`, `00`, `00b`, `00c`, `01…06`, `07-offline-prerendered`, `08-justdance`, `09-designed-light`;
 diagnostics `light-bas`, `fid-light-kinetic`, `light-diversity-kinetic`, `edm-collapse-rate`,
-`human-preference-winrate`, `audio-to-dmx-latency-ms`, `descriptor-audio-r2-over-identity`;
+`human-preference-winrate`, `audio-to-dmx-latency-ms`, `descriptor-audio-r2-over-identity`,
+`critic-pair-accuracy`, `rig-transfer-hist-distance`, `preference-heldout-accuracy` (rev. 8);
 papers linked (incl. Burger 2013/2014, Toiviainen 2010, Van Dyck 2013, Solberg & Jensenius 2017,
-Witek 2014, Bigand 2024, Alexanderson 2023, MotionStreamer, ITU-R BT.1359-1).
+Witek 2014, Bigand 2024, Alexanderson 2023, MotionStreamer, ITU-R BT.1359-1, Skip-BART
+arXiv:2506.01482, SeqLight arXiv:2605.03660, FactorCL arXiv:2306.05268, Lodge arXiv:2403.10518).
