@@ -85,12 +85,24 @@ def main():
     wav = "/root/lightsem/data/wav/wav/mBR0.wav"
     bus = extract_bus(wav, duration_s=20.0)
     d = lm.descriptors(bus, seed=0)
-    t0 = time.perf_counter(); P = cond.params(d, bus); t_cond = time.perf_counter() - t0
-    t0 = time.perf_counter(); frames = pack_universe(rig, P); t_pack = time.perf_counter() - t0
+    # Both calls are whole-clip vectorised, so a per-frame number is amortised
+    # by construction. Repeating the clip is what makes the p99 an observation
+    # instead of a copy of the p50: the spread across repeats is real, the
+    # spread inside a clip is not measurable from here.
+    t_cond, t_pack = [], []
+    for _ in range(20):
+        t0 = time.perf_counter(); P = cond.params(d, bus)
+        t_cond.append(time.perf_counter() - t0)
+        t0 = time.perf_counter(); frames = pack_universe(rig, P)
+        t_pack.append(time.perf_counter() - t0)
     n = frames.shape[0]
-    res["conductor_per_frame"] = pct([t_cond / n] * 100)
-    res["dmx_pack_per_frame"] = pct([t_pack / n] * 100)
-    print(f"  conductor {t_cond/n*1000:.3f} ms/frame, DMX pack {t_pack/n*1000:.3f} ms/frame")
+    res["conductor_per_frame"] = pct([t / n for t in t_cond]) | {"amortised": True}
+    res["dmx_pack_per_frame"] = pct([t / n for t in t_pack]) | {"amortised": True}
+    print(f"  conductor {res['conductor_per_frame']['p50_ms']:.3f} ms/frame "
+          f"(p99 {res['conductor_per_frame']['p99_ms']:.3f}), DMX pack "
+          f"{res['dmx_pack_per_frame']['p50_ms']:.3f} ms/frame "
+          f"(p99 {res['dmx_pack_per_frame']['p99_ms']:.3f}), amortised over "
+          f"{n} frames x 20 repeats")
 
     # --- transient path at its own, shorter hop -------------------------------
     # The learned path can afford a 23 ms analysis hop; the transient path cannot,

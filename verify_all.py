@@ -302,6 +302,98 @@ def _():
     return f"block A varies {da:.1e} across seeds, block C {dc:.3f}"
 
 
+print("\n=== 5b. causal feature bus ===")
+
+
+@check("no audio channel the model is fed reads the future")
+def _():
+    from lightsem.audio.online import ORACLE_CHANNELS, SR_BUS, extract_bus
+    from lightsem.model.light_data import AUDIO_SCALARS
+    rng = np.random.default_rng(0)
+    dur, cut_s = 24.0, 12.0
+    n = int(dur * SR_BUS)
+    y = rng.standard_normal(n).astype(np.float32) * 0.05
+    # A four-on-the-floor for the first half so the pulse-clarity window has
+    # something to lock to, then two different futures after the cut.
+    for t in np.arange(0.0, dur, 0.5):
+        i = int(t * SR_BUS)
+        y[i:i + 1200] += np.hanning(1200).astype(np.float32) * 0.8
+    y2 = y.copy()
+    k = int(cut_s * SR_BUS)
+    y2[k:] = rng.standard_normal(n - k).astype(np.float32) * 0.5
+    a = extract_bus(y=y, sr=SR_BUS)
+    b = extract_bus(y=y2, sr=SR_BUS)
+    m = min(len(a.times), len(b.times))
+    upto = int(cut_s * a.fps)
+    assert upto > 40, "cut lands too early to test anything"
+    assert a.flags.get("oracle_beat"), "the offline beat grid is no longer flagged"
+    tested, worst_ch, worst = 0, None, 0.0
+    for ch in AUDIO_SCALARS:
+        if ch not in a.channels or ch not in b.channels:
+            continue
+        if ch in ORACLE_CHANNELS:
+            continue                 # fitted over the whole track, and says so
+        tested += 1
+        d = float(np.abs(a.channels[ch][:upto] - b.channels[ch][:upto]).max())
+        if d > worst:
+            worst_ch, worst = ch, d
+    # Exactly zero, not "small": a causal channel computed from identical past
+    # samples is the same number. The bug this catches interpolated pulse
+    # clarity between measurements taken `hop` frames apart and so mixed in up
+    # to ~70 ms of the future.
+    assert worst == 0.0, f"{worst_ch} changed by {worst:.3e} when only the future changed"
+    dmel = float(np.abs(a.mel[:, :upto] - b.mel[:, :upto]).max())
+    assert dmel == 0.0, f"the mel input changed by {dmel:.3e} when only the future changed"
+    return (f"{tested} model-input channels and the mel bank identical before the cut; "
+            f"{len(ORACLE_CHANNELS)} beat-grid channels exempt and flagged")
+
+
+print("\n=== 5c. corpus bookkeeping ===")
+
+
+@check("the motion index is merged, never replaced")
+def _():
+    import json
+    import tempfile
+    from pathlib import Path as P
+    from build_caches import merge_index
+    with tempfile.TemporaryDirectory() as td:
+        f = P(td) / "motion_index.json"
+        merge_index([{"name": "a", "tempo": 100.0}, {"name": "b", "tempo": 110.0}], f)
+        # A --limit run that only ever looks at clip "b" must not evict "a".
+        n_prior, out = merge_index([{"name": "b", "tempo": 120.0}], f)
+        names = sorted(r["name"] for r in out)
+        assert names == ["a", "b"], f"index lost a clip: {names}"
+        assert n_prior == 2, f"prior count wrong: {n_prior}"
+        got = {r["name"]: r["tempo"] for r in json.loads(f.read_text())}
+        assert got == {"a": 100.0, "b": 120.0}, f"merge did not update in place: {got}"
+    return "a partial rebuild keeps every clip already indexed and updates the ones it saw"
+
+
+@check("a mix renders even when a fitted offset lands after the slot start")
+def _():
+    from lightsem.data import oslo_audio as oa
+    rng = np.random.default_rng(0)
+    src, dur = oa.read_audio, oa.mix_duration
+    try:
+        oa.read_audio = lambda p: rng.standard_normal(int(120 * oa.SR)) * 0.1
+        oa.mix_duration = lambda mix: 100.0
+        # offset_s > nominal_start_s: the recording's t=0 falls inside the slot,
+        # which used to raise a broadcast error and kill the whole build.
+        p = oa.Placement(title="t", mix=1, track_order=1, nominal_start_s=10.0,
+                         nominal_end_s=60.0, nominal_bpm=124.0, source_file="x",
+                         ratio=1.0, offset_s=18.0, corr=0.5, null_corr=0.4,
+                         margin=0.1, native_bpm=124.0, fitted_bpm=124.0, used_s=50.0)
+        y = oa.render_mix(1, [p])
+        assert np.isfinite(y).all(), "render produced non-finite samples"
+        head = int(8.0 * oa.SR)
+        lead = y[int(10.0 * oa.SR): int(10.0 * oa.SR) + head]
+        assert np.abs(lead).max() < 1e-9, "the un-covered head of the slot is not silent"
+    finally:
+        oa.read_audio, oa.mix_duration = src, dur
+    return f"{len(y)/oa.SR:.0f}s rendered, first {head/oa.SR:.0f}s of the slot left silent"
+
+
 print("\n=== 6. vault isolation ===")
 
 

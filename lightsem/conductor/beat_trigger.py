@@ -78,8 +78,8 @@ def render_beat_trigger(bus: AudioBus, rig=None, fps: float = 40.0,
     P["hue"] = slew_limit(P["hue"], fps, 0.45, wrap=True)
     P["dimmer"][:, w] = slew_limit(P["dimmer"][:, w], fps, 4.0)
 
-    if delay_s:
-        n = int(round(delay_s * fps))
+    n = int(round(delay_s * fps))
+    if n > 0:
         for key in P:
             P[key] = np.concatenate([np.repeat(P[key][:1], n, axis=0), P[key][:-n]], axis=0)
 

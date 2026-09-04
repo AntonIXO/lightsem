@@ -38,6 +38,13 @@ SR_BUS = 44100
 HOP_BUS = 1024                     # 43.07 fps analysis grid
 CTRL_FPS = 40.0
 
+#: Channels derived from the offline constant-tempo grid. The grid is fitted
+#: over the whole track, so these see the entire future by construction; the bus
+#: reports them under flags["oracle_beat"] and a deployment has to replace them
+#: with a running tracker. Everything NOT in this set is strictly causal.
+ORACLE_CHANNELS = ("beat_phase_sin", "beat_phase_cos", "beat_period_s",
+                   "beat_accent", "bar_phase")
+
 #: (low_hz, high_hz) per band. LF and HF follow Burger et al. 2013.
 BANDS: dict[str, tuple[float, float]] = {
     "lf": (50.0, 100.0),
@@ -85,8 +92,43 @@ def ema(x: np.ndarray, fps: float, tau_s: float) -> np.ndarray:
     return out
 
 
-def _resample(x: np.ndarray, t_in: np.ndarray, t_out: np.ndarray) -> np.ndarray:
-    return np.interp(t_out, t_in, np.asarray(x, dtype=np.float64))
+def _resample(x: np.ndarray, t_in: np.ndarray, t_out: np.ndarray,
+              causal: bool = True) -> np.ndarray:
+    """Analysis grid -> control grid.
+
+    Interpolating would read the analysis frame *after* the control frame, so
+    the causal path holds the newest frame that has already finished instead.
+    The cost is up to one analysis hop (23 ms) of staleness; the alternative is
+    23 ms of look-ahead, which is the thing the whole bus is trying not to do.
+    """
+    x = np.asarray(x, dtype=np.float64)
+    if not causal:
+        return np.interp(t_out, t_in, x)
+    j = np.searchsorted(t_in, t_out, side="right") - 1
+    return x[np.clip(j, 0, len(x) - 1)]
+
+
+def _percussive_ratio(S: np.ndarray, causal: bool = True,
+                      kt: int = 31, kf: int = 31) -> np.ndarray:
+    """Share of the spectrum that is transient rather than sustained.
+
+    Same median-filter soft mask as librosa's HPSS, with one change: the
+    harmonic estimate is a median over the *trailing* kt frames instead of a
+    centred one. Centred, it reads 15 frames of the future -- 350 ms, and this
+    channel's leak measured 15x its own standard deviation, the largest in the
+    bus. The percussive estimate medians across frequency at a single frame and
+    was already causal.
+    """
+    from scipy.ndimage import median_filter
+    S = np.asarray(S, dtype=np.float64)
+    # scipy's positive `origin` shifts the window toward earlier indices, so
+    # origin=(kt-1)//2 makes output[i] the median of input[i-kt+1 .. i].
+    org = (0, (kt - 1) // 2) if causal else (0, 0)
+    harm = median_filter(S, size=(1, kt), origin=org, mode="nearest")
+    perc = median_filter(S, size=(kf, 1), mode="nearest")
+    p2, h2 = perc ** 2, harm ** 2
+    mask_p = p2 / np.maximum(p2 + h2, 1e-12)
+    return (S * mask_p).sum(axis=0) / np.maximum(S.sum(axis=0), 1e-9)
 
 
 def trailing_pulse_clarity(
@@ -123,7 +165,14 @@ def trailing_pulse_clarity(
         if top <= lo:
             continue
         vals[k] = float(np.clip(ac[lo:top + 1].max(), 0.0, 1.0))
-    out = np.interp(np.arange(n), idx, vals)
+    # Hold the last measurement rather than interpolating to the next one.
+    # np.interp would mix in vals[k+1], which was measured from onset up to
+    # idx[k+1] > j -- up to `hop` frames (~70 ms at the 1024-sample hop) of
+    # future audio inside a channel this file promises is causal, and one that
+    # AUDIO_SCALARS feeds to the model as an input. The cost of holding is that
+    # the value is up to `hop` frames stale, which is nothing against a 4 s
+    # analysis window.
+    out = vals[np.searchsorted(idx, np.arange(n), side="right") - 1]
     return out
 
 
@@ -146,9 +195,20 @@ def extract_bus(
     if y.size < hop * 4:
         raise ValueError("audio too short")
 
-    S = np.abs(librosa.stft(y, n_fft=2 * hop, hop_length=hop))
-    freqs = librosa.fft_frequencies(sr=sr, n_fft=2 * hop)
-    t_in = librosa.frames_to_time(np.arange(S.shape[1]), sr=sr, hop_length=hop)
+    # center=False, and every frame is timestamped at the END of its window.
+    # librosa centres frames by default, which timestamps a 2048-sample window
+    # at its midpoint and so hands every spectral channel 23 ms of the future --
+    # in a bus whose docstring promises the opposite, and whose channels are
+    # model inputs. With center=False the frame covering [i*hop, i*hop+n_fft) is
+    # available once that last sample has arrived, which is what a streaming
+    # implementation can actually produce.
+    n_fft = 2 * hop
+    S = np.abs(librosa.stft(y, n_fft=n_fft, hop_length=hop, center=not causal))
+    freqs = librosa.fft_frequencies(sr=sr, n_fft=n_fft)
+    if causal:
+        t_in = (np.arange(S.shape[1]) * hop + n_fft) / sr
+    else:
+        t_in = librosa.frames_to_time(np.arange(S.shape[1]), sr=sr, hop_length=hop)
     fps_in = sr / hop
     dur = float(len(y) / sr)
 
@@ -159,7 +219,10 @@ def extract_bus(
 
     rms = librosa.feature.rms(S=S, frame_length=2 * hop, hop_length=hop)[0]
     ch["rms"] = rms
-    ch["rms_db"] = librosa.amplitude_to_db(np.maximum(rms, 1e-8), ref=1.0)
+    # top_db defaults to 80 and clamps against max() over the whole clip, which
+    # is a future-dependent floor. There is no streaming version of that, so it
+    # is turned off rather than approximated.
+    ch["rms_db"] = librosa.amplitude_to_db(np.maximum(rms, 1e-8), ref=1.0, top_db=None)
 
     logS = np.log1p(S)
     dS = np.diff(logS, axis=1, prepend=logS[:, :1])
@@ -174,8 +237,8 @@ def extract_bus(
         ch[f"flux_{name}"] = flux_full[m].sum(axis=0)
         ch[f"energy_{name}"] = S[m].mean(axis=0)
 
-    onset = librosa.onset.onset_strength(S=librosa.power_to_db(S ** 2), sr=sr,
-                                         hop_length=hop)
+    onset = librosa.onset.onset_strength(S=librosa.power_to_db(S ** 2, top_db=None),
+                                         sr=sr, hop_length=hop)
     onset = onset[: S.shape[1]] if len(onset) >= S.shape[1] else np.pad(
         onset, (0, S.shape[1] - len(onset)))
     ch["onset"] = onset
@@ -184,9 +247,7 @@ def extract_bus(
     ch["flatness"] = librosa.feature.spectral_flatness(S=S)[0]
     ch["rolloff"] = librosa.feature.spectral_rolloff(S=S, sr=sr, roll_percent=0.95)[0]
 
-    harm, perc = librosa.decompose.hpss(S)
-    ch["percussive_ratio"] = perc.sum(axis=0) / np.maximum(
-        perc.sum(axis=0) + harm.sum(axis=0), 1e-9)
+    ch["percussive_ratio"] = _percussive_ratio(S, causal=causal)
 
     ch["pulse_clarity"] = trailing_pulse_clarity(onset, fps_in)
 
@@ -237,7 +298,7 @@ def extract_bus(
         if causal and k in ("rms", "pulse_clarity", "percussive_ratio", "centroid",
                             "flatness", "rolloff"):
             v = ema(v, fps_in, 0.08)
-        out[k] = _resample(v, t_in, t_out)
+        out[k] = _resample(v, t_in, t_out, causal=causal)
 
     out["beat_phase_sin"] = np.sin(2 * np.pi * phase)
     out["beat_phase_cos"] = np.cos(2 * np.pi * phase)
@@ -248,8 +309,9 @@ def extract_bus(
         out[k + "_ema"] = ema(out[k], fps_out, 0.15)
 
     mel = librosa.power_to_db(
-        librosa.feature.melspectrogram(S=S ** 2, sr=sr, n_mels=n_mels))
-    mel_out = np.stack([_resample(mel[i], t_in, t_out) for i in range(mel.shape[0])])
+        librosa.feature.melspectrogram(S=S ** 2, sr=sr, n_mels=n_mels), top_db=None)
+    mel_out = np.stack([_resample(mel[i], t_in, t_out, causal=causal)
+                        for i in range(mel.shape[0])])
 
     return AudioBus(
         fps=fps_out, times=t_out, channels=out, mel=mel_out,

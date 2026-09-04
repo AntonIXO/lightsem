@@ -73,13 +73,24 @@ def keypoints_from_video(path: str, model_name: str = "yolo11m-pose.pt",
 
 
 def to_skeleton(K: np.ndarray, C: np.ndarray, fps: float, name: str = "",
-                min_conf: float = 0.3, max_gap_s: float = 0.4) -> Skeleton:
-    """(T,17,2) image coordinates -> a prepared Skeleton in the (lat, up, 0) frame."""
+                min_conf: float = 0.3, max_gap_s: float = 0.4,
+                stats: dict | None = None) -> Skeleton:
+    """(T,17,2) image coordinates -> a prepared Skeleton in the (lat, up, 0) frame.
+
+    Every low-confidence gap is filled by linear interpolation, because the
+    Butterworth in `prepare` and every descriptor downstream want a finite
+    series. `max_gap_s` does not change that -- it is the line above which a
+    filled frame is invention rather than a blink, and the fraction of frames
+    above it is written into `stats` so a caller can discount the clip. A short
+    gap glides through a real trajectory; a three-second one glides through a
+    trajectory the dancer never took, at a constant velocity nobody moved at.
+    """
     K = np.asarray(K, dtype=np.float64).copy()
     K[C < min_conf] = np.nan
     T = K.shape[0]
     idx = np.arange(T)
     max_gap = int(max_gap_s * fps)
+    n_filled = n_long = 0
     for j in range(17):
         for c in range(2):
             v = K[:, j, c]
@@ -87,16 +98,22 @@ def to_skeleton(K: np.ndarray, C: np.ndarray, fps: float, name: str = "",
             if ok.sum() < 2:
                 v[:] = 0.0
                 K[:, j, c] = v
+                n_long += T
+                n_filled += T
                 continue
             interp = np.interp(idx, idx[ok], v[ok])
             runs = np.diff(np.r_[0, (~ok).astype(int), 0])
             for s, e in zip(np.flatnonzero(runs == 1), np.flatnonzero(runs == -1)):
-                if e - s <= max_gap:
-                    v[s:e] = interp[s:e]
-            bad = ~np.isfinite(v)
-            if bad.any():
-                v[bad] = interp[bad]         # long gaps: fill, and let coverage report it
+                n_filled += e - s
+                if e - s > max_gap:
+                    n_long += e - s
+            v[~ok] = interp[~ok]
             K[:, j, c] = v
+    if stats is not None:
+        denom = max(T * 17 * 2, 1)
+        stats["filled_frac"] = n_filled / denom
+        stats["long_gap_frac"] = n_long / denom
+        stats["max_gap_s"] = max_gap_s
     P = np.zeros((T, 17, 3))
     P[:, :, 0] = K[:, :, 0]            # image x -> lateral
     P[:, :, 1] = -K[:, :, 1]           # image y grows downward; up is -y

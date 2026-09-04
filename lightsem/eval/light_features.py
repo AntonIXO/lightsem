@@ -38,14 +38,15 @@ VISIBLE_DELTA = 0.30
 
 def light_onsets(frames: np.ndarray, rig: Rig, fps: float,
                  abs_thr: float = VISIBLE_DELTA, refractory_s: float = 0.10,
-                 min_rel: float = 0.0) -> tuple[np.ndarray, np.ndarray]:
+                 min_rel: float = 0.0,
+                 dec: dict | None = None) -> tuple[np.ndarray, np.ndarray]:
     """Times and sizes of visible light events (a "light beat").
 
     The signal is the summed positive change in EMITTED intensity across the
     rig, so a cross-fade that keeps total output constant is correctly not an
     event, and a blackout-to-blinder is a big one.
     """
-    dec = decode_stream(rig, frames)
+    dec = decode_stream(rig, frames) if dec is None else dec
     emit = emitted_light(dec)
     d = np.maximum(np.diff(emit, axis=0), 0.0).sum(axis=1)
     if d.size < 3 or not np.any(d > 0):
@@ -81,7 +82,7 @@ def delta_features(frames: np.ndarray, rig: Rig, fps: float) -> np.ndarray:
     T = emit.shape[0]
     d_all = np.maximum(np.diff(emit, axis=0), 0.0).sum(axis=1) if T > 1 else np.zeros(1)
 
-    ev_t, ev_s = light_onsets(frames, rig, fps)
+    ev_t, ev_s = light_onsets(frames, rig, fps, dec=dec)
     dur = T / fps
     iei = np.diff(ev_t) if ev_t.size > 2 else np.array([])
 

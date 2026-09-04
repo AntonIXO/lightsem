@@ -364,6 +364,93 @@ def fit_shared(n_folds: int = 6) -> dict:
     return res
 
 
+def locking(tol: float = 0.10, conf_min: float = 0.30,
+            n_null: int = 200, seed: int = 0) -> dict:
+    """Does the dancer's vertical bounce hold a metrical multiple of the beat?
+
+    The bounce period is compared with the track's beat period on a log2 axis,
+    so a dancer bouncing every beat, every other beat or twice a beat all count
+    as locked and only a period that sits between levels counts as free.
+
+    The null is the same clip against somebody else's tempo, and it has to be
+    built with some care: AIST++ uses six design tempi, so a naive shuffle hands
+    a clip its own tempo about a sixth of the time, and an octave of it more
+    often than that -- and an octave is invisible to a metrical-level test by
+    construction. Candidate tempi within `tol` of an integer number of octaves
+    from the true one are therefore excluded from the null, which is what stops
+    this from being a test that cannot fail.
+    """
+    idx = json.loads((CACHE_ROOT / "motion_index.json").read_text())
+    rows = []
+    for r in idx:
+        tempo = float(r.get("tempo") or 0.0)
+        if tempo <= 0:
+            continue
+        try:
+            z = np.load(CACHE_ROOT / "motion" / f"{r['name']}.npz", allow_pickle=False)
+            per = z["ch__vert_period_s"].astype(np.float64)
+            conf = z["ch__vert_period_conf"].astype(np.float64)
+        except Exception:                              # noqa: BLE001
+            continue
+        ok = np.isfinite(per) & (per > 0) & (conf >= conf_min)
+        if ok.sum() < 40:
+            continue
+        rows.append({"name": r["name"], "genre": r.get("genre"),
+                     "tempo": tempo, "log2_per": np.log2(per[ok])})
+    if not rows:
+        raise SystemExit("no usable clips; build the motion cache first")
+
+    def locked_frac(log2_per, tempo):
+        """Fraction of confident frames within `tol` of an exact metrical level."""
+        d = log2_per - np.log2(60.0 / tempo)
+        return float((np.abs(d - np.round(d)) < tol).mean())
+
+    real = np.array([locked_frac(r["log2_per"], r["tempo"]) for r in rows])
+    tempi = np.unique([r["tempo"] for r in rows])
+    rng = np.random.default_rng(seed)
+    null = np.zeros(n_null)
+    for k in range(n_null):
+        vals = []
+        for r in rows:
+            alt = tempi[np.abs(np.log2(tempi / r["tempo"])
+                               - np.round(np.log2(tempi / r["tempo"]))) > tol]
+            if not alt.size:
+                continue
+            vals.append(locked_frac(r["log2_per"], float(rng.choice(alt))))
+        null[k] = float(np.mean(vals))
+    z = (real.mean() - null.mean()) / max(null.std(), 1e-9)
+
+    # Which level, when it locks at all.
+    levels = {}
+    for r in rows:
+        d = r["log2_per"] - np.log2(60.0 / r["tempo"])
+        hit = np.abs(d - np.round(d)) < tol
+        for lv, c in zip(*np.unique(np.round(d[hit]).astype(int), return_counts=True)):
+            levels[int(lv)] = levels.get(int(lv), 0) + int(c)
+    tot = max(sum(levels.values()), 1)
+
+    res = {"n_clips": len(rows), "tol_log2": tol, "conf_min": conf_min,
+           "locked_frac": float(real.mean()),
+           "locked_frac_sd": float(real.std()),
+           "null_mean": float(null.mean()), "null_sd": float(null.std()),
+           "z": float(z), "n_distinct_tempi": int(tempi.size),
+           "chance_within_tol": float(2 * tol),
+           "levels": {str(k): levels[k] / tot for k in sorted(levels)}}
+    print(f"clips {res['n_clips']}  distinct tempi {res['n_distinct_tempi']}")
+    print(f"locked {res['locked_frac']:.3f} +- {res['locked_frac_sd']:.3f}   "
+          f"wrong-tempo null {res['null_mean']:.3f} +- {res['null_sd']:.3f}   "
+          f"z {res['z']:+.2f}")
+    print(f"a period drawn at random lands inside the tolerance {2*tol:.2f} of the time")
+    print("  level  share of locked frames")
+    for k in sorted(levels):
+        print(f"  {k:+3d}    {levels[k]/tot:.3f}   "
+              f"(bounce every {2.0**k:g} beat{'s' if 2.0**k != 1 else ''})")
+    OUT.mkdir(parents=True, exist_ok=True)
+    (OUT / "locking.json").write_text(json.dumps(res, indent=1))
+    print(f"-> {OUT/'locking.json'}")
+    return res
+
+
 if __name__ == "__main__":
     cmd = sys.argv[1] if len(sys.argv) > 1 else "fit"
     if cmd == "build":
@@ -372,3 +459,8 @@ if __name__ == "__main__":
         fit()
     elif cmd == "shared":
         fit_shared()
+    elif cmd == "locking":
+        locking()
+    else:
+        raise SystemExit(f"unknown command {cmd} "
+                         "(build | fit | shared | locking)")

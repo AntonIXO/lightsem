@@ -76,12 +76,15 @@ def main():
             print(f"  FAIL {r['name']}: {type(e).__name__} {e}")
             continue
         fps_v = 60.0
-        sk = to_skeleton(K, C, fps_v, name=r["name"] + "_video")
+        fill: dict = {}
+        sk = to_skeleton(K, C, fps_v, name=r["name"] + "_video", stats=fill)
         bus = load_bus(CACHE_ROOT / "audio" / f"{r['music_id']}.npz")
         d_vid = extract(sk, beats=bus.beats[bus.beats < sk.duration_s], tempo=bus.tempo)
         d_moc = load_descriptors(CACHE_ROOT / "motion" / f"{r['name']}.npz")
         n = min(len(d_vid.times), len(d_moc.times))
         row = {"clip": r["name"], "genre": r["genre"], "coverage": meta["coverage"],
+               "filled_frac": round(fill.get("filled_frac", float("nan")), 4),
+               "long_gap_frac": round(fill.get("long_gap_frac", float("nan")), 4),
                "n_tracks": meta["n_tracks"], "seconds": round(time.time() - t0, 1),
                "n_frames_video": int(len(d_vid.times)), "n_frames_mocap": int(len(d_moc.times)),
                "r": {}}
@@ -94,7 +97,8 @@ def main():
             else:
                 row["r"][ch] = float(np.corrcoef(a, b)[0, 1])
         rows.append(row)
-        print(f"  {r['name'][:30]:30s} cov {meta['coverage']:.2f} tracks {meta['n_tracks']} "
+        print(f"  {r['name'][:30]:30s} cov {meta['coverage']:.2f} "
+              f"long-gap {row['long_gap_frac']:.3f} tracks {meta['n_tracks']} "
               f"qom r {row['r'].get('qom', float('nan')):+.3f} "
               f"({row['seconds']:.0f}s)", flush=True)
 

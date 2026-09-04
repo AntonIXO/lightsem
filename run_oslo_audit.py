@@ -32,6 +32,16 @@ AUD = ("rms_dbfs", "spectral_centroid_hz", "spectral_bandwidth_hz", "rolloff85_h
        "pulse_clarity_w8", "tempo_bpm_w8")
 
 
+def stack_speed(desc: dict, gs: list[str]) -> np.ndarray:
+    """Every dancer on one mix as columns, on the groups' common clock.
+
+    The two groups bound to mix 1 are separate Qualisys takes and need not have
+    the same frame count, so the concatenation has to be truncated first.
+    """
+    n = min(len(desc[g]["speed"]) for g in gs)
+    return np.concatenate([desc[g]["speed"][:n] for g in gs], axis=1)
+
+
 def nanmean_cols(x):
     with np.errstate(invalid="ignore"):
         return np.nanmean(x, axis=1)
@@ -124,7 +134,7 @@ def main():
     for mix in (1, 2):
         af = load_audio_features(mix)
         gs = [g for g, (_, m) in GROUPS.items() if m == mix]
-        sp = np.concatenate([desc[g]["speed"] for g in gs], axis=1)
+        sp = stack_speed(desc, gs)
         n = min(len(sp), len(af["t_s"]))
         shared = nanmean_cols(sp[:n])
         shared = np.nan_to_num(shared, nan=float(np.nanmean(shared)))
@@ -228,7 +238,7 @@ def per_track_fit():
     for mix in (1, 2):
         af = load_audio_features(mix)
         gs = [g for g, (_, m) in GROUPS.items() if m == mix]
-        sp = np.concatenate([desc[g]["speed"] for g in gs], axis=1)
+        sp = stack_speed(desc, gs)
         n = min(len(sp), len(af["t_s"]))
         shared = np.nan_to_num(nanmean_cols(sp[:n]), nan=0.0)
         tks = [t for t in tracks if int(t["dj_mix"]) == mix]

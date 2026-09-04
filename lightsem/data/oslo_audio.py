@@ -168,7 +168,8 @@ class Placement:
     corr: float               # peak envelope correlation at (ratio, offset)
     null_corr: float          # best correlation this envelope reaches elsewhere
     margin: float             # corr - null_corr
-    fitted_bpm: float
+    native_bpm: float         # the recording's own tempo implied by the fit
+    fitted_bpm: float         # played tempo past the log's integer resolution
     used_s: float             # how much of the recording the mix actually uses
 
 
@@ -304,12 +305,21 @@ def place_track(row: dict, src: Path, ref_env: np.ndarray,
     ratio, lag, corr = fit_placement(seg, cand, min_overlap_s=overlap_s)
     null = null_correlation(seg, cand, ratio, lag, min_overlap_s=overlap_s)
     offset_s = (lo + lag) / FPS
+    # `bpm` in stimulus_tracks.tsv is the tempo the DJ played, not the record's
+    # own: Ladykiller is logged 124 in mix 1 and 127 in mix 2. So the fitted
+    # ratio divides out to the recording's native tempo. Released house is
+    # authored on an integer grid, so when that lands on an integer the integer
+    # times the ratio gives the played tempo past the log's rounding -- and when
+    # it does not, say nothing rather than quote the nominal back as a "fit".
+    native = row["bpm"] / ratio
+    k = round(native)
+    fitted = k * ratio if abs(native - k) < 0.25 else float("nan")
     return Placement(
         title=row["title"], mix=row["dj_mix"], track_order=row["track_order"],
         nominal_start_s=row["start_s"], nominal_end_s=row["end_s"],
         nominal_bpm=row["bpm"], source_file=str(src),
         ratio=ratio, offset_s=offset_s, corr=corr, null_corr=null,
-        margin=corr - null, fitted_bpm=row["bpm"] / ratio * ratio,
+        margin=corr - null, native_bpm=native, fitted_bpm=fitted,
         used_s=row["end_s"] - row["start_s"])
 
 
@@ -342,8 +352,11 @@ def render_mix(mix: int, placements: list[Placement],
         b = int(round(p.nominal_end_s * SR))
         i0 = int(round((p.nominal_start_s - p.offset_s) * SR))
         seg = np.zeros(b - a)
-        take = y[max(i0, 0): max(i0, 0) + (b - a)]
-        head = max(-i0, 0)
+        # A weak fit can put the recording's t=0 after the slot's nominal start,
+        # which leaves only `b - a - head` slots to fill; taking a full slot's
+        # worth would then fail to broadcast and kill the whole build.
+        head = min(max(-i0, 0), b - a)
+        take = y[max(i0, 0): max(i0, 0) + (b - a) - head]
         seg[head: head + len(take)] = take
         w = np.ones(len(seg))
         k = min(fade, len(seg) // 2)
