@@ -36,6 +36,12 @@ class TrunkConfig:
     ff_mult: int = 4
     conv_kernel: int = 15
     attn_window: int = 160          # 4 s of context at 40 fps
+    #: H-A (PLAN.md 6.7): the same trunk with the look-ahead allowed. Attention
+    #: sees a symmetric window of the same length and the depthwise convolution
+    #: is padded on both sides, so the receptive field composes across the six
+    #: blocks in both directions. Nothing else changes; the causal model is
+    #: this flag off.
+    offline: bool = False
     dropout: float = 0.1
     n_a: int = 13
     n_b: int = 3
@@ -44,9 +50,10 @@ class TrunkConfig:
 
 
 class CausalDepthwiseConv(nn.Module):
-    def __init__(self, d: int, k: int):
+    def __init__(self, d: int, k: int, offline: bool = False):
         super().__init__()
         self.pad = k - 1
+        self.offline = offline
         self.dw = nn.Conv1d(d, d, k, groups=d)
         self.pw1 = nn.Conv1d(d, 2 * d, 1)
         self.pw2 = nn.Conv1d(d, d, 1)
@@ -56,16 +63,20 @@ class CausalDepthwiseConv(nn.Module):
     def forward(self, x):                      # (B, T, D)
         y = self.norm(x).transpose(1, 2)
         y = F.glu(self.pw1(y), dim=1)
-        y = F.pad(y, (self.pad, 0))
+        if self.offline:
+            y = F.pad(y, (self.pad // 2, self.pad - self.pad // 2))
+        else:
+            y = F.pad(y, (self.pad, 0))
         y = self.act(self.dw(y))
         y = self.pw2(y).transpose(1, 2)
         return x + y
 
 
 class CausalWindowAttention(nn.Module):
-    def __init__(self, d: int, h: int, window: int, dropout: float):
+    def __init__(self, d: int, h: int, window: int, dropout: float, offline: bool = False):
         super().__init__()
         self.h, self.dk, self.window = h, d // h, window
+        self.offline = offline
         self.norm = nn.LayerNorm(d)
         self.qkv = nn.Linear(d, 3 * d)
         self.out = nn.Linear(d, d)
@@ -80,7 +91,11 @@ class CausalWindowAttention(nn.Module):
         i = torch.arange(T, device=x.device)
         # past-only, and no further back than the window: a fixed KV budget is
         # what makes the deployed model a constant-latency streaming model.
-        mask = (i[None, :] <= i[:, None]) & (i[None, :] > i[:, None] - self.window)
+        if self.offline:                     # symmetric window of the same length
+            half = self.window // 2
+            mask = (i[None, :] > i[:, None] - half) & (i[None, :] < i[:, None] + half)
+        else:
+            mask = (i[None, :] <= i[:, None]) & (i[None, :] > i[:, None] - self.window)
         y = F.scaled_dot_product_attention(q, k, v, attn_mask=mask[None, None])
         y = y.transpose(1, 2).reshape(B, T, D)
         return x + self.drop(self.out(y))
@@ -102,8 +117,8 @@ class ConformerBlock(nn.Module):
         super().__init__()
         self.ff1 = FeedForward(cfg.d_model, cfg.ff_mult, cfg.dropout)
         self.attn = CausalWindowAttention(cfg.d_model, cfg.n_heads, cfg.attn_window,
-                                          cfg.dropout)
-        self.conv = CausalDepthwiseConv(cfg.d_model, cfg.conv_kernel)
+                                          cfg.dropout, offline=cfg.offline)
+        self.conv = CausalDepthwiseConv(cfg.d_model, cfg.conv_kernel, offline=cfg.offline)
         self.ff2 = FeedForward(cfg.d_model, cfg.ff_mult, cfg.dropout)
         self.norm = nn.LayerNorm(cfg.d_model)
 

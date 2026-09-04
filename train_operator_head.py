@@ -81,17 +81,29 @@ def main():
     ap.add_argument("--steps", type=int, default=6000)
     ap.add_argument("--batch", type=int, default=32)
     ap.add_argument("--lr", type=float, default=3e-4)
+    ap.add_argument("--offline", action="store_true",
+                    help="H-D: symmetric attention and conv padding; the pre-rendered path")
+    ap.add_argument("--horizon-s", type=float, default=0.0,
+                    help="predict events this many seconds AHEAD (target shifted earlier)")
+    ap.add_argument("--run-tag", default="")
     ap.add_argument("--with-hazard", action="store_true",
                     help="give the model the rhythm features too (the fair upper form)")
     args = ap.parse_args()
     device = "cuda" if torch.cuda.is_available() else "cpu"
     songs = load_all()
+    if args.horizon_s > 0:
+        # Anticipation target: the event train shifted EARLIER by the horizon,
+        # so frame i is positive when an event happens at i + horizon. The
+        # rhythm baseline gets the same target, so its lift is at the same horizon.
+        hz = int(round(args.horizon_s * 10))       # RPMC features run at 10 Hz (WIN = 300 = 30 s)
+        for s_ in songs:
+            t = np.zeros_like(s_["t"]); t[:-hz] = s_["t"][hz:]; s_["t"] = t
     tr, va, te = split(songs)
     print(f"{len(songs)} songs: train {len(tr)} val {len(va)} test {len(te)}")
 
     in_dim = songs[0]["x"].shape[1] + (songs[0]["haz"].shape[1] if args.with_hazard else 0)
     cfg = TrunkConfig(in_dim=in_dim, d_model=192, n_blocks=4, attn_window=120,
-                      n_a=1, n_b=1, n_c=1)
+                      n_a=1, n_b=1, n_c=1, offline=args.offline)
     model = LightTrunk(cfg).to(device)
     print(f"params {model.n_params()/1e6:.2f} M, in_dim {in_dim}")
 
@@ -168,7 +180,7 @@ def main():
            "ridge_on_same_causal_features_lift": float(ridge_audio.mean()),
            "delta": float(d.mean()),
            "ci95": [float(np.percentile(bs, 2.5)), float(np.percentile(bs, 97.5))],
-           "ridge_reference_delta": 0.3145,
+           "ridge_reference_delta": 0.3145, "offline": args.offline, "horizon_s": args.horizon_s,
            "causality_leak": causality_probe(
                model, torch.randn(2, 400, in_dim, device=device), 150),
            "train_s": time.time() - t0}
@@ -176,7 +188,7 @@ def main():
     torch.save({"model": model.state_dict(), "cfg": cfg.__dict__,
                 "mu": mu.cpu().numpy(), "sd": sd.cpu().numpy(),
                 "with_hazard": args.with_hazard},
-               CKPT / f"operator_head{'_haz' if args.with_hazard else ''}.pt")
+               CKPT / f"operator_head{'_haz' if args.with_hazard else ''}{args.run_tag}.pt")
     OUT.mkdir(parents=True, exist_ok=True)
     tag = "with_hazard" if args.with_hazard else "audio_only"
     (OUT / f"operator_head_model_{tag}.json").write_text(json.dumps(res, indent=1))

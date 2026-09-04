@@ -144,10 +144,14 @@ def main():
     ap_.add_argument("--eval-only", default="")
     ap_.add_argument("--v2", action="store_true",
                      help="measurement-driven block split + autoregressive flow head")
+    ap_.add_argument("--offline", action="store_true",
+                     help="H-A: symmetric attention window and conv padding; the whole-track model")
+    ap_.add_argument("--tensor", default="",
+                     help="training tensor path (default cache/train_tensor.npz; H-A uses the offline one)")
     args = ap_.parse_args()
 
     device = "cuda" if torch.cuda.is_available() else "cpu"
-    z, meta = load_tensor()
+    z, meta = load_tensor(Path(args.tensor) if args.tensor else None)
     sp = make_splits(meta)
     print({k: len(getattr(sp, k)) for k in ("train", "val_track", "test_genre", "test_dancer")})
     all_names = list(BLOCK_A) + list(BLOCK_C)
@@ -165,7 +169,7 @@ def main():
     sd = torch.from_numpy(z["X"][sub].std(0) + 1e-6).to(device)
 
     cfg = TrunkConfig(in_dim=z["X"].shape[1], n_a=len(a_names), n_b=len(BLOCK_B),
-                      n_c=len(c_names), ar_flow=args.v2)
+                      n_c=len(c_names), ar_flow=args.v2, offline=args.offline)
     model = LightTrunk(cfg).to(device)
     if args.baseline_mse:
         model.head_c_mse = torch.nn.Linear(cfg.d_model, cfg.n_c).to(device)
@@ -214,7 +218,8 @@ def main():
     leak = causality_probe(model, (x_probe - mu) / sd, WIN // 2)
 
     res = {"tag": args.tag, "steps": args.steps, "baseline_mse": args.baseline_mse,
-           "v2": args.v2, "block_a": a_names, "block_c": c_names,
+           "v2": args.v2, "offline": args.offline, "tensor": args.tensor or "default",
+           "block_a": a_names, "block_c": c_names,
            "params_m": model.n_params() / 1e6, "causality_leak": leak,
            "train_s": time.time() - t0,
            "splits": {k: int(len(getattr(sp, k)))

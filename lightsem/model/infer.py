@@ -69,9 +69,19 @@ class LightModel:
         # energy of the real channels, and that jitter is what makes the
         # rendered light flash 86 times a clip where real dance flashes 30.
         self.smooth_tau: dict[str, float] = dict(blob.get("smooth_tau") or {})
+        #: H-B (PLAN.md 6.7): the targets are mocap through a 12 Hz zero-phase
+        #: Butterworth. Offline, the same filter can be applied to the output;
+        #: it is non-causal and is the pre-rendered path's spectral matching.
+        #: None keeps the causal one-pole (or nothing) above.
+        self.zero_phase_hz: float | None = None
 
     def _smooth(self, name: str, v: np.ndarray, fps: float) -> np.ndarray:
-        """Trailing one-pole at the fitted time constant, or nothing."""
+        """Zero-phase Butterworth (offline), else the trailing one-pole at the
+        fitted time constant, else nothing."""
+        if self.zero_phase_hz and self.zero_phase_hz < fps / 2 and len(v) > 40:
+            from scipy.signal import butter, filtfilt
+            b, a = butter(4, self.zero_phase_hz / (fps / 2), btype="low")
+            return filtfilt(b, a, v)
         tau = self.smooth_tau.get(name)
         return v if not tau else ema(v, fps, float(tau))
 

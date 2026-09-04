@@ -82,7 +82,11 @@ def make_splits(meta: list[dict], seed: int = 0) -> Splits:
     return Splits(**{k: np.array(v, dtype=int) for k, v in idx.items()})
 
 
-def build_tensor() -> None:
+def build_tensor(audio_dir: Path | None = None, out: Path | None = None) -> None:
+    """`audio_dir` selects the bus (cache/audio is causal, cache/audio_offline
+    is the whole-track bus for H-A); the motion side is identical."""
+    audio_dir = Path(audio_dir) if audio_dir else CACHE_ROOT / "audio"
+    out = Path(out) if out else TENSOR
     idx = json.loads((CACHE_ROOT / "motion_index.json").read_text())
     sc = load_scalers()
     bus_cache: dict[str, object] = {}
@@ -91,7 +95,7 @@ def build_tensor() -> None:
         d = load_descriptors(CACHE_ROOT / "motion" / f"{r['name']}.npz")
         mid = r["music_id"]
         if mid not in bus_cache:
-            bus_cache[mid] = load_bus(CACHE_ROOT / "audio" / f"{mid}.npz")
+            bus_cache[mid] = load_bus(audio_dir / f"{mid}.npz")
         bus = bus_cache[mid]
         T = min(len(d.times), len(bus.times))
         if T < 120:
@@ -119,19 +123,24 @@ def build_tensor() -> None:
     X = np.concatenate(X_all); A = np.concatenate(A_all)
     B = np.concatenate(B_all); C = np.concatenate(C_all)
     cid = np.concatenate(clip_id)
-    np.savez(TENSOR, X=X, A=A, B=B, C=C, clip_id=cid,
+    np.savez(out, X=X, A=A, B=B, C=C, clip_id=cid,
              meta=json.dumps(meta), feat_dim=X.shape[1],
              block_a=np.array(BLOCK_A), block_b=np.array(BLOCK_B),
              block_c=np.array(BLOCK_C))
     print(f"X {X.shape} A {A.shape} B {B.shape} (pos rate "
-          f"{B.mean(0).round(4).tolist()}) C {C.shape} clips {len(meta)} -> {TENSOR}")
+          f"{B.mean(0).round(4).tolist()}) C {C.shape} clips {len(meta)} -> {out}")
 
 
-def load_tensor():
-    z = np.load(TENSOR, allow_pickle=False)
+def load_tensor(path: Path | None = None):
+    z = np.load(path or TENSOR, allow_pickle=False)
     meta = json.loads(str(z["meta"]))
     return z, meta
 
 
 if __name__ == "__main__":
-    build_tensor()
+    import argparse
+    ap = argparse.ArgumentParser()
+    ap.add_argument("--audio-dir", default="", help="bus directory; default cache/audio (causal)")
+    ap.add_argument("--out", default="", help="tensor path; default cache/train_tensor.npz")
+    a = ap.parse_args()
+    build_tensor(audio_dir=a.audio_dir or None, out=a.out or None)

@@ -586,9 +586,14 @@ Three signals from one corpus, in the order they are tested:
    bottom 18 % and top 12 % moves coverage 0.31 → 0.48 and tracks 23 → 21, so the mask is kept
    but does not explain that clip. The Gold Move flash fills the frame around the coach and cannot be
    masked; frames with a frame-wide brightness spike are marked low-confidence and the spike
-   itself is kept as the highlight marker. Coach selection is currently the longest track; it
-   becomes the most persistent, largest, most central one, and the five multi-coach files are
-   skipped. Gate each file on coverage ≥ 0.8. Lead-in menus and the results screen are cut by
+   itself is kept as the highlight marker. **Multi-coach routines are channels, not noise**
+   (Anton, 2026-09-04): a duet, trio or quartet is several dancers hearing the same music, the
+   structure AIST++ has, so every coach becomes its own descriptor entry (`dancer_id` = coach
+   index, `music_id` = the capture). Coaches are followed as parallel tracks; the coach count
+   comes from the game's own pictogram strip, one small figure per coach, because box size
+   cannot tell a coach from a background extra (Havana's two extras persist the whole song).
+   Filenames name only 5 multi-coach files; the frames show more (Wild Wild West and On Stage
+   are quartets, Don't Wanna Know and HandClap trios). Gate each coach on coverage ≥ 0.8. Lead-in menus and the results screen are cut by
    `start_s` and by the end of the coach track. Cost, measured: 72 frames/s on the RTX 5070 at
    imgsz 960, so a 750-frame screening pass over all 338 files is about 1 h and the full
    extraction about 9 h; neither starts without Anton's word.

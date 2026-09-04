@@ -22,7 +22,7 @@ from lightsem.conductor.rig import canonical_rig
 from lightsem.eval.bas import bas_report
 from lightsem.eval.fid import FeatureScaler, diversity, frechet, split_half_floor
 from lightsem.eval.light_features import block_shuffle, delta_features, level_features, light_onsets
-from lightsem.model.infer import LightModel
+from lightsem.model.infer import LightModel, hf_fraction
 from lightsem.model.light_data import load_tensor, make_splits
 from lightsem.motion.io import CACHE_ROOT, load_bus, load_descriptors, slice_bus
 
@@ -36,6 +36,12 @@ def main():
     ap.add_argument("--seeds", type=int, default=3)
     ap.add_argument("--ckpt", default="/mnt/lightsem-data/ckpt/light_trunk_v1.pt")
     ap.add_argument("--tag", default="v1")
+    ap.add_argument("--audio-dir", default="",
+                    help="bus directory; cache/audio (causal, default) or cache/audio_offline for an H-A checkpoint")
+    ap.add_argument("--zero-phase", type=float, default=0.0,
+                    help="H-B: zero-phase Butterworth cutoff in Hz applied to every output channel (offline)")
+    ap.add_argument("--no-smoothing", action="store_true",
+                    help="H-B unfiltered arm: ignore the checkpoint's fitted causal smoothing")
     ap.add_argument("--no-calibration", action="store_true",
                     help="ignore the checkpoint's fitted event thresholds and fall "
                          "back to the per-clip 97th percentile, to price the "
@@ -50,6 +56,10 @@ def main():
     names = [meta[i]["name"] for i in idx]
 
     lm = LightModel(args.ckpt)
+    if args.zero_phase > 0:
+        lm.zero_phase_hz = args.zero_phase
+    if args.no_smoothing:
+        lm.smooth_tau = {}
     if args.no_calibration:
         lm.event_thr = {}
     print(f"event thresholds: {lm.event_thr or 'per-clip 97th percentile'}")
@@ -61,7 +71,7 @@ def main():
     for nm in names:
         d = load_descriptors(CACHE_ROOT / "motion" / f"{nm}.npz")
         mid = nm.split("_")[4]
-        bus_full = load_bus(CACHE_ROOT / "audio" / f"{mid}.npz")
+        bus_full = load_bus((Path(args.audio_dir) if args.audio_dir else CACHE_ROOT / "audio") / f"{mid}.npz")
         dur = d.duration_s
         bus = slice_bus(bus_full, dur)
         beats = bus_full.beats[(bus_full.beats >= 0) & (bus_full.beats < dur)]
@@ -83,8 +93,13 @@ def main():
         ev_m, _ = light_onsets(model_frames[0], rig, 40.0)
         ev_r, _ = light_onsets(real, rig, 40.0)
         ev_b, _ = light_onsets(bt, rig, 40.0)
+        # H-B diagnostics: per-channel above-6 Hz energy share, model vs real
+        hf = {}
+        for name in list(lm.block_a) + list(lm.block_c):
+            if name in d.channels and name in dm.channels:
+                hf[name] = [hf_fraction(dm.channels[name], 40.0), hf_fraction(d.channels[name], 40.0)]
         rows.append({
-            "name": nm,
+            "name": nm, "hf": hf,
             "model": bas_report(ev_m, beats, dur, rng=rng),
             "real": bas_report(ev_r, beats, dur, rng=rng),
             "bt": bas_report(ev_b, beats, dur, rng=rng),
@@ -113,8 +128,21 @@ def main():
     div_real_set = diversity(Zr, rng=rng)
     div_model_set = diversity(Zm, rng=rng)
 
+    ev_model = float(np.mean([r["model"]["n_events"] for r in rows]))
+    ev_real = float(np.mean([r["real"]["n_events"] for r in rows]))
+    hf_names = sorted({k for r in rows for k in r["hf"]})
+    hf_ratio = {}
+    for k in hf_names:
+        m_ = np.mean([r["hf"][k][0] for r in rows if k in r["hf"]])
+        r_ = np.mean([r["hf"][k][1] for r in rows if k in r["hf"]])
+        hf_ratio[k] = float(m_ / max(r_, 1e-9))
     res = {
         "n_clips": len(rows), "split": args.split, "seeds": args.seeds,
+        "zero_phase_hz": args.zero_phase or None, "smooth_tau": lm.smooth_tau or None,
+        "light_event_rate_ratio": ev_model / max(ev_real, 1e-9),
+        "events_per_clip": {"model": ev_model, "real": ev_real},
+        "descriptor_hf_energy_ratio": hf_ratio,
+        "hf_ratio_max": float(max(hf_ratio.values())) if hf_ratio else None,
         "bas_minus_null": {"model": paired("model"), "real_dance": paired("real"),
                            "beat_trigger": paired("bt")},
         "fid_light": {"model_vs_real": fid_model, "beat_trigger_vs_real": fid_bt,
