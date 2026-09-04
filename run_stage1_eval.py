@@ -48,6 +48,8 @@ def main():
                     help="jd: Just Dance caches (justdance_motion / justdance_audio, by-song splits, "
                          "bus sliced at the coach's active span)")
     ap.add_argument("--tensor", default="", help="tensor path for the split definition")
+    ap.add_argument("--structure", default="none", choices=["none", "real", "shuffled"],
+                    help="jd corpus, H-C: feed the song's structure channels (real) or another song's (shuffled)")
     ap.add_argument("--no-calibration", action="store_true",
                     help="ignore the checkpoint's fitted event thresholds and fall "
                          "back to the per-clip 97th percentile, to price the "
@@ -81,6 +83,13 @@ def main():
     rows, div_within = [], []
 
     by_name = {m["name"]: m for m in meta}
+    donors = {}
+    if args.corpus == "jd" and args.structure == "shuffled":
+        mids = [by_name[n]["music_id"] for n in names]
+        perm = rng.permutation(len(names))
+        donors = {names[i]: mids[perm[i]] if mids[perm[i]] != mids[i] else mids[(perm[i] + 1) % len(mids)]
+                  for i in range(len(names))}
+    extra = None
     for nm in names:
         if args.corpus == "jd":
             d = load_descriptors(CACHE_ROOT / "justdance_motion" / f"{nm}.npz")
@@ -90,6 +99,11 @@ def main():
             off = float(d.meta.get("start_s", 0.0))
             bus = slice_bus(bus_full, dur, offset_s=off)
             beats = bus.beats
+            extra = None
+            if args.structure != "none":
+                from lightsem.model.jd_data import structure_channels
+                src = mid if args.structure == "real" else donors[nm]
+                extra = structure_channels(src, off if args.structure == "real" else 0.0, len(bus.times))
         else:
             d = load_descriptors(CACHE_ROOT / "motion" / f"{nm}.npz")
             mid = nm.split("_")[4]
@@ -103,7 +117,7 @@ def main():
         bt = render_beat_trigger(bus).frames
         model_frames = []
         for s in range(args.seeds):
-            dm = lm.descriptors(bus, seed=s)
+            dm = lm.descriptors(bus, seed=s, extra=extra)
             model_frames.append(cond.render(dm, bus).frames)
         F_model.append(delta_features(model_frames[0], rig, 40.0))
         F_real.append(delta_features(real, rig, 40.0))

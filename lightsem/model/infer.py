@@ -21,7 +21,9 @@ from .light_data import (AUDIO_SCALARS, BLOCK_A, BLOCK_A_V2, BLOCK_B, BLOCK_C,
                          BLOCK_C_V2)
 from .light_trunk import LightTrunk, TrunkConfig
 
-DEFAULT_CKPT = Path("/mnt/lightsem-data/ckpt/light_trunk_v1.pt")
+#: The shipped causal model: v3causal (honest features, fitted event thresholds)
+#: with the per-channel smoothing constants of H-B (exp-011).
+DEFAULT_CKPT = Path("/mnt/lightsem-data/ckpt/light_trunk_v3causal_smooth.pt")
 
 
 def _peaks(p: np.ndarray, thr: float, fps: float,
@@ -114,9 +116,17 @@ class LightModel:
 
     @torch.no_grad()
     def descriptors(self, bus: AudioBus, event_threshold: float = 0.5,
-                    seed: int | None = None, chunk: int = 2400) -> MotionDescriptors:
-        """AudioBus -> predicted MotionDescriptors at the control rate."""
+                    seed: int | None = None, chunk: int = 2400,
+                    extra: np.ndarray | None = None) -> MotionDescriptors:
+        """AudioBus -> predicted MotionDescriptors at the control rate.
+
+        `extra` carries conditioning channels the bus does not (H-C: the
+        whole-track structure channels), appended to the features exactly as
+        the training tensor appended them."""
         X = self.features(bus)
+        if extra is not None:
+            n = min(len(X), len(extra))
+            X = np.concatenate([X[:n], np.asarray(extra[:n], dtype=np.float32)], 1)
         T = X.shape[0]
         gen = None
         if seed is not None:

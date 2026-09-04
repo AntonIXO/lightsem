@@ -87,7 +87,9 @@ def category(n=10, use_model=False):
     lm = None
     if use_model:
         from lightsem.model.infer import LightModel
-        lm = LightModel()
+        ck = sys.argv[sys.argv.index("--ckpt") + 1] if "--ckpt" in sys.argv else None
+        lm = LightModel(ck) if ck else LightModel()
+        print(f"model checkpoint: {lm.ckpt if hasattr(lm, 'ckpt') else ck or 'default'}")
     pairs = []
     for r in pick(n):
         d = load_descriptors(CACHE_ROOT / "motion" / f"{r['name']}.npz")
