@@ -131,6 +131,11 @@ def _percussive_ratio(S: np.ndarray, causal: bool = True,
     return (S * mask_p).sum(axis=0) / np.maximum(S.sum(axis=0), 1e-9)
 
 
+def causal_resample(x: np.ndarray, t_in: np.ndarray, t_out: np.ndarray) -> np.ndarray:
+    """Public form of the analysis -> control hold, for the other extractors."""
+    return _resample(x, t_in, t_out, causal=True)
+
+
 def trailing_pulse_clarity(
     onset: np.ndarray,
     fps: float,

@@ -26,7 +26,7 @@ import numpy as np
 
 from extract_rpmc import reduce_light
 from lightsem.audio.beatgrid import fit_constant_grid
-from lightsem.audio.online import ema
+from lightsem.audio.online import causal_resample, ema
 
 H5 = "/mnt/lightsem-data/rpmc_l2/RPMC_L2.h5"
 OUT = "/mnt/lightsem-data/cache/rpmc_causal"
@@ -84,8 +84,15 @@ def main() -> int:
             for name, v in ch.items():
                 v = np.nan_to_num(v, nan=0.0, posinf=0.0, neginf=0.0)
                 for tau in (0.2, 1.0, 4.0):
-                    cols.append(np.interp(t_out, t_in, ema(v, fps_in, tau)))
+                    # Hold, not interpolate: interpolating onto the 10 fps grid
+                    # reads the next analysis frame, which is 23 ms of the
+                    # future in a file that calls itself causal.
+                    cols.append(causal_resample(ema(v, fps_in, tau), t_in, t_out))
                     names.append(f"{name}_ema{tau}")
+            # The grid is fitted over the whole song, so beat_sin/cos/accent/
+            # period are an ORACLE beat, exactly as in lightsem.audio.online --
+            # everything else here is causal, these four are not, and a
+            # deployment replaces them with a running tracker.
             beats = grid["beats"]
             per = grid["period_s"]
             ph = np.mod((t_out - grid["phase_s"]) / per, 1.0)

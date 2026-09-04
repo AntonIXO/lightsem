@@ -20,6 +20,11 @@ __pycache__/
 *.npz
 *.parquet
 
+# Run logs: nohup output from the cache builders and trainers. Every number
+# they contain is restated in outputs/*.json or the vault, and they were
+# committed by accident.
+logs_*.txt
+
 # Editor and OS noise
 .DS_Store
 *.swp

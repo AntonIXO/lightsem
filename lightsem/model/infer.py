@@ -24,6 +24,19 @@ from .light_trunk import LightTrunk, TrunkConfig
 DEFAULT_CKPT = Path("/mnt/lightsem-data/ckpt/light_trunk_v1.pt")
 
 
+def _peaks(p: np.ndarray, thr: float, fps: float,
+           refractory_s: float = 0.10) -> np.ndarray:
+    """Local maxima of a hazard above `thr`, thinned by a refractory period."""
+    t, last = [], -1e9
+    for k in range(1, len(p) - 1):
+        if p[k] > thr and p[k] >= p[k - 1] and p[k] > p[k + 1]:
+            tt = k / fps
+            if tt - last >= refractory_s:
+                t.append(tt)
+                last = tt
+    return np.asarray(t)
+
+
 class LightModel:
     def __init__(self, ckpt: str | Path = DEFAULT_CKPT, device: str | None = None):
         self.device = device or ("cuda" if torch.cuda.is_available() else "cpu")
@@ -45,6 +58,10 @@ class LightModel:
             self.block_a, self.block_c = BLOCK_A_V2, BLOCK_C_V2
         else:
             self.block_a, self.block_c = BLOCK_A, BLOCK_C
+        # Per-channel hazard levels fitted so the emitted event rate matches the
+        # corpus rate. Written by calibrate_event_thresholds(); absent on an
+        # uncalibrated checkpoint, which then falls back to the percentile.
+        self.event_thr: dict[str, float] = dict(blob.get("event_thr") or {})
 
     def receptive_field(self) -> int:
         """How far back the trunk can see, in frames."""
@@ -94,6 +111,7 @@ class LightModel:
             pos = hi
         A = np.concatenate(A_parts); B = np.concatenate(B_parts)
         C = np.concatenate(C_parts)
+        self._hazard_cache = B          # for calibrate_event_thresholds
 
         fps = bus.fps
         ch = {}
@@ -112,15 +130,18 @@ class LightModel:
         events, strengths = {}, {}
         for i, name in enumerate(BLOCK_B):
             p = B[:, i]
-            thr = max(event_threshold, float(np.percentile(p, 97)))
-            t, last = [], -1e9
-            for k in range(1, T - 1):
-                if p[k] > thr and p[k] >= p[k - 1] and p[k] > p[k + 1]:
-                    tt = k / fps
-                    if tt - last >= 0.10:
-                        t.append(tt)
-                        last = tt
-            events[name] = np.asarray(t)
+            # A corpus-fitted level if the checkpoint carries one, otherwise the
+            # old per-clip 97th percentile. The percentile floor makes the event
+            # rate a constant of the code rather than a thing the model decides:
+            # on a clip it has no confidence about it still fires on the top 3 %
+            # of frames. That produced 88.9 light events per clip against 46.5
+            # for light mapped from the real dance, and an event train denser
+            # than the beat grid scores at its own circular-shift null however
+            # well each individual flash is placed.
+            thr = self.event_thr.get(name)
+            if thr is None:
+                thr = max(event_threshold, float(np.percentile(p, 97)))
+            events[name] = _peaks(p, float(thr), fps)
             strengths[name] = np.interp(events[name], np.arange(T) / fps, p)
 
         return MotionDescriptors(
@@ -128,6 +149,50 @@ class LightModel:
             events=events, event_strength=strengths,
             meta={"source": "model", "n_frames": int(T),
                   "hazard_rate": {k: float(B[:, i].mean()) for i, k in enumerate(BLOCK_B)}})
+
+
+def calibrate_event_thresholds(lm: "LightModel", clips, fps: float = 40.0,
+                              lo: float = 0.01, hi: float = 0.99,
+                              n_iter: int = 40) -> dict[str, float]:
+    """Fit one hazard level per block-B channel to the corpus event rate.
+
+    `clips` is a sequence of (AudioBus, MotionDescriptors) held out from
+    training: the bus gives the model its input, the descriptors give the rate
+    the real dancer actually produced. Bisection on the threshold, because the
+    emitted rate is monotone in it and there are only three numbers to find.
+
+    Matching the rate is not the same as matching the events -- the model can
+    still fire on the wrong beats -- but it removes the one failure that no
+    amount of accuracy elsewhere can fix, which is a train so dense that being
+    right about which beats matter stops being visible in it.
+    """
+    target, got = {}, {}
+    preds, dur_s = [], 0.0
+    for bus, d in clips:
+        dm = lm.descriptors(bus, seed=0)
+        T = int(dm.meta["n_frames"])
+        preds.append(lm._hazard_cache)
+        dur_s += T / fps
+        for name in BLOCK_B:
+            target[name] = target.get(name, 0) + int(np.asarray(d.events.get(name, [])).size)
+    if not preds or dur_s <= 0:
+        raise ValueError("no clips to calibrate on")
+    out = {}
+    for i, name in enumerate(BLOCK_B):
+        want = target.get(name, 0) / dur_s                     # events per second
+        a, b = lo, hi
+        for _ in range(n_iter):
+            m = 0.5 * (a + b)
+            rate = sum(_peaks(p[:, i], m, fps).size for p in preds) / dur_s
+            if rate > want:
+                a = m
+            else:
+                b = m
+        out[name] = float(0.5 * (a + b))
+        got[name] = sum(_peaks(p[:, i], out[name], fps).size for p in preds) / dur_s
+        print(f"  {name:9s} threshold {out[name]:.4f} -> {got[name]:.3f} ev/s "
+              f"(corpus {want:.3f})")
+    return out
 
 
 def render_audio_to_dmx(bus: AudioBus, ckpt: str | Path = DEFAULT_CKPT,
