@@ -566,9 +566,11 @@ def run(args):
     files = [f for f in files if not (POSE_DIR / f"{f[0]}.npz").exists()]
     if args.limit:
         files = files[:args.limit]
-    # longest files first so no worker is left holding one giant file at the end
+    # longest files first so no worker is left holding one giant file at the end;
+    # --reverse takes them shortest first, so a second run started later works
+    # the other end of the same list and the two meet in the middle.
     dur = {r["yt_id"]: r["duration_s"] for r in rows if r.get("yt_id")}
-    files.sort(key=lambda f: -dur.get(f[0], 0))
+    files.sort(key=lambda f: -dur.get(f[0], 0), reverse=args.reverse)
     W = args.workers
     jobs = [(args.model, args.imgsz, files[i::W], args.batch, i, args.conf) for i in range(W)]
     print(f"{len(files)} files, {W} workers, model {args.model}@{args.imgsz}", flush=True)
@@ -592,5 +594,6 @@ if __name__ == "__main__":
     r.add_argument("--conf", type=float, default=0.10)
     r.add_argument("--imgsz", type=int, default=960); r.add_argument("--workers", type=int, default=3)
     r.add_argument("--batch", type=int, default=16); r.add_argument("--limit", type=int, default=0)
+    r.add_argument("--reverse", action="store_true", help="shortest files first (a second run from the other end)")
     a = ap.parse_args()
     trial(a) if a.cmd == "trial" else run(a)
