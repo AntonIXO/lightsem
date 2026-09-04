@@ -698,7 +698,12 @@ Order of work and gates:
 
 - **8.1 Usability manifest** (done for audio and codecs; pose coverage pending): drop the 6
   silent files from the paired corpus, not only from the audio side; song-key dedupe; per-file
-  `fps`, `start_s`, `coverage`, `n_coaches`, `view`. Laterality: a uniform flip of the coach
+  `fps`, `start_s`, `coverage`, `n_coaches`, `view`. **Result, 2026-09-04 19:40:** extraction complete
+  (332 captures, 3.3 h at 640 after the first 20 at 960); 453 coach channels across 294 songs
+  pass the 0.8 gate over the coach's active span, 27.9 h of motion, median coverage 0.93, no
+  capture without a usable coach. The gate as written fails on the letter: 196 single-coach
+  songs, not 250, because duets, trios and quartets are far more common than the filenames
+  said (252 of the 453 channels are from multi-coach routines). Laterality: a uniform flip of the coach
   footage would give every Just Dance clip a laterality sign opposite to AIST and Oslo with
   nothing in the data to reveal it, so until one human glance at a one-handed move settles the
   flip, sign-carrying channels (`lateral_pos`, `laterality`) from this corpus stay out of any
