@@ -311,6 +311,25 @@ therefore not a causality tax and not a context-length problem; it is the corpus
 where songs have structure, never on AIST++; the pre-rendered path's honest advantages are H-B's
 lag removal and H-C/H-D anticipation, not accuracy; and Stage 8 is the accuracy lever.
 
+**H-D, operator head with anticipation (vault exp-013).** Audio-only arms on the 699-show split,
+margin = model lift over the causal rhythm-of-past-changes baseline:
+
+| arm | lift | rhythm | margin | 95 % CI |
+|---|---|---|---|---|
+| causal, horizon 0 (exp-008 audio-only) | 1.35× | 1.25× | +0.096 | [−0.05, +0.26] |
+| causal, horizon +4 s | 1.39× | 1.31× | +0.082 | [−0.08, +0.25] |
+| offline, horizon +4 s | 1.29× | 1.31× | **−0.021** | [−0.16, +0.14] |
+| offline, horizon 0 | 1.41× | 1.25× | +0.158 | [−0.06, +0.41] |
+
+**G-antic-4s fails**: with the whole show audible, audio alone does not predict an operator's scene
+change four seconds ahead better than the rhythm of past changes. The offline head at horizon 0 is
+numerically above the causal one and its CI spans zero. A first version of these arms scored a
+**10× lift** at +4 s and was discarded as a leak before it was quoted: the hazard features are
+computed from the target's own past events, legitimate for a causal head and a window into the
+future the moment attention went symmetric; the target-shift control caught it (a genuine
+anticipator degrades smoothly away from its horizon, a leak collapses to 1× one second either
+side). Rule kept: an offline model may only see inputs that do not derive from its own target.
+
 ---
 
 ## 2. What audio determines in a dancing body — and what it does not

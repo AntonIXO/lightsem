@@ -131,7 +131,7 @@ c.call("update_runbook", {"runbook_id": "rb-ls2-00c-late-lights-and-category-tes
     "at a reduced protocol; block C stays. Part (i) late lights (outputs/stage0c/late_lights, "
     "18 pairs) is still unrated.")})
 
-c.call("update_problem", {"problem_id": P, "add_update": (
+c.call("update_problem", {"id": P, "add_update": (
     "2026-09-04 Stage 0c category test: dance-derived hybrid light beats the beat trigger "
     "8-1 (1 equal) on 'looks like a lighting engineer', ties 5-4 on 'on the music'; one rater, "
     "10 brightness-matched AIST++ pairs. Category error rejected directionally; block C stays. "

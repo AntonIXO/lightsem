@@ -121,7 +121,7 @@ c.call("interpret_experiment", {"experiment_id": eid2, "failure_mode": "recipe_c
                "TRANSFERABLE and NOT_TRANSFERABLE so the distinction is in the code, not "
                "only in a note.")})
 
-c.call("update_problem", {"problem_id": P, "add_update": (
+c.call("update_problem", {"id": P, "add_update": (
     "2026-09-04 implementation pass complete. Built and verified: descriptor extractor "
     "(mocap and video paths), constant-tempo beat grid, canonical-rig conductors "
     "(motion-only, hybrid, beat-trigger baseline), evaluation suite with nulls, causal "

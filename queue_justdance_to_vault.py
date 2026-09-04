@@ -138,7 +138,7 @@ h2 = ok(c.call("propose_hypothesis", {
     "problem_tags": ["matched-baseline"]}))
 print("H-F:", h2.get("id") or h2.get("hypothesis_id"))
 
-c.call("update_problem", {"problem_id": P, "add_update": (
+c.call("update_problem", {"id": P, "add_update": (
     "2026-09-04 Stage 8 queued (rb-ls2-08): Anton downloaded 338 Just Dance gameplay captures "
     "(22.0 h, full songs, one stylised filmed coach, research-only). Three signals: coach motion "
     "for block A/C, hand-animated background lighting as a designed show for HEAD B, full-song "

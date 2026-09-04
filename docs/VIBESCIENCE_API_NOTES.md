@@ -118,3 +118,9 @@ A rejected call returns the pydantic error text as a plain string. A helper that
 checks `r.get("ok") is False` on dicts lets the failure through. Assert
 `isinstance(r, dict) and r.get("ok") is not False`. This is how `rb-ls2-07` went
 unregistered for half a day while PLAN.md and four hypotheses referred to it. (2026-09-04)
+
+## update_problem takes `id`, not `problem_id`
+
+`update_problem(id=..., add_update=...)`. Passing `problem_id` fails with `Unexpected keyword
+argument` -- and because validation errors come back as strings, an unchecked call looks like it
+worked. Two updates (category test, Stage 8) were lost this way on 2026-09-04 and re-posted.

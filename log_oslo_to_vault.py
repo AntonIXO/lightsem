@@ -102,7 +102,7 @@ c.call("interpret_experiment", {"experiment_id": eid, "lesson": (
     "video-to-pose path — but it is not the block A corpus; (d) 20 minutes of Oslo mocap "
     "is enough to calibrate and to test, not to train a Conformer, so scaling free-dance "
     "data is now the binding constraint on Stage 2.")})
-c.call("update_problem", {"problem_id": P, "add_update": (
+c.call("update_problem", {"id": P, "add_update": (
     "2026-09-04 Stage 0b resolved in two halves. AIST++ cannot supply block A (genre "
     "explains 0.65-0.96 of between-track movement variance; Burger 2013 does not "
     "replicate, several correlations invert). Free dancing to EDM can: held-out-track "
