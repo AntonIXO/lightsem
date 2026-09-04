@@ -29,26 +29,65 @@ NOT_TRANSFERABLE = ("travel_speed", "travel_sin", "travel_cos", "twist",
                     "space_eff", "vert_root", "metric_level")
 
 
+def _decode_frames(path: str, start_s: float = 0.0,
+                   max_frames: int | None = None):
+    """Yield BGR frames and the stream's rate, decoding through PyAV.
+
+    Not OpenCV, which is what `ultralytics` reaches for when handed a path.
+    Measured on the Just Dance corpus: 147 of 338 files are AV1, and every one
+    of them dies in OpenCV here with "Your platform doesn't support hardware
+    accelerated AV1 decoding / Get current frame error", which surfaces as
+    `no person tracked` and reads exactly like a corpus that has no dancers in
+    it. The same files decode fine through libdav1d, so the fix is to own the
+    decode rather than to transcode 43 % of a corpus around a reader.
+    """
+    import av
+    with av.open(path) as container:
+        stream = container.streams.video[0]
+        stream.thread_type = "AUTO"
+        fps = float(stream.average_rate) if stream.average_rate else 0.0
+        if start_s > 0 and stream.time_base:
+            container.seek(int(start_s / float(stream.time_base)), stream=stream)
+        n = 0
+        for frame in container.decode(stream):
+            if start_s > 0 and frame.time is not None and frame.time < start_s:
+                continue
+            if max_frames is not None and n >= max_frames:
+                return
+            yield frame.to_ndarray(format="bgr24"), fps
+            n += 1
+
+
 def keypoints_from_video(path: str, model_name: str = "yolo11m-pose.pt",
                          conf: float = 0.35, device: str = "cuda",
                          max_frames: int | None = None,
-                         imgsz: int = 960) -> tuple[np.ndarray, np.ndarray, dict]:
+                         imgsz: int = 960,
+                         start_s: float = 0.0) -> tuple[np.ndarray, np.ndarray, dict]:
     """Video -> (T, 17, 2) keypoints and (T, 17) confidences for one dancer.
 
     Person selection is by track continuity, not by "largest box": AIST clips
     have a mirror wall and occasional crew, and picking the biggest detection
     per frame swaps subject mid-clip, which shows up as enormous fake velocity.
+
+    `start_s` skips a lead-in. Gameplay captures open on titles and menus with
+    nobody on screen, and measuring from frame zero charges that emptiness to
+    the pose model: on one clip it read as coverage 0.31 where the routine
+    itself gives 1.00. It is the caller's business where a routine starts, so
+    the default stays at zero and the trim is explicit.
+
+    `meta["fps"]` is the decoded stream's rate, carried out because every
+    descriptor downstream is a velocity and a wrong rate scales all of them
+    silently.
     """
     from ultralytics import YOLO
     model = YOLO(model_name)
-    res = model.track(path, stream=True, conf=conf, device=device, imgsz=imgsz,
-                      verbose=False, persist=True, tracker="bytetrack.yaml")
     per_id: dict[int, list] = {}
     frames = 0
-    for i, r in enumerate(res):
-        if max_frames and i >= max_frames:
-            break
+    fps = 0.0
+    for i, (img, fps) in enumerate(_decode_frames(path, start_s, max_frames)):
         frames += 1
+        r = model.track(img, persist=True, conf=conf, device=device,
+                        imgsz=imgsz, verbose=False, tracker="bytetrack.yaml")[0]
         if r.keypoints is None or r.boxes is None or r.boxes.id is None:
             continue
         ids = r.boxes.id.cpu().numpy().astype(int)
@@ -68,7 +107,7 @@ def keypoints_from_video(path: str, model_name: str = "yolo11m-pose.pt",
         C[i] = cf
     meta = {"n_frames": frames, "track_id": tid,
             "coverage": float(len(seq) / max(frames, 1)),
-            "n_tracks": len(per_id), "model": model_name}
+            "n_tracks": len(per_id), "model": model_name, "fps": float(fps)}
     return K, C, meta
 
 

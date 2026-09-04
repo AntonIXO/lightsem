@@ -151,6 +151,31 @@ def frame_features(y: np.ndarray, sr: int = SR) -> dict[str, np.ndarray]:
     }
 
 
+#: Channels the alignment matches on. Onset flux alone does not discriminate
+#: here: measured on this corpus its best correlation 30 s away from the answer
+#: is 0.49-0.71, because a beat-matched EDM mix is four-on-the-floor at 122-127
+#: BPM throughout and every bar's flux looks like every other bar's. Bass
+#: fraction and brightness do discriminate, because a breakdown and a drop are
+#: not the same sound, and they are published on the same clock.
+FINGERPRINT = ("onset_strength", "rms_dbfs", "bass_frac_below150hz",
+               "spectral_centroid_hz", "spectral_flatness")
+
+
+def fingerprint(y: np.ndarray) -> np.ndarray:
+    """(C, T) alignment channels for a recording, in FINGERPRINT order."""
+    f = frame_features(y)
+    f["onset_strength"] = onset_envelope(y)
+    n = min(len(f[c]) for c in FINGERPRINT)
+    return np.stack([np.nan_to_num(f[c][:n], nan=0.0) for c in FINGERPRINT])
+
+
+def ref_fingerprint(mix: int) -> np.ndarray:
+    """The same channels for a mix, taken from the record's published series."""
+    r = load_feature_series(mix)
+    n = min(len(r[c]) for c in FINGERPRINT)
+    return np.stack([np.nan_to_num(r[c][:n], nan=0.0) for c in FINGERPRINT])
+
+
 # ------------------------------------------------------------------ alignment
 
 @dataclass
@@ -168,7 +193,9 @@ class Placement:
     corr: float               # peak envelope correlation at (ratio, offset)
     null_corr: float          # best correlation this envelope reaches elsewhere
     margin: float             # corr - null_corr
-    native_bpm: float         # the recording's own tempo implied by the fit
+    native_bpm: float         # measured tempo of the supplied recording
+    played_bpm: float         # measured tempo of the slot, from the record
+    ratio_hint: float         # played_bpm / native_bpm, the bracket centre
     fitted_bpm: float         # played tempo past the log's integer resolution
     used_s: float             # how much of the recording the mix actually uses
 
@@ -220,9 +247,34 @@ def _ncc(ref: np.ndarray, cand: np.ndarray,
 
 
 def _resample_env(env: np.ndarray, ratio: float) -> np.ndarray:
-    """Play `env` at `ratio` times speed; length shrinks as the ratio grows."""
-    n_out = max(int(round(len(env) / ratio)), 2)
-    return np.interp(np.arange(n_out) * ratio, np.arange(len(env)), env)
+    """Play `env` at `ratio` times speed; length shrinks as the ratio grows.
+
+    Accepts a single channel or a (C, T) stack.
+    """
+    a = np.asarray(env, dtype=np.float64)
+    n_out = max(int(round(a.shape[-1] / ratio)), 2)
+    idx = np.arange(n_out) * ratio
+    src = np.arange(a.shape[-1])
+    if a.ndim == 1:
+        return np.interp(idx, src, a)
+    return np.stack([np.interp(idx, src, row) for row in a])
+
+
+def _ncc_multi(ref: np.ndarray, cand: np.ndarray,
+               min_overlap_s: float = 45.0) -> tuple[np.ndarray, np.ndarray]:
+    """Per-lag correlation averaged over the fingerprint channels.
+
+    Averaging the per-channel correlations, rather than correlating one
+    concatenated vector, keeps each channel on its own scale -- centroid runs in
+    thousands of hertz and bass fraction in tenths, and a concatenation would be
+    a centroid match wearing the others as noise.
+    """
+    ref, cand = np.atleast_2d(ref), np.atleast_2d(cand)
+    acc, lags = None, None
+    for i in range(ref.shape[0]):
+        c, lags = _ncc(ref[i], cand[i], min_overlap_s)
+        acc = c if acc is None else acc + c
+    return acc / ref.shape[0], lags
 
 
 def _structure_env(env: np.ndarray, win_s: float = 2.0) -> np.ndarray:
@@ -234,48 +286,82 @@ def _structure_env(env: np.ndarray, win_s: float = 2.0) -> np.ndarray:
     """
     from scipy.ndimage import uniform_filter1d
     n = max(int(win_s * FPS), 3)
-    return uniform_filter1d(np.asarray(env, dtype=np.float64), n, mode="nearest")
+    return uniform_filter1d(np.asarray(env, dtype=np.float64), n,
+                            axis=-1, mode="nearest")
+
+
+def measure_bpm(env: np.ndarray) -> float:
+    """Tempo of an onset envelope, via the project's comb-filter grid."""
+    from lightsem.audio import beatgrid
+    return float(beatgrid.fit_constant_grid(env, FPS)["bpm"])
 
 
 def fit_placement(ref_env: np.ndarray, cand_env: np.ndarray,
+                  ratio_hint: float | None = None,
                   ratio_lo: float = 0.90, ratio_hi: float = 1.10,
-                  coarse: int = 81, refine: int = 41,
-                  refine_win_s: float = 0.8,
-                  min_overlap_s: float = 45.0) -> tuple[float, int, float]:
+                  step: float = 0.00025, refine_win_s: float = 0.8,
+                  min_overlap_s: float = 45.0,
+                  cover: tuple[int, int] | None = None,
+                  cover_tol_s: float = 6.0) -> tuple[float, int, float]:
     """Best (ratio, lag in frames, correlation) of a recording against a mix.
 
-    Two stages, because one does not work. Correlating raw onset envelopes finds
-    the tempo ratio exactly and then puts the track a whole number of bars out:
-    every bar of four-on-the-floor looks like every other, so the peak it lands
-    on is an alias, and a bar of error is ~2 s of misalignment against mocap.
-    The coarse position therefore comes from the arrangement contour, which is
-    unique within a track, and only then is the lag refined on the raw onset
-    envelope, inside a window narrower than a bar so it cannot alias back out.
+    Three quantities, three sources, because no one series carries all of them.
 
-    The ratio is fitted rather than read off `stimulus_tracks.tsv` because those
-    BPMs are integers: 124 against a true 123.6 is 0.3 %, a beat of drift per
-    minute and tens of frames by the end of a track.
+    The ratio is swept across the whole range a beat-matched mix can occupy
+    rather than bracketed around an estimate, and that is a correction of two
+    earlier attempts. Bracketing by the correlation of smoothed envelopes does
+    not work, because across a two-percent sweep that correlation moves by
+    0.001 and so brackets at random. Bracketing by the quotient of two measured
+    tempi does not work either, and fails worse for looking reasonable: tempo
+    estimation is metrically ambiguous, the two sides can settle on different
+    metrical levels, and the quotient then comes back as 0.73 for a track whose
+    true ratio is 1.0135 -- on a controlled test with known ground truth that
+    put two of four real recordings 80 s and 378 s out. A bracket cannot
+    recover from a hint that wrong.
+
+    Sweeping instead costs a few hundred more correlations and needs no
+    estimate, because the constraint is physical: a DJ beat-matching two decks
+    stays inside the pitch fader's range, so the ratio is near one by
+    construction. `ratio_hint` is now carried only as a diagnostic.
+
+    Inside that bracket the ratio is resolved by the raw onset envelope, which
+    is razor sharp in ratio -- 0.91 at the truth against 0.07 two percent away
+    -- and useless for position, since every bar of four-on-the-floor looks
+    like every other and its peak lands a whole number of bars out.
+
+    So position comes from the arrangement contour, which is unique within a
+    track, and the two are searched jointly rather than in sequence because the
+    lag moves with the ratio: an error of 0.02 puts the contour's own peak 1.6 s
+    out, already further than the snap window. For each candidate ratio the
+    contour says which bar and the transients say where in it, and the ratio
+    that wins is the one whose transients then fit best. The snap window is kept
+    under half a bar so it cannot alias back out.
     """
-    ref_s, cand_s = _structure_env(ref_env), _structure_env(cand_env)
-    best = (1.0, 0, -2.0)
-    for r in np.linspace(ratio_lo, ratio_hi, coarse):
-        c, lags = _ncc(ref_s, _resample_env(cand_s, r), min_overlap_s)
-        i = int(np.argmax(c))
-        if c[i] > best[2]:
-            best = (float(r), int(lags[i]), float(c[i]))
-
-    step = (ratio_hi - ratio_lo) / (coarse - 1)
+    ref_s = _structure_env(ref_env)
     win = int(refine_win_s * FPS)
-    out = (best[0], best[1], -2.0)
-    for r in np.linspace(best[0] - step, best[0] + step, refine):
-        c, lags = _ncc(ref_env, _resample_env(cand_env, r), min_overlap_s)
-        sel = np.flatnonzero(np.abs(lags - best[1]) <= win)
+    best = (1.0, 0, -2.0)
+    tol = int(cover_tol_s * FPS)
+    n_grid = max(int(round((ratio_hi - ratio_lo) / step)) + 1, 3)
+    for r in np.linspace(ratio_lo, ratio_hi, n_grid):
+        cand_r = _resample_env(cand_env, r)
+        cs, ls = _ncc_multi(ref_s, _structure_env(cand_r), min_overlap_s)
+        if cover is not None:                               # must fill the slot
+            ok = (ls >= cover[1] - cand_r.shape[-1] - tol) & (ls <= cover[0] + tol)
+            if not ok.any():
+                continue
+            cs = np.where(ok, cs, -2.0)
+        lag_s = int(ls[int(np.argmax(cs))])                 # which bar
+        c, lags = _ncc_multi(ref_env, cand_r, min_overlap_s)
+        sel = np.flatnonzero(np.abs(lags - lag_s) <= win)   # where in it
+        if cover is not None:
+            sel = sel[(lags[sel] >= cover[1] - cand_r.shape[-1] - tol)
+                      & (lags[sel] <= cover[0] + tol)]
         if not len(sel):
             continue
-        i = sel[int(np.argmax(c[sel]))]
-        if c[i] > out[2]:
-            out = (float(r), int(lags[i]), float(c[i]))
-    return out if out[2] > -2.0 else best
+        i = int(sel[int(np.argmax(c[sel]))])
+        if c[i] > best[2]:
+            best = (float(r), int(lags[i]), float(c[i]))
+    return best
 
 
 def null_correlation(ref_env: np.ndarray, cand_env: np.ndarray, ratio: float,
@@ -283,43 +369,50 @@ def null_correlation(ref_env: np.ndarray, cand_env: np.ndarray, ratio: float,
                      min_overlap_s: float = 45.0) -> float:
     """The best this recording scores anywhere the answer is not.
 
-    A high correlation means nothing on its own: an EDM onset envelope is a
-    four-on-the-floor pulse and will correlate with any other one at some lag.
-    So the peak is priced against the best peak outside a guard band around it,
-    and it is the margin, not the peak, that says the placement is real.
+    A high correlation means nothing on its own here: a beat-matched EDM mix is
+    four-on-the-floor throughout, so a recording will correlate with some
+    unrelated stretch of it at almost any lag. The peak is therefore priced
+    against the best peak outside a guard band around it, and it is the margin,
+    not the peak, that says the placement is real.
+
+    Measured on the same channels and the same normalisation the peak came
+    from. Scoring the null on the smoothed contour instead makes the margin a
+    difference of two incommensurable quantities, and it then reads negative on
+    placements that are in fact correct.
     """
-    c, lags = _ncc(_structure_env(ref_env),
-                   _structure_env(_resample_env(cand_env, ratio)), min_overlap_s)
+    c, lags = _ncc_multi(ref_env, _resample_env(cand_env, ratio), min_overlap_s)
     mask = np.abs(lags - lag) > int(guard_s * FPS)
     return float(c[mask].max()) if mask.any() else float("nan")
 
 
 def place_track(row: dict, src: Path, ref_env: np.ndarray,
                 pad_s: float = 25.0) -> Placement:
-    """Fit one recording into its slot in one mix."""
-    cand = onset_envelope(read_audio(src))
+    """Fit one recording into its slot in one mix.
+
+    The played tempo is measured on the nominal slot alone, not on the padded
+    window the correlation runs over: the pad deliberately spills into the
+    neighbouring tracks so the fit can move, and those neighbours are at other
+    tempi.
+    """
+    cand = fingerprint(read_audio(src))
     lo = max(0, int((row["start_s"] - pad_s) * FPS))
-    hi = min(len(ref_env), int((row["end_s"] + pad_s) * FPS))
-    seg = ref_env[lo:hi]
+    hi = min(ref_env.shape[-1], int((row["end_s"] + pad_s) * FPS))
+    seg = ref_env[:, lo:hi]
+    core = ref_env[0, int(row["start_s"] * FPS): int(row["end_s"] * FPS)]
+    native_bpm, played_bpm = measure_bpm(cand[0]), measure_bpm(core)
+    hint = played_bpm / native_bpm
     overlap_s = min(0.6 * (hi - lo) / FPS, 45.0)
-    ratio, lag, corr = fit_placement(seg, cand, min_overlap_s=overlap_s)
+    cover = (int(row["start_s"] * FPS) - lo, int(row["end_s"] * FPS) - lo)
+    ratio, lag, corr = fit_placement(seg, cand, min_overlap_s=overlap_s,
+                                     cover=cover)
     null = null_correlation(seg, cand, ratio, lag, min_overlap_s=overlap_s)
-    offset_s = (lo + lag) / FPS
-    # `bpm` in stimulus_tracks.tsv is the tempo the DJ played, not the record's
-    # own: Ladykiller is logged 124 in mix 1 and 127 in mix 2. So the fitted
-    # ratio divides out to the recording's native tempo. Released house is
-    # authored on an integer grid, so when that lands on an integer the integer
-    # times the ratio gives the played tempo past the log's rounding -- and when
-    # it does not, say nothing rather than quote the nominal back as a "fit".
-    native = row["bpm"] / ratio
-    k = round(native)
-    fitted = k * ratio if abs(native - k) < 0.25 else float("nan")
     return Placement(
         title=row["title"], mix=row["dj_mix"], track_order=row["track_order"],
         nominal_start_s=row["start_s"], nominal_end_s=row["end_s"],
         nominal_bpm=row["bpm"], source_file=str(src),
-        ratio=ratio, offset_s=offset_s, corr=corr, null_corr=null,
-        margin=corr - null, native_bpm=native, fitted_bpm=fitted,
+        ratio=ratio, offset_s=(lo + lag) / FPS, corr=corr, null_corr=null,
+        margin=corr - null, native_bpm=native_bpm, played_bpm=played_bpm,
+        ratio_hint=hint, fitted_bpm=native_bpm * ratio,
         used_s=row["end_s"] - row["start_s"])
 
 
