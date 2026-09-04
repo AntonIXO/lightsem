@@ -938,6 +938,20 @@ envelopes at 40 fps**, the same object for all three corpora so one audit script
   group id → fixture role (per environment table), box filter → group cardinality and phase
   spread, events → per-group intensity/colour at 40 fps on the map's BPM grid (BPM is exact,
   so alignment error is zero — the cleanest beat grid in the project).
+  **On disk, 2026-09-04 late** (`pull_beatsaver.py`, `/mnt/lightsem-data/beatsaver/`): the 317 top-rated
+  `lightshow` maps inspected, **300 usable** (lighting in parseable events), 16.3 h of audio, 2.2 GB,
+  123 mappers, median 3 052 lighting events per map (230–41 759), median 195 s. Schema mix: most are
+  v2 five-lane `_events` maps (67 of them with Chroma colour data, 29 with Noodle custom events), 18 are
+  v3 event-box maps; 12 were skipped for too few events and 5 because they are **Vivify** asset-bundle
+  shows whose lighting is not in the map data at all — a warning that asset-specific grammars exist and
+  the audit must key on the v2 lanes + v3 boxes only. Environments: Default 67, BigMirror 60, Panic 38,
+  Nice 24, BTS 16, Triangle 15 — the group-id → fixture-role table is per environment.
+- **Also on disk now**: Raveform (`/mnt/lightsem-data/raveform/`, 1 423 expert-annotated EDM tracks with
+  beat, downbeat and section role per beat, 4 902 mix records, 61 886 track records; the planner's EDM
+  conditioning); the Skip-BART weights (`/mnt/lightsem-data/models/skip-bart/`, the published baseline for
+  the operator head); `demucs` 4.1 in the torch venv with the htdemucs weights fetched (~30 s of audio per
+  second on the 5070, so the 28 h of Just Dance wav separates in about an hour). xLights sequence
+  downloads answer 403 without a login and are parked.
 - **Console show files** (grandMA2/3 XML export + MVR patch geometry, MagicQ, Onyx): no public
   archive exists; the deep pass's verdict is that *fifty licensed shows with cue hierarchy beat
   tens of thousands of dubious videos*. This is a business-development item, not a scraping
@@ -1016,6 +1030,8 @@ audio bus ──► frozen trunk + operator head ──► GROUP-EFFECT HEAD (0.
   it and go get stems or console logs.
 - **Cost**: MVP in a week on the 5070 (frozen trunk, tiny head, existing expander, histogram
   renderer in torch; no EGL in the loop; no pan/tilt learning).
+- **Token rate** (refined in 9.9): the head runs on the *beat grid* (8th or 16th notes, 4–8 Hz), not
+  at 40 fps; 40 fps is the engine's render rate.
 
 #### 9.4 The planner: section-level intent written onto the conductor knobs (H-J)
 
@@ -1110,6 +1126,53 @@ is the coaches' own agreement, r 0.22–0.42); any product training on BeatSaver
 video or YouTube material (research only, section 5); scraping. Oslo remains the concert-domain
 test for every arm.
 
+#### 9.9 Transformer architectures across the related fields — what carries the result (rev. 8, late)
+
+A fifth reasoning pass on the transformer question, fed the Stage 9 plan, the Beat Saber schema
+findings and eight arXiv abstracts (answer verbatim in `docs/research/stage9/05_transformer_architectures.md`).
+The dance literature mostly builds the wrong object at the wrong budget (Wan-Dancer is a 14 B DiT on
+128 A100s; Lodge++, CustomDance, ST-GDance++ are the same slow-plan/fast-fill split at motion scale):
+steal the *split*, not the stack. What transfers at 30–50 h of paired data and 12 GB:
+
+| field | design that carries the result | transfer |
+|---|---|---|
+| rhythm-game charts (arXiv 2311.13687, ITGPT) | sparse time + action tokens on a beat grid (hop 1/48 beat), 3-layer Transformer d=256; unaligned training collapses on fine subdivisions | **this is the Beat Saber grammar**: beat-relative positions, sparse events, tiny model |
+| lighting (Skip-BART, SeqLight) | discrete hue/value bins, a skip-concat of the aligned audio frame into the decoder (their ablation win), RSTC Δ-clamps at inference; SeqLight predicts the HSV *histogram* then assigns fixtures | steal skip-alignment, histogram target, clamps; not the AR absolute hue/value loop |
+| symmetry (Hayes 2506.07199, MEGAMI 2511.08040) | point regression fails under permutation even with invariant losses; model equivalent assignments as modes; MEGAMI generates per-track effect embeddings for a track-agnostic processor | diagnosis for the mixture of light; prescription = generate the look, let the engine assign (SeqLight's split), not an equivariant CNF over fixture permutations |
+| rhythm experts (TempoMoE 2512.18804) | experts by tempo bin + multi-scale beat experts, music-driven routing | a 4-bin tempo gate on the *decoder head* (rate, phase spread, density); fixture-type experts stay ruled out |
+| structure (SongFormer 2510.02797, All-In-One) | 4-layer d=512 at ~8 Hz, boundary + function heads, a learned *source embedding* for mixed-schema labels | the planner recipe: bar-rate tokens, source embedding when mixing Raveform / JD / Beat Saber statistics |
+| small-data dance (TokenDance) | FSQ tokens + BiMamba beat a Transformer on ~8 h of tokenised motion | not our object: the frozen Conformer stays; Mamba only if a full-song beat-grid decoder ever OOMs |
+| heavy motion models (OmniMotion, FlowerDance, Video-Robin) | continuous masked-AR + DiT; MeanFlow few-step; AR planning + local diffusion | planner hierarchy and cheap few-step sampling only |
+
+Decisions taken from it (recorded as refinements of H-I / H-J / H-K, not new hypotheses):
+
+1. **Beat grid, not 40 fps.** The decoder emits on 8th or 16th notes (4–8 Hz; ~2 k steps per 4-min
+   track, the same order as a Beat Saber lightshow and as the chart Transformer's training). 40 fps
+   is the engine's render rate; H-B already showed a one-pole smoother was the lever, not resolution.
+2. **Two losses, one head.** Beat Saber trains the head as discrete event-box cross-entropy (effect
+   id, group, beat-time, palette/brightness bins, phase spread, density); RPMC-L2 and Just Dance
+   train the same head's continuous channels through the histogram renderer. A pure "lighting-chart
+   Transformer" would overfit the five-lane + Chroma dialect and fail on a moving-head truss, so the
+   Beat Saber CE is an auxiliary, not the product head.
+3. **Conditioning:** AdaLN/FiLM from the planner's slow knobs plus a Skip-BART-style skip of the
+   time-aligned audio frame; cross-attention only from the short planner token stream, never from
+   a 40 fps structure bus (H-C).
+4. **No Mamba, no masked-AR, no AR hue loop.** Parallel heads (hazard + categorical effect id +
+   bounded regression). Flow/MeanFlow for the operator vector only if it is multimodal *after*
+   conditioning — the test is NLL of a 2-step MeanFlow against L2 + circular palette loss on
+   held-out songs; if it does not win, it dies. Block C's motion flow stays where it is.
+5. **Recommended stack, ~7 M trainable, frozen 9 M Conformer:** planner 4 layers, d=256, 4 heads,
+   RoPE on bar index, one token per bar (bar-pooled bus + operator-head features), 8 knobs per
+   section + a boundary logit, BCE+TV on boundaries, CE on Raveform roles, ~3–6 h; decoder 3
+   layers, d=256, beat-relative RoPE, ~2.5 M, renderer KL + event-box CE + look-change BCE,
+   random-rig dropout, RSTC-style clamps on Δintensity/Δpalette at inference; critic 2 layers,
+   d=128, bar-synchronous, ~1.5 M, InfoNCE with the three negatives, best-of-8 reranker only, ~2–4 h.
+6. **Extra falsifiers:** the decoder must beat an **engine-only** baseline (planner knobs + beat-trigger
+   effects, no learned effect id); the planner must beat constant knobs and energy-quantile knobs as
+   well as the shuffled-section plan; the offline-vs-L=0 gap is reported and, if it is ~0 as in H-A,
+   look-ahead is not claimed. If the stack cannot beat beat-trigger + operator-head events on
+   Light-BAS with CIs, the next model is a better target, not a bigger Transformer.
+
 ---
 
 ## 7. Evaluation protocol (what convinces a sceptic)
@@ -1173,4 +1236,6 @@ diagnostics `light-bas`, `fid-light-kinetic`, `light-diversity-kinetic`, `edm-co
 `critic-pair-accuracy`, `rig-transfer-hist-distance`, `preference-heldout-accuracy` (rev. 8);
 papers linked (incl. Burger 2013/2014, Toiviainen 2010, Van Dyck 2013, Solberg & Jensenius 2017,
 Witek 2014, Bigand 2024, Alexanderson 2023, MotionStreamer, ITU-R BT.1359-1, Skip-BART
-arXiv:2506.01482, SeqLight arXiv:2605.03660, FactorCL arXiv:2306.05268, Lodge arXiv:2403.10518).
+arXiv:2506.01482, SeqLight arXiv:2605.03660, FactorCL arXiv:2306.05268, Lodge arXiv:2403.10518, beat-aligned chart
+generation arXiv:2311.13687, TempoMoE arXiv:2512.18804, Hayes equivariant flow matching
+arXiv:2506.07199, MEGAMI arXiv:2511.08040, SongFormer arXiv:2510.02797).
