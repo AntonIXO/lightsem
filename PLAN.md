@@ -1,5 +1,11 @@
 # LightSem v2 — sound → light for concerts and festivals, trained on dance
 
+Date: 2026-09-05, **rev. 9** (Stage 9 run end to end overnight: every one of its seven hypotheses
+tested in the vault except the human-preference study, results in section 6.9.10 — Beat Saber is a
+tempo corpus, stems and a frozen MERT layer each add +0.02 AP and no more, the group-effects decoder
+fails its light-level gates in both its regressed and its sampled form, the section planner passes
+the shuffled-section control on FID and fails it on BAS, the critic separates authored light from
+beat-trigger light at 0.89; section 9 gains its rule-outs). Previous header:
 Date: 2026-09-04, **rev. 8** (Anton's three directions after the Stage 8 result — richer audio
 features, more authored-lighting corpora, transformer/multimodal methods — and his mixture-of-light
 idea, run through one Perplexity deep-research pass and four reasoning passes with the full project
@@ -1175,6 +1181,64 @@ Decisions taken from it (recorded as refinements of H-I / H-J / H-K, not new hyp
 
 ---
 
+
+#### 6.9.10 What Stage 9 measured (rev. 9, 2026-09-04 late → 2026-09-05, one overnight pass on the 5070)
+
+Every hypothesis of section 6.9 was run against its pre-registered gates and closed in the vault
+(exp-017 … exp-022 plus H-M's exp-019); the verdicts below are the server's, computed from the
+preregistered predicted effects, never asserted. Scripts: `build_beatsaver.py`, `run_stage9_gate.py`
+(H-H), `extract_stems.py` / `build_stem_feats.py` / `run_stage9_stems.py` (H-G),
+`run_stage9_embedding.py` (H-M), `lightsem/model/group_decoder.py` + `train_group_decoder.py` +
+`run_stage9_decoder_eval.py` (H-I), `train_planner.py` + `run_stage9_planner_eval.py` (H-J),
+`train_critic.py` (H-K), `log_stage9_to_vault.py`, `render_stage9_demo.py`.
+
+| hyp. | claim | result | verdict |
+|---|---|---|---|
+| H-H (9.2) | Beat Saber lightshow maps are a lighting corpus | 298 maps / 289 songs, song-split. Scene-change AP: audio 0.170 vs shifted-light null 0.131 (**+0.04**, gate +0.15) vs beat trigger 0.150 (**+0.02** [0.014, 0.026], gate +0.05); offline 0.210 (+0.08 / +0.06). Lifts: ridge 1.40×, offline 1.77×, beat trigger 1.22×; the exp-016 Conformer head 1.65× vs rhythm 1.30× (JD visual: 3.17× vs 1.48×). Per-lane envelope R² at 2 s 0.18–0.24 with the shifted null at 0.11–0.17; the beat trigger's ring channel explains ring lights at 0.17 vs audio 0.19; active-group count is loudness (RMS-only R² 0.18, full bus 0.26) | **directional only, gate failed → out of every loss** (it stays a critic-negative source) |
+| H-G (9.7) | stems add what the mix collapses | 332 JD songs, exp-016's ridge: bus+4 full stems **+0.019 AP** [0.015, 0.022] audio-only, **+0.024** [0.020, 0.028] with the hazard; compact stems +0.007; drums +0.006, other +0.009, vocals +0.006, bass +0.001; vocal activity +0.006; **bar phase 0.000**; shuffled donor 0.000; shift null flat. L = 0 (trailing-window Demucs, 90 songs): full stems whole +0.019 vs causal +0.014. The Conformer head with stems appended: 2.99× vs exp-016's 3.17× on the same 38 songs (no gain). Coach split at 2 s: every stem family Δ R² within ±0.006 of zero on all six channels (no source-specific split; the bus itself sits at R² ≈ 0 at 2 s on this recipe) | **directional only** (+0.019 vs the +0.02 gate; the split is absent) |
+| H-M (9.7 item 5) | one frozen MERT layer group beats the bus once the catalogue hash is removed | MERT-330M layers 10–13 / 15–16 → PCA-32: **+0.019 AP** [0.017, 0.022], **+0.018** after subtracting the song mean, random projection of the bus 0.000, embedding alone +0.004; the song-ID probe: two halves of a song find each other **83 %** of the time (bus scalars 3.6 %, chance 0.3 %) | **directional only** (residual survives the leak but misses +0.02) |
+| H-I (9.3) | a group-effects decoder replaces the rule table | v1 (parameters regressed through the histogram renderer, random rigs): held-out scene MSE 0.073 vs shuffled donor 0.075 (RPMC), 0.078 vs 0.083 (JD); look-change lift 1.36 (RPMC) / **2.39** (JD) vs rhythm 1.25 / 1.48; but the per-role parameters **collapsed to per-song constants** (intensity sd 0.002 inside a clip) — the conditional mean, as section 3 predicted for an unpredictable channel. v2 (the pre-registered branch: the look sampled by a rectified flow, then assigned): samples carry 0.7× the target's variance but correlate with it at r 0.04 (JD) / 0.01 (RPMC). G9.3 on 39 held-out JD clips, brightness-matched: FID_light v1 930 / v2 6211 vs the shipped conductor 43.8 and donors 927 / 5403 (null 4142, floor 7); Light-BAS − null v1 −0.166, v2 −0.055 vs conductor +0.124, coach +0.080, beat trigger +0.097; events per clip v1 182, v2 1039, real 888; rig transfer v1 0.302 vs channel-copy 0.306, v2 0.345 vs 0.305; human A/B not run | **refuted as built** (two light-level gates missed twice → "the conductor was not the bottleneck: stop decorating it") |
+| H-J (9.4) | section intent belongs on the conductor's knobs | bar-rate planner (4 L, d 256, 1 token/bar, 3 M) on RPMC + JD: held-out pooled R² of the bar knobs ≈ 0 for level / activity / look count (shuffled sections −0.1 to −0.2), hue and saturation negative — the knobs are not predictable from audio within a song. On the v2 decoder: FID plan 597 vs shuffled-section plan 610 vs no planner 6211 vs causal planner 590; paired BAS plan −0.061 vs no planner −0.055 (diff −0.007 [−0.012, −0.002]) | **directional only** (FID passes the shuffled control by 2 %, BAS fails) |
+| H-K (9.5) | a factorised critic with beat-trigger negatives reranks | 16-bar dual encoders, InfoNCE with shift / other-song / beat-trigger negatives: held-out pair accuracy **0.89** real vs beat-trigger light on the same audio (C_U alone 0.98, C_R alone 0.99 — the redundant channels separate the two by themselves), 0.73 vs another song, **0.56 vs a ≥ 2-bar shift**; additive projection and best-of-8: see the vault (exp-023) | recorded in the vault |
+| H-L (9.6) | Bradley–Terry on the knobs | not run: needs raters | open |
+
+**What this pass settles.**
+1. *The authored corpora carry timing, not levels.* On RPMC-L2, Just Dance visual and Beat Saber alike,
+   audio predicts *when* the look changes (lifts 1.4–3.2×) and not *what* the scene vector is
+   (frame-level value r ≤ 0.18, bar-level knobs R² ≈ 0, a sampled look no better than a donor). This
+   is the same result Stage 0b gave for dance descriptors and Stage 2 gave for operator levels, now
+   on three corpora and on a bar grid. A decoder that owns the look must therefore be a *sampler over
+   looks with learned cue timing*, not a regressor, and its quality cannot be scored by FID against
+   dance-derived light — the two are different distributions by construction (H-I's engine-only arm
+   scores BAS +0.53 by flashing on every beat and still sits at FID 1400).
+2. *Feature engineering has a +0.02 ceiling here.* Stems (+0.019), a frozen MERT layer (+0.019) and the
+   whole four-stem family with the hazard (+0.024) all land on the same increment over the bus; the
+   Conformer head does not convert it (2.99× vs 3.17×). The 92-channel bus is not what limits the
+   product.
+3. *Beat Saber is a beat-trigger corpus with a small authored residual* (+0.02 AP over the beat
+   trigger, +0.06 offline). It is not a training target. It gave one free calibration: our
+   constant-tempo grid matches the mappers' exact BPM on 65 % (10 Hz features) / 62 % (40 fps bus) of
+   maps; the misses are octave (45) and 2:3 (34) errors, and the exact grid lifts the ridge from
+   1.40× to 1.45×.
+4. *The critic learns the right thing for the wrong reason.* 0.89 real-vs-beat-trigger accuracy is
+   carried by level statistics (C_R 0.99); real-vs-shift at 0.56 says the critic barely sees timing
+   inside a song. Best-of-N on it reranks by level, which the Stage 9 stack already controls.
+5. *The engine matters.* v1's negative Light-BAS comes from the effects engine (a chase with a
+   phase spread places fixture onsets off the beat); v2's 1039 events per clip come from sampling
+   jitter surviving the one-pole. Both are engineering, not evidence about the decoder's content, and
+   both are why FID_light is not the metric for a look sampler (see the zero-spread diagnostic in
+   `outputs/stage9/decoder_eval_v1_zerospread.json`).
+
+**Where that leaves the plan.** The decent-not-human gap is not closed by Stage 9's levers, and the
+measurements say why: every corpus on disk supports *cue timing* and *palette statistics*, none
+supports per-frame or per-bar level design. The next lever is therefore not another feature or
+head but (i) a cue-based renderer — the operator head's calibrated look-change hazard (JD 2.4×,
+RPMC 1.4×) firing look transitions drawn from the corpus's own look distribution, scored against
+authored corpora on *cue timing* and *look-transition statistics* rather than FID against dance
+light — and (ii) the human preference study (H-L), which is the only gate left that can say
+"designed". Console show files with cue hierarchy (section 9.1) remain the only route to level
+design; nothing measured here changes that.
+
 ## 7. Evaluation protocol (what convinces a sceptic)
 
 | metric | null / baseline | trap it guards against |
@@ -1224,6 +1288,13 @@ range or timbre descriptors as per-frame bus channels; Jukebox or CLAP encoders;
 decoder before per-fixture console data exists; product training on BeatSaver, xLights, RPMC video
 or YouTube material.
 
+**Changed in rev. 9 (section 6.9.10):** Beat Saber lightshow maps are excluded from every loss (gate G9.2
+failed); a *regressed* group-parameter decoder trained on scene vectors is a recorded rule-out (it
+collapses to per-song constants), and so is scoring a look sampler by FID_light against dance-derived
+light; per-frame stem features, a frozen MERT layer group and bar phase are not to be re-tried as bus
+channels (each ≤ +0.02 AP, the Conformer head converts none of it); a bar-rate planner regressing
+level / activity / palette knobs from audio is not to be re-tried (held-out R² ≈ 0 within songs).
+
 ## 10. File and vault map
 
 Code to add: `lightsem/motion/` (FK, 2D/3D pose extraction, descriptor blocks A/B/C),
@@ -1234,6 +1305,10 @@ BeatNet phase), `lightsem/model/light_trunk.py` + heads. Vault: problem
 diagnostics `light-bas`, `fid-light-kinetic`, `light-diversity-kinetic`, `edm-collapse-rate`,
 `human-preference-winrate`, `audio-to-dmx-latency-ms`, `descriptor-audio-r2-over-identity`,
 `critic-pair-accuracy`, `rig-transfer-hist-distance`, `preference-heldout-accuracy` (rev. 8);
+experiments exp-017 (H-H), exp-018 (H-G), exp-019 (H-M), exp-020/021 (H-I v2/v1), exp-022 (H-J), exp-023 (H-K) (rev. 9);
+Stage 9 code: `build_beatsaver.py`, `run_stage9_gate.py`, `extract_stems.py`, `build_stem_feats.py`, `run_stage9_stems.py`,
+`run_stage9_embedding.py`, `lightsem/model/group_decoder.py`, `train_group_decoder.py`, `run_stage9_decoder_eval.py`,
+`train_planner.py`, `run_stage9_planner_eval.py`, `train_critic.py`, `log_stage9_to_vault.py`, `render_stage9_demo.py`;
 papers linked (incl. Burger 2013/2014, Toiviainen 2010, Van Dyck 2013, Solberg & Jensenius 2017,
 Witek 2014, Bigand 2024, Alexanderson 2023, MotionStreamer, ITU-R BT.1359-1, Skip-BART
 arXiv:2506.01482, SeqLight arXiv:2605.03660, FactorCL arXiv:2306.05268, Lodge arXiv:2403.10518, beat-aligned chart

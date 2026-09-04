@@ -33,6 +33,7 @@ ROOT = "/mnt/lightsem-data/cache/rpmc_causal"     # default; --root switches cor
 OUT = Path("/root/lightsem/outputs/stage2")
 CKPT = Path("/mnt/lightsem-data/ckpt")
 WIN = 300          # 30 s at 10 Hz
+EVENT_KEY = ""     # set by --event-key; "" = exp-016 novelty events on y
 
 
 def load_all(root=ROOT):
@@ -42,7 +43,9 @@ def load_all(root=ROOT):
         x, y = d["x"].astype(np.float32), d["y"].astype(np.float32)
         if len(x) < WIN + 20 or not np.isfinite(x).all():
             continue
-        tr, _ = event_train(y)
+        # Stage 9 corpora carry their own authored event train (build_beatsaver.py: ev_scene =
+        # the same novelty events on the rendered scene vector; --event-key picks another).
+        tr = d[EVENT_KEY].astype(np.float32) if EVENT_KEY and EVENT_KEY in d else event_train(y)[0]
         songs.append({"key": Path(p).stem, "x": x, "y": y,
                       "haz": hazard_feats(tr).astype(np.float32),
                       "t": target(tr).astype(np.float32)})
@@ -51,6 +54,8 @@ def load_all(root=ROOT):
 
 def split(songs, val=0.15, test=0.15):
     def b(k):
+        # "<song8>=<id>" keys (Beat Saber) split by SONG so two maps of one song never straddle folds
+        k = k.split("=")[0]
         return int.from_bytes(hashlib.sha256(k.encode()).digest()[:8], "big") / 2 ** 64
     tr, va, te = [], [], []
     for s in songs:
@@ -104,7 +109,10 @@ def main():
     ap.add_argument("--root", default=ROOT, help="feature cache: rpmc_causal (operators) or justdance_visual (H-F)")
     ap.add_argument("--with-hazard", action="store_true",
                     help="give the model the rhythm features too (the fair upper form)")
+    ap.add_argument("--event-key", default="", help="npz key holding a 10 Hz event train (Stage 9 corpora)")
     args = ap.parse_args()
+    global EVENT_KEY
+    EVENT_KEY = args.event_key
     device = "cuda" if torch.cuda.is_available() else "cpu"
     songs = load_all(args.root)
     if args.horizon_s > 0:
@@ -212,6 +220,7 @@ def main():
                CKPT / f"operator_head{'_haz' if args.with_hazard else ''}{args.run_tag}.pt")
     OUT.mkdir(parents=True, exist_ok=True)
     tag = ("with_hazard" if args.with_hazard else "audio_only") + args.run_tag
+    res["event_key"] = EVENT_KEY
     (OUT / f"operator_head_model_{tag}.json").write_text(json.dumps(res, indent=1))
     print(json.dumps(res, indent=1))
 
