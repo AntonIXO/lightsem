@@ -146,6 +146,9 @@ def main():
                      help="measurement-driven block split + autoregressive flow head")
     ap_.add_argument("--offline", action="store_true",
                      help="H-A: symmetric attention window and conv padding; the whole-track model")
+    ap_.add_argument("--drop-a", default="",
+                     help="comma list of block A channels to leave out of the regression (Just Dance: "
+                          "hip_yaw_speed is identically zero from 2D pose, footfall_rate is weak from video)")
     ap_.add_argument("--tensor", default="",
                      help="training tensor path (default cache/train_tensor.npz; H-A uses the offline one)")
     args = ap_.parse_args()
@@ -163,6 +166,10 @@ def main():
         a_names, c_names = list(BLOCK_A_V2), list(BLOCK_C_V2)
     else:
         a_names, c_names = list(BLOCK_A), list(BLOCK_C)
+    if args.drop_a:
+        drop = set(args.drop_a.split(","))
+        a_names = [n for n in a_names if n not in drop]
+        c_names = [n for n in c_names if n not in drop]
     a_cols = np.array([all_names.index(n) for n in a_names])
     c_cols = np.array([all_names.index(n) for n in c_names])
     tr = Windows(z, meta, sp.train, a_cols=a_cols, c_cols=c_cols)
@@ -222,7 +229,7 @@ def main():
     leak = causality_probe(model, (x_probe - mu) / sd, WIN // 2)
 
     res = {"tag": args.tag, "steps": args.steps, "baseline_mse": args.baseline_mse,
-           "v2": args.v2, "offline": args.offline, "tensor": args.tensor or "default",
+           "v2": args.v2, "offline": args.offline, "tensor": args.tensor or "default", "drop_a": args.drop_a,
            "block_a": a_names, "block_c": c_names,
            "params_m": model.n_params() / 1e6, "causality_leak": leak,
            "train_s": time.time() - t0,

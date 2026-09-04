@@ -174,16 +174,21 @@ def run_hb(c):
 def run_hd(c):
     O = Path("/root/lightsem/outputs/stage2")
     L = lambda n: json.loads((O / n).read_text())  # noqa: E731
-    c0 = L("operator_head_model_with_hazard.json")          # causal, horizon 0 (exp-008)
-    ch4 = L("operator_head_model_with_hazard_h4.json")      # causal, horizon 4 s
-    oh4 = L("operator_head_model_with_hazard_off_h4.json")  # offline, horizon 4 s
-    o0 = L("operator_head_model_with_hazard_off.json")      # offline, horizon 0
+    c0 = L("operator_head_model_audio_only.json")          # causal, horizon 0 (exp-008, audio only)
+    ch4 = L("operator_head_model_audio_only_h4.json")      # causal, horizon 4 s
+    oh4 = L("operator_head_model_audio_only_off_h4.json")  # offline, horizon 4 s
+    o0 = L("operator_head_model_audio_only_off.json")      # offline, horizon 0
+    leak_h4 = L("operator_head_model_with_hazard_off_h4.json")   # the leaked run, kept as evidence
+    leak_0 = L("operator_head_model_with_hazard_off.json")
     exp = ok(c.call("start_experiment", {"hypothesis_id": "the-operator-head-which-is-already-the-82dd8e",
         "git_ref": "HEAD", "config_note": json.dumps({"stage": "7 H-D", "runbook": "rb-ls2-07-offline-prerendered",
-            "data": "RPMC-L2, 699 shows, causal features at 10 Hz + hazard features, split by song hash (same as exp-008)",
+            "data": "RPMC-L2, 699 shows, causal audio features at 10 Hz, split by song hash (same as exp-008); AUDIO ONLY in every arm",
             "head": "4-block Conformer d192, attn_window 120; offline = symmetric window and padding",
-            "arms": {"causal_h0": "exp-008 head", "causal_h4": "target shifted 4 s earlier", "offline_h4": "same, offline",
+            "arms": {"causal_h0": "exp-008 audio-only head", "causal_h4": "target shifted 4 s earlier", "offline_h4": "same, offline",
                      "offline_h0": "offline at horizon 0"},
+            "discarded": "with-hazard offline arms: lift 10.3x at +4 s and 9.4x at 0 with a needle-sharp shift curve -- "
+                         "the hazard features are computed from the target's own past events and a symmetric window "
+                         "reads their future; a target-derived input under a non-causal model is a leak",
             "n_test": oh4["n_test"], "params_m": oh4["params_m"]})}))
     eid = exp.get("id") or exp.get("experiment_id"); print("H-D experiment:", eid)
     c.call("record_diagnostics", {"experiment_id": eid, "measurements": [
@@ -207,7 +212,19 @@ def run_hd(c):
             "sides; a late detector would peak at a negative shift. " +
             (f"offline_h4 peak {oh4['shift_peak_s']:+.0f} s; causal_h4 peak {ch4.get('shift_peak_s', float('nan')):+.0f} s"
              if "shift_peak_s" in oh4 else "shift curve not available for this run"))}]})
-    c.call("close_experiment", {"experiment_id": eid, "notes": "H-D, operator head with anticipation.\n" + lines})
+    c.call("close_experiment", {"experiment_id": eid, "notes": (
+        "H-D, operator head with anticipation, audio-only arms.\n" + lines + "\n"
+        f"Discarded as a leak, kept as evidence: with the hazard features (rhythm of the target's own past events) "
+        f"the offline head scored lift {leak_h4['model_lift']:.1f}x at +4 s and {leak_0['model_lift']:.1f}x at 0, "
+        f"margins {leak_h4['delta']:+.2f} and {leak_0['delta']:+.2f}, with shift curves that collapse to ~1x one second "
+        f"either side of the trained horizon. That sharpness is the signature: a symmetric window reads the future of "
+        f"an input derived from the target. Caught before it was quoted; the rule is now that any offline model may "
+        f"only see inputs that do not derive from its own target.")})
+    c.call("interpret_experiment", {"experiment_id": eid, "lesson": (
+        "Under a non-causal model, every input must be audited for target derivation, not only the target itself: "
+        "the hazard features were legitimate for the causal head (past events only) and became a leak the moment the "
+        "window went symmetric. The shift-curve control caught it -- a genuine anticipator degrades smoothly away "
+        "from its horizon; a leak collapses within one frame of it. Keep the control on every offline claim.")})
     return eid
 
 
