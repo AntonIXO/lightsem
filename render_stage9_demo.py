@@ -145,7 +145,9 @@ def main():
             path = out / f"{name}__{k}.mp4"; t1 = time.time()
             ren.render_video(frames, 40.0, path, audio_path=str(wav), duration_s=dur, progress_every=0)
             print(f"  wrote {path.name} ({time.time()-t1:.0f}s)  BAS-null {stats[k]['bas_minus_null']:+.3f} events {stats[k]['events']}", flush=True)
-        (out / f"{name}__stage9_stats.json").write_text(json.dumps({"tempo": bus.tempo, "duration_s": dur, "arms": stats}, indent=1))
+        sp = out / f"{name}__stage9_stats.json"
+        prev = json.loads(sp.read_text())["arms"] if sp.exists() else {}
+        sp.write_text(json.dumps({"tempo": bus.tempo, "duration_s": dur, "arms": prev | stats}, indent=1))
 
 
 if __name__ == "__main__":
