@@ -330,6 +330,30 @@ future the moment attention went symmetric; the target-shift control caught it (
 anticipator degrades smoothly away from its horizon, a leak collapses to 1× one second either
 side). Rule kept: an offline model may only see inputs that do not derive from its own target.
 
+**Stage 8.2, the Just Dance predictability audit (vault exp-014).** 294 held-out songs, 453 coach
+channels, the Oslo recipe per coach (both sides causally gain-normalised, 13 causal bus scalars
+at three time constants, ridge by song fold):
+
+| | audio → coach, held-out songs, 2 s | inter-coach r (93 multi-coach songs) |
+|---|---|---|
+| quantity of motion | R² −0.016, r +0.21 | 0.27 |
+| vertical bounce amplitude | R² +0.004, r +0.21 | 0.42 |
+| head speed | R² −0.027, r +0.17 | 0.22 |
+| hand speed | R² +0.005, r +0.24 | — |
+
+**G8.2-r2 fails** (gate +0.20; Oslo's crowd curve gave +0.30 from published audio scalars): a
+linear map from causal audio scalars to one coach's movement correlates weakly but consistently
+across 294 songs and explains none of the variance, at any ridge penalty. The ceiling it is
+under is the inter-coach agreement — coaches in the same routine hearing the same music agree at
+r 0.22–0.42 — which is what a single-performer target allows. What the corpus does carry, at the
+section level: coach movement in a song's loudest third of sections is **1.49–1.57× the quietest
+third** (CI [1.44, 1.63], 453 channels), the Oslo drop/breakdown range, and 70 % of channels
+bounce at the beat or half-time. G8.2-genre could not be measured (no genre or Effort labels were
+ever attached to the corpus) and is recorded as not passed. Reading: the frame-level coupling is
+weak on this corpus as on AIST++; the section-level coupling is real, which is exactly the
+information H-C's structure channels carry, and the Conformer arms decide whether a nonlinear
+model with the full mel bank does better than the linear audit.
+
 ---
 
 ## 2. What audio determines in a dancing body — and what it does not
