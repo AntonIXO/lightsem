@@ -40,16 +40,26 @@ def main():
                     help="bus directory; cache/audio (causal, default) or cache/audio_offline for an H-A checkpoint")
     ap.add_argument("--zero-phase", type=float, default=0.0,
                     help="H-B: zero-phase Butterworth cutoff in Hz applied to every output channel (offline)")
+    ap.add_argument("--zero-phase-match", action="store_true",
+                    help="H-B: zero-phase filter per channel at the cutoff of the checkpoint's fitted one-pole")
     ap.add_argument("--no-smoothing", action="store_true",
                     help="H-B unfiltered arm: ignore the checkpoint's fitted causal smoothing")
+    ap.add_argument("--corpus", default="aist", choices=["aist", "jd"],
+                    help="jd: Just Dance caches (justdance_motion / justdance_audio, by-song splits, "
+                         "bus sliced at the coach's active span)")
+    ap.add_argument("--tensor", default="", help="tensor path for the split definition")
     ap.add_argument("--no-calibration", action="store_true",
                     help="ignore the checkpoint's fitted event thresholds and fall "
                          "back to the per-clip 97th percentile, to price the "
                          "calibration on otherwise identical features")
     args = ap.parse_args()
 
-    z, meta = load_tensor()
-    sp = make_splits(meta)
+    z, meta = load_tensor(Path(args.tensor) if args.tensor else None)
+    if args.corpus == "jd":
+        from lightsem.model.jd_data import make_jd_splits
+        sp = make_jd_splits(meta)
+    else:
+        sp = make_splits(meta)
     idx = getattr(sp, args.split)
     rng = np.random.default_rng(0)
     idx = idx[rng.permutation(len(idx))[:args.n]]
@@ -58,6 +68,8 @@ def main():
     lm = LightModel(args.ckpt)
     if args.zero_phase > 0:
         lm.zero_phase_hz = args.zero_phase
+    if args.zero_phase_match:
+        lm.zero_phase_match = True
     if args.no_smoothing:
         lm.smooth_tau = {}
     if args.no_calibration:
@@ -68,13 +80,23 @@ def main():
     F_model, F_real, F_bt, F_null = [], [], [], []
     rows, div_within = [], []
 
+    by_name = {m["name"]: m for m in meta}
     for nm in names:
-        d = load_descriptors(CACHE_ROOT / "motion" / f"{nm}.npz")
-        mid = nm.split("_")[4]
-        bus_full = load_bus((Path(args.audio_dir) if args.audio_dir else CACHE_ROOT / "audio") / f"{mid}.npz")
-        dur = d.duration_s
-        bus = slice_bus(bus_full, dur)
-        beats = bus_full.beats[(bus_full.beats >= 0) & (bus_full.beats < dur)]
+        if args.corpus == "jd":
+            d = load_descriptors(CACHE_ROOT / "justdance_motion" / f"{nm}.npz")
+            mid = by_name[nm]["music_id"]
+            bus_full = load_bus((Path(args.audio_dir) if args.audio_dir else CACHE_ROOT / "justdance_audio") / f"{mid}.npz")
+            dur = d.duration_s
+            off = float(d.meta.get("start_s", 0.0))
+            bus = slice_bus(bus_full, dur, offset_s=off)
+            beats = bus.beats
+        else:
+            d = load_descriptors(CACHE_ROOT / "motion" / f"{nm}.npz")
+            mid = nm.split("_")[4]
+            bus_full = load_bus((Path(args.audio_dir) if args.audio_dir else CACHE_ROOT / "audio") / f"{mid}.npz")
+            dur = d.duration_s
+            bus = slice_bus(bus_full, dur)
+            beats = bus_full.beats[(bus_full.beats >= 0) & (bus_full.beats < dur)]
         if beats.size < 6:
             continue
         real = cond.render(d, bus).frames
@@ -138,7 +160,8 @@ def main():
         hf_ratio[k] = float(m_ / max(r_, 1e-9))
     res = {
         "n_clips": len(rows), "split": args.split, "seeds": args.seeds,
-        "zero_phase_hz": args.zero_phase or None, "smooth_tau": lm.smooth_tau or None,
+        "zero_phase_hz": args.zero_phase or None, "zero_phase_match": args.zero_phase_match,
+        "smooth_tau": lm.smooth_tau or None,
         "light_event_rate_ratio": ev_model / max(ev_real, 1e-9),
         "events_per_clip": {"model": ev_model, "real": ev_real},
         "descriptor_hf_energy_ratio": hf_ratio,

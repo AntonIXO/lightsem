@@ -152,7 +152,11 @@ def main():
 
     device = "cuda" if torch.cuda.is_available() else "cpu"
     z, meta = load_tensor(Path(args.tensor) if args.tensor else None)
-    sp = make_splits(meta)
+    if meta and meta[0].get("corpus") == "jd":
+        from lightsem.model.jd_data import make_jd_splits
+        sp = make_jd_splits(meta)                 # by song key; test_dancer holds the held-out songs
+    else:
+        sp = make_splits(meta)
     print({k: len(getattr(sp, k)) for k in ("train", "val_track", "test_genre", "test_dancer")})
     all_names = list(BLOCK_A) + list(BLOCK_C)
     if args.v2:

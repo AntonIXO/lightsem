@@ -264,6 +264,33 @@ beat trigger loses when it flashes on every beat. That is the model's own larges
 defect (section 1.4, 85.8 light events per clip against 30.1) named independently by a human,
 and it is why H-B in section 6.7 is aimed at what a viewer sees rather than at a metric.
 
+### 1.6 Stage 7 results, 2026-09-04 evening — H-B first, because it is the largest lever found
+
+**H-B, spectral matching (vault exp-011).** Four arms on identical descriptors from the causal
+checkpoint, 40 val_track clips, 3 seeds:
+
+| arm | Light-BAS − null | FID | diversity (clips / seeds) | events per clip | worst HF ratio |
+|---|---|---|---|---|---|
+| raw (Stage 1 as recorded) | +0.018 | 67.3 | 2.73 / 1.74 | 85.8 | 117× (`hand_spread`) |
+| causal one-pole, fitted per channel | **+0.293** | **19.8** | 2.90 / 1.26 | 35.5 | 5.1× (`lateral_pos`) |
+| zero-phase 12 Hz (the filter the hypothesis named) | +0.061 | 46.5 | 2.90 / 1.79 | 63.9 | 72× |
+| zero-phase at the corpus-matched cutoffs | +0.304 | 23.4 | 2.86 / 1.29 | 35.8 | 5.0× |
+
+Real-mapped light on the same clips: +0.211; beat trigger +0.061; FID half-null 67.5, split-half
+floor 6.3. Two readings. The mechanism is confirmed and it is large: the sampled channels' jitter
+was what sank every Stage 1 light gate, and matching their spectrum to the corpus moves model light
+from chance to above the real-mapped value on Light-BAS and to a third of the null on FID, with
+diversity across clips not falling. The filter the hypothesis *named* does almost nothing, because
+the mismatch is not at 12 Hz: the corpus channels are smooth well below that and the fitted cutoffs
+sit near 0.2 Hz (eight channels hit the 1 s cap). The causal one-pole already captures the gain,
+so **this is not an offline-only win**; the offline arm removes the one-pole's lag and scores the
+same. Caveats that travel with the number: eight channels are nearly flattened; the model's light
+is now more beat-locked than real-dance light because most of its events come from the
+audio-phased transient path; diversity across style seeds fell from 1.74 to 1.26, which is the
+sampled variation that was jitter. Whether the result reads as better light is Stage 3's human
+question. The checkpoint that carries the fitted constants is `light_trunk_v3causal_smooth.pt`,
+and `outputs/stage0c/category_model/` must be re-rendered from it.
+
 ---
 
 ## 2. What audio determines in a dancing body — and what it does not
@@ -594,9 +621,26 @@ Three signals from one corpus, in the order they are tested:
    cannot tell a coach from a background extra (Havana's two extras persist the whole song).
    Filenames name only 5 multi-coach files; the frames show more (Wild Wild West and On Stage
    are quartets, Don't Wanna Know and HandClap trios). Gate each coach on coverage ≥ 0.8. Lead-in menus and the results screen are cut by
-   `start_s` and by the end of the coach track. Cost, measured: 72 frames/s on the RTX 5070 at
-   imgsz 960, so a 750-frame screening pass over all 338 files is about 1 h and the full
-   extraction about 9 h; neither starts without Anton's word.
+   `start_s` and by the end of the coach track.
+   **Trial, 2026-09-04 (`extract_justdance.py trial`, six clips × 900 frames).** YOLO11m,
+   YOLO26m at 960 and 640, YOLO26x at 960, and RTMPose-m on CPU as an independent reference.
+   On clean solos every arm agrees with YOLO26x within 0.03–0.2 torso lengths and RTMPose
+   within 0.07, so the keypoints are trustworthy; YOLO26's trajectories carry 3–10× less
+   above-6 Hz energy than YOLO11's on the same frames. The two hard clips are detection, not
+   pose: the Funkytown alien costume is found by RTMPose's separate detector in 99.6 % of frames
+   and by YOLO26m at conf 0.25 in 52 %; a 0.10 floor plus fragment merging lifts it to 72 %.
+   Selection is tracker-free: every coach-sized figure is followed as a track anchored on the
+   mid-shoulder keypoint (a full-body and an upper-body box of the same coach sit 0.4–0.8
+   heights apart and would otherwise split one figure into alternating fragments), duplicates
+   are suppressed by overlap, containment and anchor distance, and sequential fragments are
+   merged at the junction across camera cuts. Coaches are the big, sharp, persistent tracks
+   (coverage ≥ 0.6, height ≥ 0.8 and confidence ≥ 0.92 of the best); YOLO cannot see the
+   pictogram figures, so the strip's hue count is recorded as a diagnostic only. Result on the
+   six: solos and multi-coach routines at ≥ 0.998 coverage per coach with the right count
+   (HandClap 3, Wild Wild West 4, Havana 1 with two extras dropped). Bounce period on the
+   beat where the coach bounces periodically (Wild Wild West 1.04×, Funkytown 2.04×).
+   **Production**: YOLO26m-pose at 960, conf 0.10, three GPU workers, 60 fps files at stride 2;
+   ~85 frames/s single-process and GPU-bound, so the full run is 7–9 h. Launched 15:00.
 2. **Background visuals → a designed show.** With coach and UI masked, the background is an
    art-directed light show: beams and flashes on the drop, sparkles on gold moves, palette
    changes at the chorus. Extract per-frame brightness and HSV histograms exactly as RPMC-L2

@@ -59,9 +59,13 @@ def split(songs, val=0.15, test=0.15):
     return tr, va, te
 
 
-def evaluate(model, songs, device, mu, sd, use_hazard):
+def evaluate(model, songs, device, mu, sd, use_hazard, shifts_s=()):
+    """Per-song AP lift over the base rate. With `shifts_s`, also the lift when
+    the TARGET is shifted by each amount (positive = the model is scored
+    against events later than it was trained for): a head that anticipates
+    peaks at its trained horizon, a head that detects late peaks negative."""
     model.eval()
-    lifts = []
+    lifts, curve = [], {float(k): [] for k in shifts_s}
     with torch.no_grad():
         for s in songs:
             if s["t"].sum() < 3:
@@ -73,6 +77,17 @@ def evaluate(model, songs, device, mu, sd, use_hazard):
             x = (x - mu) / sd
             p = torch.sigmoid(model(x)["b_logit"][0, :, 0]).float().cpu().numpy()
             lifts.append(average_precision(p, s["t"]) / s["t"].mean())
+            for k in shifts_s:
+                sh = int(round(k * 10))            # 10 Hz features
+                t = np.zeros_like(s["t"])
+                if sh >= 0:
+                    t[:len(t) - sh] = s["t"][sh:] if sh else s["t"]
+                else:
+                    t[-sh:] = s["t"][:len(t) + sh]
+                if t.sum() >= 3:
+                    curve[float(k)].append(average_precision(p, t) / t.mean())
+    if shifts_s:
+        return np.array(lifts), {k: float(np.mean(v)) if v else None for k, v in curve.items()}
     return np.array(lifts)
 
 
@@ -174,7 +189,11 @@ def main():
     ridge_audio = np.array(ridge_audio)
     d = lifts - rhythm[: len(lifts)]
     bs = np.array([d[rng.integers(0, len(d), len(d))].mean() for _ in range(6000)])
+    _, shift_curve = evaluate(model, te, device, mu, sd, args.with_hazard,
+                              shifts_s=(-8, -6, -4, -2, -1, 0, 1, 2, 4, 6, 8))
+    peak = max((k for k, v in shift_curve.items() if v is not None), key=lambda k: shift_curve[k])
     res = {"n_songs": len(songs), "n_test": int(len(lifts)),
+           "shift_curve_s": shift_curve, "shift_peak_s": float(peak),
            "with_hazard": args.with_hazard, "params_m": model.n_params() / 1e6,
            "model_lift": float(lifts.mean()), "rhythm_lift": float(rhythm.mean()),
            "ridge_on_same_causal_features_lift": float(ridge_audio.mean()),
@@ -190,7 +209,7 @@ def main():
                 "with_hazard": args.with_hazard},
                CKPT / f"operator_head{'_haz' if args.with_hazard else ''}{args.run_tag}.pt")
     OUT.mkdir(parents=True, exist_ok=True)
-    tag = "with_hazard" if args.with_hazard else "audio_only"
+    tag = ("with_hazard" if args.with_hazard else "audio_only") + args.run_tag
     (OUT / f"operator_head_model_{tag}.json").write_text(json.dumps(res, indent=1))
     print(json.dumps(res, indent=1))
 

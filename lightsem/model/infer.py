@@ -74,10 +74,22 @@ class LightModel:
         #: it is non-causal and is the pre-rendered path's spectral matching.
         #: None keeps the causal one-pole (or nothing) above.
         self.zero_phase_hz: float | None = None
+        #: Zero-phase at the CORPUS-MATCHED cutoff per channel (fc = 1 / 2*pi*tau
+        #: from the fitted one-poles): the same spectrum as the causal arm with
+        #: no lag. Measured 2026-09-04: a 12 Hz zero-phase filter left 72x the
+        #: corpus HF energy because the sampler's jitter is broadband while the
+        #: corpus has almost nothing above 3 Hz; the fitted one-poles sit near
+        #: 0.2 Hz, and that is the spectrum to match.
+        self.zero_phase_match: bool = False
 
     def _smooth(self, name: str, v: np.ndarray, fps: float) -> np.ndarray:
         """Zero-phase Butterworth (offline), else the trailing one-pole at the
         fitted time constant, else nothing."""
+        if self.zero_phase_match and self.smooth_tau.get(name) and len(v) > 40:
+            from scipy.signal import butter, filtfilt
+            fc = max(1.0 / (2 * np.pi * float(self.smooth_tau[name])), 0.05)
+            b, a = butter(2, min(fc, 0.45 * fps) / (fps / 2), btype="low")
+            return filtfilt(b, a, v)
         if self.zero_phase_hz and self.zero_phase_hz < fps / 2 and len(v) > 40:
             from scipy.signal import butter, filtfilt
             b, a = butter(4, self.zero_phase_hz / (fps / 2), btype="low")
