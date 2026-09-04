@@ -1,0 +1,18 @@
+songs 140  events 1376
+
+ horizon   base    both  rhythm     marg    null mean+-sd       z      p
+    0.2s  0.023  2.0331  1.5507  +0.4824  -0.0190+-0.1346   +3.73  0.000
+    0.5s  0.056  1.5960  1.3875  +0.2085  -0.0688+-0.0812   +3.41  0.000
+    1.0s  0.110  1.4151  1.3241  +0.0909  -0.1413+-0.0736   +3.15  0.000
+    2.0s  0.217  1.2434  1.1873  +0.0561  -0.1231+-0.0532   +3.37  0.000
+    4.0s  0.380  1.1914  1.1882  +0.0031  -0.0978+-0.0308   +3.27  0.000
+    8.0s  0.565  1.1362  1.1419  -0.0056  -0.0654+-0.0271   +2.20  0.000
+
+=== shape ===
+  peak z at horizon 0.2s
+  near horizons (<=0.5s) z: ['+3.73', '+3.41']
+  far  horizons (>=4.0s) z: ['+3.27', '+2.20']
+  -> signal survives at multi-second horizons: ANTICIPATORY.
+     A rig could lead the music, not just react to it.
+
+wrote data/cache/horizon_sweep.json

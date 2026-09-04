@@ -1,0 +1,61 @@
+device=cuda horizons=[0, 10, 20, 40] (= [0.0, 1.0, 2.0, 4.0] s)
+songs train=99 val=23 test=18
+train windows: 84,241  gpu tensors 0.79 GB
+/root/lightsem/lightsem/model/encoder.py:106: UserWarning: enable_nested_tensor is True, but self.use_nested_tensor is False because encoder_layer.norm_first was True
+  self.transformer = nn.TransformerEncoder(layer, num_layers=n_layers)
+params: 2,359,769
+ep   0 loss 0.1418 val_R2_now -0.0133 val_R2_allh +0.0027 *
+ep   1 loss 0.1224 val_R2_now -0.0327 val_R2_allh -0.0240
+ep   2 loss 0.1097 val_R2_now -0.1355 val_R2_allh -0.1144
+ep   3 loss 0.0979 val_R2_now -0.1833 val_R2_allh -0.1544
+ep   4 loss 0.0865 val_R2_now -0.2430 val_R2_allh -0.2204
+ep   5 loss 0.0780 val_R2_now -0.2178 val_R2_allh -0.1953
+ep   6 loss 0.0721 val_R2_now -0.3165 val_R2_allh -0.2848
+ep   7 loss 0.0681 val_R2_now -0.3117 val_R2_allh -0.2869
+ep   8 loss 0.0650 val_R2_now -0.2707 val_R2_allh -0.2506
+ep   9 loss 0.0626 val_R2_now -0.3300 val_R2_allh -0.2959
+ep  10 loss 0.0605 val_R2_now -0.3253 val_R2_allh -0.2919
+ep  11 loss 0.0588 val_R2_now -0.3828 val_R2_allh -0.3348
+ep  12 loss 0.0571 val_R2_now -0.3912 val_R2_allh -0.3370
+ep  13 loss 0.0557 val_R2_now -0.3925 val_R2_allh -0.3401
+ep  14 loss 0.0547 val_R2_now -0.3644 val_R2_allh -0.3174
+ep  15 loss 0.0531 val_R2_now -0.3761 val_R2_allh -0.3405
+ep  16 loss 0.0525 val_R2_now -0.3263 val_R2_allh -0.2847
+ep  17 loss 0.0516 val_R2_now -0.3870 val_R2_allh -0.3296
+ep  18 loss 0.0508 val_R2_now -0.4058 val_R2_allh -0.3587
+ep  19 loss 0.0501 val_R2_now -0.3647 val_R2_allh -0.3113
+ep  20 loss 0.0489 val_R2_now -0.4031 val_R2_allh -0.3468
+ep  21 loss 0.0486 val_R2_now -0.3957 val_R2_allh -0.3391
+ep  22 loss 0.0476 val_R2_now -0.4444 val_R2_allh -0.3867
+ep  23 loss 0.0469 val_R2_now -0.4662 val_R2_allh -0.4106
+ep  24 loss 0.0467 val_R2_now -0.4353 val_R2_allh -0.3732
+ep  25 loss 0.0460 val_R2_now -0.3965 val_R2_allh -0.3458
+ep  26 loss 0.0456 val_R2_now -0.4138 val_R2_allh -0.3612
+ep  27 loss 0.0446 val_R2_now -0.4155 val_R2_allh -0.3602
+ep  28 loss 0.0444 val_R2_now -0.4199 val_R2_allh -0.3714
+ep  29 loss 0.0440 val_R2_now -0.3811 val_R2_allh -0.3266
+ep  30 loss 0.0432 val_R2_now -0.4341 val_R2_allh -0.3875
+ep  31 loss 0.0432 val_R2_now -0.4447 val_R2_allh -0.3865
+ep  32 loss 0.0430 val_R2_now -0.4513 val_R2_allh -0.3942
+ep  33 loss 0.0423 val_R2_now -0.4450 val_R2_allh -0.3915
+ep  34 loss 0.0423 val_R2_now -0.4422 val_R2_allh -0.3897
+ep  35 loss 0.0419 val_R2_now -0.4459 val_R2_allh -0.3892
+ep  36 loss 0.0417 val_R2_now -0.4518 val_R2_allh -0.3942
+ep  37 loss 0.0418 val_R2_now -0.4407 val_R2_allh -0.3865
+ep  38 loss 0.0418 val_R2_now -0.4473 val_R2_allh -0.3915
+ep  39 loss 0.0418 val_R2_now -0.4450 val_R2_allh -0.3898
+
+best val R2_now -0.0133 @ epoch 0  (76s)
+
+  horizon   hue_cos   hue_sin       sat       val   val_p90  hue_conc     MEAN
+----------------------------------------------------------------------------------
+   0.0 s    -0.0074    0.0048    0.0049   -0.0186   -0.0042   -0.0222  -0.0071
+   1.0 s    -0.0097    0.0021   -0.0106   -0.0095   -0.0225   -0.0241  -0.0124
+   2.0 s    -0.0162   -0.0152    0.0089   -0.0022   -0.0201   -0.0174  -0.0104
+   4.0 s    -0.0483   -0.0603   -0.0407    0.0009   -0.0166   -0.0720  -0.0395
+
+TEST R2_within (now)   = -0.0071
+per-song-mean oracle   = -0.0000  <- zero point
+best fair linear       = -0.1091
+
+wrote data/cache/macro_results.json

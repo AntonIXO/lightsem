@@ -1,0 +1,34 @@
+keypoint files: 1408   music files: 60
+paired sequences: 1408
+music ids used: [('mBR1', 3), ('mBR2', 3), ('mBR3', 3), ('mBR4', 3), ('mBR5', 3), ('mHO0', 3), ('mHO1', 3), ('mHO2', 3), ('mHO3', 3), ('mHO4', 3), ('mHO5', 3), ('mJB0', 3)]
+usable sequences: 263
+
+=== M1: r(KE, audio envelope) by timescale ===
+ scale_s            r_rms          r_onset
+     0.1    0.031+-0.086     0.031+-0.063 
+     0.5    0.080+-0.149     0.108+-0.154 
+     2.0    0.261+-0.247     0.283+-0.241 
+     8.0    0.653+-0.301     0.667+-0.290 
+
+=== M2: Ridge R^2 (audio features -> KE), GroupKFold by music ===
+  scale= 0.1s  R^2= 0.0019   (r=0.044)
+  scale= 0.5s  R^2= 0.0050   (r=0.071)
+  scale= 2.0s  R^2=-0.0254   (r=0.000)
+  scale= 8.0s  R^2=-0.0694   (r=0.000)
+
+=== M3: CEILING - r(KE_A, KE_B) same music, different dancer ===
+  scale= 0.1s  r=  0.024 +- 0.104  (n_pairs=1574)  => R^2_ceiling=0.0006
+  scale= 0.5s  r=  0.047 +- 0.164  (n_pairs=1574)  => R^2_ceiling=0.0022
+  scale= 2.0s  r=  0.132 +- 0.245  (n_pairs=1574)  => R^2_ceiling=0.0174
+  scale= 8.0s  r=  0.495 +- 0.359  (n_pairs=1574)  => R^2_ceiling=0.2449
+
+====================================================================
+VERDICT: audio->pose R^2  vs  inter-dancer ceiling R^2
+====================================================================
+ scale_s   R2_audio   R2_ceiling  frac_of_ceiling
+     0.1     0.0019       0.0006          330.15%
+     0.5     0.0050       0.0022          229.13%
+     2.0    -0.0254       0.0174         -145.91%
+     8.0    -0.0694       0.2449          -28.34%
+
+saved -> /root/lightsem/probe1_results.npy

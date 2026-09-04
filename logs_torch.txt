@@ -1,0 +1,27 @@
+Resolved 29 packages in 2.72s
+Downloading networkx (2.0MiB)
+Downloading torch (782.3MiB)
+Downloading cuda-bindings (11.6MiB)
+Downloading nvidia-cublas-cu12 (566.8MiB)
+Downloading triton (179.6MiB)
+Downloading sympy (6.0MiB)
+Downloading setuptools (1.2MiB)
+Downloading nvidia-cuda-nvrtc-cu12 (84.0MiB)
+Downloading nvidia-nccl-cu12 (283.0MiB)
+ Downloaded setuptools
+Downloading nvidia-cusparse-cu12 (274.9MiB)
+Downloading nvidia-cufile-cu12 (1.1MiB)
+Downloading nvidia-cusparselt-cu12 (273.9MiB)
+Downloading nvidia-nvjitlink-cu12 (37.4MiB)
+Downloading nvidia-cudnn-cu12 (627.4MiB)
+Downloading nvidia-cufft-cu12 (184.2MiB)
+Downloading nvidia-nvshmem-cu12 (132.7MiB)
+Downloading nvidia-cuda-cupti-cu12 (9.8MiB)
+Downloading nvidia-cusolver-cu12 (255.1MiB)
+Downloading nvidia-curand-cu12 (60.7MiB)
+ Downloaded networkx
+ Downloaded nvidia-cufile-cu12
+ Downloaded sympy
+ Downloaded cuda-bindings
+ Downloaded nvidia-cuda-cupti-cu12
+ Downloaded triton

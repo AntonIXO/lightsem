@@ -1,0 +1,27 @@
+music ids: ['mBR4', 'mLO4', 'mLH0', 'mKR3', 'mJS1', 'mHO3', 'mBR5', 'mWA5', 'mWA3', 'mWA2']
+same-choreo-multi-dancer counts: [('mBR4', 10), ('mLO4', 10), ('mLH0', 10), ('mKR3', 10), ('mJS1', 10), ('mHO3', 10), ('mBR5', 10), ('mWA5', 10), ('mWA3', 10), ('mWA2', 10)]
+loaded sequences: 231
+same-choreo pairs: 115   diff-choreo pairs: 1373
+
+=== A1+A2: MAX cross-corr over +-1s lag, KE_A vs KE_B ===
+ scale_s |            SAME choreo |            DIFF choreo
+         |              r_max (n) |              r_max (n)
+     0.1 |   0.313 +-0.154  (n= 115) |   0.290 +-0.138  (n= 250)
+     0.5 |   0.366 +-0.222  (n= 115) |   0.354 +-0.208  (n= 250)
+     2.0 |   0.466 +-0.360  (n= 115) |   0.464 +-0.362  (n= 250)
+     8.0 |   0.812 +-0.280  (n= 115) |   0.842 +-0.224  (n= 250)
+
+=== A3: motion-hit EVENT agreement (jerk peaks, +-70ms) ===
+  SAME choreo  F1=0.250 +-0.130   random-null F1=0.191   lift=+0.060   (n=95)
+  DIFF choreo  F1=0.223 +-0.134   random-null F1=0.186   lift=+0.037   (n=239)
+
+=== A3b: motion hits vs librosa beat grid (+-70ms) ===
+  motion-hit vs beat-grid F1=0.116 +-0.066   random-null=0.103   lift=+0.013   (n=209)
+  mean tempo: 119.8 BPM
+
+======================================================================
+READ: if SAME-choreo r_max is HIGH at 0.1-0.5s while DIFF-choreo is
+LOW, beat-scale pose is reproducible signal and music->motion is
+genuinely one-to-many (ground truth arbitrary). If BOTH are low,
+beat-scale KE is estimator noise and the formula is undefined there.
+======================================================================

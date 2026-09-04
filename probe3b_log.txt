@@ -1,0 +1,31 @@
+music ids: ['mWA5', 'mWA4', 'mWA3', 'mWA2', 'mWA0', 'mPO5', 'mPO4', 'mPO3', 'mPO2', 'mPO1', 'mPO0', 'mMH5']
+audio prepared: 12 tracks  (dur 30-51s)
+usable sequences: 271   median dur 8.7s   median beats/clip 14
+same-choreo pairs: 136   diff-choreo pairs: 1550
+
+==========================================================================
+T1  BEAT-SYNCHRONOUS KE  (natural musical element, not a fixed window)
+==========================================================================
+  inter-dancer r  SAME choreo: +0.131 +-0.320  (n=136)
+  inter-dancer r  DIFF choreo: -0.007 +-0.277  (n=400)
+  r(beat-sync KE, beat-sync RMS)  : +0.050 +-0.304  (n=271)
+  audio->KE Ridge R^2 (beat-sync, GroupKFold by music): -0.0089  (r=-0.025, N=5274)
+
+==========================================================================
+T2  STRUCTURAL BOUNDARY agreement (pose sections vs audio sections)
+==========================================================================
+  pose-boundary vs audio-boundary F1 (+-0.5s): 0.462 +-0.190
+  random-null F1 : 0.352     lift: +0.110   (n=271)
+  [ceiling] inter-dancer pose-boundary F1 : 0.500 +-0.247  (n=136)
+
+==========================================================================
+T3  SECTION-LEVEL KE (audio sections as shared abstracted unit)
+==========================================================================
+  inter-dancer r  SAME choreo: +0.143 +-0.552  (n=136)
+  inter-dancer r  DIFF choreo: +0.056 +-0.558  (n=400)
+
+==========================================================================
+VERDICT: segmentation-first rescues the idea ONLY if same-choreo
+clearly exceeds diff-choreo. Equal values = generic 'human moving to
+music', no choreography-specific information, rule-out survives.
+==========================================================================

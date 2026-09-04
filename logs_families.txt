@@ -1,0 +1,19 @@
+songs with both descriptors and targets: 30
+families: ['energy', 'harmonic', 'openl3', 'spectral', 'timbre']
+dims: energy:2  harmonic:2  openl3:512  spectral:10  timbre:128
+events 274  horizon 1.0s
+
+rhythm-only baseline (no audio): 1.4364x
+
+    family   dim     lift     marg             null       z      p
+    energy     2   1.5464  +0.1100   1.4343+-0.1089   +1.03  0.240
+  harmonic     2   1.3927  -0.0437   1.4536+-0.1006   -0.61  0.720
+    openl3   512   1.2548  -0.1816   1.2338+-0.0925   +0.23  0.320
+  spectral    10   1.3698  -0.0666   1.3780+-0.1134   -0.07  0.520
+    timbre   128   1.2139  -0.2225   1.2990+-0.1208   -0.70  0.680
+
+=== verdict ===
+  No family beats its own permutation null at z>2.
+  -> event prediction from audio is not supported on these 30 songs.
+
+wrote data/cache/family_attribution.json

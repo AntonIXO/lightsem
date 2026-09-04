@@ -1,0 +1,29 @@
+==========================================================================
+S1  CLUSTER-AWARE PERMUTATION (labels shuffled within each track)
+==========================================================================
+  observed gap (SAME - DIFF) : +0.1377
+  permutation null           : +0.0001 +-0.0489
+  two-sided p                : 0.0041   SIGNIFICANT
+
+==========================================================================
+S2  BOOTSTRAP over TRACKS (n=12 independent units)
+==========================================================================
+  gap 95% CI : [+0.0881, +0.1942]   excludes 0
+  Cohen's d  : +0.476
+
+==========================================================================
+S3  STRUCTURAL BOUNDARY: fraction of the inter-dancer ceiling
+==========================================================================
+  pose->audio boundary F1 : 0.462
+  random null             : 0.331
+  inter-dancer ceiling    : 0.500
+  fraction of ceiling     : 77.1%
+  lift over null 95% CI   : [+0.079, +0.184]   excludes 0
+
+==========================================================================
+S4  PRACTICAL READ
+==========================================================================
+  beat-sync inter-dancer r = +0.131 -> shared variance R^2 = 0.0171 (1.71%)
+  i.e. even a PERFECT audio->pose model explains at most 1.71% of another dancer's beat-level energy.
+  audio envelope baseline r(KE, RMS) = +0.050 -> R^2 = 0.0025
+  audio->KE ridge on held-out track  R^2 = -0.0089 (negative = worse than predicting the mean)

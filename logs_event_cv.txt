@@ -1,0 +1,24 @@
+songs 140  (5-fold CV, every song held out once)
+events 1376  horizon 1.0s
+
+=== observed (CV over all songs) ===
+     audio  lift 1.2974x
+    hazard  lift 1.3241x
+      both  lift 1.4151x
+  audio marginal over rhythm: +0.0909x
+
+=== permutation null (40 reps, circular-shifted events) ===
+  preserves event count + rhythm, destroys audio alignment
+  10/40  audio 1.1853 +- 0.0521   marginal -0.1886 +- 0.1097
+  20/40  audio 1.1938 +- 0.0482   marginal -0.1664 +- 0.0960
+  30/40  audio 1.1902 +- 0.0486   marginal -0.1526 +- 0.0859
+  40/40  audio 1.1938 +- 0.0519   marginal -0.1568 +- 0.0876
+
+=== verdict ===
+         audio-only lift: obs +1.2974  null +1.1938 +- 0.0519   z +2.00   p 0.050
+     audio marginal lift: obs +0.0909  null -0.1568 +- 0.0876   z +2.83   p 0.000
+
+  -> audio beats its own null by z=+2.83. REAL coupling
+     CAVEAT: could still be audio->camera-editing, not audio->lighting.
+
+wrote data/cache/event_probe_cv.json

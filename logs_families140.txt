@@ -1,0 +1,22 @@
+songs with both descriptors and targets: 140
+families: ['energy', 'harmonic', 'openl3', 'spectral', 'timbre']
+dims: energy:2  harmonic:2  openl3:512  spectral:10  timbre:128
+events 1376  horizon 1.0s
+
+rhythm-only baseline (no audio): 1.3241x
+
+    family   dim     lift     marg             null       z      p
+    energy     2   1.4704  +0.1463   1.4381+-0.0488   +0.66  0.240
+  harmonic     2   1.3832  +0.0590   1.4609+-0.0550   -1.41  0.960
+    openl3   512   1.4151  +0.0909   1.2794+-0.0539   +2.52  0.000
+  spectral    10   1.7060  +0.3818   1.4562+-0.0593   +4.21  0.000
+    timbre   128   1.6203  +0.2962   1.3302+-0.0582   +4.98  0.000
+
+=== verdict ===
+  significant: ['timbre', 'spectral', 'openl3']
+  strongest: timbre (z=+4.98)
+  energy alone z=+0.66
+  BEYOND energy: ['spectral', 'timbre'] -> semantic features add;
+     an L3 model has headroom over threshold triggers.
+
+wrote data/cache/family_attribution.json

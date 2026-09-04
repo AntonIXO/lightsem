@@ -1,0 +1,43 @@
+music ids: ['mWA5', 'mWA4', 'mWA3', 'mWA2', 'mWA0', 'mPO5', 'mPO4', 'mPO3', 'mPO2', 'mPO1']
+audio prepared for 10 tracks
+loaded sequences: 227
+same-choreo pairs: 114  diff-choreo pairs: 1309
+
+========================================================================
+T1  BEAT-SYNCHRONOUS aggregation (natural musical element, not a window)
+========================================================================
+/root/lightsem/.venv/lib/python3.12/site-packages/numpy/_core/fromnumeric.py:3824: RuntimeWarning: Mean of empty slice
+  return _methods._mean(a, axis=axis, dtype=dtype,
+/root/lightsem/.venv/lib/python3.12/site-packages/numpy/_core/_methods.py:142: RuntimeWarning: invalid value encountered in scalar divide
+  ret = ret.dtype.type(ret / rcount)
+/root/lightsem/.venv/lib/python3.12/site-packages/numpy/_core/_methods.py:219: RuntimeWarning: Degrees of freedom <= 0 for slice
+  ret = _var(a, axis=axis, dtype=dtype, out=out, ddof=ddof,
+/root/lightsem/.venv/lib/python3.12/site-packages/numpy/_core/_methods.py:178: RuntimeWarning: invalid value encountered in divide
+  arrmean = um.true_divide(arrmean, div, out=arrmean,
+/root/lightsem/.venv/lib/python3.12/site-packages/numpy/_core/_methods.py:211: RuntimeWarning: invalid value encountered in scalar divide
+  ret = ret.dtype.type(ret / rcount)
+  inter-dancer r (beat-sync KE)  SAME choreo: +nan +-nan  (n=0)
+  inter-dancer r (beat-sync KE)  DIFF choreo: -0.022 +-0.129  (n=5)
+  r(beat-sync KE, beat-sync RMS)           : +0.022 +-0.109  (n=27)
+  audio->KE Ridge R^2 (beat-sync, GroupKFold by music): -0.0013   (r=-0.027, N=1631)
+
+========================================================================
+T2  STRUCTURAL BOUNDARY agreement (pose sections vs audio sections)
+========================================================================
+  pose-boundary vs audio-boundary F1 (+-1.0s): 0.276 +-0.163
+  random-null F1                            : 0.301
+  lift                                      : -0.025   (n=227)
+  [ceiling] inter-dancer pose-boundary F1   : 0.786 +-0.203  (n=114)
+
+========================================================================
+T3  SEGMENT-LEVEL (audio sections as the shared unit; abstracted modality)
+========================================================================
+  inter-dancer r (section-mean KE) SAME choreo: +0.269 +-0.484  (n=32)
+  inter-dancer r (section-mean KE) DIFF choreo: -0.121 +-0.271  (n=5)
+
+========================================================================
+VERDICT RULE: segmentation-first RESCUES the idea only if beat-sync /
+section-level inter-dancer agreement is clearly ABOVE the fixed-window
+numbers AND same-choreo clearly exceeds diff-choreo. Otherwise the
+earlier rule-out survives the skill's own prescribed methodology.
+========================================================================
