@@ -212,8 +212,9 @@ def calibrate_event_thresholds(lm: "LightModel", clips, fps: float = 40.0,
     """
     target, got = {}, {}
     preds, dur_s = [], 0.0
-    for bus, d in clips:
-        dm = lm.descriptors(bus, seed=0)
+    for bus, d, *rest in clips:
+        extra = rest[0] if rest else None
+        dm = lm.descriptors(bus, seed=0, extra=extra)
         T = int(dm.meta["n_frames"])
         preds.append(lm._hazard_cache)
         dur_s += T / fps
@@ -265,8 +266,9 @@ def calibrate_output_smoothing(lm: "LightModel", clips, fps: float = 40.0,
     """
     lm.smooth_tau = {}
     preds, reals = [], []
-    for bus, d in clips:
-        dm = lm.descriptors(bus, seed=0)
+    for bus, d, *rest in clips:
+        extra = rest[0] if rest else None
+        dm = lm.descriptors(bus, seed=0, extra=extra)
         preds.append(dm)
         reals.append(d)
     names = [c for c in list(lm.block_a) + list(lm.block_c)

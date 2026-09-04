@@ -40,6 +40,8 @@ def main() -> None:
     ap.add_argument("--tag", default="v3causal")
     ap.add_argument("--audio-dir", default="", help="bus directory; cache/audio_offline for an offline checkpoint")
     ap.add_argument("--corpus", default="aist", choices=["aist", "jd"])
+    ap.add_argument("--structure", default="none", choices=["none", "real", "shuffled"],
+                    help="jd, H-C: feed the checkpoint the structure channels it was trained with")
     ap.add_argument("--tensor", default="", help="tensor path for the split definition")
     ap.add_argument("--dry-run", action="store_true")
     args = ap.parse_args()
@@ -64,8 +66,15 @@ def main() -> None:
         nm = meta[i]["name"]
         if args.corpus == "jd":
             d = load_descriptors(CACHE_ROOT / "justdance_motion" / f"{nm}.npz")
+            off = float(d.meta.get("start_s", 0.0))
             bus = slice_bus(load_bus((Path(args.audio_dir) if args.audio_dir else CACHE_ROOT / "justdance_audio") / f"{meta[i]['music_id']}.npz"),
-                            d.duration_s, offset_s=float(d.meta.get("start_s", 0.0)))
+                            d.duration_s, offset_s=off)
+            if args.structure != "none":
+                from lightsem.model.jd_data import structure_channels
+                mids = sorted({m["music_id"] for m in meta})
+                src = meta[i]["music_id"] if args.structure == "real" else mids[(mids.index(meta[i]["music_id"]) + 1) % len(mids)]
+                extra = structure_channels(src, off if args.structure == "real" else 0.0, len(bus.times))
+                clips.append((bus, d, extra)); continue
         else:
             d = load_descriptors(CACHE_ROOT / "motion" / f"{nm}.npz")
             bus = slice_bus(load_bus((Path(args.audio_dir) if args.audio_dir else CACHE_ROOT / "audio") / f"{nm.split('_')[4]}.npz"),
