@@ -26,6 +26,7 @@ def main() -> None:
     ap.add_argument("--split", default="val_track")
     ap.add_argument("--n", type=int, default=40)
     ap.add_argument("--tag", default="v3causal")
+    ap.add_argument("--audio-dir", default="", help="bus directory; cache/audio_offline for an offline checkpoint")
     args = ap.parse_args()
     z, meta = load_tensor()
     sp = make_splits(meta)
@@ -37,7 +38,7 @@ def main() -> None:
     for i in idx:
         nm = meta[i]["name"]
         d = load_descriptors(CACHE_ROOT / "motion" / f"{nm}.npz")
-        bus = slice_bus(load_bus(CACHE_ROOT / "audio" / f"{nm.split('_')[4]}.npz"), d.duration_s)
+        bus = slice_bus(load_bus((Path(args.audio_dir) if args.audio_dir else CACHE_ROOT / "audio") / f"{nm.split('_')[4]}.npz"), d.duration_s)
         clips.append((bus, d))
     print(f"calibrating smoothing on {len(clips)} {args.split} clips")
     taus = calibrate_output_smoothing(lm, clips)

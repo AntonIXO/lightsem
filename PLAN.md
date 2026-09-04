@@ -291,6 +291,26 @@ sampled variation that was jitter. Whether the result reads as better light is S
 question. The checkpoint that carries the fitted constants is `light_trunk_v3causal_smooth.pt`,
 and `outputs/stage0c/category_model/` must be re-rendered from it.
 
+**H-A, the look-ahead ceiling (vault exp-012).** Same 9.3 M Conformer, same 749,173 frames, splits,
+12k steps; the only changes are the symmetric attention window, symmetric convolution padding and
+`extract_bus(causal=False)` (leak 0.29 by design against 0.0). Both gates **fail**, and that is the
+informative outcome:
+
+| | causal (L = 0) | offline (whole track) |
+|---|---|---|
+| held-out block A R², val_track / test_genre / test_dancer | +0.019 / −0.270 / +0.054 | **−0.009 / −0.218 / +0.002** |
+| event AP val_track (footfall, jump, hit) | 0.363 / 0.047 / 0.426 | 0.364 / 0.044 / 0.428 |
+| Light-BAS − null, raw | +0.018 | +0.019 |
+| Light-BAS − null, with H-B smoothing | +0.293 | +0.276 |
+| FID raw / smoothed | 67.3 / 19.8 | 66.4 / 18.2 |
+| diversity across clips raw / smoothed | 2.73 / 2.90 | 3.06 / 3.06 |
+
+With the entire track visible, nothing moves. The gap between model light and real-mapped light is
+therefore not a causality tax and not a context-length problem; it is the corpus, as Stage 0b said
+(AIST++ movement is explained by genre, not audio). Consequences: H-C is tested on Just Dance,
+where songs have structure, never on AIST++; the pre-rendered path's honest advantages are H-B's
+lag removal and H-C/H-D anticipation, not accuracy; and Stage 8 is the accuracy lever.
+
 ---
 
 ## 2. What audio determines in a dancing body — and what it does not
@@ -693,7 +713,9 @@ corpus must carry per-track alignment error as an explicit field and downstream 
 channels on it. The Oslo R² +0.30 result does **not** depend on that reconstruction — it is
 computed from the published series, already on the mix clock. The human A/B materials
 (`outputs/stage0c/`) are unaffected by everything in this section except `category_model/`, which
-was rendered from the pre-repair checkpoint and needs re-rendering.
+was re-rendered on 2026-09-04 (evening) from `light_trunk_v3causal_smooth.pt`, the shipped causal
+model with H-B's smoothing, and is ready to rate: model against the beat trigger, ten
+brightness-matched pairs plus ten foils, same two questions as section 1.5.
 
 ---
 

@@ -64,6 +64,16 @@ def run_ha(c):
             f"model's own causality probe leaks {tr_off['causality_leak']:.4g} (expected non-zero) against "
             f"{tr_c['causality_leak']:.4g} for the causal one.")}]})
     verdict = "the corpus binds" if not (g_r2 and g_bas) else "the model was the constraint"
+    try:
+        sm_off = J("stage1_light_eval_v4offline_smooth.json")["summary"]; sm_c = J("stage1_light_eval_v3hb_ema.json")["summary"]
+        smooth_line = (f" With H-B's per-channel smoothing fitted on each model: offline Light-BAS "
+                       f"{sm_off['bas_minus_null']['model']['delta']:+.4f} CI {[round(x,4) for x in sm_off['bas_minus_null']['model']['ci95']]} "
+                       f"against causal {sm_c['bas_minus_null']['model']['delta']:+.4f} CI {[round(x,4) for x in sm_c['bas_minus_null']['model']['ci95']]}; "
+                       f"FID {sm_off['fid_light']['model_vs_real']:.2f} vs {sm_c['fid_light']['model_vs_real']:.2f}; diversity "
+                       f"{sm_off['diversity']['across_clips_model']:.2f} vs {sm_c['diversity']['across_clips_model']:.2f}. The look-ahead "
+                       f"buys nothing at either level of smoothing.")
+    except FileNotFoundError:
+        smooth_line = ""
     c.call("close_experiment", {"experiment_id": eid, "notes": (
         f"H-A, the look-ahead ceiling. Same trunk, same data, whole-track features and symmetric context. "
         f"Held-out block A R2 {r2_c:+.4f} -> {r2_off:+.4f}; Light-BAS {bas_c['delta']:+.4f} -> {bas_off['delta']:+.4f}; "
@@ -73,7 +83,15 @@ def run_ha(c):
         f"{ev_off.get('events_per_clip', {}).get('model', float('nan')):.1f} against real "
         f"{ev_off.get('events_per_clip', {}).get('real', float('nan')):.1f}. Reading: {verdict}. "
         f"PLAN.md 6.7 said that if an offline model with the entire track cannot clear +0.105 the binding "
-        f"constraint is data, and the next move is Stage 8 (Just Dance), which is running.")})
+        f"constraint is data, and the next move is Stage 8 (Just Dance), which is running." + smooth_line)})
+    c.call("interpret_experiment", {"experiment_id": eid, "failure_mode": "recipe_conditional", "lesson": (
+        "The ceiling test did its job in one run: with the entire track visible, symmetric context and the "
+        "offline bus, held-out block A R2 does not move and the light gates do not move, on AIST++. So the "
+        "gap between model light and real-mapped light is not a causality tax and not a context-length "
+        "problem; it is the corpus (Stage 0b: AIST++ movement is explained by genre, not audio). Three "
+        "architecture experiments would have confirmed this slowly. Consequence: H-C (structure "
+        "conditioning) is tested on Just Dance, where songs have structure, not on AIST++; and the "
+        "pre-rendered path's honest advantages are H-B's lag removal and H-C/H-D anticipation, not accuracy.")})
     return eid
 
 

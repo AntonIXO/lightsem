@@ -29,15 +29,15 @@ import torch.nn.functional as F
 from lightsem.model.light_trunk import LightTrunk, TrunkConfig, causality_probe
 from probe_event_target import (average_precision, event_train, hazard_feats, target)
 
-ROOT = "/mnt/lightsem-data/cache/rpmc_causal"
+ROOT = "/mnt/lightsem-data/cache/rpmc_causal"     # default; --root switches corpus (H-F: justdance_visual)
 OUT = Path("/root/lightsem/outputs/stage2")
 CKPT = Path("/mnt/lightsem-data/ckpt")
 WIN = 300          # 30 s at 10 Hz
 
 
-def load_all():
+def load_all(root=ROOT):
     songs = []
-    for p in sorted(glob.glob(f"{ROOT}/*.npz")):
+    for p in sorted(glob.glob(f"{root}/*.npz")):
         d = np.load(p, allow_pickle=False)
         x, y = d["x"].astype(np.float32), d["y"].astype(np.float32)
         if len(x) < WIN + 20 or not np.isfinite(x).all():
@@ -101,11 +101,12 @@ def main():
     ap.add_argument("--horizon-s", type=float, default=0.0,
                     help="predict events this many seconds AHEAD (target shifted earlier)")
     ap.add_argument("--run-tag", default="")
+    ap.add_argument("--root", default=ROOT, help="feature cache: rpmc_causal (operators) or justdance_visual (H-F)")
     ap.add_argument("--with-hazard", action="store_true",
                     help="give the model the rhythm features too (the fair upper form)")
     args = ap.parse_args()
     device = "cuda" if torch.cuda.is_available() else "cpu"
-    songs = load_all()
+    songs = load_all(args.root)
     if args.horizon_s > 0:
         # Anticipation target: the event train shifted EARLIER by the horizon,
         # so frame i is positive when an event happens at i + horizon. The
@@ -200,6 +201,7 @@ def main():
            "delta": float(d.mean()),
            "ci95": [float(np.percentile(bs, 2.5)), float(np.percentile(bs, 97.5))],
            "ridge_reference_delta": 0.3145, "offline": args.offline, "horizon_s": args.horizon_s,
+           "root": args.root,
            "causality_leak": causality_probe(
                model, torch.randn(2, 400, in_dim, device=device), 150),
            "train_s": time.time() - t0}
