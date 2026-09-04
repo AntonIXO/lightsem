@@ -1199,7 +1199,7 @@ preregistered predicted effects, never asserted. Scripts: `build_beatsaver.py`, 
 | H-M (9.7 item 5) | one frozen MERT layer group beats the bus once the catalogue hash is removed | MERT-330M layers 10–13 / 15–16 → PCA-32: **+0.019 AP** [0.017, 0.022], **+0.018** after subtracting the song mean, random projection of the bus 0.000, embedding alone +0.004; the song-ID probe: two halves of a song find each other **83 %** of the time (bus scalars 3.6 %, chance 0.3 %) | **directional only** (residual survives the leak but misses +0.02) |
 | H-I (9.3) | a group-effects decoder replaces the rule table | v1 (parameters regressed through the histogram renderer, random rigs): held-out scene MSE 0.073 vs shuffled donor 0.075 (RPMC), 0.078 vs 0.083 (JD); look-change lift 1.36 (RPMC) / **2.39** (JD) vs rhythm 1.25 / 1.48; but the per-role parameters **collapsed to per-song constants** (intensity sd 0.002 inside a clip) — the conditional mean, as section 3 predicted for an unpredictable channel. v2 (the pre-registered branch: the look sampled by a rectified flow, then assigned): samples carry 0.7× the target's variance but correlate with it at r 0.04 (JD) / 0.01 (RPMC). G9.3 on 39 held-out JD clips, brightness-matched: FID_light v1 930 / v2 6211 vs the shipped conductor 43.8 and donors 927 / 5403 (null 4142, floor 7); Light-BAS − null v1 −0.166, v2 −0.055 vs conductor +0.124, coach +0.080, beat trigger +0.097; events per clip v1 182, v2 1039, real 888; rig transfer v1 0.302 vs channel-copy 0.306, v2 0.345 vs 0.305; human A/B not run | **refuted as built** (two light-level gates missed twice → "the conductor was not the bottleneck: stop decorating it") |
 | H-J (9.4) | section intent belongs on the conductor's knobs | bar-rate planner (4 L, d 256, 1 token/bar, 3 M) on RPMC + JD: held-out pooled R² of the bar knobs ≈ 0 for level / activity / look count (shuffled sections −0.1 to −0.2), hue and saturation negative — the knobs are not predictable from audio within a song. On the v2 decoder: FID plan 597 vs shuffled-section plan 610 vs no planner 6211 vs causal planner 590; paired BAS plan −0.061 vs no planner −0.055 (diff −0.007 [−0.012, −0.002]) | **directional only** (FID passes the shuffled control by 2 %, BAS fails) |
-| H-K (9.5) | a factorised critic with beat-trigger negatives reranks | 16-bar dual encoders, InfoNCE with shift / other-song / beat-trigger negatives: held-out pair accuracy **0.89** real vs beat-trigger light on the same audio (C_U alone 0.98, C_R alone 0.99 — the redundant channels separate the two by themselves), 0.73 vs another song, **0.56 vs a ≥ 2-bar shift**; additive projection and best-of-8: see the vault (exp-023) | recorded in the vault |
+| H-K (9.5) | a factorised critic with beat-trigger negatives reranks | 16-bar dual encoders, InfoNCE with shift / other-song / beat-trigger negatives: held-out pair accuracy **0.89** real vs beat-trigger light on the same audio (C_U alone 0.98, C_R alone 0.99 — the redundant channels separate the two by themselves), 0.73 vs another song, **0.56 vs a ≥ 2-bar shift**. An additive f(audio) + g(light) model explains R² 0.90 of the critic's scores, yet the best-of-8 argmax changes on 41 % of clips. Best-of-8 over the shipped model's flow seeds vs random-of-8 on 39 held-out JD clips: FID_light 41.4 vs 43.8, Light-BAS − null 0.123 vs 0.124 (coach 0.081) — the reranker changes nothing the metrics see | **directional only** (G9.5-bt and G9.5-additive pass, the human gate is not run) |
 | H-L (9.6) | Bradley–Terry on the knobs | not run: needs raters | open |
 
 **What this pass settles.**
@@ -1223,11 +1223,16 @@ preregistered predicted effects, never asserted. Scripts: `build_beatsaver.py`, 
 4. *The critic learns the right thing for the wrong reason.* 0.89 real-vs-beat-trigger accuracy is
    carried by level statistics (C_R 0.99); real-vs-shift at 0.56 says the critic barely sees timing
    inside a song. Best-of-N on it reranks by level, which the Stage 9 stack already controls.
-5. *The engine matters.* v1's negative Light-BAS comes from the effects engine (a chase with a
-   phase spread places fixture onsets off the beat); v2's 1039 events per clip come from sampling
-   jitter surviving the one-pole. Both are engineering, not evidence about the decoder's content, and
-   both are why FID_light is not the metric for a look sampler (see the zero-spread diagnostic in
-   `outputs/stage9/decoder_eval_v1_zerospread.json`).
+5. *The engine matters, and BAS is not the metric either.* v1's negative Light-BAS came from the
+   effects engine: a chase with a phase spread places fixture onsets off the beat. The same v1
+   decoder with the spread zeroed (`outputs/stage9/decoder_eval_v1_zerospread.json`, 30 clips) scores
+   Light-BAS − null **+0.51** (conductor +0.13, coach +0.08) with 393 events per clip against the
+   conductor's 779, and the rig transfer passes clearly (0.19 vs channel-copy 0.30); the engine-only
+   arm scores +0.52 the same way. So G9.3-bas and G9.3-rig pass under the corrected engine, G9.3-fid
+   fails (1107 vs 44) and the human A/B was not run: the pre-registered "miss any two" verdict stands,
+   but on FID and the missing human test, not on timing. Any beat-locked engine maximises BAS; only
+   the human "too metronomic" question can price it. v2's 1039 events per clip are sampling jitter
+   surviving the one-pole. Neither number is evidence about the decoder's content.
 
 **Where that leaves the plan.** The decent-not-human gap is not closed by Stage 9's levers, and the
 measurements say why: every corpus on disk supports *cue timing* and *palette statistics*, none
