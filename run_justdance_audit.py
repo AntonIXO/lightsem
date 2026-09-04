@@ -168,6 +168,46 @@ def main():
                                           "n": int(len(vp))}
         print(f"  bounce period / beat: median {np.median(vp):.2f}, near 1x or 2x in "
               f"{res['bounce_period_over_beat']['frac_near_1_or_2']:.0%} of {len(vp)} entries")
+    # ---- section contrast: coach movement in the loudest third of a song's
+    # sections against the quietest third (the Just Dance analogue of Oslo's
+    # drop/breakdown 1.68-2.53x), from the structure labels' segment energies
+    STRUCT = CACHE / "justdance_structure"
+    ratios = {ch: [] for ch in ("qom", "vert_bounce_amp", "head_speed")}
+    for ei, r in enumerate(rows):
+        sp = STRUCT / f"{r['music_id']}.npz"
+        if not sp.exists():
+            continue
+        try:
+            d = load_descriptors(MOTION / f"{r['name']}.npz")
+            segs = json.loads(str(np.load(sp, allow_pickle=False)["meta"]))["segments"]
+        except Exception:
+            continue
+        off = float(r.get("start_s", 0.0)); n = len(d.times)
+        en = np.array([sg["energy"] for sg in segs])
+        if len(en) < 3:
+            continue
+        lo_t, hi_t = np.percentile(en, [33, 67])
+        for ch in ratios:
+            v = np.nan_to_num(d.channels[ch][:n], nan=0.0)
+            hi, lo = [], []
+            for sg in segs:
+                a_, b_ = int(round((sg["start_s"] - off) * FPS)), int(round((sg["end_s"] - off) * FPS))
+                a_, b_ = max(a_, 0), min(b_, n)
+                if b_ - a_ < FPS:
+                    continue
+                (hi if sg["energy"] >= hi_t else lo if sg["energy"] <= lo_t else []).append(float(v[a_:b_].mean()))
+            if hi and lo and np.mean(lo) > 0:
+                ratios[ch].append(float(np.mean(hi) / np.mean(lo)))
+    res["section_contrast"] = {}
+    for ch, rr in ratios.items():
+        if len(rr) >= 5:
+            rr = np.array(rr)
+            bs = np.array([rr[rng.integers(0, len(rr), len(rr))].mean() for _ in range(4000)])
+            res["section_contrast"][ch] = {"ratio_mean": float(rr.mean()), "ratio_median": float(np.median(rr)),
+                                           "ci95": [float(np.percentile(bs, 2.5)), float(np.percentile(bs, 97.5))],
+                                           "n_entries": int(len(rr))}
+            print(f"  section contrast {ch:16s} loud/quiet thirds: mean {rr.mean():.2f}x median {np.median(rr):.2f}x "
+                  f"CI [{np.percentile(bs,2.5):.2f},{np.percentile(bs,97.5):.2f}] ({len(rr)} entries)")
     (OUT / f"audit_{a.tag}.json").write_text(json.dumps(res, indent=1))
     print("wrote", OUT / f"audit_{a.tag}.json")
 
