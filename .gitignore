@@ -1,0 +1,25 @@
+# Bulk data and generated artefacts live on /mnt or are rebuildable from the
+# cache scripts; see CLAUDE.md. Nothing here belongs in the repo.
+.venv/
+__pycache__/
+*.pyc
+
+# Datasets and caches (7.5 GB): rebuild with build_caches.py / build_targets.py.
+# Anchored with a leading slash: a bare "data/" also matches lightsem/data/,
+# which is source code, and git ignores it without saying so.
+/data/
+
+# Stage outputs: JSON results are small but the renders are ~90 MB of MP4
+/outputs/
+
+# Model weights downloaded at run time
+*.pt
+*.onnx
+
+# Serialised arrays
+*.npz
+*.parquet
+
+# Editor and OS noise
+.DS_Store
+*.swp
