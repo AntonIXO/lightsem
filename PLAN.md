@@ -543,12 +543,17 @@ What the game is, from sources (Perplexity pass 2026-09-04; Switch-JustDance arX
 is the one peer-reviewed corpus built from this material): the coach is a **filmed dancer** on
 green screen, stylised in post, white body paint standard from JD4; a minority of JD2018+ maps
 are CGI. Coach and background are one **pre-rendered video** to which pictograms are timed, so
-audio and motion are locked inside the game; only the capture chain can add an offset. The coach
-video runs at **30 fps (25/29.97) whatever the capture rate**; 60 fps captures are UI composites
-over 30 fps motion, so every file is resampled to 30 before descriptors, never trusted at 60.
-The coach faces the camera and the player mirrors it — for us that is a performer seen from the
-audience, the same geometry as the frontal AIST video the pose path was validated on, so no
-sign flip is needed and the convention is recorded as `meta["view"] = "frontal"`. Ubisoft's
+audio and motion are locked inside the game; only the capture chain can add an offset. Wiki and
+emulator threads say the coach layer is 30 fps and 60 fps captures are UI composites; **measured,
+that is false for these files**: over 400 frames of the coach region, even/odd frame-difference
+ratios are 1.01–1.07 on the 60 fps files against 1.01–1.03 on 29.97 fps controls, with no
+duplicated frames, so the 60 fps captures carry real per-frame motion and are used at their
+native rate (descriptors resample to 40 fps as always). The coach faces the camera and the
+player mirrors it — for us that is a performer seen from the audience, the same geometry as the
+frontal AIST video the pose path was validated on, so no sign flip is expected; but whether the
+coach footage itself was flipped in post is asserted from documentation, not measured, and is
+recorded that way (`meta["view"] = "frontal"`, provenance *asserted*). It only matters for
+channels whose sign survives into a loss; see the laterality note in 8.1. Ubisoft's
 video artists **hand-animate the background lighting to the music**, and Gold Moves in
 JD2015–2018 "often occur at the start of the chorus or drop" with a frame-filling flash — a
 designed highlight marker readable from the pixels. The game's own timing files (moves, beats)
@@ -577,8 +582,9 @@ Three signals from one corpus, in the order they are tested:
    0.91–0.95; the earlier probe's failures were the AV1 decoder and title screens, not the
    coach. Two clips are genuinely weak (Funkytown 0.31 with 24 tracks; a 480p JD1 clip 0.57),
    and the pictogram strip (bottom right, small human figures), the score band (top), lyrics
-   (bottom left) and the star meter (left) are the suspects — mask them before detection and
-   re-measure those two. The Gold Move flash fills the frame around the coach and cannot be
+   (bottom left) and the star meter (left) were the suspects. Measured on Funkytown: masking the
+   bottom 18 % and top 12 % moves coverage 0.31 → 0.48 and tracks 23 → 21, so the mask is kept
+   but does not explain that clip. The Gold Move flash fills the frame around the coach and cannot be
    masked; frames with a frame-wide brightness spike are marked low-confidence and the spike
    itself is kept as the highlight marker. Coach selection is currently the longest track; it
    becomes the most persistent, largest, most central one, and the five multi-coach files are
@@ -600,8 +606,13 @@ Three signals from one corpus, in the order they are tested:
 Order of work and gates:
 
 - **8.1 Usability manifest** (done for audio and codecs; pose coverage pending): drop the 6
-  silent files; song-key dedupe; per-file `fps`, `start_s`, `coverage`, `n_coaches`,
-  `mirrored`. Gate: ≥ 250 usable single-coach songs with coverage ≥ 0.8.
+  silent files from the paired corpus, not only from the audio side; song-key dedupe; per-file
+  `fps`, `start_s`, `coverage`, `n_coaches`, `view`. Laterality: a uniform flip of the coach
+  footage would give every Just Dance clip a laterality sign opposite to AIST and Oslo with
+  nothing in the data to reveal it, so until one human glance at a one-handed move settles the
+  flip, sign-carrying channels (`lateral_pos`, `laterality`) from this corpus stay out of any
+  regression loss — which costs nothing, because their sign is sampled in block C by design.
+  Gate: ≥ 250 usable single-coach songs with coverage ≥ 0.8.
 - **8.2 Predictability audit on held-out songs** (the decision; `rb-ls2-00b` recipe unchanged):
   audio → coach movement curve at 0.5 / 2 / 8 s, R² on held-out songs against a song-identity
   baseline and with genre partialled out; chorus/verse movement ratio with CI. *Gate:* held-out
