@@ -380,10 +380,23 @@ def _():
         oa.mix_duration = lambda mix: 100.0
         # offset_s > nominal_start_s: the recording's t=0 falls inside the slot,
         # which used to raise a broadcast error and kill the whole build.
-        p = oa.Placement(title="t", mix=1, track_order=1, nominal_start_s=10.0,
-                         nominal_end_s=60.0, nominal_bpm=124.0, source_file="x",
-                         ratio=1.0, offset_s=18.0, corr=0.5, null_corr=0.4,
-                         margin=0.1, native_bpm=124.0, fitted_bpm=124.0, used_s=50.0)
+        # Built field-by-field rather than positionally: this check is about
+        # render_mix's slice arithmetic, and it should not break every time the
+        # alignment work adds a column to Placement.
+        import dataclasses
+        want = {"title": "t", "mix": 1, "track_order": 1, "nominal_start_s": 10.0,
+                "nominal_end_s": 60.0, "source_file": "x", "ratio": 1.0,
+                "offset_s": 18.0, "corr": 0.5, "null_corr": 0.4, "margin": 0.1,
+                "used_s": 50.0}
+        args = {}
+        for f in dataclasses.fields(oa.Placement):
+            if f.name in want:
+                args[f.name] = want[f.name]
+            elif f.type in ("float", float):
+                args[f.name] = 124.0            # every remaining field is a tempo
+            else:
+                args[f.name] = ""
+        p = oa.Placement(**args)
         y = oa.render_mix(1, [p])
         assert np.isfinite(y).all(), "render produced non-finite samples"
         head = int(8.0 * oa.SR)

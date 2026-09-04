@@ -1,5 +1,8 @@
 # LightSem v2 — sound → light for concerts and festivals, trained on dance
 
+Date: 2026-09-04, **rev. 6** (Anton's call: the product is a **pre-rendered show**, not a live
+desk. Section 0.1 states what that changes, section 1.4 records the repair pass that preceded it,
+and section 6.7 is the new stage. Previous header:
 Date: 2026-09-04, **rev. 5** (implementation pass run; section 1.3 records what was built and what each stage gate returned). Previous header:
 Date: 2026-09-04, **rev. 4** (rev. 3 sections kept; section 1.2 and the marked
 paragraphs record what Stages 0a and 0b actually measured, and the data table in section 5 is
@@ -34,6 +37,38 @@ follow the torso/head (bass), small fast fixtures follow the hands (highs), vert
 bounce at the beat, horizontal sweeps run at the bar. Latency science (ITU-R BT.1359: sound
 leading light is detectable at +45 ms) forces a two-path deployment: onset→strobe transients on a
 10–20 ms DSP path, the learned model painting the slower channels.
+
+### 0.1 The look-ahead axis (rev. 6)
+
+**The product is a pre-rendered show for a track that is known in advance.** A DJ set with a
+prepared list, a band with a fixed setlist, a festival slot programmed the day before. The whole
+track is available before the first frame of light is emitted.
+
+That does not delete the causal work; it relabels it. Every number from here on carries its
+position on one axis:
+
+| L | what it means | how it is bought |
+|---|---|---|
+| `L = 0` | strictly causal, nothing after *t* | free; the live desk case |
+| `L = 250 ms` | bounded look-ahead | a house delay line; IMAG already forces 50–150 ms |
+| `L = whole track` | offline | pre-rendering; no delay in the room at all |
+
+**A score is comparable only to a score at the same L.** An offline number quoted without its
+causal counterpart is not a result — it is the same mistake as the leak in section 1.4, made on
+purpose. Three consequences follow immediately:
+
+1. `extract_bus(causal=False)` is the offline feature path and already exists. The flag was kept
+   when the bus was made causal, so the centred STFT, the centred HPSS median and the
+   interpolating resample are one argument away.
+2. The five `ORACLE_CHANNELS` stop being a debt. A whole-track constant-tempo comb grid is simply
+   correct offline; `flags["oracle_beat"]` now marks a property rather than a compromise.
+3. Section 4's latency budget is no longer a product gate. It stays as the `L = 0`
+   characterisation and for any live-augmented variant.
+
+The honest reason to prefer pre-rendering is not that the numbers are higher. It is section 6.7's
+H-C: the largest measured effect in this project's data is the drop/breakdown movement contrast
+(1.68–2.53×, Cohen's *d* up to +2.55), and using it requires knowing a drop is coming, which is
+exactly what a causal model cannot do and a human operator with a setlist always does.
 
 ---
 
@@ -153,6 +188,51 @@ Three corrections the work forced on this plan:
    6.5 events per second, and a uniform train sits at its own circular-shift null however well
    each flash is phased. Moving those channels to the sampled head and making it autoregressive
    moved model light from +0.0009 to +0.0172 against the null and FID from 114 to 70.
+
+### 1.4 Repair pass, 2026-09-04 — a cloud review, and what the check written for it found
+
+Ten review findings were fixed (index truncation on partial cache rebuilds, a `bpm / ratio * ratio`
+no-op, a broadcast crash on a weak Oslo fit, an unequal-length concatenation, a silently
+no-op command dispatch, a `[:-0]` slice, a dead `max_gap`, a double DMX decode, a p99 computed
+from one measurement repeated 100 times). The regression check written to hold the worst of them
+then failed on something larger.
+
+**The audio bus was not causal.** Three librosa defaults, each offline-correct and each reading
+the future:
+
+| channel | look-ahead | cause |
+|---|---|---|
+| `percussive_ratio` | 375 ms, **15× its own SD** | HPSS's centred 31-frame median |
+| every spectral channel | 25 ms | `center=True` timestamps a 2048-sample window at its midpoint |
+| `onset`, `pulse_clarity`, mel | whole clip (thin) | `top_db` clamps against the clip's maximum |
+
+Plus a 23 ms leak in the analysis→control resample and up to 70 ms in `trailing_pulse_clarity`'s
+interpolation. All fixed; the check is now in `verify_all.py` (17 checks, 0 failures) and asserts
+that the five beat-grid channels are still flagged oracle rather than silently exempt.
+
+**The cost, which is the point.** Held-out block A R² fell **+0.0438 → +0.0192** after retraining
+on honest features. Half of the previously recorded number was bought with look-ahead a live
+system cannot have. The model's own causality probe was passing throughout and never had a chance
+of catching this: it perturbs the model's input, not the input's construction.
+
+**Two measurements that redirect the work.**
+
+1. *Event density.* The model emits 85.8 visible light events per clip against 30.1 for
+   light mapped from the real dance. A train denser than the beat grid has a high circular-shift
+   null by construction, so correct phasing cannot show above it. Block-B thresholds are now
+   fitted to the corpus event rate (footfall 0.898 ev/s against 0.896, hit 1.352 against 1.353)
+   and stored in the checkpoint — but a clean control on identical features shows this **lowered**
+   Light-BAS (+0.0212 → +0.0179) while improving FID (69.54 → 67.29) and diversity (2.57 → 2.73).
+   The predicted mechanism was wrong and the light event count did not move.
+2. *Where the density actually comes from.* The model's **sampled** channels carry 11× to 452× the
+   corpus's above-6 Hz energy (`section_energy` 116×, `space_eff` 202×, `weight` 343×,
+   `hand_spread` 452×), while the **regressed** block A channels sit at 0.3–5×. The targets are
+   mocap through a 12 Hz zero-phase Butterworth and are physically smooth; a flow head sampled per
+   frame is not, and `ar_flow` was already enabled, so conditioning on its own previous output is
+   not sufficient. That jitter crosses the light's visibility threshold on the wash fixtures.
+
+Two diagnostics were registered so neither failure can hide again: `light-event-rate-ratio` and
+`descriptor-hf-energy-ratio`, both target-1.0.
 
 ---
 
@@ -374,6 +454,59 @@ EDM-98 ships as `pip install edm98==0.1.0` (labels intro/build-up/drop/breakdown
 pairs + train/eval splits, MIT; code CC-BY-4.0; github.com/25ohms/EDM-98) with **Deezer track IDs,
 no audio** — the tracks must be sourced separately before the structure labeller can be scored.
 
+### 6.7 Stage 7 — the offline pre-rendered path (rev. 6, next work) — `rb-ls2-07-offline-prerendered`
+
+Four hypotheses, queued in the vault, **in this order**. H-A decides whether the other three are
+worth running at all; do not reorder for convenience.
+
+**H-A — the look-ahead ceiling. Run this first.**
+Same 9.3 M Conformer, same 749k frames, same splits, same 12k steps, same seed. The only changes
+are that the attention mask and the causal convolution padding come off and `extract_bus` is
+called with `causal=False`. One training run, ~15 minutes.
+*Gates:* offline held-out block A R² ≥ +0.04 (double the causal +0.0192); offline Light-BAS
+≥ +0.105 (half of real-mapped +0.2106); both numbers quoted next to their `L = 0` counterparts.
+*Why first:* it separates "the model is constrained" from "the corpus is exhausted". If an
+offline model with the entire track still cannot clear +0.105, the binding constraint is data —
+free dance to concert music — and three more architecture experiments would spend a week
+confirming that slowly. Sweep `L ∈ {0, 250 ms, whole track}` only if the endpoints differ.
+
+**H-B — zero-phase spectral matching.** No retraining. Filter each predicted channel with the
+same 12 Hz zero-phase Butterworth the targets were built with; compare three arms on identical
+descriptors — unfiltered, causal one-pole (`calibrate_output_smoothing`, already implemented, the
+online fallback), and zero-phase.
+*Gates:* `light-event-rate-ratio` within 1.3 of real-mapped; no channel above 2× corpus above-6 Hz
+energy; FID below the unfiltered arm; **diversity not below the unfiltered arm** — a rate win
+bought with dead light fails, and smoothing trivially reduces the rate, so this gate is the one
+that matters.
+
+**H-C — whole-track structure conditioning.** Section label (intro / build / drop / breakdown /
+core) and signed seconds to the next drop as conditioning channels. Labels from whole-track
+Laplacian segmentation plus the existing EDM role labeller, validated against the Oslo record's
+hand-marked breakdown/buildup/drop times — the only place in this corpus where the truth is
+written down. Retrain with and without, everything else identical.
+*Gates:* Light-BAS above the unconditioned model with a paired-bootstrap CI excluding zero;
+rendered drop/breakdown intensity ratio within 1.3× of the corpus 1.68–2.53×; and a **shuffle
+control** — section labels permuted across tracks must destroy the gain, or the model is using the
+channel as a bias term and the structure claim is void.
+
+**H-D — operator head with anticipation.** The cheapest of the four: features extracted, causal
+head trained, the change is the attention mask. Section 9's ban on anticipation claims was written
+for a live product where anticipation had to be inferred; pre-rendering removes the reason for the
+rule but not its standard.
+*Gates:* event AP lift at a +4 s horizon > +0.05 with CI excluding zero (the number preregistered
+in section 6, Stage 2B, unchanged); offline marginal lift above the causal head's +0.3145 on the
+same 86-show test split; time-shift control still peaks within 2 s of zero.
+
+**Dependencies and things that are not blocked by this.**
+Oslo audio reconstruction (a parallel effort) caps at roughly ±1 s alignment because the record
+publishes 12 scalar channels and no audio, and the DJ desk moves exactly the channels published.
+±1 s is usable for block A envelopes at 2–8 s EMA and useless for block B or beat phase, so the
+corpus must carry per-track alignment error as an explicit field and downstream code must gate
+channels on it. The Oslo R² +0.30 result does **not** depend on that reconstruction — it is
+computed from the published series, already on the mix clock. The human A/B materials
+(`outputs/stage0c/`) are unaffected by everything in this section except `category_model/`, which
+was rendered from the pre-repair checkpoint and needs re-rendering.
+
 ---
 
 ## 7. Evaluation protocol (what convinces a sceptic)
@@ -406,10 +539,15 @@ Splits by track, genre and dancer. Effect sizes with CIs, never z alone.
 
 ## 9. Not in this plan
 
-Regressing raw kinetic energy at 10 Hz; regressing absolute light levels; claiming anticipation
-on RPMC-L2; scraping YouTube; a dancer, pose model or dance generator in the inference path
+Regressing raw kinetic energy at 10 Hz; regressing absolute light levels; scraping YouTube; a
+dancer, pose model or dance generator in the inference path
 (music-to-dance generators remain, at most, an offline pseudo-labelling teacher gated by the
 same audits).
+
+**Changed in rev. 6:** anticipation on RPMC-L2 moves from *excluded* to *gated* (section 6.7 H-D),
+because the product now knows the track in advance. The preregistered bar is unchanged: lift at
+4 s > +0.05 with a CI excluding zero, and the shift control peaking at 0. Also newly forbidden:
+**quoting any offline number without its `L = 0` counterpart on the same splits.**
 
 ## 10. File and vault map
 

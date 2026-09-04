@@ -14,7 +14,7 @@ from pathlib import Path
 import numpy as np
 import torch
 
-from ..audio.online import AudioBus
+from ..audio.online import AudioBus, ema
 from ..conductor.scalers import load_scalers
 from ..motion.descriptors import MotionDescriptors
 from .light_data import (AUDIO_SCALARS, BLOCK_A, BLOCK_A_V2, BLOCK_B, BLOCK_C,
@@ -62,6 +62,18 @@ class LightModel:
         # corpus rate. Written by calibrate_event_thresholds(); absent on an
         # uncalibrated checkpoint, which then falls back to the percentile.
         self.event_thr: dict[str, float] = dict(blob.get("event_thr") or {})
+        # Per-channel output smoothing, in seconds. The targets are mocap put
+        # through a 12 Hz Butterworth and are genuinely smooth; a flow head
+        # sampled per frame is not, even conditioned on its own last output.
+        # Measured on val_track, the model carries 11x to 452x the above-6-Hz
+        # energy of the real channels, and that jitter is what makes the
+        # rendered light flash 86 times a clip where real dance flashes 30.
+        self.smooth_tau: dict[str, float] = dict(blob.get("smooth_tau") or {})
+
+    def _smooth(self, name: str, v: np.ndarray, fps: float) -> np.ndarray:
+        """Trailing one-pole at the fitted time constant, or nothing."""
+        tau = self.smooth_tau.get(name)
+        return v if not tau else ema(v, fps, float(tau))
 
     def receptive_field(self) -> int:
         """How far back the trunk can see, in frames."""
@@ -116,9 +128,9 @@ class LightModel:
         fps = bus.fps
         ch = {}
         for i, name in enumerate(self.block_a):
-            ch[name] = self._unscale(name, A[:, i])
+            ch[name] = self._smooth(name, self._unscale(name, A[:, i]), fps)
         for i, name in enumerate(self.block_c):
-            ch[name] = self._unscale(name, C[:, i])
+            ch[name] = self._smooth(name, self._unscale(name, C[:, i]), fps)
         ch.setdefault("vert_bounce", np.zeros(T))
         ch["beat_period_s"] = bus.channels["beat_period_s"][:T]
         for need in ("twist", "vert_root", "vert_period_conf", "travel_sin",
@@ -192,6 +204,62 @@ def calibrate_event_thresholds(lm: "LightModel", clips, fps: float = 40.0,
         got[name] = sum(_peaks(p[:, i], out[name], fps).size for p in preds) / dur_s
         print(f"  {name:9s} threshold {out[name]:.4f} -> {got[name]:.3f} ev/s "
               f"(corpus {want:.3f})")
+    return out
+
+
+def hf_fraction(x: np.ndarray, fps: float = 40.0, cut_hz: float = 6.0) -> float:
+    """Share of a channel's variance above `cut_hz`. Zero for a constant."""
+    x = np.asarray(x, dtype=np.float64)
+    x = x - x.mean()
+    if x.size < 64 or np.allclose(x, 0):
+        return 0.0
+    f = np.fft.rfftfreq(x.size, 1.0 / fps)
+    p = np.abs(np.fft.rfft(x)) ** 2
+    return float(p[f > cut_hz].sum() / max(p.sum(), 1e-12))
+
+
+def calibrate_output_smoothing(lm: "LightModel", clips, fps: float = 40.0,
+                               lo: float = 0.004, hi: float = 1.0,
+                               n_iter: int = 30, cut_hz: float = 6.0
+                               ) -> dict[str, float]:
+    """Fit one trailing time constant per channel to the corpus's own spectrum.
+
+    Not a denoiser and not a taste call: the target for each channel is the
+    above-`cut_hz` energy fraction that the REAL descriptors have, measured on
+    the same held-out clips. A channel the model already emits as smoothly as
+    the corpus gets no smoothing at all, which is what happens to most of the
+    regressed block. The filter is a trailing one-pole, so nothing here costs
+    causality -- it costs lag, which is why the fitted constants are reported.
+    """
+    lm.smooth_tau = {}
+    preds, reals = [], []
+    for bus, d in clips:
+        dm = lm.descriptors(bus, seed=0)
+        preds.append(dm)
+        reals.append(d)
+    names = [c for c in list(lm.block_a) + list(lm.block_c)
+             if all(c in r.channels for r in reals)]
+    out = {}
+    for name in names:
+        want = float(np.mean([hf_fraction(r.channels[name], fps, cut_hz) for r in reals]))
+        series = [p.channels[name] for p in preds]
+        raw = float(np.mean([hf_fraction(s, fps, cut_hz) for s in series]))
+        if raw <= want:
+            print(f"  {name:18s} already at {raw:.4f} <= corpus {want:.4f}, no smoothing")
+            continue
+        a, b = lo, hi
+        for _ in range(n_iter):
+            m = 0.5 * (a + b)
+            got = float(np.mean([hf_fraction(ema(s, fps, m), fps, cut_hz) for s in series]))
+            if got > want:
+                a = m
+            else:
+                b = m
+        tau = 0.5 * (a + b)
+        got = float(np.mean([hf_fraction(ema(s, fps, tau), fps, cut_hz) for s in series]))
+        out[name] = float(tau)
+        print(f"  {name:18s} tau {tau*1000:6.1f} ms  HF {raw:.4f} -> {got:.4f} "
+              f"(corpus {want:.4f})")
     return out
 
 

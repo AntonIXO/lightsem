@@ -36,6 +36,10 @@ def main():
     ap.add_argument("--seeds", type=int, default=3)
     ap.add_argument("--ckpt", default="/mnt/lightsem-data/ckpt/light_trunk_v1.pt")
     ap.add_argument("--tag", default="v1")
+    ap.add_argument("--no-calibration", action="store_true",
+                    help="ignore the checkpoint's fitted event thresholds and fall "
+                         "back to the per-clip 97th percentile, to price the "
+                         "calibration on otherwise identical features")
     args = ap.parse_args()
 
     z, meta = load_tensor()
@@ -46,6 +50,9 @@ def main():
     names = [meta[i]["name"] for i in idx]
 
     lm = LightModel(args.ckpt)
+    if args.no_calibration:
+        lm.event_thr = {}
+    print(f"event thresholds: {lm.event_thr or 'per-clip 97th percentile'}")
     cond = ConductorHybrid()
     rig = canonical_rig()
     F_model, F_real, F_bt, F_null = [], [], [], []
