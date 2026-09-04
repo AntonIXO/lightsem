@@ -39,11 +39,17 @@ def main() -> None:
     ap.add_argument("--n", type=int, default=40)
     ap.add_argument("--tag", default="v3causal")
     ap.add_argument("--audio-dir", default="", help="bus directory; cache/audio_offline for an offline checkpoint")
+    ap.add_argument("--corpus", default="aist", choices=["aist", "jd"])
+    ap.add_argument("--tensor", default="", help="tensor path for the split definition")
     ap.add_argument("--dry-run", action="store_true")
     args = ap.parse_args()
 
-    z, meta = load_tensor()
-    sp = make_splits(meta)
+    z, meta = load_tensor(Path(args.tensor) if args.tensor else None)
+    if args.corpus == "jd":
+        from lightsem.model.jd_data import make_jd_splits
+        sp = make_jd_splits(meta)
+    else:
+        sp = make_splits(meta)
     idx = getattr(sp, args.split)
     rng = np.random.default_rng(0)
     idx = idx[rng.permutation(len(idx))[:args.n]]
@@ -56,9 +62,14 @@ def main() -> None:
     clips = []
     for i in idx:
         nm = meta[i]["name"]
-        d = load_descriptors(CACHE_ROOT / "motion" / f"{nm}.npz")
-        bus = slice_bus(load_bus((Path(args.audio_dir) if args.audio_dir else CACHE_ROOT / "audio") / f"{nm.split('_')[4]}.npz"),
-                        d.duration_s)
+        if args.corpus == "jd":
+            d = load_descriptors(CACHE_ROOT / "justdance_motion" / f"{nm}.npz")
+            bus = slice_bus(load_bus((Path(args.audio_dir) if args.audio_dir else CACHE_ROOT / "justdance_audio") / f"{meta[i]['music_id']}.npz"),
+                            d.duration_s, offset_s=float(d.meta.get("start_s", 0.0)))
+        else:
+            d = load_descriptors(CACHE_ROOT / "motion" / f"{nm}.npz")
+            bus = slice_bus(load_bus((Path(args.audio_dir) if args.audio_dir else CACHE_ROOT / "audio") / f"{nm.split('_')[4]}.npz"),
+                            d.duration_s)
         clips.append((bus, d))
     print(f"calibrating on {len(clips)} {args.split} clips")
 

@@ -678,8 +678,11 @@ Three signals from one corpus, in the order they are tested:
    six: solos and multi-coach routines at ≥ 0.998 coverage per coach with the right count
    (HandClap 3, Wild Wild West 4, Havana 1 with two extras dropped). Bounce period on the
    beat where the coach bounces periodically (Wild Wild West 1.04×, Funkytown 2.04×).
-   **Production**: YOLO26m-pose at 960, conf 0.10, three GPU workers, 60 fps files at stride 2;
-   ~85 frames/s single-process and GPU-bound, so the full run is 7–9 h. Launched 15:00.
+   **Production**: YOLO26m-pose, conf 0.10, three GPU workers, 60 fps files at stride 2. The first
+   20 files ran at imgsz 960 (~98 frames/s aggregate once the GPU was free, 7.5 h for the rest);
+   the remaining 312 run at 640 (~182 frames/s, ~4 h), which the trial showed agrees with the
+   largest model as well as 960 does. `meta["imgsz"]` records which. Launched 15:00, restarted
+   at 640 at 16:05.
 2. **Background visuals → a designed show.** With coach and UI masked, the background is an
    art-directed light show: beams and flashes on the drop, sparkles on gold moves, palette
    changes at the chorus. Extract per-frame brightness and HSV histograms exactly as RPMC-L2
