@@ -56,6 +56,7 @@ def main():
     ap.add_argument("--limit", type=int, default=0)
     ap.add_argument("--tag", default="jd")
     ap.add_argument("--min-songs", type=int, default=12)
+    ap.add_argument("--alpha", type=float, default=1e3, help="ridge penalty on z-scored features")
     a = ap.parse_args()
     OUT.mkdir(parents=True, exist_ok=True)
     rows = load_rows(a.limit)
@@ -100,7 +101,7 @@ def main():
     Xc = np.concatenate(X_all)
     ent_of_frame = np.repeat(np.arange(n_ent), lens)
     song_of_frame = sid[ent_of_frame]
-    res = {"n_entries": n_ent, "n_songs": len(songs), "taus": TAUS, "channels": CH, "held_out_song": {}}
+    res = {"n_entries": n_ent, "n_songs": len(songs), "taus": TAUS, "channels": CH, "alpha": a.alpha, "held_out_song": {}}
     # 5-fold by song, every song held out once
     folds = np.array_split(rng.permutation(len(songs)), 5)
     for ch in CH:
@@ -112,7 +113,7 @@ def main():
                 mu, sd = Xc[tr].mean(0), Xc[tr].std(0) + 1e-9
                 Xtr = np.c_[(Xc[tr] - mu) / sd, np.ones(tr.sum())]
                 ym = y[tr].mean()
-                W = np.linalg.solve(Xtr.T @ Xtr + 1e3 * np.eye(Xtr.shape[1]), Xtr.T @ (y[tr] - ym))
+                W = np.linalg.solve(Xtr.T @ Xtr + a.alpha * np.eye(Xtr.shape[1]), Xtr.T @ (y[tr] - ym))
                 for s_i in f:
                     m = song_of_frame == s_i
                     if m.sum() < 400:
