@@ -1,5 +1,7 @@
 # LightSem v2 — sound → light for concerts and festivals, trained on dance
 
+Date: 2026-09-04, **rev. 7** (category test rated, section 1.5; the Just Dance corpus
+Anton downloaded becomes Stage 8, section 6.8; section 5 gains its row). Previous header:
 Date: 2026-09-04, **rev. 6** (Anton's call: the product is a **pre-rendered show**, not a live
 desk. Section 0.1 states what that changes, section 1.4 records the repair pass that preceded it,
 and section 6.7 is the new stage. Previous header:
@@ -170,7 +172,8 @@ streaming inference, and a brightness-matched blind A/B harness.
 | 1 | model light beats its null / FID / diversity | **fail** — +0.017 vs real-mapped +0.216; FID 70 vs half-null 67; diversity 0.42x real |
 | 2B | operator-head event lift >= +0.09, z > 3 | **pass** — +0.3145x, CI [+0.149, +0.479], z 3.66, 699 shows, shift control peaks at 0 s |
 | 4 | transient <= 20 ms, learned <= 65 ms, causal | **pass** — 10.8 ms, 62.5 ms p99, leak 0.0 |
-| 0c, 3 | human A/B | **materials generated, awaiting raters** |
+| 0c (ii) | dance-derived light beats the beat trigger on >= 1 question, CI excluding 0.5 | **pass, directional** — 'lighting engineer' 8-1-1, CI [0.518, 0.997]; 'on the music' 5-4-1, chance; one rater, 10 pairs (section 1.5) |
+| 0c (i), 3 | late lights; full human A/B | **materials generated, awaiting raters** |
 
 Three corrections the work forced on this plan:
 
@@ -233,6 +236,33 @@ of catching this: it perturbs the model's input, not the input's construction.
 
 Two diagnostics were registered so neither failure can hide again: `light-event-rate-ratio` and
 `descriptor-hf-energy-ratio`, both target-1.0.
+
+### 1.5 Category test, rated 2026-09-04 — dance is not a category error for light
+
+Stage 0c (ii), `outputs/stage0c/category/`, scored by `score_category.py` against the sealed key;
+vault `exp-010`. Ten AIST++ pairs, 8 s, brightness-matched (mean ratio 1.03–1.17, p95 ratio
+0.84–0.96), dance-derived **hybrid** conductor against the 30-line **beat trigger**, one rater
+(Anton), FOIL trials skipped.
+
+| question | hybrid | beat trigger | equal | win rate (decided) | exact 95 % CI | sign test |
+|---|---|---|---|---|---|---|
+| which looks like a **lighting engineer** did it | 8 | 1 | 1 | 0.889 | [0.518, 0.997] | p = 0.039 |
+| which is **on the music** | 5 | 4 | 1 | 0.556 | [0.212, 0.863] | p = 1.0 |
+
+The tie on timing is by construction: after Stage 0a the hybrid takes its transient phase from
+the same audio beat grid the beat trigger uses, so the two arms are phased identically and the
+first question cannot separate them. The second question is a dynamics question — does the
+light vary in amount, width and rate the way a designed show does — and that is where the
+dancer's envelopes show. **Block C stays in the product.** The verdict is directional, not
+final: one rater of five, ten tracks of twenty, no club/EDM half, and the file letter was a
+constant label across trials. The preregistered bar remains open for Stage 3.
+
+The rater's notes are the useful part. T05, beat trigger: *"too fast changes for light, but on
+the music actually."* T07, both bad: *"A does not moving, B is moving boring"* — the hybrid was
+static on that clip and lost both questions. The hybrid loses when its envelopes are flat; the
+beat trigger loses when it flashes on every beat. That is the model's own largest measured
+defect (section 1.4, 85.8 light events per clip against 30.1) named independently by a human,
+and it is why H-B in section 6.7 is aimed at what a viewer sees rather than at a metric.
 
 ---
 
@@ -377,6 +407,7 @@ strobe gate (accent × hit/drop); v1 learned (Stage 5).
 | OpenDanceSet (arXiv 2506.07565) | 100.3 h, 14 genres, 147 subjects, 2D + 3D; poses + source URLs, not pixels | research; ToS on the user | scale, if URLs resolve |
 | PopDanceSet, Let's Dance (arXiv 1801.07388), BRACE (2207.10120) | 3.6 h / ~1000 clips / breaking, pose from video | research | 2D-descriptor path |
 | RPMC-L2 (HF `RS2002/RPMC-L2`) | 699 songs, ~30 fps HSV histograms, 42.5 GB | CC-BY-4.0 | HEAD B events + palette |
+| **Just Dance gameplay captures (have: `/mnt/lightsem-data/justdance/`, 338 files, 19 GB)** | JD1–JD2020, 22.0 h, full commercial songs (median 236 s), one filmed and stylised coach per routine (5 multi-coach), 720p 234 / 1080p 80 / 480p 21, 29.97 fps dominant, stereo audio on all but 6 muted files | YouTube-sourced; Ubisoft choreography and art; **research only** (section 5 legal line) | **Stage 8**: block A/C targets from the coach via 2D pose; the background is a designed visual show (HEAD B-style events and palette); full songs give H-C its structure labels. Not a product training set |
 | own recordings (events, consent) | video → pose | own | the only fully commercial-clean path |
 
 **Video → descriptors pipeline (Anton's YOLO idea).** 2D pose (YOLO11-pose / RTMPose / ViTPose)
@@ -497,6 +528,103 @@ rule but not its standard.
 in section 6, Stage 2B, unchanged); offline marginal lift above the causal head's +0.3145 on the
 same 86-show test split; time-shift control still peaks within 2 s of zero.
 
+### 6.8 Stage 8 — the Just Dance corpus (rev. 7, `rb-ls2-08-justdance`)
+
+What is on disk (manifest `/mnt/lightsem-data/cache/justdance_manifest.json`): 338 captures,
+22.0 h, all with an audio stream, 6 of them silent; h264 176 / AV1 147 / VP9 15 (AV1 decodes
+through PyAV since `c7c0935`; `av` is installed in the torch venv by hand and is not yet in a
+requirements file); constant frame rate on all 338; 29.97 fps for 200 files, 59.94/60 for 85,
+25 for 33. One coach per routine except five duet/trio/crew files. 15 songs appear in more than
+one version (30 files), so **splits are by song, never by file.** Some audio is Ubisoft's
+in-house cover (Studio Allstars, Sweat Invaders, …), not the released master — harmless for
+pairing, which needs synchrony, not the original.
+
+What the game is, from sources (Perplexity pass 2026-09-04; Switch-JustDance arXiv:2511.17925
+is the one peer-reviewed corpus built from this material): the coach is a **filmed dancer** on
+green screen, stylised in post, white body paint standard from JD4; a minority of JD2018+ maps
+are CGI. Coach and background are one **pre-rendered video** to which pictograms are timed, so
+audio and motion are locked inside the game; only the capture chain can add an offset. The coach
+video runs at **30 fps (25/29.97) whatever the capture rate**; 60 fps captures are UI composites
+over 30 fps motion, so every file is resampled to 30 before descriptors, never trusted at 60.
+The coach faces the camera and the player mirrors it — for us that is a performer seen from the
+audience, the same geometry as the frontal AIST video the pose path was validated on, so no
+sign flip is needed and the convention is recorded as `meta["view"] = "frontal"`. Ubisoft's
+video artists **hand-animate the background lighting to the music**, and Gold Moves in
+JD2015–2018 "often occur at the start of the chorus or drop" with a frame-filling flash — a
+designed highlight marker readable from the pixels. The game's own timing files (moves, beats)
+exist only as internal tools or ripped UbiArt assets and are **not used**; the Just Dance wiki's
+per-song Difficulty and Effort ratings are legal metadata and supply the confound baseline.
+
+Why this corpus is different from AIST++, and the one way it might not be. AIST++ is 60
+structure-less loops with genre-typical improvisation; its movement is explained by genre
+(section 1.2). Just Dance is full songs with verses, choruses, bridges and drops, and the
+choreography is made to *that* song section by section — a designed response to structure,
+which is the lighting designer's job description and exactly what H-C needs. The way it can
+fail is the same way AIST++ failed: if between-song movement is explained by the song's genre
+or difficulty rating rather than by its audio, the corpus trains a genre prior. That is a
+measurement, not an assumption, and it is the first thing Stage 8 makes.
+
+Three signals from one corpus, in the order they are tested:
+
+1. **Coach motion → block A/C targets** (2D pose path, section 5). The channels that transfer
+   from video are the vertical and energy family (section 1.3 G3: vertical 0.79–0.87, shape
+   0.78–0.81); twist, hip yaw and footfall rate do not, so block A on this corpus is
+   `vert_bounce_amp`, `vert_period_s`, `com_speed`, `qom`, `head_speed`, `spread`, with
+   `hip_yaw_speed` and `footfall_rate` masked out of the loss for Just Dance clips. The coach is
+   mirrored relative to the player; laterality signs are already sampled, and `meta["mirrored"]`
+   records it. Pose on the stylised coach works: under a uniform protocol (`start_s` 40, 750
+   frames, imgsz 960) 6 of 10 probed clips reach coverage ≥ 0.98 with keypoint confidence
+   0.91–0.95; the earlier probe's failures were the AV1 decoder and title screens, not the
+   coach. Two clips are genuinely weak (Funkytown 0.31 with 24 tracks; a 480p JD1 clip 0.57),
+   and the pictogram strip (bottom right, small human figures), the score band (top), lyrics
+   (bottom left) and the star meter (left) are the suspects — mask them before detection and
+   re-measure those two. The Gold Move flash fills the frame around the coach and cannot be
+   masked; frames with a frame-wide brightness spike are marked low-confidence and the spike
+   itself is kept as the highlight marker. Coach selection is currently the longest track; it
+   becomes the most persistent, largest, most central one, and the five multi-coach files are
+   skipped. Gate each file on coverage ≥ 0.8. Lead-in menus and the results screen are cut by
+   `start_s` and by the end of the coach track. Cost, measured: 72 frames/s on the RTX 5070 at
+   imgsz 960, so a 750-frame screening pass over all 338 files is about 1 h and the full
+   extraction about 9 h; neither starts without Anton's word.
+2. **Background visuals → a designed show.** With coach and UI masked, the background is an
+   art-directed light show: beams and flashes on the drop, sparkles on gold moves, palette
+   changes at the chorus. Extract per-frame brightness and HSV histograms exactly as RPMC-L2
+   stores them, detect scene changes and palette shifts, and run the operator-head test
+   unchanged: audio's marginal lift over the rhythm-of-past-changes baseline. If it clears the
+   Stage 2B bar, HEAD B gains 22 h of pop/EDM/latin designed visuals next to 699 concert shows.
+3. **Full songs → structure labels for H-C.** Whole-track Laplacian segmentation and the EDM
+   role labeller run on real songs here for the first time; the coach's energy contrast between
+   chorus and verse is the corpus's analogue of Oslo's drop/breakdown 1.68–2.53×, and the
+   background's brightness contrast is a second, independent reading of the same sections.
+
+Order of work and gates:
+
+- **8.1 Usability manifest** (done for audio and codecs; pose coverage pending): drop the 6
+  silent files; song-key dedupe; per-file `fps`, `start_s`, `coverage`, `n_coaches`,
+  `mirrored`. Gate: ≥ 250 usable single-coach songs with coverage ≥ 0.8.
+- **8.2 Predictability audit on held-out songs** (the decision; `rb-ls2-00b` recipe unchanged):
+  audio → coach movement curve at 0.5 / 2 / 8 s, R² on held-out songs against a song-identity
+  baseline and with genre partialled out; chorus/verse movement ratio with CI. *Gate:* held-out
+  song R² ≥ +0.20 on the vertical/energy family at 2 s (Oslo gave +0.30, AIST++ ≤ 0.21 and
+  collapsing under genre), the genre-partialled correlation not collapsing to within ±0.1 of
+  zero, chorus/verse ratio CI clear of 1. If this fails the coach motion is another AIST++
+  and only signals 2 and 3 survive from the corpus.
+- **8.3 Sync check** before any block B use: the choreography is on the beat by design, so the
+  vertical-bounce phase against the beat grid should sit at one phase across files; a per-file
+  scatter flags capture offsets. Any fitted offset must transfer to a channel it was not fitted
+  on (section 1.2's refutation still stands).
+- **8.4 Visual-show test** (signal 2): event AP lift ≥ +0.09, z > 3 on held-out songs; hue KL
+  below the per-song mean; time-shift control peaking at 0.
+- **8.5 Train** the offline trunk (section 6.7 H-A variant, structure channels from H-C) on
+  AIST++ + Just Dance with a corpus token, Oslo held out entirely as the concert-domain test.
+  *Gate:* held-out-song block A R² on Just Dance above the AIST++-only model, **and** Oslo
+  shared-movement R² not below the AIST++-only model — the second is the one that matters,
+  because Oslo is real people hearing real EDM and Just Dance is one performer per song.
+
+Split of labour (2026-09-04): the parallel session owns video → descriptors (pose2d, masks,
+coach selection, the motion cache); this session owns the audio bus on the captures, the
+structure labels, the audit, the trunk and the vault records.
+
 **Dependencies and things that are not blocked by this.**
 Oslo audio reconstruction (a parallel effort) caps at roughly ±1 s alignment because the record
 publishes 12 scalar channels and no audio, and the DJ desk moves exactly the channels published.
@@ -555,7 +683,7 @@ Code to add: `lightsem/motion/` (FK, 2D/3D pose extraction, descriptor blocks A/
 `lightsem/conductor/` (v0 table, rig adaptor), `lightsem/eval/` (Light-BAS, FID_light-delta,
 nulls, A/B tooling, latency/causality tests), `lightsem/audio/online.py` (causal features, PLP/
 BeatNet phase), `lightsem/model/light_trunk.py` + heads. Vault: problem
-`dancing-light-generative-20260903`; runbooks `rb-ls2-infra`, `00`, `00b`, `00c`, `01…06`;
+`dancing-light-generative-20260903`; runbooks `rb-ls2-infra`, `00`, `00b`, `00c`, `01…06`, `07-offline-prerendered`, `08-justdance`;
 diagnostics `light-bas`, `fid-light-kinetic`, `light-diversity-kinetic`, `edm-collapse-rate`,
 `human-preference-winrate`, `audio-to-dmx-latency-ms`, `descriptor-audio-r2-over-identity`;
 papers linked (incl. Burger 2013/2014, Toiviainen 2010, Van Dyck 2013, Solberg & Jensenius 2017,

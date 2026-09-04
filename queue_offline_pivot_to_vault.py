@@ -22,7 +22,11 @@ P = "dancing-light-generative-20260903"
 
 
 def ok(r):
-    assert not (isinstance(r, dict) and r.get("ok") is False), r
+    # A validation error comes back as a STRING, not as {"ok": False}. The first
+    # version of this helper only checked the dict case and let the
+    # register_runbook call below fail silently (its `title` field is not
+    # accepted); rb-ls2-07 was registered a second time by register_rb07_to_vault.py.
+    assert isinstance(r, dict) and r.get("ok") is not False, r
     return r
 
 

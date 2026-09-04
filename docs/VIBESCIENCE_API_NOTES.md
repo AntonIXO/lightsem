@@ -105,3 +105,16 @@ must stay at 14 files.
 Feeding all requests via `subprocess.run(input=...)` closes stdin, and the
 server exits on EOF after replying to `initialize` only — later responses are
 never produced. Keep stdin OPEN and read responses incrementally.
+
+## register_runbook has no `title`
+
+`register_runbook(id, problem_id, prompt, priority, gates, topic_tags)` — passing `title`
+fails with `Unexpected keyword argument`. Put the title on the first line of `prompt`.
+`update_runbook(runbook_id, note | prompt)` is the same. (2026-09-04)
+
+## Validation errors are strings, not `{"ok": false}`
+
+A rejected call returns the pydantic error text as a plain string. A helper that only
+checks `r.get("ok") is False` on dicts lets the failure through. Assert
+`isinstance(r, dict) and r.get("ok") is not False`. This is how `rb-ls2-07` went
+unregistered for half a day while PLAN.md and four hypotheses referred to it. (2026-09-04)
