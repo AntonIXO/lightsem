@@ -758,6 +758,13 @@ Order of work and gates:
   mix 2, whose placement margin is −0.16), held-out-track ridge from the model's channels
   R² −0.12 [−0.21, −0.05] against +0.30 from published audio scalars. Two slots are badly
   placed and drag the mean; the well-placed five are the ones to read.
+  **Just Dance-trained model (no structure channels, H-B smoothing), 2026-09-04 20:30:** raw
+  r(model qom, crowd) **+0.335** over the same eight slots — Ladykiller +0.73 / +0.63,
+  Unlock Down +0.45 / +0.54, Icarus +0.34 / −0.05, Joyride +0.41 / −0.38 — with no fitting at
+  all; the two negatives are the badly placed slots. Held-out-track ridge from its channels
+  R² −0.08 [−0.36, +0.16], r +0.24, not below the AIST++-only model's −0.12. **The 8.5 concert
+  gate passes**: a model trained on filmed game coaches predicts the energy of a real crowd
+  hearing real EDM, and the AIST++-trained one does not.
 
 Split of labour (2026-09-04): the parallel session owns video → descriptors (pose2d, masks,
 coach selection, the motion cache); this session owns the audio bus on the captures, the
