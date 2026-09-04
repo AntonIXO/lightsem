@@ -354,6 +354,63 @@ weak on this corpus as on AIST++; the section-level coupling is real, which is e
 information H-C's structure channels carry, and the Conformer arms decide whether a nonlinear
 model with the full mel bank does better than the linear audit.
 
+**Stage 8.5 and H-C, the pipeline trained on Just Dance (vault exp-015).** Three arms of the same
+9.3 M causal Conformer on the Just Dance tensor (3.2 M frames, 453 coach channels, splits by song;
+`hip_yaw_speed` and `footfall_rate` out of the loss), each with its own event thresholds and H-B
+smoothing fitted on the validation songs, scored on 40 clips of held-out songs; the AIST++-trained
+model scored on the same clips:
+
+| model | held-out block A R² | event AP (footfall / jump / hit) | Light-BAS − null | FID | diversity | events per clip |
+|---|---|---|---|---|---|---|
+| AIST++-only (v3causal, smoothed) | −0.266 | 0.28 / 0.12 / 0.30 | +0.242 | 125.7 | 7.10 | 545 |
+| Just Dance, no structure | −0.225 | 0.31 / 0.14 / 0.34 | **+0.135** [0.121, 0.150] | **36.5** | 7.44 | 796 |
+| Just Dance + structure channels | −0.178 | 0.36 / 0.14 / 0.34 | +0.107 | **27.6** | 6.65 | 869 |
+| Just Dance + shuffled structure (control) | −0.189 | 0.35 / 0.14 / 0.35 | +0.120 | 33.1 | 7.35 | 806 |
+| light mapped from the real coach | — | — | +0.087 | 8.1 (split-half floor) | 6.26 | 881 |
+| beat trigger | — | — | +0.092 | — | — | — |
+
+Base event rates are 0.020 / 0.007 / 0.024 per frame, so the event head lifts them 14–20×.
+
+Readings, in order of weight. **The pipeline trains on Just Dance and works at the light level:**
+the no-structure model beats its shift null by more than light mapped from the real coach does,
+passes all three Stage 1 light gates on held-out songs (BAS ≥ 0.9 × real, FID below half the
+null, diversity ≥ 0.7 × real), emits the corpus's event rate within 10 %, and transfers to the
+Oslo crowd (8.5 above). **Block A envelopes do not generalise across songs** for any model,
+including the AIST++ one; what generalises is events and section-level energy, which is what
+light uses. **H-C is refuted on its gate**: the structure channels lower Light-BAS by 0.028 (paired
+over the 40 clips, CI [−0.042, −0.017]) and diversity, while improving FID from 36.5 to 27.6; the
+shuffled control reaches 33.1, so part of the FID gain is real structure and none of it is
+beat-locking. **A caution on the metric:** the AIST++ model is the most beat-locked of all
+(+0.242) and the furthest from the corpus's light (FID 126, 545 events against 881), because a
+model that predicts nothing about the envelopes leaves the audio-phased transient path to do all
+the flashing; Light-BAS alone rewards that, so the number is read with FID, the event rate and the
+human test, never on its own.
+
+**Stage 8 gates.** 8.1 fails on the letter (196 single-coach songs, 250 asked) with 294 songs and
+453 channels in hand. 8.2 fails (frame-level R² ≈ 0; section contrast 1.5× real). 8.3: 70 % of
+channels bounce at the beat or half-time, no per-file offset fitted. 8.5 passes on both halves:
+the Just Dance model above the AIST++ one on held-out songs, and Oslo transfer r +0.335 against
++0.07. H-C fails. **H-F passes (vault exp-016):** the Just Dance background, with coaches and UI
+masked and reduced to RPMC-L2's 6-d scene vector, is predictable from causal audio the way an
+operator's scene changes are, and more so — on 38 held-out songs the same 4-block head with
+hazard features lifts scene-change AP 3.17× against the rhythm-of-past-changes baseline's 1.48×,
+margin +1.69, CI [1.19, 2.27], leak 0, shift curve peaking at the trained horizon (RPMC-L2's 699
+operators gave +0.555). Game backgrounds cut on bars, so they are more regular than a human
+operator; the palette (hue KL) half of the gate was not implemented and is recorded as not
+measured. HEAD B now has a second training corpus.
+
+**Where this leaves the plan (2026-09-04, 21:10).** Every hypothesis queued in the vault has been
+run and recorded: exp-010 (category test), exp-011 (H-B), exp-012 (H-A), exp-013 (H-D), exp-014
+(H-E, the audit), exp-015 (H-C), exp-016 (H-F). The pipeline trains on the Just Dance corpus and
+its light passes the Stage 1 gates on held-out songs and transfers to a real crowd. The shipped
+causal model is `light_trunk_jd_none_smooth.pt` for pop and EDM songs, with
+`light_trunk_v3causal_smooth.pt` as the AIST++-trained reference; the demo renders are under
+`outputs/stage8/demo/`. Open items are the ones that need something this session did not have:
+raters for 0c(i) and Stage 3 and for `outputs/stage0c/category_model/`, a DMX node for Stage 4's
+hardware half, a learned conductor (Stage 5) and EDM lighting ground truth (Stage 6); and the
+measured next levers are more songs with several performers each, 3D lifting for the channels 2D
+pose cannot supply, early stopping on validation songs, and the H-F visuals as a second target.
+
 ---
 
 ## 2. What audio determines in a dancing body — and what it does not
