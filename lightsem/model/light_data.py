@@ -132,7 +132,12 @@ def build_tensor(audio_dir: Path | None = None, out: Path | None = None) -> None
 
 
 def load_tensor(path: Path | None = None):
-    z = np.load(path or TENSOR, allow_pickle=False)
+    """Arrays materialised once. `np.load` on an npz is lazy and re-reads an
+    array on EVERY `z["X"]`; the evaluator indexes it once per window, which
+    on the 3.2 M-frame Just Dance tensor meant 400 reloads of 1.2 GB and an
+    OOM kill (2026-09-04). A dict of arrays behaves the same downstream."""
+    zf = np.load(path or TENSOR, allow_pickle=False)
+    z = {k: zf[k] for k in zf.files}
     meta = json.loads(str(z["meta"]))
     return z, meta
 
