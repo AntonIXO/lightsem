@@ -722,6 +722,13 @@ Order of work and gates:
   *Gate:* held-out-song block A R² on Just Dance above the AIST++-only model, **and** Oslo
   shared-movement R² not below the AIST++-only model — the second is the one that matters,
   because Oslo is real people hearing real EDM and Just Dance is one performer per song.
+  The test exists (`run_oslo_transfer.py`: both mixes rendered from the parallel session's
+  placements, the model's predicted energy against the crowd's mean speed inside each track
+  slot). **AIST++-only baseline, 2026-09-04:** raw r(model qom, crowd) +0.07 over eight slots
+  (+0.30 to +0.37 on the well-placed Ladykiller and Unlock Down slots, −0.48 on Joyride in
+  mix 2, whose placement margin is −0.16), held-out-track ridge from the model's channels
+  R² −0.12 [−0.21, −0.05] against +0.30 from published audio scalars. Two slots are badly
+  placed and drag the mean; the well-placed five are the ones to read.
 
 Split of labour (2026-09-04): the parallel session owns video → descriptors (pose2d, masks,
 coach selection, the motion cache); this session owns the audio bus on the captures, the
