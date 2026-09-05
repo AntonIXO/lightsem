@@ -75,6 +75,9 @@ def main():
     ap.add_argument("--look-weight", type=float, default=0.5)
     ap.add_argument("--offline", action="store_true")
     ap.add_argument("--flow", action="store_true", help="v2: sample the look with a rectified flow (look-then-assign)")
+    ap.add_argument("--self-hazard", action="store_true", help="H-O: hazard features of the cue train appended to the input (teacher-forced; own cues at inference)")
+    ap.add_argument("--d-model", type=int, default=192)
+    ap.add_argument("--n-blocks", type=int, default=3)
     ap.add_argument("--limit", type=int, default=0, help="songs per corpus (smoke)")
     args = ap.parse_args()
     device = "cuda" if torch.cuda.is_available() else "cpu"
@@ -87,7 +90,8 @@ def main():
     print(f"{len(songs)} songs ({args.corpora}): train {len(tr)} val {len(va)} test {len(te)}; cond {cond_dim}; {time.time()-t0:.0f}s", flush=True)
 
     def feats(s):
-        return s["x"] if args.no_cond else np.concatenate([s["x"], s["cond"].astype(np.float32)], 1)
+        parts = [s["x"]] + ([] if args.no_cond else [s["cond"].astype(np.float32)]) + ([s["haz"]] if args.self_hazard else [])
+        return parts[0] if len(parts) == 1 else np.concatenate(parts, 1)
     sample = np.concatenate([feats(s)[:600] for s in tr[:300]])
     mu = torch.from_numpy(sample.mean(0)).to(device); sd = torch.from_numpy(sample.std(0) + 1e-6).to(device)
     ysample = np.concatenate([s["y"] for s in tr[:300]])
@@ -97,7 +101,8 @@ def main():
     wdim = wdim / wdim.mean()
     pos = float(np.concatenate([s["t"] for s in tr]).mean()); pw = torch.tensor([(1 - pos) / pos], device=device)
 
-    cfg = DecoderConfig(in_dim=songs[0]["x"].shape[1], cond_dim=cond_dim, offline=args.offline, flow=args.flow)
+    cfg = DecoderConfig(in_dim=songs[0]["x"].shape[1], cond_dim=cond_dim + (songs[0]["haz"].shape[1] if args.self_hazard else 0),
+                        offline=args.offline, flow=args.flow, d_model=args.d_model, n_blocks=args.n_blocks)
     model = GroupDecoder(cfg).to(device)
     print(f"decoder {model.n_params()/1e6:.2f} M params", flush=True)
     opt = torch.optim.AdamW(model.parameters(), args.lr, weight_decay=0.01)
@@ -137,7 +142,24 @@ def main():
 
     # ------------------------------------------------------------ held-out evaluation per corpus
     model.eval()
-    res = {"n_songs": len(songs), "corpora": args.corpora, "cond_dim": cond_dim, "params_m": model.n_params() / 1e6,
+
+    @torch.no_grad()
+    def own_cue_scores(s, block: int = 10, thr: float = 0.5, refractory: int = 20):
+        """Autoregressive inference: the hazard features come from the decoder's OWN emitted cues, recomputed
+        every `block` frames (1 s); a cue fires when the hazard exceeds `thr` after a refractory period."""
+        T = len(s["x"]); base = s["x"] if args.no_cond else np.concatenate([s["x"], s["cond"].astype(np.float32)], 1)
+        cues = np.zeros(T, np.float32); scores = np.zeros(T, np.float32); last = -10 ** 6
+        for b0 in range(0, T, block):
+            hz = hazard_feats(cues).astype(np.float32)          # from cues emitted so far (zeros ahead)
+            x = torch.from_numpy(np.concatenate([base[:b0 + block], hz[:b0 + block]], 1)).to(device)[None]
+            pl = torch.sigmoid(model((x - mu) / sd, torch.tensor([s["cid"]], device=device))["look_logit"][0, b0:b0 + block]).cpu().numpy()
+            scores[b0:b0 + block] = pl
+            for j, v in enumerate(pl):
+                if v > thr and (b0 + j) - last >= refractory:
+                    cues[b0 + j] = 1.0; last = b0 + j
+        return scores
+    res = {"n_songs": len(songs), "corpora": args.corpora, "cond_dim": cond_dim, "params_m": model.n_params() / 1e6, "self_hazard": args.self_hazard,
+           "d_model": args.d_model, "n_blocks": args.n_blocks,
            "random_rig": not args.no_random_rig, "offline": args.offline, "per_corpus": {}}
     with torch.no_grad():
         for cname in args.corpora.split(","):
@@ -162,6 +184,8 @@ def main():
                 if s["t"].sum() >= 3:
                     pl = torch.sigmoid(p["look_logit"][0]).cpu().numpy()
                     rows["look_ap_lift"].append(average_precision(pl, s["t"]) / s["t"].mean())
+                    if args.self_hazard:
+                        rows.setdefault("look_ap_lift_own_cues", []).append(average_precision(own_cue_scores(s), s["t"]) / s["t"].mean())
                     rows["look_ap_lift_hazard_ridge"].append(average_precision(s["haz"] @ w_h, s["t"]) / s["t"].mean())
                 yh_full = render_scene(p, ph, torch.tensor([[4.0, 6.0, 1.0, 2.0, 1.0]], device=device))[0].cpu().numpy()
                 rows["value_r"].append(float(np.corrcoef(yh_full[:, 3], s["y"][:, 3])[0, 1]))
@@ -180,7 +204,7 @@ def main():
     res["train_s"] = time.time() - t0
     CKPT.mkdir(parents=True, exist_ok=True)
     torch.save({"model": model.state_dict(), "cfg": cfg.__dict__, "mu": mu.cpu().numpy(), "sd": sd.cpu().numpy(),
-                "wdim": wdim.cpu().numpy(), "corpora": args.corpora, "cond": not args.no_cond, "flow": args.flow,
+                "wdim": wdim.cpu().numpy(), "corpora": args.corpora, "cond": not args.no_cond, "flow": args.flow, "self_hazard": args.self_hazard,
                 "corpus_ids": {k: v[1] for k, v in CORPORA.items()}}, CKPT / f"group_decoder_{args.run_tag}.pt")
     OUT.mkdir(parents=True, exist_ok=True)
     (OUT / f"group_decoder_{args.run_tag}.json").write_text(json.dumps(res, indent=1))

@@ -13,6 +13,9 @@ Arms (outputs/stage9/demo_songs/<name>__<arm>.mp4):
   decoder_v2_plan  v2 with the offline section planner's knobs written on top
   engine_only    v2's slow knobs driving beat-trigger effects (the 9.9 engine-only baseline)
   best_of_8      the shipped model's 8 flow seeds, the critic's pick (needs critic_v1.pt)
+  cue_held       Stage 10 H-N: v2's look sampled once per cue (calibrated look-change hazard) and held, on-beat engine
+  cue_held_waves the same cues, but every cue changes the hue by >= 1/6 turn, and the engine adds a slow intensity
+                 wave across the truss (2 bars), a hue spread across the stage and a slow hue drift (Anton's note)
 A JSON next to the videos carries Light-BAS minus null and events per clip for every arm.
 """
 from __future__ import annotations
@@ -115,6 +118,42 @@ def main():
                 phase = np.mod(np.arctan2(x[:, 48], x[:, 49]) / (2 * np.pi), 1.0)
                 knobs, bar = planner.knobs(x, phase)
                 renders["decoder_v2_plan"] = engine(apply_plan(p2, knobs, bar))
+        if dec2 and ("cue_held" in arms or "cue_held_waves" in arms):
+            from run_stage10_cue_eval import pick_cues_topk
+            from lightsem.model.group_decoder import assign_look
+            xt = torch.from_numpy(x).to(device)[None]
+            if dec2.cond:
+                xt = torch.cat([xt, dec2.op.trunk((xt - dec2.omu) / dec2.osd)], -1)
+            with torch.no_grad():
+                pp = dec2.m((xt - dec2.mu) / dec2.sd, torch.tensor([dec2.cids["rpmc"]], device=device))
+                h = torch.sigmoid(pp["look_logit"][0]).cpu().numpy()
+                g = torch.Generator(device=device).manual_seed(0); look = dec2.m.sample_look(pp["h"], generator=g)[0].cpu().numpy()
+            cal = Path("/root/lightsem/outputs/stage9/cue_eval_v2.json")                       # the authored cue rate (H-N calibration)
+            rate = float(json.loads(cal.read_text())["corpus_cue_rate_per_min"]) if cal.exists() else 5.2
+            cues = pick_cues_topk(h, int(round(rate * dur / 60))); L = np.zeros_like(look); cur = look[0]
+            for t in range(len(look)):
+                if cues[t] > 0:
+                    cur = look[t]
+                L[t] = cur
+            base = {k: v[0].float().cpu().numpy() for k, v in pp.items() if k != "h"}; base["spread"] = np.zeros_like(base["spread"])
+            if "cue_held" in arms:
+                renders["cue_held"] = engine(assign_look(L, base, tau_level=0.5, tau_colour=0.5))
+            print(f"  cue_held: {int(cues.sum())} cues ({cues.sum() / (dur / 60):.1f}/min)", flush=True)
+            if "cue_held_waves" in arms:
+                Lw = L.copy(); ang_prev = None; k = 0
+                for t in np.flatnonzero(cues):                                   # every cue moves the hue by at least 1/6 turn
+                    ang = np.arctan2(Lw[t, 1], Lw[t, 0])
+                    if ang_prev is not None and abs(((ang - ang_prev + np.pi) % (2 * np.pi)) - np.pi) < np.pi / 3:
+                        ang = ang_prev + (2 * np.pi / 3) * (1 if k % 2 == 0 else -1); k += 1
+                    nxt = np.flatnonzero(cues[t + 1:]); end = t + 1 + nxt[0] if len(nxt) else len(Lw)
+                    Lw[t:end, 0], Lw[t:end, 1] = np.cos(ang), np.sin(ang); ang_prev = ang
+                eng_w = GroupEngine(rig, wave_amp=0.6, wave_bars=2.0, wave_spread=1.0, hue_spread=0.12, hue_drift=0.01)
+                q = assign_look(Lw, base, tau_level=0.5, tau_colour=0.5)
+                def engine_w(q):
+                    fr = eng_w.render(q, t10, bus.beats, bus.channels["bar_phase"], dur).frames
+                    gg = float(np.clip(ref_mean / max(level_features(fr, rig)["mean"], 1e-3), 0.3, 3.0))
+                    return eng_w.render(q, t10, bus.beats, bus.channels["bar_phase"], dur, gain=gg).frames if abs(gg - 1) > 0.05 else fr
+                renders["cue_held_waves"] = engine_w(q)
         if critic is not None:
             from train_critic import Critic, LIGHT_DIM, RED_AUDIO, RED_LIGHT, dmx_scene, light_tokens, WIN
             from train_planner import bar_pool, bars_of

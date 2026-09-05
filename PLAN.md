@@ -1,5 +1,8 @@
 # LightSem v2 — sound → light for concerts and festivals, trained on dance
 
+Date: 2026-09-05, **rev. 10** (Stage 10 opened, section 6.10: the cue-based renderer Stage 9's results point
+at, two hypotheses H-N / H-O pre-registered as `rb-ls2-10-cue-renderer` before any run; the GPU is on the H-O size
+sweep). Previous header:
 Date: 2026-09-05, **rev. 9** (Stage 9 run end to end overnight: every one of its seven hypotheses
 tested in the vault except the human-preference study, results in section 6.9.10 — Beat Saber is a
 tempo corpus, stems and a frozen MERT layer each add +0.02 AP and no more, the group-effects decoder
@@ -1243,6 +1246,42 @@ authored corpora on *cue timing* and *look-transition statistics* rather than FI
 light — and (ii) the human preference study (H-L), which is the only gate left that can say
 "designed". Console show files with cue hierarchy (section 9.1) remain the only route to level
 design; nothing measured here changes that.
+
+
+### 6.10 Stage 10 — the cue-based renderer (rev. 10, `rb-ls2-10-cue-renderer`)
+
+**Premise, from 6.9.10.** Every authored corpus on disk carries *cue timing* (look-change AP lifts
+1.4× RPMC, 2.4× JD, 1.65× Beat Saber) and the corpus's look statistics, and none carries per-frame or
+per-bar light levels. So the object to build is a sampler over looks with learned cue timing, and
+the metric has to be the thing the corpora support — cue timing and look-*transition* statistics —
+not FID_light against dance-derived light, which 6.9.10 showed to be the wrong yardstick for a look
+sampler.
+
+- **H-N, the cue-held sampler** (`run_stage10_cue_eval.py`). The v2 flow head is sampled once per
+  *cue* and held (0.5 s crossfade); cues come from the decoder's own look-change hazard with the
+  threshold calibrated on training songs to the corpus cue rate and a 2 s refractory. New diagnostic
+  `cue-transition-distance`: a Fréchet distance on seven transition features (cues per minute,
+  inter-cue interval median and CV, hue jump and value-class change at cues, fraction of cues within
+  100 ms of a beat, hue drift between cues) against the authored set, with the split-half floor and a
+  shuffled-donor null; a beat-trigger-cued arm is the timing control. *Gate G10.1-cue*: cue-held
+  below the per-frame sampler and below the donor, above the floor. *Gate G10.1-bas*: on the JD light
+  protocol with the corrected engine (zero phase spread), Light-BAS − null not below the conductor
+  at no higher onset density.
+- **H-O, self-conditioned cue hazard** (`train_group_decoder.py --self-hazard`). The with-hazard
+  operator head beats the audio-only decoder (3.17× vs 2.35× on JD) because the rhythm of the
+  operator's own past cues is information; at inference it exists only as the model's own emitted
+  cues. Teacher-forced in training, autoregressive in 1 s blocks at inference; priced against the
+  same decoder with the true hazard (ceiling) and audio-only (floor), over a size sweep
+  (d 192/256/384, 3/6 blocks, causal). *Gate G10.2-self*: own-cue lift above audio-only with a CI
+  excluding 0 on JD and RPMC. *Gate G10.2-size*: the sweep reported, lift against parameters.
+- **Not in Stage 10:** any level regression; Beat Saber in a loss; a human study without raters (the
+  H-L pairs are rendered and waiting).
+
+**Results (2026-09-05, exp-024 / exp-025).**
+- *H-N* (38 held-out JD songs): cue-transition distance cue-held **6.9** vs per-frame 8.9 vs beat-trigger-cued 134 vs shuffled donor **5.7**, floor 2.6; cue lift hazard 2.35× vs beat-trigger novelty 1.14×. On 39 coach clips with the on-beat engine: Light-BAS − null cue-held **+0.51** (per-frame +0.40, conductor +0.12, coach +0.08) at 419 events per clip vs the conductor's 771. G10.1-bas passes, G10.1-cue fails on the donor: the transition statistics are corpus-level and a donor stream matches them as well as the song's own — only cue *timing* is song-specific, and the distance does not see it. Verdict: directional only.
+- *H-O* (size sweep, causal, RPMC + JD): JD cue lift 2.39 (2.6 M) → 2.41 (9.3 M) → 2.20–2.31 (20.7 M); RPMC 1.33–1.47. Self-hazard with the *true* past cues: +0.00 JD / +0.12 RPMC; with the decoder's *own* cues: +0.00 / −0.02. The with-hazard operator head itself (3.17× teacher-forced) drops to **1.83×** on its own cues, below the audio-only head's 2.32× (paired −0.49, CI [−0.94, −0.15]): the rhythm-of-past-cues margin was teacher-forcing, not deployable information. Capacity does not move cue timing. Verdict: directional only (gate G10.2-self failed).
+- *First human signal* (Anton, Shpongle demos): the colour barely moves; the arms with a chase spread and per-frame sampling fit the music *better to the eye* than every on-beat arm, because the light moves in waves like the track, whereas the on-beat arms feel like every lamp on at once with loudness as brightness; cue-held is decent but monotonous in movement. This contradicts Light-BAS (on-beat +0.59 vs +0.12) exactly as 6.9.10 point 5 warned. Engine response, to be judged by eye and in the H-L pairs: a slow travelling intensity wave under the beat effects (2 bars, role-specific phase), a hue spread across the stage, a slow hue drift, and a hue change of at least 1/6 turn at every cue (`shpongle__cue_held_waves.mp4`).
+- *What Stage 10 settles.* Cue timing from audio sits at ~2.4× on JD and ~1.4× on RPMC for every causal model tried (ridge, Conformer head, decoder, 3 to 21 M parameters); no deployable conditioning raises it. The remaining levers are all on the *look* side and all human-judged: waves, colour motion, and the H-L preference fit over the engine's knobs.
 
 ## 7. Evaluation protocol (what convinces a sceptic)
 

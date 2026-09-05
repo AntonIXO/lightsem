@@ -26,7 +26,9 @@ HYP = {"HH": "authored-hobby-game-light-shows-are-lighting-202cb0",
        "HI": "a-learned-group-effects-decoder-anton-s-mixture-2b4f62",
        "HJ": "section-level-intent-belongs-on-the-conductor-0f5c23",
        "HK": "a-factorised-audio-light-critic-trained-with-a97ada",
-       "HM": "one-frozen-music-foundation-layer-group-muq-46be80"}
+       "HM": "one-frozen-music-foundation-layer-group-muq-46be80",
+       "HN": "a-look-sampler-that-holds-its-sampled-look-2b8adb",
+       "HO": "feeding-the-group-decoder-the-hazard-features-d0f637"}
 
 
 def ok(r):
@@ -213,12 +215,14 @@ def run_generic(c, key, fname):
 
 
 def main():
-    which = sys.argv[1:]
+    which = [w for w in sys.argv[1:] if not w.endswith(".json")]
     c = Client(); assert c.initialize()["name"] == "vibescience-lightsem"
     ov = len(list(Path("/root/vibescience-vault").rglob("*.md")))
     for w in which:
         {"HH": run_hh, "HG": run_hg, "HI": run_hi, "HI2": lambda c: run_hi(c, "v2"), "HJ": run_hj,
-         "HK": lambda c: run_generic(c, "HK", "critic.json"), "HM": lambda c: run_generic(c, "HM", "hm_embedding.json")}[w](c)
+         "HK": lambda c: run_generic(c, "HK", "critic.json"), "HM": lambda c: run_generic(c, "HM", "hm_embedding.json"),
+         "HN": lambda c: run_generic(c, "HN", sys.argv[sys.argv.index("HN") + 1] if len(sys.argv) > sys.argv.index("HN") + 1 and sys.argv[sys.argv.index("HN") + 1].endswith(".json") else "cue_eval_v2.json"),
+         "HO": lambda c: run_generic(c, "HO", "self_hazard_sweep.json")}[w](c)
     ov2 = len(list(Path("/root/vibescience-vault").rglob("*.md")))
     print(f"lightsem vault {len(list(Path('/root/lightsem-vault').rglob('*.md')))} md; optiHealth {ov}->{ov2}")
     assert ov2 == ov, "optiHealth vault must not change"

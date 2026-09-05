@@ -187,13 +187,21 @@ class GroupEngine:
     intensity so a 10 Hz decision does not step at 40 fps."""
 
     def __init__(self, rig=None, fps: float = 40.0, smooth_tau: float = 0.08,
-                 pan_sweep: bool = True):
+                 pan_sweep: bool = True, wave_amp: float = 0.0, wave_bars: float = 2.0,
+                 wave_spread: float = 1.0, hue_spread: float = 0.0, hue_drift: float = 0.0):
+        """``wave_amp`` > 0 adds a slow intensity wave travelling across the truss (period ``wave_bars``
+        bars, ``wave_spread`` turns across the stage, role-specific phase offsets) UNDER the beat
+        effects, so the light moves in waves the way the music does (Anton's Shpongle note,
+        2026-09-05) while group onsets stay on the beat; ``hue_spread`` (turns across the stage) and
+        ``hue_drift`` (turns per second) keep the colour moving inside a held look."""
         self.rig = rig or canonical_rig()
         self.fps = fps
         self.roles = role_index(self.rig)
         self.xs = stage_x(self.rig)
         self.smooth_tau = smooth_tau
         self.pan_sweep = pan_sweep
+        self.wave_amp, self.wave_bars, self.wave_spread = wave_amp, wave_bars, wave_spread
+        self.hue_spread, self.hue_drift = hue_spread, hue_drift
 
     @staticmethod
     def _hold(v: np.ndarray, t_src: np.ndarray, t_out: np.ndarray) -> np.ndarray:
@@ -245,8 +253,16 @@ class GroupEngine:
                   np.where((e_idx == 1)[:, None], pulse,
                   np.where((e_idx == 2)[:, None], chase, strobe_on)))
             dim = np.clip(inten[:, None] * mod, 0, 1)
+            if self.wave_amp > 0 and role in ("wash", "beam", "back") and bar_phase is not None:
+                bp_w = np.asarray(bar_phase, dtype=np.float64)[:T]
+                bp_w = np.concatenate([bp_w, np.zeros(T - len(bp_w))]) if len(bp_w) < T else bp_w
+                bar_idx = np.cumsum(np.concatenate([[0], (np.diff(bp_w) < -0.5).astype(int)]))
+                slow = (bar_idx + bp_w) / self.wave_bars + {"wash": 0.0, "beam": 0.25, "back": 0.5}[role]
+                wave = 1.0 - self.wave_amp * 0.5 * (1.0 + np.cos(2 * np.pi * (slow[:, None] - self.wave_spread * x01[None, :])))
+                dim = np.clip(dim * wave, 0, 1)
             P["dimmer"][:, fx] = dim
-            P["hue"][:, fx] = hue[:, None]
+            hue_f = hue[:, None] + self.hue_spread * (x01[None, :] - 0.5) + self.hue_drift * t[:, None]
+            P["hue"][:, fx] = np.mod(hue_f, 1.0)
             P["sat"][:, fx] = sat[:, None]
             if role in ("strobe", "blinder"):
                 P["sat"][:, fx] = 0.0
