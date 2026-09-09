@@ -9,6 +9,42 @@ from .stage11_common import authenticated_json,read_authenticated,digest
 FILES={'annotation.zip':'b39b78e63d3446f2e54ddb7a54df9b10','audio_mono-mic.zip':'275966d6610ac34999b58426beb119c3'}
 EXCLUDED=('04_BN3-154-E_comp','04_Jazz1-200-B_comp')
 
+def download_mirror(root=ROOT):
+    """Transport fallback, accepted only when every original file MD5 matches."""
+    import pyarrow.parquet as pq
+    from huggingface_hub import hf_hub_download
+    import importlib.util
+    root=Path(root);folder=root/'rhythm/guitarset';folder.mkdir(parents=True,exist_ok=True)
+    index_path=Path(importlib.util.find_spec('mirdata').origin).parent/'datasets/indexes/guitarset_index_1.1.0.json'
+    index=json.loads(index_path.read_text())['tracks'];verified=[]
+    revision='f0eb62f128c93a7e64adba2a0f1d77a7edcac90c';parquets=[]
+    for i in range(5):
+        path=hf_hub_download('taohu/guitarset',f'data/train-{i:05d}-of-00005.parquet',repo_type='dataset',revision=revision,
+                             cache_dir=str(root/'rhythm/mirror_cache'))
+        parquets.append({'path':path,'sha256':digest(path)})
+        table=pq.read_table(path,columns=['track_id','jams','audio_mic'])
+        for row in table.to_pylist():
+            key=row['track_id'];expected=index[key];audio=row['audio_mic']['bytes']
+            if hashlib.md5(audio).hexdigest()!=expected['audio_mic'][1]:raise RuntimeError('Mirror audio is not original: '+key)
+            parsed=json.loads(row['jams']);annotation=json.dumps(parsed,indent=2,ensure_ascii=True).encode()
+            if hashlib.md5(annotation).hexdigest()!=expected['jams'][1]:
+                annotation=json.dumps(parsed,indent=2,ensure_ascii=False).encode()
+            if hashlib.md5(annotation).hexdigest()!=expected['jams'][1]:raise RuntimeError('Mirror annotation differs: '+key)
+            for category,content in [('audio_mic',audio),('jams',annotation)]:
+                target=folder/expected[category][0]
+                if not target.resolve().is_relative_to(folder.resolve()):raise RuntimeError('Unsafe indexed path')
+                target.parent.mkdir(parents=True,exist_ok=True)
+                if not target.exists():target.write_bytes(content)
+                if hashlib.md5(target.read_bytes()).hexdigest()!=expected[category][1]:raise RuntimeError('Existing original file differs')
+            verified.append({'key':key,'audio_md5':expected['audio_mic'][1],'jams_md5':expected['jams'][1]})
+        print(json.dumps({'stage':'guitarset_verified_mirror','files_verified':2*len(verified)}),flush=True)
+    if len(verified)!=360 or {r['key'] for r in verified}!=set(index):raise RuntimeError('Incomplete mirrored corpus')
+    authenticated_json(folder/'source.json',{'source':'https://zenodo.org/records/3371780','version':'1.1.0',
+        'transport':'taohu/guitarset','transport_revision':revision,'parquets':parquets,'verified_original_files':verified,
+        'index_source':'mirdata==0.3.8 packaged original per-file checksums','index_sha256':digest(index_path),
+        'annotation_serialization':'JSON decoded and original indent2 serialization restored, then original MD5 verified',
+        'excluded':list(EXCLUDED),'exclusion_source':'https://github.com/marl/GuitarSet/issues/5'})
+
 def download(root=ROOT):
     root=Path(root);folder=root/'rhythm/guitarset';folder.mkdir(parents=True,exist_ok=True)
     for name,expected in FILES.items():
@@ -42,6 +78,7 @@ def prepare(root=ROOT):
     root=Path(root);folder=root/'rhythm/guitarset';out=root/'rhythm/features';out.mkdir(exist_ok=True)
     annotations={p.stem:p for p in folder.rglob('*.jams')};rows=[];begin=time.monotonic()
     for wav in sorted(folder.rglob('*_mic.wav')):
+        if wav.name.startswith('.') or '__MACOSX' in wav.parts:continue
         key=wav.stem.removesuffix('_mic')
         if key in EXCLUDED:continue
         if key not in annotations:raise ValueError('Missing rhythm annotation')
@@ -60,8 +97,9 @@ def prepare(root=ROOT):
         target=np.zeros((len(x),2),np.float32)
         for j,tt in enumerate((beats,beats[positions==1])):
             ii=np.rint(tt*40).astype(int);ii=ii[(ii>=0)&(ii<len(x))];target[ii,j]=1.
+        resets=np.flatnonzero(np.diff(bus.channels['bar_phase'])<-.5)+1
         np.savez_compressed(path,x=x,fourier=fourier_features(x),target=target,beats=beats,downbeats=beats[positions==1],
-                            constant_grid=bus.beats,plp=peaks,pulse=pulse)
+                            constant_grid=bus.beats,constant_downbeats=bus.downbeats,input_bar_events=resets/40.,plp=peaks,pulse=pulse)
         row={'key':key,'player':key.split('_')[0],'lead_sheet':key.split('_')[1],'path':str(path),'sha256':digest(path),
              'audio_sha256':digest(wav),'annotation_sha256':digest(annotations[key]),'seconds':len(audio)/sr}
         authenticated_json(rp,row);rows.append(row)
@@ -96,5 +134,5 @@ def evaluate(root=ROOT):
     authenticated_json(root/'rhythm/report.json',result);return result
 
 if __name__=='__main__':
-    p=argparse.ArgumentParser();p.add_argument('stage',choices=['download','prepare','evaluate']);a=p.parse_args()
-    {'download':download,'prepare':prepare,'evaluate':evaluate}[a.stage]()
+    p=argparse.ArgumentParser();p.add_argument('stage',choices=['download','mirror','prepare','evaluate']);a=p.parse_args()
+    {'download':download,'mirror':download_mirror,'prepare':prepare,'evaluate':evaluate}[a.stage]()

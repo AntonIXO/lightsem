@@ -10,10 +10,12 @@ from scipy.signal import fftconvolve
 from .night_common import ROOT, STAGE, initial_setup, feature_path, verify_entry
 from .stage11_common import authenticated_json, read_authenticated, digest, artifact_manifest
 from .dance_no_clock_data import hierarchical_weights
+from .beat_conditioned_data import X_NAMES
 
 FOURIER_FREQUENCIES = np.geomspace(.5, 8., 16)
 FOURIER_WINDOWS = (2., 8.)
-FOURIER_CHANNELS = (3, 5, 7)  # flux_lf, flux_mid, flux_hf in the existing x92 schema
+FOURIER_NAMES = ('flux_lf', 'flux_mid', 'flux_hf')
+FOURIER_CHANNELS = tuple(X_NAMES.index(name) for name in FOURIER_NAMES)
 FOURIER_DIM = 294
 
 def fourier_features(x, fps=40.):

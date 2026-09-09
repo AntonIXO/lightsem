@@ -123,7 +123,14 @@ def run_probes(root=ROOT):
         for name in PROBES:
             folder=root/'diagnostics/pose_probes'/name/f'seed_{seed}';folder.mkdir(parents=True,exist_ok=True)
             if (folder/'report.json').exists():
-                r=read_authenticated(folder/'report.json');verify_artifacts(r['artifacts']);reports.append(r);continue
+                r=read_authenticated(folder/'report.json');verify_artifacts(r['artifacts'])
+                adopted=protocol.get('adopted_unchanged_reports',{}).get(str(folder/'report.json'))
+                if adopted is not None:
+                    if digest(folder/'report.json')!=adopted:raise RuntimeError('Adopted report changed')
+                elif r.get('protocol_sha256')!=digest(root/'diagnostics/protocol.json'):
+                    raise RuntimeError('Completed probe belongs to another protocol')
+                if r['name']!=name or r['seed']!=seed or r['steps']!=steps:raise RuntimeError('Probe identity mismatch')
+                reports.append(r);continue
             if any(folder.iterdir()):raise RuntimeError('Partial scientific probe must be preserved before recovery')
             family=name.removeprefix('audio_') if name.startswith('audio_') else 'base';data.set_family(family)
             seed_all(seed);width=256 if name=='descriptor256' else 128
@@ -146,6 +153,7 @@ def run_probes(root=ROOT):
                                            'pose_normalizers':pose_norms,'protocol_sha256':digest(root/'diagnostics/protocol.json')})
             ev=evaluate_probe(model,name,seed,pose_norms,root)
             r={'name':name,'seed':seed,'steps':steps,'gpu_training_seconds':elapsed,'wall_seconds':time.monotonic()-begin,
+               'protocol_sha256':digest(root/'diagnostics/protocol.json'),
                'parameters':sum(p.numel() for p in model.parameters()),'gpu':torch.cuda.get_device_name(),'precision':'fp32',
                'artifacts':artifact_manifest([folder/'initial.pt',folder/'final.pt',folder/'training.jsonl',folder/'evaluation.json'])}
             authenticated_json(folder/'report.json',r);reports.append(r)

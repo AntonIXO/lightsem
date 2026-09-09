@@ -87,7 +87,10 @@ def study_context(root=ROOT):
 def run_cell(arm,seed,data,root=ROOT,resume=False):
     root=Path(root);p,m,n,identity=study_context(root);cfg=p['training'];run=root/'runs'/arm/f'seed_{seed}'
     if (run/'report.json').exists():
-        r=read_authenticated(run/'report.json');verify_artifacts(r['artifacts']);return r
+        r=read_authenticated(run/'report.json');verify_artifacts(r['artifacts'])
+        if r['identity']['arm']!=arm or r['identity']['seed']!=seed or r['identity']['protocol_sha256']!=identity['protocol_sha256'] or r['steps']!=cfg['steps']:
+            raise RuntimeError('Completed cell identity differs')
+        return r
     if run.exists() and any(run.iterdir()) and not resume:raise RuntimeError('Explicit recovery required: '+str(run))
     run.mkdir(parents=True,exist_ok=True);family,architecture=arm.split('_');data.set_family(family)
     seed_all(seed);model=NightModel(family,architecture,data.aux_dim).cuda()

@@ -125,19 +125,19 @@ def composition_observation(frames,trace,rig=None):
             'unrelated_velocity_abs_correlation':float(np.nanmedian(vals)) if np.isfinite(vals).any() else None,
             'symmetry_mix_quantiles':np.quantile(trace['symmetry_mix'],[0,.05,.5,.95,1]).tolist()}
 
-def render_video(frames,audio_path,video_path,duration_s,*,rig=None,width=854,height=480):
+def render_video(frames,audio_path,video_path,duration_s,*,rig=None,width=854,height=480,audio_offset_s=0.):
     """GPU raster and AV1 NVENC, static camera/shader, audio preserved."""
     import math,subprocess,time
     from pathlib import Path
     from lightsem.sim.renderer import StageRenderer,RenderConfig
     frames=np.asarray(frames);path=Path(video_path);path.parent.mkdir(parents=True,exist_ok=True)
     if path.exists():raise FileExistsError(path)
-    if frames.dtype!=np.uint8 or frames.ndim!=2 or frames.shape[1]!=512:raise ValueError('Expected DMX')
+    if frames.dtype!=np.uint8 or frames.ndim!=2 or frames.shape[1]!=512 or len(frames)<round(duration_s*40):raise ValueError('Expected full-duration DMX')
     cfg=RenderConfig(width=width,height=height,fps=30.,haze=.25,cam_orbit=0.,intensity_gain=2.4)
     renderer=StageRenderer(rig or canonical_rig(),cfg);name=renderer.renderer_name
     if 'nvidia' not in name.lower():raise RuntimeError('NVIDIA renderer required')
     command=['ffmpeg','-v','error','-nostdin','-n','-f','rawvideo','-pix_fmt','rgb24','-s',f'{width}x{height}',
-             '-r','30','-i','pipe:0','-i',str(audio_path),'-map','0:v:0','-map','1:a:0',
+             '-r','30','-i','pipe:0','-ss',str(audio_offset_s),'-i',str(audio_path),'-map','0:v:0','-map','1:a:0',
              '-c:v','av1_nvenc','-preset','p5','-cq','28','-b:v','0','-pix_fmt','yuv420p',
              '-c:a','aac','-b:a','192k','-t',str(duration_s),'-shortest',str(path)]
     process=subprocess.Popen(command,stdin=subprocess.PIPE,stderr=subprocess.PIPE);begun=time.monotonic()

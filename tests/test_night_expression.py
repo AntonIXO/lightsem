@@ -55,10 +55,17 @@ class ExpressionTests(unittest.TestCase):
         for start in range(0,FOURIER_DIM,49):self.assertLess(float(abs(f[:,start:start+48]).max()),1e-6)
 
     def test_fourier_tracks_a_local_periodic_envelope(self):
-        x=np.zeros((1280,92));x[:,3]=1+np.sin(2*np.pi*2*np.arange(1280)/40.)
+        from lightsem.experiments.beat_conditioned_data import X_NAMES
+        from lightsem.experiments.night_features import FOURIER_CHANNELS,FOURIER_NAMES
+        self.assertEqual(tuple(X_NAMES[i] for i in FOURIER_CHANNELS),FOURIER_NAMES)
+        x=np.zeros((1280,92));x[:,X_NAMES.index('flux_lf')]=1+np.sin(2*np.pi*2*np.arange(1280)/40.)
         f=fourier_features(x)
         energy=f[400:-400,49:97:3].mean(0)
         from lightsem.experiments.night_features import FOURIER_FREQUENCIES
         self.assertLess(abs(FOURIER_FREQUENCIES[energy.argmax()]-2),.3)
+
+    def test_mel_only_changes_cannot_be_mislabeled_as_flux_features(self):
+        x=np.zeros((1280,92));x[:,3]=5+np.sin(2*np.pi*2*np.arange(1280)/40.)
+        self.assertTrue(np.array_equal(fourier_features(x),fourier_features(np.zeros_like(x))))
 
 if __name__=='__main__':unittest.main()
