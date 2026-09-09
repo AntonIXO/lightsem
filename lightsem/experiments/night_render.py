@@ -93,9 +93,11 @@ def compose_scene(group_controls, target_names, duration_s, *, event_scores=None
             dimmers[:,i]*=gain;frames[:,a]=np.rint(np.clip(dimmers[:,i],0,1)*255).astype(np.uint8)
     trace={'dimmer':dimmers,'targets':targets,'symmetry_mix':mixture,'style_index':styles,
            'shared_controls':shared}
+    used=('qom','weight','head_speed','foot_speed','hand_speed','hand_spread','lateral_pos','laterality','spread','section_energy','vert_bounce','symmetry')
     report={'mapping':'group_expression_v4','config':asdict(cfg),'heads':panels,
             'independent_temporal_generators':False,'trained_fixture_head':False,
-            'input_channels_used':sorted(set(old_report['input_channels_used']+['symmetry'])),
+            'input_channels_used':sorted(used),'unused_continuous_outputs':[k for k in names if k not in used],
+            'event_channels_used':['footfall','jump','hit'] if event_scores is not None else [],
             'selection':'predicted side-activity balance, independent conditional style draws, fixed rig geometry',
             'brightness':'TRAIN-standardized activity plus learned events; no constant dimmer floor or per-track quota',
             'exposure':'fixed role gains; no song-position or ending input'}
@@ -109,7 +111,8 @@ def isolate_role(frames,kind,rig=None):
 
 def composition_observation(frames,trace,rig=None):
     rig=rig or canonical_rig(); heads=sorted([i for i,f in enumerate(rig.fixtures) if f.kind=='moving_head'],key=lambda i:(rig.fixtures[i].position[0],rig.fixtures[i].name))
-    dim=np.asarray(trace['dimmer'])[:,heads]
+    # Acceptance is on encoded emitted dimmers, not the pre-quantization intent.
+    dim=np.stack([np.asarray(frames)[:,rig.fixtures[i].address+3].astype(float)/255 for i in heads],axis=1)
     spans=np.quantile(dim,.95,axis=0)-np.quantile(dim,.05,axis=0)
     vs=[]
     for i in heads:
@@ -121,9 +124,14 @@ def composition_observation(frames,trace,rig=None):
     # Exclude intended mirror partners from the unrelated-pair statistic.
     vals=[abs(corr[i,j]) for i in range(len(heads)) for j in range(i+1,len(heads)) if j!=len(heads)-i-1]
     return {'head_dimmer_p95_p05':spans.tolist(),'heads_with_span_ge_point4':int((spans>=.4).sum()),
-            'head_off_fraction':(dim<=1/255).mean(0).tolist(),'head_on_fraction':(dim>.05).mean(0).tolist(),
+            'head_off_fraction':(dim==0).mean(0).tolist(),'head_on_fraction':(dim>.05).mean(0).tolist(),
             'unrelated_velocity_abs_correlation':float(np.nanmedian(vals)) if np.isfinite(vals).any() else None,
-            'symmetry_mix_quantiles':np.quantile(trace['symmetry_mix'],[0,.05,.5,.95,1]).tolist()}
+            'symmetry_mix_quantiles':np.quantile(trace['symmetry_mix'],[0,.05,.5,.95,1]).tolist() if 'symmetry_mix' in trace else None}
+
+def head_dimmers(frames,rig=None):
+    rig=rig or canonical_rig()
+    heads=sorted(rig.by_kind('moving_head'),key=lambda f:(f.position[0],f.name))
+    return np.stack([np.asarray(frames)[:,f.address+3].astype(float)/255 for f in heads],axis=1)
 
 def render_video(frames,audio_path,video_path,duration_s,*,rig=None,width=854,height=480,audio_offset_s=0.):
     """GPU raster and AV1 NVENC, static camera/shader, audio preserved."""

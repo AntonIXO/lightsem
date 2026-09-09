@@ -8,12 +8,12 @@ from .night_common import ROOT,BASE,STAGE,ARMS,SEEDS,base_context
 from .night_training import study_context
 from .night_model import NightModel
 from .night_auxiliary import auxiliary_for_entry
-from .night_render import ExpressionConfig,compose_scene,isolate_role,render_video,composition_observation
+from .night_render import ExpressionConfig,compose_scene,isolate_role,render_video,composition_observation,head_dimmers
 from .night_calibration import screen_statistics
 from .night_metrics import song_metrics,aggregate,off_interval_checks
 from .beat_conditioned_model import noise_for,BeatConditionedModel
 from .beat_conditioned_render import controls_to_dmx as old_map
-from .quality_observer import beam_observation,video_observation
+from .quality_observer import beam_observation,video_observation,beam_series
 from .stage11_common import (authenticated_json,read_authenticated,digest,artifact_manifest,verify_artifacts,gpu_lock,seed_all,json_digest)
 from lightsem.conductor.rig import canonical_rig
 
@@ -171,13 +171,50 @@ def render_cell(arm,seed,root=ROOT):
         independent,itrace,_=compose_scene(y,n['target_names'],20.,event_scores=event,config=replace(cfg,composition='independent'))
         mirror,mtrace,_=compose_scene(y,n['target_names'],20.,event_scores=event,config=replace(cfg,composition='mirror'))
         mirror_error=max(float(abs(mtrace['targets'][:,i,0]+mtrace['targets'][:,5-i,0]).max()) for i in range(3))
+        rays,_=beam_series(mirror,rig);angle_errors=[]
+        for i in range(3):
+            reflected=rays[:,5-i].copy();reflected[:,0]*=-1
+            angle_errors.append(np.degrees(np.arccos(np.clip((rays[:,i]*reflected).sum(1),-1,1))))
         r={'key':key,'beam':beam_observation(d,rig),'screen':observed['summary'],'screen_brightness':screen_statistics(video),
-           'composition':composition_observation(d,t,rig),'off_intervals':off_interval_checks(t['dimmer'][:,:6]),
+           'composition':composition_observation(d,t,rig),'off_intervals':off_interval_checks(head_dimmers(d,rig)),
            'independent':composition_observation(independent,itrace,rig),'mirror_target_error_m':mirror_error,
+           'mirror_emitted_ray_error_deg':float(np.max(angle_errors)),
            'render':render,'artifacts':artifact_manifest([video])}
         authenticated_json(rp,r);reports.append(r)
     authenticated_json(folder/'video_report.json',{'rows':reports,'source_sha256':digest(__file__)})
     return reports
+
+def incumbent(root=ROOT):
+    from .stage11_data import load_manifest
+    root=Path(root);p=read_authenticated(root/'protocol.json');m,n=base_context();rig=canonical_rig()
+    folder=root/'evaluation/incumbent_adapter';folder.mkdir(exist_ok=True);cfg=ExpressionConfig(**read_authenticated(root/'expression_config.json'))
+    blob=torch.load(BASE/'run/final.pt',map_location='cpu',weights_only=False);seed_all(0)
+    model=BeatConditionedModel();model.load_state_dict(blob['model']);model=model.cuda().eval()
+    records={r['recording_id']:r for r in load_manifest(STAGE)['recordings']};rows=[]
+    for row in inputs(root):
+        key=row['entry']['key']
+        if key not in p['evaluation']['render_entries']:continue
+        dest=folder/key;dest.mkdir(exist_ok=True);rp=dest/'report.json'
+        if rp.exists():r=read_authenticated(rp);verify_artifacts(r['artifacts']);rows.append(r);continue
+        with np.load(row['path']) as z:raw=z['x']
+        y,b=generate_groups(model,normalized_input(raw,np.zeros((len(raw),0),np.float32),n,None))
+        prior=read_authenticated(BASE/'evaluation/candidate'/key/'report.json');verify_artifacts(prior['artifacts'])
+        with np.load(BASE/'evaluation/candidate'/key/'full.npz') as z:before=z['dmx'][:800];old_controls=z['standardized']
+        reproduction=float(abs(y[0]-old_controls).max())
+        if reproduction>5e-5:raise ValueError('Incumbent output reproduction failed')
+        after,trace,_=compose_scene(y[:,:800],n['target_names'],20.,event_scores=b[:800],config=cfg)
+        independent,it,_=compose_scene(y[:,:800],n['target_names'],20.,event_scores=b[:800],config=replace(cfg,composition='independent'))
+        rr=records[row['entry']['recording_id']];r={'key':key,'reproduction_max_abs':reproduction,'checkpoint_sha256':digest(BASE/'run/final.pt'),'modes':{}};art=[]
+        for mode,frames,tr in [('before',before,{}),('after',after,trace)]:
+            v=dest/(mode+'_heads.mp4');info=render_video(isolate_role(frames,'moving_head'),rr['wav_path'],v,20.,audio_offset_s=row['entry']['offset_s']+row['start_frame']/40.)
+            r['modes'][mode]={'beam':beam_observation(frames,rig),'screen':video_observation(v)['summary'],
+                'composition':composition_observation(frames,tr,rig),'off_intervals':off_interval_checks(head_dimmers(frames,rig)),'render':info}
+            art.append(v)
+        array=dest/'controls.npz';np.savez_compressed(array,standardized=y,event_scores=b,before=before,after=after,**trace);art.append(array)
+        r['independent']=composition_observation(independent,it,rig);r['artifacts']=artifact_manifest(art)
+        authenticated_json(rp,r);rows.append(r)
+    authenticated_json(folder/'report.json',{'rows':rows,'comparison':'same incumbent checkpoint; old single trajectory adapter versus new multi-draw group adapter',
+        'source_sha256':digest(__file__)})
 
 def summarize(root=ROOT):
     root=Path(root);cells=[]
@@ -185,9 +222,11 @@ def summarize(root=ROOT):
         for arm in ARMS:
             folder=root/'evaluation'/arm/f'seed_{seed}';inf=read_authenticated(folder/'inference_report.json');vid=read_authenticated(folder/'video_report.json')
             if len(inf['rows'])!=40 or len(vid['rows'])!=8:raise ValueError('Incomplete evaluation matrix')
+            if inf['arm']!=arm or inf['seed']!=seed or any(r['arm']!=arm or r['seed']!=seed or r['checkpoint_sha256']!=inf['checkpoint_sha256'] for r in inf['rows']):raise ValueError('Evaluation identity mismatch')
+            if {r['key'] for r in inf['rows']}!={r['entry']['key'] for r in inputs(root)}:raise ValueError('Evaluation membership mismatch')
             result=aggregate(inf['rows'],vid['rows']);result.update(arm=arm,seed=seed,checkpoint_sha256=inf['checkpoint_sha256'])
             result['gates']['group_independence']=bool(np.mean([r['independent']['unrelated_velocity_abs_correlation'] is not None and r['independent']['unrelated_velocity_abs_correlation']<.85 for r in vid['rows']])>=.75)
-            result['gates']['mirror_geometry']=all(r['mirror_target_error_m']<1e-8 for r in vid['rows'])
+            result['gates']['mirror_geometry']=all(r['mirror_target_error_m']<1e-8 and r['mirror_emitted_ray_error_deg']<.05 for r in vid['rows'])
             result['gates']['integrity']=True;result['all_gates_pass']=all(result['gates'].values())
             authenticated_json(folder/'summary.json',result);cells.append(result)
     eligible=[arm for arm in ARMS if all(c['all_gates_pass'] for c in cells if c['arm']==arm)]
@@ -198,10 +237,11 @@ def summarize(root=ROOT):
     authenticated_json(root/'evaluation/report.json',report);return report
 
 def main():
-    p=argparse.ArgumentParser();p.add_argument('stage',choices=['prepare','infer','render','summarize']);p.add_argument('--arm',choices=ARMS);p.add_argument('--seed',type=int,choices=SEEDS);a=p.parse_args()
+    p=argparse.ArgumentParser();p.add_argument('stage',choices=['prepare','infer','render','incumbent','summarize']);p.add_argument('--arm',choices=ARMS);p.add_argument('--seed',type=int,choices=SEEDS);a=p.parse_args()
     if a.stage=='prepare':prepare_inputs();return
     if a.stage=='summarize':summarize();return
     with gpu_lock(ROOT):
+        if a.stage=='incumbent':incumbent();return
         for seed in ([a.seed] if a.seed is not None else SEEDS):
             for arm in ([a.arm] if a.arm else ARMS):
                 if a.stage=='infer':infer_cell(arm,seed)

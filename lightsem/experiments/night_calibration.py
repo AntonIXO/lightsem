@@ -13,8 +13,10 @@ from .quality_observer import beam_observation,video_observation
 from .stage11_common import authenticated_json,read_authenticated,digest,artifact_manifest,gpu_lock
 from lightsem.conductor.rig import canonical_rig
 
-def screen_statistics(path):
-    command=['ffmpeg','-v','error','-i',str(path),'-vf','fps=2,scale=214:120','-f','rawvideo','-pix_fmt','rgb24','pipe:1']
+def screen_statistics(path,start_s=0.,duration_s=None):
+    command=['ffmpeg','-v','error','-ss',str(start_s),'-i',str(path)]
+    if duration_s is not None:command+=['-t',str(duration_s)]
+    command+=['-vf','fps=2,scale=214:120','-f','rawvideo','-pix_fmt','rgb24','pipe:1']
     raw=subprocess.check_output(command)
     if not raw:raise ValueError('Empty video decode')
     x=np.frombuffer(raw,np.uint8).reshape(-1,120,214,3).astype(np.float32)/255

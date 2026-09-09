@@ -1,7 +1,7 @@
 """Sequential matched training with resumable RNG and immutable final-step selection."""
 from pathlib import Path
 from collections import defaultdict
-import argparse,gc,json,math,time
+import argparse,gc,json,math,time,shutil
 import numpy as np
 import torch
 from .night_common import ROOT,ARMS,SEEDS,base_context
@@ -91,7 +91,10 @@ def run_cell(arm,seed,data,root=ROOT,resume=False):
         if r['identity']['arm']!=arm or r['identity']['seed']!=seed or r['identity']['protocol_sha256']!=identity['protocol_sha256'] or r['steps']!=cfg['steps']:
             raise RuntimeError('Completed cell identity differs')
         return r
-    if run.exists() and any(run.iterdir()) and not resume:raise RuntimeError('Explicit recovery required: '+str(run))
+    existing=run.exists() and any(run.iterdir())
+    if existing and not resume:raise RuntimeError('Explicit recovery required: '+str(run))
+    resume_this=bool(existing and resume)
+    if resume_this and not ((run/'initial.pt').exists() or (run/'latest.pt').exists()):raise RuntimeError('Unrecognized partial run: '+str(run))
     run.mkdir(parents=True,exist_ok=True);family,architecture=arm.split('_');data.set_family(family)
     seed_all(seed);model=NightModel(family,architecture,data.aux_dim).cuda()
     opt=torch.optim.AdamW(model.parameters(),lr=cfg['lr'],weight_decay=.01)
@@ -101,11 +104,20 @@ def run_cell(arm,seed,data,root=ROOT,resume=False):
     flow_rng=torch.Generator(device='cuda').manual_seed(30000+seed)
     pos=torch.tensor(n['pos_weight'],device='cuda',dtype=torch.float32);start=0;elapsed=0.
     identity={**identity,'arm':arm,'seed':seed,'training':cfg,'model_config':model.config_dict()}
-    if resume:
-        z=torch.load(run/'latest.pt',map_location='cuda',weights_only=False)
+    if resume_this:
+        checkpoint=run/'latest.pt' if (run/'latest.pt').exists() else run/'initial.pt'
+        z=torch.load(checkpoint,map_location='cuda',weights_only=False)
         if json_digest(z['identity'])!=json_digest(identity):raise RuntimeError('Resume identity differs')
-        model.load_state_dict(z['model']);opt.load_state_dict(z['optimizer']);sch.load_state_dict(z['scheduler'])
-        restore_rng(z['rng'],rng);flow_rng.set_state(z['flow_rng'].cpu());start=z['step'];elapsed=z['training_seconds']
+        model.load_state_dict(z['model'])
+        if 'optimizer' in z:
+            opt.load_state_dict(z['optimizer']);sch.load_state_dict(z['scheduler'])
+            restore_rng(z['rng'],rng);flow_rng.set_state(z['flow_rng'].cpu());start=z['step'];elapsed=z['training_seconds']
+        log_path=run/'training.jsonl'
+        if log_path.exists():
+            copy=run/f'training_before_resume_{time.time_ns()}.jsonl';shutil.copy2(log_path,copy)
+            lines=[line for line in log_path.read_text().splitlines() if json.loads(line)['step']<=start]
+            log_path.write_text(''.join(line+'\n' for line in lines))
+            authenticated_json(run/f'resume_{time.time_ns()}.json',{'from_step':start,'checkpoint_sha256':digest(checkpoint),'preserved_log':str(copy),'preserved_log_sha256':digest(copy)})
     else:atomic_torch(run/'initial.pt',{'model':model.state_dict(),'identity':identity,'normalizers':n,'step':0})
     def save(step):
         z={'model':model.state_dict(),'optimizer':opt.state_dict(),'scheduler':sch.state_dict(),'rng':rng_state(rng),

@@ -41,7 +41,7 @@ def native_dispersion(draws,truth):
 def off_interval_checks(dimmer):
     a=np.asarray(dimmer);long=[]
     for j in range(a.shape[1]):
-        off=a[:,j]<=1/255;d=np.diff(np.r_[False,off,False].astype(int));starts=np.flatnonzero(d==1);ends=np.flatnonzero(d==-1)
+        off=a[:,j]==0;d=np.diff(np.r_[False,off,False].astype(int));starts=np.flatnonzero(d==1);ends=np.flatnonzero(d==-1)
         long.append(int(np.max(ends-starts,initial=0)))
     return {'longest_off_frames':long,'heads_with_off_at_least_150ms':sum(n>=6 for n in long)}
 
