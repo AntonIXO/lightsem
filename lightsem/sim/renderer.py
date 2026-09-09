@@ -74,14 +74,16 @@ def _beam_direction(f: Fixture, pan: float, tilt: float) -> tuple[float, float, 
 
 @dataclass
 class RenderConfig:
-    width: int = 960
-    height: int = 540
+    width: int = 1920
+    height: int = 1080
     fps: float = 30.0
     haze: float = 0.115
     cam_pos: tuple[float, float, float] = (0.0, 2.6, 11.0)
     cam_target: tuple[float, float, float] = (0.0, 3.2, -3.0)
     cam_orbit: float = 0.07          # slow orbit amplitude (radians)
     intensity_gain: float = 2.4
+    gpu_device: int = 0
+    require_gpu: bool = True
 
 
 class StageRenderer:
@@ -90,7 +92,13 @@ class StageRenderer:
     def __init__(self, rig: Rig, cfg: RenderConfig | None = None):
         self.rig = rig
         self.cfg = cfg or RenderConfig()
-        self.ctx = moderngl.create_context(standalone=True, backend="egl")
+        self.ctx = moderngl.create_context(
+            standalone=True, backend="egl", device_index=self.cfg.gpu_device
+        )
+        renderer = self.ctx.info["GL_RENDERER"]
+        software_renderers = ("llvmpipe", "softpipe", "swiftshader", "software rasterizer")
+        if self.cfg.require_gpu and any(name in renderer.lower() for name in software_renderers):
+            raise RuntimeError(f"GPU rendering required, got software renderer: {renderer}")
         self.prog = self.ctx.program(
             vertex_shader=VERTEX_SHADER, fragment_shader=FRAGMENT_SHADER
         )
@@ -216,8 +224,16 @@ class StageRenderer:
         ]
         if audio_path is not None:
             cmd += ["-i", str(audio_path)]
-        cmd += ["-c:v", "libx264", "-preset", "medium", "-crf", "20",
-                "-pix_fmt", "yuv420p"]
+        cmd += [
+            "-c:v", "av1_nvenc", "-gpu", str(cfg.gpu_device),
+            "-preset", "p7", "-tune", "uhq",
+            "-rc", "vbr", "-cq", "18", "-b:v", "0",
+            "-multipass", "fullres", "-rc-lookahead", "32",
+            "-spatial-aq", "1", "-temporal-aq", "1",
+            "-pix_fmt", "yuv420p",
+            "-colorspace", "bt709", "-color_primaries", "bt709",
+            "-color_trc", "bt709", "-movflags", "+faststart",
+        ]
         if audio_path is not None:
             cmd += ["-c:a", "aac", "-b:a", "192k", "-shortest"]
         cmd += [str(out_path)]

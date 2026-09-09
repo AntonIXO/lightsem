@@ -30,9 +30,11 @@ def main():
     ap.add_argument("audio", nargs="+")
     ap.add_argument("--out", default="/root/lightsem/outputs/stage8/demo_songs")
     ap.add_argument("--max-s", type=float, default=0.0, help="render only the first N seconds (0 = whole song)")
+    ap.add_argument("--width", type=int, default=1920)
+    ap.add_argument("--height", type=int, default=1080)
     a = ap.parse_args()
     out = Path(a.out); out.mkdir(parents=True, exist_ok=True)
-    ren = StageRenderer(canonical_rig(), RenderConfig(width=854, height=480, fps=30))
+    ren = StageRenderer(canonical_rig(), RenderConfig(width=a.width, height=a.height, fps=30))
     cond = ConductorHybrid()
     models = {k: LightModel(v) for k, v in CK.items()}
     for src in a.audio:

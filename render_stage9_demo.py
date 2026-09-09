@@ -69,11 +69,13 @@ def main():
     ap.add_argument("--max-s", type=float, default=0.0)
     ap.add_argument("--arms", default="beat_trigger,conductor,decoder_v1,decoder_v2,decoder_v2_plan,engine_only,best_of_8")
     ap.add_argument("--seeds", type=int, default=8)
+    ap.add_argument("--width", type=int, default=1920)
+    ap.add_argument("--height", type=int, default=1080)
     a = ap.parse_args()
     out = Path(a.out); out.mkdir(parents=True, exist_ok=True)
     device = "cuda" if torch.cuda.is_available() else "cpu"
     arms = a.arms.split(",")
-    ren = StageRenderer(canonical_rig(), RenderConfig(width=854, height=480, fps=30))
+    ren = StageRenderer(canonical_rig(), RenderConfig(width=a.width, height=a.height, fps=30))
     rig = canonical_rig(); cond = ConductorHybrid(); eng = GroupEngine(rig)
     lm = LightModel(CKPT / "light_trunk_jd_none_smooth.pt")
     dec1 = Decoder(CKPT / "group_decoder_v1.pt", device) if (CKPT / "group_decoder_v1.pt").exists() else None
