@@ -1,0 +1,63 @@
+{
+  "as_of": "2026-09-08",
+  "scope": "Incremental research after Stage9/10 and39-rating pilot; audio-only pre-rendered lighting",
+  "discovery": {
+    "perplexity_research_completed": true,
+    "backend_uuid": "ee092d94-cd25-4358-a611-3bc67c17ed24",
+    "returned_source_entries": 146,
+    "vault_prior_papers": 33,
+    "vault_prior_negative_ideas": 19,
+    "arxiv_mcp": "Unavailable; identifiers verified on primary arxiv.org pages"
+  },
+  "waves": [
+    {
+      "wave": 1,
+      "lanes": [
+        "Direct lighting generation and authored DMX asset gaps",
+        "Few-query preference optimization and human query units",
+        "Whole-song structure, recurrence, beat tracking and EDM annotations"
+      ],
+      "source_classes": [
+        "Primary papers",
+        "Official proceedings",
+        "Author-hosted PDFs",
+        "Official repositories/model/dataset cards",
+        "Local code and artifacts"
+      ]
+    },
+    {
+      "wave": 2,
+      "targets": [
+        "Skip-BART/SeqLight exact methods vs local implementation",
+        "LightingGen metadata, full-text and author-hosted release search",
+        "AuraLuxMuse generated XML vs actual authored training data",
+        "Preference study counts, query units, CPU implementations and indifference cost",
+        "SongFormer/EDMFormer labels, releases, licenses",
+        "Beat This continuity tradeoffs and training overlap",
+        "Raveform schema, local annotations and rights gap"
+      ]
+    },
+    {
+      "wave": 3,
+      "targets": [
+        "New Perplexity lead Glow with the Flow primary methods/evaluation",
+        "Formal prototypes proof-of-concept scale and solver requirements",
+        "Whole-song diffusion actual hierarchy rather than guaranteed motif reuse"
+      ]
+    }
+  ],
+  "reconciled": [
+    "SeqLight weight availability overclaim removed",
+    "LightingGen actual title verified via publisher-deposited Crossref",
+    "Nonsignificance not treated as equivalence",
+    "Witek excluded as already known",
+    "Sequential gallery tasks not counted as binary votes",
+    "Oracle experiments distinguished from training-collapse causes",
+    "Equal query budgets distinguished from equal human time"
+  ],
+  "stopping_reason": "Decision-relevant sections have primary support or explicit bounded access/asset gaps; further broad discovery unlikely to change immediate experiment order.",
+  "new_papers_added": 14,
+  "vault": "/root/lightsem-vault",
+  "completed_artifact": "LightSem_Research_Review_2026-09-08.pdf",
+  "execution": "Research and CPU artifact tooling only; no new training, lighting-rendering campaign or GPU job"
+}

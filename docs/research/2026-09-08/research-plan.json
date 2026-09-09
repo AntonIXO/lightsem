@@ -1,0 +1,35 @@
+{
+  "scope": "Incremental primary-source literature review for LightSem pre-rendered audio-to-stage lighting after Stages9/10 and manual-rating audit. Decision: strongest next mechanisms and falsifiable experiments; no new training/deployment.",
+  "audience": "Anton, project maintainer; ML/code-literate",
+  "as_of": "2026-09-08",
+  "assumptions": [
+    "English technical report, PDF deliverable",
+    "Existing GPU extraction left untouched",
+    "Primary papers + official code/model/dataset/license pages; prior vault evidence used as local facts",
+    "Avoid re-proposing tested recipes without a specific changed mechanism"
+  ],
+  "planning_tool": "update_plan unavailable in tool registry; file-backed plan used",
+  "steps": [
+    {
+      "step": "Audit local corpus, experiments and existing literature; launch bounded discovery",
+      "status": "completed"
+    },
+    {
+      "step": "Verify new and consequential existing papers, code/data; reconcile gaps",
+      "status": "completed"
+    },
+    {
+      "step": "Rank transferable mechanisms and design discriminating experiments",
+      "status": "completed"
+    },
+    {
+      "step": "Produce cited report and PDF; verify artifact and deliver",
+      "status": "completed"
+    }
+  ],
+  "deliverable": {
+    "path": "docs/research/2026-09-08/LightSem_Research_Review_2026-09-08.pdf",
+    "pages": 12,
+    "qa": "all pages visually inspected;35unique links matchsource;12bookmarks;searchable text"
+  }
+}

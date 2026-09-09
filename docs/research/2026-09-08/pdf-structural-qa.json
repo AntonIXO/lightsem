@@ -1,0 +1,27 @@
+{
+  "pages": 12,
+  "outline_entries": 12,
+  "link_annotations": 79,
+  "unique_links": 35,
+  "links_match_source": true,
+  "tagged_pdf": false,
+  "searchable_text": true,
+  "visual_review": "All12pages inspected at120dpi, including first/last, dense comparison table, citations and experiment transitions",
+  "visual_pages": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12
+  ],
+  "observed_defects": "Initial three overflow pages corrected by redistributing experiments and tightening roadmap; final render clean",
+  "scientific_qa": "Independent preference/source and experimental-contrast review; three material clarifications applied",
+  "pdf_sha256": "888e6ddd89e3cf48f0f01fcc472a5a78f69f3286e8d86fea6d418b2c6a65c336"
+}

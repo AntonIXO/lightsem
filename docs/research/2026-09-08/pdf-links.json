@@ -1,0 +1,302 @@
+[
+  {
+    "label": "MusicFrameworks",
+    "target": "https://www.cs.cmu.edu/~rbd/papers/frameworks-ismir2021.pdf"
+  },
+  {
+    "label": "qEUBO",
+    "target": "https://proceedings.mlr.press/v206/astudillo23a.html"
+  },
+  {
+    "label": "Sequential Line Search",
+    "target": "https://koyama.xyz/project/sequential_line_search/"
+  },
+  {
+    "label": "SeqLight",
+    "target": "https://arxiv.org/html/2605.03660v1"
+  },
+  {
+    "label": "Glow with the Flow",
+    "target": "https://arxiv.org/html/2602.08838v1"
+  },
+  {
+    "label": "Continuation audit",
+    "target": "/root/lightsem/docs/CONTINUATION_AUDIT_2026-09-07.md"
+  },
+  {
+    "label": "Ratings audit",
+    "target": "/root/lightsem/docs/HL_RATINGS_2026-09-08.md"
+  },
+  {
+    "label": "local continuation audit",
+    "target": "/root/lightsem/docs/CONTINUATION_AUDIT_2026-09-07.md"
+  },
+  {
+    "label": "Ratings audit",
+    "target": "/root/lightsem/docs/HL_RATINGS_2026-09-08.md"
+  },
+  {
+    "label": "Full paper",
+    "target": "https://arxiv.org/html/2506.01482v2"
+  },
+  {
+    "label": "official repository",
+    "target": "https://github.com/RS2002/Skip-BART"
+  },
+  {
+    "label": "weights",
+    "target": "https://huggingface.co/RS2002/Skip-BART"
+  },
+  {
+    "label": "processed data",
+    "target": "https://huggingface.co/datasets/RS2002/RPMC-L2"
+  },
+  {
+    "label": "Full paper",
+    "target": "https://arxiv.org/html/2605.03660v1"
+  },
+  {
+    "label": "README",
+    "target": "https://github.com/RS2002/SeqLight"
+  },
+  {
+    "label": "Full paper",
+    "target": "https://arxiv.org/html/2602.08838v1"
+  },
+  {
+    "label": "source repository",
+    "target": "https://github.com/joeyjoestar111/AuraLuxMuse"
+  },
+  {
+    "label": "Publisher DOI",
+    "target": "https://doi.org/10.1109/TMM.2026.3664978"
+  },
+  {
+    "label": "Author PDF",
+    "target": "https://www.cs.cmu.edu/~rbd/papers/frameworks-ismir2021.pdf"
+  },
+  {
+    "label": "Proceedings and paper",
+    "target": "https://proceedings.iclr.cc/paper_files/paper/2024/hash/39d239a30bb40536a5e4e78b5780ba82-Abstract-Conference.html"
+  },
+  {
+    "label": "Julia code",
+    "target": "https://github.com/DCMLab/form-repetition-ismir23"
+  },
+  {
+    "label": "Paper",
+    "target": "https://archives.ismir.net/ismir2023/paper/000045.pdf"
+  },
+  {
+    "label": "official repository",
+    "target": "https://github.com/ASLP-lab/SongFormer"
+  },
+  {
+    "label": "Full paper",
+    "target": "https://arxiv.org/html/2510.02797v3"
+  },
+  {
+    "label": "Full paper",
+    "target": "https://arxiv.org/html/2603.08759v1"
+  },
+  {
+    "label": "Official MIT C++/Python code",
+    "target": "https://github.com/yuki-koyama/sequential-line-search"
+  },
+  {
+    "label": "Project",
+    "target": "https://koyama.xyz/project/sequential_line_search/"
+  },
+  {
+    "label": "current BoTorch tutorial",
+    "target": "https://botorch.org/docs/tutorials/preference_bo"
+  },
+  {
+    "label": "Paper record",
+    "target": "https://proceedings.mlr.press/v206/astudillo23a.html"
+  },
+  {
+    "label": "maintained official tutorial",
+    "target": "https://botorch.org/docs/tutorials/bope"
+  },
+  {
+    "label": "Paper",
+    "target": "https://arxiv.org/abs/2203.11382"
+  },
+  {
+    "label": "MIT code",
+    "target": "https://github.com/yuki-koyama/sequential-gallery"
+  },
+  {
+    "label": "Author paper",
+    "target": "https://koyama.xyz/project/sequential_gallery/download/author-version.pdf"
+  },
+  {
+    "label": "Proceedings paper",
+    "target": "https://www.ijcai.org/proceedings/2025/0463.pdf"
+  },
+  {
+    "label": "Full paper",
+    "target": "https://arxiv.org/html/2511.05163v1"
+  },
+  {
+    "label": "Readable paper",
+    "target": "https://arxiv.org/pdf/2406.14699"
+  },
+  {
+    "label": "official repository",
+    "target": "https://github.com/CPJKU/beat_this"
+  },
+  {
+    "label": "Full paper",
+    "target": "https://arxiv.org/html/2407.21658v1"
+  },
+  {
+    "label": "Local audit",
+    "target": "/root/lightsem/docs/CONTINUATION_AUDIT_2026-09-07.md"
+  },
+  {
+    "label": "Publisher",
+    "target": "https://doi.org/10.1145/3746027.3755488"
+  },
+  {
+    "label": "Raveform",
+    "target": "https://raveform.netlify.app/"
+  },
+  {
+    "label": "Publication",
+    "target": "https://doi.org/10.5334/tismir.288"
+  },
+  {
+    "label": "Primary paper",
+    "target": "https://arxiv.org/html/2506.01482v2"
+  },
+  {
+    "label": "Code",
+    "target": "https://github.com/RS2002/Skip-BART"
+  },
+  {
+    "label": "Primary paper",
+    "target": "https://arxiv.org/html/2605.03660v1"
+  },
+  {
+    "label": "Code",
+    "target": "https://github.com/RS2002/SeqLight"
+  },
+  {
+    "label": "Primary paper",
+    "target": "https://arxiv.org/html/2602.08838v1"
+  },
+  {
+    "label": "Publisher",
+    "target": "https://doi.org/10.1145/3746027.3755488"
+  },
+  {
+    "label": "Publisher",
+    "target": "https://doi.org/10.1109/TMM.2026.3664978"
+  },
+  {
+    "label": "Source repository",
+    "target": "https://github.com/joeyjoestar111/AuraLuxMuse"
+  },
+  {
+    "label": "Author PDF",
+    "target": "https://www.cs.cmu.edu/~rbd/papers/frameworks-ismir2021.pdf"
+  },
+  {
+    "label": "Proceedings",
+    "target": "https://proceedings.iclr.cc/paper_files/paper/2024/hash/39d239a30bb40536a5e4e78b5780ba82-Abstract-Conference.html"
+  },
+  {
+    "label": "Paper",
+    "target": "https://archives.ismir.net/ismir2023/paper/000045.pdf"
+  },
+  {
+    "label": "Code",
+    "target": "https://github.com/DCMLab/form-repetition-ismir23"
+  },
+  {
+    "label": "Paper",
+    "target": "https://arxiv.org/html/2510.02797v3"
+  },
+  {
+    "label": "Code",
+    "target": "https://github.com/ASLP-lab/SongFormer"
+  },
+  {
+    "label": "Paper",
+    "target": "https://arxiv.org/html/2603.08759v1"
+  },
+  {
+    "label": "Author project",
+    "target": "https://koyama.xyz/project/sequential_line_search/"
+  },
+  {
+    "label": "Code",
+    "target": "https://github.com/yuki-koyama/sequential-line-search"
+  },
+  {
+    "label": "Proceedings",
+    "target": "https://proceedings.mlr.press/v206/astudillo23a.html"
+  },
+  {
+    "label": "Official tutorial",
+    "target": "https://botorch.org/docs/tutorials/preference_bo"
+  },
+  {
+    "label": "Paper",
+    "target": "https://arxiv.org/abs/2203.11382"
+  },
+  {
+    "label": "Official tutorial",
+    "target": "https://botorch.org/docs/tutorials/bope"
+  },
+  {
+    "label": "Author PDF",
+    "target": "https://koyama.xyz/project/sequential_gallery/download/author-version.pdf"
+  },
+  {
+    "label": "Code",
+    "target": "https://github.com/yuki-koyama/sequential-gallery"
+  },
+  {
+    "label": "Proceedings PDF",
+    "target": "https://www.ijcai.org/proceedings/2025/0463.pdf"
+  },
+  {
+    "label": "Full text",
+    "target": "https://arxiv.org/html/2511.05163v1"
+  },
+  {
+    "label": "Readable paper",
+    "target": "https://arxiv.org/pdf/2406.14699"
+  },
+  {
+    "label": "TMLR record",
+    "target": "https://openreview.net/forum?id=mjsoESaWDH"
+  },
+  {
+    "label": "Paper",
+    "target": "https://arxiv.org/html/2407.21658v1"
+  },
+  {
+    "label": "Code/models",
+    "target": "https://github.com/CPJKU/beat_this"
+  },
+  {
+    "label": "Publication",
+    "target": "https://doi.org/10.5334/tismir.288"
+  },
+  {
+    "label": "Official data/schema",
+    "target": "https://raveform.netlify.app/"
+  },
+  {
+    "label": "Continuation audit, 7 September",
+    "target": "/root/lightsem/docs/CONTINUATION_AUDIT_2026-09-07.md"
+  },
+  {
+    "label": "manual ratings audit, 8 September",
+    "target": "/root/lightsem/docs/HL_RATINGS_2026-09-08.md"
+  }
+]

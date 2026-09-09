@@ -1,0 +1,38 @@
+[
+  {
+    "claim": "Stage9 collapse refutes full Skip-BART/SeqLight",
+    "conclusion": "False scope: causal parallel role decoder and six moments omit autoregression, histograms and learned temporal assignment",
+    "confidence": "high",
+    "status": "resolved"
+  },
+  {
+    "claim": "New authored DMX dataset is immediately usable",
+    "conclusion": "No verified new source corpus. LightingGen primary text inaccessible; AuraLuxMuse generated XML is not authored training data; RPMC is camera-derived",
+    "confidence": "high on inspected assets; inaccessible evidence bounded",
+    "status": "bounded"
+  },
+  {
+    "claim": "Explicit recurrence will improve lighting",
+    "conclusion": "Mechanism is untested locally; symbolic music evidence only. Existing recurrence clusters are discarded into boundaries; planner regression did not test motif reuse",
+    "confidence": "high on distinction; transfer unknown",
+    "status": "hypothesis"
+  },
+  {
+    "claim": "Few-query optimization improves preference efficiency",
+    "conclusion": "SLS and EUBO have official implementations; visual studies use different query units. LightSem requires an equal-budget held-out pilot",
+    "confidence": "high on availability; transfer unknown",
+    "status": "hypothesis"
+  },
+  {
+    "claim": "BeatThis resolves tempo errors",
+    "conclusion": "Official CPU-capable model exists; paper reports continuity tradeoff, so strict timing/continuity and overlap checks required",
+    "confidence": "high on source; local effect unknown",
+    "status": "hypothesis"
+  },
+  {
+    "claim": "Perplexity availability and equivalence claims are trustworthy",
+    "conclusion": "Corrected SeqLight weights availability, hierarchical generation versus literal motif reuse, and non-significance versus equivalence. Witek already in vault",
+    "confidence": "high",
+    "status": "resolved"
+  }
+]

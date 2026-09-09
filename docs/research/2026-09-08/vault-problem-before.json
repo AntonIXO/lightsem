@@ -1,0 +1,121 @@
+{
+  "id": "dancing-light-generative-20260903",
+  "title": "Sound -> light for concerts/festivals, TRAINED ON DANCE datasets (LightSem v2): generative audio -> light on dance-derived targets",
+  "description": "LightSem v2, rev. 3 (2026-09-04). TASK: a causal SOUND -> LIGHT model for concerts and festivals, TRAINED ON DANCE. Paired (music, dance motion) -> motion descriptors -> light targets on a canonical rig (fixed mapping) -> train audio -> light directly. At inference: sound in, DMX out; no dancer, pose or dance generator. Motion comes from mocap datasets OR is extracted from video with existing pose models (YOLO-pose / RTMPose / ViTPose 2D; GVHMR / SMPLest-X 3D) — the dancer is a training-time-only modality either way (Anton, 2026-09-04).\n\nWHAT AUDIO DETERMINES IN A DANCING BODY (music-induced-movement science, integrated 2026-09-04). Burger et al. 2013 (N=60, 30 clips; doi:10.3389/fpsyg.2013.00183): pulse clarity -> CoM speed / shoulder wiggle / quantity of motion / hips / feet r=0.67/0.67/0.62/0.58/0.55; low-frequency flux (kick/bass) -> head speed r=0.73; high-frequency flux -> hands r=0.65 (large cultural residual); percussiveness -> head/shoulders 0.67/0.61; tempo n.s. for amplitude. Burger 2014 (doi:10.3389/fnhum.2014.00903) and Toiviainen 2010 (doi:10.1525/mp.2010.28.1.59): vertical bounce locks to the tactus, horizontal sway/torso to 2-beat and bar; faster tempo shifts energy up the metric hierarchy (bar-level r up to 0.86); PERIOD is a group fact, PHASE is a person fact. Van Dyck 2013 / Cameron 2022: bass raises quantity of motion, hips, torso. Solberg & Jensenius 2017 (club EDM): drops surge QoM and vertical head motion, breakdowns collapse it. Bigand 2024: music drives head bobs and vertical bounce; the partner drives hands and lateral motion. Reading of our numbers: r=0.50 at 8 s IS the section-energy channel; r=0.024 at 0.1 s means instantaneous kinetic-energy AMPLITUDE is music-independent (phase/style scatter). A generative objective escapes the conditional-mean collapse for diversity, but cannot invent a coupling absent from p(y|audio): a flow model of 10 Hz KE is a dance prior with a music watermark.\n\nTARGETS, THREE BLOCKS, THREE OBJECTIVES. Block A shared skeleton (deterministic, MSE/L1 + periodicity head): quantity of motion; CoM/head/foot speed; vertical bounce amplitude and period at the tactus; embodied metrical level; Laban Weight (bass, pulse clarity, RMS, drop contrast) and Time (percussiveness); footfall rate near the beat; section energy contrast. Block B events (point process, AP/F1 at 0.2 and 1 s): footfalls, jumps, hits from dance; scene changes and palette shifts from RPMC-L2. Block C style residual (sampled; conditional rectified flow on the residual after subtracting A): hands, laterality sign and phase, travel direction, symmetry, spread residual, Laban Space/Flow, jerk series; conditioned on a genre token; sampled once per 'dancer' or dropped. Noise (no loss): exact trajectories, gesture identity, microtiming. Never average 30 dancers into one vector; average only shared scalars per bar.\n\nRIG MAPPING FOLLOWS THE BODY: QoM/Weight -> master intensity, haze, saturation; vertical bounce at tactus -> dimmer/tilt bounce on the beat; mediolateral sway at 2-beat/bar -> pan sweep period (direction sampled); head/torso <- LF flux -> big slow fixtures; hands <- HF flux -> small fast fixtures (LED bars, strobes); footfalls/jumps/hits -> strobe bursts, tilt snaps; scene change/palette (RPMC-L2) -> look/hue; spread residual -> zoom; Laban Time -> crossfade time. Canonical rig; rig adaptor to venue patch.\n\nMODEL AND DEPLOYMENT: causal Conformer trunk (6-8 blocks, d 256-384, 15-40 M params, 40 fps, KV cache 3-4 s; Alexanderson 2023 arXiv 2211.09707) with heads A (regression), B (hazard), C (CFM 1-4 Euler steps; MotionStreamer 2503.15451: MSE head FID 59.2 vs diffusion head 10.7 on the same trunk). No VQ on a 24-d bus. Conditioning: causal log-mel/MFCC + RMS + LF/HF flux + onset + online beat phase (PLP zero-latency TISMIR 2024 11.6 ms; BeatNet ~20 ms); never a bidirectional Jukebox/MERT/MuQ at inference. TWO-PATH DEPLOYMENT: ITU-R BT.1359-1 detectability is +45 ms when sound leads light (flash-tone JND 20-70 ms), so transients (onset/beat -> strobe/hit) run on a 10-20 ms DSP path and the learned model paints the slower channels (budget 12+8+5+20-40 ms ~ 45-65 ms); a 100-250 ms PA delay line is viable in the house, never in monitors. Causality verified by future-perturbation and gradient probes; latency by click-track + photodiode, p50/p99.\n\nDATA (research licences; no YouTube scraping): AIST++ (annotations CC-BY-4.0) + AIST multi-view video (research DB, reachable) for validating the video->pose path against mocap; FineDance 7.7 h public (research); InfiniteDance 100.7 h (non-commercial academic); OpenDanceSet 100 h (poses + URLs); PopDanceSet, Let's Dance, BRACE for the 2D path; Oslo club-dancing mocap to DJ-mixed EDM (Solberg & Jensenius, Zenodo 21945706 / 21810782 / 21945721, CC-BY-4.0, head + wrist markers, music withheld but break/build/drop timing given) — block A on concert music; Oslo standstill set (Zenodo 21964686, CC-BY-4.0); RPMC-L2 699 songs (CC-BY-4.0) for HEAD B; own event recordings (consent) as the only commercial-clean path. 2D pose normalised by torso length supplies speed, planar laterality, spread, hands-vs-head split and periodicity; not jumps, contacts or Weight.\n\nSTAGES (runbooks): 0a descriptors + targets + metrics + oracle renders; 0b PREDICTABILITY AUDIT (per descriptor, per timescale: inter-dancer r, audio R2 vs a dancer-identity baseline, period locking) which assigns channels to blocks A/B/C/noise; 0c late-lights A/B (0/40/80/120 ms) and the category-error test (oracle dance-derived DMX vs a 30-line beat-trigger, brightness-matched); 1 train the three-block model on AIST++ + FineDance with splits by track, genre AND dancer; 2 scale data via the video->descriptor pipeline + Oslo EDM mocap, and HEAD B on 699 RPMC-L2 songs; 3 conductor + blind brightness-matched human A/B with two questions ('on the music?', 'the lighting engineer?'); 4 live two-path deployment, lookahead sweep, latency and causality tests, Art-Net on hardware; 5 learned conductor; 6 EDM anticipation only with real EDM lighting ground truth.",
+  "status": "open",
+  "updates": [
+    {
+      "at": "2026-09-03T21:03:45+00:00",
+      "text": "2026-09-03 rev. 2 (Anton's correction): dance datasets are the TRAINING SET for a sound->light model; no music-to-dance generation at inference. Rev. 1's 'latent dancer' inference path is withdrawn; generators survive only as an optional offline pseudo-labelling teacher (PLAN.md section 8). Runbooks rb-ls2-00..05 rewritten accordingly."
+    },
+    {
+      "at": "2026-09-03T21:32:48+00:00",
+      "text": "2026-09-04 rev. 3: integrated four Perplexity reasoning passes (audio->light design; music-induced-movement science; causal model + latency; dataset audit degenerated, replaced by direct source checks) and Anton's note on extracting motion from video with pose models. Targets split into deterministic skeleton / event point-process / sampled style residual; rig mapping follows the body; two-path deployment (transients on a 10-20 ms DSP path) because ITU-R BT.1359-1 detectability is +45 ms when sound leads. New runbooks 00b (predictability audit) and 00c (late-lights + category-error tests) run BEFORE any training."
+    },
+    {
+      "at": "2026-09-04T13:00:40+00:00",
+      "text": "2026-09-04 Stage 0b resolved in two halves (exp-002, exp-003). AIST++ cannot supply block A: genre explains 0.65-0.96 of between-track movement variance and Burger 2013 does not replicate, several correlations invert. Free dancing to EDM can: held-out-track R2 +0.30 for the shared movement curve on Oslo, drop/breakdown ratio 1.7-2.5x with Cohen's d up to 2.55. The binding constraint moves from 'is there a signal' to 'how much free-dance data can we get'."
+    },
+    {
+      "at": "2026-09-04T13:00:40+00:00",
+      "text": "2026-09-04 implementation pass complete (exp-004..exp-008): descriptor extractor (mocap and video), constant-tempo beat grid, canonical-rig conductors, evaluation suite with nulls, 9.3 M causal Conformer with three heads, streaming inference, blind A/B harness; 14 of 14 verification checks. Stage 1 light gates fail (+0.017 vs real-mapped +0.216); operator head passes (+0.31 lift, z 3.66); latency budget met."
+    },
+    {
+      "at": "2026-09-04T13:00:40+00:00",
+      "text": "2026-09-04 repair pass (exp-009): the Stage 1 audio bus read up to 375 ms of the future through librosa defaults; fixed, retrained, held-out block A R2 +0.0438 -> +0.0192, which is the size of the artefact. Event-rate calibration did not raise Light-BAS (predicted mechanism wrong). The surplus light events come from the sampled channels' 11-452x corpus HF energy. Product pivoted to the offline pre-rendered path (rb-ls2-07, PLAN rev. 6)."
+    },
+    {
+      "at": "2026-09-04T13:00:41+00:00",
+      "text": "2026-09-04 Stage 0c category test (exp-010): dance-derived hybrid light beats the beat trigger 8-1 (1 equal) on 'looks like a lighting engineer', ties 5-4 on 'on the music'; one rater, 10 brightness-matched AIST++ pairs. Category error rejected directionally; block C stays. Rater's tell for 'not an engineer' was change rate, the same defect the model carries."
+    },
+    {
+      "at": "2026-09-04T13:00:41+00:00",
+      "text": "2026-09-04 Stage 8 queued (rb-ls2-08): 338 Just Dance gameplay captures (22.0 h, full songs, one filmed stylised coach or several -- each coach its own channel; research-only). Three signals: coach motion for block A/C, hand-animated background lighting as a designed show for HEAD B, full-song structure for H-C. Decision measurement is the held-out-song predictability audit. Extraction launched 15:00 with YOLO26m-pose at 960 after a six-clip trial (solos and multi-coach at >= 0.998 coverage per coach)."
+    },
+    {
+      "at": "2026-09-04T13:00:41+00:00",
+      "text": "2026-09-04 Stage 7 (rb-ls2-07), three of four hypotheses tested. H-A (exp-012): the look-ahead ceiling fails both gates -- with the whole track visible, held-out block A R2 on AIST++ is -0.009 against the causal +0.019 and the light gates do not move; the corpus binds, not the model. H-B (exp-011): spectral matching is the largest lever found -- a causal one-pole per channel fitted to the corpus above-6 Hz energy takes model Light-BAS from +0.018 to +0.293 (real-mapped +0.211), FID 67 -> 20, light events 86 -> 35 per clip against 30 real, diversity not falling; the 12 Hz filter the hypothesis named does nothing, the mismatch sits near 0.2 Hz; zero-phase at matched cutoffs scores the same, so the offline path removes lag, not jitter. H-D (exp-013): audio alone does not anticipate an operator's scene change 4 s ahead (offline margin -0.02, CI spanning zero); a 10x first result was a leak through target-derived hazard features under a symmetric window, caught by the shift control. H-C waits for the Just Dance corpus."
+    },
+    {
+      "at": "2026-09-04T19:19:34+00:00",
+      "text": "2026-09-04 (evening) Stage 9 queued (rb-ls2-09-designed-light, PLAN.md rev. 8 section 6.9). Anton's reading of the shipped Just Dance model: decent, not human. Five outside passes with the full brief (Perplexity deep research x1, reasoning x4: audio decomposition, datasets in two halves, multimodal methods, mixture of light) plus Skip-BART (arXiv:2506.01482) and SeqLight (arXiv:2605.03660) read in full agree on the diagnosis: the bottleneck is the target (dance is a weak proxy; coaches agree at r 0.22-0.42), the hand-written conductor, and the absence of human preference -- not the trunk, causality or the amount of dance. Deep-research verdict: 'another music-to-motion transformer will not close the gap; the project needs authored lighting intent, a learned hierarchical planner, and a preference model that tells deliberate composition from synchronised motion'. Datasets: no public, commercially clean corpus of professional DMX programming exists; RPMC-L2 (all 699 now cached, CC-BY-4.0, no waveform) is the only public stage-domain set; authored light exists at scale in xLights free .xsq sequences (~556, ~25-40 h, audio not included) and Beat Saber lightshow maps (v3 group event boxes with phase-spread filters, verified on the API); console show files only by contract. Seven hypotheses queued: H-G stems (audit-gated), H-H corpus predictability gate, H-I group-effects decoder (the mixture of light, SeqLight's split), H-J section planner on the knobs, H-K factorised critic with beat-trigger negatives as best-of-N, H-L Bradley-Terry knobs from 200-400 pairs, H-M frozen encoder vs random projection. Rule-outs added: AR light LM decoder, RL on the flow head before the critic gate, type-MoE in the trunk, section/chord/LRA/timbre bus channels, Jukebox/CLAP, fixture-token decoder before console data, product training on research corpora."
+    },
+    {
+      "at": "2026-09-04T23:07:24+00:00",
+      "text": "2026-09-05: Stage 9 (rb-ls2-09) run end to end; H-H, H-G, H-M, H-J, H-K directional-only, H-I refuted as built, H-L open (exp-017..023). Reading: the authored corpora on disk (RPMC-L2, Just Dance visual, Beat Saber) support learning WHEN a look changes and the corpus's look statistics, not per-frame or per-bar light levels; the decent-not-human gap is not closed by stems, a frozen encoder, a regressed or sampled group decoder, a bar planner or a critic reranker. Engine diagnostic: with the phase spread zeroed the v1 decoder's Light-BAS minus null is +0.51 (conductor +0.13) at fewer events than the conductor, so the BAS miss was the engine; FID_light and the missing human test carry the verdict. Next: cue-based rendering from the calibrated look-change hazard, scored on cue timing and look-transition statistics; the H-L human preference study; console show files for level design."
+    },
+    {
+      "at": "2026-09-07T21:17:01+00:00",
+      "text": "2026-09-08: H-L now has an analysed 39-pair pilot from Anton, not an empty ratings file. Repaired rating resume/validation and song-grouped preference fitting; held-out preference prediction accuracy 56.4% music fit, 59.0% designed appearance, both conditional intervals include 50%. No H-L gate passes; fresh fitted-vs-default and BAS gates remain unmeasured. Candidate settings saved, no defaults changed. Current pair videos have median 16.1% screen-luma mismatch despite close DMX metric matching; verified blinder metric/renderer discrepancy, and five same-title training counterparts need audio identity verification. Next comparisons need corrected matching and explicit wave/colour controls, which the original conductor-knob pairs do not test. Details and input hashes: /root/lightsem/docs/HL_RATINGS_2026-09-08.md and rb-ls2-09-designed-light pilot note. Existing Just Dance GPU extraction continued untouched; analysis and 16 tests used CPU."
+    }
+  ],
+  "former_ids": [],
+  "topic_tags": [
+    "audio-to-light",
+    "music-to-dance",
+    "motion-to-light",
+    "generative-modelling",
+    "real-time",
+    "evaluation-metric",
+    "cross-modal",
+    "pose",
+    "music-induced-movement"
+  ],
+  "problem_tags": [
+    "conditional-mean-collapse",
+    "metric-gaming",
+    "ill-posed-ground-truth",
+    "matched-baseline"
+  ],
+  "paper_refs": [
+    "arXiv:2506.01482",
+    "arXiv:2605.03660",
+    "arXiv:2211.10658",
+    "arXiv:2511.21029",
+    "arXiv:2603.13375",
+    "arXiv:2605.28491",
+    "arXiv:2503.15451",
+    "arXiv:2510.13244",
+    "arXiv:2403.13667",
+    "arXiv:2607.13978",
+    "arXiv:2512.18804",
+    "arXiv:2603.08759",
+    "automatic-stage-lighting-control-is-it-a-rule-driven-process-or-generative-task-skip-bart",
+    "stage-light-is-sequence-2-multi-light-control-via-imitation-learning-seqlight",
+    "edge-editable-dance-generation-from-music",
+    "flowerdance-meanflow-for-efficient-and-refined-3d-dance-generation",
+    "infinitedance-scalable-3d-dance-generation-towards-in-the-wild-generalization",
+    "discoforcing-real-time-audio-driven-character-control-with-diffusion-forcing",
+    "motionstreamer-streaming-motion-generation-via-diffusion-based-autoregressive-model-in-causal-latent-space",
+    "motionbeat-motion-aligned-music-representation-via-embodied-contrastive-learning",
+    "dancecamera3d-3d-camera-movement-synthesis-with-music-and-dance",
+    "music-to-dance-generation-via-atomic-movements",
+    "tempo-as-the-stable-cue-hierarchical-mixture-of-tempo-and-beat-experts-for-music-to-3d-dance-generation",
+    "edmformer-genre-specific-self-supervised-learning-for-music-structure-segmentation-edm-98",
+    "burger-thompson-luck-saarikallio-toiviainen-2013-influences-of-rhythm-and-timbre-related-musical-features-on-characteristics-of-music-induced-movement",
+    "burger-et-al-2014-hunting-for-the-beat-in-the-body-period-and-phase-locking-in-music-induced-movement",
+    "toiviainen-luck-thompson-2010-embodied-meter-hierarchical-eigenmodes-in-music-induced-movement",
+    "van-dyck-et-al-2013-the-impact-of-the-bass-drum-on-human-dance-movement",
+    "solberg-jensenius-2017-group-behaviour-and-interpersonal-synchronization-to-electronic-dance-music-club-dancers-breaks-and-drops",
+    "witek-et-al-2014-syncopation-body-movement-and-pleasure-in-groove-music",
+    "bigand-et-al-2024-the-geometry-of-interpersonal-synchrony-in-human-dance",
+    "alexanderson-nagy-beskow-henter-2023-listen-denoise-action-audio-driven-motion-synthesis-with-diffusion-models",
+    "chen-et-al-2024-diffusion-forcing-next-token-prediction-meets-full-sequence-diffusion",
+    "real-time-beat-tracking-with-zero-latency-and-plp-tismir-2024",
+    "itu-r-bt-1359-1-relative-timing-of-sound-and-vision-for-broadcasting",
+    "castro-et-al-2018-let-s-dance-learning-from-online-dance-videos",
+    "moltisanti-et-al-2022-brace-the-breakdancing-competition-dataset-for-dance-motion-synthesis",
+    "opendance-multimodal-controllable-3d-dance-generation-with-large-scale-internet-data-opendanceset",
+    "switch-justdance-a-music-to-dance-corpus-from-nintendo-switch-just-dance-gameplay-via-gvhmr",
+    "factorized-contrastive-learning-going-beyond-multi-view-redundancy-factorcl",
+    "lodge-a-coarse-to-fine-diffusion-network-for-long-dance-generation-guided-by-the-characteristic-dance-primitives",
+    "beat-aligned-spectrogram-to-sequence-generation-of-rhythm-game-charts",
+    "audio-synthesizer-inversion-in-symmetric-parameter-spaces-with-approximately-equivariant-flow-matching",
+    "automatic-music-mixing-using-a-generative-model-of-effect-embeddings-megami",
+    "songformer-scaling-music-structure-analysis-with-heterogeneous-supervision"
+  ],
+  "target": null,
+  "synthesis": "STATE OF KNOWLEDGE 2026-09-04 rev. 3 (no experiments run yet under this problem).\n\nTASK: causal sound -> light for concerts/festivals, trained on dance (mocap or video-extracted pose); no dancer at inference.\n\nEstablished (inherited): regression audio -> one dancer's motion at beat resolution is ill-posed (inter-dancer r 0.024 @0.1 s); audio -> light LEVEL is owned by persistence; audio -> light EVENT is real and timbre-driven (AP lift +0.09, z +2.83) but reactive; sound-pivot chain <= 0; AIST audio lacks EDM structure; timing metrics need a metronome null.\n\nNew (literature, 2026-09-04): audio determines a shared energy/periodicity skeleton of dance — quantity of motion and CoM/feet/hips speed from pulse clarity (r ~0.55-0.67), head speed from low-frequency flux (r 0.73), hands from high-frequency flux (r 0.65, large residual), vertical bounce period-locked to the tactus and horizontal sway to the bar, energy surge at drops — plus a distribution over style (phase, side, hands, path). Period is shared, phase is personal. Therefore: predict the skeleton (block A, MSE), model events as a point process (block B), sample the style residual (block C, flow), and put nothing else in the loss. A flow model of 10 Hz kinetic energy would be a dance prior with a music watermark, not a music->light model.\n\nLatency (ITU-R BT.1359-1: +45 ms detectability when sound leads; flash-tone JND 20-70 ms) forces a two-path system: transients on a 10-20 ms DSP path, learned model on the slow channels.\n\nDecisive next measurements, in order: 0a build descriptors/targets/metrics and render real dance -> light; 0b the predictability audit that assigns every descriptor to A/B/C/noise (gate: QoM, vertical bounce, head speed and metrical level beat a dancer-identity baseline with audio R2 > 0.3 at 2-8 s, else only events survive from dance); 0c late-lights A/B and the category-error test (oracle dance-derived DMX vs a 30-line beat-trigger, brightness-matched — if the beat-trigger wins, block C leaves the product).\n\nRisks: category error; sampling a prior; late lights; studio-dance music vs concert music (mitigation: Oslo EDM mocap + video->pose on concert footage); metric gaming; licences (InfiniteDance/OpenDanceSet research-only; Oslo CC-BY-4.0 but music separate).\n\nDo not: regress 10 Hz kinetic energy; regress absolute levels; claim anticipation on RPMC-L2; scrape YouTube; put a dancer/pose/dance generator in the inference path; report BAS without the metronome value; use bidirectional audio encoders in the live path.",
+  "created_at": "2026-09-03T20:56:13+00:00",
+  "updated_at": "2026-09-07T21:17:01+00:00"
+}

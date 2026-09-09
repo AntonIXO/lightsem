@@ -23,7 +23,7 @@ import numpy as np
 
 sys.path.insert(0, "/root/lightsem")
 from lightsem.audio.online import ema  # noqa: E402
-from lightsem.motion.io import load_bus, load_descriptors  # noqa: E402
+from lightsem.motion.io import load_bus, load_descriptors, slice_bus  # noqa: E402
 
 CACHE = Path("/mnt/lightsem-data/cache")
 MOTION = CACHE / "justdance_motion"
@@ -71,7 +71,8 @@ def main():
         yt = r["music_id"]
         if yt not in bus_cache:
             bus_cache[yt] = load_bus(BUS / f"{yt}.npz")
-        bus = bus_cache[yt]
+        bus = slice_bus(bus_cache[yt], duration_s=float(r["duration_s"]),
+                        offset_s=float(r.get("start_s", 0.0)))
         T = min(len(d.times), len(bus.times))
         if T < 40 * FPS:
             continue

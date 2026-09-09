@@ -9,14 +9,16 @@ here is the large figure in the middle of the frame; the pictogram strip's
 little figures are a tenth of its height. So selection is per frame by box
 size with a continuity preference, no tracker, and inference is batched.
 
-`trial`  -- a few clips, several models, overlays and numbers; nothing cached.
-`run`    -- every usable file, N worker processes each owning the GPU in
-            turn (decode is CPU, inference is GPU, so workers overlap), one
-            npz per file under CACHE/justdance_pose/<yt_id>.npz.
+`trial`    -- a few clips, several models, overlays and numbers; nothing cached.
+`manifest` -- probe new captures on disk into CACHE/justdance_manifest.json.
+`run`      -- every usable file not already in CACHE/justdance_pose/<yt_id>.npz.
+            Idempotent: scans the video dir, probes only unknown files, skips
+            a pose cache that already loads, writes the npz atomically.
+            N workers overlap CPU decode with GPU inference.
 """
 from __future__ import annotations
 
-import argparse, json, os, re, sys, time
+import argparse, json, os, re, subprocess, sys, time
 from pathlib import Path
 
 import numpy as np
@@ -28,6 +30,8 @@ CACHE = Path("/mnt/lightsem-data/cache")
 POSE_DIR = CACHE / "justdance_pose"
 MANIFEST = CACHE / "justdance_manifest.json"
 SCRATCH = Path("/tmp/claude-0/-root-lightsem/71c8c079-19a2-4ec4-bea5-2ce7db778b3e/scratchpad")
+VID_EXTS = {".mkv", ".webm", ".mp4", ".avi", ".mov", ".m4v"}
+YT_RE = re.compile(r"\[([A-Za-z0-9_-]{11})\]\.[^.]+$")
 
 #: A coach is at least this fraction of the frame height. Pictogram figures
 #: sit around 0.10-0.15; a quartet's coaches around 0.35; a solo 0.45-0.75.
@@ -532,23 +536,163 @@ def trial(args):
     print("wrote", SCRATCH / f"{args.tag}.json")
 
 
+# ------------------------------------------------------------------ corpus scan
+def _parse_fps(s):
+    if not s or s in ("0/0", "N/A"):
+        return None
+    try:
+        if "/" in str(s):
+            a, b = str(s).split("/", 1)
+            b = float(b)
+            return float(a) / b if b else None
+        return float(s)
+    except (TypeError, ValueError, ZeroDivisionError):
+        return None
+
+
+def list_captures():
+    """(yt_id or None, filename) for every finished video in JD. Skips .part."""
+    out = []
+    for p in JD.iterdir():
+        if p.is_file() and p.suffix.lower() in VID_EXTS:
+            m = YT_RE.search(p.name)
+            out.append((m.group(1) if m else None, p.name))
+    return out
+
+
+def probe_capture(fn: str) -> dict:
+    """ffprobe + volumedetect -> one manifest row. Idempotent caller skips known ids."""
+    path = JD / fn
+    m = YT_RE.search(fn)
+    row = {"file": fn, "yt_id": m.group(1) if m else None,
+           "size_mb": round(path.stat().st_size / 1e6, 1)}
+    try:
+        r = subprocess.run(["ffprobe", "-v", "error", "-print_format", "json",
+                            "-show_format", "-show_streams", str(path)],
+                           capture_output=True, text=True, timeout=60)
+        if r.returncode != 0:
+            row["error"] = f"ffprobe: {(r.stderr or '')[:160]}"
+            return row
+        info = json.loads(r.stdout or "{}")
+        fmt = info.get("format") or {}
+        streams = info.get("streams") or []
+        vs = [s for s in streams if s.get("codec_type") == "video"]
+        aus = [s for s in streams if s.get("codec_type") == "audio"]
+        row["duration_s"] = float(fmt["duration"]) if fmt.get("duration") else None
+        if vs:
+            v = vs[0]
+            row["vcodec"] = v.get("codec_name")
+            row["width"] = int(v["width"]) if v.get("width") else None
+            row["height"] = int(v["height"]) if v.get("height") else None
+            row["fps"] = _parse_fps(v.get("avg_frame_rate") or v.get("r_frame_rate"))
+        row["n_audio"] = len(aus)
+        row["acodec"] = aus[0].get("codec_name") if aus else None
+        if aus:
+            vol = subprocess.run(
+                ["ffmpeg", "-hide_banner", "-nostats", "-v", "info",
+                 "-i", str(path), "-vn", "-af", "volumedetect", "-f", "null", "-"],
+                capture_output=True, text=True, timeout=300)
+            blob = (vol.stderr or "") + (vol.stdout or "")
+            for line in blob.splitlines():
+                if "mean_volume" in line:
+                    row["mean_db"] = float(line.split(":")[1].strip().split()[0])
+                elif "max_volume" in line:
+                    row["max_db"] = float(line.split(":")[1].strip().split()[0])
+            row.setdefault("mean_db", None)
+            row.setdefault("max_db", None)
+        else:
+            row["mean_db"] = -99.0
+            row["max_db"] = -99.0
+    except Exception as e:  # noqa: BLE001
+        row["error"] = f"{type(e).__name__}: {e}"
+    return row
+
+
+def pose_complete(path: Path) -> bool:
+    """True when the npz exists and actually loads a non-empty keypoint tensor."""
+    if not path.exists() or path.stat().st_size < 1000:
+        return False
+    try:
+        with np.load(path, allow_pickle=False) as z:
+            k = z["K"]
+            return k.ndim >= 3 and k.shape[0] > 0
+    except Exception:  # noqa: BLE001
+        return False
+
+
+def refresh_manifest(workers: int = 12) -> list[dict]:
+    """Append probe rows for videos on disk that the manifest does not yet know."""
+    from multiprocessing import Pool
+    rows = json.loads(MANIFEST.read_text()) if MANIFEST.exists() else []
+    bak = MANIFEST.with_suffix(".json.bak")
+    if MANIFEST.exists() and not bak.exists():
+        bak.write_bytes(MANIFEST.read_bytes())
+    by_id = {r["yt_id"]: r for r in rows if r.get("yt_id")}
+    by_file = {r["file"]: r for r in rows}
+    n_rename = 0
+    todo = []
+    for yt, fn in list_captures():
+        if yt and yt in by_id:
+            if by_id[yt].get("file") != fn:
+                by_id[yt]["file"] = fn
+                n_rename += 1
+            continue
+        if fn in by_file:
+            continue
+        todo.append(fn)
+    print(f"manifest: {len(by_id)} known, {len(todo)} new to probe, {n_rename} renamed", flush=True)
+    if todo:
+        w = max(1, min(workers, len(todo)))
+        with Pool(w) as p:
+            for i, row in enumerate(p.imap_unordered(probe_capture, todo), 1):
+                rows.append(row)
+                if i == 1 or i % 25 == 0 or i == len(todo):
+                    print(f"  probe [{i}/{len(todo)}] {row.get('yt_id')} {row.get('vcodec')} "
+                          f"{row.get('width')}x{row.get('height')} mean_db={row.get('mean_db')} "
+                          f"{row.get('error', 'ok')}", flush=True)
+    if todo or n_rename:
+        tmp = MANIFEST.with_suffix(".json.tmp")
+        tmp.write_text(json.dumps(rows, indent=1))
+        tmp.replace(MANIFEST)
+        print(f"manifest now {len(rows)} rows -> {MANIFEST}", flush=True)
+    return rows
+
+
+def _save_pose(out: Path, r: dict):
+    # numpy savez_compressed appends .npz unless the name already ends with it.
+    tmp = out.with_name(out.stem + ".partial.npz")
+    try:
+        np.savez_compressed(tmp, K=r["K_all"].astype(np.float32), C=r["C_all"].astype(np.float32),
+                            box=r["box_all"].astype(np.float32), n_large=r["n_large"].astype(np.int16),
+                            t=r["t"].astype(np.float64), meta=json.dumps(r["meta"]))
+        tmp.replace(out)
+    finally:
+        if tmp.exists():
+            tmp.unlink()
+
+
 # ------------------------------------------------------------------ full run
 def _worker(job):
     """One process: own model, own file list. Writes one npz per file."""
     model_name, imgsz, files, batch, wid, conf = job
+    os.environ.setdefault("OMP_NUM_THREADS", "1")
+    import warnings
+    warnings.filterwarnings("ignore", message=".*half.*deprecated.*")
     import torch
+    torch.set_num_threads(1)
     torch.cuda.set_device(0)
     model = YoloPose(model_name, imgsz, conf=conf)
     done = []
     for yt, fn in files:
         out = POSE_DIR / f"{yt}.npz"
-        if out.exists():
+        if pose_complete(out):
             continue
+        if out.exists():
+            print(f"[w{wid}] redo {yt}: existing npz did not load", flush=True)
+            out.unlink()
         try:
             r = extract(model, JD / fn, batch=batch)
-            np.savez_compressed(out, K=r["K_all"].astype(np.float32), C=r["C_all"].astype(np.float32),
-                                box=r["box_all"].astype(np.float32), n_large=r["n_large"].astype(np.int16),
-                                t=r["t"].astype(np.float64), meta=json.dumps(r["meta"]))
+            _save_pose(out, r)
             done.append((yt, r["meta"]["coverage"], r["meta"]["fps_proc"], r["meta"]["n_coaches"]))
             print(f"[w{wid}] {yt} cov {r['meta']['coverage']:.3f} coaches {r['meta']['n_coaches']} "
                   f"{r['meta']['n_frames']} fr {r['meta']['fps_proc']:.0f} fps", flush=True)
@@ -560,20 +704,29 @@ def _worker(job):
 def run(args):
     import multiprocessing as mp
     POSE_DIR.mkdir(parents=True, exist_ok=True)
-    rows = json.loads(MANIFEST.read_text())
+    for pat in ("*.partial.npz", "*.npz.partial", "*.npz.partial.npz"):
+        for stale in POSE_DIR.glob(pat):
+            stale.unlink()
+    rows = refresh_manifest(workers=max(8, args.workers * 2))
     files = [(r["yt_id"], r["file"]) for r in rows
              if r.get("yt_id") and "error" not in r and (r.get("mean_db") or -99) > -40]
-    files = [f for f in files if not (POSE_DIR / f"{f[0]}.npz").exists()]
+    n_usable = len(files)
+    files = [f for f in files if not pose_complete(POSE_DIR / f"{f[0]}.npz")]
+    n_skip = n_usable - len(files)
     if args.limit:
         files = files[:args.limit]
     # longest files first so no worker is left holding one giant file at the end;
     # --reverse takes them shortest first, so a second run started later works
     # the other end of the same list and the two meet in the middle.
-    dur = {r["yt_id"]: r["duration_s"] for r in rows if r.get("yt_id")}
+    dur = {r["yt_id"]: r.get("duration_s") or 0 for r in rows if r.get("yt_id")}
     files.sort(key=lambda f: -dur.get(f[0], 0), reverse=args.reverse)
     W = args.workers
     jobs = [(args.model, args.imgsz, files[i::W], args.batch, i, args.conf) for i in range(W)]
-    print(f"{len(files)} files, {W} workers, model {args.model}@{args.imgsz}", flush=True)
+    print(f"{len(files)} files to extract ({n_skip} already cached), {W} workers, "
+          f"model {args.model}@{args.imgsz} batch {args.batch}", flush=True)
+    if not files:
+        print("done 0 files in 0.00 h", flush=True)
+        return
     t0 = time.time()
     ctx = mp.get_context("spawn")
     with ctx.Pool(W) as pool:
@@ -595,5 +748,11 @@ if __name__ == "__main__":
     r.add_argument("--imgsz", type=int, default=960); r.add_argument("--workers", type=int, default=3)
     r.add_argument("--batch", type=int, default=16); r.add_argument("--limit", type=int, default=0)
     r.add_argument("--reverse", action="store_true", help="shortest files first (a second run from the other end)")
+    mf = sub.add_parser("manifest"); mf.add_argument("--workers", type=int, default=12)
     a = ap.parse_args()
-    trial(a) if a.cmd == "trial" else run(a)
+    if a.cmd == "trial":
+        trial(a)
+    elif a.cmd == "manifest":
+        refresh_manifest(workers=a.workers)
+    else:
+        run(a)

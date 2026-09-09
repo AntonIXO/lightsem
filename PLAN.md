@@ -1,5 +1,15 @@
 # LightSem v2 — sound → light for concerts and festivals, trained on dance
 
+> **2026-09-08 product correction:** lights must dance to music using a model trained on dancer motion, with music only at playback and no algorithmic beat grid, preset pulses or oscillators. This [binding requirement](docs/DANCE_DRIVEN_CONTRACT.md) supersedes conflicting renderer recipes below. Stage11 completed 25 trainings and locked scene testing; its positive scene-statistics results do not solve this product requirement. The motion-data improvement gate failed. See [results and limitations](docs/STAGE11_RESULTS_20260908.md) and the [historical campaign protocol](docs/STAGE11_CAMPAIGN.md).
+
+
+Update 2026-09-08: Anton's 39 H-L ratings have been analysed with song-grouped
+validation; music-fit accuracy 56.4%, designed-appearance accuracy 59.0%, both
+intervals include chance. H-L remains open; defaults unchanged. Rating/fitting
+bugs repaired. The next batch needs corrected brightness matching and explicit
+wave/colour controls; see `docs/HL_RATINGS_2026-09-08.md`. Stage 10's sweep below
+finished September 5; the active GPU job is expanded Just Dance pose extraction.
+
 Date: 2026-09-05, **rev. 10** (Stage 10 opened, section 6.10: the cue-based renderer Stage 9's results point
 at, two hypotheses H-N / H-O pre-registered as `rb-ls2-10-cue-renderer` before any run; the GPU is on the H-O size
 sweep). Previous header:
@@ -1084,6 +1094,18 @@ by Anton and whoever he recruits. *Gate G9.6*: held-out preference accuracy > 60
 the fitted w must not raise BAS toward the metronome; a fresh batch prefers fitted knobs over the
 defaults. These ratings are *not* spent on DPO of the flow head.
 
+**Pilot update (2026-09-08).** All 39 original pairs rated by Anton (29 registered
+song groups, no ties or foils); questions agree 33/39. Corrected Bradley–Terry
+fit with fixed lambda 1 and five song-grouped folds: music fit 22/39 = 56.4%
+(conditional song-bootstrap interval 42.9–70.6%), designed appearance 23/39 =
+59.0% (44.7–73.8%). No accuracy gate passes; BAS and fresh-batch gates are
+unmeasured. Candidate settings are saved only. Original videos are close in the
+DMX matching metric but have median 16.1% relative screen-luma difference; the
+blinder brightness decoder and renderer disagree, and title-based duplicate
+song candidates need audio verification before claiming unseen-song evaluation.
+Results, provenance and next-batch requirements: `docs/HL_RATINGS_2026-09-08.md`;
+per-pair predictions: `outputs/stage9/hl_pairs/bradley_terry.json`.
+
 #### 9.7 Richer audio, gated by audit before any training (H-G)
 
 Order from the first pass, each with the one experiment that decides it, all on song-split
@@ -1358,3 +1380,19 @@ Witek 2014, Bigand 2024, Alexanderson 2023, MotionStreamer, ITU-R BT.1359-1, Ski
 arXiv:2506.01482, SeqLight arXiv:2605.03660, FactorCL arXiv:2306.05268, Lodge arXiv:2403.10518, beat-aligned chart
 generation arXiv:2311.13687, TempoMoE arXiv:2512.18804, Hayes equivariant flow matching
 arXiv:2506.07199, MEGAMI arXiv:2511.08040, SongFormer arXiv:2510.02797).
+
+## 2026-09-09 correction: beat-conditioned movement and emitted-light checks
+
+The latest user instruction allows beat features on input; it rejects BPM-only movement and static light. This supersedes the September 8 beat-input ban. The binding requirement is [DANCE_DRIVEN_CONTRACT.md](docs/DANCE_DRIVEN_CONTRACT.md).
+
+The no-clock Shpongle result failed visually despite nonconstant latent predictions: the restricted map changes visible geometry in about 0.54% of sampled frame pairs, while the later wide-angle map sends 46.02% of weighted moving-head light upward. An angle-changing output is not sufficient evidence of dancing light. Stage9/10 BAS/critic failures and Stage11 scene-statistics results already warned against this proxy mismatch; see [diagnosis and primary sources](docs/BEAT_CONDITIONED_RESEARCH_20260909.md).
+
+Next authorized scope: one seed-0 92-input/40Hz model with separate A/B and temporal C flow, beat-block conditioning dropout, corrected world-coordinate fixture mapping, and matched-noise inference ablations. The evaluator combines actual lit rays, spatial span, head-only video, HF excess, and same-beat/wrong-nonbeat-audio dependence. Static/pulse/BPM/jitter controls are evaluated before model training. TRAIN-only normalizers, existing VAL, no new TEST access, final scheduled checkpoint, GPU-only training/inference/rendering. Run root: `/mnt/lightsem-data/experiments/lightsem/beat_conditioned_20260909`. No four-training study is scheduled.
+
+### Completed result, 2026-09-09
+
+The single scheduled training completed all 12,000 steps in 29 minutes on RTX 5070. Final checkpoint SHA256: `b03ea2bed19fe97c3ccbe9c9618d6abdbbb8a25907896696336c170fad7ef5ef`. Full Shpongle and the matched-renderer comparison are saved. See [final analysis](docs/BEAT_CONDITIONED_VERDICT_20260909.md) and [reproducible results](docs/BEAT_CONDITIONED_RESULTS_20260909.md).
+
+Physical/visible gates pass on 8/8 candidate clips versus 0/8 old body-v2 clips. However, old weights with only the map repaired also pass 8/8, and seed-matched untrained weights pass 6/8. Visibility improvement therefore does not establish learned musical control. Only 1/40 songs passes the frozen nonbeat-control gate; the correct-versus-donor A2 alignment advantage is −0.213 (95% CI −0.555…+0.040). Holding all six rhythm channels fixed preserves the failure; only 5/40 songs pass the supplementary local-control criterion. Event AP and HF gates pass separately.
+
+Vibescience computed **directional_only**, with hypothesis status **inconclusive**, for `exp-beat-conditioned-visible-motion-20260909`. Both failed gates and the geometry-only/untrained controls are recorded; interpretation is `recipe_conditional`. The problem remains open. No thresholds were relaxed, no additional training was started, and no TEST access followed the failed pilot. The remaining issue is weak musical control of the emitted stochastic trajectory; low BPM-phase R² and visible movement cannot independently certify the solution.

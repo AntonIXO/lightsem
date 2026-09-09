@@ -1,0 +1,369 @@
+{
+  "as_of": "2026-09-08",
+  "records": [
+    {
+      "id": "skip_bart",
+      "title": "Automatic Stage Lighting Control: Is it a Rule-Driven Process or Generative Task?",
+      "authors": "Zijian Zhao; Dian Jin; Zijing Zhou; Xiaoyu Zhang",
+      "date": "2025-06-02; revised 2025-12-31; ICLR 2026 repository designation",
+      "url": "https://arxiv.org/html/2506.01482v2",
+      "code": "https://github.com/RS2002/Skip-BART",
+      "assets": [
+        "https://huggingface.co/RS2002/Skip-BART",
+        "https://huggingface.co/datasets/RS2002/RPMC-L2"
+      ],
+      "claims": [
+        "Offline autoregressive discrete H/V with aligned music/light skip and PianoBART transfer",
+        "RPMC labels are video-derived, not console control logs; 699 samples from 35 performances",
+        "Model card Apache2.0; dataset CC BY4.0; separate GitHub license not located"
+      ],
+      "access": "Full methods and official artifacts inspected",
+      "native": [
+        "turn33view1",
+        "lighting_literature:turn6view0"
+      ],
+      "novel": false
+    },
+    {
+      "id": "seqlight",
+      "title": "Stage Light is Sequence\u00b2: Multi-Light Control via Imitation Learning",
+      "authors": "Zijian Zhao; Dian Jin; Zijing Zhou; Xiaoyu Zhang",
+      "date": "2026-05-05 preprint",
+      "url": "https://arxiv.org/html/2605.03660v1",
+      "code": "https://github.com/RS2002/SeqLight",
+      "claims": [
+        "Full H/V histograms with KL plus goal-conditioned decomposition; HER, BC, AIRL, GRPO",
+        "No professional per-fixture demonstrations required by decomposition",
+        "Code present; weights and repository license not verified; README in preparation"
+      ],
+      "access": "Full methods, repository and tree inspected",
+      "native": [
+        "turn35view3",
+        "turn38view2"
+      ],
+      "novel": false
+    },
+    {
+      "id": "glow_with_the_flow",
+      "title": "Glow with the Flow: AI-Assisted Creation of Ambient Lightscapes for Music Videos",
+      "authors": "Frederic Anthony Robinson; Vishnu Raj; David Cooper; Fan Du; David Gunawan",
+      "date": "2026-02-09; PacificVis 2026 Notes",
+      "url": "https://arxiv.org/html/2602.08838v1",
+      "claims": [
+        "Rule-based synthesis of editable fixture-independent layers and event objects, pretrained audio analysis and video palette",
+        "32 participants, 15 contexts from three videos; corrected nonsignificant comparisons do not establish equivalence",
+        "Paper notes repetitiveness/overexplicit synchronization and reduced colour richness; no code/data located"
+      ],
+      "access": "Full methods and evaluation inspected",
+      "native": [
+        "turn37view0"
+      ],
+      "novel": true
+    },
+    {
+      "id": "cross_modal_lighting_metrics",
+      "title": "Cross-Modal Metrics for Capturing Correspondences Between Music Audio and Stage Lighting Signals",
+      "authors": "Michael Kohl; Tobias Wursthorn; Christof Wei\u00df",
+      "date": "2025-10-27; ACM Multimedia, pp.528\u2013534",
+      "url": "https://doi.org/10.1145/3746027.3755488",
+      "claims": [
+        "Publisher abstract describes beat/change, loudness/brightness and structural correspondence from control parameters",
+        "No exact formulas, implementation or public dataset verified"
+      ],
+      "access": "Publisher abstract only; full PDF blocked403",
+      "native": [
+        "turn32search0"
+      ],
+      "novel": true
+    },
+    {
+      "id": "lightinggen",
+      "title": "LightingGen: A DMX Based Generation Method for Entertainment Stage Lighting",
+      "authors": "Tianhao Wang; Yujian Jiang; Wei Jiang; Xiangzhong Zhou; Xuzeng Guan",
+      "date": "2026; IEEE TMM28:5216\u20135226",
+      "url": "https://doi.org/10.1109/TMM.2026.3664978",
+      "assets": [
+        "https://api.crossref.org/works/10.1109/TMM.2026.3664978"
+      ],
+      "claims": [
+        "Publication metadata verified; detailed architecture/dataset/performance unverified"
+      ],
+      "access": "Crossref publisher-deposited metadata; publisher full text inaccessible",
+      "native": [
+        "lighting_literature:crossref"
+      ],
+      "novel": true,
+      "keeper": false
+    },
+    {
+      "id": "auraluxmuse",
+      "title": "AuraLuxMuse / LightMuse source repository",
+      "authors": "Joey Deng / joeyjoestar111",
+      "date": "Inspected 2026-09-08; repository updated April2026",
+      "url": "https://github.com/joeyjoestar111/AuraLuxMuse",
+      "claims": [
+        "Fixture-attribute-value processing and generated grandMA2 XML in repository",
+        "No verified primary paper, authored source corpus, checkpoint or license"
+      ],
+      "access": "README, recursive tree, training code and generated XML inspected",
+      "native": [
+        "lighting_literature:turn22view1",
+        "lighting_literature:turn22view2"
+      ],
+      "novel": true,
+      "keeper": false
+    },
+    {
+      "id": "musicframeworks",
+      "title": "Controllable deep melody generation via hierarchical music structure representation",
+      "authors": "Shuqi Dai; Zeyu Jin; Celso Gomes; Roger B. Dannenberg",
+      "date": "2021; ISMIR",
+      "url": "https://www.cs.cmu.edu/~rbd/papers/frameworks-ismir2021.pdf",
+      "claims": [
+        "Explicit hierarchy with repetitive patterns and separate rhythmic/melodic control",
+        "Symbolic melody results, no lighting evidence; code not located"
+      ],
+      "access": "Author-hosted full PDF inspected",
+      "native": [
+        "turn31view3"
+      ],
+      "novel": true
+    },
+    {
+      "id": "whole_song_generation",
+      "title": "Whole-Song Hierarchical Generation of Symbolic Music Using Cascaded Diffusion Models",
+      "authors": "Ziyu Wang; Lejun Min; Gus Xia",
+      "date": "2024; ICLR",
+      "url": "https://proceedings.iclr.cc/paper_files/paper/2024/hash/39d239a30bb40536a5e4e78b5780ba82-Abstract-Conference.html",
+      "code": "https://github.com/ZZWaang/whole-song-gen",
+      "claims": [
+        "Four levels of symbolic form-to-accompaniment diffusion with external controls",
+        "Paper links code/checkpoints; release contents/terms not independently verified"
+      ],
+      "access": "Proceedings and full methods PDF inspected; repository not independently audited",
+      "native": [
+        "turn35view0",
+        "turn38view0"
+      ],
+      "novel": true
+    },
+    {
+      "id": "formal_repetition",
+      "title": "Repetition-Structure Inference with Formal Prototypes",
+      "authors": "Christoph Finkensiep; Matthieu Haeberle; Friedrich Eisenbrand; Markus Neuwirth; Martin Rohrmeier",
+      "date": "2023; ISMIR",
+      "url": "https://archives.ismir.net/ismir2023/paper/000045.pdf",
+      "code": "https://github.com/DCMLab/form-repetition-ismir23",
+      "claims": [
+        "Formal templates constrain repetition grammars, solved by dynamic programming plus ILP",
+        "Proof of concept on298short melodies8\u201324notes; not an audio segmenter",
+        "Julia implementation with default Gurobi; specialist experimental code, repository license not located"
+      ],
+      "access": "Full primary PDF and official README inspected",
+      "native": [
+        "turn35view1",
+        "turn38view1"
+      ],
+      "novel": true
+    },
+    {
+      "id": "songformer",
+      "title": "SongFormer: Scaling Music Structure Analysis with Heterogeneous Supervision",
+      "authors": "Chunbo Hao; Ruibin Yuan; Jixun Yao; Qixin Deng; Xinyi Bai; Yanbo Wang; Wei Xue; Lei Xie",
+      "date": "2025-10-03; revised2026-04-08",
+      "url": "https://arxiv.org/html/2510.02797v3",
+      "code": "https://github.com/ASLP-lab/SongFormer",
+      "claims": [
+        "MuQ/MusicFM short/long context, source embeddings for heterogeneous labels",
+        "Official train/inference and checkpoint links; repo CC BY4.0, checkpoint terms need separate review",
+        "Pop labels do not include an EDM drop class"
+      ],
+      "access": "Full methods and repository inspected",
+      "native": [
+        "turn28view0",
+        "turn31view5"
+      ],
+      "novel": false
+    },
+    {
+      "id": "edmformer",
+      "title": "EDMFormer: Genre-Specific Self-Supervised Learning for Music Structure Segmentation",
+      "authors": "Sahal Sajeer; Krish Patel; Oscar Chung; Joel Song Bae",
+      "date": "2026-03-08 preprint",
+      "url": "https://arxiv.org/html/2603.08759v1",
+      "claims": [
+        "EDM-specific label adaptation and98-track EDM-98 corpus",
+        "One annotation per track and small corpus; actual code/data download not located"
+      ],
+      "access": "Full primary text inspected; asset gap bounded",
+      "native": [
+        "turn31view0",
+        "turn31view1"
+      ],
+      "novel": false
+    },
+    {
+      "id": "sequential_line_search",
+      "title": "Sequential Line Search for Efficient Visual Design Optimization by Crowds",
+      "authors": "Yuki Koyama; Issei Sato; Daisuke Sakamoto; Takeo Igarashi",
+      "date": "2017; SIGGRAPH",
+      "url": "https://koyama.xyz/project/sequential_line_search/",
+      "code": "https://github.com/yuki-koyama/sequential-line-search",
+      "claims": [
+        "Bayesian visual design optimization via line-search tasks",
+        "Official MIT C++/Python implementation; a line task is not one A/B vote"
+      ],
+      "access": "Author page/PDF and official code inspected",
+      "native": [
+        "turn33view4"
+      ],
+      "novel": true
+    },
+    {
+      "id": "qeubo",
+      "title": "qEUBO: A Decision-Theoretic Acquisition Function for Preferential Bayesian Optimization",
+      "authors": "Raul Astudillo; Zhiyuan Jerry Lin; Eytan Bakshy; Peter I. Frazier",
+      "date": "2023; AISTATS/PMLR206",
+      "url": "https://proceedings.mlr.press/v206/astudillo23a.html",
+      "code": "https://botorch.org/docs/tutorials/preference_bo",
+      "claims": [
+        "Expected utility of best option as acquisition objective; assumptions bound optimality claims",
+        "Current official BoTorch PairwiseGP/analytic EUBO tutorial runs on CPU; MIT library"
+      ],
+      "access": "Primary proceedings abstract and current tutorial; paper PDF browser size limitation",
+      "native": [
+        "turn33view3",
+        "turn35view2"
+      ],
+      "novel": true
+    },
+    {
+      "id": "bope",
+      "title": "Preference Exploration for Efficient Bayesian Optimization with Multiple Outcomes",
+      "authors": "Zhiyuan Jerry Lin; Raul Astudillo; Peter I. Frazier; Eytan Bakshy",
+      "date": "2022; AISTATS",
+      "url": "https://arxiv.org/abs/2203.11382",
+      "code": "https://botorch.org/docs/tutorials/bope",
+      "claims": [
+        "Separates parameters-to-outcomes model from outcomes-to-utility model",
+        "MIT original replication repo archived2025; official tutorial current",
+        "Lighting summary-feature sufficiency is untested"
+      ],
+      "access": "Primary paper and official repositories/tutorial inspected by preference lane",
+      "native": [
+        "preference_literature:primary"
+      ],
+      "novel": true
+    },
+    {
+      "id": "sequential_gallery",
+      "title": "Sequential Gallery for Interactive Visual Design Optimization",
+      "authors": "Yuki Koyama; Issei Sato; Masataka Goto",
+      "date": "2020; SIGGRAPH/TOG",
+      "url": "https://koyama.xyz/project/sequential_gallery/download/author-version.pdf",
+      "code": "https://github.com/yuki-koyama/sequential-gallery",
+      "claims": [
+        "Two-dimensional plane-search galleries; MIT C++/Python",
+        "Preliminary6-person study;5.36tasks-to-satisfaction is not5.36pairwisevotes"
+      ],
+      "access": "Full author PDF and official repository inspected",
+      "native": [
+        "turn37view3"
+      ],
+      "novel": true
+    },
+    {
+      "id": "constrained_pbo",
+      "title": "Constrained Preferential Bayesian Optimization and Its Application in Banner Ad Design",
+      "authors": "Koki Iwai; Yusuke Kumagae; Yuki Koyama; Masahiro Hamasaki; Masataka Goto",
+      "date": "2025; IJCAI",
+      "url": "https://www.ijcai.org/proceedings/2025/0463.pdf",
+      "assets": [
+        "https://constrained-pbo.github.io/"
+      ],
+      "claims": [
+        "Preference acquisition with feasibility probability",
+        "11designers,50comparisons eachtask,6D/12D; constraint predicted CTR not deployed CTR",
+        "No official code release verified"
+      ],
+      "access": "Full proceedings PDF and official page inspected by preference lane",
+      "native": [
+        "preference_literature:primary"
+      ],
+      "novel": true
+    },
+    {
+      "id": "consecutive_pbo",
+      "title": "Consecutive Preferential Bayesian Optimization",
+      "authors": "Aras Erarslan; Carlos Sevilla Salcedo; Ville Tanskanen; Anni Nisov; Eero P\u00e4iv\u00e4kumpu; Heikki Aisala; Kaisu Honkap\u00e4\u00e4; Arto Klami; Petrus Mikkola",
+      "date": "2025-11-07 preprint",
+      "url": "https://arxiv.org/html/2511.05163v1",
+      "claims": [
+        "Candidate reuse and explicit indifference threshold",
+        "6D synthetic acquisition345\u00b134seconds; code ZIP claim not independently located"
+      ],
+      "access": "Full HTML methods and tables inspected by preference lane",
+      "native": [
+        "preference_literature:primary"
+      ],
+      "novel": true
+    },
+    {
+      "id": "preferential_mobo",
+      "title": "Preferential Multi-Objective Bayesian Optimization",
+      "authors": "Raul Astudillo; Kejun Li; Maegan Tucker; Chu Xin Cheng; Aaron D. Ames; Yisong Yue",
+      "date": "2024 preprint;2025 TMLR record",
+      "url": "https://arxiv.org/pdf/2406.14699",
+      "assets": [
+        "https://openreview.net/forum?id=mjsoESaWDH"
+      ],
+      "claims": [
+        "Separate preferences for multiple objectives with dueling scalarized Thompson sampling",
+        "Readable version evaluates synthetic and simulated robotics tasks; no verified code"
+      ],
+      "access": "arXiv PDF inspected; accepted-text access blocked",
+      "native": [
+        "preference_literature:primary"
+      ],
+      "novel": true
+    },
+    {
+      "id": "beat_this",
+      "title": "Beat This! Accurate Beat Tracking Without DBN Postprocessing",
+      "authors": "Francesco Foscarin; Jan Schl\u00fcter; Gerhard Widmer",
+      "date": "2024; ISMIR",
+      "url": "https://arxiv.org/html/2407.21658v1",
+      "code": "https://github.com/CPJKU/beat_this",
+      "claims": [
+        "Transformer beat/downbeat tracker without required DBN; F1 gains coexist with weaker continuity scores",
+        "MIT code/weights, CPU inference and small model; pretrained training-overlap warning"
+      ],
+      "access": "Full paper and official repo inspected",
+      "native": [
+        "turn31view4",
+        "turn18view1"
+      ],
+      "novel": true
+    },
+    {
+      "id": "raveform",
+      "title": "Raveform: A Dataset of Metrical and Functional Structure Annotations for EDM Tracks in DJ Mixes",
+      "authors": "Taejun Kim; Jongsoo Kim; Hyungyu Kim; Juhan Nam",
+      "date": "2026; TISMIR9(1):131\u2013143",
+      "url": "https://doi.org/10.5334/tismir.288",
+      "assets": [
+        "https://raveform.netlify.app/"
+      ],
+      "claims": [
+        "1423tracks with expert tempo/beat/downbeat/structure annotations; official8foldschema",
+        "Music links and annotations are not licensed audio distribution or DMX supervision; dataset-specific license unresolved"
+      ],
+      "access": "Official data/schema, publisher metadata and local annotation path checked",
+      "native": [
+        "turn38view4",
+        "turn21search1"
+      ],
+      "novel": true
+    }
+  ]
+}
