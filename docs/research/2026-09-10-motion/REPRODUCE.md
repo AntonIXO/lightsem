@@ -81,3 +81,40 @@ after other GPU work; their encoder also uses the GPU.
 
 No confirmation lock or TEST model evaluation was produced. Seed 1 remains blocked
 by qualification; six inference draws are not six training seeds.
+
+
+## Spatial-collapse correction (user rejection follow-up)
+
+The original `final_diagnostic` remains immutable and rejected. New mapper
+experiments live in `delivery/surface_revision_01` and `delivery/surface_revision_02`.
+Both reuse the exact saved `flow0`; every non-pan/tilt DMX byte is checked identical
+to old hybrid. No inference/training/TEST is run. Revision01 fixes coverage but
+fails active choreography; revision02 restores measured articulation bandwidth.
+The optical profile and legacy mapper default are unchanged. Surface mapping is
+an explicit experimental option, not a generator promotion.
+
+Frozen launchers (completed files are immutable; do not rerun mapping over them):
+
+```bash
+bash run_torch.sh run_surface_revision.py render
+bash run_torch.sh run_surface_bandwidth.py render
+bash run_torch.sh -m unittest discover -s tests -p test_motion_study.py -q
+bash run_torch.sh -m unittest discover -s tests -p test_surface_mapping.py -v
+```
+
+The original motion-test command now includes collapse/spread counterexamples.
+Detailed geometry and instrument limitations: `SPATIAL_CORRECTION.md`.
+Diagnostic scripts `diagnose_surface_collapse.py`, `audit_surface_motion.py`,
+`audit_surface_smoothing.py`, `plot_surface_correction.py` retain the investigation.
+`review_surface_video.py` uses explicit CPU FFmpeg libdav1d (OpenCV AV1 decoding
+failed here); `observe_surface_pixels.py` checks every encoded frame against
+ffprobe and source duration. The encoder may drop the final partial30Hz frame:
+8319 encoded frames cover277.3s, within one frame of277.306667s source duration.
+Rendered-frame receipts and encoded-frame counts are deliberately distinguished.
+
+Actual revised config: `LightingConfig(target_space='articulated_surface',
+surface_gain=1.8, torso_gain=2., target_smoothing_s=.20, tracking_s=.18)`.
+`floor_reanchor` is the separate geometric mechanism control, not the product.
+All movement comes from shared generated motion and the declared filters/limits;
+there is no chase, oscillator, random aim or ending-time rule. Pan/tilt mapping
+now documents the real renderer convention: pan rotates x/y, tilt elevates into z.

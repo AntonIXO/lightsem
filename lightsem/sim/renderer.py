@@ -64,7 +64,8 @@ def _beam_direction(f: Fixture, pan: float, tilt: float) -> tuple[float, float, 
         return tuple(d / (np.linalg.norm(d) + 1e-9))
     pan_rad = math.radians((pan - 0.5) * f.pan_range_deg)
     tilt_rad = math.radians((tilt - 0.5) * f.tilt_range_deg)
-    # Rest pose points down (-y); tilt lifts it toward +z, pan spins about y.
+    # Rest pose points down (-y). Pan rotates the x/y projection (about z);
+    # tilt is elevation toward +z. This is the _angles inverse, not Euler yaw.
     x = math.sin(pan_rad) * math.cos(tilt_rad)
     z = math.sin(tilt_rad)
     y = -math.cos(pan_rad) * math.cos(tilt_rad)

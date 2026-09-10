@@ -13,10 +13,14 @@ from ...conductor.rig import canonical_rig
 @dataclass(frozen=True)
 class LightingConfig:
     fps: float = 40.
+    target_space: str = "legacy"  # surface modes remain opt-in pending visual acceptance
     quiet_dimmer: float = .12
     active_dimmer: float = .88
     loudness_range_lu: float = 12.
     target_smoothing_s: float = .55
+    tracking_s: float = .35
+    surface_gain: float = 1.
+    torso_gain: float = 1.
     palette_smoothing_s: float = 10.
     maximum_speed_deg_s: float = 30.
     maximum_acceleration_deg_s2: float = 80.
@@ -59,7 +63,7 @@ def limited_angles(targets,ranges,activity,cfg):
     neighbours = np.asarray([(i,j) for i in (-1,0,1) for j in (-1,0,1)],np.int64)
     for t in range(1,len(targets)):
         error = (target_ticks[t]-positions[t-1])*ranges/65535
-        desired = error/ .35
+        desired = error / cfg.tracking_s
         local_limit = cfg.quiet_target_speed_deg_s+(cfg.maximum_speed_deg_s-cfg.quiet_target_speed_deg_s)*activity[t]**2
         desired *= min(1.,local_limit/max(np.linalg.norm(desired),1e-12))
         old_speed = velocity*tick_speed
@@ -82,6 +86,48 @@ def limited_angles(targets,ranges,activity,cfg):
     return positions
 
 
+def surface_targets(body, fixture_x, rank, activity, cfg):
+    """World motion -> bounded floor illumination, never an invisible mid-air point.
+
+    Anatomical LEFT is +x in the neutral canonical skeleton. Negative-x
+    fixtures keep anatomical right; positive-x keep left even during turns.
+    No per-frame side swapping or mirroring: world articulation and root turns
+    stay in world axes. Subtract the fixed neutral pose, NOT a rolling mean or
+    root-rotated reference that would remove sustained gestures or turns.
+    """
+    from .geometry import OFFSETS, PARENTS
+    neutral = np.zeros((22,3))
+    for i in range(1,22):
+        neutral[i] = neutral[PARENTS[i]] + OFFSETS[i]
+    side = -1 if rank<3 else 1
+    pair = min(rank,5-rank)
+    root = body[:,0]
+    slow_root = ema(root,12.,cfg.fps)
+    travel = root-slow_root
+    if pair==0:
+        ids,weights = ([21] if side<0 else [20]),np.array([1.])
+    elif pair==1:
+        ids,weights = ([11,5] if side<0 else [10,4]),np.array([.65,.35])
+    else:
+        # Shoulder/head triangle keeps the two torso fixtures related but
+        # distinct; torso yaw/lean moves this triangle, not a shared centroid.
+        ids,weights = ([17,15,12] if side<0 else [16,15,12]),np.array([.5,.3,.2])
+    regional = np.sum((body[:,ids]-root[:,None])*weights[None,:,None],axis=1)
+    rest = np.sum(neutral[ids]*weights[:,None],axis=0)
+    delta = regional-rest
+    amplitude = (.25+.75*activity)*cfg.surface_gain*(cfg.torso_gain if pair==2 else 1.)
+    # Fixture-scale floor lanes carry the composition. Shared travel is bounded
+    # separately so accumulated native root drift cannot take over the stage.
+    shared_x = .5*np.tanh(slow_root[:,0]/5)+.9*np.tanh(travel[:,0]/1.2)
+    shared_z = .7*np.tanh(travel[:,2]/1.5)
+    target = np.column_stack((
+        .95*fixture_x+shared_x+amplitude*2.8*delta[:,0],
+        np.zeros(len(body)),
+        (-2.,-4.1,-2.6)[pair]+shared_z+amplitude*(2.6*delta[:,2]+2.2*delta[:,1]+.7*np.tanh((root[:,1]-.9)/.3))))
+    target = np.clip(target,[-7.5,0.,-5.3],[7.5,0.,1.])
+    return target,delta
+
+
 def compose(features,loudness,duration_s,*,config=None,rig=None,dynamics=True,independent_features=None):
     """Audio is the only external input; features are internally generated motion.
 
@@ -89,6 +135,8 @@ def compose(features,loudness,duration_s,*,config=None,rig=None,dynamics=True,in
     normal path always shares ONE body; fixture regions do not select new draws.
     """
     cfg,rig = config or LightingConfig(),rig or canonical_rig()
+    if cfg.target_space not in ("legacy", "floor_reanchor", "articulated_surface"):
+        raise ValueError("Unknown illumination target space")
     features = np.asarray(features,np.float32)
     if features.ndim!=2 or features.shape[1]!=139 or not np.isfinite(features).all():
         raise ValueError('Expected one finite native motion sequence')
@@ -130,6 +178,8 @@ def compose(features,loudness,duration_s,*,config=None,rig=None,dynamics=True,in
     frames = np.zeros((len(times),512),np.uint8)
     targets = np.zeros((len(times),len(rig.fixtures),3))
     dimmers = np.zeros((len(times),len(rig.fixtures)))
+    raw_targets = np.zeros_like(targets)
+    regional_trace = np.zeros((len(times),6,3))
     motion_speed = np.linalg.norm(np.diff(joints,axis=0,prepend=joints[:1])*cfg.fps,axis=-1)
     accent = ema(np.clip((motion_speed[:,[20,21,10,11]].mean(1)-.35)/2.,0,1),.15,cfg.fps)
     reports = []
@@ -153,6 +203,17 @@ def compose(features,loudness,duration_s,*,config=None,rig=None,dynamics=True,in
             1.65+amplitude*(1.15*np.tanh(regional[:,1]/.6)+.45*np.tanh((root[:,1]-.9)/.3)),
             -3.6+1.3*np.tanh(travel[:,2]/1.5)+.8*amplitude*np.tanh(regional[:,2]/.5)))
         target = np.clip(target,[-5.4,.45,-5.5],[5.4,3.6,-1.4])
+        if cfg.target_space == 'floor_reanchor':
+            # Mechanism ablation: old x gestures and z signals, same smoothing,
+            # but no elevated-point extrapolation or compressed fixture anchors.
+            target[:,0] = np.clip(target[:,0]+.5*f.position[0],-7.5,7.5)
+            target[:,1] = 0.
+        elif cfg.target_space == 'articulated_surface':
+            target,regional_trace[:,rank] = surface_targets(body,f.position[0],rank,activity,cfg)
+        else:
+            regional_trace[:,rank] = regional
+        index = next(i for i,h in enumerate(rig.fixtures) if h.name==f.name)
+        raw_targets[:,index] = target
         target = ema(target,cfg.target_smoothing_s,cfg.fps)
         pan,tilt = _angles(target-np.asarray(f.position))
         ticks = limited_angles(np.column_stack((pan,tilt)),[f.pan_range_deg,f.tilt_range_deg],activity,cfg)
@@ -191,9 +252,12 @@ def compose(features,loudness,duration_s,*,config=None,rig=None,dynamics=True,in
             if f.kind=='projector':
                 frames[:,a+8:a+10] = 128
     trace = {'time':times,'momentary_lufs':momentary,'short_term_lufs':short,'activity':activity,
-             'measured_activity':measured_activity,'dimmer':dimmers,'targets':targets,'palette_hue':hue,'motion_accent':accent}
+             'measured_activity':measured_activity,'dimmer':dimmers,'targets':targets,'raw_targets':raw_targets,
+             'regional':regional_trace,'palette_hue':hue,'motion_accent':accent}
     report = {'config':asdict(cfg),'shared_body':independent_features is None,'direct_audio_dynamics':dynamics,
               'loudness_anchor_lufs':anchor,'head_limits':reports,'root':'native full integration once before bounded rig mapping',
               'composition':'outer hands, middle legs, inner torso; fixed regional differences from one body',
+              'geometry_anatomy':'surface mode: anatomical right to negative-x, left to positive-x, fixed identities through world turns',
+              'photometry':'legacy regional brightness signal retained unchanged for matched geometry intervention',
               'ending_rule':None,'rng':None}
     return frames,trace,report

@@ -1,0 +1,16 @@
+from pathlib import Path
+import hashlib,json
+from vibescience_mcp.core import Store
+out=Path('/mnt/lightsem-data/experiments/lightsem/motion_native_audio_20260910/delivery/surface_revision_02')
+def hashes():return {str(p):hashlib.sha256(p.read_bytes()).hexdigest() for p in Path('/root/vibescience-vault').rglob('*') if p.is_file()}
+before=hashes();s=Store('/root/lightsem-vault');pid='dancing-light-generative-20260903'
+(out/'doctor_before.json').write_text(json.dumps(s.doctor(),default=str,indent=2))
+s.update_problem(pid,add_update='Unpreregistered revision01 mapper diagnosis: both simple floor reanchor and anatomical surface mapping remove central collapse, but articulated_surface active trajectory.438m, relative.372m and median speed1.922deg/s fail frozen limits. Raw relative.676 -> smoothed.432 -> emitted.372 isolates substantial filter loss; raw total.763 also below.8. Revision01 is NOT fixed; full movies underway, old evidence preserved. Next preregistered bundle targets measured attenuation, not model training. '+str(out))
+s.register_diagnostic(id='motion-light-relative-surface-extent',name='Translation-removed4s surface trajectory extent',direction='higher_better',unit='metres',description='Median across fixtures and4s windows, stride1s, of norm of10th-90th hit coordinates after subtracting instantaneous6-head centroid. Active70-90s, no dropping brightness frames; not music quality.')
+s.register_intervention(id='motion-light-surface-bandwidth',name='Recover measured surface articulation bandwidth',description='Floor-surface anchors, anatomical neutral-relative articulation preserving world turns, height mapped into depth; fixed photometry and motion; compare simple floor reanchor.')
+plan=json.loads((out/'design_preregistered.json').read_text())
+h=s.propose_hypothesis(id='h-motion-surface-bandwidth-20260910',problem_id=pid,statement='Recovering attenuated articulation bandwidth increases changing separated surface trajectories without reintroducing collapse or excessive speed on the saved Shpongle motion.',rationale='Analytic ray-plane projection and emitted DMX reproduce collapse before this run. Nominal target separation is not footprint separation. Controls reject common point, static spread, jitter, translation and flashing but accept separated changing trajectories. This is not a generator qualification.',interventions=['motion-light-surface-bandwidth'],predicted_effects=[{'diagnostic_id':'motion-light-relative-surface-extent','direction':'up','magnitude_note':'Active relative extent increases from.3721m to>=.5m; total>=.8m; all prior gates remain fixed. Bundle not isolated gain-vs-filter causal claim.'}],gates=[{'id':g,'description':json.dumps(plan)} for g in plan['gates']],plan=str(out/'design_preregistered.json'),ambition_class='mechanism')
+e=s.start_experiment(id='exp-motion-surface-bandwidth-20260910',hypothesis_id=h.id,parent_experiment_id='exp-motion-surface-20260910',external_run=str(out),config_note=json.dumps(plan))
+after=hashes();assert before==after,'UNRELATED VAULT CHANGED'
+(out/'registration.json').write_text(json.dumps({'hypothesis':h.id,'experiment':e.id,'unrelated_vault_hashes':before,'unchanged':True},indent=2))
+print(e.id)

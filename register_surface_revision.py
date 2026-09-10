@@ -1,0 +1,16 @@
+from pathlib import Path
+import hashlib,json
+from vibescience_mcp.core import Store
+out=Path('/mnt/lightsem-data/experiments/lightsem/motion_native_audio_20260910/delivery/surface_revision_01')
+def hashes():return {str(p):hashlib.sha256(p.read_bytes()).hexdigest() for p in Path('/root/vibescience-vault').rglob('*') if p.is_file()}
+before=hashes();s=Store('/root/lightsem-vault');pid='dancing-light-generative-20260903'
+(out/'doctor_before.json').write_text(json.dumps(s.doctor(),default=str,indent=2))
+s.update_problem(pid,add_update='User rejection correction, unpreregistered diagnosis: full Shpongle hybrid is spatially collapsed, not merely an overly similar fan. Old exp-motion-coherence-20260910 and exp-motion-dynamics-20260910 computed directional_only verdicts and all original evidence remain immutable. New all-frame first-hit diagnostic finds median horizontal span1.8166m, 97.944% frames have4+axes within1.5m of median hit, longest111.4s; half-strength cone-support overlap70.507%. Original review missed this spatial gate. Requested vs emitted active spans1.532 vs1.522m implicate mapper geometry, not DMX rounding. Neutral anatomical left wrist x+.722/right-.719 confirms stage-side mapping mismatch but is not sole collapse cause. Artifacts: '+str(out))
+s.register_diagnostic(id='motion-light-surface-horizontal-span',name='Emitted first-surface horizontal span',direction='higher_better',unit='metres',description='Median over all40Hz frames of six moving-head first floor/back-wall hit x-span; finite scene surfaces, truss not modelled. One deterministic saved-track mapper diagnostic, not music quality.')
+s.register_intervention(id='motion-light-surface-mapping',name='Surface-space articulated mapper',description='Floor-surface anchors, anatomical neutral-relative articulation preserving world turns, height mapped into depth; fixed photometry and motion; compare simple floor reanchor.')
+plan=json.loads((out/'design_preregistered.json').read_text())
+h=s.propose_hypothesis(id='h-motion-surface-20260910',problem_id=pid,statement='Surface-space regional mapping removes persistent illumination collapse and retains changing separated trajectories on the saved Shpongle motion.',rationale='Analytic ray-plane projection and emitted DMX reproduce collapse before this run. Nominal target separation is not footprint separation. Controls reject common point, static spread, jitter, translation and flashing but accept separated changing trajectories. This is not a generator qualification.',interventions=['motion-light-surface-mapping'],predicted_effects=[{'diagnostic_id':'motion-light-surface-horizontal-span','direction':'up','magnitude_note':'Full median increases; p10>=4m, active trajectory>=.8m and translation-removed>=.5m per4s; all independent gates in design.'}],gates=[{'id':g,'description':json.dumps(plan)} for g in plan['gates']],plan=str(out/'design_preregistered.json'),ambition_class='mechanism')
+e=s.start_experiment(id='exp-motion-surface-20260910',hypothesis_id=h.id,parent_experiment_id='exp-motion-coherence-20260910',external_run=str(out),config_note=json.dumps(plan))
+after=hashes();assert before==after,'UNRELATED VAULT CHANGED'
+(out/'registration.json').write_text(json.dumps({'hypothesis':h.id,'experiment':e.id,'unrelated_vault_hashes':before,'unchanged':True},indent=2))
+print(e.id)

@@ -272,3 +272,25 @@ The implementation passes 11 physical/indexing/quantization counterexample tests
 Source snapshots and input hashes were reverified, and all review movies have the
 expected video and audio streams. See [reproduction](REPRODUCE.md) for commands
 and [the next proposed revision](NEXT_REVISION.md) for the specific unresolved work.
+
+
+## User-rejected spatial collapse: correction follow-up
+
+**The previous Shpongle hybrid was spatially collapsed, not merely an overly
+similar fan.** Its pacing/brightness improvements did not satisfy the product.
+Original computed results above remain unchanged. All-frame geometric evidence,
+new calibrated failure controls and two mapper revisions are documented in
+[SPATIAL_CORRECTION.md](SPATIAL_CORRECTION.md).
+
+Revision01 widens the footprint but fails movement. Revision02 improves median
+first-surface span1.817->6.490m and active translation-removed4s extent.454->1.130m
+against rejected hybrid (.372->1.130m against revision01). Photometry and source
+motion are exactly held fixed. Full movies rendered and decoded, all555half-second
+samples reviewed, with dense key-interval sampling and all-frame pixel analysis.
+**Still not a complete fix:** visible reconvergence194–201s and a limited
+floor-facing fan composition remain. Visual gate fails; both new computed verdicts
+are `directional_only`. Music conditioning/foot-support failures remain unchanged;
+no seed1, TEST, generator promotion or human acceptance was earned.
+
+Full synchronized before/after:
+`/mnt/lightsem-data/experiments/lightsem/motion_native_audio_20260910/delivery/surface_revision_02/shpongle_before_after.mp4`.

@@ -14,6 +14,26 @@ from lightsem.experiments.motion_study.phase_model import PhaseCodec, PhaseConfi
 
 
 class MotionContracts(unittest.TestCase):
+    def test_lighting_spread_is_not_a_choreography_pass(self):
+        from lightsem.conductor.rig import canonical_rig
+        from lightsem.experiments.motion_study.spatial_observer import controls,spatial_series,summary,gates
+        rig=canonical_rig()
+        for name,dmx in controls(rig).items():
+            g=gates(summary(spatial_series(dmx,rig),0,len(dmx)/40))
+            self.assertEqual(all(g.values()),name=='separated_motion',(name,g))
+
+    def test_lighting_targets_are_checked_at_surface_not_in_midair(self):
+        from lightsem.conductor.rig import canonical_rig
+        from lightsem.experiments.motion_study.spatial_observer import encode_targets,spatial_series
+        rig=canonical_rig();heads=rig.by_kind('moving_head')
+        targets=np.array([[.45*h.position[0],2.7,-3.6] for h in heads])
+        dmx=encode_targets(np.broadcast_to(targets,(40,6,3)),rig)
+        # Mid-air targets span4.5m, but all axes meet the SAME floor point.
+        self.assertGreater(np.ptp(targets[:,0]),4.)
+        s=spatial_series(dmx,rig)
+        self.assertLess(float(np.median(s['hit_x_span'])),.002)
+        self.assertTrue(bool(s['focus'].all()))
+
     def test_phase_codec_preserves_native_root_contacts_and_static_holds(self):
         rng = np.random.default_rng(91)
         norms = {'mean':[0.]*139,'std':[1.]*139}
