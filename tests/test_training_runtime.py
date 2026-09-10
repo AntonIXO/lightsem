@@ -52,10 +52,10 @@ class TinyData:
 @unittest.skipUnless(torch.cuda.is_available(),'CUDA required')
 class RuntimeTests(unittest.TestCase):
     def test_seed_override_and_finite_bf16(self):
-        seed_all(0);r=TrainingRuntime(precision='tf32');r.apply()
+        seed_all(0);r=TrainingRuntime.legacy('tf32');r.apply()
         self.assertTrue(torch.backends.cudnn.allow_tf32)
         self.assertTrue(torch.backends.cuda.matmul.allow_tf32)
-        seed_all(0);r=TrainingRuntime(precision='bf16');r.apply()
+        seed_all(0);r=TrainingRuntime.legacy('bf16');r.apply()
         m=NightModel().cuda();x=torch.randn(2,32,92,device='cuda');y=torch.randn(2,32,21,device='cuda')
         loss=runtime_loss(m,r.loss_function(m),r,x,y,torch.zeros(2,32,3,device='cuda'),torch.ones(3,device='cuda'),torch.Generator(device='cuda').manual_seed(1))
         backward_checked(loss,m)

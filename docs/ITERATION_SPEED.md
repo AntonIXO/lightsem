@@ -1,22 +1,24 @@
 # RTX 5070 iteration-speed pilot
 
-The pilot is complete: training was **5.18–5.35× faster**, but no variant passed
-all quality requirements. FP32 remains the default. See the
+New Night runs now default to **BF16 + compilation + two-buffer prefetch,
+batch 32, ordinary AdamW**, as explicitly requested after reviewing the pilot.
+The pilot was **5.18–5.35× faster**; its original quality verdict is unchanged. See the
 [full results and confidence intervals](research/2026-09-10-speed/RESULTS.md).
 
 The current Night trainer supports explicit runtime settings without changing
 model dimensions, targets, data partitions, or final-step checkpoint selection.
-FP32 remains the compatibility default. The four-cell pilot checks `base_once`
-and `muq_film` with training seeds 0 and 1 before recommending faster settings.
+Old protocols retain their serialized settings, with FP32/eager/no-prefetch
+compatibility for missing runtime fields. The four-cell pilot tested `base_once`
+and `muq_film` with training seeds 0 and 1.
 Its output root is `/mnt/lightsem-data/experiments/lightsem/iteration_speed_20260910`.
 The frozen September 9 campaign supplies read-only inputs and paired baselines.
 
 ## Runtime interface
 
-New experiment protocols can set `training.runtime`:
+New preflights use the fast profile and freeze it into `training.runtime`:
 
 ```json
-{"precision":"bf16","optimizer":"adamw","compile":"off","prefetch":2}
+{"precision":"bf16","optimizer":"adamw","compile":"default","prefetch":2}
 ```
 
 Precision accepts `fp32`, `tf32`, or `bf16`; optimizer accepts `adamw` or
@@ -26,6 +28,10 @@ after seeding, because legacy seeding disables both matrix and convolution
 TF32. Parameters and Adam states remain FP32 under BF16 autocast. A joint
 finite-loss/gradient check runs before every optimizer update. These settings
 belong in a newly frozen protocol, never an edited historical protocol.
+Use `TrainingRuntime.legacy()` for an explicit FP32/eager reference or pass it
+to `night_training.preflight(root, runtime=TrainingRuntime.legacy())`.
+The precision ablation benchmark keeps explicit legacy/eager controls regardless
+of the new defaults. Inference and scientific quality evaluation remain FP32.
 
 Checkpoint identities include the complete training configuration. Different
 runtime settings cannot silently resume an existing run. Prefetch uses a cloned

@@ -1,10 +1,15 @@
 # RTX 5070 training efficiency results
 
+Subsequent adoption decision: the user explicitly requested the fast training
+profile as the default after reviewing these results. New Night protocols use
+it; the measurements and scientific verdict below remain unchanged.
+
 The implemented BF16 + compilation + prefetch profile cut complete training
 time by 5.18–5.35× across all four fixed runs. It did not establish quality
 retention within the agreed 3% margin, and MuQ+FiLM lost a previously passing
-visibility gate in both seeds. No fast profile was promoted. FP32 remains the
-default; the new runtime options are available explicitly for experiments.
+visibility gate in both seeds. At the pilot's conclusion no fast profile was
+promoted and FP32 remained the default; the later user-directed adoption is
+recorded separately above.
 
 Vibescience computed `directional_only` for
 `exp-night-iteration-speed-20260910`: the speed prediction passed, but the

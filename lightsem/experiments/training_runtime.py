@@ -1,4 +1,4 @@
-"""Explicit, checkpointable execution options; legacy scientific defaults remain FP32."""
+"""Fast defaults for new runs; explicit legacy decoding for frozen protocols."""
 from concurrent.futures import ThreadPoolExecutor
 from contextlib import nullcontext
 from copy import deepcopy
@@ -10,10 +10,24 @@ import torch
 
 @dataclass(frozen=True)
 class TrainingRuntime:
-    precision: str = 'fp32'
+    precision: str = 'bf16'
     optimizer: str = 'adamw'
-    compile: str = 'off'
-    prefetch: int = 0
+    compile: str = 'default'
+    prefetch: int = 2
+
+    @classmethod
+    def legacy(cls, precision='fp32'):
+        return cls(precision=precision, optimizer='adamw', compile='off', prefetch=0)
+
+    @classmethod
+    def from_training(cls, config):
+        # Missing fields in an old serialized protocol mean the OLD defaults.
+        values=cls.legacy(config.get('precision','fp32')).as_dict()
+        values.update(config.get('runtime',{}))
+        runtime=cls(**values)
+        if config.get('precision',runtime.precision)!=runtime.precision:
+            raise ValueError('Conflicting training precision and runtime identity')
+        return runtime
 
     def __post_init__(self):
         if self.precision not in ('fp32', 'tf32', 'bf16'):
@@ -51,6 +65,9 @@ class TrainingRuntime:
 
     def loss_function(self, model):
         fn = model.losses_from_draws
+        if self.compile == 'default':
+            # Each model in a sequential campaign gets its own guard budget.
+            torch.compiler.reset()
         return torch.compile(fn, mode='default', dynamic=False) if self.compile == 'default' else fn
 
 

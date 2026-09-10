@@ -5,6 +5,12 @@ import numpy as np
 from .night_common import ROOT,BASE,ARMS,SEEDS,base_context,freeze_night_sources
 from .night_features import FOURIER_CHANNELS,FOURIER_NAMES,fourier_features
 from .stage11_common import authenticated_json,read_authenticated,digest
+from .training_runtime import TrainingRuntime
+
+def training_config(steps,preflight):
+    runtime=TrainingRuntime.from_training(preflight)
+    return {'steps':steps,'batch':32,'frames':640,'lr':.0003,'warmup':500,
+            'beat_dropout':.25,'precision':runtime.precision,'runtime':runtime.as_dict()}
 
 def freeze(root=ROOT):
     root=Path(root);m,n=base_context()
@@ -24,6 +30,7 @@ def freeze(root=ROOT):
     preflight=read_authenticated(root/'engineering_preflight.json')
     if preflight['model_source_sha256']!=digest(Path(__file__).with_name('night_model.py')):raise RuntimeError('Engineering model drift')
     if preflight['source_sha256']!=digest(Path(__file__).with_name('night_training.py')):raise RuntimeError('Engineering training implementation drift')
+    if preflight.get('runtime_source_sha256')!=digest(Path(__file__).with_name('training_runtime.py')):raise RuntimeError('Engineering runtime drift; rerun preflight')
     if {r['arm'] for r in preflight['rows']}!=set(ARMS):raise ValueError('Incomplete engineering matrix')
     pose=read_authenticated(root/'diagnostics/pose_probe_report.json')
     if {(r['name'],r['seed']) for r in pose['rows']}!={(k,s) for k in ('descriptor128','descriptor256','pose_code24','audio_base','audio_fourier','audio_muq') for s in SEEDS}:
@@ -53,7 +60,7 @@ def freeze(root=ROOT):
     source=freeze_night_sources(root)
     protocol={'frozen':True,'schema_version':1,'source_sha256':source['source_sha256'],'source_snapshot':source['snapshot'],
         'input_artifacts':pins,'arms':list(ARMS),'seeds':list(SEEDS),'main_model_count':12,'test_access':False,
-        'validation_is_development':True,'training':{'steps':steps,'batch':32,'frames':640,'lr':.0003,'warmup':500,'beat_dropout':.25,'precision':'fp32'},
+        'validation_is_development':True,'training':training_config(steps,preflight),
         'compute_budget':{'target_gpu_task_seconds':36000,'prior_valid_gpu_task_seconds':previous_gpu,'reserved_final_gpu_seconds':reserve,
                           'main_training_budget_seconds':training_budget,'estimated_main_seconds':step_sum*steps,
                           'selection_rule':'common steps floor_to100 of remaining budget divided by summed engineering step costs; no outcomes enter rule'},

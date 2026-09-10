@@ -49,20 +49,25 @@ class NightResident(Resident):
         result=(x,self.y[index],self.b[index])
         return (*result,index) if return_index else result
 
-def preflight(root=ROOT):
+def preflight(root=ROOT,runtime=None):
+    runtime=runtime or TrainingRuntime()
     root=Path(root);m,n=base_context();data=NightResident([e for e in m['entries'] if e['partition']=='train'],n,640,root)
     rows=[];pos=torch.tensor(n['pos_weight'],device='cuda',dtype=torch.float32)
     for arm in ARMS:
         family,architecture=arm.split('_');data.set_family(family);seed_all(0)
-        model=NightModel(family,architecture,data.aux_dim).cuda();opt=torch.optim.AdamW(model.parameters(),lr=3e-4,weight_decay=.01)
+        runtime.apply()
+        model=NightModel(family,architecture,data.aux_dim).cuda();opt=runtime.make_optimizer(model,3e-4)
+        loss_fn=runtime.loss_function(model)
         rng=np.random.default_rng(10000);gen=torch.Generator(device='cuda').manual_seed(30000);times=[]
         torch.cuda.reset_peak_memory_stats()
-        for i in range(32):
-            torch.cuda.synchronize();t=time.monotonic();x,y,b=data.batch(32,640,rng)
-            opt.zero_grad(set_to_none=True);loss=model.losses(x,y,b,pos,generator=gen)
-            loss['total'].backward();grad=torch.nn.utils.clip_grad_norm_(model.parameters(),1.)
-            if not torch.isfinite(grad) or not torch.isfinite(loss['total']):raise FloatingPointError('Engineering backward failed')
-            opt.step();torch.cuda.synchronize();times.append(time.monotonic()-t)
+        with BatchStream(data,32,640,rng,runtime.prefetch) as batches:
+            for i in range(32):
+                torch.cuda.synchronize();t=time.monotonic();x,y,b=batches.next()
+                opt.zero_grad(set_to_none=True);loss=runtime_loss(model,loss_fn,runtime,x,y,b,pos,gen)
+                backward_checked(loss,model)
+                opt.step();torch.cuda.synchronize();times.append(time.monotonic()-t)
+        # Chunk correctness continues to use the strict FP32 reference path.
+        seed_all(0)
         model.eval();x,y,b=data.batch(1,1600,rng)
         with torch.inference_mode():
             direct=model.encode_audio(x);chunk=model.encode_audio_chunked(x,640)
@@ -73,15 +78,16 @@ def preflight(root=ROOT):
         rows.append({'arm':arm,'step_seconds_median':float(np.median(times[8:])),
                      'parameters':sum(p.numel() for p in model.parameters()),'chunk_max_abs':err,
                      'peak_gpu_gib':torch.cuda.max_memory_allocated()/2**30,'engineering_updates':32,
-                     'saved_scientific_weights':False})
+                     'saved_scientific_weights':False,'runtime':runtime.as_dict()})
         print(json.dumps(rows[-1]),flush=True)
-        del model,opt,x,y,b,pred,direct,chunk,loss;gc.collect();torch.cuda.empty_cache()
+        del model,opt,loss_fn,x,y,b,pred,direct,chunk,loss;gc.collect();torch.cuda.empty_cache()
     # Equal exposure is set from performance only, before any scientific validation outputs.
     seconds=sum(row['step_seconds_median'] for row in rows)*len(SEEDS)
     steps=max(100,100*int((7.25*3600/seconds)//100))
     report={'rows':rows,'suggested_common_steps':steps,'training_budget_seconds':7.25*3600,
             'formula':'floor_to_100(training_budget / sum(step_seconds for every arm and seed))',
-            'gpu':torch.cuda.get_device_name(),'precision':'fp32','source_sha256':digest(__file__),
+            'gpu':torch.cuda.get_device_name(),'precision':runtime.precision,'runtime':runtime.as_dict(),
+            'runtime_source_sha256':digest(Path(__file__).with_name('training_runtime.py')),'source_sha256':digest(__file__),
             'model_source_sha256':digest(Path(__file__).with_name('night_model.py'))}
     authenticated_json(root/'engineering_preflight.json',report);return report
 
@@ -106,9 +112,7 @@ def run_cell(arm,seed,data,root=ROOT,resume=False,initial_overhead=0.):
     if resume_this and not ((run/'initial.pt').exists() or (run/'latest.pt').exists()):raise RuntimeError('Unrecognized partial run: '+str(run))
     run.mkdir(parents=True,exist_ok=True);family,architecture=arm.split('_');data.set_family(family)
     seed_all(seed);model=NightModel(family,architecture,data.aux_dim).cuda()
-    runtime=TrainingRuntime(**cfg.get('runtime',{'precision':cfg.get('precision','fp32')}))
-    if cfg.get('precision',runtime.precision)!=runtime.precision:
-        raise ValueError('Conflicting training precision and runtime identity')
+    runtime=TrainingRuntime.from_training(cfg)
     runtime.apply()
     opt=runtime.make_optimizer(model,cfg['lr']);loss_fn=runtime.loss_function(model)
     total=cfg['steps'];warm=cfg['warmup']

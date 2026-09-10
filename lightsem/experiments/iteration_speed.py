@@ -110,9 +110,9 @@ def benchmark(root):
             print(json.dumps(result),flush=True)
         return matches
     def cost(pair):return sum(r['estimated_run_seconds'] for r in pair)
-    baseline=measure('legacy_fp32',TrainingRuntime(),legacy=True)
-    measure('tf32',TrainingRuntime(precision='tf32'))
-    runtime=TrainingRuntime(precision='bf16');winning=measure('bf16',runtime)
+    baseline=measure('legacy_fp32',TrainingRuntime.legacy(),legacy=True)
+    measure('tf32',TrainingRuntime.legacy('tf32'))
+    runtime=TrainingRuntime.legacy('bf16');winning=measure('bf16',runtime)
     decisions=[]
     for label,field,value in [('fused','optimizer','adamw_fused'),('prefetch','prefetch',2),('compile','compile','default')]:
         candidate=TrainingRuntime(**{**runtime.as_dict(),field:value})
