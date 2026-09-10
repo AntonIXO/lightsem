@@ -81,6 +81,18 @@ class CausalWindowAttention(nn.Module):
         self.qkv = nn.Linear(d, 3 * d)
         self.out = nn.Linear(d, d)
         self.drop = nn.Dropout(dropout)
+        self.register_buffer('_window_mask', None, persistent=False)
+
+    def window_mask(self, length, device):
+        if self._window_mask is None or self._window_mask.shape[-1] != length or self._window_mask.device != device:
+            i = torch.arange(length, device=device)
+            if self.offline:
+                half = self.window // 2
+                mask = (i[None, :] > i[:, None] - half) & (i[None, :] < i[:, None] + half)
+            else:
+                mask = (i[None, :] <= i[:, None]) & (i[None, :] > i[:, None] - self.window)
+            self._window_mask = mask[None, None]
+        return self._window_mask
 
     def forward(self, x):
         B, T, D = x.shape
@@ -88,15 +100,9 @@ class CausalWindowAttention(nn.Module):
         q = q.view(B, T, self.h, self.dk).transpose(1, 2)
         k = k.view(B, T, self.h, self.dk).transpose(1, 2)
         v = v.view(B, T, self.h, self.dk).transpose(1, 2)
-        i = torch.arange(T, device=x.device)
         # past-only, and no further back than the window: a fixed KV budget is
         # what makes the deployed model a constant-latency streaming model.
-        if self.offline:                     # symmetric window of the same length
-            half = self.window // 2
-            mask = (i[None, :] > i[:, None] - half) & (i[None, :] < i[:, None] + half)
-        else:
-            mask = (i[None, :] <= i[:, None]) & (i[None, :] > i[:, None] - self.window)
-        y = F.scaled_dot_product_attention(q, k, v, attn_mask=mask[None, None])
+        y = F.scaled_dot_product_attention(q, k, v, attn_mask=self.window_mask(T, x.device))
         y = y.transpose(1, 2).reshape(B, T, D)
         return x + self.drop(self.out(y))
 

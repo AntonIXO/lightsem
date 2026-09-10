@@ -1,0 +1,16 @@
+332 songs (whole), 4 workers
+[1/332] -DYALBogmJo ok 1964 rows 4s
+[26/332] 44zfbfDAsQM ok 2319 rows 3s
+[51/332] 93bIgp5lVM8 ok 2428 rows 3s
+[76/332] EH-Ig1Xv0vU ok 2265 rows 3s
+[101/332] M07egCIUiGs ok 1955 rows 3s
+[126/332] PUZSFZ5ReBA ok 2311 rows 3s
+[151/332] To_jVuz3gkI ok 2338 rows 3s
+[176/332] YmVsT7JZ5uc ok 2804 rows 4s
+[201/332] db0R7ts63JQ ok 2171 rows 3s
+[226/332] gDGtf4yMW5I ok 2202 rows 3s
+[251/332] moryohPkTSY ok 1765 rows 2s
+[276/332] r7tYZXTL9Zw ok 1375 rows 2s
+[301/332] v8dJ-Qe-psc ok 2224 rows 3s
+[326/332] zi1qIeU_y6c ok 1669 rows 2s
+done 332/332 in 4.1 min

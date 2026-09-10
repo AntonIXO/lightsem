@@ -1,0 +1,2150 @@
+{
+  "schema_version": 1,
+  "date_label": "2026-09-08",
+  "created_at_utc": "2026-09-07T21:13:06.116995+00:00",
+  "purpose": "Read-only descriptive audit of uploaded incumbent ConductorHybrid manual pair judgments. No preference model fitted and no promotion decision inferred.",
+  "source_hash_note": "SHA-256 values identify local files at audit creation. These do not establish which code/checkpoint versions originally generated the legacy videos. Tensor membership hash covers the UTF-8 meta value only; no claim of a full tensor checksum.",
+  "source_hashes": [
+    {
+      "path": "/root/lightsem/outputs/stage9/hl_pairs/pairs.json",
+      "size_bytes": 35195,
+      "sha256": "35b5c3fdea90ed56129283e77ae1acfdd0a52a77c9b1947bbe8ddbf6a345d244"
+    },
+    {
+      "path": "/root/lightsem/outputs/stage9/hl_pairs/ratings.jsonl",
+      "size_bytes": 3770,
+      "sha256": "def1baf86ef8d0d924d88d532352994e5902a0f1204d4a90d3ee37e16894501e"
+    },
+    {
+      "path": "/mnt/lightsem-data/cache/justdance_songs.json",
+      "size_bytes": 91604,
+      "sha256": "2285324f2d3174bf5d92ac8cb99144770b653ee94949c3e262644560b230e1a5"
+    },
+    {
+      "path": "/root/lightsem/build_hl_pairs.py",
+      "size_bytes": 6404,
+      "sha256": "f7939304e2560336fe10736c08bd4fc2ce762e3b4620b33658aba44f821257db"
+    },
+    {
+      "path": "/root/lightsem/lightsem/dmx/decode.py",
+      "size_bytes": 3906,
+      "sha256": "1cf639d1409283733d919e478c8c27084d3f2db4c076518894a180bfd0bd391b"
+    },
+    {
+      "path": "/root/lightsem/lightsem/sim/renderer.py",
+      "size_bytes": 9619,
+      "sha256": "644199a84dffbda75a9984964a696448e44d7bcec82e85ee58dc2dfe5c721111"
+    },
+    {
+      "path": "/root/lightsem/lightsem/conductor/hybrid.py",
+      "size_bytes": 7477,
+      "sha256": "2accca59f124e79b0c0cdff7f544c88093955fe44616d37af3783ee778ebf725"
+    },
+    {
+      "path": "/root/lightsem/lightsem/conductor/v0.py",
+      "size_bytes": 11902,
+      "sha256": "c6900c95eadca5d6f0a0f97d68e189cdedf7b86325bbdbed010508051d8a8f68"
+    },
+    {
+      "path": "/root/lightsem/lightsem/conductor/scalers.py",
+      "size_bytes": 2494,
+      "sha256": "af43e106d91f76f9cf555e1eb91dab671a354ece4a5dc1bf0eada13d9be28635"
+    },
+    {
+      "path": "/root/lightsem/lightsem/conductor/scalers.json",
+      "size_bytes": 4170,
+      "sha256": "c3c076b4c3bd9d830ca2eaf4352304e5ab5f6d705ae564e3ba1db5ae0ef3c6d4"
+    },
+    {
+      "path": "/root/lightsem/lightsem/model/jd_data.py",
+      "size_bytes": 7467,
+      "sha256": "1ebde04a938bcaed22c973efb792170225d7572d70b5bbc36ac82d263f3c8c45"
+    },
+    {
+      "path": "/root/lightsem/lightsem/model/infer.py",
+      "size_bytes": 15163,
+      "sha256": "866233e115a7c9b1bca23f3209a49c5b0ddcf8817465efafd566a866811bc892"
+    },
+    {
+      "path": "/mnt/lightsem-data/ckpt/light_trunk_jd_none_smooth.pt",
+      "size_bytes": 37418631,
+      "sha256": "9420bfb431fa8fea0d7b463284945665a9b860c94f3cfef1cc3f5c3a0b7e04ad"
+    },
+    {
+      "path": "/root/lightsem/outputs/stage9/hl_pairs/pair000__A.mp4",
+      "size_bytes": 3353609,
+      "sha256": "e5ad795cb8606441eec18d222567fc1956d399950384130082c6167b32ac1ded"
+    },
+    {
+      "path": "/root/lightsem/outputs/stage9/hl_pairs/pair000__B.mp4",
+      "size_bytes": 3360228,
+      "sha256": "b32f52ba8019d109aaada995daf5b0117abb9b35a9fa6e680a3f932b592191f8"
+    },
+    {
+      "path": "/root/lightsem/outputs/stage9/hl_pairs/pair001__A.mp4",
+      "size_bytes": 2991965,
+      "sha256": "6f9ac9239fd51a11be1fd26c64537a6e1b6f0d5a3709bcbbf8bf7d45c2cb736e"
+    },
+    {
+      "path": "/root/lightsem/outputs/stage9/hl_pairs/pair001__B.mp4",
+      "size_bytes": 3080772,
+      "sha256": "6c0ed1f0e91b395980bd489b9cf88c520a34f08245c8a82f93b5868631e710e5"
+    },
+    {
+      "path": "/root/lightsem/outputs/stage9/hl_pairs/pair002__A.mp4",
+      "size_bytes": 3083023,
+      "sha256": "2307cf151fbdfcd258d2ea1b2765f073984818e82ab310353900856b3eb8717c"
+    },
+    {
+      "path": "/root/lightsem/outputs/stage9/hl_pairs/pair002__B.mp4",
+      "size_bytes": 3113678,
+      "sha256": "0f1fcd6ff8576d1694ced8ea0e666eb0dadd6e92391b9b804649f9ed02f420ef"
+    },
+    {
+      "path": "/root/lightsem/outputs/stage9/hl_pairs/pair003__A.mp4",
+      "size_bytes": 2870221,
+      "sha256": "f9fb3c50324fb574fdb3a42e918170b922a4ba73f4249c40d69b9a5589346f95"
+    },
+    {
+      "path": "/root/lightsem/outputs/stage9/hl_pairs/pair003__B.mp4",
+      "size_bytes": 2678519,
+      "sha256": "fb5589e0e546de0bf1fbf83fe91bf57457e490a91011943d58fe3f6f12e0c2f6"
+    },
+    {
+      "path": "/root/lightsem/outputs/stage9/hl_pairs/pair004__A.mp4",
+      "size_bytes": 1922849,
+      "sha256": "67969ef235a07b1d79e440ea3c75e6ca9147500af4bc8b39ea3e3b096b8365d2"
+    },
+    {
+      "path": "/root/lightsem/outputs/stage9/hl_pairs/pair004__B.mp4",
+      "size_bytes": 1947281,
+      "sha256": "2a87fe551e0d5bb1d59916eba14f56649fe66d5d5c055e129ad0278c91bb44ce"
+    },
+    {
+      "path": "/root/lightsem/outputs/stage9/hl_pairs/pair005__A.mp4",
+      "size_bytes": 2969600,
+      "sha256": "bd5c6cdf251c97e11a1358e804c94673ca34d1fae8c6d5484565a293e86bebc0"
+    },
+    {
+      "path": "/root/lightsem/outputs/stage9/hl_pairs/pair005__B.mp4",
+      "size_bytes": 2997648,
+      "sha256": "6cb389a73cdd27abbaef0565c7992f078c3c1a24ad6e19eca2339ca64620084a"
+    },
+    {
+      "path": "/root/lightsem/outputs/stage9/hl_pairs/pair006__A.mp4",
+      "size_bytes": 2648697,
+      "sha256": "2c5574795e6ef2561feb01a3803fad193f9f09d35e116816cad0085c768cbaee"
+    },
+    {
+      "path": "/root/lightsem/outputs/stage9/hl_pairs/pair006__B.mp4",
+      "size_bytes": 2651548,
+      "sha256": "3c61f18fd4d16fd17c535e921c0699de2898ef5645b0b2ac623e24fd1f79a841"
+    },
+    {
+      "path": "/root/lightsem/outputs/stage9/hl_pairs/pair007__A.mp4",
+      "size_bytes": 1981200,
+      "sha256": "01317aa56d4441ee58a58d2a75fb1f74e612741047a7d6ae424110188dde7335"
+    },
+    {
+      "path": "/root/lightsem/outputs/stage9/hl_pairs/pair007__B.mp4",
+      "size_bytes": 1975821,
+      "sha256": "eb77b2e888114c55201652d6553999aa0f6c7ab2056f82694f83d2edf3bd05ae"
+    },
+    {
+      "path": "/root/lightsem/outputs/stage9/hl_pairs/pair008__A.mp4",
+      "size_bytes": 2810105,
+      "sha256": "43a6480145a9b3c4db5196c0011863ef7facf44b8c09ab391cf9e20958c85388"
+    },
+    {
+      "path": "/root/lightsem/outputs/stage9/hl_pairs/pair008__B.mp4",
+      "size_bytes": 2514376,
+      "sha256": "6464cdd2f4475db7c32433c56a18f97ae6dc7bac99b40db7efbe68243d02fdf8"
+    },
+    {
+      "path": "/root/lightsem/outputs/stage9/hl_pairs/pair009__A.mp4",
+      "size_bytes": 2901297,
+      "sha256": "f89b1eed4a1d07535f41c18402e4aaa334ebfcb7eb157ab6bbd77822d92f0302"
+    },
+    {
+      "path": "/root/lightsem/outputs/stage9/hl_pairs/pair009__B.mp4",
+      "size_bytes": 2906141,
+      "sha256": "4d918ddbe13bcaf2743ed8cd18070516ac4187186c12cc518223ba8cc3ba748e"
+    },
+    {
+      "path": "/root/lightsem/outputs/stage9/hl_pairs/pair010__A.mp4",
+      "size_bytes": 2674259,
+      "sha256": "7d4274a0e61720e53ac869cefdee8266650a2e935ae2c6a90c172b96a02203a7"
+    },
+    {
+      "path": "/root/lightsem/outputs/stage9/hl_pairs/pair010__B.mp4",
+      "size_bytes": 2680615,
+      "sha256": "e16d668fab6b4c411fd1f29c8ebd7e537671199fa7268e780923a21fad315e0b"
+    },
+    {
+      "path": "/root/lightsem/outputs/stage9/hl_pairs/pair011__A.mp4",
+      "size_bytes": 3211752,
+      "sha256": "cc2eee3430dab2a04e800725329f4c76e28a69f4ce6cb2cb61d67d060b1fa530"
+    },
+    {
+      "path": "/root/lightsem/outputs/stage9/hl_pairs/pair011__B.mp4",
+      "size_bytes": 3160517,
+      "sha256": "f4c5685f6920c35c45cda123606147d2ed8763b5a9852bcb066a9080d5e69ff7"
+    },
+    {
+      "path": "/root/lightsem/outputs/stage9/hl_pairs/pair012__A.mp4",
+      "size_bytes": 3485253,
+      "sha256": "3143e5d90826168761de86eba4032135ec16319757dcbb6433b51f13df24ed6b"
+    },
+    {
+      "path": "/root/lightsem/outputs/stage9/hl_pairs/pair012__B.mp4",
+      "size_bytes": 3521370,
+      "sha256": "fea60487a9082b4ef75c7f5837b576bc84f5a87fa1c3ca9b5b8f98fd1714268d"
+    },
+    {
+      "path": "/root/lightsem/outputs/stage9/hl_pairs/pair013__A.mp4",
+      "size_bytes": 2886833,
+      "sha256": "ed8ee7d8c2e2a5a9fb9a1673d84071b482429b41705a6ca570359f4e54fe6a03"
+    },
+    {
+      "path": "/root/lightsem/outputs/stage9/hl_pairs/pair013__B.mp4",
+      "size_bytes": 2890202,
+      "sha256": "0368b812ae4278177a22dcb33c0ecc7cc020f82545acde0e9fa6718f36bda4cc"
+    },
+    {
+      "path": "/root/lightsem/outputs/stage9/hl_pairs/pair014__A.mp4",
+      "size_bytes": 2242692,
+      "sha256": "6642dedfe1b71f0b0a368244c9cc09479cf82f3eb1256c604526935349bb196d"
+    },
+    {
+      "path": "/root/lightsem/outputs/stage9/hl_pairs/pair014__B.mp4",
+      "size_bytes": 2231559,
+      "sha256": "9c57c948ea456873e884f801f2431a4be4a30584ca206c25e7fdc926919b1df7"
+    },
+    {
+      "path": "/root/lightsem/outputs/stage9/hl_pairs/pair015__A.mp4",
+      "size_bytes": 3020095,
+      "sha256": "ba1521dffb1e75abdec59c507cee3f58fd1b4b5127f27738941c120bcab163fc"
+    },
+    {
+      "path": "/root/lightsem/outputs/stage9/hl_pairs/pair015__B.mp4",
+      "size_bytes": 3005215,
+      "sha256": "0b950626a22e7edcd3ab5ec3791cb2b28bf29a9803664655ab6ae9de051416f3"
+    },
+    {
+      "path": "/root/lightsem/outputs/stage9/hl_pairs/pair016__A.mp4",
+      "size_bytes": 2775545,
+      "sha256": "590af78687f644b491f714385baa63554295ff27f638a8ef7623d25ed231b696"
+    },
+    {
+      "path": "/root/lightsem/outputs/stage9/hl_pairs/pair016__B.mp4",
+      "size_bytes": 2954601,
+      "sha256": "a163c273a756c33d86c5d2704b8df9e1f401ab6b7d9137ede82cfef78d015245"
+    },
+    {
+      "path": "/root/lightsem/outputs/stage9/hl_pairs/pair017__A.mp4",
+      "size_bytes": 2845529,
+      "sha256": "f105c51d79f8c1e4243b6160d3fcb72f9dbbc05b49b345780ced93bac7248c94"
+    },
+    {
+      "path": "/root/lightsem/outputs/stage9/hl_pairs/pair017__B.mp4",
+      "size_bytes": 2859323,
+      "sha256": "3704c96d04b71c85f287d0f5d8e50fe6ea55f15603b1436629ceb21177850f19"
+    },
+    {
+      "path": "/root/lightsem/outputs/stage9/hl_pairs/pair018__A.mp4",
+      "size_bytes": 2481557,
+      "sha256": "dc4483ec0020e9f4aae01c1663312f040baa8e2e4bb99a0d7c432dd7c722eb2a"
+    },
+    {
+      "path": "/root/lightsem/outputs/stage9/hl_pairs/pair018__B.mp4",
+      "size_bytes": 2450818,
+      "sha256": "fd59c67178e63dc83781dd66b3f1e94257f2a95929ef877f68f0b4a24a52185b"
+    },
+    {
+      "path": "/root/lightsem/outputs/stage9/hl_pairs/pair019__A.mp4",
+      "size_bytes": 2742206,
+      "sha256": "2b8d33efe8e00039b6c91300bcb55cdee25c0a07b0c7dcaca1b979091899e995"
+    },
+    {
+      "path": "/root/lightsem/outputs/stage9/hl_pairs/pair019__B.mp4",
+      "size_bytes": 2695967,
+      "sha256": "040e8bd920779afd1d1b69a84b8fcae093659cb59f2fca6af4945608f51f94e3"
+    },
+    {
+      "path": "/root/lightsem/outputs/stage9/hl_pairs/pair020__A.mp4",
+      "size_bytes": 3287318,
+      "sha256": "1a3a955ed924b420bd96160eca0442ccecc59f82c7ce95b11f6f9307bb3214d5"
+    },
+    {
+      "path": "/root/lightsem/outputs/stage9/hl_pairs/pair020__B.mp4",
+      "size_bytes": 3344950,
+      "sha256": "88145d971d4a91427866750f3a9657093441e6c413b1087ebb9faa8b638f0c27"
+    },
+    {
+      "path": "/root/lightsem/outputs/stage9/hl_pairs/pair021__A.mp4",
+      "size_bytes": 3562561,
+      "sha256": "1e5424828a01e5ca5ab86e7d14bf6e1e29d8765387b7a90e685f777c1da875bf"
+    },
+    {
+      "path": "/root/lightsem/outputs/stage9/hl_pairs/pair021__B.mp4",
+      "size_bytes": 3567075,
+      "sha256": "5c74f6327912115ea9a1a6dd10c9c82b90cebc6277d89c1d399df278b5fb3684"
+    },
+    {
+      "path": "/root/lightsem/outputs/stage9/hl_pairs/pair022__A.mp4",
+      "size_bytes": 3060350,
+      "sha256": "f493fa7ad6e1357f66190fec9cf35d21f8010a91f4f9e412a10e1fb1c34ff95e"
+    },
+    {
+      "path": "/root/lightsem/outputs/stage9/hl_pairs/pair022__B.mp4",
+      "size_bytes": 3068075,
+      "sha256": "05026df761b59ecdcdb7f13d6d6f4bfe41c03d94897ed9a4313c03169613166b"
+    },
+    {
+      "path": "/root/lightsem/outputs/stage9/hl_pairs/pair023__A.mp4",
+      "size_bytes": 2609090,
+      "sha256": "2bb0242bed40027aaf76cac26bf8ac4d2c5dcabc68ed80f4a39281a2d5848311"
+    },
+    {
+      "path": "/root/lightsem/outputs/stage9/hl_pairs/pair023__B.mp4",
+      "size_bytes": 2699423,
+      "sha256": "4ef6686a6e26e94afaef68bb766753eb90cb93806d3d4d3c501d6fd23f0670e4"
+    },
+    {
+      "path": "/root/lightsem/outputs/stage9/hl_pairs/pair024__A.mp4",
+      "size_bytes": 3209845,
+      "sha256": "dc2cca5d14985349a0c95fcf687cbfa803e3e3155574bbbba5466c6d23052902"
+    },
+    {
+      "path": "/root/lightsem/outputs/stage9/hl_pairs/pair024__B.mp4",
+      "size_bytes": 3265868,
+      "sha256": "5229eac9486660269a6ea2577c465def259e17ea22608d5026817020b04cf05c"
+    },
+    {
+      "path": "/root/lightsem/outputs/stage9/hl_pairs/pair025__A.mp4",
+      "size_bytes": 2795768,
+      "sha256": "8d9534ab3c7c5276737b869cd9545e5d48ab4d9f07eb6a46513d52dd29f4a931"
+    },
+    {
+      "path": "/root/lightsem/outputs/stage9/hl_pairs/pair025__B.mp4",
+      "size_bytes": 2872281,
+      "sha256": "1c4b734454dba7d6d8bfeb758a634fac78fd65ed23239fe453be4116d57a4fb4"
+    },
+    {
+      "path": "/root/lightsem/outputs/stage9/hl_pairs/pair026__A.mp4",
+      "size_bytes": 3016856,
+      "sha256": "4810fbbfd9a675c171dc21576aa565eb5cd43728b3bbc5ba34bdd75244494c97"
+    },
+    {
+      "path": "/root/lightsem/outputs/stage9/hl_pairs/pair026__B.mp4",
+      "size_bytes": 3027691,
+      "sha256": "d3cb89d24e87da2bb27f2307f6069734bb10799f7d4278011736f21bc3d06785"
+    },
+    {
+      "path": "/root/lightsem/outputs/stage9/hl_pairs/pair027__A.mp4",
+      "size_bytes": 2788348,
+      "sha256": "2853f1516de34535e3dd63eb51027ad4b961fd4523daff2ead2c021e034dcbd2"
+    },
+    {
+      "path": "/root/lightsem/outputs/stage9/hl_pairs/pair027__B.mp4",
+      "size_bytes": 2814018,
+      "sha256": "df8ef5a7e6c204ce283db8cb4c4c42517cbb37847c290c6ca3ba07ccb7ecaf31"
+    },
+    {
+      "path": "/root/lightsem/outputs/stage9/hl_pairs/pair028__A.mp4",
+      "size_bytes": 3077284,
+      "sha256": "184a74f150bb765f669b7f1aaf72f38455e5c125f832cb02ae739d531710ec7c"
+    },
+    {
+      "path": "/root/lightsem/outputs/stage9/hl_pairs/pair028__B.mp4",
+      "size_bytes": 3073040,
+      "sha256": "2a341f7541999fec54594051d7e27181f58fa7b527602300c4a03f2604a97b24"
+    },
+    {
+      "path": "/root/lightsem/outputs/stage9/hl_pairs/pair029__A.mp4",
+      "size_bytes": 3469455,
+      "sha256": "b959ab1590bf3270bf0cc7f38ca80bf2283edeb9079b5f033fff0e861aed3f9c"
+    },
+    {
+      "path": "/root/lightsem/outputs/stage9/hl_pairs/pair029__B.mp4",
+      "size_bytes": 3419108,
+      "sha256": "b133647813ff9bec8a1d43e357246ca6d41a02184824b44ac995843db8746a13"
+    },
+    {
+      "path": "/root/lightsem/outputs/stage9/hl_pairs/pair030__A.mp4",
+      "size_bytes": 3366489,
+      "sha256": "8651e6744cd513da7a8d133d1c02999a0fa37a11c55bde719ef816652ab3ce11"
+    },
+    {
+      "path": "/root/lightsem/outputs/stage9/hl_pairs/pair030__B.mp4",
+      "size_bytes": 3388081,
+      "sha256": "245983c452a31949f48d81fd4504cbf7780720440a3c8b3e05ec3c2f6149b663"
+    },
+    {
+      "path": "/root/lightsem/outputs/stage9/hl_pairs/pair031__A.mp4",
+      "size_bytes": 2666864,
+      "sha256": "09ae17dc7fb4424be1b81ce8ab4cecb473c64a1e0b891cf92af71ce980e9f3c2"
+    },
+    {
+      "path": "/root/lightsem/outputs/stage9/hl_pairs/pair031__B.mp4",
+      "size_bytes": 2640444,
+      "sha256": "7d31a0c9b86fe247ac680dec6c66482dde7063a85d952771f3508d953d2cbe72"
+    },
+    {
+      "path": "/root/lightsem/outputs/stage9/hl_pairs/pair032__A.mp4",
+      "size_bytes": 3026664,
+      "sha256": "2d8add047339a24b1910c8e07f0eee7559baf6e9acb14cf4aa1ea4f9606ebdba"
+    },
+    {
+      "path": "/root/lightsem/outputs/stage9/hl_pairs/pair032__B.mp4",
+      "size_bytes": 3090444,
+      "sha256": "8473595b3ea5fe8daaeed2dfd8e05507e834f322ceccfbd33d8fa0552d4a201f"
+    },
+    {
+      "path": "/root/lightsem/outputs/stage9/hl_pairs/pair033__A.mp4",
+      "size_bytes": 3027131,
+      "sha256": "4b076e759ade5116affdc0b65a8160169c883b73b24f8d4e7d639fa58bb1574b"
+    },
+    {
+      "path": "/root/lightsem/outputs/stage9/hl_pairs/pair033__B.mp4",
+      "size_bytes": 3077321,
+      "sha256": "2032e906148ddf115fd16004c62e31e53316bb1ee61891b87cc1c1cb80f4b46d"
+    },
+    {
+      "path": "/root/lightsem/outputs/stage9/hl_pairs/pair034__A.mp4",
+      "size_bytes": 3530893,
+      "sha256": "2d05add6d8c451071e36b368478b707ce9f54d762c8bedb1a2b42ba01464488c"
+    },
+    {
+      "path": "/root/lightsem/outputs/stage9/hl_pairs/pair034__B.mp4",
+      "size_bytes": 3553875,
+      "sha256": "943ccb2edeed34ef275836abb2f851166a947125fdc037e41e8b62603b7768ab"
+    },
+    {
+      "path": "/root/lightsem/outputs/stage9/hl_pairs/pair035__A.mp4",
+      "size_bytes": 3503915,
+      "sha256": "6d844ec74b855dc42003b5fb3af785b4fb5c86728fa38cb1cacf7afe6212159d"
+    },
+    {
+      "path": "/root/lightsem/outputs/stage9/hl_pairs/pair035__B.mp4",
+      "size_bytes": 3491523,
+      "sha256": "beeac6ce61221d31d94fa698c1cc0638de19b5e04b72d93e440ce9931830d0af"
+    },
+    {
+      "path": "/root/lightsem/outputs/stage9/hl_pairs/pair036__A.mp4",
+      "size_bytes": 3077626,
+      "sha256": "6bf1d746fbda27d3e4a1b6c1420522c9f834027a256c63852099408d8f0a597d"
+    },
+    {
+      "path": "/root/lightsem/outputs/stage9/hl_pairs/pair036__B.mp4",
+      "size_bytes": 3101115,
+      "sha256": "193b8fa2af2d4817d74f81d5aa5258b00421988e5095b25ea942636424fb7710"
+    },
+    {
+      "path": "/root/lightsem/outputs/stage9/hl_pairs/pair037__A.mp4",
+      "size_bytes": 2761120,
+      "sha256": "51c09122e51d5bedb0311d3b876ffa50d306af35cb8a5e3e24ca646eba1665b2"
+    },
+    {
+      "path": "/root/lightsem/outputs/stage9/hl_pairs/pair037__B.mp4",
+      "size_bytes": 2711231,
+      "sha256": "7e0adc2dea307f97733f22c561954600980257dedae824f52ad38cb317834714"
+    },
+    {
+      "path": "/root/lightsem/outputs/stage9/hl_pairs/pair038__A.mp4",
+      "size_bytes": 3092738,
+      "sha256": "de39ad1981275100861513ddef9f15c39b317579d86423a70739cbafa1829459"
+    },
+    {
+      "path": "/root/lightsem/outputs/stage9/hl_pairs/pair038__B.mp4",
+      "size_bytes": 3088635,
+      "sha256": "d22ed0e7328943d37cf529f8d0078b4b229baf4acca56449964855f985fd0a11"
+    },
+    {
+      "path": "/mnt/lightsem-data/cache/justdance_audio/RocuEwLM5fQ.npz",
+      "size_bytes": 1705256,
+      "sha256": "b4a6a83c09d35d5db326e58de6cbdcc63d0046eba49f13fbf96423f52d1beea1"
+    },
+    {
+      "path": "/mnt/lightsem-data/cache/justdance_motion/RocuEwLM5fQ_c0.npz",
+      "size_bytes": 809765,
+      "sha256": "bdc8d29e05adb2632f17c96789d32d4b6fbd69e5094899279b4f9cb780c1f399"
+    },
+    {
+      "path": "/mnt/lightsem-data/cache/justdance_audio/CdXP-aZLuOI.npz",
+      "size_bytes": 2119166,
+      "sha256": "3efd349d19cba1bdb9be1cddc74002b65a2a9dd3dd59d440b6af7fd46f94af5c"
+    },
+    {
+      "path": "/mnt/lightsem-data/cache/justdance_motion/CdXP-aZLuOI_c0.npz",
+      "size_bytes": 981649,
+      "sha256": "5847cc3507e9d71e02af4c91a4edf810a3084d9f4b015a35a5283af054392886"
+    },
+    {
+      "path": "/mnt/lightsem-data/cache/justdance_audio/kZGzpaJfkWc.npz",
+      "size_bytes": 2047032,
+      "sha256": "b7861bc1e55471d9471d462452fd997fa8ea3c79515637e188761f82d5529ad0"
+    },
+    {
+      "path": "/mnt/lightsem-data/cache/justdance_motion/kZGzpaJfkWc_c0.npz",
+      "size_bytes": 978174,
+      "sha256": "1c5db09140d9733315a46fe02ee9f3ae2af44827a8e13ac804d3d98e4eb78cd5"
+    },
+    {
+      "path": "/mnt/lightsem-data/cache/train_tensor_jd_none.npz",
+      "scope": "NPZ meta member value UTF-8, not entire tensor",
+      "size_bytes": 1914629388,
+      "meta_value_sha256": "1e9f04c6211d62fa6a6a30cbbbfcbad6a983bbab9fa9996a950b7df1bd715dd9"
+    }
+  ],
+  "summary": {
+    "pairs": 39,
+    "ratings": 39,
+    "raters": [
+      "anton"
+    ],
+    "ties": 0,
+    "brightness_foils": 0,
+    "recording_ids": 29,
+    "registry_song_key_groups": 29,
+    "existing_videos": 78,
+    "question_agreement": 33,
+    "question_disagreement": 6,
+    "disagreement_pair_ids": [
+      "pair001",
+      "pair002",
+      "pair003",
+      "pair004",
+      "pair006",
+      "pair010"
+    ],
+    "questions": {
+      "fits_music": {
+        "a_wins": 17,
+        "b_wins": 22,
+        "defaults_vs_perturbation_pairs": 18,
+        "default_wins": 8,
+        "metadata_brighter_wins": 23,
+        "screen_proxy_brighter_wins": 20
+      },
+      "engineer": {
+        "a_wins": 19,
+        "b_wins": 20,
+        "defaults_vs_perturbation_pairs": 18,
+        "default_wins": 8,
+        "metadata_brighter_wins": 23,
+        "screen_proxy_brighter_wins": 20
+      }
+    },
+    "metadata_brightness_gap": {
+      "definition": "abs(A-B)/((A+B)/2)",
+      "median": 0.00672866415538794,
+      "maximum": 0.055572402949089314,
+      "pairs_above_1_percent": 14,
+      "pairs_above_5_percent": 1,
+      "pairs_above_10_percent": 0
+    },
+    "screen_brightness_proxy_gap": {
+      "definition": "abs(A-B)/((A+B)/2)",
+      "median": 0.16099245865629133,
+      "maximum": 0.7337285316507236,
+      "pairs_above_1_percent": 37,
+      "pairs_above_5_percent": 32,
+      "pairs_above_10_percent": 25
+    },
+    "screen_and_metadata_brighter_direction_agree": 28,
+    "unverified_same_title_training_counterparts": 5,
+    "ratings_affected_by_title_candidates": 9
+  },
+  "methods": {
+    "screen_brightness_proxy": {
+      "description": "CPU FFmpeg decoding of every frame of each stored MP4, resize each frame to 64x36 and convert to grayscale; take arithmetic mean of all uint8 pixels over all frames divided by255. Every video produced900 frames. This is a reproducible gamma-encoded screen appearance proxy, not calibrated physical/perceptual luminance.",
+      "command_template": [
+        "ffmpeg",
+        "-v",
+        "error",
+        "-threads",
+        "1",
+        "-i",
+        "/root/lightsem/outputs/stage9/hl_pairs/{pair_id}__{A_or_B}.mp4",
+        "-vf",
+        "scale=64:36,format=gray",
+        "-threads",
+        "1",
+        "-f",
+        "rawvideo",
+        "-"
+      ],
+      "aggregation_python": "a = np.frombuffer(completed_process.stdout, dtype=np.uint8); mean_gray = float(a.mean()) / 255.0; frames = int(a.size // (64 * 36))",
+      "ffmpeg_version": "ffmpeg version n9.0.1 Copyright (c) 2000-2026 the FFmpeg developers",
+      "notes": [
+        "A preceding exploratory run sampled at1 fps. The final values in this artifact supersede that run and use all900 frames, avoiding temporal sampling aliasing.",
+        "No GPU rendering or processing was launched."
+      ]
+    },
+    "metadata_brightness": {
+      "description": "Use stored pairs.json brightness entries without regenerating or altering the legacy batch. They are level_features(...)[mean] from the decoded DMX metric, not video-pixel measurements.",
+      "source_refs": [
+        "/root/lightsem/build_hl_pairs.py:89",
+        "/root/lightsem/build_hl_pairs.py:104",
+        "/root/lightsem/lightsem/eval/light_features.py:156",
+        "/root/lightsem/lightsem/dmx/decode.py:107"
+      ]
+    },
+    "ratings": {
+      "description": "Join every ratings.jsonl row to pairs.json by id. Compare each question independently; identify default arms by exact dictionary equality to pairs.json defaults. Count brighter-arm wins descriptively without fitting or hypothesis testing."
+    },
+    "identities": {
+      "description": "Resolve each music_id through justdance_songs.json rows. Reproduce current make_jd_splits(meta, seed=0, val_frac=.1, test_frac=.15) on current train_tensor_jd_none.npz metadata. Same-title filename matches are candidate identity defects, not confirmed audio duplicates.",
+      "split_source": "/root/lightsem/lightsem/model/jd_data.py:50"
+    },
+    "knob_sensitivity": {
+      "description": "CPU-only check on current incumbent checkpoint and pair000, pair019, pair038. For each, load corresponding motion metadata only to recover start_s offset; slice cached audio bus at offset+pair start_s for30 seconds; predict descriptors with fixed seed0; hold descriptors/bus fixed and compare default packed DMX to every one-knob low/high endpoint setting from KNOBS.",
+      "execution_prefix": "PYTHONDONTWRITEBYTECODE=1 CUDA_VISIBLE_DEVICES='' OMP_NUM_THREADS=1 OPENBLAS_NUM_THREADS=1 MKL_NUM_THREADS=1 bash run_torch.sh -",
+      "device": "cpu",
+      "torch_num_threads": 1,
+      "checkpoint": "/mnt/lightsem-data/ckpt/light_trunk_jd_none_smooth.pt",
+      "pair_ids": [
+        "pair000",
+        "pair019",
+        "pair038"
+      ],
+      "seed": 0,
+      "knobs": [
+        "base_level",
+        "bounce_depth",
+        "contrast_gain",
+        "blinder_decay_s",
+        "strobe_decay_s",
+        "spatial_sigma",
+        "slew_hue",
+        "slew_wash_dimmer",
+        "onset_percentile"
+      ],
+      "comparisons": 54,
+      "comparisons_with_changed_dmx_bytes": 54,
+      "minimum_changed_bytes": 41,
+      "maximum_changed_bytes": 36752,
+      "limitation": "Establishes code-path activity on these current CPU reproductions, not identical reconstruction of the original GPU-sampled descriptors or every legacy material. No new video rendering."
+    }
+  },
+  "findings": [
+    {
+      "finding": "Brightness metric and renderer disagree for blinders",
+      "evidence": [
+        "/root/lightsem/lightsem/dmx/decode.py:71-75: blinder RGB is assigned dimmer, giving val=dimmer.",
+        "/root/lightsem/lightsem/dmx/decode.py:102-109: emitted_light multiplies dimmer by val, giving approximately dimmer squared for blinders.",
+        "/root/lightsem/lightsem/sim/renderer.py:47-49: blinder RGB is constant(1,.95,.85).",
+        "/root/lightsem/lightsem/sim/renderer.py:175: rendered intensity is linear dimmer times intensity_gain."
+      ],
+      "interpretation": "This is a code-level mismatch. Screen brightness differences also depend on color, fixture geometry, area and tone mapping; this audit does not attribute the full screen proxy discrepancy to the blinder bug."
+    },
+    {
+      "finding": "Generation applies asymmetric brightness normalization",
+      "evidence": [
+        "/root/lightsem/build_hl_pairs.py:86-92: phi_a is default or perturbed; phi_b is always perturbed and only that original arm is gain-scaled.",
+        "/root/lightsem/build_hl_pairs.py:98-104: displayed A/B order is randomized after gain scaling."
+      ],
+      "interpretation": "In default-versus-perturbed comparisons the default is unscaled and the perturbation is normalized. Raw knob differences do not fully describe resulting rendered exposure; gain is not recorded. The measured preference is for this generation protocol."
+    },
+    {
+      "finding": "All nine knobs are connected, with hybrid-specific scope",
+      "evidence": [
+        "/root/lightsem/build_hl_pairs.py:48-52",
+        "/root/lightsem/lightsem/conductor/v0.py:139",
+        "/root/lightsem/lightsem/conductor/hybrid.py:90-95",
+        "/root/lightsem/lightsem/conductor/hybrid.py:133-135"
+      ],
+      "interpretation": "All nine changed DMX in54/54 endpoint sensitivity checks. Hybrid recomputes beam and event amplitudes with default squash gain, so contrast_gain mainly reaches the inherited wash/back/saturation/strobe controls rather than every layer."
+    },
+    {
+      "finding": "Descriptive pilot does not establish a default improvement",
+      "interpretation": "Each question preferred the default8/18 times versus random perturbations and the screen-proxy-brighter arm20/39 times overall. These counts neither establish useful tuning nor show that the rater merely prefers brightness. No foils were collected, and one rater's39 labels over29 existing registry groups are exploratory."
+    },
+    {
+      "finding": "This batch concerns the older incumbent conductor",
+      "interpretation": "The nine knobs do not include GroupEngine wave or hue-spread/drift controls. These judgments do not directly validate the later wave-and-colour renderer."
+    }
+  ],
+  "unverified_title_match_candidates": [
+    {
+      "title": "Where Have You Been",
+      "status": "unverified_same_song_candidate",
+      "evidence": "Local filenames name the same song with different choreography/version qualifiers. No audio fingerprint, alignment, or listening verification performed.",
+      "rated_validation_recording": {
+        "id": "RIkexdTR6_M",
+        "yt_id": "RIkexdTR6_M",
+        "file": "Just Dance 2014 Xbox 360 Gameplay - Rihanna - Where Have You Been - 5 Stars [RIkexdTR6_M].webm",
+        "song_key": "RIkexdTR6_M",
+        "title_norm": "xbox 360 gameplay rihanna where have you been 5 stars",
+        "duration_s": 247.821,
+        "fps": 29.97002997002997,
+        "excluded": null,
+        "split": "val"
+      },
+      "training_counterpart": {
+        "id": "4E1De14tuDc",
+        "yt_id": "4E1De14tuDc",
+        "file": "Just Dance 2014 - Where Have You Been ｜ On Stage [4E1De14tuDc].webm",
+        "song_key": "4E1De14tuDc",
+        "title_norm": "where have you been on stage",
+        "duration_s": 302.261,
+        "fps": 29.97002997002997,
+        "excluded": null,
+        "split": "train"
+      },
+      "affected_pair_ids": [
+        "pair001"
+      ]
+    },
+    {
+      "title": "Turn Up The Love",
+      "status": "unverified_same_song_candidate",
+      "evidence": "Local filenames name the same song with different choreography/version qualifiers. No audio fingerprint, alignment, or listening verification performed.",
+      "rated_validation_recording": {
+        "id": "ZoBKemKNjM4",
+        "yt_id": "ZoBKemKNjM4",
+        "file": "Just Dance 2014 - Turn up the Love [ZoBKemKNjM4].webm",
+        "song_key": "ZoBKemKNjM4",
+        "title_norm": "turn up the love",
+        "duration_s": 208.621,
+        "fps": 59.94006309148265,
+        "excluded": null,
+        "split": "val"
+      },
+      "training_counterpart": {
+        "id": "eeSOVhAQoQ4",
+        "yt_id": "eeSOVhAQoQ4",
+        "file": "🌟Just Dance 2017 Unlimited： Turn Up The Love (Sumo Version) - Far East Movement ft Cover Drive🌟 [eeSOVhAQoQ4].mkv",
+        "song_key": "eeSOVhAQoQ4",
+        "title_norm": "unlimited turn up the love far east movement ft cover drive",
+        "duration_s": 234.621,
+        "fps": 25,
+        "excluded": null,
+        "split": "train"
+      },
+      "affected_pair_ids": [
+        "pair013",
+        "pair023"
+      ]
+    },
+    {
+      "title": "El Tiki",
+      "status": "unverified_same_song_candidate",
+      "evidence": "Local filenames name the same song with different choreography/version qualifiers. No audio fingerprint, alignment, or listening verification performed.",
+      "rated_validation_recording": {
+        "id": "981MHMgULkk",
+        "yt_id": "981MHMgULkk",
+        "file": "Just Dance 2017： El Tiki (Trio Version) - SuperStar Full Gameplay [981MHMgULkk].mkv",
+        "song_key": "981MHMgULkk",
+        "title_norm": "el tiki superstar full gameplay",
+        "duration_s": 206.741,
+        "fps": 25,
+        "excluded": null,
+        "split": "val"
+      },
+      "training_counterpart": {
+        "id": "c8G_vBkwOos",
+        "yt_id": "c8G_vBkwOos",
+        "file": "Just Dance 2017： El Tiki by Maluma ｜ Just Dance 2017 full gameplay ｜ #JustDance2017 [c8G_vBkwOos].mkv",
+        "song_key": "c8G_vBkwOos",
+        "title_norm": "el tiki by maluma full gameplay",
+        "duration_s": 222.141,
+        "fps": 25,
+        "excluded": null,
+        "split": "train"
+      },
+      "affected_pair_ids": [
+        "pair020",
+        "pair024",
+        "pair030"
+      ]
+    },
+    {
+      "title": "Bum Bum Tam Tam",
+      "status": "unverified_same_song_candidate",
+      "evidence": "Local filenames name the same song with different choreography/version qualifiers. No audio fingerprint, alignment, or listening verification performed.",
+      "rated_validation_recording": {
+        "id": "KatqpM7-x9I",
+        "yt_id": "KatqpM7-x9I",
+        "file": "Just Dance 2019： Bum Bum Tam Tam [KatqpM7-x9I].webm",
+        "song_key": "KatqpM7-x9I",
+        "title_norm": "bum bum tam tam",
+        "duration_s": 251.741,
+        "fps": 29.97002997002997,
+        "excluded": null,
+        "split": "val"
+      },
+      "training_counterpart": {
+        "id": "NjRXPxz0jL4",
+        "yt_id": "NjRXPxz0jL4",
+        "file": "Just Dance 2019： Bum Bum Tam Tam (Versão Cientista Maluco) [NjRXPxz0jL4].mkv",
+        "song_key": "NjRXPxz0jL4",
+        "title_norm": "bum bum tam tam",
+        "duration_s": 250.601,
+        "fps": 29.97002997002997,
+        "excluded": null,
+        "split": "train"
+      },
+      "affected_pair_ids": [
+        "pair029",
+        "pair034"
+      ]
+    },
+    {
+      "title": "Fancy",
+      "status": "unverified_same_song_candidate",
+      "evidence": "Local filenames name the same song with different choreography/version qualifiers. No audio fingerprint, alignment, or listening verification performed.",
+      "rated_validation_recording": {
+        "id": "8B6VxbBLDEg",
+        "yt_id": "8B6VxbBLDEg",
+        "file": "Just Dance 2016 - Fancy(Indian version) [8B6VxbBLDEg].mkv",
+        "song_key": "8B6VxbBLDEg",
+        "title_norm": "fancy",
+        "duration_s": 218.561,
+        "fps": 59.94006309148265,
+        "excluded": null,
+        "split": "val"
+      },
+      "training_counterpart": {
+        "id": "071CJx_tViQ",
+        "yt_id": "071CJx_tViQ",
+        "file": "Just Dance 2016 - Fancy - Iggy Azalea ft Charli XCX - Just Dance 2016 - 5 Stars [071CJx_tViQ].webm",
+        "song_key": "071CJx_tViQ",
+        "title_norm": "fancy iggy azalea ft charli xcx 5 stars",
+        "duration_s": 238.661,
+        "fps": 29.97002997002997,
+        "excluded": null,
+        "split": "train"
+      },
+      "affected_pair_ids": [
+        "pair033"
+      ]
+    }
+  ],
+  "pairs": [
+    {
+      "id": "pair000",
+      "song": "RocuEwLM5fQ_c0",
+      "music_id": "RocuEwLM5fQ",
+      "start_s": 120.11502843245262,
+      "clip_s": 30,
+      "foil_overbright": null,
+      "brightness": {
+        "A": 0.19702207301221142,
+        "B": 0.19624221178667545
+      },
+      "song_key": "RocuEwLM5fQ",
+      "default_arms": [],
+      "ratings": {
+        "id": "pair000",
+        "rater": "anton",
+        "fits_music": "a",
+        "engineer": "a",
+        "t": 1788587649.1204298
+      },
+      "screen_brightness_proxy": {
+        "A": 0.2633061285856935,
+        "B": 0.1756861591473009
+      },
+      "decoded_frames": {
+        "A": 900,
+        "B": 900
+      },
+      "screen_symmetric_relative_gap": 0.3991868280459869,
+      "screen_brighter_arm": "A",
+      "metadata_brighter_arm": "A",
+      "metadata_symmetric_relative_gap": 0.003966092298133751
+    },
+    {
+      "id": "pair001",
+      "song": "RIkexdTR6_M_c0",
+      "music_id": "RIkexdTR6_M",
+      "start_s": 131.56930718391897,
+      "clip_s": 30,
+      "foil_overbright": null,
+      "brightness": {
+        "A": 0.24917070266014898,
+        "B": 0.2490119477856502
+      },
+      "song_key": "RIkexdTR6_M",
+      "default_arms": [
+        "B"
+      ],
+      "ratings": {
+        "id": "pair001",
+        "rater": "anton",
+        "fits_music": "b",
+        "engineer": "a",
+        "t": 1788587692.1126087
+      },
+      "screen_brightness_proxy": {
+        "A": 0.10120282051863956,
+        "B": 0.13639501066630358
+      },
+      "decoded_frames": {
+        "A": 900,
+        "B": 900
+      },
+      "screen_symmetric_relative_gap": 0.2962332608185372,
+      "screen_brighter_arm": "B",
+      "metadata_brighter_arm": "A",
+      "metadata_symmetric_relative_gap": 0.000637336022668505
+    },
+    {
+      "id": "pair002",
+      "song": "4QyGK8HtgLc_c0",
+      "music_id": "4QyGK8HtgLc",
+      "start_s": 53.308011377604565,
+      "clip_s": 30,
+      "foil_overbright": null,
+      "brightness": {
+        "A": 0.288114004686842,
+        "B": 0.28693632211054354
+      },
+      "song_key": "4QyGK8HtgLc",
+      "default_arms": [
+        "B"
+      ],
+      "ratings": {
+        "id": "pair002",
+        "rater": "anton",
+        "fits_music": "a",
+        "engineer": "b",
+        "t": 1788587730.8497546
+      },
+      "screen_brightness_proxy": {
+        "A": 0.15570405924715566,
+        "B": 0.19721587161099008
+      },
+      "decoded_frames": {
+        "A": 900,
+        "B": 900
+      },
+      "screen_symmetric_relative_gap": 0.23524776434641126,
+      "screen_brighter_arm": "B",
+      "metadata_brighter_arm": "A",
+      "metadata_symmetric_relative_gap": 0.004095928726298816
+    },
+    {
+      "id": "pair003",
+      "song": "Cnjnj8QWo4M_c0",
+      "music_id": "Cnjnj8QWo4M",
+      "start_s": 23.870468777016896,
+      "clip_s": 30,
+      "foil_overbright": null,
+      "brightness": {
+        "A": 0.21045493583054137,
+        "B": 0.21305041009868
+      },
+      "song_key": "Cnjnj8QWo4M",
+      "default_arms": [],
+      "ratings": {
+        "id": "pair003",
+        "rater": "anton",
+        "fits_music": "a",
+        "engineer": "b",
+        "t": 1788587768.3525305
+      },
+      "screen_brightness_proxy": {
+        "A": 0.251475962993222,
+        "B": 0.15571434731299927
+      },
+      "decoded_frames": {
+        "A": 900,
+        "B": 900
+      },
+      "screen_symmetric_relative_gap": 0.4703531162527255,
+      "screen_brighter_arm": "A",
+      "metadata_brighter_arm": "B",
+      "metadata_symmetric_relative_gap": 0.012257102740669568
+    },
+    {
+      "id": "pair004",
+      "song": "11qRVJWomH8_c0",
+      "music_id": "11qRVJWomH8",
+      "start_s": 31.537945024561008,
+      "clip_s": 30,
+      "foil_overbright": null,
+      "brightness": {
+        "A": 0.22391232950696613,
+        "B": 0.22415333296717382
+      },
+      "song_key": "11qRVJWomH8",
+      "default_arms": [],
+      "ratings": {
+        "id": "pair004",
+        "rater": "anton",
+        "fits_music": "b",
+        "engineer": "a",
+        "t": 1788587817.8808453
+      },
+      "screen_brightness_proxy": {
+        "A": 0.04516628086419753,
+        "B": 0.06676980641793755
+      },
+      "decoded_frames": {
+        "A": 900,
+        "B": 900
+      },
+      "screen_symmetric_relative_gap": 0.38599751122778303,
+      "screen_brighter_arm": "B",
+      "metadata_brighter_arm": "B",
+      "metadata_symmetric_relative_gap": 0.001075750633855387
+    },
+    {
+      "id": "pair005",
+      "song": "2WzjnaFjHYY_c0",
+      "music_id": "2WzjnaFjHYY",
+      "start_s": 66.96325976616009,
+      "clip_s": 30,
+      "foil_overbright": null,
+      "brightness": {
+        "A": 0.289997528423134,
+        "B": 0.295355649841636
+      },
+      "song_key": "2WzjnaFjHYY",
+      "default_arms": [],
+      "ratings": {
+        "id": "pair005",
+        "rater": "anton",
+        "fits_music": "a",
+        "engineer": "a",
+        "t": 1788587982.2685022
+      },
+      "screen_brightness_proxy": {
+        "A": 0.16124942507867343,
+        "B": 0.18948198075526507
+      },
+      "decoded_frames": {
+        "A": 900,
+        "B": 900
+      },
+      "screen_symmetric_relative_gap": 0.16099245865629133,
+      "screen_brighter_arm": "B",
+      "metadata_brighter_arm": "B",
+      "metadata_symmetric_relative_gap": 0.018307311269362893
+    },
+    {
+      "id": "pair006",
+      "song": "moryohPkTSY_c2",
+      "music_id": "moryohPkTSY",
+      "start_s": 37.98873644894959,
+      "clip_s": 30,
+      "foil_overbright": null,
+      "brightness": {
+        "A": 0.17159366360923453,
+        "B": 0.17239140074330386
+      },
+      "song_key": "moryohPkTSY",
+      "default_arms": [],
+      "ratings": {
+        "id": "pair006",
+        "rater": "anton",
+        "fits_music": "b",
+        "engineer": "a",
+        "t": 1788588024.6474473
+      },
+      "screen_brightness_proxy": {
+        "A": 0.1514902887466715,
+        "B": 0.14231760431796175
+      },
+      "decoded_frames": {
+        "A": 900,
+        "B": 900
+      },
+      "screen_symmetric_relative_gap": 0.06244001366356687,
+      "screen_brighter_arm": "A",
+      "metadata_brighter_arm": "B",
+      "metadata_symmetric_relative_gap": 0.004638207973191293
+    },
+    {
+      "id": "pair007",
+      "song": "EH-Ig1Xv0vU_c0",
+      "music_id": "EH-Ig1Xv0vU",
+      "start_s": 28.584898266391473,
+      "clip_s": 30,
+      "foil_overbright": null,
+      "brightness": {
+        "A": 0.16541629135314256,
+        "B": 0.16430699273173321
+      },
+      "song_key": "EH-Ig1Xv0vU",
+      "default_arms": [
+        "A"
+      ],
+      "ratings": {
+        "id": "pair007",
+        "rater": "anton",
+        "fits_music": "b",
+        "engineer": "b",
+        "t": 1788588078.0120811
+      },
+      "screen_brightness_proxy": {
+        "A": 0.08434925146756232,
+        "B": 0.07736378714294359
+      },
+      "decoded_frames": {
+        "A": 900,
+        "B": 900
+      },
+      "screen_symmetric_relative_gap": 0.08639333457141422,
+      "screen_brighter_arm": "A",
+      "metadata_brighter_arm": "A",
+      "metadata_symmetric_relative_gap": 0.00672866415538794
+    },
+    {
+      "id": "pair008",
+      "song": "u3S8T3jZA6A_c0",
+      "music_id": "u3S8T3jZA6A",
+      "start_s": 55.45669808841067,
+      "clip_s": 30,
+      "foil_overbright": null,
+      "brightness": {
+        "A": 0.204015947163179,
+        "B": 0.20359411032386812
+      },
+      "song_key": "u3S8T3jZA6A",
+      "default_arms": [],
+      "ratings": {
+        "id": "pair008",
+        "rater": "anton",
+        "fits_music": "b",
+        "engineer": "b",
+        "t": 1788588336.0020652
+      },
+      "screen_brightness_proxy": {
+        "A": 0.14259576222464296,
+        "B": 0.07341736829762768
+      },
+      "decoded_frames": {
+        "A": 900,
+        "B": 900
+      },
+      "screen_symmetric_relative_gap": 0.6405017487571949,
+      "screen_brighter_arm": "A",
+      "metadata_brighter_arm": "A",
+      "metadata_symmetric_relative_gap": 0.002069805842925181
+    },
+    {
+      "id": "pair009",
+      "song": "TPXoxjy-RKk_c0",
+      "music_id": "TPXoxjy-RKk",
+      "start_s": 24.257884738859683,
+      "clip_s": 30,
+      "foil_overbright": null,
+      "brightness": {
+        "A": 0.1972087777594698,
+        "B": 0.192772314677505
+      },
+      "song_key": "TPXoxjy-RKk",
+      "default_arms": [],
+      "ratings": {
+        "id": "pair009",
+        "rater": "anton",
+        "fits_music": "a",
+        "engineer": "a",
+        "t": 1788588373.136104
+      },
+      "screen_brightness_proxy": {
+        "A": 0.1913713197470346,
+        "B": 0.17539063256475432
+      },
+      "decoded_frames": {
+        "A": 900,
+        "B": 900
+      },
+      "screen_symmetric_relative_gap": 0.0871447383325897,
+      "screen_brighter_arm": "A",
+      "metadata_brighter_arm": "A",
+      "metadata_symmetric_relative_gap": 0.022752195775654325
+    },
+    {
+      "id": "pair010",
+      "song": "NI31AWYYuFI_c2",
+      "music_id": "NI31AWYYuFI",
+      "start_s": 121.63228949596838,
+      "clip_s": 30,
+      "foil_overbright": null,
+      "brightness": {
+        "A": 0.23454660112410977,
+        "B": 0.23153013676058662
+      },
+      "song_key": "NI31AWYYuFI",
+      "default_arms": [],
+      "ratings": {
+        "id": "pair010",
+        "rater": "anton",
+        "fits_music": "b",
+        "engineer": "a",
+        "t": 1788588517.80648
+      },
+      "screen_brightness_proxy": {
+        "A": 0.12596111338053742,
+        "B": 0.11074772490014526
+      },
+      "decoded_frames": {
+        "A": 900,
+        "B": 900
+      },
+      "screen_symmetric_relative_gap": 0.12854094161327898,
+      "screen_brighter_arm": "A",
+      "metadata_brighter_arm": "A",
+      "metadata_symmetric_relative_gap": 0.012944067439252466
+    },
+    {
+      "id": "pair011",
+      "song": "Tjbw_Yc48fs_c0",
+      "music_id": "Tjbw_Yc48fs",
+      "start_s": 45.28806661498945,
+      "clip_s": 30,
+      "foil_overbright": null,
+      "brightness": {
+        "A": 0.2627946266088135,
+        "B": 0.2603703804397576
+      },
+      "song_key": "Tjbw_Yc48fs",
+      "default_arms": [
+        "A"
+      ],
+      "ratings": {
+        "id": "pair011",
+        "rater": "anton",
+        "fits_music": "b",
+        "engineer": "b",
+        "t": 1788588830.2673526
+      },
+      "screen_brightness_proxy": {
+        "A": 0.1569932730422416,
+        "B": 0.13698455466291456
+      },
+      "decoded_frames": {
+        "A": 900,
+        "B": 900
+      },
+      "screen_symmetric_relative_gap": 0.13612399639468514,
+      "screen_brighter_arm": "A",
+      "metadata_brighter_arm": "A",
+      "metadata_symmetric_relative_gap": 0.009267615900888532
+    },
+    {
+      "id": "pair012",
+      "song": "UnbJ4AX6wTA_c0",
+      "music_id": "UnbJ4AX6wTA",
+      "start_s": 30.77999849224307,
+      "clip_s": 30,
+      "foil_overbright": null,
+      "brightness": {
+        "A": 0.20955252375459987,
+        "B": 0.20825656157887992
+      },
+      "song_key": "UnbJ4AX6wTA",
+      "default_arms": [
+        "B"
+      ],
+      "ratings": {
+        "id": "pair012",
+        "rater": "anton",
+        "fits_music": "a",
+        "engineer": "a",
+        "t": 1788588866.1956728
+      },
+      "screen_brightness_proxy": {
+        "A": 0.23098023329702252,
+        "B": 0.22351896294783347
+      },
+      "decoded_frames": {
+        "A": 900,
+        "B": 900
+      },
+      "screen_symmetric_relative_gap": 0.032832930886722136,
+      "screen_brighter_arm": "A",
+      "metadata_brighter_arm": "A",
+      "metadata_symmetric_relative_gap": 0.006203609357539753
+    },
+    {
+      "id": "pair013",
+      "song": "ZoBKemKNjM4_c1",
+      "music_id": "ZoBKemKNjM4",
+      "start_s": 89.18924986433706,
+      "clip_s": 30,
+      "foil_overbright": null,
+      "brightness": {
+        "A": 0.1870022628659307,
+        "B": 0.1864176186814595
+      },
+      "song_key": "ZoBKemKNjM4",
+      "default_arms": [],
+      "ratings": {
+        "id": "pair013",
+        "rater": "anton",
+        "fits_music": "a",
+        "engineer": "a",
+        "t": 1788588910.1088412
+      },
+      "screen_brightness_proxy": {
+        "A": 0.14952922264584845,
+        "B": 0.1441417616043331
+      },
+      "decoded_frames": {
+        "A": 900,
+        "B": 900
+      },
+      "screen_symmetric_relative_gap": 0.03669045517228028,
+      "screen_brighter_arm": "A",
+      "metadata_brighter_arm": "A",
+      "metadata_symmetric_relative_gap": 0.003131296502202908
+    },
+    {
+      "id": "pair014",
+      "song": "bYjI048jg40_c0",
+      "music_id": "bYjI048jg40",
+      "start_s": 70.01351165875131,
+      "clip_s": 30,
+      "foil_overbright": null,
+      "brightness": {
+        "A": 0.19121813222020834,
+        "B": 0.1912482351110379
+      },
+      "song_key": "bYjI048jg40",
+      "default_arms": [
+        "A"
+      ],
+      "ratings": {
+        "id": "pair014",
+        "rater": "anton",
+        "fits_music": "a",
+        "engineer": "a",
+        "t": 1788588953.955454
+      },
+      "screen_brightness_proxy": {
+        "A": 0.07861477812575648,
+        "B": 0.08223639857177438
+      },
+      "decoded_frames": {
+        "A": 900,
+        "B": 900
+      },
+      "screen_symmetric_relative_gap": 0.045030698815813994,
+      "screen_brighter_arm": "B",
+      "metadata_brighter_arm": "B",
+      "metadata_symmetric_relative_gap": 0.00015741457759856618
+    },
+    {
+      "id": "pair015",
+      "song": "0bZbusRBSvc_c0",
+      "music_id": "0bZbusRBSvc",
+      "start_s": 76.7490840622871,
+      "clip_s": 30,
+      "foil_overbright": null,
+      "brightness": {
+        "A": 0.22862238974020982,
+        "B": 0.23077241811757385
+      },
+      "song_key": "0bZbusRBSvc",
+      "default_arms": [],
+      "ratings": {
+        "id": "pair015",
+        "rater": "anton",
+        "fits_music": "b",
+        "engineer": "b",
+        "t": 1788588992.886816
+      },
+      "screen_brightness_proxy": {
+        "A": 0.21623238546961993,
+        "B": 0.17456642799866862
+      },
+      "decoded_frames": {
+        "A": 900,
+        "B": 900
+      },
+      "screen_symmetric_relative_gap": 0.2132348207568563,
+      "screen_brighter_arm": "A",
+      "metadata_brighter_arm": "B",
+      "metadata_symmetric_relative_gap": 0.009360264158795711
+    },
+    {
+      "id": "pair016",
+      "song": "--74o20SmOs_c0",
+      "music_id": "--74o20SmOs",
+      "start_s": 116.61482473924892,
+      "clip_s": 30,
+      "foil_overbright": null,
+      "brightness": {
+        "A": 0.29378427161714354,
+        "B": 0.2913628814924663
+      },
+      "song_key": "--74o20SmOs",
+      "default_arms": [],
+      "ratings": {
+        "id": "pair016",
+        "rater": "anton",
+        "fits_music": "b",
+        "engineer": "b",
+        "t": 1788589072.1461892
+      },
+      "screen_brightness_proxy": {
+        "A": 0.0982928297476398,
+        "B": 0.1347896998305495
+      },
+      "decoded_frames": {
+        "A": 900,
+        "B": 900
+      },
+      "screen_symmetric_relative_gap": 0.3131669297476588,
+      "screen_brighter_arm": "B",
+      "metadata_brighter_arm": "A",
+      "metadata_symmetric_relative_gap": 0.008276175016179771
+    },
+    {
+      "id": "pair017",
+      "song": "OcYYKHVN0MQ_c0",
+      "music_id": "OcYYKHVN0MQ",
+      "start_s": 142.20342071020605,
+      "clip_s": 30,
+      "foil_overbright": null,
+      "brightness": {
+        "A": 0.2632709049632925,
+        "B": 0.26485904871752625
+      },
+      "song_key": "OcYYKHVN0MQ",
+      "default_arms": [],
+      "ratings": {
+        "id": "pair017",
+        "rater": "anton",
+        "fits_music": "b",
+        "engineer": "b",
+        "t": 1788589105.0053136
+      },
+      "screen_brightness_proxy": {
+        "A": 0.12807662717864923,
+        "B": 0.15317685449951585
+      },
+      "decoded_frames": {
+        "A": 900,
+        "B": 900
+      },
+      "screen_symmetric_relative_gap": 0.1784882958326432,
+      "screen_brighter_arm": "B",
+      "metadata_brighter_arm": "B",
+      "metadata_symmetric_relative_gap": 0.0060142157935377605
+    },
+    {
+      "id": "pair018",
+      "song": "moryohPkTSY_c0",
+      "music_id": "moryohPkTSY",
+      "start_s": 43.231249564264495,
+      "clip_s": 30,
+      "foil_overbright": null,
+      "brightness": {
+        "A": 0.15999106296113216,
+        "B": 0.15921172534373224
+      },
+      "song_key": "moryohPkTSY",
+      "default_arms": [
+        "A"
+      ],
+      "ratings": {
+        "id": "pair018",
+        "rater": "anton",
+        "fits_music": "a",
+        "engineer": "a",
+        "t": 1788589134.8927722
+      },
+      "screen_brightness_proxy": {
+        "A": 0.12882301879084967,
+        "B": 0.1231451619613895
+      },
+      "decoded_frames": {
+        "A": 900,
+        "B": 900
+      },
+      "screen_symmetric_relative_gap": 0.045068046389898926,
+      "screen_brighter_arm": "A",
+      "metadata_brighter_arm": "A",
+      "metadata_symmetric_relative_gap": 0.004883025123549971
+    },
+    {
+      "id": "pair019",
+      "song": "CdXP-aZLuOI_c0",
+      "music_id": "CdXP-aZLuOI",
+      "start_s": 85.59182804991912,
+      "clip_s": 30,
+      "foil_overbright": null,
+      "brightness": {
+        "A": 0.2135508375899379,
+        "B": 0.2163978835978836
+      },
+      "song_key": "CdXP-aZLuOI",
+      "default_arms": [
+        "B"
+      ],
+      "ratings": {
+        "id": "pair019",
+        "rater": "anton",
+        "fits_music": "a",
+        "engineer": "a",
+        "t": 1788589185.9967337
+      },
+      "screen_brightness_proxy": {
+        "A": 0.2281331358932462,
+        "B": 0.15619541462418302
+      },
+      "decoded_frames": {
+        "A": 900,
+        "B": 900
+      },
+      "screen_symmetric_relative_gap": 0.3743553330722476,
+      "screen_brighter_arm": "A",
+      "metadata_brighter_arm": "B",
+      "metadata_symmetric_relative_gap": 0.013243653801691251
+    },
+    {
+      "id": "pair020",
+      "song": "981MHMgULkk_c0",
+      "music_id": "981MHMgULkk",
+      "start_s": 96.91679821177021,
+      "clip_s": 30,
+      "foil_overbright": null,
+      "brightness": {
+        "A": 0.24258534080298788,
+        "B": 0.24103036286409987
+      },
+      "song_key": "981MHMgULkk",
+      "default_arms": [
+        "B"
+      ],
+      "ratings": {
+        "id": "pair020",
+        "rater": "anton",
+        "fits_music": "a",
+        "engineer": "a",
+        "t": 1788589217.5509706
+      },
+      "screen_brightness_proxy": {
+        "A": 0.1772857793966352,
+        "B": 0.23135190858750906
+      },
+      "decoded_frames": {
+        "A": 900,
+        "B": 900
+      },
+      "screen_symmetric_relative_gap": 0.2646164599138575,
+      "screen_brighter_arm": "B",
+      "metadata_brighter_arm": "A",
+      "metadata_symmetric_relative_gap": 0.006430634601387661
+    },
+    {
+      "id": "pair021",
+      "song": "gDGtf4yMW5I_c0",
+      "music_id": "gDGtf4yMW5I",
+      "start_s": 168.57221197625734,
+      "clip_s": 30,
+      "foil_overbright": null,
+      "brightness": {
+        "A": 0.29544119752476156,
+        "B": 0.29822916094542395
+      },
+      "song_key": "gDGtf4yMW5I",
+      "default_arms": [
+        "B"
+      ],
+      "ratings": {
+        "id": "pair021",
+        "rater": "anton",
+        "fits_music": "b",
+        "engineer": "b",
+        "t": 1788589251.852164
+      },
+      "screen_brightness_proxy": {
+        "A": 0.1838764864742193,
+        "B": 0.2102536632322682
+      },
+      "decoded_frames": {
+        "A": 900,
+        "B": 900
+      },
+      "screen_symmetric_relative_gap": 0.13385008367257487,
+      "screen_brighter_arm": "B",
+      "metadata_brighter_arm": "B",
+      "metadata_symmetric_relative_gap": 0.009392294497729792
+    },
+    {
+      "id": "pair022",
+      "song": "OcYYKHVN0MQ_c1",
+      "music_id": "OcYYKHVN0MQ",
+      "start_s": 122.3329028714909,
+      "clip_s": 30,
+      "foil_overbright": null,
+      "brightness": {
+        "A": 0.21912432947035024,
+        "B": 0.21853863623880926
+      },
+      "song_key": "OcYYKHVN0MQ",
+      "default_arms": [
+        "A"
+      ],
+      "ratings": {
+        "id": "pair022",
+        "rater": "anton",
+        "fits_music": "b",
+        "engineer": "b",
+        "t": 1788589285.034734
+      },
+      "screen_brightness_proxy": {
+        "A": 0.22080581653957881,
+        "B": 0.21912463121822803
+      },
+      "decoded_frames": {
+        "A": 900,
+        "B": 900
+      },
+      "screen_symmetric_relative_gap": 0.00764295960836208,
+      "screen_brighter_arm": "A",
+      "metadata_brighter_arm": "A",
+      "metadata_symmetric_relative_gap": 0.0026764578108269283
+    },
+    {
+      "id": "pair023",
+      "song": "ZoBKemKNjM4_c0",
+      "music_id": "ZoBKemKNjM4",
+      "start_s": 43.54047374986959,
+      "clip_s": 30,
+      "foil_overbright": null,
+      "brightness": {
+        "A": 0.1706165275260431,
+        "B": 0.17129584866626388
+      },
+      "song_key": "ZoBKemKNjM4",
+      "default_arms": [],
+      "ratings": {
+        "id": "pair023",
+        "rater": "anton",
+        "fits_music": "b",
+        "engineer": "b",
+        "t": 1788589324.3226192
+      },
+      "screen_brightness_proxy": {
+        "A": 0.08273913701282982,
+        "B": 0.10503496618554829
+      },
+      "decoded_frames": {
+        "A": 900,
+        "B": 900
+      },
+      "screen_symmetric_relative_gap": 0.23747501697998838,
+      "screen_brighter_arm": "B",
+      "metadata_brighter_arm": "B",
+      "metadata_symmetric_relative_gap": 0.003973656337252379
+    },
+    {
+      "id": "pair024",
+      "song": "981MHMgULkk_c2",
+      "music_id": "981MHMgULkk",
+      "start_s": 142.92832265521173,
+      "clip_s": 30,
+      "foil_overbright": null,
+      "brightness": {
+        "A": 0.21027646509584225,
+        "B": 0.21342920122297288
+      },
+      "song_key": "981MHMgULkk",
+      "default_arms": [],
+      "ratings": {
+        "id": "pair024",
+        "rater": "anton",
+        "fits_music": "b",
+        "engineer": "b",
+        "t": 1788589358.3782945
+      },
+      "screen_brightness_proxy": {
+        "A": 0.1514424908466473,
+        "B": 0.2175830647845558
+      },
+      "decoded_frames": {
+        "A": 900,
+        "B": 900
+      },
+      "screen_symmetric_relative_gap": 0.3584606698838392,
+      "screen_brighter_arm": "B",
+      "metadata_brighter_arm": "B",
+      "metadata_symmetric_relative_gap": 0.014881727471439425
+    },
+    {
+      "id": "pair025",
+      "song": "NI31AWYYuFI_c1",
+      "music_id": "NI31AWYYuFI",
+      "start_s": 135.0147478756092,
+      "clip_s": 30,
+      "foil_overbright": null,
+      "brightness": {
+        "A": 0.23818975577158966,
+        "B": 0.2371319904432361
+      },
+      "song_key": "NI31AWYYuFI",
+      "default_arms": [],
+      "ratings": {
+        "id": "pair025",
+        "rater": "anton",
+        "fits_music": "a",
+        "engineer": "a",
+        "t": 1788589376.513988
+      },
+      "screen_brightness_proxy": {
+        "A": 0.14926288655894457,
+        "B": 0.19237369886226097
+      },
+      "decoded_frames": {
+        "A": 900,
+        "B": 900
+      },
+      "screen_symmetric_relative_gap": 0.25237819450844146,
+      "screen_brighter_arm": "B",
+      "metadata_brighter_arm": "A",
+      "metadata_symmetric_relative_gap": 0.004450733999767344
+    },
+    {
+      "id": "pair026",
+      "song": "moryohPkTSY_c1",
+      "music_id": "moryohPkTSY",
+      "start_s": 108.80642535944847,
+      "clip_s": 30,
+      "foil_overbright": null,
+      "brightness": {
+        "A": 0.20962435418611888,
+        "B": 0.21050982314494426
+      },
+      "song_key": "moryohPkTSY",
+      "default_arms": [
+        "B"
+      ],
+      "ratings": {
+        "id": "pair026",
+        "rater": "anton",
+        "fits_music": "b",
+        "engineer": "b",
+        "t": 1788589390.2186682
+      },
+      "screen_brightness_proxy": {
+        "A": 0.19663555850580974,
+        "B": 0.19787585481723552
+      },
+      "decoded_frames": {
+        "A": 900,
+        "B": 900
+      },
+      "screen_symmetric_relative_gap": 0.006287758830491225,
+      "screen_brighter_arm": "B",
+      "metadata_brighter_arm": "B",
+      "metadata_symmetric_relative_gap": 0.004215172231168599
+    },
+    {
+      "id": "pair027",
+      "song": "HyiOce29uio_c0",
+      "music_id": "HyiOce29uio",
+      "start_s": 54.41083024167065,
+      "clip_s": 30,
+      "foil_overbright": null,
+      "brightness": {
+        "A": 0.261805365152597,
+        "B": 0.2601588473297816
+      },
+      "song_key": "HyiOce29uio",
+      "default_arms": [],
+      "ratings": {
+        "id": "pair027",
+        "rater": "anton",
+        "fits_music": "b",
+        "engineer": "b",
+        "t": 1788589416.6275182
+      },
+      "screen_brightness_proxy": {
+        "A": 0.12599047786552892,
+        "B": 0.12025341737775357
+      },
+      "decoded_frames": {
+        "A": 900,
+        "B": 900
+      },
+      "screen_symmetric_relative_gap": 0.04659657029959898,
+      "screen_brighter_arm": "A",
+      "metadata_brighter_arm": "A",
+      "metadata_symmetric_relative_gap": 0.006308929935961735
+    },
+    {
+      "id": "pair028",
+      "song": "gE8dDV-XCEs_c0",
+      "music_id": "gE8dDV-XCEs",
+      "start_s": 73.04651605352237,
+      "clip_s": 30,
+      "foil_overbright": null,
+      "brightness": {
+        "A": 0.22278686585745408,
+        "B": 0.21947991798026398
+      },
+      "song_key": "gE8dDV-XCEs",
+      "default_arms": [
+        "A"
+      ],
+      "ratings": {
+        "id": "pair028",
+        "rater": "anton",
+        "fits_music": "a",
+        "engineer": "a",
+        "t": 1788589464.3803527
+      },
+      "screen_brightness_proxy": {
+        "A": 0.20466539957032195,
+        "B": 0.1811322205579763
+      },
+      "decoded_frames": {
+        "A": 900,
+        "B": 900
+      },
+      "screen_symmetric_relative_gap": 0.12199753334154645,
+      "screen_brighter_arm": "A",
+      "metadata_brighter_arm": "A",
+      "metadata_symmetric_relative_gap": 0.014954538744666516
+    },
+    {
+      "id": "pair029",
+      "song": "KatqpM7-x9I_c0",
+      "music_id": "KatqpM7-x9I",
+      "start_s": 101.27394294675281,
+      "clip_s": 30,
+      "foil_overbright": null,
+      "brightness": {
+        "A": 0.22610197726149286,
+        "B": 0.21387664268321704
+      },
+      "song_key": "KatqpM7-x9I",
+      "default_arms": [],
+      "ratings": {
+        "id": "pair029",
+        "rater": "anton",
+        "fits_music": "a",
+        "engineer": "a",
+        "t": 1788589548.8609152
+      },
+      "screen_brightness_proxy": {
+        "A": 0.32518001467562335,
+        "B": 0.15062438347252483
+      },
+      "decoded_frames": {
+        "A": 900,
+        "B": 900
+      },
+      "screen_symmetric_relative_gap": 0.7337285316507236,
+      "screen_brighter_arm": "A",
+      "metadata_brighter_arm": "A",
+      "metadata_symmetric_relative_gap": 0.055572402949089314
+    },
+    {
+      "id": "pair030",
+      "song": "981MHMgULkk_c1",
+      "music_id": "981MHMgULkk",
+      "start_s": 97.00436721882137,
+      "clip_s": 30,
+      "foil_overbright": null,
+      "brightness": {
+        "A": 0.24208487486497868,
+        "B": 0.23948611706120354
+      },
+      "song_key": "981MHMgULkk",
+      "default_arms": [
+        "A"
+      ],
+      "ratings": {
+        "id": "pair030",
+        "rater": "anton",
+        "fits_music": "b",
+        "engineer": "b",
+        "t": 1788589590.400129
+      },
+      "screen_brightness_proxy": {
+        "A": 0.2325403087932704,
+        "B": 0.2147735169299201
+      },
+      "decoded_frames": {
+        "A": 900,
+        "B": 900
+      },
+      "screen_symmetric_relative_gap": 0.07943770499213158,
+      "screen_brighter_arm": "A",
+      "metadata_brighter_arm": "A",
+      "metadata_symmetric_relative_gap": 0.01079283365212948
+    },
+    {
+      "id": "pair031",
+      "song": "l8WxpazGFug_c0",
+      "music_id": "l8WxpazGFug",
+      "start_s": 158.58290314694173,
+      "clip_s": 30,
+      "foil_overbright": null,
+      "brightness": {
+        "A": 0.22808620768568869,
+        "B": 0.2255919545596016
+      },
+      "song_key": "l8WxpazGFug",
+      "default_arms": [
+        "B"
+      ],
+      "ratings": {
+        "id": "pair031",
+        "rater": "anton",
+        "fits_music": "a",
+        "engineer": "a",
+        "t": 1788589626.15868
+      },
+      "screen_brightness_proxy": {
+        "A": 0.12769579475308643,
+        "B": 0.11184162808641976
+      },
+      "decoded_frames": {
+        "A": 900,
+        "B": 900
+      },
+      "screen_symmetric_relative_gap": 0.1323731922864446,
+      "screen_brighter_arm": "A",
+      "metadata_brighter_arm": "A",
+      "metadata_symmetric_relative_gap": 0.010995694012437471
+    },
+    {
+      "id": "pair032",
+      "song": "xV3dqkP1RrY_c0",
+      "music_id": "xV3dqkP1RrY",
+      "start_s": 131.68769713508044,
+      "clip_s": 30,
+      "foil_overbright": null,
+      "brightness": {
+        "A": 0.2858332536936343,
+        "B": 0.2912272971933872
+      },
+      "song_key": "xV3dqkP1RrY",
+      "default_arms": [],
+      "ratings": {
+        "id": "pair032",
+        "rater": "anton",
+        "fits_music": "b",
+        "engineer": "b",
+        "t": 1788589753.2235656
+      },
+      "screen_brightness_proxy": {
+        "A": 0.16109791061486323,
+        "B": 0.1973790811849431
+      },
+      "decoded_frames": {
+        "A": 900,
+        "B": 900
+      },
+      "screen_symmetric_relative_gap": 0.2024184056439601,
+      "screen_brighter_arm": "B",
+      "metadata_brighter_arm": "B",
+      "metadata_symmetric_relative_gap": 0.01869489602594209
+    },
+    {
+      "id": "pair033",
+      "song": "8B6VxbBLDEg_c0",
+      "music_id": "8B6VxbBLDEg",
+      "start_s": 62.09838409846929,
+      "clip_s": 30,
+      "foil_overbright": null,
+      "brightness": {
+        "A": 0.2663511076325955,
+        "B": 0.26564559235458884
+      },
+      "song_key": "8B6VxbBLDEg",
+      "default_arms": [],
+      "ratings": {
+        "id": "pair033",
+        "rater": "anton",
+        "fits_music": "b",
+        "engineer": "b",
+        "t": 1788589784.161209
+      },
+      "screen_brightness_proxy": {
+        "A": 0.3061640265674171,
+        "B": 0.28899169957334786
+      },
+      "decoded_frames": {
+        "A": 900,
+        "B": 900
+      },
+      "screen_symmetric_relative_gap": 0.05770700420013323,
+      "screen_brighter_arm": "A",
+      "metadata_brighter_arm": "A",
+      "metadata_symmetric_relative_gap": 0.0026523295276969154
+    },
+    {
+      "id": "pair034",
+      "song": "KatqpM7-x9I_c1",
+      "music_id": "KatqpM7-x9I",
+      "start_s": 33.06032127339569,
+      "clip_s": 30,
+      "foil_overbright": null,
+      "brightness": {
+        "A": 0.1546540387396789,
+        "B": 0.15663522271653763
+      },
+      "song_key": "KatqpM7-x9I",
+      "default_arms": [
+        "A"
+      ],
+      "ratings": {
+        "id": "pair034",
+        "rater": "anton",
+        "fits_music": "a",
+        "engineer": "a",
+        "t": 1788589800.5484548
+      },
+      "screen_brightness_proxy": {
+        "A": 0.28316997435548297,
+        "B": 0.29893717471556525
+      },
+      "decoded_frames": {
+        "A": 900,
+        "B": 900
+      },
+      "screen_symmetric_relative_gap": 0.054172845618694974,
+      "screen_brighter_arm": "B",
+      "metadata_brighter_arm": "B",
+      "metadata_symmetric_relative_gap": 0.01272889381143903
+    },
+    {
+      "id": "pair035",
+      "song": "gDGtf4yMW5I_c1",
+      "music_id": "gDGtf4yMW5I",
+      "start_s": 157.68744044932367,
+      "clip_s": 30,
+      "foil_overbright": null,
+      "brightness": {
+        "A": 0.2920719649951484,
+        "B": 0.29650490196078433
+      },
+      "song_key": "gDGtf4yMW5I",
+      "default_arms": [
+        "A"
+      ],
+      "ratings": {
+        "id": "pair035",
+        "rater": "anton",
+        "fits_music": "b",
+        "engineer": "b",
+        "t": 1788589817.5518036
+      },
+      "screen_brightness_proxy": {
+        "A": 0.21642410471132897,
+        "B": 0.16816049760953763
+      },
+      "decoded_frames": {
+        "A": 900,
+        "B": 900
+      },
+      "screen_symmetric_relative_gap": 0.2509908447219842,
+      "screen_brighter_arm": "A",
+      "metadata_brighter_arm": "B",
+      "metadata_symmetric_relative_gap": 0.015063238854638167
+    },
+    {
+      "id": "pair036",
+      "song": "lg-XapP0epM_c0",
+      "music_id": "lg-XapP0epM",
+      "start_s": 32.78896989205457,
+      "clip_s": 30,
+      "foil_overbright": null,
+      "brightness": {
+        "A": 0.29415736712985846,
+        "B": 0.2886018829754124
+      },
+      "song_key": "lg-XapP0epM",
+      "default_arms": [],
+      "ratings": {
+        "id": "pair036",
+        "rater": "anton",
+        "fits_music": "a",
+        "engineer": "a",
+        "t": 1788589859.020878
+      },
+      "screen_brightness_proxy": {
+        "A": 0.2479573971949891,
+        "B": 0.15466620899903172
+      },
+      "decoded_frames": {
+        "A": 900,
+        "B": 900
+      },
+      "screen_symmetric_relative_gap": 0.4634163857297586,
+      "screen_brighter_arm": "A",
+      "metadata_brighter_arm": "A",
+      "metadata_symmetric_relative_gap": 0.019066138043943574
+    },
+    {
+      "id": "pair037",
+      "song": "NI31AWYYuFI_c0",
+      "music_id": "NI31AWYYuFI",
+      "start_s": 135.49276419550895,
+      "clip_s": 30,
+      "foil_overbright": null,
+      "brightness": {
+        "A": 0.21714777924241593,
+        "B": 0.21699845389136044
+      },
+      "song_key": "NI31AWYYuFI",
+      "default_arms": [
+        "B"
+      ],
+      "ratings": {
+        "id": "pair037",
+        "rater": "anton",
+        "fits_music": "b",
+        "engineer": "b",
+        "t": 1788589868.3865914
+      },
+      "screen_brightness_proxy": {
+        "A": 0.1978734965050835,
+        "B": 0.15063391695412734
+      },
+      "decoded_frames": {
+        "A": 900,
+        "B": 900
+      },
+      "screen_symmetric_relative_gap": 0.2710965547737771,
+      "screen_brighter_arm": "A",
+      "metadata_brighter_arm": "A",
+      "metadata_symmetric_relative_gap": 0.0006879034742631676
+    },
+    {
+      "id": "pair038",
+      "song": "kZGzpaJfkWc_c0",
+      "music_id": "kZGzpaJfkWc",
+      "start_s": 75.03318235220458,
+      "clip_s": 30,
+      "foil_overbright": null,
+      "brightness": {
+        "A": 0.2502574449387598,
+        "B": 0.25261080994489293
+      },
+      "song_key": "kZGzpaJfkWc",
+      "default_arms": [],
+      "ratings": {
+        "id": "pair038",
+        "rater": "anton",
+        "fits_music": "b",
+        "engineer": "b",
+        "t": 1788589885.3944218
+      },
+      "screen_brightness_proxy": {
+        "A": 0.17004260658738804,
+        "B": 0.1545004822530864
+      },
+      "decoded_frames": {
+        "A": 900,
+        "B": 900
+      },
+      "screen_symmetric_relative_gap": 0.09577849517505019,
+      "screen_brighter_arm": "A",
+      "metadata_brighter_arm": "B",
+      "metadata_symmetric_relative_gap": 0.009359767626125604
+    }
+  ]
+}

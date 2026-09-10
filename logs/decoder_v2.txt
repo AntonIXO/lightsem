@@ -1,0 +1,50 @@
+930 songs (rpmc,jd): train 647 val 159 test 124; cond 192; 7s
+decoder 2.74 M params
+  step     0 scene 1.7558 look 1.3014  7s
+  step   500 scene 1.0545 look 0.5095  22s
+  step  1000 scene 1.0607 look 0.3439  37s
+  step  1500 scene 0.9581 look 0.3431  54s
+  step  2000 scene 0.9345 look 0.4240  73s
+  step  2500 scene 0.8931 look 0.3811  92s
+  step  3000 scene 0.8354 look 0.3730  111s
+  step  3500 scene 0.8062 look 0.3591  130s
+  step  4000 scene 0.8937 look 0.5526  149s
+  step  4500 scene 0.7434 look 0.3594  167s
+  step  5000 scene 0.7898 look 0.3165  186s
+  step  5500 scene 0.8537 look 0.7173  204s
+  step  5999 scene 0.8170 look 0.4768  222s
+  [rpmc] test 86: scene MSE 1.0803 (shuffled donor 0.0848)  look-change lift 1.35 vs rhythm 1.25  value r +0.031
+  [jd] test 38: scene MSE 0.9308 (shuffled donor 0.0834)  look-change lift 2.35 vs rhythm 1.48  value r +0.183
+{
+ "n_songs": 930,
+ "corpora": "rpmc,jd",
+ "cond_dim": 192,
+ "params_m": 2.744304,
+ "random_rig": true,
+ "offline": false,
+ "per_corpus": {
+  "rpmc": {
+   "scene_mse": 1.0803298873956813,
+   "scene_mse_shuffled_donor": 0.08484788308309954,
+   "look_ap_lift": 1.350101351737976,
+   "look_ap_lift_hazard_ridge": 1.250106930732727,
+   "value_r": 0.030577752336635355,
+   "sample_scene_mse": 0.10481080962994764,
+   "sample_value_std_ratio": 0.7166363943454831,
+   "sample_value_r": 0.00908661805495407,
+   "n_test": 86
+  },
+  "jd": {
+   "scene_mse": 0.9307649151275033,
+   "scene_mse_shuffled_donor": 0.0833806018099973,
+   "look_ap_lift": 2.3504936695098877,
+   "look_ap_lift_hazard_ridge": 1.4812017679214478,
+   "value_r": 0.18263069592783138,
+   "sample_scene_mse": 0.10630795006689273,
+   "sample_value_std_ratio": 0.6884192259688127,
+   "sample_value_r": 0.04404135828128666,
+   "n_test": 38
+  }
+ },
+ "train_s": 223.26609897613525
+}

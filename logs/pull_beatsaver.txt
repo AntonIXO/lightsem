@@ -1,0 +1,319 @@
+   0/   1 43a1f  0.992 '[Extra Sensory II] Simplifi - you' skip   ev=0 v2=0 chroma=0 v3=0 groups=0 vivify=1 env=BillieEnvironment 2.9MB
+   0/   2 43a25  0.992 '[Extra Sensory II] Porter Robinson - Lifelik' skip   ev=77 v2=77 chroma=77 v3=0 groups=0 vivify=1 env=BillieEnvironment 3.1MB
+   1/   3 1a0b6  0.990 '[Electro Swing Pack] The Electric Swing Circ' USABLE ev=2051 v2=2051 chroma=0 v3=0 groups=0 vivify=0 env=PanicEnvironment 6.8MB
+   2/   4 1e6ff  0.990 '{Modchart}  acloudyskye - Somewhere Out Ther' USABLE ev=38114 v2=38114 chroma=38103 v3=0 groups=0 vivify=0 env=BTSEnvironment 7.6MB
+   2/   5 d7fa   0.990 'Geoxor - Gloom [Wallmap]' skip   ev=144 v2=144 chroma=0 v3=0 groups=0 vivify=0 env=RocketEnvironment 4.5MB
+   2/   6 4968d  0.989 '{Vivify} Jaron - 743⁺Aether*✧ ˳ ⁎ ¹¹¹} ⁺ . ˳' skip   ev=0 v2=0 chroma=0 v3=0 groups=0 vivify=1 env=BillieEnvironment 11.5MB
+   2/   7 43a24  0.988 '[Extra Sensory II] Andrew Prahlow - End Time' skip   ev=0 v2=0 chroma=0 v3=0 groups=0 vivify=1 env=DefaultEnvironment 6.5MB
+   3/   8 d4a5   0.988 '[FUTURE FUNK PACK] Shiawase No Monosashi (VA' USABLE ev=7775 v2=7775 chroma=0 v3=0 groups=0 vivify=0 env=BigMirrorEnvironment 10.2MB
+   4/   9 23f6b  0.987 'acloudyskye & N33T - Nothing Else (Modchart)' USABLE ev=18391 v2=18391 chroma=18390 v3=0 groups=0 vivify=0 env=BTSEnvironment 10.4MB
+   4/  10 198f3  0.987 'Spider Dance - Toby Fox (Undertale modchart)' skip   ev=5 v2=5 chroma=0 v3=0 groups=0 vivify=0 env=BigMirrorEnvironment 4.7MB
+   4/  11 1362d  0.987 'Ghost Choir - Louie Zong (modchart)' skip   ev=5 v2=5 chroma=0 v3=0 groups=0 vivify=0 env=BigMirrorEnvironment 3.2MB
+   4/  12 4a2b3  0.986 '[Gamified Vivify] Turret Orchestra (Cara Mia' skip   ev=7 v2=7 chroma=0 v3=0 groups=0 vivify=1 env=GagaEnvironment 44.0MB
+   5/  13 b7aa   0.986 'Powerwolf - Venom of Venus' USABLE ev=4192 v2=4192 chroma=0 v3=0 groups=0 vivify=0 env=PanicEnvironment 8.8MB
+   6/  14 210e3  0.986 '[Modchart] Sarah Cothran -  As The World Cav' USABLE ev=31028 v2=31028 chroma=31025 v3=0 groups=0 vivify=0 env=TimbalandEnvironment 9.4MB
+   7/  15 32693  0.986 'Fall Out Boy - The Phoenix' USABLE ev=4607 v2=4607 chroma=0 v3=0 groups=0 vivify=0 env=NiceEnvironment 4.9MB
+   8/  16 3bbb0  0.986 '[Modchart] Leslie Wai - Paradigm' USABLE ev=12016 v2=12016 chroma=11996 v3=0 groups=0 vivify=0 env=BillieEnvironment 15.4MB
+   9/  17 1a0b8  0.986 '[Electro Swing Pack] Wolfgang Lohr & The Swi' USABLE ev=2057 v2=2057 chroma=0 v3=0 groups=0 vivify=0 env=PanicEnvironment 7.8MB
+  10/  18 1181f  0.986 'Royal & the Serpent - Overwhelmed' USABLE ev=7200 v2=7200 chroma=7001 v3=0 groups=0 vivify=0 env=PanicEnvironment 8.3MB
+  11/  19 1a0ba  0.985 '[Electro Swing Pack] Wolfgang Lohr & Maskara' USABLE ev=1846 v2=1846 chroma=0 v3=0 groups=0 vivify=0 env=PanicEnvironment 4.8MB
+  12/  20 352d8  0.985 'Belle - Lend Me Your Voice [Noodle Extension' USABLE ev=25577 v2=25577 chroma=25575 v3=0 groups=0 vivify=0 env=BTSEnvironment 14.7MB
+  13/  21 1dcf4  0.985 'DYES IWASAKI - Bad Hatter ft. Lily Mizusaki' USABLE ev=4454 v2=4454 chroma=4401 v3=0 groups=0 vivify=0 env=FitBeatEnvironment 6.8MB
+  14/  22 4980   0.985 '(Old Version) Paradise - Coldplay' USABLE ev=4651 v2=4651 chroma=0 v3=0 groups=0 vivify=0 env=TriangleEnvironment 6.3MB
+  15/  23 bdc7   0.985 "That's Life - Frank Sinatra" USABLE ev=1192 v2=1192 chroma=0 v3=0 groups=0 vivify=0 env=NiceEnvironment 7.2MB
+  15/  24 a438   0.985 'Wait - M83 (wall map)' skip   ev=5 v2=5 chroma=0 v3=0 groups=0 vivify=0 env=BigMirrorEnvironment 11.6MB
+  16/  25 12ad1  0.985 'Minnesota - Colors (ft. Jackie Rain) | Chrom' USABLE ev=16569 v2=16569 chroma=13569 v3=0 groups=0 vivify=0 env=BigMirrorEnvironment 7.5MB
+  17/  26 27a13  0.985 'Jimmy Eat World - The Middle [Arcs][V3 Light' USABLE ev=10538 v2=460 chroma=0 v3=10078 groups=14 vivify=0 env=PyroEnvironment 4.8MB
+  18/  27 271dc  0.985 '[Electro Swing Pack Vol. 2] Swingrowers - Bu' USABLE ev=2570 v2=2570 chroma=0 v3=0 groups=0 vivify=0 env=PanicEnvironment 5.8MB
+  19/  28 2ab5b  0.984 'Handclap - fitz and the tantrums' USABLE ev=5221 v2=5221 chroma=0 v3=0 groups=0 vivify=0 env=FitBeatEnvironment 10.4MB
+  20/  29 14d64  0.984 'Try - MitiS Feat. RORY' USABLE ev=36825 v2=36825 chroma=36455 v3=0 groups=0 vivify=0 env=OriginsEnvironment 13.9MB
+  21/  30 1a0b7  0.984 '[Electro Swing Pack] Jamie Berry - Lost In T' USABLE ev=3271 v2=3271 chroma=0 v3=0 groups=0 vivify=0 env=PanicEnvironment 6.1MB
+  22/  31 39624  0.984 '[Chroma] DNCE - Cake By  The Ocean' USABLE ev=2073 v2=2073 chroma=1490 v3=0 groups=0 vivify=0 env=DragonsEnvironment 14.0MB
+  23/  32 11b7a  0.984 'Still Alive - Portal' USABLE ev=1060 v2=1060 chroma=0 v3=0 groups=0 vivify=0 env=TriangleEnvironment 3.4MB
+  24/  33 9a0c   0.984 'Thnks fr th Mmrs - Fall Out Boy' USABLE ev=2597 v2=2597 chroma=596 v3=0 groups=0 vivify=0 env=PanicEnvironment 9.2MB
+  25/  34 77e9   0.984 'Jingo Jungle [Saga of Tanya the Evil Opening' USABLE ev=5987 v2=5987 chroma=0 v3=0 groups=0 vivify=0 env=DefaultEnvironment 4.8MB
+  26/  35 291b9  0.984 'BLOODY STREAM (TV Size) (2022 Remaster) [JoJ' USABLE ev=1780 v2=1780 chroma=0 v3=0 groups=0 vivify=0 env=BigMirrorEnvironment 3.9MB
+  27/  36 24227  0.984 'DADDY! DADDY! DO! (TV Size) (2022 Remaster) ' USABLE ev=1053 v2=1053 chroma=0 v3=0 groups=0 vivify=0 env=PanicEnvironment 2.1MB
+  28/  37 21bf8  0.984 'Marina and the Diamonds - Are You Satisfied?' USABLE ev=4532 v2=4532 chroma=0 v3=0 groups=0 vivify=0 env=DefaultEnvironment 5.6MB
+  29/  38 2c785  0.983 "[Arc/Chain] Let's Groove - Earth, Wind & Fir" USABLE ev=2650 v2=115 chroma=0 v3=2535 groups=18 vivify=0 env=LizzoEnvironment 10.7MB
+  30/  39 3080f  0.983 "What's New, Scooby-Doo? (2023 Remap) - Simpl" USABLE ev=2191 v2=2191 chroma=0 v3=0 groups=0 vivify=0 env=HalloweenEnvironment 1.4MB
+  31/  40 b514   0.983 '[[Wall Show + Chroma]] GAS GAS GAS | Manuel' USABLE ev=1462 v2=1462 chroma=0 v3=0 groups=0 vivify=0 env=NiceEnvironment 3.1MB
+  32/  41 241c5  0.983 'GIRI GIRI (TV Size) [Kaguya-sama: Love Is Wa' USABLE ev=1231 v2=1231 chroma=0 v3=0 groups=0 vivify=0 env=BigMirrorEnvironment 3.7MB
+  33/  42 1fe6d  0.983 'DECO*27 - Salamander/サラマンダー Feat. Hatsune Mi' USABLE ev=2414 v2=2414 chroma=0 v3=0 groups=0 vivify=0 env=DefaultEnvironment 3.1MB
+  34/  43 5925   0.983 'Hardware Store - "Weird Al" Yankovic' USABLE ev=1571 v2=1571 chroma=0 v3=0 groups=0 vivify=0 env=BigMirrorEnvironment 5.5MB
+  35/  44 31a3b  0.983 'PONPONPON - Kyary Pamyu Pamyu' USABLE ev=5028 v2=307 chroma=0 v3=4721 groups=18 vivify=0 env=LizzoEnvironment 10.1MB
+  36/  45 1ca5d  0.983 'Calvin Harris - Sweet Nothing (feat. Florenc' USABLE ev=5996 v2=5996 chroma=0 v3=0 groups=0 vivify=0 env=TriangleEnvironment 4.3MB
+  37/  46 10dcc  0.983 'The Chonk Chart™' USABLE ev=312 v2=312 chroma=0 v3=0 groups=0 vivify=0 env=BigMirrorEnvironment 0.7MB
+  38/  47 19c3f  0.983 'Powerwolf - Dancing With The Dead' USABLE ev=328 v2=328 chroma=0 v3=0 groups=0 vivify=0 env=DragonsEnvironment 6.6MB
+  39/  48 212cf  0.983 "Someone Else's Hat - David Maxim Micic (modc" USABLE ev=875 v2=875 chroma=875 v3=0 groups=0 vivify=0 env=BTSEnvironment 13.4MB
+  40/  49 2c40b  0.983 '{Modchart} acloudyskye - Storyteller' USABLE ev=8955 v2=8955 chroma=8951 v3=0 groups=0 vivify=0 env=BillieEnvironment 7.5MB
+  41/  50 557f   0.983 "(Old Version) Enormous Penis - Da Vinci's No" USABLE ev=714 v2=714 chroma=0 v3=0 groups=0 vivify=0 env=NiceEnvironment 4.7MB
+  42/  51 116b0  0.982 'Sakuzyo - Lost Memory[Wall Map]' USABLE ev=230 v2=230 chroma=0 v3=0 groups=0 vivify=0 env=BigMirrorEnvironment 10.8MB
+  43/  52 d35b   0.982 '[FUTURE FUNK PACK] Remember Summer Days (MAC' USABLE ev=3539 v2=3539 chroma=0 v3=0 groups=0 vivify=0 env=BigMirrorEnvironment 8.5MB
+  44/  53 d35a   0.982 '[FUTURE FUNK PACK] Windy Summer (Night Tempo' USABLE ev=11459 v2=11459 chroma=0 v3=0 groups=0 vivify=0 env=BigMirrorEnvironment 11.3MB
+  45/  54 4e6f   0.982 'Kero Kero Bonito - Flamingo' USABLE ev=2271 v2=2271 chroma=0 v3=0 groups=0 vivify=0 env=DefaultEnvironment 7.3MB
+  46/  55 a934   0.982 'Sabaton - Seven Pillars of Wisdom' USABLE ev=1826 v2=1826 chroma=0 v3=0 groups=0 vivify=0 env=BigMirrorEnvironment 7.5MB
+  47/  56 3b870  0.982 '[Persona 3 Reload OST] Azumi Takahashi, Lotu' USABLE ev=1435 v2=1435 chroma=0 v3=0 groups=0 vivify=0 env=DefaultEnvironment 2.8MB
+  48/  57 8d49   0.982 'Dreamcatcher - Scream' USABLE ev=2568 v2=2568 chroma=0 v3=0 groups=0 vivify=0 env=PanicEnvironment 13.7MB
+  49/  58 2a48d  0.982 '{Chroma+} acloudyskye - At Rest' USABLE ev=10183 v2=10183 chroma=10181 v3=0 groups=0 vivify=0 env=BillieEnvironment 2.5MB
+  50/  59 1e752  0.982 "A CYBER'S WORLD - Toby Fox" USABLE ev=671 v2=671 chroma=334 v3=0 groups=0 vivify=0 env=SkrillexEnvironment 3.3MB
+  51/  60 45529  0.982 'アンコールダンス feat. 重音テトSV - MIMI' USABLE ev=757 v2=757 chroma=0 v3=0 groups=0 vivify=0 env=OriginsEnvironment 4.4MB
+  52/  61 2f266  0.982 'Canned Heat - Jamiroquai' USABLE ev=1644 v2=1644 chroma=0 v3=0 groups=0 vivify=0 env=InterscopeEnvironment 10.0MB
+  53/  62 35c11  0.982 '[Arc/Chain] September - Earth, Wind & Fire' USABLE ev=4063 v2=226 chroma=0 v3=3837 groups=18 vivify=0 env=LizzoEnvironment 9.8MB
+  54/  63 1f6fa  0.982 'Ariana Grande - Into You' USABLE ev=2410 v2=2410 chroma=0 v3=0 groups=0 vivify=0 env=InterscopeEnvironment 5.0MB
+  55/  64 2f365  0.982 'Kokoro Yohou (Project SEKAI ver.) [Cinema/Ch' USABLE ev=8018 v2=8018 chroma=7432 v3=0 groups=0 vivify=0 env=BigMirrorEnvironment 8.8MB
+  56/  65 19bf8  0.982 'Grace Kelly - Mika - Mapped by Cocci' USABLE ev=1937 v2=1937 chroma=0 v3=0 groups=0 vivify=0 env=PanicEnvironment 3.7MB
+  57/  66 49f2   0.982 "(Old Version) It's My Life - Bon Jovi" USABLE ev=1968 v2=1968 chroma=0 v3=0 groups=0 vivify=0 env=DefaultEnvironment 6.1MB
+  58/  67 1a0b9  0.982 '[Electro Swing Pack] Caravan Palace - Lone D' USABLE ev=1448 v2=1448 chroma=0 v3=0 groups=0 vivify=0 env=PanicEnvironment 5.3MB
+  59/  68 299d8  0.981 '[Chroma+] [NE] Cornfield Chase - Hans Zimmer' USABLE ev=1214 v2=1214 chroma=1191 v3=0 groups=0 vivify=0 env=BillieEnvironment 13.4MB
+  60/  69 2ae82  0.981 '[S3RL Pack] You Are Mine (ft. Kayliana) ' USABLE ev=4345 v2=4345 chroma=0 v3=0 groups=0 vivify=0 env=OriginsEnvironment 4.0MB
+  61/  70 15683  0.981 "[2000's Rock Pack] Good Charlotte - Lifestyl" USABLE ev=6631 v2=6631 chroma=0 v3=0 groups=0 vivify=0 env=BigMirrorEnvironment 11.7MB
+  62/  71 9b35   0.981 'Ready To [BNA: Brand New Animal Opening]' USABLE ev=11962 v2=11962 chroma=1811 v3=0 groups=0 vivify=0 env=PanicEnvironment 12.9MB
+  63/  72 74d5   0.981 "(Old Version) What's New, Scooby-Doo? - Simp" USABLE ev=382 v2=382 chroma=0 v3=0 groups=0 vivify=0 env=DefaultEnvironment 1.3MB
+  64/  73 da60   0.981 '[Extra Sensory] Dirty Androids - Midnight La' USABLE ev=767 v2=767 chroma=724 v3=0 groups=0 vivify=0 env=BigMirrorEnvironment 9.4MB
+  65/  74 6d96   0.981 'League of Legends - Phoenix (ft. Cailin Russ' USABLE ev=2347 v2=2347 chroma=0 v3=0 groups=0 vivify=0 env=NiceEnvironment 8.6MB
+  66/  75 445f   0.981 'Kazuma Kiryu - Baka Mitai [Yakuza OST]' USABLE ev=553 v2=553 chroma=0 v3=0 groups=0 vivify=0 env=NiceEnvironment 5.1MB
+  67/  76 43a47  0.981 '[Extra Sensory II] Jaroslav Beck - Breezer' USABLE ev=497 v2=497 chroma=0 v3=0 groups=0 vivify=1 env=TriangleEnvironment 43.6MB
+  67/  77 1b3b4  0.981 'Wait - M83 (wall art, 2021 remap)' skip   ev=5 v2=5 chroma=0 v3=0 groups=0 vivify=0 env=BigMirrorEnvironment 11.5MB
+  68/  78 ac0a   0.981 'Hornet (Hollow Knight OST)' USABLE ev=2513 v2=2513 chroma=0 v3=0 groups=0 vivify=0 env=BigMirrorEnvironment 5.2MB
+  69/  79 38379  0.981 '[V3] Ado - All Night Radio' USABLE ev=7432 v2=1519 chroma=0 v3=5913 groups=15 vivify=0 env=LizzoEnvironment 4.9MB
+  70/  80 a909   0.981 '[TheFatRat Pack] TheFatRat - Time Lapse' USABLE ev=3139 v2=3139 chroma=0 v3=0 groups=0 vivify=0 env=Origins 6.1MB
+  71/  81 4fba   0.981 'Mirror Mirror [One Saber] (RWBY: Volume 1 So' USABLE ev=581 v2=581 chroma=0 v3=0 groups=0 vivify=0 env=NiceEnvironment 3.9MB
+  72/  82 2b4b2  0.981 'Time Left (TV Size) [Chainsaw Man Ending 2] ' USABLE ev=2845 v2=2845 chroma=0 v3=0 groups=0 vivify=0 env=PanicEnvironment 4.0MB
+  73/  83 34aa3  0.981 'Your Reality (Chroma) [Doki Doki Literature ' USABLE ev=41759 v2=41759 chroma=41674 v3=0 groups=0 vivify=0 env=KDAEnvironment 8.1MB
+  74/  84 11b01  0.981 "Merry Go Round of Life - Howl's Moving Castl" USABLE ev=3102 v2=3102 chroma=0 v3=0 groups=0 vivify=0 env=DefaultEnvironment 11.5MB
+  75/  85 353ea  0.981 'LOST IN PARADISE (TV Size) (2023 Remaster) [' USABLE ev=1538 v2=1538 chroma=0 v3=0 groups=0 vivify=0 env=NiceEnvironment 2.7MB
+  76/  86 2d6ea  0.981 'Fight Song (TV Size) [Chainsaw Man Ending 12' USABLE ev=3892 v2=3892 chroma=0 v3=0 groups=0 vivify=0 env=GagaEnvironment 3.4MB
+  77/  87 1fccd  0.981 'Ori and the Blind Forest - Escaping the Ruin' USABLE ev=2833 v2=2833 chroma=0 v3=0 groups=0 vivify=0 env=PanicEnvironment 5.0MB
+  78/  88 133b   0.980 'Daddy - PSY' USABLE ev=1587 v2=1587 chroma=0 v3=0 groups=0 vivify=0 env=NiceEnvironment 4.6MB
+  79/  89 2b2cd  0.980 'Powerwolf - Beast of Gévaudan' USABLE ev=2243 v2=2243 chroma=0 v3=0 groups=0 vivify=0 env=PanicEnvironment 8.9MB
+  80/  90 6366   0.980 'Star Sky - Two Steps From Hell' USABLE ev=1044 v2=1044 chroma=0 v3=0 groups=0 vivify=0 env=BigMirrorEnvironment 9.6MB
+  81/  91 8115   0.980 'Los! Los! Los! (German Ver.) [Youjo Senki En' USABLE ev=4753 v2=4753 chroma=0 v3=0 groups=0 vivify=0 env=DefaultEnvironment 5.0MB
+  81/  92 31b11  0.980 'NF - HAPPY [Wallmap]' skip   ev=0 v2=0 chroma=0 v3=0 groups=0 vivify=0 env=BigMirrorEnvironment 13.1MB
+  82/  93 66e6   0.980 'League of Legends - Legends never die (ft. A' USABLE ev=1693 v2=1693 chroma=0 v3=0 groups=0 vivify=0 env=BigMirrorEnvironment 5.5MB
+  83/  94 47764  0.980 'William Tell Overture Finale' USABLE ev=6302 v2=6302 chroma=0 v3=0 groups=0 vivify=0 env=BigMirrorEnvironment 10.2MB
+  84/  95 ae0e   0.980 'Alan Walker - Spectre' USABLE ev=3963 v2=3963 chroma=0 v3=0 groups=0 vivify=0 env=NiceEnvironment 11.1MB
+  85/  96 68f4   0.980 'Ehrling - Palm Trees' USABLE ev=1694 v2=1694 chroma=0 v3=0 groups=0 vivify=0 env=BigMirrorEnvironment 8.5MB
+  86/  97 dab3   0.980 'twenty one pilots - Ode to Sleep' USABLE ev=5223 v2=5223 chroma=0 v3=0 groups=0 vivify=0 env=TriangleEnvironment 6.5MB
+  87/  98 3dbbe  0.980 'BABYMETAL, Electric Callboy - RATATATA' USABLE ev=5386 v2=5386 chroma=0 v3=0 groups=0 vivify=0 env=MonstercatEnvironment 5.3MB
+  88/  99 23f2e  0.980 'Papa Roach - Cut The Line' USABLE ev=5007 v2=5007 chroma=0 v3=0 groups=0 vivify=0 env=PanicEnvironment 4.3MB
+  88/ 100 43702  0.980 'INZO - Overthinker (only works in 1.36 and a' skip   ev=0 v2=0 chroma=0 v3=0 groups=0 vivify=0 env=DaftPunkEnvironment 14.3MB
+  89/ 101 94cb   0.980 'Buttercup | By Jack Stauber | Charted By Sty' USABLE ev=658 v2=658 chroma=0 v3=0 groups=0 vivify=0 env=DefaultEnvironment 3.1MB
+  90/ 102 7c0b   0.980 '[Bloq Busters Vol. 2] Au5 & Fractal - Smoke' USABLE ev=4233 v2=4233 chroma=0 v3=0 groups=0 vivify=0 env=DefaultEnvironment 5.8MB
+  91/ 103 7c05   0.980 '[Bloq Busters Vol. 2] The Sirens - Seven Lio' USABLE ev=11097 v2=11097 chroma=0 v3=0 groups=0 vivify=0 env=DefaultEnvironment 10.4MB
+  92/ 104 80da   0.980 'chelmico - Easy Breezy [Keep Your Hands Off ' USABLE ev=4738 v2=4738 chroma=0 v3=0 groups=0 vivify=0 env=PanicEnvironment 5.3MB
+  93/ 105 d410   0.980 '[FUTURE FUNK PACK] Disco Lady - Nanidato' USABLE ev=7333 v2=7333 chroma=0 v3=0 groups=0 vivify=0 env=DefaultEnvironment 12.6MB
+  94/ 106 271cb  0.980 '[NE] Kubbi - Pathfinder' USABLE ev=3673 v2=3673 chroma=3671 v3=0 groups=0 vivify=0 env=BTSEnvironment 9.5MB
+  95/ 107 1dcf9  0.980 'DYES IWASAKI - Future ft. Lily Mizusaki' USABLE ev=4523 v2=4523 chroma=3174 v3=0 groups=0 vivify=0 env=FitBeatEnvironment 7.6MB
+  96/ 108 6094   0.980 'Legend - The Score' USABLE ev=3490 v2=3490 chroma=0 v3=0 groups=0 vivify=0 env=BigMirrorEnvironment 9.2MB
+  97/ 109 d411   0.980 '[FUTURE FUNK PACK] SUPER RISER! (Short Ver.)' USABLE ev=8420 v2=8420 chroma=0 v3=0 groups=0 vivify=0 env=PanicEnvironment 9.5MB
+  97/ 110 19f40  0.980 'The Giant Enemy Spider [NE]' skip   ev=0 v2=0 chroma=0 v3=0 groups=0 vivify=0 env=DefaultEnvironment 0.7MB
+  98/ 111 6100   0.980 'Keina Suda - veil [Fire Force Ending]' USABLE ev=2822 v2=2822 chroma=0 v3=0 groups=0 vivify=0 env=BigMirrorEnvironment 5.1MB
+  99/ 112 5552   0.980 "(Old Version) It's Tricky - Run DMC" USABLE ev=3029 v2=3029 chroma=0 v3=0 groups=0 vivify=0 env=DefaultEnvironment 3.9MB
+ 100/ 113 15b16  0.980 'Codly - Lucy, The God Of Time [Wall Map]' USABLE ev=31217 v2=31217 chroma=30607 v3=0 groups=0 vivify=0 env=TimbalandEnvironment 12.5MB
+ 101/ 114 ae3c   0.980 'Fox Stevenson - Bruises' USABLE ev=13974 v2=13974 chroma=0 v3=0 groups=0 vivify=0 env=BigMirrorEnvironment 10.6MB
+ 102/ 115 28240  0.980 'I Prevail - Bad Things' USABLE ev=8770 v2=8770 chroma=0 v3=0 groups=0 vivify=0 env=BillieEnvironment 4.4MB
+ 103/ 116 1466a  0.980 'Someone Else ' USABLE ev=29057 v2=29057 chroma=28743 v3=0 groups=0 vivify=0 env=RocketEnvironment 3.8MB
+ 104/ 117 13bea  0.980 'The Wall - (Buunshin Remix) [WALL MAP + CHRO' USABLE ev=15872 v2=15872 chroma=15860 v3=0 groups=0 vivify=0 env=BTSEnvironment 11.2MB
+ 105/ 118 27a9a  0.980 '[Modchart] Vanishing Point - acloudyskye' USABLE ev=2415 v2=2415 chroma=2346 v3=0 groups=0 vivify=0 env=BillieEnvironment 6.6MB
+ 106/ 119 2087   0.979 'Panic at the disco - The Greatest Show reima' USABLE ev=1329 v2=1329 chroma=0 v3=0 groups=0 vivify=0 env=TriangleEnvironment 5.0MB
+ 107/ 120 3b4ab  0.979 '[SMILE! :D Pack] Porter Robinson - Cheerlead' USABLE ev=30100 v2=30100 chroma=30085 v3=0 groups=0 vivify=0 env=FitBeatEnvironment 5.6MB
+ 108/ 121 9c54   0.979 'Yunomi - 惑星ラビット (feat. TORIENA)/Wakusei Rabb' USABLE ev=2848 v2=2848 chroma=0 v3=0 groups=0 vivify=0 env=DefaultEnvironment 6.5MB
+ 109/ 122 6b55   0.979 'ABIS & Signal & Tasha Baxter - The Wall (Buu' USABLE ev=7859 v2=7859 chroma=0 v3=0 groups=0 vivify=0 env=BigMirrorEnvironment 11.1MB
+ 110/ 123 2b1bc  0.979 'Betty Booom - Spooky Scary Skeletons (Electr' USABLE ev=3451 v2=3451 chroma=0 v3=0 groups=0 vivify=0 env=HalloweenEnvironment 6.4MB
+ 111/ 124 27ade  0.979 '{Modchart} acloudyskye - Heliov' USABLE ev=35714 v2=35714 chroma=34988 v3=0 groups=0 vivify=0 env=BTSEnvironment 13.5MB
+ 112/ 125 1fa48  0.979 'Kep1er - WA DA DA' USABLE ev=1776 v2=1776 chroma=0 v3=0 groups=0 vivify=0 env=DefaultEnvironment 4.4MB
+ 113/ 126 26ec5  0.979 'Saltatio Mortis - Loki' USABLE ev=4170 v2=4170 chroma=0 v3=0 groups=0 vivify=0 env=DefaultEnvironment 4.4MB
+ 114/ 127 37546  0.979 'Perception Check (Chroma) - Tom Cardy' USABLE ev=7255 v2=7255 chroma=7045 v3=0 groups=0 vivify=0 env=DragonsEnvironment 4.4MB
+ 115/ 128 a72f   0.979 'The World of Tune - Onoken feat. GaQdan' USABLE ev=1813 v2=1813 chroma=0 v3=0 groups=0 vivify=0 env=DefaultEnvironment 10.5MB
+ 116/ 129 1ea2e  0.979 'Lil Nas X - THATS WHAT I WANT' USABLE ev=775 v2=775 chroma=0 v3=0 groups=0 vivify=0 env=DefaultEnvironment 4.9MB
+ 117/ 130 5e81   0.979 '(Old Version) Stressed Out - Twenty One Pilo' USABLE ev=1670 v2=1670 chroma=0 v3=0 groups=0 vivify=0 env=DefaultEnvironment 4.2MB
+ 118/ 131 774e   0.979 'Sad Machine - Porter Robinson' USABLE ev=1973 v2=1973 chroma=0 v3=0 groups=0 vivify=0 env=DefaultEnvironment 13.2MB
+ 119/ 132 fc05   0.979 'EVERGLOW - LA DI DA' USABLE ev=9456 v2=9456 chroma=0 v3=0 groups=0 vivify=0 env=BigMirrorEnvironment 10.7MB
+ 120/ 133 56cb   0.979 'Onegai Muscle [Dumbbell Nan Kilo Moteru? Ope' USABLE ev=5023 v2=5023 chroma=0 v3=0 groups=0 vivify=0 env=NiceEnvironment 5.2MB
+ 121/ 134 200bd  0.979 "[Chroma] Disney / Encanto - We Don't Talk Ab" USABLE ev=14534 v2=14534 chroma=13978 v3=0 groups=0 vivify=0 env=BTSEnvironment 14.2MB
+ 122/ 135 292a4  0.979 'JoJo Sono Chi no Kioku ~end of THE WORLD~ (T' USABLE ev=1753 v2=1753 chroma=0 v3=0 groups=0 vivify=0 env=PanicEnvironment 3.8MB
+ 123/ 136 41d9e  0.979 'Monitoring - DECO*27' USABLE ev=4486 v2=4486 chroma=2327 v3=0 groups=0 vivify=0 env=TriangleEnvironment 8.6MB
+ 124/ 137 1023   0.979 'I Wanna Be Like You (Sim Gretina Remix)' USABLE ev=486 v2=486 chroma=0 v3=0 groups=0 vivify=0 env=DefaultEnvironment 2.9MB
+ 125/ 138 23571  0.979 'A Thousand Miles - Vanessa Carlton' USABLE ev=2082 v2=2082 chroma=0 v3=0 groups=0 vivify=0 env=PanicEnvironment 8.0MB
+ 126/ 139 368c   0.979 'Harajuku Iyahoi - Kyary Pamyu Pamyu' USABLE ev=969 v2=969 chroma=0 v3=0 groups=0 vivify=0 env=TriangleEnvironment 6.3MB
+ 127/ 140 3bf72  0.979 'Insane - Black Gryph0n, Baasik' USABLE ev=3006 v2=119 chroma=0 v3=2887 groups=28 vivify=0 env=TheWeekndEnvironment 8.1MB
+ 128/ 141 35766  0.979 'Netrum & Halvorsen - Shivers' USABLE ev=6895 v2=6895 chroma=5409 v3=0 groups=0 vivify=0 env=NiceEnvironment 7.8MB
+ 129/ 142 97ec   0.979 'TheFatRat ft. Laura Brehm - MAYDAY (Nightcor' USABLE ev=2311 v2=2311 chroma=0 v3=0 groups=0 vivify=0 env=DefaultEnvironment 11.5MB
+ 130/ 143 1421c  0.979 'Look At The Sky - Porter Robinson' USABLE ev=1247 v2=1247 chroma=1205 v3=0 groups=0 vivify=0 env=BTSEnvironment 8.5MB
+ 131/ 144 a465   0.979 'The Chain - Fleetwood Mac' USABLE ev=766 v2=766 chroma=0 v3=0 groups=0 vivify=0 env=BigMirrorEnvironment 10.0MB
+ 132/ 145 41eb6  0.979 'Power of the Beast' USABLE ev=15474 v2=15474 chroma=11965 v3=0 groups=0 vivify=0 env=OriginsEnvironment 13.3MB
+ 133/ 146 3c853  0.979 "World's Smallest Violin - AJR" USABLE ev=2094 v2=2094 chroma=0 v3=0 groups=0 vivify=0 env=DefaultEnvironment 4.3MB
+ 134/ 147 2c1ff  0.979 '[V3] [Chroma+] [NE] Takeoff - modus' USABLE ev=3083 v2=3083 chroma=3054 v3=0 groups=0 vivify=0 env=BillieEnvironment 3.0MB
+ 135/ 148 38ff   0.979 'Ievan Polkka' USABLE ev=1360 v2=1360 chroma=0 v3=0 groups=0 vivify=0 env=DefaultEnvironment 2.7MB
+ 136/ 149 3c3ee  0.979 '[Fitbeat Switch Pack] IVE - HEYA' USABLE ev=1537 v2=1537 chroma=0 v3=0 groups=0 vivify=0 env=BTSEnvironment 11.8MB
+ 137/ 150 6773   0.979 'Survive Said The Prophet - MUKANJYO - Vinlan' USABLE ev=1135 v2=1135 chroma=0 v3=0 groups=0 vivify=0 env=DefaultEnvironment 3.3MB
+ 138/ 151 30d16  0.979 "Livin' on a Prayer (2023 Remap) - Bon Jovi" USABLE ev=2685 v2=2685 chroma=0 v3=0 groups=0 vivify=0 env=InterscopeEnvironment 10.3MB
+ 139/ 152 5616   0.979 'Sanctuary - Joji' USABLE ev=3623 v2=3623 chroma=0 v3=0 groups=0 vivify=0 env=BigMirrorEnvironment 7.3MB
+ 140/ 153 8215   0.979 'David Guetta, Brooks & Loote - Better When Y' USABLE ev=2063 v2=2063 chroma=0 v3=0 groups=0 vivify=0 env=BigMirrorEnvironment 4.5MB
+ 141/ 154 271df  0.979 '[Electro Swing Pack Vol. 2] Annella - Perfum' USABLE ev=4377 v2=4377 chroma=0 v3=0 groups=0 vivify=0 env=PanicEnvironment 6.2MB
+ 142/ 155 1a0be  0.979 '[Electro Swing Pack] Caravan Palace - Wonder' USABLE ev=1588 v2=1588 chroma=0 v3=0 groups=0 vivify=0 env=PanicEnvironment 7.9MB
+ 143/ 156 587c   0.978 'Cracks (Flux Pavilion Remix)' USABLE ev=11202 v2=11202 chroma=0 v3=0 groups=0 vivify=0 env=BigMirrorEnvironment 4.8MB
+ 143/ 157 e7c7   0.978 "[NoodleGames Vol.2] Martin O'Donnell and Mic" skip   ev=140 v2=140 chroma=140 v3=0 groups=0 vivify=0 env=BigMirrorEnvironment 8.8MB
+ 144/ 158 1b98d  0.978 'Happy Accidents [Wall Map + Chroma]' USABLE ev=10059 v2=10059 chroma=10020 v3=0 groups=0 vivify=0 env=BTSEnvironment 6.5MB
+ 145/ 159 30097  0.978 '[Happy Miku Day] ゆめまぼろし feat. 初音ミク - MIMI [C' USABLE ev=15732 v2=15732 chroma=15624 v3=0 groups=0 vivify=0 env=BTSEnvironment 4.3MB
+ 146/ 160 689b   0.978 'DuckTales Opening ' USABLE ev=1106 v2=1106 chroma=0 v3=0 groups=0 vivify=0 env=NiceEnvironment 6.5MB
+ 147/ 161 45eb   0.978 'Fun Tonight - MACROSS 82-99' USABLE ev=1545 v2=1545 chroma=0 v3=0 groups=0 vivify=0 env=TriangleEnvironment 3.2MB
+ 148/ 162 6484   0.978 'Poison - Nightcore' USABLE ev=616 v2=616 chroma=0 v3=0 groups=0 vivify=0 env=DefaultEnvironment 3.0MB
+ 149/ 163 43a4b  0.978 '[Extra Sensory II] Asatsumei - Yoi Okashi to' USABLE ev=1893 v2=1893 chroma=1869 v3=0 groups=0 vivify=1 env=BigMirrorEnvironment 13.6MB
+ 150/ 164 3cf5   0.978 'Caramelldansen' USABLE ev=597 v2=597 chroma=0 v3=0 groups=0 vivify=0 env=NiceEnvironment 5.7MB
+ 150/ 165 e01a   0.978 'The Spectre - Wallmap' skip   ev=1 v2=1 chroma=0 v3=0 groups=0 vivify=0 env=DefaultEnvironment 6.7MB
+ 151/ 166 8b48   0.978 'Doja Cat - Boss Bitch' USABLE ev=901 v2=901 chroma=0 v3=0 groups=0 vivify=0 env=BigMirrorEnvironment 3.0MB
+ 152/ 167 2144   0.978 'Shut Up and Dance - WALK THE MOON' USABLE ev=380 v2=380 chroma=0 v3=0 groups=0 vivify=0 env=BigMirrorEnvironment 4.1MB
+ 153/ 168 8790   0.978 'Satellite - Rise Against' USABLE ev=7595 v2=7595 chroma=0 v3=0 groups=0 vivify=0 env=BigMirrorEnvironment 4.7MB
+ 154/ 169 5e44   0.978 "(Old Version) Wolf In Sheep's Clothing - Set" USABLE ev=2219 v2=2219 chroma=0 v3=0 groups=0 vivify=0 env=BigMirrorEnvironment 4.0MB
+ 155/ 170 3ae2   0.978 "I Don't Wanna Be In Love (Dance Floor Anthem" USABLE ev=5639 v2=5639 chroma=0 v3=0 groups=0 vivify=0 env=BigMirrorEnvironment 4.6MB
+ 156/ 171 4c59   0.978 'BOOM - X Ambassadors' USABLE ev=4724 v2=4724 chroma=0 v3=0 groups=0 vivify=0 env=BigMirrorEnvironment 2.5MB
+ 157/ 172 34972  0.978 'Dimension - DJ Turn It Up' USABLE ev=2791 v2=2791 chroma=0 v3=0 groups=0 vivify=0 env=OriginsEnvironment 8.1MB
+ 158/ 173 89be   0.978 "More One Night [Girl's Last Tour Ending]" USABLE ev=16009 v2=16009 chroma=1261 v3=0 groups=0 vivify=0 env=PanicEnvironment 14.2MB
+ 159/ 174 5062   0.978 'Witchcraft - Pendulum' USABLE ev=8298 v2=8298 chroma=0 v3=0 groups=0 vivify=0 env=BigMirrorEnvironment 11.1MB
+ 160/ 175 b662   0.978 'PREPARING THE KRABBY PATTY' USABLE ev=628 v2=628 chroma=0 v3=0 groups=0 vivify=0 env=TriangleEnvironment 0.6MB
+ 161/ 176 27d5b  0.978 'Everything Goes On [League of Legends Star G' USABLE ev=4655 v2=4655 chroma=0 v3=0 groups=0 vivify=0 env=BillieEnvironment 8.8MB
+ 162/ 177 2e93c  0.978 'Sam Smith - Unholy (Metal Cover by Jonathan ' USABLE ev=4612 v2=136 chroma=0 v3=4476 groups=32 vivify=0 env=RockMixtapeEnvironment 4.0MB
+ 163/ 178 abe8   0.978 'PA PA YA!! (feat. F.HERO) - BABYMETAL' USABLE ev=2219 v2=2219 chroma=0 v3=0 groups=0 vivify=0 env=DefaultEnvironment 4.9MB
+ 164/ 179 bb4    0.978 'Octopath Traveler Main Theme - Yasunori Nish' USABLE ev=666 v2=666 chroma=0 v3=0 groups=0 vivify=0 env=BigMirrorEnvironment 8.2MB
+ 165/ 180 1622c  0.978 'Gurenge (TV Size) [Demon Slayer: Kimetsu no ' USABLE ev=12271 v2=12271 chroma=0 v3=0 groups=0 vivify=0 env=DefaultEnvironment 3.0MB
+ 166/ 181 1188e  0.978 'Fox Stevenson - All Eyes On Me' USABLE ev=4370 v2=4370 chroma=3998 v3=0 groups=0 vivify=0 env=BTSEnvironment 6.3MB
+ 167/ 182 35a0b  0.978 '{Chroma+} Spells - acloudyskye' USABLE ev=10316 v2=10316 chroma=10312 v3=0 groups=0 vivify=0 env=BillieEnvironment 8.8MB
+ 168/ 183 1ff34  0.978 'Waiting On A Miracle - Encanto' USABLE ev=1236 v2=1236 chroma=0 v3=0 groups=0 vivify=0 env=NiceEnvironment 4.8MB
+ 169/ 184 27533  0.978 'Post Malone - I Like You (A Happier Song) fe' USABLE ev=1107 v2=1107 chroma=0 v3=0 groups=0 vivify=0 env=DefaultEnvironment 3.8MB
+ 170/ 185 47f3   0.978 'TWICE - FANCY' USABLE ev=1003 v2=1003 chroma=0 v3=0 groups=0 vivify=0 env=BigMirrorEnvironment 4.3MB
+ 171/ 186 3b7a9  0.978 'Yoshida Yasei ft. Kasane Teto SV - Override ' USABLE ev=3805 v2=3805 chroma=0 v3=0 groups=0 vivify=0 env=DefaultEnvironment 7.0MB
+ 172/ 187 49fc   0.978 '(Old Version) You Give Love A Bad Name - Bon' USABLE ev=2246 v2=2246 chroma=0 v3=0 groups=0 vivify=0 env=BigMirrorEnvironment 4.6MB
+ 173/ 188 8553   0.978 'Blinding Lights - The Weeknd' USABLE ev=3146 v2=3146 chroma=0 v3=0 groups=0 vivify=0 env=BigMirrorEnvironment 5.9MB
+ 174/ 189 271e1  0.978 '[Electro Swing Pack Vol. 2] The Electric Swi' USABLE ev=2867 v2=2867 chroma=0 v3=0 groups=0 vivify=0 env=PanicEnvironment 7.8MB
+ 175/ 190 1a0bb  0.978 '[Electro Swing Pack] The Electric Swing Circ' USABLE ev=1543 v2=1543 chroma=0 v3=0 groups=0 vivify=0 env=PanicEnvironment 7.0MB
+ 176/ 191 d2ca   0.978 'Ventura Highway - America' USABLE ev=787 v2=787 chroma=0 v3=0 groups=0 vivify=0 env=DefaultEnvironment 8.0MB
+ 177/ 192 16726  0.978 '[NoodleJams Vol.1] Bruno Mars - 24K Magic' USABLE ev=31450 v2=31450 chroma=29176 v3=0 groups=0 vivify=0 env=PanicEnvironment 14.9MB
+ 178/ 193 4ac1a  0.978 '[ADOvent Calendar]  Ado - Tot Musica' USABLE ev=20013 v2=20013 chroma=16707 v3=0 groups=0 vivify=0 env=TimbalandEnvironment 7.1MB
+ 179/ 194 21836  0.978 'Unleash The Archers - Faster Than Light' USABLE ev=2433 v2=2433 chroma=0 v3=0 groups=0 vivify=0 env=DefaultEnvironment 13.9MB
+ 180/ 195 6ea9   0.978 'Down Under - Men At Work' USABLE ev=1970 v2=1970 chroma=0 v3=0 groups=0 vivify=0 env=DefaultEnvironment 7.3MB
+ 181/ 196 b18a   0.978 '[Bloq Busters Vol. 4] Eric Johnson - Cliffs ' USABLE ev=8195 v2=8195 chroma=0 v3=0 groups=0 vivify=0 env=DefaultEnvironment 8.4MB
+ 182/ 197 34a6e  0.978 '[Disney Pop Mixtape] Owl City - When Can I S' USABLE ev=11911 v2=448 chroma=0 v3=11463 groups=30 vivify=0 env=TheWeekndEnvironment 4.7MB
+ 183/ 198 35d4c  0.978 '[Electro Swing Pack Vol. 4] Johnny Wright - ' USABLE ev=3559 v2=3559 chroma=0 v3=0 groups=0 vivify=0 env=PanicEnvironment 7.3MB
+ 184/ 199 1fef1  0.978 'SiM - The Rumbling [Attack On Titan Opening ' USABLE ev=4042 v2=4042 chroma=0 v3=0 groups=0 vivify=0 env=DefaultEnvironment 1.9MB
+ 185/ 200 1acb3  0.978 'USAO - Punish' USABLE ev=5505 v2=5505 chroma=0 v3=0 groups=0 vivify=0 env=DefaultEnvironment 10.6MB
+ 186/ 201 d299   0.978 'cYsmix - Peer Gynt (Chroma 2.0)' USABLE ev=19304 v2=19304 chroma=18853 v3=0 groups=0 vivify=0 env=BigMirrorEnvironment 9.2MB
+ 187/ 202 10842  0.978 'Technicolor - Madeon' USABLE ev=8054 v2=8054 chroma=5945 v3=0 groups=0 vivify=0 env=BigMirrorEnvironment 8.3MB
+ 188/ 203 2fbdb  0.978 "NOTD, Astrid S - I Don't Know Why (Ellis Rem" USABLE ev=1862 v2=1862 chroma=0 v3=0 groups=0 vivify=0 env=DefaultEnvironment 12.0MB
+ 189/ 204 6361   0.978 'Choke - I DONT KNOW HOW BUT THEY FOUND ME' USABLE ev=4223 v2=4223 chroma=0 v3=0 groups=0 vivify=0 env=BigMirrorEnvironment 4.4MB
+ 190/ 205 3cf4f  0.978 '[Cinema] RecD & Jakeneutron - Rambley Review' USABLE ev=2327 v2=2327 chroma=0 v3=0 groups=0 vivify=0 env=OriginsEnvironment 10.7MB
+ 191/ 206 331e2  0.978 '[Eurovision 2023 Pack] Käärijä - Cha Cha Cha' USABLE ev=3076 v2=15 chroma=0 v3=3061 groups=18 vivify=0 env=LizzoEnvironment 6.9MB
+ 192/ 207 6b96   0.978 'COALAMODE. - Nanairo Symphony [Your Lie in A' USABLE ev=3796 v2=3796 chroma=0 v3=0 groups=0 vivify=0 env=DefaultEnvironment 6.9MB
+ 193/ 208 4f55   0.977 'Setting Sail, Coming Home (Bastion OST) - Da' USABLE ev=1104 v2=1104 chroma=0 v3=0 groups=0 vivify=0 env=DefaultEnvironment 3.5MB
+ 194/ 209 35630  0.977 '[Pitbull Pack] Pitbull - Give Me Everything ' USABLE ev=7821 v2=174 chroma=0 v3=7647 groups=8 vivify=0 env=QueenEnvironment 7.8MB
+ 195/ 210 2a9ef  0.977 'I Prevail - FWYTYK' USABLE ev=4059 v2=4059 chroma=0 v3=0 groups=0 vivify=0 env=FitBeatEnvironment 4.4MB
+ 196/ 211 32dff  0.977 '(G)I-DLE - Queencard' USABLE ev=2502 v2=2502 chroma=0 v3=0 groups=0 vivify=0 env=DefaultEnvironment 3.4MB
+ 197/ 212 3dd0e  0.977 'Fox Stevenson - Dreamland | Chroma/Cinema' USABLE ev=29756 v2=29756 chroma=28852 v3=0 groups=0 vivify=0 env=BigMirrorEnvironment 2.9MB
+ 198/ 213 34a5   0.977 '(Old Version) Check Yes, Juliet - We The Kin' USABLE ev=3427 v2=3427 chroma=0 v3=0 groups=0 vivify=0 env=DefaultEnvironment 4.5MB
+ 199/ 214 4930d  0.977 '[DITR7] Venjent - Did I Forget Something (V3' USABLE ev=5820 v2=417 chroma=304 v3=5403 groups=14 vivify=0 env=LinkinPark2Environment 13.3MB
+ 199/ 215 27f6   0.977 'We All Lift Together - Keith Power   (From "' skip   ev=144 v2=144 chroma=0 v3=0 groups=0 vivify=0 env=TriangleEnvironment 6.4MB
+ 200/ 216 3ba3a  0.977 '[Requested] Bling-Bang-Bang-Born / Creepy Nu' USABLE ev=4130 v2=4130 chroma=32 v3=0 groups=0 vivify=0 env=DragonsEnvironment 9.1MB
+ 201/ 217 5373   0.977 'Chito (CV: Minase Inori), Yuuri (CV: Kubo Yu' USABLE ev=1220 v2=1220 chroma=0 v3=0 groups=0 vivify=0 env=BigMirrorEnvironment 3.1MB
+ 202/ 218 121f   0.977 'Skillet - Feel Invincible' USABLE ev=1654 v2=1654 chroma=0 v3=0 groups=0 vivify=0 env=TriangleEnvironment 9.2MB
+ 203/ 219 25411  0.977 'Wig Wam - Do You Wanna Taste It (Peacemaker ' USABLE ev=28788 v2=28788 chroma=28677 v3=0 groups=0 vivify=0 env=RocketEnvironment 7.2MB
+ 204/ 220 1dbb9  0.977 'Ado - Odo' USABLE ev=3956 v2=3956 chroma=0 v3=0 groups=0 vivify=0 env=PanicEnvironment 7.8MB
+ 205/ 221 8ac5   0.977 'Overthinker - INZO' USABLE ev=6836 v2=6836 chroma=0 v3=0 groups=0 vivify=0 env=NiceEnvironment 5.9MB
+ 206/ 222 3ae43  0.977 "Neddie - Please Don't Go Away Or I Will Cry " USABLE ev=2541 v2=2541 chroma=0 v3=0 groups=0 vivify=0 env=OriginsEnvironment 11.1MB
+ 207/ 223 f91e   0.977 "Ava Max - Who's Laughing Now" USABLE ev=2852 v2=2852 chroma=0 v3=0 groups=0 vivify=0 env=BigMirrorEnvironment 8.1MB
+ 208/ 224 b7f8   0.977 'Sabaton - Swedish Pagans' USABLE ev=2174 v2=2174 chroma=0 v3=0 groups=0 vivify=0 env=DefaultEnvironment 4.0MB
+ 209/ 225 16234  0.977 'Kimi no shiranai Monogatari (TV Size) (2021 ' USABLE ev=2402 v2=2402 chroma=0 v3=0 groups=0 vivify=0 env=DefaultEnvironment 3.4MB
+ 210/ 226 58b7   0.977 'The Twist - Chubby Checker' USABLE ev=2280 v2=2280 chroma=0 v3=0 groups=0 vivify=0 env=DefaultEnvironment 3.1MB
+ 211/ 227 33e87  0.977 'Mike Shinoda - In My Head' USABLE ev=2808 v2=2808 chroma=464 v3=0 groups=0 vivify=0 env=PanicEnvironment 3.8MB
+ 212/ 228 3bcb2  0.977 '[V3] Sabrina Carpenter - Espresso' USABLE ev=5191 v2=1274 chroma=0 v3=3917 groups=18 vivify=0 env=LizzoEnvironment 5.9MB
+ 213/ 229 30fd   0.977 'Love The Way You Lie (ft. Rihanna) - Eminem,' USABLE ev=2085 v2=2085 chroma=0 v3=0 groups=0 vivify=0 env=BigMirrorEnvironment 3.8MB
+FAIL 39efd 'Geoxor - Killa': '<' not supported between instances of 'int' and 'NoneType'
+ 214/ 230 2c5d   0.977 'Stay Frosty Royal Milk Tea - Fall Out Boy' USABLE ev=855 v2=855 chroma=0 v3=0 groups=0 vivify=0 env=NiceEnvironment 3.5MB
+ 215/ 231 24dbc  0.977 'Bad Omens - Just Pretend' USABLE ev=6942 v2=6942 chroma=0 v3=0 groups=0 vivify=0 env=DragonsEnvironment 4.1MB
+ 216/ 232 7e92   0.977 'Coldplay - Adventure of a Lifetime' USABLE ev=4100 v2=4100 chroma=0 v3=0 groups=0 vivify=0 env=TriangleEnvironment 5.3MB
+ 217/ 233 40f1f  0.977 '[S3RL Pack] S3RL, Outforce & Hartshorn - And' USABLE ev=9827 v2=10 chroma=0 v3=9817 groups=19 vivify=0 env=ColliderEnvironment 11.1MB
+ 218/ 234 9cd2   0.977 'Grant - Are We Still Young' USABLE ev=8571 v2=8571 chroma=4346 v3=0 groups=0 vivify=0 env=NiceEnvironment 9.7MB
+ 219/ 235 3038   0.977 'Moves Like Jagger - Maroon 5 ft. Christina A' USABLE ev=2966 v2=2966 chroma=0 v3=0 groups=0 vivify=0 env=NiceEnvironment 4.1MB
+ 220/ 236 1ea21  0.977 '[chroma] Electric Callboy - PUMP IT ' USABLE ev=5224 v2=5224 chroma=2856 v3=0 groups=0 vivify=0 env=FitBeatEnvironment 9.0MB
+ 221/ 237 7326   0.977 'The Greatest Show - Mapped by TheAb' USABLE ev=12986 v2=12986 chroma=0 v3=0 groups=0 vivify=0 env=DefaultEnvironment 11.9MB
+ 222/ 238 2199f  0.977 'DECO*27 - Rhythm feat. Hatsune Miku' USABLE ev=6067 v2=6067 chroma=0 v3=0 groups=0 vivify=0 env=FitBeatEnvironment 10.1MB
+ 223/ 239 21c3a  0.977 'SEGA - Friday Night' USABLE ev=20627 v2=20627 chroma=20344 v3=0 groups=0 vivify=0 env=BigMirrorEnvironment 5.8MB
+ 224/ 240 13a7a  0.977 'Hades OST - Darren Korb - No Escape' USABLE ev=2019 v2=2019 chroma=0 v3=0 groups=0 vivify=0 env=PanicEnvironment 9.8MB
+ 225/ 241 5893   0.977 'Crypt of the NecroDancer - King Conga' USABLE ev=1160 v2=1160 chroma=0 v3=0 groups=0 vivify=0 env=DefaultEnvironment 2.6MB
+ 226/ 242 119e9  0.977 'Camellia feat. Nanahira - Christmas Nante Ky' USABLE ev=4240 v2=4240 chroma=0 v3=0 groups=0 vivify=0 env=DefaultEnvironment 11.7MB
+ 227/ 243 2005   0.977 'New Divide - Linkin Park - 100k Contest' USABLE ev=2605 v2=2605 chroma=0 v3=0 groups=0 vivify=0 env=NiceEnvironment 4.5MB
+ 228/ 244 1de59  0.977 '[ Modchart ] Alok, Zeeba, IRO - Ocean' USABLE ev=1075 v2=1075 chroma=927 v3=0 groups=0 vivify=0 env=BTSEnvironment 3.4MB
+ 229/ 245 24dba  0.977 'Bad Omens - Take Me First' USABLE ev=2965 v2=2965 chroma=0 v3=0 groups=0 vivify=0 env=DefaultEnvironment 3.9MB
+ 230/ 246 33e7e  0.977 'Black Hole Sun - Soundgarden' USABLE ev=1482 v2=1482 chroma=0 v3=0 groups=0 vivify=0 env=BillieEnvironment 12.0MB
+ 231/ 247 358c5  0.977 'PSYQUI - Hysteric Night Girl feat. Such (and' USABLE ev=6534 v2=6534 chroma=0 v3=0 groups=0 vivify=0 env=DefaultEnvironment 11.5MB
+ 232/ 248 41e6d  0.977 'Ashnikko - Paint The Town Blue (from the ser' USABLE ev=1705 v2=1705 chroma=0 v3=0 groups=0 vivify=0 env=BTSEnvironment 7.1MB
+ 233/ 249 3c9cd  0.977 '[Project Sekai Pack] れるりり - 神のまにまに (ワンダーランズ×' USABLE ev=825 v2=825 chroma=0 v3=0 groups=0 vivify=0 env=FitBeatEnvironment 4.2MB
+ 234/ 250 fefe   0.977 "Hyper Potions - KK Cruisin' (Animal Crossing" USABLE ev=1835 v2=1835 chroma=0 v3=0 groups=0 vivify=0 env=DefaultEnvironment 2.9MB
+ 235/ 251 29e7c  0.977 'Live and Learn - Crush 40' USABLE ev=2603 v2=565 chroma=0 v3=2038 groups=14 vivify=0 env=PyroEnvironment 10.7MB
+ 236/ 252 19950  0.977 'Gawr Gura - REFLECT' USABLE ev=7864 v2=7864 chroma=0 v3=0 groups=0 vivify=0 env=KaleidoscopeEnvironment 9.9MB
+ 237/ 253 16240  0.977 'Sorairo Days (TV Size) (2021 Remaster) [Gurr' USABLE ev=1695 v2=1695 chroma=0 v3=0 groups=0 vivify=0 env=NiceEnvironment 3.0MB
+ 238/ 254 a76b   0.977 'BB 2020 | PSYQUI feat. Marpril - Girly Cupid' USABLE ev=3539 v2=3539 chroma=0 v3=0 groups=0 vivify=0 env=DefaultEnvironment 12.8MB
+ 239/ 255 19c80  0.977 '[Alphabeat - Pixel Terror Pack] Pixel Terror' USABLE ev=9841 v2=9841 chroma=7344 v3=0 groups=0 vivify=0 env=GreenDayEnvironment 12.7MB
+ 240/ 256 347f4  0.977 'Laser-Shooting Dinosaur (v3 Lights) - ANGUS ' USABLE ev=10294 v2=235 chroma=0 v3=10059 groups=27 vivify=0 env=RockMixtapeEnvironment 5.4MB
+ 241/ 257 2c327  0.977 'Caravan Palace - Clash' USABLE ev=20614 v2=20614 chroma=18899 v3=0 groups=0 vivify=0 env=BigMirrorEnvironment 7.5MB
+ 241/ 258 1a53c  0.977 'Noodle Animation Stuff' skip   ev=38 v2=38 chroma=0 v3=0 groups=0 vivify=0 env=BigMirrorEnvironment 2.7MB
+ 242/ 259 177e8  0.977 '{Modchart} Duumu & Slyleaf - Illuminate' USABLE ev=2182 v2=2182 chroma=1730 v3=0 groups=0 vivify=0 env=BTSEnvironment 6.2MB
+ 243/ 260 4e86   0.976 'Zero to Hero - Hercules' USABLE ev=2354 v2=2354 chroma=0 v3=0 groups=0 vivify=0 env=BigMirrorEnvironment 4.0MB
+ 244/ 261 1a0bd  0.976 '[Electro Swing Pack] Jamie Berry - Delight (' USABLE ev=2069 v2=2069 chroma=0 v3=0 groups=0 vivify=0 env=PanicEnvironment 5.7MB
+ 245/ 262 3b76   0.976 'Caravan Palace - Miracle' USABLE ev=4399 v2=4399 chroma=0 v3=0 groups=0 vivify=0 env=DefaultEnvironment 11.3MB
+ 246/ 263 1f25d  0.976 'Sabaton - Christmas Truce' USABLE ev=604 v2=604 chroma=0 v3=0 groups=0 vivify=0 env=OriginsEnvironment 10.5MB
+ 247/ 264 2d506  0.976 'kessoku band - Distortion!!' USABLE ev=3112 v2=3112 chroma=0 v3=0 groups=0 vivify=0 env=KaleidoscopeEnvironment 4.2MB
+ 248/ 265 75ba   0.976 'Savior - Rise Against' USABLE ev=3686 v2=3686 chroma=0 v3=0 groups=0 vivify=0 env=DefaultEnvironment 5.0MB
+ 249/ 266 d4a4   0.976 '[FUTURE FUNK PACK] Megumi no Hito (Night Tem' USABLE ev=7325 v2=7325 chroma=0 v3=0 groups=0 vivify=0 env=PanicEnvironment 7.1MB
+ 250/ 267 1ee0e  0.976 'Phototropic {Modchart}' USABLE ev=31903 v2=31903 chroma=31824 v3=0 groups=0 vivify=0 env=TimbalandEnvironment 9.4MB
+ 251/ 268 130e6  0.976 'Geoxor - Faerie [wall map]' USABLE ev=9327 v2=9327 chroma=8774 v3=0 groups=0 vivify=0 env=TimbalandEnvironment 11.0MB
+ 252/ 269 28052  0.976 'Rather Be (ft. Jess Glynne) - Clean Bandit' USABLE ev=3471 v2=3471 chroma=0 v3=0 groups=0 vivify=0 env=DefaultEnvironment 13.9MB
+ 253/ 270 180dc  0.976 'Kaikai Kitan - Eve (TV Size) [Jujutsu Kaisen' USABLE ev=2546 v2=2546 chroma=0 v3=0 groups=0 vivify=0 env=KaleidoscopeEnvironment 1.8MB
+ 254/ 271 ed9d   0.976 '[KSHMR Pack] KSHMR - Wildcard (ft. Sidnie Ti' USABLE ev=1612 v2=1612 chroma=827 v3=0 groups=0 vivify=0 env=OriginsEnvironment 6.9MB
+ 255/ 272 293e2  0.976 'Crazy Noisy Bizarre Town (TV Size) (2022 Rem' USABLE ev=1024 v2=1024 chroma=0 v3=0 groups=0 vivify=0 env=BigMirrorEnvironment 3.4MB
+ 256/ 273 fb0f   0.976 'Michael Jackson - Thriller (James Egbert Dub' USABLE ev=2296 v2=2296 chroma=0 v3=0 groups=0 vivify=0 env=DefaultEnvironment 3.8MB
+ 257/ 274 12ba7  0.976 '[Symphonic Metal Pack] Nightwish - Dark Ches' USABLE ev=6108 v2=6108 chroma=0 v3=0 groups=0 vivify=0 env=PanicEnvironment 8.5MB
+ 258/ 275 c208   0.976 '[Alphabeat - Pegboard Nerds Pack] Pegboard N' USABLE ev=4548 v2=4548 chroma=0 v3=0 groups=0 vivify=0 env=BigMirrorEnvironment 7.3MB
+ 259/ 276 16729  0.976 '[NoodleJams Vol.1] Bruno Mars - Finesse (Rem' USABLE ev=7702 v2=7702 chroma=6369 v3=0 groups=0 vivify=0 env=GreenDayEnvironment 13.9MB
+ 260/ 277 9b41   0.976 'Diving In Too Deep - NerdOut' USABLE ev=7541 v2=7541 chroma=0 v3=0 groups=0 vivify=0 env=DefaultEnvironment 3.7MB
+ 261/ 278 19e23  0.976 'Home Free - Sea Shanty Medley' USABLE ev=1464 v2=1464 chroma=0 v3=0 groups=0 vivify=0 env=DefaultEnvironment 9.0MB
+ 262/ 279 6360   0.976 'Shirobon - Into the Zone' USABLE ev=5077 v2=5077 chroma=0 v3=0 groups=0 vivify=0 env=BigMirrorEnvironment 8.0MB
+ 263/ 280 28076  0.976 'Los! Los! Los! (2022 Remaster) [Youjo Senki ' USABLE ev=4749 v2=4749 chroma=0 v3=0 groups=0 vivify=0 env=PanicEnvironment 9.2MB
+ 264/ 281 4d5e   0.976 'Hitoribocchi no Monologue [Hitori Bocchi no ' USABLE ev=1097 v2=1097 chroma=0 v3=0 groups=0 vivify=0 env=DefaultEnvironment 3.2MB
+ 265/ 282 24d40  0.976 'Bad Omens - The Grey' USABLE ev=10271 v2=10271 chroma=0 v3=0 groups=0 vivify=0 env=DefaultEnvironment 5.2MB
+ 266/ 283 d565   0.976 '[FUTURE FUNK PACK] Idolstep Dreaming - Mikaz' USABLE ev=7255 v2=7255 chroma=0 v3=0 groups=0 vivify=0 env=BigMirrorEnvironment 8.9MB
+ 267/ 284 3a733  0.976 'POKÉDANCE [Cinema]' USABLE ev=2095 v2=734 chroma=0 v3=1361 groups=17 vivify=0 env=LizzoEnvironment 4.7MB
+ 268/ 285 80fb   0.976 "[Noodlegames] Lifelight (Camellia's Hardstyl" USABLE ev=27741 v2=27741 chroma=0 v3=0 groups=0 vivify=0 env=DragonsEnvironment 9.4MB
+ 269/ 286 6cf7   0.976 '[Noodleween] AronChupa, Little Sis Nora - Ra' USABLE ev=7067 v2=7067 chroma=0 v3=0 groups=0 vivify=0 env=PanicEnvironment 5.3MB
+ 270/ 287 1c4d6  0.976 'KSHMR & Marnik - SHIVA' USABLE ev=3560 v2=3560 chroma=0 v3=0 groups=0 vivify=0 env=PanicEnvironment 11.5MB
+ 271/ 288 41fcf  0.976 'King Princess - Fantastic (from the series A' USABLE ev=1281 v2=1281 chroma=0 v3=0 groups=0 vivify=0 env=BillieEnvironment 9.8MB
+ 272/ 289 237b6  0.976 'Flicker - Andora ft. RANASOL' USABLE ev=5684 v2=5684 chroma=0 v3=0 groups=0 vivify=0 env=NiceEnvironment 9.7MB
+ 273/ 290 21d9   0.976 'GAY FROGS' USABLE ev=280 v2=280 chroma=0 v3=0 groups=0 vivify=0 env=DefaultEnvironment 1.1MB
+ 274/ 291 2fe80  0.976 'Red Flags (v3 lights) - Tom Cardy ft. Montai' USABLE ev=2277 v2=26 chroma=0 v3=2251 groups=27 vivify=0 env=RockMixtapeEnvironment 4.7MB
+ 275/ 292 9956   0.976 'Or3o - Help Me' USABLE ev=2212 v2=2212 chroma=0 v3=0 groups=0 vivify=0 env=PanicEnvironment 10.9MB
+ 276/ 293 96fc   0.976 '(Old Version) JINGO JUNGLE [Youjo Senki Open' USABLE ev=5921 v2=5921 chroma=0 v3=0 groups=0 vivify=0 env=NiceEnvironment 5.6MB
+ 277/ 294 e7cd   0.976 '[NoodleGames Vol.2] Last Surprise - Persona ' USABLE ev=3292 v2=3292 chroma=28 v3=0 groups=0 vivify=0 env=OriginsEnvironment 6.9MB
+ 278/ 295 1b6c2  0.976 "He's A Pirate - Pirates Of The Caribbean" USABLE ev=1366 v2=1366 chroma=1090 v3=0 groups=0 vivify=0 env=BigMirrorEnvironment 4.9MB
+ 279/ 296 15711  0.976 'O-Zone - Dragostea Din Tei' USABLE ev=3356 v2=3356 chroma=0 v3=0 groups=0 vivify=0 env=BigMirrorEnvironment 3.9MB
+ 280/ 297 2d5d7  0.976 '{Chroma+} MitiS - Searching' USABLE ev=39735 v2=39735 chroma=39735 v3=0 groups=0 vivify=0 env=BillieEnvironment 3.3MB
+ 281/ 298 7310   0.976 'The Struts - Body Talks ft. Kesha' USABLE ev=2193 v2=2193 chroma=0 v3=0 groups=0 vivify=0 env=TriangleEnvironment 8.8MB
+ 282/ 299 a168   0.976 'Yunomi - Oedo Controller/大江戸コントローラー feat. TO' USABLE ev=2395 v2=2395 chroma=0 v3=0 groups=0 vivify=0 env=NiceEnvironment 7.0MB
+ 283/ 300 aa73   0.976 'twenty one pilots - Level of Concern' USABLE ev=2220 v2=2220 chroma=0 v3=0 groups=0 vivify=0 env=DefaultEnvironment 6.0MB
+ 284/ 301 29ab2  0.976 'Ado - Tot Musica (from ONE PIECE FILM RED)' USABLE ev=4351 v2=4351 chroma=0 v3=0 groups=0 vivify=0 env=DragonsEnvironment 4.1MB
+ 285/ 302 246e1  0.976 'bbno$ & Rich Brian - edamame' USABLE ev=2583 v2=2583 chroma=0 v3=0 groups=0 vivify=0 env=DefaultEnvironment 4.5MB
+ 286/ 303 e308   0.976 'Moneko - Geoxor' USABLE ev=1238 v2=1238 chroma=0 v3=0 groups=0 vivify=0 env=DefaultEnvironment 7.4MB
+ 287/ 304 15db5  0.976 'Brothers of Metal - Powersnake' USABLE ev=277 v2=277 chroma=0 v3=0 groups=0 vivify=0 env=DefaultEnvironment 7.3MB
+ 288/ 305 16042  0.976 'Miss Murder - AFI' USABLE ev=6501 v2=6501 chroma=0 v3=0 groups=0 vivify=0 env=TimbalandEnvironment 7.1MB
+ 289/ 306 16722  0.976 '[NoodleJams Vol.1] Calvin Harris - Blame (ft' USABLE ev=4092 v2=4092 chroma=0 v3=0 groups=0 vivify=0 env=BigMirrorEnvironment 7.4MB
+ 290/ 307 2bd2d  0.976 'Flowey Battle - Undertale' USABLE ev=2528 v2=0 chroma=0 v3=2528 groups=12 vivify=0 env=EDMEnvironment 14.0MB
+ 291/ 308 23c3   0.976 'Without Me (ILLENIUM Remix) - Halsey' USABLE ev=2901 v2=2901 chroma=0 v3=0 groups=0 vivify=0 env=BigMirrorEnvironment 5.0MB
+ 292/ 309 8108   0.976 "[Noodlegames] Ephixa - Wisdom (Zelda's Lulla" USABLE ev=13016 v2=13016 chroma=0 v3=0 groups=0 vivify=0 env=BigMirrorEnvironment 11.6MB
+ 293/ 310 24e5e  0.976 'Electric Callboy - SPACEMAN' USABLE ev=3764 v2=3764 chroma=0 v3=0 groups=0 vivify=0 env=TriangleEnvironment 5.0MB
+ 294/ 311 ce0    0.976 "South Park - Kyle's Mom's a Bitch" USABLE ev=655 v2=655 chroma=0 v3=0 groups=0 vivify=0 env=DefaultEnvironment 1.7MB
+ 295/ 312 381a   0.975 'Deep in Abyss [Made in Abyss Opening] - Riko' USABLE ev=2230 v2=2230 chroma=0 v3=0 groups=0 vivify=0 env=BigMirrorEnvironment 5.0MB
+ 296/ 313 1dcf5  0.975 'DYES IWASAKI - Reflection ft. DEMONDICE & Li' USABLE ev=2738 v2=2738 chroma=2704 v3=0 groups=0 vivify=0 env=FitBeatEnvironment 7.1MB
+ 297/ 314 1672d  0.975 '[NoodleJams Vol.1] Green Day - American Idio' USABLE ev=27698 v2=27698 chroma=25774 v3=0 groups=0 vivify=0 env=BigMirrorEnvironment 11.4MB
+ 298/ 315 40804  0.975 'Heavy Is the Crown - Linkin Park' USABLE ev=4318 v2=4318 chroma=1842 v3=0 groups=0 vivify=0 env=LinkinParkEnvironment 10.0MB
+ 299/ 316 19cec  0.975 'Nancy Mulligan - Ed Sheeran' USABLE ev=1367 v2=1367 chroma=0 v3=0 groups=0 vivify=0 env=DefaultEnvironment 5.4MB
+ 300/ 317 747    0.975 'Technologic - Daft Punk (Update)' USABLE ev=1327 v2=1327 chroma=0 v3=0 groups=0 vivify=0 env=TriangleEnvironment 10.2MB
+DONE 300 usable of 317 inspected, 2.16 GB, 16.3 h of audio, 275 s

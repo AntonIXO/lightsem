@@ -1,0 +1,5 @@
+60 songs (causal), 6 workers
+[1/60] -lz8bA0Sigk ok 1381 rows 2s
+[26/60] 6h1MUO-uEcU ok 2402 rows 3s
+[51/60] EIL_QOVGOeU ok 2131 rows 3s
+done 60/60 in 0.5 min

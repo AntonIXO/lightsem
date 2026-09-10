@@ -1,0 +1,13 @@
+/root/lightsem/train_planner.py:77: UserWarning: enable_nested_tensor is True, but self.use_nested_tensor is False because encoder_layer.norm_first was True
+  self.enc = nn.TransformerEncoder(layer, n_layers)
+shpongle: 277 s, tempo 90.0 bpm, bus + features in 10s
+/root/lightsem/train_critic.py:93: UserWarning: enable_nested_tensor is True, but self.use_nested_tensor is False because encoder_layer.norm_first was True
+  self.enc = nn.TransformerEncoder(nn.TransformerEncoderLayer(d, 4, 4 * d, dropout=0.1, batch_first=True, norm_first=True), n_layers)
+  critic scores over 8 seeds: [-0.7, -1.573, -0.259, -1.952, -0.833, -0.527, -0.898, -1.523] -> seed 2
+  wrote shpongle__beat_trigger.mp4 (23s)  BAS-null +0.116 events 1132
+  wrote shpongle__conductor.mp4 (22s)  BAS-null +0.119 events 1007
+  wrote shpongle__decoder_v1.mp4 (22s)  BAS-null -0.289 events 108
+  wrote shpongle__decoder_v2.mp4 (22s)  BAS-null -0.028 events 932
+  wrote shpongle__engine_only.mp4 (22s)  BAS-null +0.595 events 415
+  wrote shpongle__decoder_v2_plan.mp4 (22s)  BAS-null -0.045 events 868
+  wrote shpongle__best_of_8.mp4 (29s)  BAS-null +0.113 events 997

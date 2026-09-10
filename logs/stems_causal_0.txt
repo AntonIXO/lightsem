@@ -1,0 +1,70 @@
+causal shard 0/3: 30 files, segment 7.80s, sources ['drums', 'bass', 'other', 'vocals']
+[W904 23:26:26.587461688 CUDACachingAllocator.cpp:528] expandable_segments: memory mapping failed with OOM on device 0 while trying to map 20971520 bytes (free: 27525120, total: 12378112000).
+[W904 23:26:26.816476273 CUDACachingAllocator.cpp:528] expandable_segments: memory mapping failed with OOM on device 0 while trying to map 20971520 bytes (free: 29622272, total: 12378112000).
+[W904 23:26:26.854788792 CUDACachingAllocator.cpp:528] expandable_segments: memory mapping failed with OOM on device 0 while trying to map 20971520 bytes (free: 29622272, total: 12378112000).
+Traceback (most recent call last):
+  File "/root/lightsem/extract_stems.py", line 136, in <module>
+    main()
+  File "/root/lightsem/extract_stems.py", line 125, in main
+    y = separate_causal(model, wav, dev, seg_s, a.hop, a.batch)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/lightsem/extract_stems.py", line 91, in separate_causal
+    flush()
+  File "/root/lightsem/extract_stems.py", line 79, in flush
+    yb = apply_model(model, (xb - mu) / sd, shifts=0, split=False, progress=False, device=dev)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/mnt/lightsem-data/venv-torch/lib/python3.12/site-packages/demucs/apply.py", line 216, in apply_model
+    res = apply_model(sub_model, mix, **kwargs, callback_arg=callback_arg)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/mnt/lightsem-data/venv-torch/lib/python3.12/site-packages/demucs/apply.py", line 318, in apply_model
+    out = model(padded_mix)
+          ^^^^^^^^^^^^^^^^^
+  File "/mnt/lightsem-data/venv-torch/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1783, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/mnt/lightsem-data/venv-torch/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1794, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/mnt/lightsem-data/venv-torch/lib/python3.12/site-packages/demucs/htdemucs.py", line 603, in forward
+    x, pre = decode(x, skip, lengths.pop(-1))
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/mnt/lightsem-data/venv-torch/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1783, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/mnt/lightsem-data/venv-torch/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1794, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/mnt/lightsem-data/venv-torch/lib/python3.12/site-packages/demucs/hdemucs.py", line 320, in forward
+    y = self.dconv(y)
+        ^^^^^^^^^^^^^
+  File "/mnt/lightsem-data/venv-torch/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1783, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/mnt/lightsem-data/venv-torch/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1794, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/mnt/lightsem-data/venv-torch/lib/python3.12/site-packages/demucs/demucs.py", line 153, in forward
+    x = x + layer(x)
+            ^^^^^^^^
+  File "/mnt/lightsem-data/venv-torch/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1783, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/mnt/lightsem-data/venv-torch/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1794, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/mnt/lightsem-data/venv-torch/lib/python3.12/site-packages/torch/nn/modules/container.py", line 259, in forward
+    input = module(input)
+            ^^^^^^^^^^^^^
+  File "/mnt/lightsem-data/venv-torch/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1783, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/mnt/lightsem-data/venv-torch/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1794, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/mnt/lightsem-data/venv-torch/lib/python3.12/site-packages/torch/nn/modules/normalization.py", line 334, in forward
+    return F.group_norm(input, self.num_groups, self.weight, self.bias, self.eps)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/mnt/lightsem-data/venv-torch/lib/python3.12/site-packages/torch/nn/functional.py", line 3048, in group_norm
+    return torch.group_norm(
+           ^^^^^^^^^^^^^^^^^
+torch.OutOfMemoryError: CUDA out of memory. Tried to allocate 504.00 MiB. GPU 0 has a total capacity of 11.53 GiB of which 328.25 MiB is free. Process 2447972 has 4.05 GiB memory in use. Process 2447971 has 4.05 GiB memory in use. Including non-PyTorch memory, this process has 2.92 GiB memory in use. Of the allocated memory 2.58 GiB is allocated by PyTorch, and 124.23 MiB is reserved by PyTorch but unallocated.

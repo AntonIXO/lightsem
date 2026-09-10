@@ -1,0 +1,50 @@
+299 songs: train 210 val 44 test 45
+params 3.55 M, in_dim 58
+  step     0 loss 1.2619  0s
+  step   500 loss 1.0028  31s
+  step  1000 loss 0.7070  62s
+  step  1500 loss 0.4057  103s
+  step  2000 loss 0.4008  147s
+  step  2500 loss 0.2932  192s
+  step  3000 loss 0.1746  237s
+  step  3500 loss 0.1947  281s
+  step  4000 loss 0.1064  327s
+  step  4500 loss 0.1433  385s
+  step  5000 loss 0.0924  442s
+  step  5500 loss 0.1109  500s
+  step  5999 loss 0.1196  557s
+{
+ "n_songs": 299,
+ "n_test": 45,
+ "shift_curve_s": {
+  "-8.0": 1.2280079126358032,
+  "-6.0": 1.0886561870574951,
+  "-4.0": 0.9993035793304443,
+  "-2.0": 1.026517629623413,
+  "-1.0": 0.5552904605865479,
+  "0.0": 1.6543809175491333,
+  "1.0": 1.1094049215316772,
+  "2.0": 1.0497355461120605,
+  "4.0": 1.0690997838974,
+  "6.0": 1.0717742443084717,
+  "8.0": 1.1462048292160034
+ },
+ "shift_peak_s": 0.0,
+ "with_hazard": true,
+ "params_m": 3.552311,
+ "model_lift": 1.6543809175491333,
+ "rhythm_lift": 1.299037218093872,
+ "ridge_on_same_causal_features_lift": 1.3069077730178833,
+ "delta": 0.35534369945526123,
+ "ci95": [
+  0.12186291813850403,
+  0.6385529637336731
+ ],
+ "ridge_reference_delta": 0.3145,
+ "offline": false,
+ "horizon_s": 0.0,
+ "root": "/mnt/lightsem-data/cache/beatsaver_visual",
+ "causality_leak": 0.0,
+ "train_s": 559.7220602035522,
+ "event_key": "ev_scene"
+}

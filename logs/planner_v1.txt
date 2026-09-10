@@ -1,0 +1,68 @@
+928 songs, train 645 test 124, 13s; causal=False
+/root/lightsem/train_planner.py:77: UserWarning: enable_nested_tensor is True, but self.use_nested_tensor is False because encoder_layer.norm_first was True
+  self.enc = nn.TransformerEncoder(layer, n_layers)
+planner 3.27 M params
+  step     0 loss 0.7560  16s
+  step   500 loss 0.0907  23s
+  step  1000 loss 0.0810  29s
+  step  1500 loss 0.0810  36s
+  step  2000 loss 0.0722  43s
+  step  2500 loss 0.0583  50s
+  step  3000 loss 0.0553  57s
+  step  3500 loss 0.0588  64s
+  step  3999 loss 0.0571  71s
+  [rpmc] held-out bar-knob R2: hue_cos -187.12/-187.07 hue_sin -16.70/-16.69 sat -188.57/-188.38 level_z -0.03/-0.12 peak_z -0.04/-0.14 hue_conc -8.65/-8.71 activity_z +0.00/-0.11 look_log1p -0.06/-0.15
+  [jd] held-out bar-knob R2: hue_cos -13.25/-13.30 hue_sin -3.38/-3.58 sat -2.55/-2.78 level_z -0.03/-0.10 peak_z -290927.09/-290927.19 hue_conc -1.46/-1.77 activity_z +0.11/-0.20 look_log1p +0.03/-0.20
+{
+ "causal": false,
+ "corpora": "rpmc,jd",
+ "n_songs": 928,
+ "per_corpus": {
+  "rpmc": {
+   "n_test": 86,
+   "r2": {
+    "hue_cos": -187.12339782714844,
+    "hue_sin": -16.697107315063477,
+    "sat": -188.57395935058594,
+    "level_z": -0.03135140240192413,
+    "peak_z": -0.04128333553671837,
+    "hue_conc": -8.649740219116211,
+    "activity_z": 0.002208325080573559,
+    "look_log1p": -0.06456679850816727
+   },
+   "r2_shuffled_sections": {
+    "hue_cos": -187.07273864746094,
+    "hue_sin": -16.688400268554688,
+    "sat": -188.3820343017578,
+    "level_z": -0.1215335950255394,
+    "peak_z": -0.1421535462141037,
+    "hue_conc": -8.70943832397461,
+    "activity_z": -0.11350620537996292,
+    "look_log1p": -0.1469002068042755
+   }
+  },
+  "jd": {
+   "n_test": 38,
+   "r2": {
+    "hue_cos": -13.251559257507324,
+    "hue_sin": -3.381624698638916,
+    "sat": -2.5450704097747803,
+    "level_z": -0.029927972704172134,
+    "peak_z": -290927.09375,
+    "hue_conc": -1.4648888111114502,
+    "activity_z": 0.11472176015377045,
+    "look_log1p": 0.029277456924319267
+   },
+   "r2_shuffled_sections": {
+    "hue_cos": -13.299633026123047,
+    "hue_sin": -3.5795071125030518,
+    "sat": -2.7810816764831543,
+    "level_z": -0.10347847640514374,
+    "peak_z": -290927.1875,
+    "hue_conc": -1.7725504636764526,
+    "activity_z": -0.20048277080059052,
+    "look_log1p": -0.20021894574165344
+   }
+  }
+ }
+}

@@ -1,0 +1,19 @@
+332 songs, 6s
+song-ID kNN probe: embedding halves match their own song 83.4% (bus scalars 3.6%, chance 0.30%)
+  bus                AP 0.1751  dAP +0.0000 CI [+0.0000,+0.0000]  shift 0.1194
+  bus+sem32          AP 0.1939  dAP +0.0188 CI [+0.0163,+0.0213]  shift 0.1176
+  bus+rhy32          AP 0.1943  dAP +0.0192 CI [+0.0167,+0.0217]  shift 0.1174
+  bus+sem32_resid    AP 0.1926  dAP +0.0175 CI [+0.0153,+0.0200]  shift 0.1174
+  bus+rhy32_resid    AP 0.1931  dAP +0.0180 CI [+0.0155,+0.0206]  shift 0.1170
+  bus+randproj32     AP 0.1751  dAP -0.0000 CI [-0.0000,+0.0000]  shift 0.1194
+  sem32_only         AP 0.1791  dAP +0.0040 CI [-0.0007,+0.0087]  shift 0.1122
+{
+ "G9.7-emb": {
+  "passed": false,
+  "evidence": "exp-016 ridge on JD visual events, 332 held-out songs, base AP 0.1751: bus+sem32 dAP +0.0188 CI [0.0163, 0.0213]; bus+rhy32 dAP +0.0192 CI [0.0167, 0.0217]; bus+sem32_resid dAP +0.0175 CI [0.0153, 0.02]; bus+rhy32_resid dAP +0.0180 CI [0.0155, 0.0206]; bus+randproj32 dAP -0.0000 CI [-0.0, 0.0]; sem32_only dAP +0.0040 CI [-0.0007, 0.0087]. Best group bus+rhy32: raw +0.0192, after subtracting the song mean +0.0180, random projection -0.0000 (gate: residual >= +0.02 over the bus and over the random projection)."
+ },
+ "G9.7-leak": {
+  "passed": true,
+  "evidence": "song-ID kNN probe: two halves of a song find each other 83.4% of the time on the raw embedding (bus scalars 3.6%, chance 0.30%); gain kept after subtracting the song mean: +0.0180 of +0.0192."
+ }
+}

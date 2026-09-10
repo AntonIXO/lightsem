@@ -1,0 +1,5 @@
+Selected model is a bag of 1 models. You will see that many progress bars per track.
+Separated tracks will be stored in /tmp/claude-0/-root-lightsem/71c8c079-19a2-4ec4-bea5-2ce7db778b3e/scratchpad/demucs_out/htdemucs
+Separating track /tmp/claude-0/-root-lightsem/71c8c079-19a2-4ec4-bea5-2ce7db778b3e/scratchpad/demucs_clip.wav
+  0%|                                                                     | 0.0/17.549999999999997 [00:00<?, ?seconds/s] 33%|████████████████████                                        | 5.85/17.549999999999997 [00:00<00:00, 11.95seconds/s]100%|██████████████████████████████████████████████| 17.549999999999997/17.549999999999997 [00:00<00:00, 32.56seconds/s]100%|██████████████████████████████████████████████| 17.549999999999997/17.549999999999997 [00:00<00:00, 27.76seconds/s]
+EXIT 0

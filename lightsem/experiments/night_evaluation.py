@@ -1,7 +1,7 @@
 """Fixed complete evaluation of all12cells; native claims and rig changes stay separate."""
 from pathlib import Path
 from dataclasses import replace
-import argparse,gc,json,time
+import argparse,gc,json,time,hashlib
 import numpy as np
 import torch
 from .night_common import ROOT,BASE,STAGE,ARMS,SEEDS,base_context
@@ -21,10 +21,17 @@ DRAW_SEEDS=(101,102,103,104,105,106)
 MODES=('full','noise2','zero','beat_only6','donor_full','donor_clock_fixed','shift_four_bars','aux_only_donor','core_only_donor')
 
 @torch.no_grad()
-def generate_groups(model,x,seeds=DRAW_SEEDS,steps=8,chunk=640):
+def generate_groups(model,x,seeds=DRAW_SEEDS,steps=8,chunk=640,*,encoded=None,precision='fp32'):
+    if precision not in ('fp32','bf16'):
+        raise ValueError('Inference precision must be fp32 or bf16')
+    with torch.autocast('cuda',dtype=torch.bfloat16,enabled=precision=='bf16'):
+        return _generate_groups(model,x,seeds,steps,chunk,encoded=encoded)
+
+def _generate_groups(model,x,seeds,steps,chunk,*,encoded=None):
     """Reuse the audio encoder; every fixture style is a whole temporal model draw."""
     if next(model.parameters()).device.type!='cuda':raise RuntimeError('GPU model required')
-    model.eval();x=x.cuda();h=model.encode_audio_chunked(x,chunk,output_device='cuda')
+    model.eval();x=x.cuda();h=model.encode_audio_chunked(x,chunk,output_device='cuda') if encoded is None else encoded
+    if h.shape[:2]!=x.shape[:2]:raise ValueError('Cached encoder shape mismatch')
     z=torch.cat([noise_for(x.shape[1],s) for s in seeds],0).cuda();hh=h.expand(len(seeds),-1,-1)
     radius=model.cfg.velocity_radius
     for step in range(steps):
@@ -37,7 +44,7 @@ def generate_groups(model,x,seeds=DRAW_SEEDS,steps=8,chunk=640):
     a=model.a_head(h).expand(len(seeds),-1,-1);b=torch.sigmoid(model.b_head(h))[0]
     out=torch.cat((a,z),2)
     if not torch.isfinite(out).all() or not torch.isfinite(b).all():raise FloatingPointError('Nonfinite generated controls')
-    return out.cpu().numpy(),b.cpu().numpy()
+    return out.float().cpu().numpy(),b.float().cpu().numpy()
 
 def conditioning_modes(raw,aux,donor,donor_aux,means,aux_mean):
     period=float(np.median(raw[:,91]));shift=int(round(16*period*40))
@@ -114,8 +121,9 @@ def prepare_inputs(root=ROOT):
 def infer_cell(arm,seed,root=ROOT):
     root=Path(root);folder=root/'evaluation'/arm/f'seed_{seed}';folder.mkdir(parents=True,exist_ok=True)
     model,checkpoint,p,n=load_cell(arm,seed,root);rig=canonical_rig();cfg=ExpressionConfig(**read_authenticated(root/'expression_config.json'))
-    family=arm.split('_')[0];auxnorm=None if family=='base' else read_authenticated(root/'features'/family/'training_array.json')
-    rows=inputs(root);prepared=read_authenticated(root/'evaluation/input_manifest.json')
+    feature_root=Path(p.get('feature_root',root))
+    family=arm.split('_')[0];auxnorm=None if family=='base' else read_authenticated(feature_root/'features'/family/'training_array.json')
+    rows=inputs(root);prepared=read_authenticated(feature_root/'evaluation/input_manifest.json')
     reports=[];begin=time.monotonic()
     for i,row in enumerate(rows):
         key=row['entry']['key'];dest=folder/key;dest.mkdir(exist_ok=True);rp=dest/'report.json'
@@ -127,23 +135,35 @@ def infer_cell(arm,seed,root=ROOT):
         with np.load(row['path']) as z:
             raw=z['x'];truth=(z['y'].astype(np.float32)-np.asarray(n['y_center'],np.float32))/np.asarray(n['y_scale'],np.float32);b=z['b']
         source=prepared['rows'][family+'/'+key]
-        preds={};events={};dmx={};paths=[];full_trace=None
+        preds={};events={};dmx={};paths=[];full_trace=None;encoded=None;output_hashes={}
+        save_arrays=not p.get('compact_artifacts',False) or key in p['evaluation']['render_entries']
         for mode in MODES:
             file=source['files'][mode]
+            if mode=='noise2' and file['sha256']!=source['files']['full']['sha256']:
+                raise ValueError('Encoder reuse requires identical full/noise2 input')
             if digest(file['path'])!=file['sha256']:raise RuntimeError('Prepared conditioning drift')
             with np.load(file['path']) as z:xx=z['raw_audio'];aa=z['auxiliary']
             seeds=tuple(s+1000 for s in DRAW_SEEDS) if mode=='noise2' else DRAW_SEEDS
-            y,event=generate_groups(model,normalized_input(xx,aa,n,auxnorm,file['aux_missing']),seeds=seeds,steps=8)
+            xx=normalized_input(xx,aa,n,auxnorm,file['aux_missing'])
+            if mode=='full':
+                with torch.no_grad():encoded=model.encode_audio_chunked(xx.cuda(),640,output_device='cuda')
+            y,event=generate_groups(model,xx,seeds=seeds,steps=8,encoded=encoded if mode in ('full','noise2') else None)
             frames,trace,mapping=compose_scene(y,n['target_names'],len(raw)/40.,event_scores=event,rig=rig,config=cfg)
             preds[mode]=y;events[mode]=event;dmx[mode]=frames
             if mode=='full':full_trace=trace
-            path=dest/(mode+'.npz');np.savez_compressed(path,standardized=y,event_scores=event,dmx=frames,
-                noise_seeds=np.asarray(seeds),**(trace if mode=='full' else {}))
-            paths.append(path)
+            output_hashes[mode]={name:{'sha256':hashlib.sha256(np.ascontiguousarray(a).tobytes()).hexdigest(),
+                                      'shape':list(a.shape),'dtype':str(a.dtype)}
+                                 for name,a in [('standardized',y),('event_scores',event),('dmx',frames)]}
+            if save_arrays:
+                path=dest/(mode+'.npz');np.savez_compressed(path,standardized=y,event_scores=event,dmx=frames,
+                    noise_seeds=np.asarray(seeds),**(trace if mode=='full' else {}))
+                paths.append(path)
+        hashes_path=dest/'output_hashes.json';authenticated_json(hashes_path,output_hashes);paths.append(hashes_path)
         metrics=song_metrics(truth,preds,events,b,dmx,full_trace,raw,n['target_names'],rig)
+        metrics['a_mse']=float(np.square(preds['full'][0,:,:4].astype(float)-truth[:,:4]).mean())
         r={'key':key,'canonical_id':row['entry']['canonical_id'],'arm':arm,'seed':seed,'checkpoint_sha256':checkpoint,
            'input_sha256':row['sha256'],'donor_key':source['donor_key'],'shift_frames':source['shift_frames'],'metrics':metrics,
-           'conditioning_inputs':source['files'],
+           'conditioning_inputs':source['files'],'retained_arrays':save_arrays,'inference_precision':'fp32',
            'artifacts':artifact_manifest(paths),'protocol_sha256':digest(root/'protocol.json')}
         authenticated_json(rp,r);reports.append(r)
         print(json.dumps({'stage':'evaluate','arm':arm,'seed':seed,'song':i+1,'energy_score':metrics['energy_score']['full'],

@@ -1,0 +1,4 @@
+/root/lightsem/train_planner.py:77: UserWarning: enable_nested_tensor is True, but self.use_nested_tensor is False because encoder_layer.norm_first was True
+  self.enc = nn.TransformerEncoder(layer, n_layers)
+shpongle: 277 s, tempo 90.0 bpm, bus + features in 10s
+  wrote shpongle__decoder_v1_onbeat.mp4 (28s)  BAS-null +0.595 events 415

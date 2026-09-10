@@ -1,0 +1,20 @@
+corpus cue rate 5.23/min -> threshold 0.90
+{
+ "tag": "jdvis",
+ "n_test": 38,
+ "threshold": 0.9,
+ "corpus_cue_rate": 5.229464017148025,
+ "lift": {
+  "true_hazard": 3.171388626098633,
+  "own_cues": 1.8251134157180786,
+  "audio_only": 2.3185958862304688,
+  "own_cue_rate": 4.367879390716553
+ },
+ "own_minus_audio": {
+  "delta": -0.4934823513031006,
+  "ci95": [
+   -0.9386930465698242,
+   -0.1536560207605362
+  ]
+ }
+}

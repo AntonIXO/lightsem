@@ -52,13 +52,20 @@ class NightModel(BeatConditionedModel):
             h=self.encode_audio(x[:,lo:hi].cuda());out[:,start:end]=h[:,start-lo:end-lo].to(output_device)
         return out
 
-    def losses(self,x,y,b,pos_weight,*,generator,beat_dropout=.25):
+    def loss_inputs(self,x,y,generator,beat_dropout=.25):
         keep=(torch.rand((len(x),1,1),device=x.device,generator=generator)>=beat_dropout)
         # The five EXPLICIT clock channels, not every column after 87.
         x=torch.cat((x[:,:,:87],x[:,:,87:92]*keep,x[:,:,92:]),dim=2)
-        h=self.encode_audio(x);a=F.mse_loss(self.a_head(h),y[:,:,:4])
-        events=F.binary_cross_entropy_with_logits(self.b_head(h),b,pos_weight=pos_weight)
         z=torch.randn(y[:,:,4:].shape,device=x.device,generator=generator)
         t=torch.rand((len(x),1,1),device=x.device,generator=generator)
+        return x,z,t
+
+    def losses_from_draws(self,x,y,b,pos_weight,z,t):
+        h=self.encode_audio(x);a=F.mse_loss(self.a_head(h),y[:,:,:4])
+        events=F.binary_cross_entropy_with_logits(self.b_head(h),b,pos_weight=pos_weight)
         flow=F.mse_loss(self.velocity_from_h(h,(1-t)*z+t*y[:,:,4:],t),y[:,:,4:]-z)
         return {'a':a,'b':events,'c_flow':flow,'total':a+.3*events+flow}
+
+    def losses(self,x,y,b,pos_weight,*,generator,beat_dropout=.25):
+        x,z,t=self.loss_inputs(x,y,generator,beat_dropout)
+        return self.losses_from_draws(x,y,b,pos_weight,z,t)

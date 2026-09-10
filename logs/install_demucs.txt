@@ -1,0 +1,12 @@
+Using Python 3.12.13 environment at: /mnt/lightsem-data/venv-torch
+Resolved 47 packages in 1.16s
+Downloading sphn (17.3MiB)
+ Downloaded sphn
+Prepared 5 packages in 1.04s
+Installed 5 packages in 5ms
+ + demucs==4.1.0
+ + einops==0.8.2
+ + julius==0.2.8
+ + lameenc==1.8.4
+ + sphn==0.2.1
+EXIT 0

@@ -7,6 +7,7 @@ import torch
 from .night_common import ROOT,ARMS,SEEDS,base_context
 from .night_model import NightModel
 from .beat_conditioned_training import Resident
+from .training_runtime import TrainingRuntime, BatchStream, backward_checked, runtime_loss
 from .stage11_common import (authenticated_json,read_authenticated,atomic_json,atomic_torch,digest,
     json_digest,seed_all,rng_state,restore_rng,artifact_manifest,verify_artifacts,verify_sources,gpu_lock,require_space)
 
@@ -27,13 +28,20 @@ class NightResident(Resident):
         self.aux_mean=torch.tensor(info['mean'],device='cuda',dtype=torch.float32)
         self.aux_std=torch.tensor(info['std'],device='cuda',dtype=torch.float32)
 
-    def batch(self,size,frames,rng,return_index=False):
+    def draw_indices(self,size,frames,rng):
+        # Preserve the legacy 32-crop stream when grouping larger batches.
+        if size>32 and size%32==0:
+            return np.concatenate([self.draw_indices(32,frames,rng) for _ in range(size//32)])
         selected=[]
         for _ in range(size):
             records=self.groups[int(rng.integers(len(self.groups)))];coaches=records[int(rng.integers(len(records)))]
             selected.append(coaches[int(rng.integers(len(coaches)))])
         selected=np.asarray(selected);off=np.asarray([rng.integers(self.lengths[i]-frames+1) for i in selected])
         ix=self.starts[selected,None]+off[:,None]+np.arange(frames)[None]
+        return ix
+
+    def batch(self,size,frames,rng,return_index=False):
+        ix=self.draw_indices(size,frames,rng)
         index=torch.as_tensor(ix,device='cuda');x=self.x[index]
         if self.host_aux is not None:
             a=torch.from_numpy(np.asarray(self.host_aux[ix])).to(device='cuda',dtype=torch.float32)
@@ -84,7 +92,8 @@ def study_context(root=ROOT):
         if digest(path)!=sha:raise RuntimeError('Frozen input changed: '+path)
     return p,m,n,{'protocol_sha256':digest(root/'protocol.json'),'source_sha256':f['source_sha256']}
 
-def run_cell(arm,seed,data,root=ROOT,resume=False):
+def run_cell(arm,seed,data,root=ROOT,resume=False,initial_overhead=0.):
+    complete_begin=time.monotonic()-initial_overhead
     root=Path(root);p,m,n,identity=study_context(root);cfg=p['training'];run=root/'runs'/arm/f'seed_{seed}'
     if (run/'report.json').exists():
         r=read_authenticated(run/'report.json');verify_artifacts(r['artifacts'])
@@ -97,12 +106,16 @@ def run_cell(arm,seed,data,root=ROOT,resume=False):
     if resume_this and not ((run/'initial.pt').exists() or (run/'latest.pt').exists()):raise RuntimeError('Unrecognized partial run: '+str(run))
     run.mkdir(parents=True,exist_ok=True);family,architecture=arm.split('_');data.set_family(family)
     seed_all(seed);model=NightModel(family,architecture,data.aux_dim).cuda()
-    opt=torch.optim.AdamW(model.parameters(),lr=cfg['lr'],weight_decay=.01)
+    runtime=TrainingRuntime(**cfg.get('runtime',{'precision':cfg.get('precision','fp32')}))
+    if cfg.get('precision',runtime.precision)!=runtime.precision:
+        raise ValueError('Conflicting training precision and runtime identity')
+    runtime.apply()
+    opt=runtime.make_optimizer(model,cfg['lr']);loss_fn=runtime.loss_function(model)
     total=cfg['steps'];warm=cfg['warmup']
     schedule=lambda s:min(1.,(s+1)/warm)*(.1+.9*.5*(1+math.cos(math.pi*max(0,s-warm)/max(1,total-warm))))
     sch=torch.optim.lr_scheduler.LambdaLR(opt,schedule);rng=np.random.default_rng(10000+seed)
     flow_rng=torch.Generator(device='cuda').manual_seed(30000+seed)
-    pos=torch.tensor(n['pos_weight'],device='cuda',dtype=torch.float32);start=0;elapsed=0.
+    pos=torch.tensor(n['pos_weight'],device='cuda',dtype=torch.float32);start=0;elapsed=0.;prior_complete=0.
     identity={**identity,'arm':arm,'seed':seed,'training':cfg,'model_config':model.config_dict()}
     if resume_this:
         checkpoint=run/'latest.pt' if (run/'latest.pt').exists() else run/'initial.pt'
@@ -112,6 +125,7 @@ def run_cell(arm,seed,data,root=ROOT,resume=False):
         if 'optimizer' in z:
             opt.load_state_dict(z['optimizer']);sch.load_state_dict(z['scheduler'])
             restore_rng(z['rng'],rng);flow_rng.set_state(z['flow_rng'].cpu());start=z['step'];elapsed=z['training_seconds']
+            prior_complete=z.get('complete_seconds',elapsed)
         log_path=run/'training.jsonl'
         if log_path.exists():
             copy=run/f'training_before_resume_{time.time_ns()}.jsonl';shutil.copy2(log_path,copy)
@@ -121,26 +135,32 @@ def run_cell(arm,seed,data,root=ROOT,resume=False):
     else:atomic_torch(run/'initial.pt',{'model':model.state_dict(),'identity':identity,'normalizers':n,'step':0})
     def save(step):
         z={'model':model.state_dict(),'optimizer':opt.state_dict(),'scheduler':sch.state_dict(),'rng':rng_state(rng),
-           'flow_rng':flow_rng.get_state(),'step':step,'training_seconds':elapsed,'identity':identity,'normalizers':n}
+           'flow_rng':flow_rng.get_state(),'step':step,'training_seconds':elapsed,
+           'complete_seconds':prior_complete+time.monotonic()-complete_begin,'identity':identity,'normalizers':n}
         atomic_torch(run/'latest.pt',z);return z
-    model.train();torch.cuda.reset_peak_memory_stats();wall=time.monotonic()
-    with (run/'training.jsonl').open('a') as log:
+    model.train();torch.cuda.reset_peak_memory_stats();wall=time.monotonic();interval=wall
+    with BatchStream(data,cfg['batch'],cfg['frames'],rng,runtime.prefetch) as batches, (run/'training.jsonl').open('a') as log:
         for step in range(start,total):
-            torch.cuda.synchronize();begin=time.monotonic();x,y,b=data.batch(cfg['batch'],cfg['frames'],rng)
-            opt.zero_grad(set_to_none=True);losses=model.losses(x,y,b,pos,generator=flow_rng,beat_dropout=cfg['beat_dropout'])
-            if not all(torch.isfinite(v) for v in losses.values()):raise FloatingPointError('Nonfinite loss')
-            losses['total'].backward();grad=torch.nn.utils.clip_grad_norm_(model.parameters(),1.)
-            if not torch.isfinite(grad):raise FloatingPointError('Nonfinite gradient')
-            opt.step();sch.step();torch.cuda.synchronize();elapsed+=time.monotonic()-begin
+            x,y,b=batches.next()
+            opt.zero_grad(set_to_none=True)
+            losses=runtime_loss(model,loss_fn,runtime,x,y,b,pos,flow_rng,cfg['beat_dropout'])
+            grad=backward_checked(losses,model)
+            opt.step();sch.step()
             if step==0 or (step+1)%100==0 or step+1==total:
+                torch.cuda.synchronize();now=time.monotonic();elapsed+=now-interval;interval=now
                 row={'arm':arm,'seed':seed,'step':step+1,**{k:float(v.detach()) for k,v in losses.items()},
                      'grad':float(grad),'lr':sch.get_last_lr()[0],'training_seconds':elapsed}
                 log.write(json.dumps(row)+'\n');log.flush();atomic_json(run/'status.json',row);atomic_json(root/'status.json',row)
                 print(json.dumps(row),flush=True)
-            if (step+1)%1000==0:save(step+1)
+            if (step+1)%cfg.get('checkpoint_interval',1000)==0:
+                if (step+1)%100!=0:
+                    torch.cuda.synchronize();now=time.monotonic();elapsed+=now-interval;interval=now
+                save(step+1)
         final=save(total);atomic_torch(run/'final.pt',final)
-    r={'status':'completed','identity':identity,'steps':total,'training_seconds':elapsed,'wall_seconds':time.monotonic()-wall,
-       'gpu':torch.cuda.get_device_name(),'precision':'fp32','peak_gpu_gib':torch.cuda.max_memory_allocated()/2**30,
+    r={'status':'completed','identity':identity,'steps':total,'samples':total*cfg['batch'],
+       'training_seconds':elapsed,'wall_seconds':time.monotonic()-wall,'complete_seconds':prior_complete+time.monotonic()-complete_begin,
+       'gpu':torch.cuda.get_device_name(),'precision':runtime.precision,'runtime':runtime.as_dict(),
+       'peak_gpu_gib':torch.cuda.max_memory_allocated()/2**30,'peak_reserved_gib':torch.cuda.max_memory_reserved()/2**30,
        'parameters':sum(v.numel() for v in model.parameters()),'selection':'final_scheduled_step_only',
        'artifacts':artifact_manifest([run/'initial.pt',run/'final.pt',run/'latest.pt',run/'training.jsonl'])}
     authenticated_json(run/'report.json',r)
@@ -148,17 +168,20 @@ def run_cell(arm,seed,data,root=ROOT,resume=False):
 
 def campaign(root=ROOT,resume=False):
     root=Path(root);p,m,n,identity=study_context(root)
-    data=NightResident([e for e in m['entries'] if e['partition']=='train'],n,p['training']['frames'],root)
+    loading=time.monotonic()
+    data=NightResident([e for e in m['entries'] if e['partition']=='train'],n,p['training']['frames'],p.get('feature_root',root))
+    loading=time.monotonic()-loading
     rows=[]
     # Alternate architecture within a feature family; repeat the entire matrix at seed1.
-    for seed in SEEDS:
-        for arm in ARMS:
+    seeds=p.get('seeds',SEEDS);arms=p.get('arms',ARMS);planned=len(seeds)*len(arms)
+    for seed in seeds:
+        for arm in arms:
             require_space(root)
             rows.append(run_cell(arm,seed,data,root,resume=resume))
-            authenticated_json(root/'training_progress.json',{'completed':len(rows),'planned':12,
+            authenticated_json(root/'training_progress.json',{'completed':len(rows),'planned':planned,
                 'rows':[{'arm':r['identity']['arm'],'seed':r['identity']['seed'],'steps':r['steps']} for r in rows]})
-    authenticated_json(root/'training_report.json',{'identity':identity,'rows':rows,
-        'training_seconds':sum(r['training_seconds'] for r in rows),'all_cells_complete':len(rows)==12})
+    authenticated_json(root/'training_report.json',{'identity':identity,'rows':rows,'loading_seconds':loading,
+        'training_seconds':sum(r['training_seconds'] for r in rows),'all_cells_complete':len(rows)==planned})
 
 if __name__=='__main__':
     p=argparse.ArgumentParser();p.add_argument('stage',choices=['preflight','campaign']);p.add_argument('--root',type=Path,default=ROOT);p.add_argument('--resume',action='store_true')

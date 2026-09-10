@@ -1,0 +1,72 @@
+{
+  "audited_at_utc": "2026-09-07T20:24:55.652586+00:00",
+  "claude_source": "/root/.claude/projects/-root-lightsem/71c8c079-19a2-4ec4-bea5-2ce7db778b3e.jsonl",
+  "claude_source_sha256": "7bb58d94188671968c93f12c59ce7ab21d8a84c93609bafb7f8944eec78e0d9c",
+  "tensor_meta_sha256": "be1abc82411f1d340ea5f97184fae011dd3b43e748e5e1b4048f463d2e650c0a",
+  "tensor_clips": 453,
+  "tensor_song_keys": 294,
+  "motion_validation_clips": 39,
+  "decoder_membership_of_motion_validation_clips": {
+    "train": 30,
+    "val": 5,
+    "test": 4
+  },
+  "decoder_membership_of_motion_validation_recordings": {
+    "train": 22,
+    "test": 2,
+    "val": 5
+  },
+  "visual_duplicate_groups_across_splits": {
+    "when the rain begins to fall": {
+      "UD8feFd_5To": "val",
+      "VuGeHBLoQHE": "train"
+    },
+    "like i would": {
+      "TB7eiCGpg6g": "val",
+      "NVgI3Ai1vW0": "train"
+    },
+    "automaton": {
+      "vPu3WGIoyD4": "test",
+      "rWo5v_99zn0": "train"
+    },
+    "despacito": {
+      "BZ5C-lq6Kzw": "train",
+      "8aFpbjK64fk": "val"
+    },
+    "kissing strangers": {
+      "t5v8b_Bbd94": "train",
+      "PlkCV4Ey-B4": "val"
+    },
+    "bang bang bang": {
+      "0sd0QegCq0s": "train",
+      "LbqcN7JhTss": "val"
+    }
+  },
+  "manifest_rows": 675,
+  "usable_manifest_rows": 669,
+  "pose_npz_filenames": 530,
+  "cache_npz_counts": {
+    "justdance_audio": 332,
+    "justdance_motion": 453,
+    "justdance_structure": 332,
+    "justdance_visual": 332
+  },
+  "song_metadata_rows": 338,
+  "stage9_demo_mp4_count": 10,
+  "hl_pair_count": 39,
+  "hl_ratings_exists": false,
+  "verification": {
+    "syntax_parse_python_files": 169,
+    "syntax_errors": 0,
+    "targeted_checks_passed": 5,
+    "targeted_checks_failed": 0,
+    "targeted_checks_skipped": 12
+  },
+  "limitations": [
+    "No training or full GPU verification rerun.",
+    "Pose counts are completed filenames, not a full content-quality audit.",
+    "Connected Vibescience reports zero records; project markdown vault used instead.",
+    "Perplexity reason and follow-up returned null answers.",
+    "Honcho retries returned Invalid API key."
+  ]
+}

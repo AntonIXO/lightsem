@@ -1,0 +1,82 @@
+/root/lightsem/train_planner.py:77: UserWarning: enable_nested_tensor is True, but self.use_nested_tensor is False because encoder_layer.norm_first was True
+  self.enc = nn.TransformerEncoder(layer, n_layers)
+  [1] RocuEwLM5fQ_c0 bas no-planner -0.020 plan -0.011 shuffled -0.013  13s
+  [11] NI31AWYYuFI_c2 bas no-planner -0.137 plan -0.145 shuffled -0.153  73s
+  [21] 981MHMgULkk_c0 bas no-planner -0.064 plan -0.049 shuffled -0.060  142s
+  [31] 981MHMgULkk_c1 bas no-planner -0.097 plan -0.142 shuffled -0.126  200s
+{
+ "fid_light": {
+  "conductor": 43.81525816472613,
+  "no_planner": 6211.285292875839,
+  "plan": 597.3400826034464,
+  "plan_shuffled": 610.4552249159094,
+  "plan_causal": 589.8317746404209,
+  "real_vs_block_shuffled": 4157.915813791796,
+  "split_half_floor": {
+   "mean": 7.217008503661549,
+   "sd": 1.708175870484152,
+   "n_rep": 20
+  }
+ },
+ "bas_minus_null": {
+  "real": {
+   "delta": 0.0804378076725229,
+   "ci95": [
+    0.0717941161923407,
+    0.0910016682950876
+   ],
+   "n_no_events": 0
+  },
+  "conductor": {
+   "delta": 0.1240979612762214,
+   "ci95": [
+    0.11495135087381984,
+    0.13307621147097307
+   ],
+   "n_no_events": 0
+  },
+  "no_planner": {
+   "delta": -0.054541526447693466,
+   "ci95": [
+    -0.0687195396299717,
+    -0.041725145877463954
+   ],
+   "n_no_events": 0
+  },
+  "plan": {
+   "delta": -0.061288440542821315,
+   "ci95": [
+    -0.0777827083594352,
+    -0.04543035753059849
+   ],
+   "n_no_events": 0
+  },
+  "plan_shuffled": {
+   "delta": -0.05977734588729657,
+   "ci95": [
+    -0.07533511059344576,
+    -0.04531718126057242
+   ],
+   "n_no_events": 0
+  },
+  "plan_causal": {
+   "delta": -0.05761135417448837,
+   "ci95": [
+    -0.07286006711339343,
+    -0.04355775162421337
+   ],
+   "n_no_events": 0
+  }
+ },
+ "events_per_clip": {
+  "real": 888.0769230769231,
+  "conductor": 771.4615384615385,
+  "no_planner": 1039.3076923076924,
+  "plan": 966.5384615384615,
+  "plan_shuffled": 964.7948717948718,
+  "plan_causal": 988.6153846153846
+ }
+}
+G9.4-shuffle: PASS -- FID_light vs real: plan 597.34, shuffled-section plan 610.46, no planner 6211.29, causal planner 589.83, conductor 43.82 (null 4157.92, floor 7.22). The human 'intentionally structured' question was not run (needs raters).
+G9.4-bas: FAIL -- paired Light-BAS minus null: plan -0.0613 vs no planner -0.0545 (paired diff -0.0067 CI [-0.0116, -0.0023]); shuffled -0.0598, causal -0.0576; events per clip plan 966.5 vs no planner 1039.3 vs real 888.1.
+G9.4-causal: PASS -- offline planner FID 597.34 / BAS -0.0613 next to the causal planner FID 589.83 / BAS -0.0576.

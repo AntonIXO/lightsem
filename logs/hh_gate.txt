@@ -1,0 +1,62 @@
+298 maps loaded in 25s
+beat grid vs map BPM: {"features_10hz": {"1": 193, "1/2": 62, "2/3": 23, "3/4": 3, "4/3": 3, "other": 14, "exact_frac": 0.6476510067114094}, "bus_40fps": {"1": 184, "1/2": 45, "2/3": 34, "3/4": 8, "4/3": 3, "other": 24, "exact_frac": 0.6174496644295302}}
+
+[ev_scene] rate 0.127  AP: base 0.152  haz 0.165  audio 0.170  audio_haz 0.191  offline 0.210  offline_haz 0.228  oracle_grid 0.175  bt 0.150
+   lift: base 1.24  haz 1.26  audio 1.40  audio_haz 1.53  offline 1.77  offline_haz 1.88  oracle_grid 1.45  bt 1.22
+   audio      shift-null AP -8s 0.118 -4s 0.126 -2s 0.144 +2s 0.136 +4s 0.132 +8s 0.128   audio-minus-shift +0.039
+   audio_haz  shift-null AP -8s 0.145 -4s 0.143 -2s 0.088 +2s 0.131 +4s 0.130 +8s 0.128   audio-minus-shift +0.064
+   offline    shift-null AP -8s 0.121 -4s 0.127 -2s 0.135 +2s 0.136 +4s 0.131 +8s 0.129   audio-minus-shift +0.080
+   bt         shift-null AP -8s 0.131 -4s 0.129 -2s 0.136 +2s 0.132 +4s 0.125 +8s 0.127   audio-minus-shift +0.020
+   audio - beat-trigger +0.020 CI [0.014 0.026]   offline - bt +0.060
+
+[ev_state] rate 0.523  AP: base 0.515  haz 0.662  audio 0.584  audio_haz 0.670  offline 0.613  offline_haz 0.692  oracle_grid 0.584  bt 0.535
+   lift: base 1.06  haz 1.57  audio 1.14  audio_haz 1.57  offline 1.28  offline_haz 1.72  oracle_grid 1.15  bt 1.11
+   audio      shift-null AP -8s 0.536 -4s 0.565 -2s 0.572 +2s 0.566 +4s 0.555 +8s 0.533   audio-minus-shift +0.030
+   audio_haz  shift-null AP -8s 0.600 -4s 0.635 -2s 0.650 +2s 0.605 +4s 0.577 +8s 0.538   audio-minus-shift +0.070
+   offline    shift-null AP -8s 0.532 -4s 0.555 -2s 0.567 +2s 0.571 +4s 0.560 +8s 0.538   audio-minus-shift +0.059
+   bt         shift-null AP -8s 0.515 -4s 0.525 -2s 0.529 +2s 0.526 +4s 0.523 +8s 0.512   audio-minus-shift +0.013
+   audio - beat-trigger +0.049 CI [0.04  0.059]   offline - bt +0.078
+events 83s
+envelope features ready 35s
+  env back_lasers    tau 0.5s  R2 audio +0.135  shift-null +0.079  beat-trigger +0.037  offline +0.137  (n 283)
+  env back_lasers    tau 2.0s  R2 audio +0.185  shift-null +0.121  beat-trigger +0.075  offline +0.186  (n 283)
+  env center_lights  tau 0.5s  R2 audio +0.141  shift-null +0.074  beat-trigger +0.111  offline +0.145  (n 286)
+  env center_lights  tau 2.0s  R2 audio +0.177  shift-null +0.106  beat-trigger +0.146  offline +0.180  (n 286)
+  env extra_3        tau 0.5s  R2 audio -0.081  shift-null -0.060  beat-trigger -0.034  offline -0.146  (n 13)
+  env extra_3        tau 2.0s  R2 audio -0.084  shift-null -0.068  beat-trigger -0.040  offline -0.157  (n 13)
+  env extra_4        tau 0.5s  R2 audio -0.059  shift-null -0.019  beat-trigger -0.012  offline -0.116  (n 11)
+  env extra_4        tau 2.0s  R2 audio -0.057  shift-null -0.014  beat-trigger -0.016  offline -0.116  (n 11)
+  env extra_left     tau 0.5s  R2 audio +0.016  shift-null +0.012  beat-trigger -0.019  offline -0.003  (n 25)
+  env extra_left     tau 2.0s  R2 audio +0.026  shift-null +0.021  beat-trigger -0.020  offline +0.006  (n 25)
+  env extra_right    tau 0.5s  R2 audio -0.029  shift-null -0.051  beat-trigger -0.017  offline -0.078  (n 13)
+  env extra_right    tau 2.0s  R2 audio -0.049  shift-null -0.068  beat-trigger -0.022  offline -0.109  (n 13)
+  env left_lasers    tau 0.5s  R2 audio +0.176  shift-null +0.110  beat-trigger -0.009  offline +0.179  (n 274)
+  env left_lasers    tau 2.0s  R2 audio +0.234  shift-null +0.162  beat-trigger -0.003  offline +0.237  (n 274)
+  env right_lasers   tau 0.5s  R2 audio +0.182  shift-null +0.114  beat-trigger -0.007  offline +0.187  (n 274)
+  env right_lasers   tau 2.0s  R2 audio +0.240  shift-null +0.166  beat-trigger +0.000  offline +0.245  (n 274)
+  env ring_lights    tau 0.5s  R2 audio +0.150  shift-null +0.086  beat-trigger +0.125  offline +0.154  (n 285)
+  env ring_lights    tau 2.0s  R2 audio +0.194  shift-null +0.126  beat-trigger +0.167  offline +0.198  (n 285)
+  env v3_groups      tau 0.5s  R2 audio -0.026  shift-null -0.030  beat-trigger -0.019  offline -0.049  (n 342)
+  env v3_groups      tau 2.0s  R2 audio -0.026  shift-null -0.029  beat-trigger -0.019  offline -0.053  (n 342)
+envelopes 257s
+
+group-count control: R2 rms-only +0.183  full bus +0.256
+
+GATE {
+ "G9.2-shift": {
+  "events_margin": 0.03929553219363094,
+  "envelope_margin": 0.03191313614156469,
+  "passed": false
+ },
+ "G9.2-bt": {
+  "events_margin": 0.020399667615435414,
+  "envelope_margin": 0.05715698399274586,
+  "passed": false
+ },
+ "G9.2-L0": {
+  "causal_ap": 0.17008583203957142,
+  "offline_ap": 0.21000413494623935,
+  "passed": true
+ }
+}
+wrote /root/lightsem/outputs/stage9/hh_gate.json in 6.5 min

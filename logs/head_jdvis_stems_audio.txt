@@ -1,0 +1,50 @@
+332 songs: train 237 val 57 test 38
+params 3.59 M, in_dim 247
+  step     0 loss 1.3351  0s
+  step   500 loss 1.0021  58s
+  step  1000 loss 0.7288  116s
+  step  1500 loss 0.4316  174s
+  step  2000 loss 0.4611  230s
+  step  2500 loss 0.2803  288s
+  step  3000 loss 0.2160  339s
+  step  3500 loss 0.1940  382s
+  step  4000 loss 0.1910  424s
+  step  4500 loss 0.1537  457s
+  step  5000 loss 0.1134  490s
+  step  5500 loss 0.1716  523s
+  step  5999 loss 0.0966  554s
+{
+ "n_songs": 332,
+ "n_test": 38,
+ "shift_curve_s": {
+  "-8.0": 1.123016595840454,
+  "-6.0": 1.137311577796936,
+  "-4.0": 1.2798795700073242,
+  "-2.0": 1.7829031944274902,
+  "-1.0": 1.4950296878814697,
+  "0.0": 2.22257137298584,
+  "1.0": 1.6519420146942139,
+  "2.0": 1.4607172012329102,
+  "4.0": 1.3811242580413818,
+  "6.0": 1.2942293882369995,
+  "8.0": 1.1663768291473389
+ },
+ "shift_peak_s": 0.0,
+ "with_hazard": false,
+ "params_m": 3.588977,
+ "model_lift": 2.22257137298584,
+ "rhythm_lift": 1.4812017679214478,
+ "ridge_on_same_causal_features_lift": 2.3310794830322266,
+ "delta": 0.7413697242736816,
+ "ci95": [
+  0.3682238459587097,
+  1.1813936233520508
+ ],
+ "ridge_reference_delta": 0.3145,
+ "offline": false,
+ "horizon_s": 0.0,
+ "root": "/mnt/lightsem-data/cache/justdance_visual_stems",
+ "causality_leak": 0.0,
+ "train_s": 583.7922565937042,
+ "event_key": ""
+}

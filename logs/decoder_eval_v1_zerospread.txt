@@ -1,0 +1,100 @@
+30 clips prepared in 2s
+  [1/30] RocuEwLM5fQ_c0 gain 0.71 bas dec +0.497 cond +0.171  ev/clip dec 440 cond 688 real 989  transfer dec 0.189 copy 0.302  6s
+  [11/30] NI31AWYYuFI_c2 gain 0.51 bas dec +0.612 cond +0.149  ev/clip dec 348 cond 790 real 701  transfer dec 0.188 copy 0.283  51s
+  [21/30] 981MHMgULkk_c0 gain 0.56 bas dec +0.569 cond +0.132  ev/clip dec 235 cond 680 real 768  transfer dec 0.188 copy 0.291  159s
+{
+ "n_clips": 30,
+ "split": "val_track",
+ "ckpt": "/mnt/lightsem-data/ckpt/group_decoder_v1.pt",
+ "corpus_id": "jd",
+ "fid_light": {
+  "conductor": 44.461778475759,
+  "beat_trigger": 6746.453330047848,
+  "decoder": 1107.1537097364157,
+  "donor": 1100.2752963230569,
+  "engine_only": 1365.0006328028564,
+  "real_vs_block_shuffled": 3985.8787242021062,
+  "split_half_floor": {
+   "mean": 10.20406321514102,
+   "sd": 2.9697054040064432,
+   "n_rep": 20
+  }
+ },
+ "bas_minus_null": {
+  "real": {
+   "delta": 0.0824673915232115,
+   "ci95": [
+    0.07262988206695435,
+    0.09325627640377633
+   ],
+   "n_no_events": 0
+  },
+  "conductor": {
+   "delta": 0.1262655147656623,
+   "ci95": [
+    0.11628394012952226,
+    0.13659568907358946
+   ],
+   "n_no_events": 0
+  },
+  "beat_trigger": {
+   "delta": 0.0948648361653203,
+   "ci95": [
+    0.08446412050430055,
+    0.10640514267069451
+   ],
+   "n_no_events": 0
+  },
+  "decoder": {
+   "delta": 0.5052587076505309,
+   "ci95": [
+    0.48337613192198065,
+    0.5265710760562099
+   ],
+   "n_no_events": 0
+  },
+  "donor": {
+   "delta": 0.5151254583493541,
+   "ci95": [
+    0.4965837211817576,
+    0.5356708229939712
+   ],
+   "n_no_events": 0
+  },
+  "engine_only": {
+   "delta": 0.5189352527110447,
+   "ci95": [
+    0.49682239246803545,
+    0.5414917232183397
+   ],
+   "n_no_events": 0
+  }
+ },
+ "events_per_clip": {
+  "real": 889.2666666666667,
+  "conductor": 779.1,
+  "beat_trigger": 941.7666666666667,
+  "decoder": 393.1333333333333,
+  "donor": 353.4,
+  "engine_only": 430.4
+ },
+ "brightness_mean": {
+  "real": 0.22962969974812594,
+  "conductor": 0.20416149171322523,
+  "beat_trigger": 0.2789711771949743,
+  "decoder": 0.22981627687323955,
+  "donor": 0.2294296072886971,
+  "engine_only": 0.22042889332967616
+ },
+ "rig_transfer_hist_distance": {
+  "decoder": 0.19037377182700205,
+  "channel_copy": 0.29688690436947185
+ },
+ "bas_decoder_minus_conductor": 0.3789931928848687,
+ "flow": false,
+ "elapsed_s": 214.4088273048401
+}
+G9.3-fid: FAIL -- FID_light vs real: decoder 1107.15, conductor 44.46, donor 1100.28, engine-only 1365.00, beat trigger 6746.45; block-shuffle null 3985.88, split-half floor 10.20. Gain over the conductor -1062.69 vs donor gain -1055.81 (needs > 2x).
+G9.3-bas: PASS -- Light-BAS minus null: decoder +0.5053 CI [0.4834, 0.5266], conductor +0.1263, real coach +0.0825, beat trigger +0.0949, engine-only +0.5189; events per clip decoder 393.1 conductor 779.1 real 889.3.
+G9.3-ab: FAIL -- Not measured: the brightness-matched human A/B needs raters (n >= 20 pairs).
+G9.3-rig: PASS -- unseen rig (8 heads, 6 washes, 4 blinders, no strobe): HSV-histogram distance to the canonical render, decoder re-realised 0.190 vs channel-copy 0.297 (L1 per frame, hue + value histograms).

@@ -1,0 +1,68 @@
+332 songs, 90 with causal stems, 8s to load
+
+=== events (JD visual scene changes), audio-only ===
+  [audio] bus                    AP 0.1753 lift 2.02  dAP vs bus +0.0000 CI [+0.0000,+0.0000]  shift-null 0.1195 (audio-shift +0.056)
+  [audio] bus+drums              AP 0.1814 lift 2.09  dAP vs bus +0.0061 CI [+0.0040,+0.0081]  shift-null 0.1211 (audio-shift +0.060)
+  [audio] bus+bass               AP 0.1766 lift 2.04  dAP vs bus +0.0013 CI [-0.0001,+0.0026]  shift-null 0.1197 (audio-shift +0.057)
+  [audio] bus+other              AP 0.1839 lift 2.12  dAP vs bus +0.0086 CI [+0.0060,+0.0110]  shift-null 0.1195 (audio-shift +0.064)
+  [audio] bus+vocals             AP 0.1815 lift 2.09  dAP vs bus +0.0062 CI [+0.0044,+0.0081]  shift-null 0.1207 (audio-shift +0.061)
+  [audio] bus+compact4           AP 0.1827 lift 2.11  dAP vs bus +0.0074 CI [+0.0051,+0.0096]  shift-null 0.1198 (audio-shift +0.063)
+  [audio] bus+full4              AP 0.1938 lift 2.24  dAP vs bus +0.0185 CI [+0.0150,+0.0219]  shift-null 0.1224 (audio-shift +0.071)
+  [audio] bus+vocal_act          AP 0.1816 lift 2.10  dAP vs bus +0.0063 CI [+0.0050,+0.0076]  shift-null 0.1202 (audio-shift +0.061)
+  [audio] bus+bar_phase          AP 0.1753 lift 2.02  dAP vs bus -0.0000 CI [-0.0003,+0.0003]  shift-null 0.1195 (audio-shift +0.056)
+  [audio] bus+donor_compact4     AP 0.1755 lift 2.03  dAP vs bus +0.0002 CI [-0.0010,+0.0013]  shift-null 0.1193 (audio-shift +0.056)
+  [audio] stems_compact4_only    AP 0.1679 lift 1.94  dAP vs bus -0.0075 CI [-0.0124,-0.0023]  shift-null 0.1133 (audio-shift +0.055)
+
+=== events, with the rhythm hazard (exp-016's headline form) ===
+  [hazard] bus                    AP 0.1839 lift 2.12  dAP vs bus +0.0000 CI [+0.0000,+0.0000]
+  [hazard] bus+compact4           AP 0.1926 lift 2.22  dAP vs bus +0.0088 CI [+0.0062,+0.0114]
+  [hazard] bus+full4              AP 0.2077 lift 2.40  dAP vs bus +0.0238 CI [+0.0199,+0.0276]
+  [hazard] bus+donor_compact4     AP 0.1849 lift 2.13  dAP vs bus +0.0010 CI [-0.0003,+0.0023]
+
+=== L = 0: whole-track vs causal (trailing-window) stems on 90 songs ===
+  [L=0] bus                    AP 0.1591 lift 1.84  dAP vs bus +0.0000 CI [+0.0000,+0.0000]
+  [L=0] bus+compact4_whole     AP 0.1636 lift 1.89  dAP vs bus +0.0045 CI [+0.0008,+0.0082]
+  [L=0] bus+compact4_causal    AP 0.1639 lift 1.90  dAP vs bus +0.0048 CI [+0.0015,+0.0080]
+  [L=0] bus+full4_whole        AP 0.1777 lift 2.05  dAP vs bus +0.0186 CI [+0.0125,+0.0244]
+  [L=0] bus+full4_causal       AP 0.1734 lift 2.00  dAP vs bus +0.0142 CI [+0.0090,+0.0198]
+
+=== coach split (held-out-song R2 at 2 s) ===
+  hand_speed       bus R2 -0.015  drums -0.001  bass -0.000  other -0.002  vocals -0.000  all4 -0.004  donor4 +0.000
+  head_speed       bus R2 -0.047  drums -0.000  bass -0.001  other -0.002  vocals -0.001  all4 -0.005  donor4 -0.002
+  foot_speed       bus R2 -0.038  drums -0.002  bass -0.000  other -0.001  vocals -0.002  all4 -0.005  donor4 -0.001
+  footfall_rate    bus R2 -41576800308.830  drums +925281701.871  bass +4383316113.695  other -610084255.284  vocals +231196473.702  all4 +4132353296.278  donor4 +358086140.065
+  vert_bounce_amp  bus R2 +0.007  drums -0.001  bass -0.003  other +0.001  vocals +0.000  all4 -0.003  donor4 -0.004
+  qom              bus R2 -0.038  drums -0.000  bass -0.001  other -0.003  vocals -0.001  all4 -0.006  donor4 -0.000
+  split stats {"drums_feet_head_minus_hands": 308427233.9576, "vocals_other_hands_minus_feet": 0.0005, "hand_speed_gain_vocals_other": -0.001, "hand_speed_gain_all4": -0.0039, "hand_speed_gain_donor": 0.0002}
+
+GATE {
+ "G9.7-stems": {
+  "best_family": "bus+full4",
+  "delta_ap": 0.018454311525714397,
+  "ci95": [
+   0.014994608255969225,
+   0.02186745644981028
+  ],
+  "donor_delta_ap": 0.00021490474112367477,
+  "shift_flat": true,
+  "passed": false
+ },
+ "G9.7-split": {
+  "stats": {
+   "drums_feet_head_minus_hands": 308427233.9576059,
+   "vocals_other_hands_minus_feet": 0.0005276629171431439,
+   "hand_speed_gain_vocals_other": -0.000985884800846807,
+   "hand_speed_gain_all4": -0.00385470899737401,
+   "hand_speed_gain_donor": 0.0001945883011396551
+  },
+  "passed": false
+ },
+ "G9.7-causal": {
+  "reported": true,
+  "passed": true,
+  "bus": 0.15911205387996857,
+  "whole": 0.16362457570886813,
+  "causal": 0.16393292959205297
+ }
+}
+wrote /root/lightsem/outputs/stage9/hg_stems.json in 21.9 min

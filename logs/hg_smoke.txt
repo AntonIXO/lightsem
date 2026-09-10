@@ -1,0 +1,35 @@
+40 songs, 0 with causal stems, 10s to load
+
+=== events (JD visual scene changes), audio-only ===
+  [audio] bus                    AP 0.1530 lift 1.75  dAP vs bus +0.0000 CI [+0.0000,+0.0000]  shift-null 0.1147 (audio-shift +0.038)
+  [audio] bus+drums              AP 0.1624 lift 1.86  dAP vs bus +0.0094 CI [+0.0020,+0.0173]  shift-null 0.1141 (audio-shift +0.048)
+  [audio] bus+bass               AP 0.1546 lift 1.77  dAP vs bus +0.0017 CI [-0.0018,+0.0053]  shift-null 0.1132 (audio-shift +0.041)
+  [audio] bus+other              AP 0.1635 lift 1.88  dAP vs bus +0.0106 CI [+0.0033,+0.0177]  shift-null 0.1116 (audio-shift +0.052)
+  [audio] bus+vocals             AP 0.1580 lift 1.81  dAP vs bus +0.0051 CI [+0.0001,+0.0101]  shift-null 0.1137 (audio-shift +0.044)
+  [audio] bus+compact4           AP 0.1592 lift 1.83  dAP vs bus +0.0062 CI [+0.0001,+0.0124]  shift-null 0.1128 (audio-shift +0.046)
+  [audio] bus+full4              AP 0.1755 lift 2.01  dAP vs bus +0.0226 CI [+0.0113,+0.0332]  shift-null 0.1156 (audio-shift +0.060)
+  [audio] bus+vocal_act          AP 0.1609 lift 1.85  dAP vs bus +0.0079 CI [+0.0049,+0.0111]  shift-null 0.1149 (audio-shift +0.046)
+  [audio] bus+bar_phase          AP 0.1530 lift 1.75  dAP vs bus +0.0000 CI [-0.0016,+0.0015]  shift-null 0.1149 (audio-shift +0.038)
+  [audio] bus+donor_compact4     AP 0.1483 lift 1.70  dAP vs bus -0.0046 CI [-0.0085,-0.0009]  shift-null 0.1139 (audio-shift +0.034)
+  [audio] stems_compact4_only    AP 0.1607 lift 1.84  dAP vs bus +0.0078 CI [-0.0068,+0.0221]  shift-null 0.1085 (audio-shift +0.052)
+
+=== events, with the rhythm hazard (exp-016's headline form) ===
+  [hazard] bus                    AP 0.1615 lift 1.85  dAP vs bus +0.0000 CI [+0.0000,+0.0000]
+  [hazard] bus+compact4           AP 0.1701 lift 1.95  dAP vs bus +0.0086 CI [+0.0003,+0.0176]
+  [hazard] bus+full4              AP 0.1895 lift 2.17  dAP vs bus +0.0280 CI [+0.0146,+0.0415]
+  [hazard] bus+donor_compact4     AP 0.1562 lift 1.79  dAP vs bus -0.0053 CI [-0.0103,-0.0005]
+
+=== coach split (held-out-song R2 at 2 s) ===
+Traceback (most recent call last):
+  File "/root/lightsem/run_stage9_stems.py", line 297, in <module>
+    main()
+  File "/root/lightsem/run_stage9_stems.py", line 255, in main
+    p = ridge_fit(np.concatenate([build(i) for i in tr]), Y, a.lam_coach)
+                                  ^^^^^^^^
+  File "/root/lightsem/run_stage9_stems.py", line 246, in <lambda>
+    "bus+donor4": lambda i: np.concatenate([ents[i]["Xb"]] + [fit_to_len(edonor[i]["st"][st], len(ents[i]["Xb"])) for st in STEMS], 1)}
+                                                              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/lightsem/run_stage9_stems.py", line 81, in fit_to_len
+    return np.concatenate([a, np.tile(a, int(np.ceil((T - len(a)) / len(a))))[: T - len(a)]])
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+ValueError: all the input array dimensions except for the concatenation axis must match exactly, but along dimension 1, the array at index 0 has size 12 and the array at index 1 has size 24

@@ -1,0 +1,17 @@
+JD visual: train 237 test 38
+corpus cue rate 5.23/min -> hazard threshold 0.600 (rate 5.27/min)
+/root/lightsem/run_stage10_cue_eval.py:67: RuntimeWarning: All-NaN slice encountered
+  return np.array([len(idx) / max(mins, 1e-6), np.nanmedian(iei), np.nanstd(iei) / (np.nanmean(iei) + 1e-6),
+/mnt/lightsem-data/venv-torch/lib/python3.12/site-packages/numpy/lib/_nanfunctions_impl.py:1997: RuntimeWarning: Degrees of freedom <= 0 for slice.
+  var = nanvar(a, axis=axis, dtype=dtype, out=out, ddof=ddof,
+/root/lightsem/run_stage10_cue_eval.py:67: RuntimeWarning: Mean of empty slice
+  return np.array([len(idx) / max(mins, 1e-6), np.nanmedian(iei), np.nanstd(iei) / (np.nanmean(iei) + 1e-6),
+cue-transition distance: {'per_frame': 8.87, 'cue_held': 6.86, 'cue_held_bt': 133.85, 'donor': 5.66} floor 2.56
+cue lift: hazard 2.35  beat-trigger novelty 1.14
+  authored     cues_per_min 5.232 iei_median_s 5.897 iei_cv 1.034 hue_jump_at_cue 0.924 value_change_at_cue 1.411 frac_on_beat 0.192 hue_drift_between_cues 0.397
+  per_frame    cues_per_min 7.64 iei_median_s 5.993 iei_cv 0.774 hue_jump_at_cue 0.492 value_change_at_cue 1.738 frac_on_beat 0.219 hue_drift_between_cues 0.445
+  cue_held     cues_per_min 6.103 iei_median_s 4.48 iei_cv 1.357 hue_jump_at_cue 0.753 value_change_at_cue 1.0 frac_on_beat 0.197 hue_drift_between_cues 0.27
+  cue_held_bt  cues_per_min 1.442 iei_median_s 25.396 iei_cv 0.717 hue_jump_at_cue 0.959 value_change_at_cue 1.204 frac_on_beat 0.172 hue_drift_between_cues 0.329
+  donor        cues_per_min 5.656 iei_median_s 5.241 iei_cv 1.293 hue_jump_at_cue 0.76 value_change_at_cue 1.024 frac_on_beat 0.188 hue_drift_between_cues 0.276
+G10.1-cue: FAIL -- cue-transition distance to the authored JD set (38 held-out songs): cue-held 6.86, per-frame 8.87, cue-held on beat-trigger cues 133.85, shuffled donor 5.66, split-half floor 2.56. Cue lift: hazard 2.35x vs beat-trigger novelty 1.14x. Means: {"authored": {"cues_per_min": 5.232, "iei_median_s": 5.897, "iei_cv": 1.034, "hue_jump_at_cue": 0.924, "value_change_at_cue": 1.411, "frac_on_beat": 0.192, "hue_drift_between_cues": 0.397}, "per_frame": {"cues_per_min": 7.64, "iei_median_s": 5.993, "iei_cv": 0.774, "hue_jump_at_cue": 0.492, "value_change_at_cue": 1.738, "frac_on_beat": 0.219, "hue_drift_be
+G10.1-bas: PASS -- Light-BAS minus null on 39 held-out coach clips (engine with zero phase spread): cue-held +0.5133, per-frame +0.3990, conductor +0.1248, real coach +0.0808; paired cue-held minus conductor +0.3884 CI [+0.3671, +0.4106]; events per clip cue-held 419, per-frame 509, conductor 771, real 888.

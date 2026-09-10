@@ -1,0 +1,32 @@
+843 songs: train 589 test 111  6s
+/root/lightsem/train_critic.py:93: UserWarning: enable_nested_tensor is True, but self.use_nested_tensor is False because encoder_layer.norm_first was True
+  self.enc = nn.TransformerEncoder(nn.TransformerEncoderLayer(d, 4, 4 * d, dropout=0.1, batch_first=True, norm_first=True), n_layers)
+  C_U step    0 loss 1.4408  7s
+  C_U step  500 loss 0.9248  20s
+  C_U step 1000 loss 0.9456  32s
+  C_U step 1500 loss 0.9071  44s
+  C_U step 2000 loss 0.6910  55s
+  C_U step 2500 loss 0.7024  67s
+  C_U step 2999 loss 0.6527  79s
+  C_R step    0 loss 1.4246  79s
+  C_R step  500 loss 1.0914  91s
+  C_R step 1000 loss 1.1326  103s
+  C_R step 1500 loss 1.0607  115s
+  C_R step 2000 loss 1.0887  128s
+  C_R step 2500 loss 1.0245  140s
+  C_R step 2999 loss 1.0195  152s
+held-out pair accuracy: {"vs_beat_trigger": 0.893, "vs_shift": 0.563, "vs_other_song": 0.73, "U_vs_beat_trigger": 0.979, "R_vs_beat_trigger": 0.985}
+{
+ "G9.5-bt": {
+  "passed": true,
+  "evidence": "held-out pair accuracy (16-bar windows, 2560 pairs): real vs beat-trigger light on the same audio 0.893 (C_U alone 0.979, C_R alone 0.985), real vs 2+-bar shift 0.563, real vs other song 0.730; chance 0.5."
+ },
+ "G9.5-additive": {
+  "passed": true,
+  "evidence": "an additive model f(audio) + g(light) fitted to the critic's scores over 312 candidates explains R2 0.896; the best-of-8 argmax changes on 41% of clips (gate >= 30%)."
+ },
+ "G9.5-bon": {
+  "passed": false,
+  "evidence": "human 'fits the music' not run (needs raters). Proxies on 39 held-out JD clips: FID_light best-of-8 41.38 vs random-of-8 43.82 (null 4119.78, floor 7.87); BAS minus null best +0.1234 vs random +0.1237 vs real coach +0.0813."
+ }
+}

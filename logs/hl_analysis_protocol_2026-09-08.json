@@ -1,0 +1,15 @@
+{
+  "schema_version": 1,
+  "scope": "exploratory analysis of uploaded H-L conductor ratings; no deployment verdict",
+  "ratings_sha256": "def1baf86ef8d0d924d88d532352994e5902a0f1204d4a90d3ee37e16894501e",
+  "model": "Bradley-Terry on original nine log-knob differences; no intercept; ridge lambda 1.0 fixed from existing fitter",
+  "validation": "five folds of canonical song groups, deterministic seed 0; no pair/song crosses folds; labels not used to construct folds",
+  "exclusions": "brightness foils excluded from fit/CV and counted separately; ties reported but excluded from binary fit; duplicate rater/pair rows rejected",
+  "baselines": [
+    "chance 0.5",
+    "training-fold majority display-side baseline"
+  ],
+  "uncertainty": "2000 song-cluster bootstrap draws of fixed out-of-fold correctness; conditional intervals do not retrain model",
+  "gates": "Preserve n>=200 and accuracy>0.60; fresh preference and BAS gates remain unmeasured. Fitted knobs are exploratory candidates only.",
+  "original_inputs_preserved": true
+}
