@@ -1,5 +1,7 @@
 # Overnight expression and representation study
 
+**Completed September 10.** All 12 main trainings, 12 pose probes, deliveries and independent audits finished. Recorded GPU-stage time: 9.609 h; main optimizer time: 7.724 h. No new configuration passed all gates. The incumbent-plus-adapter demonstration reduced ending border luminance by 73.57%, but expressive brightness coverage reached only 3/8 clips against the required 6/8. See [full results and deliverables](research/2026-09-10-night/RESULTS.md). The original authorization and methods follow.
+
 The accepted task is to improve moving-head brightness and group composition, reduce the washed-out Shpongle ending, and spend about ten hours of useful serial GPU work testing audio representations and conditional generation. Mechanical acceleration limits and new fixture types are deferred. The baseline was committed as `36ed994` before implementation changes.
 
 The run root is `/mnt/lightsem-data/experiments/lightsem/night_expression_20260909`. The system of record is `/root/lightsem-vault`. The original beat-conditioned experiment and its failed musical-control gates remain unchanged.
