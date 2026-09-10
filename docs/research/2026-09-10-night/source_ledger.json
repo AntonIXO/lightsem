@@ -1,0 +1,272 @@
+{
+  "source_sha256": "c99a863e4a35315de5d96f5dbefddef9aee18af960551751a084e9c0dd263bb6",
+  "sources": [
+    {
+      "authors": "Li et al.",
+      "claim_and_scope": "Music representations from acoustic and musical self-supervision; sequence-level MIR performance does not establish fine-grained LightSem motion transfer. Local control uses the330M checkpoint,75 Hz features and layers15/16.",
+      "hypotheses": [
+        "muq",
+        "fourier"
+      ],
+      "id": "mert",
+      "number": 1,
+      "publication": "ICLR 2024",
+      "title": "MERT: Acoustic Music Understanding Model with Large-Scale Self-supervised Training",
+      "url": "https://arxiv.org/html/2306.00107v4"
+    },
+    {
+      "authors": "Zhu et al.",
+      "claim_and_scope": "Mel-RVQ targets and layer-specific music representations motivate a frozen encoder test. The public MSD release is distinct from the large-data paper model; the study uses25 Hz native features and FP32 extraction.",
+      "hypotheses": [
+        "muq"
+      ],
+      "id": "muq",
+      "number": 2,
+      "publication": "2025",
+      "title": "MuQ: Self-Supervised Music Representation Learning with Mel Residual Vector Quantization",
+      "url": "https://arxiv.org/pdf/2501.01108"
+    },
+    {
+      "authors": "Won, Hung and Le",
+      "claim_and_scope": "Token-level tasks and longer context reveal strengths not captured by global music tagging. This is a reason to test local temporal behavior, not proof of useful dance conditioning.",
+      "hypotheses": [
+        "muq",
+        "rhythm"
+      ],
+      "id": "musicfm",
+      "number": 3,
+      "publication": "ICASSP 2024",
+      "title": "A Foundation Model for Music Informatics",
+      "url": "https://arxiv.org/pdf/2311.03318"
+    },
+    {
+      "authors": "Zhou, Zhu and Chen",
+      "claim_and_scope": "Intermediate layers can be better suited to downstream tasks than default final-layer or all-layer aggregation. The reported tasks do not directly establish beat or LightSem motion quality.",
+      "hypotheses": [
+        "muq"
+      ],
+      "id": "layerwise",
+      "number": 4,
+      "publication": "2025",
+      "title": "Layer-wise Investigation of Large-Scale Self-Supervised Music Representation Models",
+      "url": "https://arxiv.org/html/2505.16306v1"
+    },
+    {
+      "authors": "Kanatas, Kong, Alonso-Jim\u00e9nez, Serra and Bogdanov",
+      "claim_and_scope": "Across12 models and15 tasks, intrinsic geometric criteria are task-dependent. Effective rank or representation spread alone is not a universal quality certificate.",
+      "hypotheses": [
+        "muq",
+        "conditioning"
+      ],
+      "id": "goodlayer",
+      "number": 5,
+      "publication": "ISMIR 2026",
+      "title": "What Makes a Good Layer? Assessing the Layer-Wise Intrinsic Properties of Music Foundation Models",
+      "url": "https://arxiv.org/html/2608.14819v1"
+    },
+    {
+      "authors": "Chen et al.",
+      "claim_and_scope": "General audio representation learning with acoustic tokenizers; the name BEATs does not denote a music beat tracker.",
+      "hypotheses": [
+        "muq",
+        "rhythm"
+      ],
+      "id": "beats",
+      "number": 6,
+      "publication": "ICML 2023",
+      "title": "BEATs: Audio Pre-Training with Acoustic Tokenizers",
+      "url": "https://arxiv.org/abs/2212.09058"
+    },
+    {
+      "authors": "Wu et al.",
+      "claim_and_scope": "Audio-text alignment supports semantic transfer but is not a direct validation of frame-local rhythm or motion control.",
+      "hypotheses": [
+        "muq"
+      ],
+      "id": "clap",
+      "number": 7,
+      "publication": "2023",
+      "title": "Large-scale Contrastive Language-Audio Pretraining with Feature Fusion and Keyword-to-Caption Augmentation",
+      "url": "https://arxiv.org/html/2211.06687v4"
+    },
+    {
+      "authors": "Cramer, Wu, Salamon and Bello",
+      "claim_and_scope": "Audio-visual pretraining yields audio representations; local sliding-window use is possible. One-second aggregation should be distinguished from precise within-window timing.",
+      "hypotheses": [
+        "muq"
+      ],
+      "id": "openl3",
+      "number": 8,
+      "publication": "ICASSP 2019",
+      "title": "Look, Listen and Learn More: Design Choices for Deep Audio Embeddings",
+      "url": "https://www.justinsalamon.com/uploads/4/3/9/4/4394963/cramer_looklistenlearnmore_icassp_2019.pdf"
+    },
+    {
+      "authors": "Wang, Wang and Cai",
+      "claim_and_scope": "Tempo-aware and beat-jitter negatives, motion contacts and bar structure motivate harder local controls. Inputs are pooled to one token per beat and rely on3D motion; released usable weights were not verified on the project page. This is a future mechanism, not an executed checkpoint comparison.",
+      "hypotheses": [
+        "muq",
+        "conditioning",
+        "representation"
+      ],
+      "id": "motionbeat",
+      "number": 9,
+      "publication": "ICASSP 2026; arXiv v2, 29 Jan 2026",
+      "title": "MotionBeat: Motion-Aligned Music Representation via Embodied Contrastive Learning and Bar-Equivariant Contact-Aware Encoding",
+      "url": "https://arxiv.org/html/2510.13244v2"
+    },
+    {
+      "authors": "Grosche, M\u00fcller and Kurth",
+      "claim_and_scope": "Octave-folded periodicity exposes cyclic tempo relations while losing absolute tempo octave. Keep unfolded frequency information alongside cyclic summaries.",
+      "hypotheses": [
+        "fourier",
+        "rhythm"
+      ],
+      "id": "cyclic",
+      "number": 10,
+      "publication": "ICASSP 2010",
+      "title": "Cyclic Tempogram\u2014A Mid-level Tempo Representation for Music Signals",
+      "url": "https://www.audiolabs-erlangen.de/content/resources/MIR/tempogramtoolbox/2010_GroscheMuellerKurth_TempogramCyclic_ICASSP.pdf"
+    },
+    {
+      "authors": "Grosche and M\u00fcller",
+      "claim_and_scope": "Local Fourier periodicity and phase support a time-varying pulse estimate. Benefit over a fixed grid must be checked on annotated music rather than inferred from the method definition.",
+      "hypotheses": [
+        "fourier",
+        "rhythm"
+      ],
+      "id": "plp",
+      "number": 11,
+      "publication": "2011; author reference notebook",
+      "title": "Extracting Predominant Local Pulse Information from Music Recordings",
+      "url": "https://www.audiolabs-erlangen.de/resources/MIR/FMP/C6/C6S3_PredominantLocalPulse.html"
+    },
+    {
+      "authors": "Duxbury, Bello, Davies and Sandler",
+      "claim_and_scope": "Joint phase and magnitude deviations motivate phase-sensitive novelty computed from the original complex STFT. This uses information absent from an existing magnitude-only cache.",
+      "hypotheses": [
+        "fourier",
+        "rhythm"
+      ],
+      "id": "complex",
+      "number": 12,
+      "publication": "DAFx 2003",
+      "title": "Complex Domain Onset Detection for Musical Signals",
+      "url": "https://dafx.de/paper-archive/2003/pdfs/dafx81.pdf"
+    },
+    {
+      "authors": "FitzGerald",
+      "claim_and_scope": "Spectrogram structure can support harmonic/percussive decomposition. It does not provide oracle source stems or establish motion predictability.",
+      "hypotheses": [
+        "fourier"
+      ],
+      "id": "hpss",
+      "number": 13,
+      "publication": "DAFx 2010",
+      "title": "Harmonic/Percussive Separation Using Median Filtering",
+      "url": "https://www.audiolabs-erlangen.de/resources/aps-w23/papers/2010_FitzGerald_HarmonicPercussiveSep_DAFx.pdf"
+    },
+    {
+      "authors": "Foscarin, Schl\u00fcter and Widmer",
+      "claim_and_scope": "Beat F1 and continuity are distinct evaluation axes. The released final0 checkpoint is a comparative tracker, not ground-truth annotation, and overlap with GuitarSet is unverified here.",
+      "hypotheses": [
+        "rhythm"
+      ],
+      "id": "beatthis",
+      "number": 14,
+      "publication": "ISMIR 2024",
+      "title": "Beat This! Accurate Beat Tracking Without DBN Postprocessing",
+      "url": "https://arxiv.org/pdf/2407.21658"
+    },
+    {
+      "authors": "Tseng, Castellon and Liu",
+      "claim_and_scope": "Music-conditioned diffusion with cross-attention and physical/diversity checks illustrates the need to evaluate several motion-quality axes. It does not validate this study's FiLM intervention or lighting adapter.",
+      "hypotheses": [
+        "representation",
+        "conditioning",
+        "composition"
+      ],
+      "id": "edge",
+      "number": 15,
+      "publication": "CVPR 2023",
+      "title": "EDGE: Editable Dance Generation From Music",
+      "url": "https://arxiv.org/html/2211.10658v1"
+    },
+    {
+      "authors": "Alexanderson, Nagy, Beskow and Henter",
+      "claim_and_scope": "Audio-associated movement is ambiguous and is appropriately treated probabilistically. Conditional mean reconstruction and distributional generation answer different questions.",
+      "hypotheses": [
+        "representation",
+        "conditioning",
+        "composition"
+      ],
+      "id": "lda",
+      "number": 16,
+      "publication": "SIGGRAPH 2023",
+      "title": "Listen, Denoise, Action! Audio-Driven Motion Synthesis with Diffusion Models",
+      "url": "https://arxiv.org/html/2211.09707v2"
+    },
+    {
+      "authors": "Perez et al.",
+      "claim_and_scope": "Feature-wise affine modulation is a general conditioning mechanism. Transfer to repeated audio conditioning in this temporal flow is an experimentally tested hypothesis.",
+      "hypotheses": [
+        "conditioning"
+      ],
+      "id": "film",
+      "number": 17,
+      "publication": "AAAI 2018",
+      "title": "FiLM: Visual Reasoning with a General Conditioning Layer",
+      "url": "https://arxiv.org/pdf/1709.07871"
+    },
+    {
+      "authors": "GuitarSet authors",
+      "claim_and_scope": "Independent microphone audio and beat-position JAMS annotations. This study uses358 of 360 performances after excluding two known timing problems, and verifies every original WAV/JAMS MD5.",
+      "hypotheses": [
+        "rhythm"
+      ],
+      "id": "guitarset",
+      "number": 18,
+      "publication": "2019 dataset release",
+      "title": "GuitarSet v1.1.0",
+      "url": "https://zenodo.org/records/3371780"
+    },
+    {
+      "authors": "GuitarSet maintainers",
+      "claim_and_scope": "Published timing problems motivate the two predefined whole-file exclusions:04_BN3-154-E_comp and04_Jazz1-200-B_comp.",
+      "hypotheses": [
+        "rhythm"
+      ],
+      "id": "guitarsettiming",
+      "number": 19,
+      "publication": "Repository issue",
+      "title": "Annotation/audio timing issue 5",
+      "url": "https://github.com/marl/GuitarSet/issues/5"
+    },
+    {
+      "authors": "Tencent AI Lab / OpenMuQ",
+      "claim_and_scope": "The exact public MSD release used for feature extraction. Checkpoint metadata has CC-BY-NC 4.0; code licensing is separate. All 525 loaded tensors matched the pinned checkpoint.",
+      "hypotheses": [
+        "muq"
+      ],
+      "id": "muqrelease",
+      "number": 20,
+      "publication": "Pinned revision 0562a57814f6f8bbd9fdea0a25921a2fce1a841a",
+      "title": "MuQ-large-msd-iter released model",
+      "url": "https://huggingface.co/OpenMuQ/MuQ-large-msd-iter"
+    },
+    {
+      "authors": "M\u00fcller and collaborators",
+      "claim_and_scope": "Local Fourier coefficients of novelty retain frequency and phase information. A deterministic transformation of an existing envelope changes its representation, not its Shannon information content.",
+      "hypotheses": [
+        "fourier",
+        "rhythm"
+      ],
+      "id": "fouriertutorial",
+      "number": 21,
+      "publication": "Author FMP notebook",
+      "title": "Fourier Tempogram",
+      "url": "https://www.audiolabs-erlangen.de/resources/MIR/FMP/C6/C6S2_TempogramFourier.html"
+    }
+  ],
+  "verified_primary_sources": true
+}
