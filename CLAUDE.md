@@ -2,7 +2,12 @@
 
 This file provides guidance to Claude Code (claude.ai/code) when working with code in this repository.
 
-LightSem turns sound into stage lighting for concerts and festivals. Dance datasets are the
+Current authorization (September 10, 2026): follow
+`docs/research/2026-09-10-motion/PLAN.md`. Music-only playback may generate an internal
+motion sequence, and direct audio dynamics may control brightness/activity. This
+explicit user update supersedes the older inference restriction below.
+
+Historical architecture: LightSem turns sound into stage lighting for concerts and festivals. Dance datasets are the
 **training signal only**: paired (music, motion) teaches what light should do, and at inference
 the system takes audio and emits DMX. There is no dancer, pose or dance generator in the
 inference path, and proposing one is a repeat of a mistake already corrected once.
@@ -85,7 +90,8 @@ over-bright foil. A bare number here will be challenged.
 ## Things that have already gone wrong
 
 - **Vault isolation.** Write only to `/root/lightsem-vault`. `/root/vibescience-vault` belongs to
-  an unrelated project and must stay at 688 markdown files; `verify_all.py` asserts it.
+  an unrelated project and must remain unchanged. Capture its file hashes before
+  and after writes; historical count assertions may be stale (695 at this study).
 - **Disk.** Root is ~80% full. All datasets, caches and checkpoints live under
   `/mnt/lightsem-data/`.
 - **Beat grid.** Use `audio/beatgrid.py`, not `librosa.beat.beat_track`: the latter returned

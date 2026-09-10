@@ -1,5 +1,14 @@
 # Dance-trained music-to-light: binding product requirement
 
+**Current authorization, September 10:** implement the
+[representation-first plan](research/2026-09-10-motion/PLAN.md). Playback still
+receives music only, but may generate an internal articulated motion sequence.
+Direct audio loudness and musical transitions may control brightness and movement
+intensity. Quiet passages remain visible but restrained. Establish source and
+codec quality before music-to-motion training. These explicit permissions
+supersede the older no-generated-dancer restriction below; earlier study results
+and frozen protocols remain historical.
+
 Latest user authorization, September 9–10: implement the [overnight study](NIGHT_CAMPAIGN_20260909.md), with six main variants and two training seeds, about ten hours of useful serial GPU work, expressive dimmers, automatic mirror/independent groups, and an ending-glare correction. Architecture changes and independent collapse checks are authorized. Mechanical acceleration limits and new fixture types are deferred.
 
 **Beat features ARE allowed as model inputs**. The failure to avoid is movement collapsing to BPM, or disappearing altogether. This supersedes the September 8 input ban. Dance supplies training supervision; playback receives music only.

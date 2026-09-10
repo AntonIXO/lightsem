@@ -1,5 +1,15 @@
 # LightSem v2 — sound → light for concerts and festivals, trained on dance
 
+> **2026-09-10 current implementation:** [Representation-first plan](docs/research/2026-09-10-motion/PLAN.md).
+> Internal generated motion at music-only playback and hybrid audio dynamics are
+> explicitly authorized. Quiet passages remain visible but restrained. Establish
+> source/codec quality before music training; earlier results below stay historical.
+> **Pilot outcome:** clean source and the uncompressed native reference accepted;
+> seven compressed candidates and both music models failed qualification. Fixed-role
+> exposure passed optical ramps. [Results and review files](docs/research/2026-09-10-motion/RESULTS.md),
+> [reproduction](docs/research/2026-09-10-motion/REPRODUCE.md), and
+> [next proposed revision](docs/research/2026-09-10-motion/NEXT_REVISION.md).
+
 > **2026-09-08 product correction:** lights must dance to music using a model trained on dancer motion, with music only at playback and no algorithmic beat grid, preset pulses or oscillators. This [binding requirement](docs/DANCE_DRIVEN_CONTRACT.md) supersedes conflicting renderer recipes below. Stage11 completed 25 trainings and locked scene testing; its positive scene-statistics results do not solve this product requirement. The motion-data improvement gate failed. See [results and limitations](docs/STAGE11_RESULTS_20260908.md) and the [historical campaign protocol](docs/STAGE11_CAMPAIGN.md).
 
 

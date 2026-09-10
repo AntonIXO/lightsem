@@ -82,8 +82,19 @@ class RenderConfig:
     cam_target: tuple[float, float, float] = (0.0, 3.2, -3.0)
     cam_orbit: float = 0.07          # slow orbit amplitude (radians)
     intensity_gain: float = 2.4
+    exposure_profile: str = "legacy"
+    fixed_exposure_scale: float = 0.12
+    fixed_role_gains: tuple[float, float, float, float] = (1.0, 1.0, 1.0, 1.0)
     gpu_device: int = 0
     require_gpu: bool = True
+
+    def __post_init__(self):
+        if self.exposure_profile not in ("legacy", "fixed"):
+            raise ValueError("Unknown exposure profile")
+        if not math.isfinite(self.fixed_exposure_scale) or self.fixed_exposure_scale <= 0:
+            raise ValueError("Fixed exposure scale must be finite and positive")
+        if len(self.fixed_role_gains) != 4 or any(not math.isfinite(v) or v < 0 for v in self.fixed_role_gains):
+            raise ValueError("Fixed role gains require four finite nonnegative values: beam, wash, flash, projector")
 
 
 class StageRenderer:
@@ -154,6 +165,10 @@ class StageRenderer:
             -cx * math.sin(ang) + cz * math.cos(ang)))
         self._set_uniform("u_cam_target", cfg.cam_target)
         self._set_uniform("u_haze", cfg.haze)
+        if not self._set_uniform("u_fixed_exposure", int(cfg.exposure_profile == "fixed")):
+            raise RuntimeError("Renderer shader is missing the exposure-profile uniform")
+        if not self._set_uniform("u_exposure_scale", cfg.fixed_exposure_scale):
+            raise RuntimeError("Renderer shader is missing the fixed-exposure scale")
 
         fixtures = self.rig.fixtures[:MAX_LIGHTS]
         n = len(fixtures)
@@ -181,6 +196,8 @@ class StageRenderer:
             cols[i] = (r, g, b)
             coss[i] = math.cos(math.radians(half_deg))
             ints[i] = p["dimmer"] * cfg.intensity_gain
+            if cfg.exposure_profile == "fixed":
+                ints[i] *= cfg.fixed_role_gains[p["kind"]]
             kinds[i] = p["kind"]
 
         for name, arr in (

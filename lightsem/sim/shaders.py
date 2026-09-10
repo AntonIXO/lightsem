@@ -36,6 +36,8 @@ uniform vec3  u_cam_pos;
 uniform vec3  u_cam_target;
 uniform float u_haze;          // global haze density
 uniform int   u_n_lights;
+uniform int   u_fixed_exposure;
+uniform float u_exposure_scale;
 
 uniform vec3  u_lpos[MAX_LIGHTS];    // fixture position
 uniform vec3  u_ldir[MAX_LIGHTS];    // normalised beam axis
@@ -228,6 +230,9 @@ void main() {
         litSum += u_lint[i];
     }
     float norm = 1.0 / (1.0 + 0.42 * max(litSum - 1.0, 0.0));
+    // Opt-in calibration profile: radiance remains proportional to emitted
+    // dimmers. Its exposure is constant across every frame and fixture count.
+    if (u_fixed_exposure != 0) norm = 1.0;
     col += scatter * 3.2 * norm;
 
     // Fixture "bulb" glow so the rig reads as physical hardware.
@@ -244,6 +249,7 @@ void main() {
     // Filmic-ish tonemap. A plain pow(1/2.2) gamma lifted the near-blacks to
     // mid grey and the whole frame read as fog; ACES-style keeps the room
     // black while letting beams bloom.
+    if (u_fixed_exposure != 0) col *= u_exposure_scale;
     col = max(col, 0.0);
     col = (col * (2.51 * col + 0.03)) / (col * (2.43 * col + 0.59) + 0.14);
     col = clamp(col, 0.0, 1.0);
