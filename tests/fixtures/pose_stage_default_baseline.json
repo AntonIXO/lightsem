@@ -1,0 +1,97 @@
+{
+  "frames": {
+    "shape": [
+      80,
+      512
+    ],
+    "dtype": "|u1",
+    "sha256": "f18eb592234cf4aa14327802d839dec56edb3a13bea8adb46f19fd5c4364d196"
+  },
+  "trace": {
+    "time": {
+      "shape": [
+        80
+      ],
+      "dtype": "<f8",
+      "sha256": "827907771ce7092e6db7f59f0156423a0e738e4e8b083a640f5f00e9ea71ef31"
+    },
+    "momentary_lufs": {
+      "shape": [
+        80
+      ],
+      "dtype": "<f8",
+      "sha256": "1e8f0f382a72a28883a5846d2ccc36aaee33494fe79970e2cfdd555de641f3dd"
+    },
+    "short_term_lufs": {
+      "shape": [
+        80
+      ],
+      "dtype": "<f8",
+      "sha256": "ce23237d24b3fdd68909a6f856620b1e9ec9e8a17e71beefcf402fbf300232ac"
+    },
+    "activity": {
+      "shape": [
+        80
+      ],
+      "dtype": "<f8",
+      "sha256": "a32ede97282688156c17d8e529f13d5ed823e5070de37e94e3ac57f4267044e9"
+    },
+    "measured_activity": {
+      "shape": [
+        80
+      ],
+      "dtype": "<f8",
+      "sha256": "a32ede97282688156c17d8e529f13d5ed823e5070de37e94e3ac57f4267044e9"
+    },
+    "dimmer": {
+      "shape": [
+        80,
+        14
+      ],
+      "dtype": "<f8",
+      "sha256": "88b6c8e14c32a9d534eab9fb249b7edfeaa54361b9f31076e88489bb9bc0ab85"
+    },
+    "targets": {
+      "shape": [
+        80,
+        14,
+        3
+      ],
+      "dtype": "<f8",
+      "sha256": "f844e5c52e92740a8142058234d650c929207f5b8d551b5c71e5853ece97257b"
+    },
+    "raw_targets": {
+      "shape": [
+        80,
+        14,
+        3
+      ],
+      "dtype": "<f8",
+      "sha256": "a496db0b5f9b15433d5fdedbe6aa668a37fae40a05dd5904b579145565bfb313"
+    },
+    "regional": {
+      "shape": [
+        80,
+        6,
+        3
+      ],
+      "dtype": "<f8",
+      "sha256": "c38e69ec4c87bf3a36bf6a3574e32d1907c76afdfea2aa35c17df1cb736683ad"
+    },
+    "palette_hue": {
+      "shape": [
+        80
+      ],
+      "dtype": "<f8",
+      "sha256": "c5e4e8989438f711ffbe87c37d06dea5a73c55cdd09a48e0f23a9ffb6244c39b"
+    },
+    "motion_accent": {
+      "shape": [
+        80
+      ],
+      "dtype": "<f8",
+      "sha256": "4eb1959d03d6f311767f98a5fea15ab2f49057e7d01a728a7e4e46ceb4775ed2"
+    }
+  },
+  "report": "845f0c78111a3318fbecb7dc89cf81b37ab76f25a3606b6d53f387c73e78f423"
+}

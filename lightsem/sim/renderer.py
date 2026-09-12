@@ -88,8 +88,42 @@ class RenderConfig:
     fixed_role_gains: tuple[float, float, float, float] = (1.0, 1.0, 1.0, 1.0)
     gpu_device: int = 0
     require_gpu: bool = True
+    # Presentation-only ablations. Smaller scale narrows the camera field of
+    # view; vertical FOV is 2*atan(camera_scale). Defaults preserve legacy.
+    camera_scale: float = 0.85
+    beam_edge_profile: str = "legacy"
+    beam_edge_softness_deg: float = 0.6  # angular transition half-width
+    beam_flux_reference_deg: float = 0.0  # 0: keep peak; >0: match legacy cone integral
 
     def __post_init__(self):
+        if not math.isfinite(self.beam_flux_reference_deg) or not 0 <= self.beam_flux_reference_deg <= 90:
+            raise ValueError("Beam flux reference must be finite in [0,90] degrees; zero disables it")
+        if self.beam_flux_reference_deg and self.beam_edge_profile != "angular":
+            raise ValueError("Flux normalization is opt-in for angular heads only")
+        if self.beam_edge_profile not in ("legacy", "angular"):
+            raise ValueError("Unknown beam edge profile")
+        if not math.isfinite(self.camera_scale) or self.camera_scale <= 0:
+            raise ValueError("Camera scale must be finite and positive")
+        if not math.isfinite(self.beam_edge_softness_deg) or not 0 < self.beam_edge_softness_deg < 90:
+            raise ValueError("Beam edge softness must be finite and in (0, 90) degrees")
+        for name in ("width", "height"):
+            value = getattr(self, name)
+            if isinstance(value, bool) or not isinstance(value, int) or value <= 0:
+                raise ValueError(f"{name} must be a positive integer")
+        if not math.isfinite(self.fps) or self.fps <= 0:
+            raise ValueError("FPS must be finite and positive")
+        for name in ("haze", "intensity_gain"):
+            value = getattr(self, name)
+            if not math.isfinite(value) or value < 0:
+                raise ValueError(f"{name} must be finite and nonnegative")
+        if not math.isfinite(self.cam_orbit):
+            raise ValueError("Camera orbit must be finite")
+        for name in ("cam_pos", "cam_target"):
+            value = getattr(self, name)
+            if len(value) != 3 or any(not math.isfinite(v) for v in value):
+                raise ValueError(f"{name} requires three finite coordinates")
+        if self.cam_pos[0] == self.cam_target[0] and self.cam_pos[2] == self.cam_target[2]:
+            raise ValueError("Camera direction must not be zero or parallel to world up")
         if self.exposure_profile not in ("legacy", "fixed"):
             raise ValueError("Unknown exposure profile")
         if not math.isfinite(self.fixed_exposure_scale) or self.fixed_exposure_scale <= 0:
@@ -104,6 +138,16 @@ class StageRenderer:
     def __init__(self, rig: Rig, cfg: RenderConfig | None = None):
         self.rig = rig
         self.cfg = cfg or RenderConfig()
+        # Angular cosine edges require a valid forward beam cone. Validate
+        # before creating GL resources; do not alter legacy fixture behavior.
+        if self.cfg.beam_edge_profile == "angular":
+            for fixture in rig.fixtures[:MAX_LIGHTS]:
+                if fixture.kind == "moving_head" and not (
+                    math.isfinite(fixture.beam_min_deg)
+                    and math.isfinite(fixture.beam_max_deg)
+                    and 0 < fixture.beam_min_deg <= fixture.beam_max_deg <= 180
+                ):
+                    raise ValueError("Angular moving-head beam range must satisfy 0 < min <= max <= 180 degrees")
         self.ctx = moderngl.create_context(
             standalone=True, backend="egl", device_index=self.cfg.gpu_device
         )
@@ -142,6 +186,11 @@ class StageRenderer:
         member.value = value
         return True
 
+    def _require_uniform(self, name: str, value) -> None:
+        """Fail loudly instead of silently skipping a rendering control."""
+        if not self._set_uniform(name, value):
+            raise RuntimeError(f"Renderer shader is missing required uniform: {name}")
+
     def _set_light_array(self, base: str, index: int, value) -> bool:
         """Write element ``index`` of a uniform array."""
         member = self.prog.get(base, None)
@@ -157,23 +206,25 @@ class StageRenderer:
 
     def render_frame(self, universe: np.ndarray, t: float) -> np.ndarray:
         cfg = self.cfg
-        self._set_uniform("u_res", (float(cfg.width), float(cfg.height)))
-        self._set_uniform("u_time", float(t))
+        self._require_uniform("u_res", (float(cfg.width), float(cfg.height)))
+        self._require_uniform("u_time", float(t))
         ang = cfg.cam_orbit * math.sin(t * 0.11)
         cx, cy, cz = cfg.cam_pos
-        self._set_uniform("u_cam_pos", (
+        self._require_uniform("u_cam_pos", (
             cx * math.cos(ang) + cz * math.sin(ang), cy,
             -cx * math.sin(ang) + cz * math.cos(ang)))
-        self._set_uniform("u_cam_target", cfg.cam_target)
-        self._set_uniform("u_haze", cfg.haze)
-        if not self._set_uniform("u_fixed_exposure", int(cfg.exposure_profile == "fixed")):
-            raise RuntimeError("Renderer shader is missing the exposure-profile uniform")
-        if not self._set_uniform("u_exposure_scale", cfg.fixed_exposure_scale):
-            raise RuntimeError("Renderer shader is missing the fixed-exposure scale")
+        self._require_uniform("u_cam_target", cfg.cam_target)
+        self._require_uniform("u_haze", cfg.haze)
+        self._require_uniform("u_fixed_exposure", int(cfg.exposure_profile == "fixed"))
+        self._require_uniform("u_exposure_scale", cfg.fixed_exposure_scale)
+        self._require_uniform("u_camera_scale", cfg.camera_scale)
+        self._require_uniform("u_beam_edge_profile", int(cfg.beam_edge_profile == "angular"))
+        self._require_uniform("u_beam_edge_softness_deg", cfg.beam_edge_softness_deg)
+        self._require_uniform("u_beam_flux_reference_deg", cfg.beam_flux_reference_deg)
 
         fixtures = self.rig.fixtures[:MAX_LIGHTS]
         n = len(fixtures)
-        self._set_uniform("u_n_lights", n)
+        self._require_uniform("u_n_lights", n)
 
         # Build the whole uniform arrays and write them in one call each.
         # Element-wise assignment via "u_lpos[i]" does NOT work: moderngl
@@ -206,8 +257,9 @@ class StageRenderer:
             ("u_lcos", coss), ("u_lint", ints), ("u_lkind", kinds),
         ):
             member = self.prog.get(name, None)
-            if member is not None:
-                member.write(arr.tobytes())
+            if member is None:
+                raise RuntimeError(f"Renderer shader is missing required light array: {name}")
+            member.write(arr.tobytes())
 
         self.ctx.clear(0.0, 0.0, 0.0, 1.0)
         self.vao.render(moderngl.TRIANGLES)

@@ -19,6 +19,13 @@ class LightingConfig:
     loudness_range_lu: float = 12.
     target_smoothing_s: float = .55
     tracking_s: float = .35
+    target_smoothing_mode: str = "causal"
+    angular_feedforward: bool = False
+    angular_controller: str = "chase"
+    # These two settings apply only to articulated_stage. pose_stage uses fixed
+    # prototype anchors (7.7,3.2,8.0) and signed lean 1.7 m; see pose_stage.py.
+    stage_base_unfolded_m: tuple = (5.7, 3.2, 5.7)
+    stage_lean_gain_m: float = 0.
     surface_gain: float = 1.
     torso_gain: float = 1.
     palette_smoothing_s: float = 10.
@@ -41,6 +48,25 @@ def ema(values,seconds,fps):
     return out
 
 
+def smooth_targets(values,seconds,fps,mode="causal"):
+    """Offline zero-phase option; no periodic clock or new target trajectory.
+
+    Reflection padding reduces endpoint transients. Constant targets stay
+    constant. This option requires the full sequence, unlike the causal EMA.
+    """
+    if mode == "causal":
+        return ema(values,seconds,fps)
+    if mode != "zero_phase":
+        raise ValueError("Unknown target smoothing mode")
+    x = np.asarray(values,dtype=np.float64)
+    if len(x)<2 or seconds<=1e-6:
+        return x.copy()
+    from scipy.signal import filtfilt
+    alpha = -np.expm1(-1/(seconds*fps))
+    return filtfilt([alpha],[1.,alpha-1.],x,axis=0,
+                   padlen=min(len(x)-1,int(np.ceil(6*seconds*fps))))
+
+
 def smoothstep(value):
     x = np.clip(value,0,1)
     return x*x*(3-2*x)
@@ -56,6 +82,9 @@ def limited_angles(targets,ranges,activity,cfg):
     target_ticks = np.rint((.5+targets/ranges)*65535).astype(np.int64)
     if np.any((target_ticks<0)|(target_ticks>65535)):
         raise ValueError('Target exceeds fixture mechanics')
+    target_velocity = (np.gradient(targets,1/cfg.fps,axis=0)
+                       if cfg.angular_feedforward and len(targets)>1
+                       else np.zeros_like(targets))
     positions = np.empty_like(target_ticks)
     positions[0] = target_ticks[0]
     velocity = np.zeros(2,np.int64)
@@ -63,7 +92,7 @@ def limited_angles(targets,ranges,activity,cfg):
     neighbours = np.asarray([(i,j) for i in (-1,0,1) for j in (-1,0,1)],np.int64)
     for t in range(1,len(targets)):
         error = (target_ticks[t]-positions[t-1])*ranges/65535
-        desired = error / cfg.tracking_s
+        desired = error / cfg.tracking_s + target_velocity[t]
         local_limit = cfg.quiet_target_speed_deg_s+(cfg.maximum_speed_deg_s-cfg.quiet_target_speed_deg_s)*activity[t]**2
         desired *= min(1.,local_limit/max(np.linalg.norm(desired),1e-12))
         old_speed = velocity*tick_speed
@@ -128,14 +157,18 @@ def surface_targets(body, fixture_x, rank, activity, cfg):
     return target,delta
 
 
-def compose(features,loudness,duration_s,*,config=None,rig=None,dynamics=True,independent_features=None):
+def compose(features,loudness,duration_s,*,config=None,rig=None,dynamics=True,independent_features=None,world_joints_override=None):
     """Audio is the only external input; features are internally generated motion.
 
     `independent_features` is an explicit ablation with the same generator. The
     normal path always shares ONE body; fixture regions do not select new draws.
+    `world_joints_override` is an opt-in review seam for a full (N,22,3)
+    canonical body. It bypasses FK and infers root orientation from hip/spine
+    anchors for every comparable world-body input. It cannot mix independent
+    native draws. None preserves the original native path.
     """
     cfg,rig = config or LightingConfig(),rig or canonical_rig()
-    if cfg.target_space not in ("legacy", "floor_reanchor", "articulated_surface"):
+    if cfg.target_space not in ("legacy", "floor_reanchor", "articulated_surface", "articulated_stage", "pose_stage"):
         raise ValueError("Unknown illumination target space")
     features = np.asarray(features,np.float32)
     if features.ndim!=2 or features.shape[1]!=139 or not np.isfinite(features).all():
@@ -148,9 +181,21 @@ def compose(features,loudness,duration_s,*,config=None,rig=None,dynamics=True,in
         shape = value.shape[1:]
         flat = value.reshape(len(value),-1)
         return np.stack([np.interp(times,native_times,flat[:,i]) for i in range(flat.shape[1])],axis=1).reshape(len(times),*shape)
-    with torch.inference_mode():
-        joints = resample(joints_from_features(torch.from_numpy(features)).numpy())
-        rotations = rotation_6d_to_matrix(torch.from_numpy(features[:,3:9])).numpy()
+    if world_joints_override is None:
+        with torch.inference_mode():
+            joints = resample(joints_from_features(torch.from_numpy(features)).numpy())
+            rotations = rotation_6d_to_matrix(torch.from_numpy(features[:,3:9])).numpy()
+    else:
+        # Review seam: saved FULL world coordinates, never reintegrate a crop.
+        # Every world-body arm uses the SAME hip/spine orientation inference.
+        world = np.asarray(world_joints_override)
+        if world.shape != (len(features),22,3) or not np.isfinite(world).all():
+            raise ValueError('Expected finite full world joints (N,22,3)')
+        if independent_features is not None:
+            raise ValueError('World override cannot mix independent native bodies')
+        from .articulated_stage import infer_root_rotation
+        rotations = infer_root_rotation(world)
+        joints = resample(world)
     if independent_features is not None:
         extra = np.asarray(independent_features,np.float32)
         if extra.shape!=(6,*features.shape) or not np.isfinite(extra).all():
@@ -210,13 +255,30 @@ def compose(features,loudness,duration_s,*,config=None,rig=None,dynamics=True,in
             target[:,1] = 0.
         elif cfg.target_space == 'articulated_surface':
             target,regional_trace[:,rank] = surface_targets(body,f.position[0],rank,activity,cfg)
+        elif cfg.target_space in ('articulated_stage', 'pose_stage'):
+            if cfg.target_smoothing_s > 1e-6:
+                raise ValueError("Stage chart requires no Cartesian smoothing across the floor/wall seam")
+            if cfg.target_space == 'pose_stage':
+                if not np.isfinite(cfg.target_smoothing_s) or cfg.target_smoothing_s < 0:
+                    raise ValueError("Pose chart smoothing must be finite and within [0,1e-6]")
+                from .pose_stage import stage_targets
+            else:
+                from .articulated_stage import stage_targets
+            target,regional_trace[:,rank] = stage_targets(body,f.position[0],rank,activity,cfg)
         else:
             regional_trace[:,rank] = regional
         index = next(i for i,h in enumerate(rig.fixtures) if h.name==f.name)
         raw_targets[:,index] = target
-        target = ema(target,cfg.target_smoothing_s,cfg.fps)
+        target = smooth_targets(target,cfg.target_smoothing_s,cfg.fps,cfg.target_smoothing_mode)
         pan,tilt = _angles(target-np.asarray(f.position))
-        ticks = limited_angles(np.column_stack((pan,tilt)),[f.pan_range_deg,f.tilt_range_deg],activity,cfg)
+        if cfg.angular_controller == "chase":
+            controller = limited_angles
+        elif cfg.angular_controller == "offline_projection":
+            from .offline_angles import project_angles
+            controller = project_angles
+        else:
+            raise ValueError("Unknown angular controller")
+        ticks = controller(np.column_stack((pan,tilt)),[f.pan_range_deg,f.tilt_range_deg],activity,cfg)
         index = next(i for i,h in enumerate(rig.fixtures) if h.name==f.name)
         targets[:,index] = target
         regional_accent = .025*accent*activity
@@ -260,4 +322,28 @@ def compose(features,loudness,duration_s,*,config=None,rig=None,dynamics=True,in
               'geometry_anatomy':'surface mode: anatomical right to negative-x, left to positive-x, fixed identities through world turns',
               'photometry':'legacy regional brightness signal retained unchanged for matched geometry intervention',
               'ending_rule':None,'rng':None}
+    if cfg.target_space == 'pose_stage':
+        from .pose_stage import BASE, LEAN_M
+        report['pose_stage_geometry'] = {
+            'base_unfolded_m': BASE.tolist(), 'signed_lean_gain_m': LEAN_M,
+            'gains': 'fixed prototype; stage_* and surface/torso_gain do not apply',
+            'regional_trace_coordinates': 'root-local articulation deltas',
+            'ownership': 'fixed anatomical regions; no fixture-x lanes or sorting',
+            'scope': 'stateless raw endpoint chart, not emitted beam intersection guarantees'}
+    if world_joints_override is not None:
+        report['root'] = 'saved full world joints; no FK/root integration in mapper'
+        report['orientation'] = 'same infer_root_rotation hip/spine anchors for every world-body arm'
     return frames,trace,report
+
+
+def compose_world_joints(world_joints,loudness,duration_s,*,config=None,rig=None,dynamics=True):
+    """Map saved complete canonical world bodies; no FK or root integration.
+
+    Uses infer_root_rotation for all arms, not native rotation metadata. Default
+    compose remains unchanged. Call on the complete recording and slice DMX later.
+    """
+    world = np.asarray(world_joints)
+    if world.ndim != 3 or world.shape[1:] != (22,3) or len(world)<2 or not np.isfinite(world).all():
+        raise ValueError('Expected finite full world joints (N>=2,22,3)')
+    return compose(np.zeros((len(world),139),np.float32),loudness,duration_s,
+                   config=config,rig=rig,dynamics=dynamics,world_joints_override=world)

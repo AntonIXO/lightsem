@@ -34,6 +34,10 @@ uniform vec2  u_res;
 uniform float u_time;
 uniform vec3  u_cam_pos;
 uniform vec3  u_cam_target;
+uniform float u_camera_scale;
+uniform int   u_beam_edge_profile;  // 0 legacy, 1 angular (moving heads only)
+uniform float u_beam_edge_softness_deg;
+uniform float u_beam_flux_reference_deg; // 0 keeps peak; >0 matches a legacy cone integral
 uniform float u_haze;          // global haze density
 uniform int   u_n_lights;
 uniform int   u_fixed_exposure;
@@ -119,6 +123,28 @@ vec3 lightAt(int i, vec3 p, out float atten) {
     // Tight edges are what make a beam read as a SHAFT rather than a glow.
     float softness = (u_lkind[i] == 1) ? 0.16 : 0.018;
     float cone = smoothstep(edge - softness, edge + softness * 0.4, cosA);
+    // Opt-in angular edge. Leave the legacy expression above unchanged;
+    // washes, blinders and projectors retain their original optics.
+    if (u_beam_edge_profile == 1 && u_lkind[i] == 0) {
+        float nominal_half = acos(clamp(edge, -1.0, 1.0));
+        float softness_rad = radians(u_beam_edge_softness_deg);
+        float outer_cos = cos(nominal_half + softness_rad);
+        float inner_cos = cos(max(nominal_half - softness_rad, 0.0));
+        cone = smoothstep(outer_cos, inner_cos, clamp(cosA, -1.0, 1.0));
+        if (u_beam_flux_reference_deg > 0.0) {
+            // Integral over cos(theta); 2*pi cancels in the ratio. Preserve
+            // integrated cone weight, NOT peak radiance. Bulb glow below is
+            // deliberately unchanged. This is a renderer model, not lumens.
+            float ref_edge = cos(radians(u_beam_flux_reference_deg * 0.5));
+            float lower = ref_edge - 0.018;
+            float upper = ref_edge + 0.018 * 0.4;
+            float w = upper - lower;
+            float q = clamp((1.0 - lower) / w, 0.0, 1.0);
+            float ref_integral = w * (q*q*q - 0.5*q*q*q*q) + max(1.0-upper, 0.0);
+            float angular_integral = 1.0 - 0.5*(inner_cos + outer_cos);
+            cone *= ref_integral / max(angular_integral, 1e-8);
+        }
+    }
     if (u_lkind[i] == 2) cone = 1.0;   // blinders are omni-ish flood
 
     float fall = 1.0 / (1.0 + 0.06 * dist * dist);
@@ -141,7 +167,7 @@ void main() {
     vec3 fwd   = normalize(u_cam_target - u_cam_pos);
     vec3 right = normalize(cross(fwd, vec3(0.0, 1.0, 0.0)));
     vec3 up    = cross(right, fwd);
-    vec3 rd    = normalize(fwd + uv.x * right * 0.85 + uv.y * up * 0.85);
+    vec3 rd    = normalize(fwd + uv.x * right * u_camera_scale + uv.y * up * u_camera_scale);
     vec3 ro    = u_cam_pos;
 
     vec3 col = vec3(0.0);
