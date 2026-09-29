@@ -1,0 +1,2959 @@
+{
+  "schema_version": 1,
+  "audit_date": "2026-09-28",
+  "scope": "Independent read-only claim-scope review of the71-hypothesis frontier; existing record/provenance only, no new measurements.",
+  "authority": "VAULT_INVENTORY_V1 is the authoritative earlier native snapshot. Current experiment/hypothesis Markdown was read to apply exact successful native repair receipts, not to infer new experiment results.",
+  "source_documents": [
+    {
+      "path": "/root/lightsem/docs/research/2026-09-28-end-to-end/VAULT_INVENTORY_V1.json",
+      "sha256": "582d1c7a3fd1ca87d3c18eeb04711c5873a8cbd3577bcc9c8a42d4111f4be550"
+    },
+    {
+      "path": "/root/lightsem/docs/research/2026-09-28-end-to-end/FRONTIER_REVIEW_V1.json",
+      "sha256": "4857b0e7cf5136cfb42ce6af7c085b632933dfbb746322e7fcd54a77e46c923d"
+    },
+    {
+      "path": "/root/lightsem/docs/research/2026-09-28-end-to-end/RETROSPECTIVE_INTERPRETATION_REPAIR_V1.json",
+      "sha256": "ca85badeba9a767892c2b615d1e9171d40b5c62b54291f67814943974ce1fc97"
+    },
+    {
+      "path": "/root/lightsem/docs/research/2026-09-28-end-to-end/vault_interpretation_repair_receipt_v1.json",
+      "sha256": "b0e65426ba37203b26f6551a71c7e753455d3517d28201c1ad9a288ec88135f9"
+    },
+    {
+      "path": "/root/lightsem/docs/research/2026-09-28-end-to-end/COMPLETED_AND_BLOCKED_RECONCILIATION_V1.json",
+      "sha256": "929cc0d6bdb971c1ddf0ba1c24d690d4ddd28df540e1607de8f0e68652d3036e"
+    }
+  ],
+  "preserved_constraints": [
+    "No raw dataset manifests, arrays, labels, checkpoints, model loading, tests, MCP calls, scientific reruns, or vault writes.",
+    "No existing document modified. Only new exclusive CLAIM_SCOPE_AUDIT_V1.md/json outputs are created.",
+    "Historical statuses, immutable machine verdicts/gates, and numeric observations remain unchanged. Corrections are proposed dated interpretation addenda, not performed native repairs.",
+    "No reopening of bounded/stopping-rule studies or conditional tests after failed prerequisites. No test release, dancer retraining/retiming, proxy human ratings, or inference of aesthetic acceptance.",
+    "Goal remains active. This review is not new scientific progress or product acceptance."
+  ],
+  "current_document_check": {
+    "hypotheses": 71,
+    "experiments": 71,
+    "documents": 142,
+    "changed_vs_snapshot_ids": [
+      "the-audio-lighting-event-coupling-is-anticipatory-audio-predicts-an-event-severa-exp-2026-08-07t14-34-32",
+      "the-audio-lighting-event-signal-is-carried-by-loudness-energy-if-true-the-indust-exp-2026-08-07t14-34-32"
+    ],
+    "meaning": "Exactly two changed experiment files contain the already successful interpretation repairs. All other142-minus2current hypothesis/experiment file hashes equal snapshot hashes."
+  },
+  "repaired_legacy_interpretations": [
+    {
+      "row": 61,
+      "experiment_id": "the-audio-lighting-event-coupling-is-anticipatory-audio-predicts-an-event-severa-exp-2026-08-07t14-34-32",
+      "disposition": "Already repaired. No further anticipation lesson rewrite recommended; immutable supports remains a capability limitation.",
+      "receipt": "/root/lightsem/docs/research/2026-09-28-end-to-end/vault_interpretation_repair_receipt_v1.json"
+    },
+    {
+      "row": 62,
+      "experiment_id": "the-audio-lighting-event-signal-is-carried-by-loudness-energy-if-true-the-indust-exp-2026-08-07t14-34-32",
+      "disposition": "Already repaired substantively. Do not re-file energy-ceiling/zero-energy/unique-mechanism correction. CS-62 addresses only a separate literal table contradiction in retained historical Notes.",
+      "receipt": "/root/lightsem/docs/research/2026-09-28-end-to-end/vault_interpretation_repair_receipt_v1.json"
+    }
+  ],
+  "capability_limits": [
+    "The native supports labels for61/62 are not evidence against the corrected lessons.",
+    "Open27/28 studies are scientifically complete in their bounded scopes but qualification remains undefined; sign-only closure cannot safely encode this.",
+    "Open51 engineering completion plus an active-ratio1.1431 result does not satisfy1.25prediction or establish human audiovisual acceptance.",
+    "Proposed/unrun prerequisite-blocked branches and explicitly missing human/label endpoints are not refuted just for bookkeeping.",
+    "Some formal PASS gate labels summarize only measured components while their prose explicitly discloses missing components. Such label/protocol mismatch is not a reason to invent completion or overwrite immutable gate evidence."
+  ],
+  "formal_gate_scope_limits": [
+    {
+      "number": 55,
+      "hypothesis_id": "just-dance-coach-motion-is-predictable-from-bcb46b",
+      "experiment_id": "exp-014-just-dance-coach-motion-is-f086d5",
+      "gate_id": "G8.2-contrast",
+      "native_passed": true,
+      "limit": "Registered gate names chorus/verse movement ratio. Evidence explicitly measures loudest-third versus quietest-third section energy; QoM1.57x CI[1.52,1.63], bounce1.49x[1.44,1.53], head1.50x[1.44,1.55]. No chorus/verse label test was done. Keep measured contrast; do not read formal PASS as that unmeasured endpoint or alter the immutable gate."
+    },
+    {
+      "number": 58,
+      "hypothesis_id": "one-frozen-music-foundation-layer-group-muq-46be80",
+      "experiment_id": "exp-019-one-frozen-music-foundation-d4f30f",
+      "gate_id": "G9.7-leak",
+      "native_passed": true,
+      "limit": "Residualized gain+.0180 vsraw+.0192 only excludes dependence entirely on the removed song mean; raw song-ID kNN83.4% vsbus3.6%/chance.30% is not a residual-ID test. The record states these facts and fails the+.02embedding gate. Do not read PASS as eliminating every identity/duplicate leakage mechanism."
+    },
+    {
+      "number": 59,
+      "hypothesis_id": "section-level-intent-belongs-on-the-conductor-0f5c23",
+      "experiment_id": "exp-022-section-level-intent-belongs-on-47d660",
+      "gate_id": "G9.4-shuffle",
+      "native_passed": true,
+      "limit": "Gate is a FID-and-human conjunction. Evidence explicitly says human structured question was not run; FID597.34 vs shuffled610.46 only supports its numeric component. BAS degrades, diff−.0067 CI[−.0116,−.0023]. No human success is claimed by this review; no sign-only relabel or rerun."
+    }
+  ],
+  "created_at_utc": "2026-09-28T20:09:41.918961+00:00",
+  "counts": {
+    "hypotheses_covered": 71,
+    "experiments_covered": 71,
+    "findings_total": 10,
+    "substantive_scope_findings": 9,
+    "residual_factual_findings": 1,
+    "hypotheses_with_proposed_correction": 13,
+    "hypotheses_without_new_correction": 58,
+    "proposed_native_experiment_targets": 14,
+    "native_writes_performed": 0,
+    "scientific_runs_performed": 0
+  },
+  "findings": [
+    {
+      "id": "CS-01",
+      "rows": [
+        1
+      ],
+      "kind": "instrument_scope_overclaim",
+      "hypothesis_ids": [
+        "a-causal-conformer-trained-on-the-product-s-own-3b2bac"
+      ],
+      "experiment_ids": [
+        "exp-008-a-causal-conformer-trained-on-68789d"
+      ],
+      "claim_quotes": [
+        "HEAD B is deployable and the strongest component measured in this project.",
+        "Build the product around this head."
+      ],
+      "quote_locations": [
+        {
+          "path": "/root/lightsem-vault/experiments/exp-008-a-causal-conformer-trained-on-68789d.md",
+          "section": "Notes",
+          "quote": "HEAD B is deployable and the strongest component measured in this project."
+        },
+        {
+          "path": "/root/lightsem-vault/experiments/exp-008-a-causal-conformer-trained-on-68789d.md",
+          "section": "Interpretation",
+          "quote": "Build the product around this head."
+        }
+      ],
+      "contradiction": "A measured reference-history advantage is promoted to deployment readiness without testing that history source in deployment. Frontier row1 already carries the needed qualification, but the native conclusion remains broader.",
+      "evidence": [
+        {
+          "source": "/root/lightsem/outputs/stage2/operator_head_model_with_hazard.json",
+          "detail": "86 test recordings: audio+reference hazard lift1.80544 versus rhythm1.25011; marginal+0.55534,95%CI[0.38481,0.73940]. This is NOT a paired joint-neural-versus-ridge comparison. Same52-feature ridge1.50013 is the audio-only comparator, reported separately below."
+        },
+        {
+          "source": "/root/lightsem/outputs/stage2/operator_head_model_audio_only.json",
+          "detail": "Audio-only Conformer1.346516 versus same-feature ridge1.500132; marginal+0.096409,95%CI[−0.053299,+0.258354] includes0."
+        },
+        {
+          "source": "/root/lightsem/outputs/stage9/head_own_cues_jdvis.json",
+          "detail": "Separate JD own-cue test: true hazard3.17139, own-cue1.82511, audio-only2.31860; own-minus-audio−0.49348,95%CI[−0.93869,−0.15366],38 recordings. This does not retroactively measure generated-history performance of the RPMC arm."
+        }
+      ],
+      "proposed_narrow_correction": "On 86 RPMC test recordings, the head using audio and reference-event history improved AP/base-rate lift to1.805 versus rhythm1.250 (marginal+0.555,95%CI[+0.385,+0.739]); audio-only1.347 did not beat same-feature ridge1.500. This is reference-history event-proxy support, not demonstrated generated-history deployment. The separate JD own-cue test lost to its audio-only comparator; neither result establishes human LIGHT quality. Do not compare the older99-show/openl3 ridge marginal+0.3145 with the86-show joint neural marginal as paired same-split superiority.",
+      "recommended_action": "Dated interpretation addendum only; preserve existing Notes, historical observations, gates and immutable verdicts. No rerun.",
+      "component_narrow_lessons": {},
+      "proposal_only": true,
+      "priority": "claim_scope"
+    },
+    {
+      "id": "CS-02",
+      "rows": [
+        2
+      ],
+      "kind": "instrument_scope_overclaim",
+      "hypothesis_ids": [
+        "a-causal-conformer-with-three-heads-b18294"
+      ],
+      "experiment_ids": [
+        "exp-004-a-causal-conformer-with-three-70f12e"
+      ],
+      "claim_quotes": [
+        "The machinery works and the corpus is the ceiling, as Stage 0b predicted.",
+        "The light-level gates fail for one identifiable reason rather than three."
+      ],
+      "quote_locations": [
+        {
+          "path": "/root/lightsem-vault/experiments/exp-004-a-causal-conformer-with-three-70f12e.md",
+          "section": "Notes",
+          "quote": "The machinery works and the corpus is the ceiling, as Stage 0b predicted."
+        },
+        {
+          "path": "/root/lightsem-vault/experiments/exp-004-a-causal-conformer-with-three-70f12e.md",
+          "section": "Notes",
+          "quote": "The light-level gates fail for one identifiable reason rather than three."
+        }
+      ],
+      "contradiction": "The unqualified ceiling and single-cause sentences exceed the recorded recipe/comparator instruments. This is a narrative mechanism/ceiling correction, not a challenge to the measured recipe failure. Frontier row2 already narrows the failure.",
+      "evidence": [
+        {
+          "source": "/root/lightsem/outputs/stage1/stage1_light_eval_v1.json#summary",
+          "detail": "60 val_track clips: BAS model0.000863,95%CI[−0.002407,0.004036], versus real0.146381 and beat trigger0.095945; FID113.954 versus half-null68.075 (null136.150; floor4.770); diversity4.07450 versus real6.30637, below0.7 ratio requirement."
+        },
+        {
+          "source": "/root/lightsem-vault/experiments/exp-004-a-causal-conformer-with-three-70f12e.md",
+          "detail": "Native record labels failure recipe_conditional and separately describes over-smoothed blockA plus frame-independent flow jitter. The recorded matched MSE/flow control measures diversity, not a unique cause of all three light-gate failures."
+        }
+      ],
+      "proposed_narrow_correction": "This frozen AIST++ three-head recipe failed BAS, FID and diversity gates while passing exact model causality. Near-median blockA output and independent-frame jitter are reported failure observations; these data do not isolate one cause of every failed gate or establish an architecture-independent corpus ceiling. Retain the scoped recipe failure and all null comparators.",
+      "recommended_action": "Dated interpretation addendum only; preserve existing Notes, historical observations, gates and immutable verdicts. No rerun.",
+      "component_narrow_lessons": {},
+      "proposal_only": true,
+      "priority": "claim_scope"
+    },
+    {
+      "id": "CS-03-04-05-59-common-rendered-holdout",
+      "rows": [
+        3,
+        4,
+        5,
+        59
+      ],
+      "kind": "split_provenance_overclaim",
+      "hypothesis_ids": [
+        "a-factorised-audio-light-critic-trained-with-a97ada",
+        "a-learned-group-effects-decoder-anton-s-mixture-2b4f62",
+        "a-look-sampler-that-holds-its-sampled-look-2b8adb",
+        "section-level-intent-belongs-on-the-conductor-0f5c23"
+      ],
+      "experiment_ids": [
+        "exp-023-a-factorised-audio-light-critic-e453c6",
+        "exp-020-a-learned-group-effects-decoder-1eac54",
+        "exp-021-a-learned-group-effects-decoder-1eac54",
+        "exp-024-a-look-sampler-that-holds-its-c32dbb",
+        "exp-022-section-level-intent-belongs-on-47d660"
+      ],
+      "claim_quotes": [
+        "Proxies on 39 held-out JD clips: FID_light best-of-8 41.38 vs random-of-8 43.82 (null 4119.78, floor 7.87); BAS minus null best +0.1234 vs random +0.1237 vs real coach +0.0813.",
+        "run_stage9_decoder_eval.py on 39 held-out Just Dance clips (val_track), brightness-matched to the real-coach reference, arms: conductor (shipped model), beat trigger, decoder, shuffled donor, engine-only",
+        "run_stage9_decoder_eval.py on 39 held-out Just Dance clips (val_track), brightness-matched to the real-coach reference, arms: conductor (shipped model), beat trigger, decoder, shuffled donor, engine-only",
+        "Light-BAS minus null on 39 held-out coach clips (engine with zero phase spread): cue-held +0.5133, per-frame +0.3990, conductor +0.1248, real coach +0.0808; paired cue-held minus conductor +0.3884 CI [+0.3671, +0.4106]; events per clip cue-held 419, per-frame 509, conductor 771, real 888.",
+        "H-J planner on the decoder's knobs, 39 held-out JD clips."
+      ],
+      "quote_locations": [
+        {
+          "path": "/root/lightsem-vault/experiments/exp-023-a-factorised-audio-light-critic-e453c6.md",
+          "section": "G9.5-bon / Notes",
+          "quote": "Proxies on 39 held-out JD clips: FID_light best-of-8 41.38 vs random-of-8 43.82 (null 4119.78, floor 7.87); BAS minus null best +0.1234 vs random +0.1237 vs real coach +0.0813."
+        },
+        {
+          "path": "/root/lightsem-vault/experiments/exp-020-a-learned-group-effects-decoder-1eac54.md",
+          "section": "metadata.config_note JSON eval field",
+          "quote": "run_stage9_decoder_eval.py on 39 held-out Just Dance clips (val_track), brightness-matched to the real-coach reference, arms: conductor (shipped model), beat trigger, decoder, shuffled donor, engine-only"
+        },
+        {
+          "path": "/root/lightsem-vault/experiments/exp-021-a-learned-group-effects-decoder-1eac54.md",
+          "section": "metadata.config_note JSON eval field",
+          "quote": "run_stage9_decoder_eval.py on 39 held-out Just Dance clips (val_track), brightness-matched to the real-coach reference, arms: conductor (shipped model), beat trigger, decoder, shuffled donor, engine-only"
+        },
+        {
+          "path": "/root/lightsem-vault/experiments/exp-024-a-look-sampler-that-holds-its-c32dbb.md",
+          "section": "G10.1-bas / Notes",
+          "quote": "Light-BAS minus null on 39 held-out coach clips (engine with zero phase spread): cue-held +0.5133, per-frame +0.3990, conductor +0.1248, real coach +0.0808; paired cue-held minus conductor +0.3884 CI [+0.3671, +0.4106]; events per clip cue-held 419, per-frame 509, conductor 771, real 888."
+        },
+        {
+          "path": "/root/lightsem-vault/experiments/exp-022-section-level-intent-belongs-on-47d660.md",
+          "line": 82,
+          "quote": "H-J planner on the decoder's knobs, 39 held-out JD clips."
+        }
+      ],
+      "contradiction": "The39 motion-model-validation render cohort is not an authenticated common held-out pipeline cohort. Existing summary proves decoder membership30train/5validation/4test clips; critic uses an independent split plus length filtering, so exact critic exposure counts are NOT established. The row4 issue is ONLY config_note.eval, not its separate \"Held-out authored corpora\" MSE/AP sentence. Row3 separate pair accuracy is not invalidated.",
+      "evidence": [
+        {
+          "source": "/root/lightsem/outputs/stage9/critic.json",
+          "detail": "39-clip reranking proxies: FID41.3796 vs random43.8153 (null4119.7844,floor7.8731); BAS0.123419 vs0.123685. Separate pair accuracy0.892969 vs0.5chance; additive ordering changes41.0256%; human test absent."
+        },
+        {
+          "source": "/root/lightsem/train_critic.py:120-125,187-195",
+          "detail": "Read-only source: critic uses train_operator_head.split(songs) after bar-length filtering; reranking instead selects independent make_jd_splits(meta).val_track without a common-holdout intersection."
+        },
+        {
+          "source": "/root/lightsem/docs/CONTINUATION_AUDIT_2026-09-07.md#Issues that change the continuation order",
+          "detail": "Existing audit establishes independent split mismatch for the39-clip motion-val DMX evaluation. Its30train/5validation/4test figures are decoder membership, NOT measured critic-exposure counts. No manifest checked or exposure reconstructed in this audit."
+        },
+        {
+          "source": "/root/lightsem/docs/CONTINUATION_AUDIT_2026-09-07.md#Issues that change the continuation order",
+          "detail": "Existing summary reports39 motion-val clips consist of30 decoder-training,5 decoder-validation and4 decoder-test clips (22/5/2 distinct recordings). This concerns rendered DMX comparison, not the separately reported authored-corpus MSE/AP evaluation."
+        },
+        {
+          "source": "/root/lightsem-vault/experiments/exp-020-a-learned-group-effects-decoder-1eac54.md",
+          "detail": "v1 FID929.89 vs conductor43.82 and donor927.41 (null4142.66,floor6.93); BAS−0.1664 vs conductor+0.1238; rig0.302 vs channel-copy0.306; human A/B explicitly unmeasured."
+        },
+        {
+          "source": "/root/lightsem-vault/experiments/exp-021-a-learned-group-effects-decoder-1eac54.md",
+          "detail": "v2 FID6211.29 vs conductor43.82 and donor5403.20 (null4126.33,floor7.68); BAS−0.0549 vs+0.1239; rig0.345 vs channel-copy0.305; human A/B explicitly unmeasured."
+        },
+        {
+          "source": "/root/lightsem/docs/CONTINUATION_AUDIT_2026-09-07.md#Issues that change the continuation order",
+          "detail": "Historical39-clip motion validation set:30 decoder-training,5decoder-validation,4decoder-test clips. Separate38-song transition endpoint uses decoder recording test split, with canonical-song duplication caveat; transition timing instrument is ±10%beat, not fixed100ms."
+        },
+        {
+          "source": "/root/lightsem/outputs/stage9/cue_eval_v2.json",
+          "detail": "BAS0.5133 vs conductor0.1248 with419 vs771 events/clip; transition distance6.855 vs per-frame8.867, shuffled donor5.66,floor2.56. Required donor advantage absent."
+        },
+        {
+          "source": "/root/lightsem-vault/experiments/exp-022-section-level-intent-belongs-on-47d660.md",
+          "detail": "docs/CONTINUATION_AUDIT_2026-09-07.md existing historical split audit: among the 39 motion-validation clips, decoder membership is 30 TRAIN (22 recordings), 5 VAL (5 recordings), 4 TEST (2 recordings). outputs/stage9/planner_eval.json: planner FID 597.340 versus shuffled 610.455, no-planner 6211.285, causal 589.832, conductor 43.815; null 4157.916, floor 7.217. Planner BAS-minus-null -0.061288 versus no-planner -0.054542, paired diff -0.0067 CI [-0.0116,-0.0023]. Human question unmeasured."
+        },
+        {
+          "source": "/root/lightsem/outputs/stage9/planner_eval.json",
+          "detail": "Existing planner source/report corroborates same motion-val selector; no manifests accessed."
+        },
+        {
+          "source": "/root/lightsem/docs/CONTINUATION_AUDIT_2026-09-07.md",
+          "detail": "Existing planner source/report corroborates same motion-val selector; no manifests accessed."
+        },
+        {
+          "source": "/root/lightsem/docs/research/2026-09-28-end-to-end/COMPLETED_AND_BLOCKED_RECONCILIATION_V1.json",
+          "detail": "Existing planner source/report corroborates same motion-val selector; no manifests accessed."
+        },
+        {
+          "source": "/root/lightsem/run_stage9_planner_eval.py",
+          "detail": "Existing planner source/report corroborates same motion-val selector; no manifests accessed."
+        },
+        {
+          "source": "/root/lightsem/run_stage9_planner_eval.py",
+          "locator": "4-5",
+          "detail": "The decoder-eval protocol (run_stage9_decoder_eval.py) with four decoder arms on the same\nheld-out Just Dance clips, all brightness-matched to the real-coach reference:"
+        },
+        {
+          "source": "/root/lightsem/run_stage9_planner_eval.py",
+          "locator": "88,97-99",
+          "detail": "ap.add_argument(\"--split\", default=\"val_track\")\nz, meta = load_tensor(Path(a.tensor)); sp = make_jd_splits(meta); idx = getattr(sp, a.split)\nrng = np.random.default_rng(0); idx = idx[rng.permutation(len(idx))[:a.n]]\nnames = [meta[i][\"name\"] for i in idx]; by_name = {m[\"name\"]: m for m in meta}"
+        }
+      ],
+      "proposed_narrow_correction": "These39-clip FID/BAS/reranking measurements use motion-model-validation clips, not a common held-out pipeline cohort. The saved audit identifies30decoder-training,5validation and4test clips; no exact critic-exposure count was established here. Retain critic best-of8 FID41.38 versus random43.82 and BAS.1234 versus.1237 as descriptive; retain both decoder FID/BAS failures; retain cue-held BAS.5133 versus conductor.1248 alongside its failed transition distance6.86 versus donor5.66 (floor2.56). Do not infer generalization or human preference. Preserve separate authored-corpus and critic pair-accuracy results and all missing human gates. The planner39-clip comparison shares this selector: its FID597.34 versus shuffled610.46/no-planner6211.29 is not evidence of fully held-out decoder generalization; paired BAS worsened by−.0067 CI[−.0116,−.0023] and its human question remains unmeasured.",
+      "recommended_action": "Dated interpretation addendum only; preserve existing Notes, historical observations, gates and immutable verdicts. No rerun.",
+      "component_narrow_lessons": {
+        "3": "The reranking proxies compare39 motion-model-validation clips: FID41.38 versus random43.82 and BAS0.1234 versus0.1237. The source does not establish that this set is held out from the independently split critic. Keep the separate held-out pair-accuracy result and additive projection result; beyond-level understanding and best-of8 human preference remain unestablished.",
+        "4": "Both decoder recipes failed their recorded FID/BAS gates on the39-clip motion-validation render set, which was not held out from the decoder (30train/5validation/4test clips). v1 rig transfer passed; v2 failed. Preserve the separately reported authored-corpus metrics without relabelling them from these39-clip counts. Human A/B was not measured; no new run or preference conclusion follows.",
+        "5": "Cue-held transition distance6.86 improves over per-frame8.87 but loses to donor5.66 (floor2.56), so the conjunction remains failed. BAS0.5133 versus conductor0.1248 with419 versus771 events/clip is a descriptive zero-phase engine comparison on39 motion-validation clips, not demonstrated decoder-held-out song generalization. Preserve the historical split and beat-fraction timing qualifications; no aesthetic preference is measured.",
+        "59": "This historical 39-clip comparison is held out under the motion selector, not fully held out from the evaluated decoder: the existing audit reports 30 decoder-TRAIN clips, 5 VAL and 4 TEST. Planner FID 597.34 versus no-planner6211.29/shuffled610.46 does not establish held-out decoder generalization; paired BAS worsened by -0.0067, CI [-0.0116,-0.0023]. Human structure judgment remains explicitly unmeasured. Preserve the completed numeric negative; no new execution follows."
+      },
+      "proposal_only": true,
+      "priority": "claim_scope"
+    },
+    {
+      "id": "CS-06",
+      "rows": [
+        6
+      ],
+      "kind": "instrument_scope_overclaim",
+      "hypothesis_ids": [
+        "audio-predicts-lighting-events-when-the-scene-changes-even-though-it-does-not-pr"
+      ],
+      "experiment_ids": [
+        "audio-predicts-lighting-events-when-the-scene-changes-even-though-it-does-not-pr-exp-2026-08-07t13-50-58"
+      ],
+      "claim_quotes": [
+        "Gradual and persistent = lighting-like, not cut-like. This does NOT prove the\nabsence of edit contamination -- that needs shot-boundary labels the dataset\ndoes not ship -- but it bounds it as a minority of events."
+      ],
+      "quote_locations": [
+        {
+          "path": "/root/lightsem-vault/experiments/audio-predicts-lighting-events-when-the-scene-changes-even-though-it-does-not-pr-exp-2026-08-07t13-50-58.md",
+          "section": "Notes",
+          "quote": "Gradual and persistent = lighting-like, not cut-like. This does NOT prove the\nabsence of edit contamination -- that needs shot-boundary labels the dataset\ndoes not ship -- but it bounds it as a minority of events."
+        }
+      ],
+      "contradiction": "Unlabelled morphology is incorrectly converted into a prevalence upper bound. The same paragraph admits shot labels are absent; a smoothed novelty instrument cannot establish that camera edits are a minority. Retain event-proxy coupling.",
+      "evidence": [
+        {
+          "source": "/root/lightsem-vault/experiments/audio-predicts-lighting-events-when-the-scene-changes-even-though-it-does-not-pr-exp-2026-08-07t13-50-58.md",
+          "detail": "Event proxy coupling: rhythm+audio1.4151 vs rhythm1.3241; marginal+0.0909 versus40-shift null−0.1568±0.0876,z2.83. Cut-shape audit36songs/968events: median novelty rise18frames,13.5%≤2frames,8.4%return,57.6%stay/new state; no labelled edit fraction."
+        },
+        {
+          "source": "/root/lightsem/probe_cut_vs_light.py:main/rise_time",
+          "detail": "Source only: applies rise_time to novelty(y), not a shot-boundary label or raw pixel-change classifier. No sensitivity/specificity calibration for cut prevalence."
+        },
+        {
+          "source": "/root/lightsem/probe_event_target.py:76-81",
+          "detail": "novelty applies a3-sample uniform filter, then differences of10-frame pre/post means; novelty rise is not the duration of an unfiltered cut. No synthetic/new measurement was run."
+        }
+      ],
+      "proposed_narrow_correction": "Audio is associated with the video-derived event proxy: rhythm+audio lift1.4151 versus rhythm1.3241, marginal+0.0909 against the circular-shift null−0.1568±0.0876. The36-song rise/reversion measurements describe filtered novelty morphology only. Without validated shot-boundary labels they do not bound the proportion of editing contamination, identify lighting-only coupling, or establish useful cue anticipation.",
+      "recommended_action": "Dated interpretation addendum only; preserve existing Notes, historical observations, gates and immutable verdicts. No rerun.",
+      "component_narrow_lessons": {},
+      "proposal_only": true,
+      "priority": "claim_scope"
+    },
+    {
+      "id": "CS-09",
+      "rows": [
+        9
+      ],
+      "kind": "instrument_scope_overclaim",
+      "hypothesis_ids": [
+        "dance-is-not-a-category-error-for-light-light-79702c"
+      ],
+      "experiment_ids": [
+        "exp-010-dance-is-not-a-category-error-101dd9"
+      ],
+      "claim_quotes": [
+        "The category error did not happen.",
+        "Chance, and expected by construction: after exp-001 the hybrid takes its transient phase from the same audio beat grid the beat trigger uses, so the two arms are phased identically and this question cannot separate them."
+      ],
+      "quote_locations": [
+        {
+          "path": "/root/lightsem-vault/experiments/exp-010-dance-is-not-a-category-error-101dd9.md",
+          "section": "Notes",
+          "quote": "The category error did not happen."
+        },
+        {
+          "path": "/root/lightsem-vault/experiments/exp-010-dance-is-not-a-category-error-101dd9.md",
+          "section": "G2-music",
+          "quote": "Chance, and expected by construction: after exp-001 the hybrid takes its transient phase from the same audio beat grid the beat trigger uses, so the two arms are phased identically and this question cannot separate them."
+        }
+      ],
+      "contradiction": "The categorical opening asserts the broad conclusion despite the failed protocol, while a wide non-significant music interval is treated as proof that the instrument cannot separate the arms. This flags only the unresolved conclusion, not the mere existence of a broad hypothesis.",
+      "evidence": [
+        {
+          "source": "/root/lightsem/outputs/stage0c/category/score_result.json",
+          "detail": "Appearance:8/9decided wins versus chance.5,exactCI[.518,.997]; music5/9=.556,CI[.212,.863],p1.0. One rater vs5planned;10tracks vs20;0/10EDM;0/10foil rated; file letters fixed across trials."
+        },
+        {
+          "source": "/root/lightsem-vault/experiments/exp-010-dance-is-not-a-category-error-101dd9.md",
+          "detail": "G-protocol and G2-music explicitly fail, and final Notes correctly say directional/provisional. Those qualifications do not support the contradictory categorical opening or a proof of indistinguishability."
+        }
+      ],
+      "proposed_narrow_correction": "The reduced one-rater pilot favored hybrid appearance in8/9decided trials versus chance.5 (95%CI[.518,.997]). Music-fit5/9 (CI[.212,.863]) is inconclusive, not equivalence. Shared transient phase does not prove the rating question cannot distinguish the outputs. The incomplete/blinding-limited protocol leaves the broad category claim unestablished; retain only the pilot appearance direction.",
+      "recommended_action": "Dated interpretation addendum only; preserve existing Notes, historical observations, gates and immutable verdicts. No rerun.",
+      "component_narrow_lessons": {},
+      "proposal_only": true,
+      "priority": "claim_scope"
+    },
+    {
+      "id": "CS-56",
+      "row": 56,
+      "kind": "instrument_scope_overclaim",
+      "hypothesis_id": "light-derived-from-real-dance-motion-by-a-fixed-a3ac3d",
+      "experiment_ids": [
+        "exp-001-light-derived-from-real-dance-39fd73"
+      ],
+      "claim_quotes": [
+        "It carries the PERIOD (footfall Rayleigh R 0.55, median z 5.2 per clip) but not the PHASE, which belongs to the choreography and is therefore not in the audio and not learnable from it.",
+        "Dance-derived light is NOT musically phased on this corpus (G1b fails), and that is a fact about where musical timing lives, not a bug:"
+      ],
+      "quote_locations": [
+        {
+          "path": "/root/lightsem-vault/experiments/exp-001-light-derived-from-real-dance-39fd73.md",
+          "line": 107,
+          "quote": "It carries the PERIOD (footfall Rayleigh R 0.55, median z 5.2 per clip) but not the PHASE, which belongs to the choreography and is therefore not in the audio and not learnable from it."
+        },
+        {
+          "path": "/root/lightsem-vault/experiments/exp-001-light-derived-from-real-dance-39fd73.md",
+          "line": 113,
+          "quote": "Dance-derived light is NOT musically phased on this corpus (G1b fails), and that is a fact about where musical timing lives, not a bug:"
+        }
+      ],
+      "contradiction": "The fixed conductor/beat-alignment instrument did not test whether audio contains phase information or whether any model can learn it. A CI including zero also does not establish absence of phase alignment. The claim of universal phase unlearnability remains despite otherwise explicit corpus/null qualifications.",
+      "evidence": [
+        {
+          "source": "/root/lightsem-vault/experiments/exp-001-light-derived-from-real-dance-39fd73.md",
+          "detail": "Native G1b: motion-only v0 BAS-minus-own-shift +0.0082, CI [-0.0101,+0.0259], versus audio beat trigger +0.0942, CI [+0.0828,+0.1063], and hybrid +0.1242, CI [+0.1141,+0.1353]. G2 FID 109.7 versus split-half floor 1.82 (3x floor=5.45) uses disclosed substituted block-shuffle null. These compare emitted-light timing/distributions, not phase recoverability from audio."
+        }
+      ],
+      "proposed_narrow_correction": "On the evaluated AIST++ clips, this fixed motion-only conductor did not establish beat-phase alignment above its circular-shift null (+0.0082, CI [-0.0101,+0.0259]). The audio-phased hybrid scored +0.1242 versus +0.0942 for the beat trigger under the same metric. This supports that hybrid timing choice for this recipe; it does not show that choreography phase is absent from audio or unlearnable. Keep the disclosed metronome-gate and FID-null limitations; no aesthetic claim or rerun follows.",
+      "recommended_action": "Dated interpretation addendum only; preserve historical negative, gates, measurements and stop rule.",
+      "rows": [
+        56
+      ],
+      "hypothesis_ids": [
+        "light-derived-from-real-dance-motion-by-a-fixed-a3ac3d"
+      ],
+      "proposal_only": true,
+      "priority": "claim_scope"
+    },
+    {
+      "id": "CS-57",
+      "row": 57,
+      "kind": "instrument_scope_overclaim",
+      "hypothesis_id": "most-of-the-gap-between-the-model-s-light-0-018-8b5f6c",
+      "experiment_ids": [
+        "exp-012-most-of-the-gap-between-the-1f7d3b"
+      ],
+      "claim_quotes": [
+        "If an offline model with the entire track still cannot beat +0.105, then nothing about the model is the binding constraint and the answer is more free-dance-to-EDM data, not a better head.",
+        "So the gap between model light and real-mapped light is not a causality tax and not a context-length problem; it is the corpus (Stage 0b: AIST++ movement is explained by genre, not audio). Three architecture experiments would have confirmed this slowly."
+      ],
+      "quote_locations": [
+        {
+          "path": "/root/lightsem-vault/hypotheses/most-of-the-gap-between-the-model-s-light-0-018-8b5f6c.md",
+          "line": 61,
+          "quote": "If an offline model with the entire track still cannot beat +0.105, then nothing about the model is the binding constraint and the answer is more free-dance-to-EDM data, not a better head."
+        },
+        {
+          "path": "/root/lightsem-vault/experiments/exp-012-most-of-the-gap-between-the-1f7d3b.md",
+          "line": 108,
+          "quote": "So the gap between model light and real-mapped light is not a causality tax and not a context-length problem; it is the corpus (Stage 0b: AIST++ movement is explained by genre, not audio). Three architecture experiments would have confirmed this slowly."
+        }
+      ],
+      "contradiction": "One fixed same-trunk/seed/budget causal-versus-offline recipe cannot identify corpus as the sole cause or rule out all model/context changes. Existing recipe_conditional metadata does not qualify the categorical prose.",
+      "evidence": [
+        {
+          "source": "/root/lightsem-vault/experiments/exp-012-most-of-the-gap-between-the-1f7d3b.md",
+          "detail": "Native same-split 749k-frame/12k-step comparison: offline block-A R2 -0.0092 versus causal +0.0192 (required +0.04). Offline BAS-minus-null +0.0185 CI [.0150,.0217] versus causal +0.0179 CI [.0147,.0213], beat trigger +0.0344, real-mapped +0.2084 (required +0.105). With model-specific H-B smoothing: offline +0.2756 versus causal +0.2932. No arm changes data while isolating all architecture alternatives."
+        },
+        {
+          "source": "/root/lightsem-vault/hypotheses/most-of-the-gap-between-the-model-s-light-0-018-8b5f6c.md",
+          "detail": "Existing referenced hypothesis/source record."
+        }
+      ],
+      "proposed_narrow_correction": "For this AIST++ trunk, seed, split and 12k-step budget, removing the tested causality constraints did not earn the specified gain: R2 -0.0092 versus causal +0.0192 and BAS-minus-null +0.0185 versus +0.0179, below +0.105. This recipe did not close the gap; it does not identify the corpus as the sole bottleneck or exclude other architectures, context mechanisms or optimization. Preserve the completed negative without another seed or context sweep.",
+      "recommended_action": "Dated interpretation addendum only; preserve historical negative, gates, measurements and stop rule.",
+      "rows": [
+        57
+      ],
+      "hypothesis_ids": [
+        "most-of-the-gap-between-the-model-s-light-0-018-8b5f6c"
+      ],
+      "proposal_only": true,
+      "priority": "claim_scope"
+    },
+    {
+      "id": "CS-62",
+      "row": 62,
+      "kind": "residual_numeric_contradiction_after_repair",
+      "hypothesis_id": "the-audio-lighting-event-signal-is-carried-by-loudness-energy-if-true-the-indust",
+      "experiment_ids": [
+        "the-audio-lighting-event-signal-is-carried-by-loudness-energy-if-true-the-indust-exp-2026-08-07t14-34-32"
+      ],
+      "claim_quotes": [
+        "Energy is the ONLY family that fails to beat its own null."
+      ],
+      "contradiction": "The same saved table also shows the harmonic family failing its own null. The2026-09-28 lesson correctly repairs the energy-ceiling/zero-effect overclaim but does not explicitly correct this retained factual sentence. This is not a request to repeat the successful repair or change supports.",
+      "evidence": [
+        {
+          "source": "/root/lightsem-vault/experiments/the-audio-lighting-event-signal-is-carried-by-loudness-energy-if-true-the-indust-exp-2026-08-07t14-34-32.md",
+          "locator": "Notes feature-family table",
+          "detail": "Energy lift1.4704 vsnull1.4381±.0488,z+.66,p.240; harmonic lift1.3832 vsnull1.4609±.0550,z−1.41,p.960. Common rhythm baseline1.3241. Both fail their own null."
+        },
+        {
+          "source": "/root/lightsem/docs/research/2026-09-28-end-to-end/vault_interpretation_repair_receipt_v1.json",
+          "locator": "second native receipt lesson",
+          "detail": "Successfully limits energy/spectral claims and rejects proven-zero-energy and unique correlated-feature mechanism; immutable supports remains deliberately unchanged."
+        }
+      ],
+      "proposed_narrow_correction": "The retained historical sentence that energy was the only family to fail its own null is incorrect. Both energy (p=.240; lift1.4704 vsnull1.4381) and harmonic features (p=.960; lift1.3832 vsnull1.4609) failed their own permutation comparisons. This factual addendum leaves the2026-09-28 interpretation correction, measured table, historical verdict and closure unchanged.",
+      "recommended_action": "Small factual addendum to already corrected interpretation; no new closure or fit.",
+      "rows": [
+        62
+      ],
+      "hypothesis_ids": [
+        "the-audio-lighting-event-signal-is-carried-by-loudness-energy-if-true-the-indust"
+      ],
+      "proposal_only": true,
+      "priority": "factual_precision"
+    },
+    {
+      "id": "CS-65",
+      "row": 65,
+      "kind": "instrument_scope_overclaim",
+      "hypothesis_id": "the-deployed-path-meets-its-latency-budget-and-b0aff5",
+      "experiment_ids": [
+        "exp-006-the-deployed-path-meets-its-eb0fc6"
+      ],
+      "claim_quotes": [
+        "The deployed path meets its latency budget and is causal by construction: transients under 20 ms, the learned path under 65 ms audio-in to DMX-out, and no dependence on future audio."
+      ],
+      "contradiction": "The recorded causality instrument perturbed synthetic model-input tensors, not audio through the feature bus. It can establish conditional model causality, not full future-audio independence. The later exp-009 demonstrates that distinction on its own tested pipeline by reporting upstream leakage while the model test passed. This review has not established identical upstream source/version identity for the two historical runs, so it does not declare the exact older full pipeline refuted. Hardware latency was already correctly disclaimed; that is not a new defect.",
+      "evidence": [
+        {
+          "source": "/root/lightsem/run_stage4.py",
+          "locator": "lines48–52",
+          "detail": "X = torch.randn(4, 400, lm.cfg.in_dim); causality_probe(lm.model, X, c). It probes model inputs."
+        },
+        {
+          "source": "/root/lightsem-vault/experiments/exp-009-the-stage-1-audio-bus-was-not-d97aa0.md",
+          "locator": "G-feature-causal and Notes",
+          "detail": "exp-009 reports pre-repair HPSS 375ms look-ahead, spectral25ms, top_db whole-clip dependence. It states the model causality gate was passing throughout and could not catch input construction. Repaired23channels+64mel pass; five beat-grid channels remain oracle."
+        },
+        {
+          "source": "/root/lightsem-vault/experiments/exp-006-the-deployed-path-meets-its-eb0fc6.md",
+          "locator": "G-lat-transient/G-lat-learned/G-causal-mech",
+          "detail": "Retain separate transient10.8ms vs20ms budget, learned p9962.5ms vs65ms budget including assumed30ms fixture term, and model-input perturbation max difference0."
+        }
+      ],
+      "proposed_narrow_correction": "Retain the historical software timing result and zero leakage under model-input perturbation. This experiment establishes conditional model causality only: its saved instrument perturbs synthetic model inputs, not audio through the feature builder. It does not establish whole deployed-pipeline future-audio independence or measured real-fixture latency. The later exp-009 is a separate, version-bounded example: that tested pipeline had upstream feature leakage and its repair still exempted five oracle beat-grid channels. Upstream source/version equivalence between the two historical runs is not established here; do not treat this cross-link as a new refutation of the exact earlier full path. Preserve historical gates and verdict; no rerun.",
+      "recommended_action": "Dated interpretation addendum/cross-link only; preserve immutable gates and verdict.",
+      "source_version_limit": "No independently established same upstream version for exp-006 and exp-009. The finding is insufficient instrument scope, not a retrospective causal rerun or exact-version refutation.",
+      "rows": [
+        65
+      ],
+      "hypothesis_ids": [
+        "the-deployed-path-meets-its-latency-budget-and-b0aff5"
+      ],
+      "proposal_only": true,
+      "priority": "claim_scope"
+    },
+    {
+      "id": "CS-68",
+      "row": 68,
+      "kind": "measured_probe_as_universal_ceiling",
+      "hypothesis_id": "the-music-induced-movement-literature-s-shared-c6aab2",
+      "experiment_ids": [
+        "exp-002-the-music-induced-movement-46c7b4"
+      ],
+      "claim_quotes": [
+        "Gate fails and the reason is the corpus, not the method.",
+        "Dance-derived supervision only carries audio information when the music is the only thing that varies",
+        "which is the honest ceiling for a dance-supervised block A trained on this corpus."
+      ],
+      "contradiction": "A particular feature/ridge/CV probe failing the registered gate does not isolate corpus design as the sole cause or establish a maximum for all audio-conditioned models. The record itself separates measured split-half reliability up to.94 from attained ridge R2, and admits its weak genre classifier is a floor. Genre explanation of movement also does not exclude audio information because genre is audible. The negative registered result remains intact.",
+      "evidence": [
+        {
+          "source": "/root/lightsem-vault/experiments/exp-002-the-music-induced-movement-46c7b4.md",
+          "locator": "config_note, G-audit, Interpretation, Notes",
+          "detail": "Multi-output ridge with selected alphas and four causal EMA timescales on60tracks/1408clips. Gate R2>.3 fails on all4named targets (within-track each<.05). Laterality attainedR2.192 CI[.064,.325], hand_speed.183 CI[-.004,.337]; split-half shared reliability reaches.94. Dancer baseline beats audio23/29channels; footfall identity.403 vs audio.035, vertical amplitude.241 vs-.018."
+        },
+        {
+          "source": "/root/lightsem/run_stage0b.py",
+          "locator": "shared-component source docstring lines235–247",
+          "detail": "Names split-half reliability as ceiling, not the achieved audio-ridge score."
+        }
+      ],
+      "proposed_narrow_correction": "The registered AIST++ shared-skeleton gate failed for the tested causal-feature ridge recipe and track-held-out splits: all four named within-track targets were below R2 .05 versus the >.3 requirement, and dancer identity beat audio on23 of29 channels. Retain the measured limited coupling, including laterality R2 .192 CI[.064,.325], and the strong genre association. These attained probe scores are not an upper bound on every audio model, and this audit does not isolate corpus design rather than model/features as the sole cause. Split-half reliability is the separately measured reproducibility ceiling. Keep the scoped negative result; do not reopen the study.",
+      "recommended_action": "Narrow the interpretation/ceiling language only; preserve measured failure and historical closure.",
+      "rows": [
+        68
+      ],
+      "hypothesis_ids": [
+        "the-music-induced-movement-literature-s-shared-c6aab2"
+      ],
+      "proposal_only": true,
+      "priority": "claim_scope"
+    }
+  ],
+  "coverage": [
+    {
+      "number": 1,
+      "hypothesis_id": "a-causal-conformer-trained-on-the-product-s-own-3b2bac",
+      "experiment_ids": [
+        "exp-008-a-causal-conformer-trained-on-68789d"
+      ],
+      "native_status": "confirmed",
+      "audit_disposition": "proposed_narrow_correction",
+      "finding_ids": [
+        "CS-01"
+      ],
+      "reason": "A measured reference-history advantage is promoted to deployment readiness without testing that history source in deployment. Frontier row1 already carries the needed qualification, but the native conclusion remains broader.",
+      "evidence_paths": [
+        "/root/lightsem-vault/hypotheses/a-causal-conformer-trained-on-the-product-s-own-3b2bac.md",
+        "/root/lightsem-vault/experiments/exp-008-a-causal-conformer-trained-on-68789d.md"
+      ],
+      "numeric_comparator_or_unmeasured_status": null,
+      "retained_scope_quote": null,
+      "retained_scope_note": "On 86 RPMC test recordings, the head using audio and reference-event history improved AP/base-rate lift to1.805 versus rhythm1.250 (marginal+0.555,95%CI[+0.385,+0.739]); audio-only1.347 did not beat same-feature ridge1.500. This is reference-history event-proxy support, not demonstrated generated-history deployment. The separate JD own-cue test lost to its audio-only comparator; neither result establishes human LIGHT quality. Do not compare the older99-show/openl3 ridge marginal+0.3145 with the86-show joint neural marginal as paired same-split superiority."
+    },
+    {
+      "number": 2,
+      "hypothesis_id": "a-causal-conformer-with-three-heads-b18294",
+      "experiment_ids": [
+        "exp-004-a-causal-conformer-with-three-70f12e"
+      ],
+      "native_status": "refuted",
+      "audit_disposition": "proposed_narrow_correction",
+      "finding_ids": [
+        "CS-02"
+      ],
+      "reason": "The unqualified ceiling and single-cause sentences exceed the recorded recipe/comparator instruments. This is a narrative mechanism/ceiling correction, not a challenge to the measured recipe failure. Frontier row2 already narrows the failure.",
+      "evidence_paths": [
+        "/root/lightsem-vault/hypotheses/a-causal-conformer-with-three-heads-b18294.md",
+        "/root/lightsem-vault/experiments/exp-004-a-causal-conformer-with-three-70f12e.md"
+      ],
+      "numeric_comparator_or_unmeasured_status": null,
+      "retained_scope_quote": null,
+      "retained_scope_note": "This frozen AIST++ three-head recipe failed BAS, FID and diversity gates while passing exact model causality. Near-median blockA output and independent-frame jitter are reported failure observations; these data do not isolate one cause of every failed gate or establish an architecture-independent corpus ceiling. Retain the scoped recipe failure and all null comparators."
+    },
+    {
+      "number": 3,
+      "hypothesis_id": "a-factorised-audio-light-critic-trained-with-a97ada",
+      "experiment_ids": [
+        "exp-023-a-factorised-audio-light-critic-e453c6"
+      ],
+      "native_status": "inconclusive",
+      "audit_disposition": "proposed_narrow_correction",
+      "finding_ids": [
+        "CS-03-04-05-59-common-rendered-holdout"
+      ],
+      "reason": "The39 motion-model-validation render cohort is not an authenticated common held-out pipeline cohort. Existing summary proves decoder membership30train/5validation/4test clips; critic uses an independent split plus length filtering, so exact critic exposure counts are NOT established. The row4 issue is ONLY config_note.eval, not its separate \"Held-out authored corpora\" MSE/AP sentence. Row3 separate pair accuracy is not invalidated.",
+      "evidence_paths": [
+        "/root/lightsem-vault/hypotheses/a-factorised-audio-light-critic-trained-with-a97ada.md",
+        "/root/lightsem-vault/experiments/exp-023-a-factorised-audio-light-critic-e453c6.md"
+      ],
+      "numeric_comparator_or_unmeasured_status": null,
+      "retained_scope_quote": null,
+      "retained_scope_note": "The reranking proxies compare39 motion-model-validation clips: FID41.38 versus random43.82 and BAS0.1234 versus0.1237. The source does not establish that this set is held out from the independently split critic. Keep the separate held-out pair-accuracy result and additive projection result; beyond-level understanding and best-of8 human preference remain unestablished."
+    },
+    {
+      "number": 4,
+      "hypothesis_id": "a-learned-group-effects-decoder-anton-s-mixture-2b4f62",
+      "experiment_ids": [
+        "exp-020-a-learned-group-effects-decoder-1eac54",
+        "exp-021-a-learned-group-effects-decoder-1eac54"
+      ],
+      "native_status": "refuted",
+      "audit_disposition": "proposed_narrow_correction",
+      "finding_ids": [
+        "CS-03-04-05-59-common-rendered-holdout"
+      ],
+      "reason": "The39 motion-model-validation render cohort is not an authenticated common held-out pipeline cohort. Existing summary proves decoder membership30train/5validation/4test clips; critic uses an independent split plus length filtering, so exact critic exposure counts are NOT established. The row4 issue is ONLY config_note.eval, not its separate \"Held-out authored corpora\" MSE/AP sentence. Row3 separate pair accuracy is not invalidated.",
+      "evidence_paths": [
+        "/root/lightsem-vault/hypotheses/a-learned-group-effects-decoder-anton-s-mixture-2b4f62.md",
+        "/root/lightsem-vault/experiments/exp-020-a-learned-group-effects-decoder-1eac54.md",
+        "/root/lightsem-vault/experiments/exp-021-a-learned-group-effects-decoder-1eac54.md"
+      ],
+      "numeric_comparator_or_unmeasured_status": null,
+      "retained_scope_quote": null,
+      "retained_scope_note": "Both decoder recipes failed their recorded FID/BAS gates on the39-clip motion-validation render set, which was not held out from the decoder (30train/5validation/4test clips). v1 rig transfer passed; v2 failed. Preserve the separately reported authored-corpus metrics without relabelling them from these39-clip counts. Human A/B was not measured; no new run or preference conclusion follows."
+    },
+    {
+      "number": 5,
+      "hypothesis_id": "a-look-sampler-that-holds-its-sampled-look-2b8adb",
+      "experiment_ids": [
+        "exp-024-a-look-sampler-that-holds-its-c32dbb"
+      ],
+      "native_status": "inconclusive",
+      "audit_disposition": "proposed_narrow_correction",
+      "finding_ids": [
+        "CS-03-04-05-59-common-rendered-holdout"
+      ],
+      "reason": "The39 motion-model-validation render cohort is not an authenticated common held-out pipeline cohort. Existing summary proves decoder membership30train/5validation/4test clips; critic uses an independent split plus length filtering, so exact critic exposure counts are NOT established. The row4 issue is ONLY config_note.eval, not its separate \"Held-out authored corpora\" MSE/AP sentence. Row3 separate pair accuracy is not invalidated.",
+      "evidence_paths": [
+        "/root/lightsem-vault/hypotheses/a-look-sampler-that-holds-its-sampled-look-2b8adb.md",
+        "/root/lightsem-vault/experiments/exp-024-a-look-sampler-that-holds-its-c32dbb.md"
+      ],
+      "numeric_comparator_or_unmeasured_status": null,
+      "retained_scope_quote": null,
+      "retained_scope_note": "Cue-held transition distance6.86 improves over per-frame8.87 but loses to donor5.66 (floor2.56), so the conjunction remains failed. BAS0.5133 versus conductor0.1248 with419 versus771 events/clip is a descriptive zero-phase engine comparison on39 motion-validation clips, not demonstrated decoder-held-out song generalization. Preserve the historical split and beat-fraction timing qualifications; no aesthetic preference is measured."
+    },
+    {
+      "number": 6,
+      "hypothesis_id": "audio-predicts-lighting-events-when-the-scene-changes-even-though-it-does-not-pr",
+      "experiment_ids": [
+        "audio-predicts-lighting-events-when-the-scene-changes-even-though-it-does-not-pr-exp-2026-08-07t13-50-58"
+      ],
+      "native_status": "confirmed",
+      "audit_disposition": "proposed_narrow_correction",
+      "finding_ids": [
+        "CS-06"
+      ],
+      "reason": "Unlabelled morphology is incorrectly converted into a prevalence upper bound. The same paragraph admits shot labels are absent; a smoothed novelty instrument cannot establish that camera edits are a minority. Retain event-proxy coupling.",
+      "evidence_paths": [
+        "/root/lightsem-vault/hypotheses/audio-predicts-lighting-events-when-the-scene-changes-even-though-it-does-not-pr.md",
+        "/root/lightsem-vault/experiments/audio-predicts-lighting-events-when-the-scene-changes-even-though-it-does-not-pr-exp-2026-08-07t13-50-58.md"
+      ],
+      "numeric_comparator_or_unmeasured_status": null,
+      "retained_scope_quote": null,
+      "retained_scope_note": "Audio is associated with the video-derived event proxy: rhythm+audio lift1.4151 versus rhythm1.3241, marginal+0.0909 against the circular-shift null−0.1568±0.0876. The36-song rise/reversion measurements describe filtered novelty morphology only. Without validated shot-boundary labels they do not bound the proportion of editing contamination, identify lighting-only coupling, or establish useful cue anticipation."
+    },
+    {
+      "number": 7,
+      "hypothesis_id": "authored-hobby-game-light-shows-are-lighting-202cb0",
+      "experiment_ids": [
+        "exp-017-authored-hobby-game-light-shows-e4a4d0"
+      ],
+      "native_status": "inconclusive",
+      "audit_disposition": "no_new_correction",
+      "finding_ids": [],
+      "reason": "Native explicitly says BeatSaber failed both frozen causal margins and xLights was not audited (login-gated). Conjunctive corpus claim is not promoted. No-change.",
+      "evidence_paths": [
+        "/root/lightsem-vault/hypotheses/authored-hobby-game-light-shows-are-lighting-202cb0.md",
+        "/root/lightsem-vault/experiments/exp-017-authored-hobby-game-light-shows-e4a4d0.md",
+        "/root/lightsem/outputs/stage9/hh_gate.json"
+      ],
+      "numeric_comparator_or_unmeasured_status": "APaudio.170 vs shifted.131 (+.039<.15); vsbeat-trigger.150 (+.020<.05). Offline.210 still misses shift margin.",
+      "retained_scope_quote": null,
+      "retained_scope_note": "Keep BeatSaber-specific rejection and xLights access blocker; no general authored-corpus refutation."
+    },
+    {
+      "number": 8,
+      "hypothesis_id": "conditioning-on-whole-track-structure-section-4ccfa8",
+      "experiment_ids": [
+        "exp-015-conditioning-on-whole-track-229262"
+      ],
+      "native_status": "refuted",
+      "audit_disposition": "no_new_correction",
+      "finding_ids": [],
+      "reason": "Native separately labels intensity G-struct-contrast NOT MEASURED; records real and shuffled structure negative comparisons. No broad recurrence-memory prohibition asserted.",
+      "evidence_paths": [
+        "/root/lightsem-vault/hypotheses/conditioning-on-whole-track-structure-section-4ccfa8.md",
+        "/root/lightsem-vault/experiments/exp-015-conditioning-on-whole-track-229262.md"
+      ],
+      "numeric_comparator_or_unmeasured_status": "BASstructure.1065 vsnone.1347,paired−.0282 CI[−.0417,−.017]; shuffled.1197; FID27.58 vsnone36.51.",
+      "retained_scope_quote": null,
+      "retained_scope_note": "Keep this frozen conditioning-recipe failure and unavailable per-section intensity endpoint; no rescue or rerun."
+    },
+    {
+      "number": 9,
+      "hypothesis_id": "dance-is-not-a-category-error-for-light-light-79702c",
+      "experiment_ids": [
+        "exp-010-dance-is-not-a-category-error-101dd9"
+      ],
+      "native_status": "inconclusive",
+      "audit_disposition": "proposed_narrow_correction",
+      "finding_ids": [
+        "CS-09"
+      ],
+      "reason": "The categorical opening asserts the broad conclusion despite the failed protocol, while a wide non-significant music interval is treated as proof that the instrument cannot separate the arms. This flags only the unresolved conclusion, not the mere existence of a broad hypothesis.",
+      "evidence_paths": [
+        "/root/lightsem-vault/hypotheses/dance-is-not-a-category-error-for-light-light-79702c.md",
+        "/root/lightsem-vault/experiments/exp-010-dance-is-not-a-category-error-101dd9.md"
+      ],
+      "numeric_comparator_or_unmeasured_status": null,
+      "retained_scope_quote": null,
+      "retained_scope_note": "The reduced one-rater pilot favored hybrid appearance in8/9decided trials versus chance.5 (95%CI[.518,.997]). Music-fit5/9 (CI[.212,.863]) is inconclusive, not equivalence. Shared transient phase does not prove the rating question cannot distinguish the outputs. The incomplete/blinding-limited protocol leaves the broad category claim unestablished; retain only the pilot appearance direction."
+    },
+    {
+      "number": 10,
+      "hypothesis_id": "descriptors-extracted-from-ordinary-video-with-3fc5b9",
+      "experiment_ids": [
+        "exp-007-descriptors-extracted-from-936a48"
+      ],
+      "native_status": "testing",
+      "audit_disposition": "no_new_correction",
+      "finding_ids": [],
+      "reason": "Open status is administrative, not support. Native experiment explicitly reports10 executed clips and failed G3; broad proposal is not an asserted result. Frontier/reconciliation already qualify AIST reconstructed3D and planned12/executed10.",
+      "evidence_paths": [
+        "/root/lightsem-vault/hypotheses/descriptors-extracted-from-ordinary-video-with-3fc5b9.md",
+        "/root/lightsem-vault/experiments/exp-007-descriptors-extracted-from-936a48.md",
+        "/root/lightsem/outputs/stage0a/pose_validation.json",
+        "/root/lightsem/docs/research/2026-09-28-end-to-end/COMPLETED_AND_BLOCKED_RECONCILIATION_V1.json"
+      ],
+      "numeric_comparator_or_unmeasured_status": "Mean five-channel r.627 versus>.8gate;n10,not12. Higher vertical channels do not pass conjunction.",
+      "retained_scope_quote": null,
+      "retained_scope_note": "Retain10-clip failure and provenance/comparator qualifications; no fabricated missing clips or rerun."
+    },
+    {
+      "number": 11,
+      "hypothesis_id": "feeding-the-group-decoder-the-hazard-features-d0f637",
+      "experiment_ids": [
+        "exp-025-feeding-the-group-decoder-the-6ba213"
+      ],
+      "native_status": "inconclusive",
+      "audit_disposition": "no_new_correction",
+      "finding_ids": [],
+      "reason": "Native explicitly fails own-cue gate and states per-song decoder CIs are absent; sweep and operator own-cue comparator are complete. No measured equivalence conclusion is needed. Context scopes teacher-forcing wording to tested recipe.",
+      "evidence_paths": [
+        "/root/lightsem-vault/hypotheses/feeding-the-group-decoder-the-hazard-features-d0f637.md",
+        "/root/lightsem-vault/experiments/exp-025-feeding-the-group-decoder-the-6ba213.md",
+        "/root/lightsem/outputs/stage9/head_own_cues_jdvis.json"
+      ],
+      "numeric_comparator_or_unmeasured_status": "Bestdecoder own-cue JD2.41 vsaudio2.41;RPMC1.31 vs1.33. Separate operator own-cue1.8251 vsaudio2.3186,paired−.4935 CI[−.9387,−.1537].",
+      "retained_scope_quote": null,
+      "retained_scope_note": "Keep frozen sweep negative/unqualified CI endpoint; do not claim powered equivalence or all possible history schemes fail."
+    },
+    {
+      "number": 12,
+      "hypothesis_id": "h-beat-conditioned-visible-motion-20260909",
+      "experiment_ids": [
+        "exp-beat-conditioned-visible-motion-20260909"
+      ],
+      "native_status": "inconclusive",
+      "audit_disposition": "no_new_correction",
+      "finding_ids": [],
+      "reason": "Current interpretation and notes explicitly separate visibility repair from failed musical control and retain map-only/untrained controls.",
+      "evidence_paths": [
+        "/root/lightsem-vault/hypotheses/h-beat-conditioned-visible-motion-20260909.md",
+        "/root/lightsem-vault/experiments/exp-beat-conditioned-visible-motion-20260909.md"
+      ],
+      "numeric_comparator_or_unmeasured_status": "Visibilitycandidate1.0 vsoldbody0;oldweights+map1.0,untrained.75. Controlledsongs.025 vs.75required;Aadvantage−.2130 vs+.05required;Badvantage+.01094 CI[.00103,.02185]passes.",
+      "retained_scope_quote": null,
+      "retained_scope_note": "No change: mapping visibility success does not establish learned musical motion."
+    },
+    {
+      "number": 13,
+      "hypothesis_id": "h-dance-actuator-budget-20260911",
+      "experiment_ids": [
+        "exp-dance-actuator-budget-20260911"
+      ],
+      "native_status": "inconclusive",
+      "audit_disposition": "no_new_correction",
+      "finding_ids": [],
+      "reason": "Current notes retain failed visual gate and explicitly restrict intervention to simulator counterfactual, not hardware or music quality.",
+      "evidence_paths": [
+        "/root/lightsem-vault/hypotheses/h-dance-actuator-budget-20260911.md",
+        "/root/lightsem-vault/experiments/exp-dance-actuator-budget-20260911.md",
+        "/root/lightsem/outputs/dance_visual_audit.md"
+      ],
+      "numeric_comparator_or_unmeasured_status": "Active1–2Hz amplitude.221143→.789705 vs.45gate at90/360 ratherthan30/80;oldcaps exceeded28.29%/71.82%;visualcrown/row remains.",
+      "retained_scope_quote": null,
+      "retained_scope_note": "No change: simulated bandwidth improvement with failed sampled visual acceptance; no cap escalation or hardware claim."
+    },
+    {
+      "number": 14,
+      "hypothesis_id": "h-dance-no-clock-20260908",
+      "experiment_ids": [
+        "exp-dance-no-clock-20260908"
+      ],
+      "native_status": "confirmed",
+      "audit_disposition": "no_new_correction",
+      "finding_ids": [],
+      "reason": "Current native interpretation already corrects historical support: narrow descriptor gates only, product visibly rejected, no-clock ablation confounded.",
+      "evidence_paths": [
+        "/root/lightsem-vault/hypotheses/h-dance-no-clock-20260908.md",
+        "/root/lightsem-vault/experiments/exp-dance-no-clock-20260908.md"
+      ],
+      "numeric_comparator_or_unmeasured_status": "Descriptoradvantage−.06302 untrained→+.05484 final,CI[.02118,.08708];variation1.0776 vsregistered.7–1.3;visiblefraction.005411 andupwardlight.46019.",
+      "retained_scope_quote": null,
+      "retained_scope_note": "No change: preserve descriptor support and rejected visible product; no anti-beat or product qualification claim."
+    },
+    {
+      "number": 15,
+      "hypothesis_id": "h-dance-optics-full-20260911",
+      "experiment_ids": [
+        "exp-dance-optics-full-20260911"
+      ],
+      "native_status": "confirmed",
+      "audit_disposition": "no_new_correction",
+      "finding_ids": [],
+      "reason": "Current native notes and gate receipts explicitly state music gate is no-music-claim/held-source control, not human acceptance. All bounded procedures complete.",
+      "evidence_paths": [
+        "/root/lightsem-vault/hypotheses/h-dance-optics-full-20260911.md",
+        "/root/lightsem-vault/experiments/exp-dance-optics-full-20260911.md",
+        "/root/lightsem/outputs/dance_optics_final_outcome.md"
+      ],
+      "numeric_comparator_or_unmeasured_status": "Geometric motion/radius.140474→.336552,2.39583x;camera-alone.113821 isworse. Outsidebulbluma3.178096legacy vs2.936833flux;matchedlegacy2.963248 (+.90%rounding).",
+      "retained_scope_quote": null,
+      "retained_scope_note": "No change: fixed-source optics observability support only; not optical-flow, music, hardware or human preference."
+    },
+    {
+      "number": 16,
+      "hypothesis_id": "h-dance-physical-objective-20260911",
+      "experiment_ids": [
+        "exp-dance-physical-objective-20260911"
+      ],
+      "native_status": "inconclusive",
+      "audit_disposition": "no_new_correction",
+      "finding_ids": [],
+      "reason": "Current notes retain absolute sliding/conditioning failures and unavailable incumbent3Dlighting while declaring scheduled renders/sample reviews complete. No human acceptance asserted.",
+      "evidence_paths": [
+        "/root/lightsem-vault/hypotheses/h-dance-physical-objective-20260911.md",
+        "/root/lightsem-vault/experiments/exp-dance-physical-objective-20260911.md",
+        "/root/lightsem/outputs/dance_physical_final_outcome.md",
+        "/root/lightsem/docs/research/2026-09-28-end-to-end/COMPLETED_AND_BLOCKED_RECONCILIATION_V1.json"
+      ],
+      "numeric_comparator_or_unmeasured_status": "Slidingphysical.389104 vsbaseline.927721 andreference.045977;excess.343127>.20limit. ESadvantage.8265%donor,.2010%shift vs5%required,bothCIsinclude0.",
+      "retained_scope_quote": null,
+      "retained_scope_note": "No change: physical improvement insufficient for frozen qualification; unavailable incumbent lighting is not an invented comparison or rerun request."
+    },
+    {
+      "number": 17,
+      "hypothesis_id": "h-dance-pose-stage-20260911",
+      "experiment_ids": [
+        "exp-dance-pose-stage-20260911"
+      ],
+      "native_status": "confirmed",
+      "audit_disposition": "no_new_correction",
+      "finding_ids": [],
+      "reason": "Native record and final outcome explicitly limit support to fixed-body geometric bundle and its declared control/sample coverage. They retain fan/tangles, audio attribution and body readability limits.",
+      "evidence_paths": [
+        "/root/lightsem-vault/hypotheses/h-dance-pose-stage-20260911.md",
+        "/root/lightsem-vault/experiments/exp-dance-pose-stage-20260911.md",
+        "/root/lightsem/outputs/dance_pose_stage_final_outcome.md"
+      ],
+      "numeric_comparator_or_unmeasured_status": "Broadbandmotion/radius.635937→1.456716,2.29066x vsstage02;8/8travelcoord vs6/8required;quiet2.81606 unchanged. Cloud/radius9.3898→3.2882 still>1;paircircleoverlap1.1083%vs0.",
+      "retained_scope_quote": null,
+      "retained_scope_note": "No change: geometric bundle support, not whole-body reconstruction, learned conditioning, music preference or real-fixture qualification."
+    },
+    {
+      "number": 18,
+      "hypothesis_id": "h-dance-projection-20260911",
+      "experiment_ids": [
+        "exp-dance-projection-20260911"
+      ],
+      "native_status": "inconclusive",
+      "audit_disposition": "no_new_correction",
+      "finding_ids": [],
+      "reason": "Current notes explicitly retain bandwidth and sampled visual failures despite signed-lag improvement; full bounded review complete.",
+      "evidence_paths": [
+        "/root/lightsem-vault/hypotheses/h-dance-projection-20260911.md",
+        "/root/lightsem-vault/experiments/exp-dance-projection-20260911.md",
+        "/root/lightsem/outputs/dance_visual_audit.md"
+      ],
+      "numeric_comparator_or_unmeasured_status": "Lag.450→0s;1–2Hz amplitude.243→.221<.35required. Same30/80softwarecaps;sampled crown/floorrow remains.",
+      "retained_scope_quote": null,
+      "retained_scope_note": "No change: fixed requested-motion-to-DMX delay improvement only, no music/model/hardware acceptance."
+    },
+    {
+      "number": 19,
+      "hypothesis_id": "h-dance-stage-anchors-20260911",
+      "experiment_ids": [
+        "exp-dance-stage-anchors-20260911"
+      ],
+      "native_status": "confirmed",
+      "audit_disposition": "no_new_correction",
+      "finding_ids": [],
+      "reason": "Current native notes correctly separate geometric wall use, completed sampled coverage and earlier contraction fix from music/visual acceptance. The report broader caution does not negate completed explicitly sampled gate.",
+      "evidence_paths": [
+        "/root/lightsem-vault/hypotheses/h-dance-stage-anchors-20260911.md",
+        "/root/lightsem-vault/experiments/exp-dance-stage-anchors-20260911.md",
+        "/root/lightsem/outputs/dance_stage_anchors_visual_audit.md"
+      ],
+      "numeric_comparator_or_unmeasured_status": "Activewall.009583→.487917 vs.10gate,floor.990417→.512083;ROImeanluma3.570→3.484,Y>=16area6.999%→6.658%.",
+      "retained_scope_quote": null,
+      "retained_scope_note": "No change: static anchors redistribute already-separated saved trajectories; no larger decoded-coverage or choreography claim."
+    },
+    {
+      "number": 20,
+      "hypothesis_id": "h-dance-stage-geometry-20260911",
+      "experiment_ids": [
+        "exp-dance-stage-geometry-20260911"
+      ],
+      "native_status": "inconclusive",
+      "audit_disposition": "no_new_correction",
+      "finding_ids": [],
+      "reason": "Native notes retain failed wall/visual gates and scope turn-safe geometry to one fixed saved body with simulator profile.",
+      "evidence_paths": [
+        "/root/lightsem-vault/hypotheses/h-dance-stage-geometry-20260911.md",
+        "/root/lightsem-vault/experiments/exp-dance-stage-geometry-20260911.md",
+        "/root/lightsem/outputs/dance_visual_audit.md"
+      ],
+      "numeric_comparator_or_unmeasured_status": "Contractionspan3.76962→10.61031m;emittedwall.009583<.10gate,rawactivewall1.125%;rowfamily remains.",
+      "retained_scope_quote": null,
+      "retained_scope_note": "No change: local contraction repair, not surface-family or pipeline acceptance; later anchor experiment separate."
+    },
+    {
+      "number": 21,
+      "hypothesis_id": "h-dance-stage-lean-20260911",
+      "experiment_ids": [
+        "exp-dance-stage-lean-20260911"
+      ],
+      "native_status": "inconclusive",
+      "audit_disposition": "no_new_correction",
+      "finding_ids": [],
+      "reason": "Current native notes explicitly retain failed2x/1px bandwidth and apply parent caption correction. Full sampled visual procedure is complete, not human acceptance.",
+      "evidence_paths": [
+        "/root/lightsem-vault/hypotheses/h-dance-stage-lean-20260911.md",
+        "/root/lightsem-vault/experiments/exp-dance-stage-lean-20260911.md",
+        "/root/lightsem/outputs/dance_stage_lean_visual_audit.md",
+        "/root/lightsem/outputs/dance_stage_lean_caption_addendum.md"
+      ],
+      "numeric_comparator_or_unmeasured_status": "Torsomidshaft1–2HzRMS.432625→.480092px<2xand1px;278paired1Hz+45nativepairs reviewed. Captionglyphrecall1.0bothsides on45pairs;not fullmovie proof.",
+      "retained_scope_quote": null,
+      "retained_scope_note": "No change: signed synthetic direction restoration is not this-track visibility or general signed-lean rejection; do not repeat uncorroborated caption defect."
+    },
+    {
+      "number": 22,
+      "hypothesis_id": "h-dance-tracking-20260911",
+      "experiment_ids": [
+        "exp-dance-tracking-20260911"
+      ],
+      "native_status": "inconclusive",
+      "audit_disposition": "no_new_correction",
+      "finding_ids": [],
+      "reason": "Current native notes retain timing/bandwidth/visual failures alongside mechanics/quiet/photometry/spatial passes, and distinguish sampled review from human AV.",
+      "evidence_paths": [
+        "/root/lightsem-vault/hypotheses/h-dance-tracking-20260911.md",
+        "/root/lightsem-vault/experiments/exp-dance-tracking-20260911.md"
+      ],
+      "numeric_comparator_or_unmeasured_status": "Lag.450→.225s misses≤.20;1–2Hzamplitude.243→.301 misses≥.35;278chronological1Hzsamples complete.",
+      "retained_scope_quote": null,
+      "retained_scope_note": "No change: bounded saved-motion controller test negative, not a missing generator experiment or product fix."
+    },
+    {
+      "number": 23,
+      "hypothesis_id": "h-layers-20260922-accent",
+      "experiment_ids": [],
+      "native_status": "proposed",
+      "audit_disposition": "no_new_correction",
+      "finding_ids": [],
+      "reason": "Original authored-accent conjunction remains unqualified; proxy AP is not acoustic beat timing or clean LIGHT accuracy.",
+      "evidence_paths": [
+        "/root/lightsem-vault/hypotheses/h-layers-20260922-accent.md",
+        "/root/lightsem/docs/research/2026-09-22-color-beat/OBSERVER_RESULTS_V1.md"
+      ],
+      "numeric_comparator_or_unmeasured_status": "Selected accent AP .348218 vs limited donor .382336 and logistic .298806; original31/40=.775<.80; paired-null29<30.",
+      "retained_scope_quote": "Authored visualaccenttarget provenance remains separatefrommotioncontacts/acousticbeatlabels."
+    },
+    {
+      "number": 24,
+      "hypothesis_id": "h-layers-20260922-color",
+      "experiment_ids": [],
+      "native_status": "proposed",
+      "audit_disposition": "no_new_correction",
+      "finding_ids": [],
+      "reason": "Original clean chromatic target isolation remains unqualified. No proxy outcome is stated as a broad color-head refutation.",
+      "evidence_paths": [
+        "/root/lightsem-vault/hypotheses/h-layers-20260922-color.md",
+        "/root/lightsem/docs/research/2026-09-22-color-beat/OBSERVER_RESULTS_V1.md"
+      ],
+      "numeric_comparator_or_unmeasured_status": "Selected color AP .297155 vs legacy6 .312085 and logistic .329439; original31/40=.775<.80.",
+      "retained_scope_quote": "Missing labels or modalityquality meansblocked, notzeroresult."
+    },
+    {
+      "number": 25,
+      "hypothesis_id": "h-layers-20260922-mask",
+      "experiment_ids": [
+        "exp-layers-20260922-mask-features-v2",
+        "exp-layers-20260922-mask-features-v3",
+        "exp-layers-20260922-mask-features"
+      ],
+      "native_status": "testing",
+      "audit_disposition": "no_new_correction",
+      "finding_ids": [],
+      "reason": "Extraction/runtime completion is explicitly not independent mask accuracy; labels and mask nuisance comparison remain absent.",
+      "evidence_paths": [
+        "/root/lightsem-vault/hypotheses/h-layers-20260922-mask.md",
+        "/root/lightsem-vault/experiments/exp-layers-20260922-mask-features-v2.md",
+        "/root/lightsem-vault/experiments/exp-layers-20260922-mask-features-v3.md",
+        "/root/lightsem-vault/experiments/exp-layers-20260922-mask-features.md",
+        "/root/lightsem/docs/research/2026-09-22-color-beat/ENGINEERING_COMPLETION.json"
+      ],
+      "numeric_comparator_or_unmeasured_status": "6/12 valid TRAIN extractions,3840frames; independent_mask_accuracy_measured=false. Required>=120 independently referenced frames/30videos; no measured accuracy comparator.",
+      "retained_scope_quote": "no independent mask accuracy claim"
+    },
+    {
+      "number": 26,
+      "hypothesis_id": "h-layers-20260922-multihead",
+      "experiment_ids": [
+        "exp-layers-20260922-batch4-smokes",
+        "exp-layers-20260922-student-smoke"
+      ],
+      "native_status": "testing",
+      "audit_disposition": "no_new_correction",
+      "finding_ids": [],
+      "reason": "Functional smokes and observer architecture contrasts are distinguished from original clean-target/palette no-negative-transfer qualification.",
+      "evidence_paths": [
+        "/root/lightsem-vault/hypotheses/h-layers-20260922-multihead.md",
+        "/root/lightsem-vault/experiments/exp-layers-20260922-batch4-smokes.md",
+        "/root/lightsem-vault/experiments/exp-layers-20260922-student-smoke.md",
+        "/root/lightsem/docs/research/2026-09-22-color-beat/ENGINEERING_COMPLETION.json",
+        "/root/lightsem/docs/research/2026-09-22-color-beat/OBSERVER_SCORES_INDEPENDENT_READONLY_AUDIT_V1.md"
+      ],
+      "numeric_comparator_or_unmeasured_status": "Selected shared-minus-independent color+.022718 CI[-.026418,+.081000]; accent-.016778. Functional30-step batch1 and two300-step batch4 smokes only.",
+      "retained_scope_quote": "Two functional production-batch GPU smokes, no scientific comparison/quality claim"
+    },
+    {
+      "number": 27,
+      "hypothesis_id": "h-layers-20260922-observer-proxy",
+      "experiment_ids": [
+        "exp-layers-20260922-observer-capture",
+        "exp-layers-20260922-observer-fits"
+      ],
+      "native_status": "testing",
+      "audit_disposition": "no_new_correction",
+      "finding_ids": [],
+      "reason": "All frozen work is complete. Failed 29<30 paired-null support and all16 CIs including zero are explicitly retained; outcome is undefined, not refutation.",
+      "evidence_paths": [
+        "/root/lightsem-vault/hypotheses/h-layers-20260922-observer-proxy.md",
+        "/root/lightsem-vault/experiments/exp-layers-20260922-observer-capture.md",
+        "/root/lightsem-vault/experiments/exp-layers-20260922-observer-fits.md",
+        "/root/lightsem/docs/research/2026-09-22-color-beat/OBSERVER_RESULTS_V1.md",
+        "/root/lightsem/docs/research/2026-09-22-color-beat/OBSERVER_SCORES_INDEPENDENT_READONLY_AUDIT_V1.md"
+      ],
+      "numeric_comparator_or_unmeasured_status": "Rich color .297155 vs legacy .312085: delta-.014930 CI[-.040685,+.001195]; final delta-.029977 CI[-.112966,+.047621]. Null29<30.",
+      "retained_scope_quote": "Null29<30 makes qualified_pass UNDEFINED, not refuted. All16 role-specific95%CIs include0."
+    },
+    {
+      "number": 28,
+      "hypothesis_id": "h-layers-20260922-palette",
+      "experiment_ids": [
+        "exp-layers-20260922-palette-secondary"
+      ],
+      "native_status": "testing",
+      "audit_disposition": "no_new_correction",
+      "finding_ids": [],
+      "reason": "Completed limited secondary negative is distinguished from original undefined qualification. Missing shuffled-palette control, source failure, and retrospective source-registration repair remain explicit.",
+      "evidence_paths": [
+        "/root/lightsem-vault/hypotheses/h-layers-20260922-palette.md",
+        "/root/lightsem-vault/experiments/exp-layers-20260922-palette-secondary.md",
+        "/root/lightsem/docs/research/2026-09-22-color-beat/PALETTE_SECONDARY_RESULTS_V1.md"
+      ],
+      "numeric_comparator_or_unmeasured_status": "Selected own temporal error .859022 vs null .830589 and donor .850720; null-minus-own97.5%CI[-.039850,-.016604]. Final own .750180 vs null .755757 gives .005577/.738%, below .02/15%, CI[-.008024,+.022413].",
+      "retained_scope_quote": "Original qualificationNone; no sign-only autoclosure."
+    },
+    {
+      "number": 29,
+      "hypothesis_id": "h-layers-20260922-pose-aux",
+      "experiment_ids": [],
+      "native_status": "proposed",
+      "audit_disposition": "no_new_correction",
+      "finding_ids": [],
+      "reason": "Pose auxiliary is proposed/unrun; no-pose observer results are not claimed to test it. Inference/body changes are explicitly excluded.",
+      "evidence_paths": [
+        "/root/lightsem-vault/hypotheses/h-layers-20260922-pose-aux.md"
+      ],
+      "numeric_comparator_or_unmeasured_status": "No pose-aux fits or model-quality comparator measured;9fits are conditional. Original source31/40=.775<.80 remains unqualified.",
+      "retained_scope_quote": "No motiongenerationtrain/inferencechange."
+    },
+    {
+      "number": 30,
+      "hypothesis_id": "h-layers-20260922-recurrence",
+      "experiment_ids": [],
+      "native_status": "proposed",
+      "audit_disposition": "no_new_correction",
+      "finding_ids": [],
+      "reason": "Trained recurrence-memory model and qualified returning-section cohort remain unrun; older knob regression is explicitly a different mechanism.",
+      "evidence_paths": [
+        "/root/lightsem-vault/hypotheses/h-layers-20260922-recurrence.md"
+      ],
+      "numeric_comparator_or_unmeasured_status": "No R1/shuffled-ID comparator measured; requires>=20 canonical songs with2 returning sections.64s observer windows are not a song-level recurrence test.",
+      "retained_scope_quote": "Thisisnotolderper-barknobregression orafixedchoruscolor rule."
+    },
+    {
+      "number": 31,
+      "hypothesis_id": "h-layers-20260922-rhythm",
+      "experiment_ids": [
+        "exp-layers-20260922-rhythm-dev-features",
+        "exp-layers-20260922-rhythm-features"
+      ],
+      "native_status": "testing",
+      "audit_disposition": "no_new_correction",
+      "finding_ids": [],
+      "reason": "Feature extraction is explicitly not beat-accuracy evaluation. Independent audio/reference pairs and overlap clearance remain absent.",
+      "evidence_paths": [
+        "/root/lightsem-vault/hypotheses/h-layers-20260922-rhythm.md",
+        "/root/lightsem-vault/experiments/exp-layers-20260922-rhythm-dev-features.md",
+        "/root/lightsem-vault/experiments/exp-layers-20260922-rhythm-features.md",
+        "/root/lightsem/docs/research/2026-09-22-color-beat/ENGINEERING_COMPLETION.json",
+        "/root/lightsem/outputs/shpongle_layers_demo_20260922T161917Z/BEAT_TEST_READINESS.json"
+      ],
+      "numeric_comparator_or_unmeasured_status": "516TRAIN+52historicalDEV feature records, no accuracy result;0 verified exact pairs vs required20,0 cleared songs and3non-TEST title-only leads.",
+      "retained_scope_quote": "GPU feature extraction only; no accuracy claim, no independentlabels and no scientific diagnostic recorded"
+    },
+    {
+      "number": 32,
+      "hypothesis_id": "h-layers-20260922-visual",
+      "experiment_ids": [],
+      "native_status": "proposed",
+      "audit_disposition": "no_new_correction",
+      "finding_ids": [],
+      "reason": "Completed no-pose rich/legacy/none observer comparisons are not treated as clean-target visual-supervision qualification or a general visual-supervision refutation.",
+      "evidence_paths": [
+        "/root/lightsem-vault/hypotheses/h-layers-20260922-visual.md",
+        "/root/lightsem/docs/research/2026-09-22-color-beat/OBSERVER_RESULTS_V1.md",
+        "/root/lightsem/docs/research/2026-09-22-color-beat/OBSERVER_SCORES_INDEPENDENT_READONLY_AUDIT_V1.md"
+      ],
+      "numeric_comparator_or_unmeasured_status": "Rich selected color AP .297155 vs legacy .312085 and none .300585; all16 role CIs include0; null29<30.",
+      "retained_scope_quote": "Maskextractorqualification separate."
+    },
+    {
+      "number": 33,
+      "hypothesis_id": "h-motion-audio-20260910",
+      "experiment_ids": [],
+      "native_status": "proposed",
+      "audit_disposition": "no_new_correction",
+      "finding_ids": [],
+      "reason": "Original compressed branch is prerequisite-blocked/superseded, not independently refuted by the distinct Native139 revision. Conditional seed1/TEST remain correctly stopped.",
+      "evidence_paths": [
+        "/root/lightsem-vault/hypotheses/h-motion-audio-20260910.md",
+        "/root/lightsem/docs/research/2026-09-10-motion/RESULTS.md",
+        "/root/lightsem/docs/research/2026-09-10-motion/REVISION_NATIVE_REFERENCE.md"
+      ],
+      "numeric_comparator_or_unmeasured_status": "No compressed-path audio experiment. Distinct native flow ES .8796 vs matched regression1.1934, donor advantage2.34% and shift .50% both below5%; does not execute original codec-conditioned branch.",
+      "retained_scope_quote": "no TEST access before qualification."
+    },
+    {
+      "number": 34,
+      "hypothesis_id": "h-motion-codec-20260910",
+      "experiment_ids": [
+        "exp-motion-codec-20260910",
+        "exp-motion-codec-temporal128-20260910"
+      ],
+      "native_status": "inconclusive",
+      "audit_disposition": "no_new_correction",
+      "finding_ids": [],
+      "reason": "Both frozen codec arms completed and failed qualification. Lessons retain recipe scope, zero16s quiet-window support, short-hold diagnostics, CIs, and all failed physical/fidelity gates.",
+      "evidence_paths": [
+        "/root/lightsem-vault/hypotheses/h-motion-codec-20260910.md",
+        "/root/lightsem-vault/experiments/exp-motion-codec-20260910.md",
+        "/root/lightsem-vault/experiments/exp-motion-codec-temporal128-20260910.md",
+        "/root/lightsem/docs/research/2026-09-10-motion/RESULTS.md"
+      ],
+      "numeric_comparator_or_unmeasured_status": "Full velocityNRMSE Temporal64 .340920 / Temporal128 .339236 vs Frame24 .340370; required<=.15. Paired95%CIs for delta[-.01980,.01562]/[-.02048,.01371] include0;16s quiet cohort0, later2s quiet diagnostic83windows.",
+      "retained_scope_quote": "The frozen quiet16s gate has zero eligible quiet/stationary windows and is vacuous; post-result two-second diagnostics expose nonzero excess motion."
+    },
+    {
+      "number": 35,
+      "hypothesis_id": "h-motion-coherence-20260910",
+      "experiment_ids": [
+        "exp-motion-coherence-20260910"
+      ],
+      "native_status": "inconclusive",
+      "audit_disposition": "no_new_correction",
+      "finding_ids": [],
+      "reason": "Quiet-pacing improvement does not hide failed active/regional/visual and upstream motion gates. Sampled-agent review is explicitly not human AV acceptance.",
+      "evidence_paths": [
+        "/root/lightsem-vault/hypotheses/h-motion-coherence-20260910.md",
+        "/root/lightsem-vault/experiments/exp-motion-coherence-20260910.md",
+        "/root/lightsem/docs/research/2026-09-10-motion/RESULTS.md"
+      ],
+      "numeric_comparator_or_unmeasured_status": "Quiet speed2.35954 vs incumbent40.87192deg/s (94.23% reduction). Active median2.657/p95 7.929 below3/8deg/s thresholds; active/regional/visual/motion gates fail.",
+      "retained_scope_quote": "Directional brightness or quiet-pacing improvement is not approval of the generated choreography."
+    },
+    {
+      "number": 36,
+      "hypothesis_id": "h-motion-dynamics-20260910",
+      "experiment_ids": [
+        "exp-motion-dynamics-20260910"
+      ],
+      "native_status": "inconclusive",
+      "audit_disposition": "no_new_correction",
+      "finding_ids": [],
+      "reason": "Dimming-only causal comparator supports downstream brightness within the saved diagnostic. Record explicitly separates this effect from upstream generator qualification and human acceptance.",
+      "evidence_paths": [
+        "/root/lightsem-vault/hypotheses/h-motion-dynamics-20260910.md",
+        "/root/lightsem-vault/experiments/exp-motion-dynamics-20260910.md",
+        "/root/lightsem/docs/research/2026-09-10-motion/RESULTS.md"
+      ],
+      "numeric_comparator_or_unmeasured_status": "Matched direct-audio luminance ratio3.353512 vs brightness-off .568263; direct lighting gates pass while motion prerequisite fails. Sampled9frames/5Hz observations, not human AV acceptance.",
+      "retained_scope_quote": "A downstream improvement cannot reverse weak conditionality or physical-motion failure upstream."
+    },
+    {
+      "number": 37,
+      "hypothesis_id": "h-motion-exposure-20260910",
+      "experiment_ids": [
+        "exp-motion-exposure-20260910"
+      ],
+      "native_status": "inconclusive",
+      "audit_disposition": "no_new_correction",
+      "finding_ids": [],
+      "reason": "Five scalar exposures completed; no eligible choice means undefined selected endpoint, not execution debt. Fixed-role successor remains distinct.",
+      "evidence_paths": [
+        "/root/lightsem-vault/hypotheses/h-motion-exposure-20260910.md",
+        "/root/lightsem-vault/experiments/exp-motion-exposure-20260910.md",
+        "/root/lightsem/docs/research/2026-09-10-motion/RESULTS.md"
+      ],
+      "numeric_comparator_or_unmeasured_status": "Whole-rig response at five scalar scales3.06357/2.34501/1.96844/1.74455/1.59905 vs legacy1.06714. Zero scales pass all scenes/visibility conjunction; selected primary undefined.",
+      "retained_scope_quote": "The selected-primary endpoint is therefore undefined; no favorable scale is substituted."
+    },
+    {
+      "number": 38,
+      "hypothesis_id": "h-motion-exposure-roles-20260910",
+      "experiment_ids": [
+        "exp-motion-exposure-roles-20260910"
+      ],
+      "native_status": "confirmed",
+      "audit_disposition": "no_new_correction",
+      "finding_ids": [],
+      "reason": "Support is limited to fixed-rig/camera optical ramps; native music failure and full-track visual acceptance remain separate.",
+      "evidence_paths": [
+        "/root/lightsem-vault/hypotheses/h-motion-exposure-roles-20260910.md",
+        "/root/lightsem-vault/experiments/exp-motion-exposure-roles-20260910.md",
+        "/root/lightsem/docs/research/2026-09-10-motion/RESULTS.md"
+      ],
+      "numeric_comparator_or_unmeasured_status": "Fixed-role whole-rig dimmer response3.685615 vs legacy1.067136; single-head3.366785 and six-head3.398103; all registered optical gates pass.",
+      "retained_scope_quote": "Optical qualification is separate from native-music failure and full-track visual acceptance."
+    },
+    {
+      "number": 39,
+      "hypothesis_id": "h-motion-incumbent-euler32-20260910",
+      "experiment_ids": [
+        "exp-motion-incumbent-euler32-20260910"
+      ],
+      "native_status": "refuted",
+      "audit_disposition": "no_new_correction",
+      "finding_ids": [],
+      "reason": "Same incumbent8-vs32 Euler comparison fails jitter and motion-preservation gates. No broad solver/decoder/perceptual refutation asserted.",
+      "evidence_paths": [
+        "/root/lightsem-vault/hypotheses/h-motion-incumbent-euler32-20260910.md",
+        "/root/lightsem-vault/experiments/exp-motion-incumbent-euler32-20260910.md",
+        "/root/lightsem/docs/research/2026-09-10-motion/RESULTS.md"
+      ],
+      "numeric_comparator_or_unmeasured_status": ">6Hz pose power .002517493 at32steps vs .002302947 at8steps (+9.32%); reduction95%CI[-13.64%,-4.64%]; velocity-energy ratio1.3833 exceeds1.25 preservation ceiling.",
+      "retained_scope_quote": "Increasing integration steps alone did not meet the preregistered jitter-improvement and preservation gates; the learned motion/decoder remains a separate issue."
+    },
+    {
+      "number": 40,
+      "hypothesis_id": "h-motion-native-audio-20260910",
+      "experiment_ids": [
+        "exp-motion-native-audio-20260910"
+      ],
+      "native_status": "inconclusive",
+      "audit_disposition": "no_new_correction",
+      "finding_ids": [],
+      "reason": "18-channel2Hz energy-score/physical/visual failure is not claimed to exclude all audio effects. Distributional improvement, failed donor/shift gates, physical failure, and conditional stopping are explicit. Earlier config says31VAL groups, but measured gates and Notes correct actual crop support to28; not an unresolved scope contradiction.",
+      "evidence_paths": [
+        "/root/lightsem-vault/hypotheses/h-motion-native-audio-20260910.md",
+        "/root/lightsem-vault/experiments/exp-motion-native-audio-20260910.md",
+        "/root/lightsem/docs/research/2026-09-10-motion/RESULTS.md"
+      ],
+      "numeric_comparator_or_unmeasured_status": "Flow ES .87964455 vs donor .90070905, shift .88402508, regression1.19336951. Donor gain2.34% CI[-.145%,4.644%], shift .50% CI[-.599%,1.439%], both miss5%; excess sliding .881762m/s. Actual28VAL crop groups.",
+      "retained_scope_quote": "Direction and qualification differ."
+    },
+    {
+      "number": 41,
+      "hypothesis_id": "h-motion-native-phase-codec-20260910",
+      "experiment_ids": [
+        "exp-motion-native-phase-codec-20260910"
+      ],
+      "native_status": "refuted",
+      "audit_disposition": "no_new_correction",
+      "finding_ids": [],
+      "reason": "Negative is specific to four linear capacities and primary Phase128 vs historical Temporal128, explicitly not compute-matched. Root/contact preservation is not used to claim temporal/physical fidelity.",
+      "evidence_paths": [
+        "/root/lightsem-vault/hypotheses/h-motion-native-phase-codec-20260910.md",
+        "/root/lightsem-vault/experiments/exp-motion-native-phase-codec-20260910.md",
+        "/root/lightsem/docs/research/2026-09-10-motion/RESULTS.md"
+      ],
+      "numeric_comparator_or_unmeasured_status": "Phase128 velocityNRMSE1.142420 vs historical Temporal128 .339236, delta .803184 CI[.738996,.875787]; Phase256 .750503 still exceeds .15 limit; none of4 capacities qualifies.",
+      "retained_scope_quote": "Primary phase128 versus historical original temporal128, not compute matched."
+    },
+    {
+      "number": 42,
+      "hypothesis_id": "h-motion-surface-20260910",
+      "experiment_ids": [
+        "exp-motion-surface-20260910"
+      ],
+      "native_status": "inconclusive",
+      "audit_disposition": "no_new_correction",
+      "finding_ids": [],
+      "reason": "Saved-song surface spread gain is kept separate from failed active/trajectory/visual gates; notes limit claim to this mapper/song and exclude human AV acceptance.",
+      "evidence_paths": [
+        "/root/lightsem-vault/hypotheses/h-motion-surface-20260910.md",
+        "/root/lightsem-vault/experiments/exp-motion-surface-20260910.md",
+        "/root/lightsem/docs/research/2026-09-10-motion/SPATIAL_CORRECTION.md"
+      ],
+      "numeric_comparator_or_unmeasured_status": "Surface01 span7.344037m vs rejected hybrid1.816600m, but active translation-removed extent .372105m<.5m; total .438149m<.8m; median speed1.92185<3deg/s. Visual gate fails.",
+      "retained_scope_quote": "No continuous audiovisual or human acceptance claimed."
+    },
+    {
+      "number": 43,
+      "hypothesis_id": "h-motion-surface-bandwidth-20260910",
+      "experiment_ids": [
+        "exp-motion-surface-bandwidth-20260910"
+      ],
+      "native_status": "inconclusive",
+      "audit_disposition": "no_new_correction",
+      "finding_ids": [],
+      "reason": "Aggregate numeric improvements do not override failed sampled visual review or local194–201s reconvergence. Music fit and human acceptance explicitly unmeasured.",
+      "evidence_paths": [
+        "/root/lightsem-vault/hypotheses/h-motion-surface-bandwidth-20260910.md",
+        "/root/lightsem-vault/experiments/exp-motion-surface-bandwidth-20260910.md",
+        "/root/lightsem/docs/research/2026-09-10-motion/SPATIAL_CORRECTION.md"
+      ],
+      "numeric_comparator_or_unmeasured_status": "Surface02 active translation-removed extent1.130057m vs Surface01 .372105m; whole-song span6.490 vs rejected1.817m.12aggregate numerical gates pass; visual_review fails.555half-second samples+dense intervals expose194–201s reconvergence; strict longest-focus2.075s understates it.",
+      "retained_scope_quote": "Music fit and human acceptance unmeasured."
+    },
+    {
+      "number": 44,
+      "hypothesis_id": "h-night-composition-20260909",
+      "experiment_ids": [
+        "exp-night-composition-20260909"
+      ],
+      "native_status": "inconclusive",
+      "audit_disposition": "no_new_correction",
+      "finding_ids": [],
+      "reason": "No unresolved narrative claim broader than the instrument found after existing qualifications. Preserve bounded outcome; no rerun or verdict rewrite.",
+      "evidence_paths": [
+        "/root/lightsem-vault/experiments/exp-night-composition-20260909.md"
+      ],
+      "numeric_comparator_or_unmeasured_status": "Expressive clip fraction 0.375 versus same-checkpoint old adapter 0, below 0.75; brightness gate failed. Existing lesson explicitly excludes learned fixture direction and human preference.",
+      "retained_scope_quote": null
+    },
+    {
+      "number": 45,
+      "hypothesis_id": "h-night-conditioning-20260909",
+      "experiment_ids": [
+        "exp-night-conditioning-20260909"
+      ],
+      "native_status": "inconclusive",
+      "audit_disposition": "no_new_correction",
+      "finding_ids": [],
+      "reason": "No unresolved narrative claim broader than the instrument found after existing qualifications. Preserve bounded outcome; no rerun or verdict rewrite.",
+      "evidence_paths": [
+        "/root/lightsem-vault/experiments/exp-night-conditioning-20260909.md"
+      ],
+      "numeric_comparator_or_unmeasured_status": "Controlled-song fraction 0 versus single-entry 0 in all six family/seed comparisons. Absolute conditioning, conditioning effect, native alignment and both-seed success gates failed; parameter confound disclosed.",
+      "retained_scope_quote": null
+    },
+    {
+      "number": 46,
+      "hypothesis_id": "h-night-fourier-20260909",
+      "experiment_ids": [
+        "exp-night-fourier-20260909"
+      ],
+      "native_status": "inconclusive",
+      "audit_disposition": "no_new_correction",
+      "finding_ids": [],
+      "reason": "No unresolved narrative claim broader than the instrument found after existing qualifications. Preserve bounded outcome; no rerun or verdict rewrite.",
+      "evidence_paths": [
+        "/root/lightsem-vault/experiments/exp-night-fourier-20260909.md"
+      ],
+      "numeric_comparator_or_unmeasured_status": "Fourier mean energy score 0.625685 versus Base 0.634184 (1.34% improvement, below 5%); brightness, conditioning and visibility failures retained.",
+      "retained_scope_quote": null
+    },
+    {
+      "number": 47,
+      "hypothesis_id": "h-night-iteration-speed-20260910",
+      "experiment_ids": [
+        "exp-night-iteration-speed-20260910"
+      ],
+      "native_status": "inconclusive",
+      "audit_disposition": "no_new_correction",
+      "finding_ids": [],
+      "reason": "No unresolved narrative claim broader than the instrument found after existing qualifications. Preserve bounded outcome; no rerun or verdict rewrite.",
+      "evidence_paths": [
+        "/root/lightsem-vault/experiments/exp-night-iteration-speed-20260910.md",
+        "/root/lightsem/docs/research/2026-09-10-speed/RESULTS.md"
+      ],
+      "numeric_comparator_or_unmeasured_status": "Complete training 1772.763s versus archived FP32 9323.834s (5.26x); 3% noninferiority not established. MuQ visibility counts 7/8 -> 4/8 and 7/8 -> 5/8. Existing lesson says combined BF16/compiler recipe, not BF16 alone.",
+      "retained_scope_quote": null
+    },
+    {
+      "number": 48,
+      "hypothesis_id": "h-night-muq-20260909",
+      "experiment_ids": [
+        "exp-night-muq-20260909"
+      ],
+      "native_status": "refuted",
+      "audit_disposition": "no_new_correction",
+      "finding_ids": [],
+      "reason": "No unresolved narrative claim broader than the instrument found after existing qualifications. Preserve bounded outcome; no rerun or verdict rewrite.",
+      "evidence_paths": [
+        "/root/lightsem-vault/experiments/exp-night-muq-20260909.md"
+      ],
+      "numeric_comparator_or_unmeasured_status": "Pinned MuQ energy 0.639349 versus Base92 0.634184 (lower is better); all four matched architecture/seed cells worse. Failed conditioning/brightness/visibility and recipe scope disclosed.",
+      "retained_scope_quote": null
+    },
+    {
+      "number": 49,
+      "hypothesis_id": "h-night-representation-20260909",
+      "experiment_ids": [
+        "exp-night-representation-20260909"
+      ],
+      "native_status": "confirmed",
+      "audit_disposition": "no_new_correction",
+      "finding_ids": [],
+      "reason": "No unresolved narrative claim broader than the instrument found after existing qualifications. Preserve bounded outcome; no rerun or verdict rewrite.",
+      "evidence_paths": [
+        "/root/lightsem-vault/experiments/exp-night-representation-20260909.md"
+      ],
+      "numeric_comparator_or_unmeasured_status": "Pose-conditioned learned24 reconstruction error 0.040783 versus descriptor decoder 0.392949. Lesson explicitly confines support to detected-2D oracle reconstruction, not audio-only choreography recovery.",
+      "retained_scope_quote": null
+    },
+    {
+      "number": 50,
+      "hypothesis_id": "h-night-rhythm-20260909",
+      "experiment_ids": [
+        "exp-night-rhythm-20260909"
+      ],
+      "native_status": "refuted",
+      "audit_disposition": "no_new_correction",
+      "finding_ids": [],
+      "reason": "No unresolved narrative claim broader than the instrument found after existing qualifications. Preserve bounded outcome; no rerun or verdict rewrite.",
+      "evidence_paths": [
+        "/root/lightsem-vault/experiments/exp-night-rhythm-20260909.md"
+      ],
+      "numeric_comparator_or_unmeasured_status": "GuitarSet PLP F1 0.488415 versus grid 0.582186; CMLt 0.125863 versus 0.468291. Lesson explicitly limits negative to fixed PLP recipe on 358 clips.",
+      "retained_scope_quote": null
+    },
+    {
+      "number": 51,
+      "hypothesis_id": "h-rhythm-companion-20260912t193657z",
+      "experiment_ids": [
+        "exp-rhythm-companion-20260912t193657z"
+      ],
+      "native_status": "testing",
+      "audit_disposition": "no_new_correction",
+      "finding_ids": [],
+      "reason": "No unresolved narrative claim broader than the instrument found after existing qualifications. Preserve bounded outcome; no rerun or verdict rewrite.",
+      "evidence_paths": [
+        "/root/lightsem-vault/experiments/exp-rhythm-companion-20260912t193657z.md",
+        "/root/lightsem/docs/research/2026-09-10-motion/RHYTHM_COMPANION.md",
+        "/root/lightsem/docs/research/2026-09-28-end-to-end/COMPLETED_AND_BLOCKED_RECONCILIATION_V1.json"
+      ],
+      "numeric_comparator_or_unmeasured_status": "Active angular-speed ratio 1.143094 versus baseline 1, below prediction 1.25. Seven logged gates are explicitly engineering/media; experiment is open, with no support or human-acceptance narrative. Repository result and reconciliation explicitly preserve missed magnitude.",
+      "retained_scope_quote": null
+    },
+    {
+      "number": 52,
+      "hypothesis_id": "h11-a-nonbeat-audio-dependence-20260908",
+      "experiment_ids": [
+        "exp-stage11-a-20260908"
+      ],
+      "native_status": "confirmed",
+      "audit_disposition": "no_new_correction",
+      "finding_ids": [],
+      "reason": "No unresolved narrative claim broader than the instrument found after existing qualifications. Preserve bounded outcome; no rerun or verdict rewrite.",
+      "evidence_paths": [
+        "/root/lightsem-vault/experiments/exp-stage11-a-20260908.md",
+        "/root/lightsem/docs/STAGE11_RESULTS_20260908.md"
+      ],
+      "numeric_comparator_or_unmeasured_status": "Once-unlocked historical scene TEST minimum donor AP advantage +0.049378, CI [0.036526,0.065203]; paired-prefix AP 0.100644 versus donor 0.051266. Full AP 0.101200 versus pointwise 0.104066. Lesson explicitly preserves absolute low AP, shuffled-audio null and non-aesthetic scope.",
+      "retained_scope_quote": null
+    },
+    {
+      "number": 53,
+      "hypothesis_id": "h11-d-expanded-jd-20260908",
+      "experiment_ids": [
+        "exp-stage11-d-20260908"
+      ],
+      "native_status": "inconclusive",
+      "audit_disposition": "no_new_correction",
+      "finding_ids": [],
+      "reason": "No unresolved narrative claim broader than the instrument found after existing qualifications. Preserve bounded outcome; no rerun or verdict rewrite.",
+      "evidence_paths": [
+        "/root/lightsem-vault/experiments/exp-stage11-d-20260908.md",
+        "/root/lightsem/docs/STAGE11_RESULTS_20260908.md"
+      ],
+      "numeric_comparator_or_unmeasured_status": "Expanded R2 -0.327269 versus old -0.338247; delta +0.010978, CI [-0.068824,+0.099958], misses +0.02/positive-CI gates. Conditional TEST explicitly unmeasured, not an unfinished authorized run.",
+      "retained_scope_quote": null
+    },
+    {
+      "number": 54,
+      "hypothesis_id": "h11-t-temporal-scene-flow-20260908",
+      "experiment_ids": [
+        "exp-stage11-t-20260908"
+      ],
+      "native_status": "confirmed",
+      "audit_disposition": "no_new_correction",
+      "finding_ids": [],
+      "reason": "No unresolved narrative claim broader than the instrument found after existing qualifications. Preserve bounded outcome; no rerun or verdict rewrite.",
+      "evidence_paths": [
+        "/root/lightsem-vault/experiments/exp-stage11-t-20260908.md",
+        "/root/lightsem/docs/STAGE11_RESULTS_20260908.md"
+      ],
+      "numeric_comparator_or_unmeasured_status": "Historical scene TEST W1 0.598149 versus pointwise 1.843117; variation 0.943642 reference ratio. Six-moment proxy/fixture-engine/aesthetic limits and failed original FP32 1e-5 engineering check are explicit; shared campaign report supplies shuffled W1 0.62280 and timing AP limitations.",
+      "retained_scope_quote": null
+    },
+    {
+      "number": 55,
+      "hypothesis_id": "just-dance-coach-motion-is-predictable-from-bcb46b",
+      "experiment_ids": [
+        "exp-014-just-dance-coach-motion-is-f086d5"
+      ],
+      "native_status": "inconclusive",
+      "audit_disposition": "no_new_correction_scope_caution",
+      "finding_ids": [],
+      "reason": "Inter-coach agreement only marks a reproducible target, not established audio-learnability. “Part a model can learn” is a loose potential-target inference, not a hard support claim after the explicit failed audio-R2 gate and unmeasured-label qualifications. Keep as scope caution; no new required correction, gate edit or reopening.",
+      "evidence_paths": [
+        "/root/lightsem-vault/experiments/exp-014-just-dance-coach-motion-is-f086d5.md",
+        "/root/lightsem/outputs/stage8/audit_jd_full.json",
+        "/root/lightsem/docs/research/2026-09-28-end-to-end/COMPLETED_AND_BLOCKED_RECONCILIATION_V1.json"
+      ],
+      "numeric_comparator_or_unmeasured_status": "outputs/stage8/audit_jd_full.json has 294 songs/453 coach entries. qom 2s R2 -0.015992 and bounce +0.003960 versus null 0 and required +0.20; best hand R2 rounds to +0.0045. Loudness-tertile qom ratio 1.570907 CI [1.519986,1.625972] versus equality 1; bounce ratio 1.486881 CI [1.441144,1.534061]. Native result explicitly identifies loudest/quietest thirds, and reconciliation identifies actual genre/Effort/section labels as missing.",
+      "retained_scope_quote": null
+    },
+    {
+      "number": 56,
+      "hypothesis_id": "light-derived-from-real-dance-motion-by-a-fixed-a3ac3d",
+      "experiment_ids": [
+        "exp-001-light-derived-from-real-dance-39fd73"
+      ],
+      "native_status": "refuted",
+      "audit_disposition": "proposed_narrow_correction",
+      "finding_ids": [
+        "CS-56"
+      ],
+      "reason": "The fixed conductor/beat-alignment instrument did not test whether audio contains phase information or whether any model can learn it. A CI including zero also does not establish absence of phase alignment. The claim of universal phase unlearnability remains despite otherwise explicit corpus/null qualifications.",
+      "evidence_paths": [
+        "/root/lightsem-vault/experiments/exp-001-light-derived-from-real-dance-39fd73.md"
+      ],
+      "numeric_comparator_or_unmeasured_status": "Native G1b: motion-only v0 BAS-minus-own-shift +0.0082, CI [-0.0101,+0.0259], versus audio beat trigger +0.0942, CI [+0.0828,+0.1063], and hybrid +0.1242, CI [+0.1141,+0.1353]. G2 FID 109.7 versus split-half floor 1.82 (3x floor=5.45) uses disclosed substituted block-shuffle null. These compare emitted-light timing/distributions, not phase recoverability from audio.",
+      "retained_scope_quote": null
+    },
+    {
+      "number": 57,
+      "hypothesis_id": "most-of-the-gap-between-the-model-s-light-0-018-8b5f6c",
+      "experiment_ids": [
+        "exp-012-most-of-the-gap-between-the-1f7d3b"
+      ],
+      "native_status": "refuted",
+      "audit_disposition": "proposed_narrow_correction",
+      "finding_ids": [
+        "CS-57"
+      ],
+      "reason": "One fixed same-trunk/seed/budget causal-versus-offline recipe cannot identify corpus as the sole cause or rule out all model/context changes. Existing recipe_conditional metadata does not qualify the categorical prose.",
+      "evidence_paths": [
+        "/root/lightsem-vault/experiments/exp-012-most-of-the-gap-between-the-1f7d3b.md",
+        "/root/lightsem-vault/hypotheses/most-of-the-gap-between-the-model-s-light-0-018-8b5f6c.md"
+      ],
+      "numeric_comparator_or_unmeasured_status": "Native same-split 749k-frame/12k-step comparison: offline block-A R2 -0.0092 versus causal +0.0192 (required +0.04). Offline BAS-minus-null +0.0185 CI [.0150,.0217] versus causal +0.0179 CI [.0147,.0213], beat trigger +0.0344, real-mapped +0.2084 (required +0.105). With model-specific H-B smoothing: offline +0.2756 versus causal +0.2932. No arm changes data while isolating all architecture alternatives.",
+      "retained_scope_quote": null
+    },
+    {
+      "number": 58,
+      "hypothesis_id": "one-frozen-music-foundation-layer-group-muq-46be80",
+      "experiment_ids": [
+        "exp-019-one-frozen-music-foundation-d4f30f"
+      ],
+      "native_status": "inconclusive",
+      "audit_disposition": "no_new_correction_formal_gate_limit",
+      "finding_ids": [],
+      "reason": "Do not rewrite solely because G9.7-leak is PASS or hypothesis contains unmeasured Oslo/L=0 clauses. Current result is expressly JD-only with failed magnitude and raw identity evidence. Preserve the boundary: mean subtraction does not demonstrate elimination of every catalogue cue; Oslo/L=0 remain unmeasured as already identified in reconciliation.",
+      "evidence_paths": [
+        "/root/lightsem-vault/experiments/exp-019-one-frozen-music-foundation-d4f30f.md",
+        "/root/lightsem/outputs/stage9/hm_embedding.json",
+        "/root/lightsem/docs/research/2026-09-28-end-to-end/COMPLETED_AND_BLOCKED_RECONCILIATION_V1.json"
+      ],
+      "numeric_comparator_or_unmeasured_status": "MERT residual AP 0.193081 versus bus 0.175069: +0.018012, CI [0.015546,0.020559], below +0.02; random-projection AP 0.175056. Raw identity kNN 83.4% versus bus 3.6%/chance 0.30%. Body reports raw identity and mean subtraction explicitly; does not narrate complete leakage elimination, Oslo success or L=0 execution.",
+      "retained_scope_quote": null
+    },
+    {
+      "number": 59,
+      "hypothesis_id": "section-level-intent-belongs-on-the-conductor-0f5c23",
+      "experiment_ids": [
+        "exp-022-section-level-intent-belongs-on-47d660"
+      ],
+      "native_status": "inconclusive",
+      "audit_disposition": "proposed_narrow_correction",
+      "finding_ids": [
+        "CS-03-04-05-59-common-rendered-holdout"
+      ],
+      "reason": "Unqualified held-out wording exceeds the comparison instrument: these 39 clips were selected by the motion model split, not held out from the evaluated decoder/planner pipeline.",
+      "evidence_paths": [
+        "/root/lightsem-vault/experiments/exp-022-section-level-intent-belongs-on-47d660.md",
+        "/root/lightsem/outputs/stage9/planner_eval.json",
+        "/root/lightsem/docs/CONTINUATION_AUDIT_2026-09-07.md",
+        "/root/lightsem/docs/research/2026-09-28-end-to-end/COMPLETED_AND_BLOCKED_RECONCILIATION_V1.json",
+        "/root/lightsem/run_stage9_planner_eval.py"
+      ],
+      "numeric_comparator_or_unmeasured_status": "docs/CONTINUATION_AUDIT_2026-09-07.md existing historical split audit: among the 39 motion-validation clips, decoder membership is 30 TRAIN (22 recordings), 5 VAL (5 recordings), 4 TEST (2 recordings). outputs/stage9/planner_eval.json: planner FID 597.340 versus shuffled 610.455, no-planner 6211.285, causal 589.832, conductor 43.815; null 4157.916, floor 7.217. Planner BAS-minus-null -0.061288 versus no-planner -0.054542, paired diff -0.0067 CI [-0.0116,-0.0023]. Human question unmeasured.",
+      "retained_scope_quote": null
+    },
+    {
+      "number": 60,
+      "hypothesis_id": "source-separated-stems-add-lighting-relevant-1a9987",
+      "experiment_ids": [
+        "exp-018-source-separated-stems-add-e2c503"
+      ],
+      "native_status": "inconclusive",
+      "audit_disposition": "no_new_correction",
+      "finding_ids": [],
+      "reason": "No broad-stems refutation or positive physiological source split is asserted: G9.7-split is FAIL and valid negative head/hand results are printed. Frontier already marks footfall R2≈-4e10 / aggregate≈3.08e8 invalid. Carry that caution; do not fabricate a positive claim to retract, erase valid results, or rerun the completed trailing-window comparison.",
+      "evidence_paths": [
+        "/root/lightsem-vault/experiments/exp-018-source-separated-stems-add-e2c503.md",
+        "/root/lightsem/outputs/stage9/hg_stems.json",
+        "/root/lightsem/outputs/stage2/operator_head_model_with_hazard_jdvis_stems.json"
+      ],
+      "numeric_comparator_or_unmeasured_status": "JD full-stem dAP +0.018454 versus bus, CI [0.014995,0.021867], misses +0.02; donor +0.000215. Neural lift 2.994 versus bus-only 3.17 and rhythm 1.481. Head/hand gates fail; trailing comparison exists on 90 songs. Degenerate footfall aggregate is a known invalid submetric, not a supported source split.",
+      "retained_scope_quote": null
+    },
+    {
+      "number": 61,
+      "hypothesis_id": "the-audio-lighting-event-coupling-is-anticipatory-audio-predicts-an-event-severa",
+      "experiment_ids": [
+        "the-audio-lighting-event-coupling-is-anticipatory-audio-predicts-an-event-severa-exp-2026-08-07t14-34-32"
+      ],
+      "native_status": "confirmed",
+      "audit_disposition": "already_repaired_no_new_change",
+      "finding_ids": [],
+      "reason": "Existing native lesson and exact repair receipt supersede historical anticipation wording. Retain only bounded short-range association: .2s marginal+.4824 vsnull−.0190;4s+.0031 vs−.0978;8s−.0056 vs−.0654. Immutable supports is a documented capability conflict, not new support or unfinished work."
+    },
+    {
+      "number": 62,
+      "hypothesis_id": "the-audio-lighting-event-signal-is-carried-by-loudness-energy-if-true-the-indust",
+      "experiment_ids": [
+        "the-audio-lighting-event-signal-is-carried-by-loudness-energy-if-true-the-indust-exp-2026-08-07t14-34-32"
+      ],
+      "native_status": "confirmed",
+      "audit_disposition": "proposed_narrow_correction",
+      "finding_ids": [
+        "CS-62"
+      ],
+      "reason": "Already-repaired substantive energy-ceiling/zero-energy overclaim is not reopened. One residual factual table contradiction is listed separately (CS-62); immutable supports remains unchanged."
+    },
+    {
+      "number": 63,
+      "hypothesis_id": "the-audio-movement-coupling-that-aist-lacks-is-0878d1",
+      "experiment_ids": [
+        "exp-003-the-audio-movement-coupling-a700f6"
+      ],
+      "native_status": "confirmed",
+      "audit_disposition": "no_new_correction",
+      "finding_ids": [],
+      "reason": "No new correction: the experiment reports gain-normalized group movement on two mixes, weaker mix2 and its CIs touching0, and limits the20min sample to calibration/test. Retain scoped Oslo result; no universal light-quality inference."
+    },
+    {
+      "number": 64,
+      "hypothesis_id": "the-august-audio-lighting-event-result-holds-on-da1204",
+      "experiment_ids": [
+        "exp-005-the-august-audio-lighting-event-af7af5"
+      ],
+      "native_status": "confirmed",
+      "audit_disposition": "no_new_correction",
+      "finding_ids": [],
+      "reason": "No new correction: the record retains rhythm+audio1.552 vsrhythm1.237, +.3145 CI[.1487,.4791], broad zero-lag peak and explicit absence of the4s anticipation test. Video event proxy and historical split remain the scope, not direct DMX or human preference."
+    },
+    {
+      "number": 65,
+      "hypothesis_id": "the-deployed-path-meets-its-latency-budget-and-b0aff5",
+      "experiment_ids": [
+        "exp-006-the-deployed-path-meets-its-eb0fc6"
+      ],
+      "native_status": "confirmed",
+      "audit_disposition": "proposed_narrow_correction",
+      "finding_ids": [
+        "CS-65"
+      ],
+      "reason": "See CS-65. Preserve engineering timings and model-input perturbation; do not promote them to whole audio-to-light causality."
+    },
+    {
+      "number": 66,
+      "hypothesis_id": "the-just-dance-background-with-coach-and-ui-598f33",
+      "experiment_ids": [
+        "exp-016-the-just-dance-background-with-ce364b"
+      ],
+      "native_status": "inconclusive",
+      "audit_disposition": "no_new_correction",
+      "finding_ids": [],
+      "reason": "No new correction: G8.4-hue is expressly not measured, blocking failure and directional_only banner are explicit. Event model3.171 vsrhythm1.481/ridge1.897 with+1.6902 margin is not palette evidence or proof of own-history deployment."
+    },
+    {
+      "number": 67,
+      "hypothesis_id": "the-model-s-light-flashes-three-times-too-often-73aafb",
+      "experiment_ids": [
+        "exp-011-the-model-s-light-flashes-three-1de900"
+      ],
+      "native_status": "inconclusive",
+      "audit_disposition": "no_new_correction",
+      "finding_ids": [],
+      "reason": "No new correction: the record explicitly distinguishes named12Hz failure from fitted smoothing gains, retains worstHF72.3x for12Hz and5.0x forfitted arm versus<=2gate, and reports falling seed diversity. Human quality is expressly deferred; no cutoff search."
+    },
+    {
+      "number": 68,
+      "hypothesis_id": "the-music-induced-movement-literature-s-shared-c6aab2",
+      "experiment_ids": [
+        "exp-002-the-music-induced-movement-46c7b4"
+      ],
+      "native_status": "refuted",
+      "audit_disposition": "proposed_narrow_correction",
+      "finding_ids": [
+        "CS-68"
+      ],
+      "reason": "See CS-68. Keep G-audit failure, but attained ridgeR2 is not a universal ceiling or causal proof excluding method effects."
+    },
+    {
+      "number": 69,
+      "hypothesis_id": "the-operator-head-which-is-already-the-82dd8e",
+      "experiment_ids": [
+        "exp-013-the-operator-head-which-is-8594fa"
+      ],
+      "native_status": "inconclusive",
+      "audit_disposition": "no_new_correction",
+      "finding_ids": [],
+      "reason": "No new correction: failed4s gate is explicit (offline−.0206 vsrhythm, CIcross0); same-split contemporaneous offline+.1584 vscausal+.0964 is separated from original wrong+.3145 comparator. Future-target hazard leak arms are rejected, not counted as support."
+    },
+    {
+      "number": 70,
+      "hypothesis_id": "the-stage-1-audio-bus-was-not-causal-and-the-f24efd",
+      "experiment_ids": [
+        "exp-009-the-stage-1-audio-bus-was-not-d97aa0"
+      ],
+      "native_status": "inconclusive",
+      "audit_disposition": "no_new_correction",
+      "finding_ids": [],
+      "reason": "No new correction: same-checkpoint calibratedBAS+.0179 vsuncalibrated+.0212 is a failed prediction. Feature leak repair and exempt oracle beat channels are explicit. Existing result supplies the cross-link needed by CS-65; no threshold rerun."
+    },
+    {
+      "number": 71,
+      "hypothesis_id": "two-to-four-hundred-brightness-matched-pairwise-87b2b3",
+      "experiment_ids": [],
+      "native_status": "proposed",
+      "audit_disposition": "no_new_correction",
+      "finding_ids": [],
+      "reason": "No new correction: proposed hypothesis has no experiment/closure claiming200–400 ratings completed. The39-rating one-rater pilot in the supplied reconciliation is not fresh evidence or200-rating validation; blocked human study stays unfinished."
+    }
+  ],
+  "no_change_numbers": [
+    7,
+    8,
+    10,
+    11,
+    12,
+    13,
+    14,
+    15,
+    16,
+    17,
+    18,
+    19,
+    20,
+    21,
+    22,
+    23,
+    24,
+    25,
+    26,
+    27,
+    28,
+    29,
+    30,
+    31,
+    32,
+    33,
+    34,
+    35,
+    36,
+    37,
+    38,
+    39,
+    40,
+    41,
+    42,
+    43,
+    44,
+    45,
+    46,
+    47,
+    48,
+    49,
+    50,
+    51,
+    52,
+    53,
+    54,
+    55,
+    58,
+    60,
+    61,
+    63,
+    64,
+    66,
+    67,
+    69,
+    70,
+    71
+  ],
+  "no_change_summary": [
+    {
+      "rows": [
+        7,
+        8,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22
+      ],
+      "summary": "Existing legacy access, missing-component, conditional-engineering and failed-simulator records already retain their limits. Failed human/label endpoints and unavailable comparator controls do not become tested refutations. No new execution is implied."
+    },
+    {
+      "rows": [
+        23,
+        24,
+        25,
+        26,
+        27,
+        28,
+        29,
+        30,
+        31,
+        32,
+        33,
+        34,
+        35,
+        36,
+        37,
+        38,
+        39,
+        40,
+        41,
+        42,
+        43
+      ],
+      "summary": "Current layered-observer/palette/motion records already separate completed processing from source/label qualification, descriptive negative estimates from qualified refutation, and downstream engineering gains from upstream generator or human acceptance. Conditional seed/TEST stops and superseded compressed branch remain stopped."
+    },
+    {
+      "rows": [
+        44,
+        45,
+        46,
+        47,
+        48,
+        49,
+        50,
+        51,
+        52,
+        53,
+        54,
+        55,
+        58,
+        60
+      ],
+      "summary": "Night studies and companion already retain failed quality/conditioning/magnitude gates, recipe limits, and no human acceptance. For55, shared-coach agreement is reproducibility, not demonstrated audio predictability. For58, residualization is not full leakage elimination. For60, invalid footfall aggregate does not replace valid scoped negative channels."
+    },
+    {
+      "rows": [
+        61,
+        63,
+        64,
+        66,
+        67,
+        69,
+        70,
+        71
+      ],
+      "summary": "61 is already repaired; retain immutable-label limitation. Oslo and RPMC associations stay corpus/proxy-scoped. Explicitly missing hue/human endpoints, named12Hz failure, horizon/target-history leakage rejection, and calibration failure remain as recorded. None requires a rerun for this audit."
+    }
+  ],
+  "proposed_native_addenda": [
+    {
+      "finding_id": "CS-01",
+      "number": 1,
+      "hypothesis_id": "a-causal-conformer-trained-on-the-product-s-own-3b2bac",
+      "experiment_id": "exp-008-a-causal-conformer-trained-on-68789d",
+      "lesson": "2026-09-28 retrospective claim-scope clarification, not a new measurement: On 86 RPMC test recordings, the head using audio and reference-event history improved AP/base-rate lift to1.805 versus rhythm1.250 (marginal+0.555,95%CI[+0.385,+0.739]); audio-only1.347 did not beat same-feature ridge1.500. This is reference-history event-proxy support, not demonstrated generated-history deployment. The separate JD own-cue test lost to its audio-only comparator; neither result establishes human LIGHT quality. Do not compare the older99-show/openl3 ridge marginal+0.3145 with the86-show joint neural marginal as paired same-split superiority.",
+      "action": "PROPOSED ONLY. If approved, use dated native interpretation/addendum. Preserve historical Notes, immutable labels and observations. Do not execute a new experiment."
+    },
+    {
+      "finding_id": "CS-02",
+      "number": 2,
+      "hypothesis_id": "a-causal-conformer-with-three-heads-b18294",
+      "experiment_id": "exp-004-a-causal-conformer-with-three-70f12e",
+      "lesson": "2026-09-28 retrospective claim-scope clarification, not a new measurement: This frozen AIST++ three-head recipe failed BAS, FID and diversity gates while passing exact model causality. Near-median blockA output and independent-frame jitter are reported failure observations; these data do not isolate one cause of every failed gate or establish an architecture-independent corpus ceiling. Retain the scoped recipe failure and all null comparators.",
+      "action": "PROPOSED ONLY. If approved, use dated native interpretation/addendum. Preserve historical Notes, immutable labels and observations. Do not execute a new experiment."
+    },
+    {
+      "finding_id": "CS-03-04-05-59-common-rendered-holdout",
+      "number": 3,
+      "hypothesis_id": "a-factorised-audio-light-critic-trained-with-a97ada",
+      "experiment_id": "exp-023-a-factorised-audio-light-critic-e453c6",
+      "lesson": "2026-09-28 retrospective claim-scope clarification, not a new measurement: The reranking proxies compare39 motion-model-validation clips: FID41.38 versus random43.82 and BAS0.1234 versus0.1237. The source does not establish that this set is held out from the independently split critic. Keep the separate held-out pair-accuracy result and additive projection result; beyond-level understanding and best-of8 human preference remain unestablished.",
+      "action": "PROPOSED ONLY. If approved, use dated native interpretation/addendum. Preserve historical Notes, immutable labels and observations. Do not execute a new experiment."
+    },
+    {
+      "finding_id": "CS-03-04-05-59-common-rendered-holdout",
+      "number": 4,
+      "hypothesis_id": "a-learned-group-effects-decoder-anton-s-mixture-2b4f62",
+      "experiment_id": "exp-020-a-learned-group-effects-decoder-1eac54",
+      "lesson": "2026-09-28 retrospective claim-scope clarification, not a new measurement: Both decoder recipes failed their recorded FID/BAS gates on the39-clip motion-validation render set, which was not held out from the decoder (30train/5validation/4test clips). v1 rig transfer passed; v2 failed. Preserve the separately reported authored-corpus metrics without relabelling them from these39-clip counts. Human A/B was not measured; no new run or preference conclusion follows.",
+      "action": "PROPOSED ONLY. If approved, use dated native interpretation/addendum. Preserve historical Notes, immutable labels and observations. Do not execute a new experiment."
+    },
+    {
+      "finding_id": "CS-03-04-05-59-common-rendered-holdout",
+      "number": 4,
+      "hypothesis_id": "a-learned-group-effects-decoder-anton-s-mixture-2b4f62",
+      "experiment_id": "exp-021-a-learned-group-effects-decoder-1eac54",
+      "lesson": "2026-09-28 retrospective claim-scope clarification, not a new measurement: Both decoder recipes failed their recorded FID/BAS gates on the39-clip motion-validation render set, which was not held out from the decoder (30train/5validation/4test clips). v1 rig transfer passed; v2 failed. Preserve the separately reported authored-corpus metrics without relabelling them from these39-clip counts. Human A/B was not measured; no new run or preference conclusion follows.",
+      "action": "PROPOSED ONLY. If approved, use dated native interpretation/addendum. Preserve historical Notes, immutable labels and observations. Do not execute a new experiment."
+    },
+    {
+      "finding_id": "CS-03-04-05-59-common-rendered-holdout",
+      "number": 5,
+      "hypothesis_id": "a-look-sampler-that-holds-its-sampled-look-2b8adb",
+      "experiment_id": "exp-024-a-look-sampler-that-holds-its-c32dbb",
+      "lesson": "2026-09-28 retrospective claim-scope clarification, not a new measurement: Cue-held transition distance6.86 improves over per-frame8.87 but loses to donor5.66 (floor2.56), so the conjunction remains failed. BAS0.5133 versus conductor0.1248 with419 versus771 events/clip is a descriptive zero-phase engine comparison on39 motion-validation clips, not demonstrated decoder-held-out song generalization. Preserve the historical split and beat-fraction timing qualifications; no aesthetic preference is measured.",
+      "action": "PROPOSED ONLY. If approved, use dated native interpretation/addendum. Preserve historical Notes, immutable labels and observations. Do not execute a new experiment."
+    },
+    {
+      "finding_id": "CS-03-04-05-59-common-rendered-holdout",
+      "number": 59,
+      "hypothesis_id": "section-level-intent-belongs-on-the-conductor-0f5c23",
+      "experiment_id": "exp-022-section-level-intent-belongs-on-47d660",
+      "lesson": "2026-09-28 retrospective claim-scope clarification, not a new measurement: This historical 39-clip comparison is held out under the motion selector, not fully held out from the evaluated decoder: the existing audit reports 30 decoder-TRAIN clips, 5 VAL and 4 TEST. Planner FID 597.34 versus no-planner6211.29/shuffled610.46 does not establish held-out decoder generalization; paired BAS worsened by -0.0067, CI [-0.0116,-0.0023]. Human structure judgment remains explicitly unmeasured. Preserve the completed numeric negative; no new execution follows.",
+      "action": "PROPOSED ONLY. If approved, use dated native interpretation/addendum. Preserve historical Notes, immutable labels and observations. Do not execute a new experiment."
+    },
+    {
+      "finding_id": "CS-06",
+      "number": 6,
+      "hypothesis_id": "audio-predicts-lighting-events-when-the-scene-changes-even-though-it-does-not-pr",
+      "experiment_id": "audio-predicts-lighting-events-when-the-scene-changes-even-though-it-does-not-pr-exp-2026-08-07t13-50-58",
+      "lesson": "2026-09-28 retrospective claim-scope clarification, not a new measurement: Audio is associated with the video-derived event proxy: rhythm+audio lift1.4151 versus rhythm1.3241, marginal+0.0909 against the circular-shift null−0.1568±0.0876. The36-song rise/reversion measurements describe filtered novelty morphology only. Without validated shot-boundary labels they do not bound the proportion of editing contamination, identify lighting-only coupling, or establish useful cue anticipation.",
+      "action": "PROPOSED ONLY. If approved, use dated native interpretation/addendum. Preserve historical Notes, immutable labels and observations. Do not execute a new experiment."
+    },
+    {
+      "finding_id": "CS-09",
+      "number": 9,
+      "hypothesis_id": "dance-is-not-a-category-error-for-light-light-79702c",
+      "experiment_id": "exp-010-dance-is-not-a-category-error-101dd9",
+      "lesson": "2026-09-28 retrospective claim-scope clarification, not a new measurement: The reduced one-rater pilot favored hybrid appearance in8/9decided trials versus chance.5 (95%CI[.518,.997]). Music-fit5/9 (CI[.212,.863]) is inconclusive, not equivalence. Shared transient phase does not prove the rating question cannot distinguish the outputs. The incomplete/blinding-limited protocol leaves the broad category claim unestablished; retain only the pilot appearance direction.",
+      "action": "PROPOSED ONLY. If approved, use dated native interpretation/addendum. Preserve historical Notes, immutable labels and observations. Do not execute a new experiment."
+    },
+    {
+      "finding_id": "CS-56",
+      "number": 56,
+      "hypothesis_id": "light-derived-from-real-dance-motion-by-a-fixed-a3ac3d",
+      "experiment_id": "exp-001-light-derived-from-real-dance-39fd73",
+      "lesson": "2026-09-28 retrospective claim-scope clarification, not a new measurement: On the evaluated AIST++ clips, this fixed motion-only conductor did not establish beat-phase alignment above its circular-shift null (+0.0082, CI [-0.0101,+0.0259]). The audio-phased hybrid scored +0.1242 versus +0.0942 for the beat trigger under the same metric. This supports that hybrid timing choice for this recipe; it does not show that choreography phase is absent from audio or unlearnable. Keep the disclosed metronome-gate and FID-null limitations; no aesthetic claim or rerun follows.",
+      "action": "PROPOSED ONLY. If approved, use dated native interpretation/addendum. Preserve historical Notes, immutable labels and observations. Do not execute a new experiment."
+    },
+    {
+      "finding_id": "CS-57",
+      "number": 57,
+      "hypothesis_id": "most-of-the-gap-between-the-model-s-light-0-018-8b5f6c",
+      "experiment_id": "exp-012-most-of-the-gap-between-the-1f7d3b",
+      "lesson": "2026-09-28 retrospective claim-scope clarification, not a new measurement: For this AIST++ trunk, seed, split and 12k-step budget, removing the tested causality constraints did not earn the specified gain: R2 -0.0092 versus causal +0.0192 and BAS-minus-null +0.0185 versus +0.0179, below +0.105. This recipe did not close the gap; it does not identify the corpus as the sole bottleneck or exclude other architectures, context mechanisms or optimization. Preserve the completed negative without another seed or context sweep.",
+      "action": "PROPOSED ONLY. If approved, use dated native interpretation/addendum. Preserve historical Notes, immutable labels and observations. Do not execute a new experiment."
+    },
+    {
+      "finding_id": "CS-62",
+      "number": 62,
+      "hypothesis_id": "the-audio-lighting-event-signal-is-carried-by-loudness-energy-if-true-the-indust",
+      "experiment_id": "the-audio-lighting-event-signal-is-carried-by-loudness-energy-if-true-the-indust-exp-2026-08-07t14-34-32",
+      "lesson": "2026-09-28 retrospective claim-scope clarification, not a new measurement: The retained historical sentence that energy was the only family to fail its own null is incorrect. Both energy (p=.240; lift1.4704 vsnull1.4381) and harmonic features (p=.960; lift1.3832 vsnull1.4609) failed their own permutation comparisons. This factual addendum leaves the2026-09-28 interpretation correction, measured table, historical verdict and closure unchanged.",
+      "action": "PROPOSED ONLY. If approved, use dated native interpretation/addendum. Preserve historical Notes, immutable labels and observations. Do not execute a new experiment."
+    },
+    {
+      "finding_id": "CS-65",
+      "number": 65,
+      "hypothesis_id": "the-deployed-path-meets-its-latency-budget-and-b0aff5",
+      "experiment_id": "exp-006-the-deployed-path-meets-its-eb0fc6",
+      "lesson": "2026-09-28 retrospective claim-scope clarification, not a new measurement: Retain the historical software timing result and zero leakage under model-input perturbation. This experiment establishes conditional model causality only: its saved instrument perturbs synthetic model inputs, not audio through the feature builder. It does not establish whole deployed-pipeline future-audio independence or measured real-fixture latency. The later exp-009 is a separate, version-bounded example: that tested pipeline had upstream feature leakage and its repair still exempted five oracle beat-grid channels. Upstream source/version equivalence between the two historical runs is not established here; do not treat this cross-link as a new refutation of the exact earlier full path. Preserve historical gates and verdict; no rerun.",
+      "action": "PROPOSED ONLY. If approved, use dated native interpretation/addendum. Preserve historical Notes, immutable labels and observations. Do not execute a new experiment."
+    },
+    {
+      "finding_id": "CS-68",
+      "number": 68,
+      "hypothesis_id": "the-music-induced-movement-literature-s-shared-c6aab2",
+      "experiment_id": "exp-002-the-music-induced-movement-46c7b4",
+      "lesson": "2026-09-28 retrospective claim-scope clarification, not a new measurement: The registered AIST++ shared-skeleton gate failed for the tested causal-feature ridge recipe and track-held-out splits: all four named within-track targets were below R2 .05 versus the >.3 requirement, and dancer identity beat audio on23 of29 channels. Retain the measured limited coupling, including laterality R2 .192 CI[.064,.325], and the strong genre association. These attained probe scores are not an upper bound on every audio model, and this audit does not isolate corpus design rather than model/features as the sole cause. Split-half reliability is the separately measured reproducibility ceiling. Keep the scoped negative result; do not reopen the study.",
+      "action": "PROPOSED ONLY. If approved, use dated native interpretation/addendum. Preserve historical Notes, immutable labels and observations. Do not execute a new experiment."
+    }
+  ],
+  "current_native_document_hashes": [
+    {
+      "path": "/root/lightsem-vault/hypotheses/a-causal-conformer-trained-on-the-product-s-own-3b2bac.md",
+      "snapshot_sha256": "de46730949ce3d333c05ded0eb8cd5a050128f0b56c2b010d095e24e4b07a3c9",
+      "current_sha256": "de46730949ce3d333c05ded0eb8cd5a050128f0b56c2b010d095e24e4b07a3c9",
+      "id": "a-causal-conformer-trained-on-the-product-s-own-3b2bac"
+    },
+    {
+      "path": "/root/lightsem-vault/hypotheses/a-causal-conformer-with-three-heads-b18294.md",
+      "snapshot_sha256": "3cac2e6e4ab5b6346b3faad8e44eceaf70409ac8d056448b26c2e9c8f90a92c3",
+      "current_sha256": "3cac2e6e4ab5b6346b3faad8e44eceaf70409ac8d056448b26c2e9c8f90a92c3",
+      "id": "a-causal-conformer-with-three-heads-b18294"
+    },
+    {
+      "path": "/root/lightsem-vault/hypotheses/a-factorised-audio-light-critic-trained-with-a97ada.md",
+      "snapshot_sha256": "e9e452d5772276ddd273134d49b8a54e5a2af0dbcdfb3e1a59a131fa44cbd6ca",
+      "current_sha256": "e9e452d5772276ddd273134d49b8a54e5a2af0dbcdfb3e1a59a131fa44cbd6ca",
+      "id": "a-factorised-audio-light-critic-trained-with-a97ada"
+    },
+    {
+      "path": "/root/lightsem-vault/hypotheses/a-learned-group-effects-decoder-anton-s-mixture-2b4f62.md",
+      "snapshot_sha256": "dea7765e1b87036e7fbede2182f82bffd4352855683cc19a3ce2a23c4ec095cf",
+      "current_sha256": "dea7765e1b87036e7fbede2182f82bffd4352855683cc19a3ce2a23c4ec095cf",
+      "id": "a-learned-group-effects-decoder-anton-s-mixture-2b4f62"
+    },
+    {
+      "path": "/root/lightsem-vault/hypotheses/a-look-sampler-that-holds-its-sampled-look-2b8adb.md",
+      "snapshot_sha256": "a79fa2362d0530e110a6b2accb63106dcd58e0924d9bce67cd0de5acd8808bb1",
+      "current_sha256": "a79fa2362d0530e110a6b2accb63106dcd58e0924d9bce67cd0de5acd8808bb1",
+      "id": "a-look-sampler-that-holds-its-sampled-look-2b8adb"
+    },
+    {
+      "path": "/root/lightsem-vault/hypotheses/audio-predicts-lighting-events-when-the-scene-changes-even-though-it-does-not-pr.md",
+      "snapshot_sha256": "82e7cf24e606f5d1223fec129048600e2c8c6959962bbcd01c2adfd8bc622601",
+      "current_sha256": "82e7cf24e606f5d1223fec129048600e2c8c6959962bbcd01c2adfd8bc622601",
+      "id": "audio-predicts-lighting-events-when-the-scene-changes-even-though-it-does-not-pr"
+    },
+    {
+      "path": "/root/lightsem-vault/hypotheses/authored-hobby-game-light-shows-are-lighting-202cb0.md",
+      "snapshot_sha256": "c7865abb50a4fea5f869fab3e0dd02808ffec130bf6a087be31c4ba6c59e2677",
+      "current_sha256": "c7865abb50a4fea5f869fab3e0dd02808ffec130bf6a087be31c4ba6c59e2677",
+      "id": "authored-hobby-game-light-shows-are-lighting-202cb0"
+    },
+    {
+      "path": "/root/lightsem-vault/hypotheses/conditioning-on-whole-track-structure-section-4ccfa8.md",
+      "snapshot_sha256": "ef07e56ad8df996b7cb9dab9b28640fd09d80d3f5a16d7a137c69dd1b400685f",
+      "current_sha256": "ef07e56ad8df996b7cb9dab9b28640fd09d80d3f5a16d7a137c69dd1b400685f",
+      "id": "conditioning-on-whole-track-structure-section-4ccfa8"
+    },
+    {
+      "path": "/root/lightsem-vault/hypotheses/dance-is-not-a-category-error-for-light-light-79702c.md",
+      "snapshot_sha256": "08125b60c22c5a802b2f1ccb9e61035ba08d70cd671c2fe33b3f3a369fbf235a",
+      "current_sha256": "08125b60c22c5a802b2f1ccb9e61035ba08d70cd671c2fe33b3f3a369fbf235a",
+      "id": "dance-is-not-a-category-error-for-light-light-79702c"
+    },
+    {
+      "path": "/root/lightsem-vault/hypotheses/descriptors-extracted-from-ordinary-video-with-3fc5b9.md",
+      "snapshot_sha256": "29f9dfbb5ab473afbb440a47e57f7f93e474febb9e72ff32cf708de7d8da8ba6",
+      "current_sha256": "29f9dfbb5ab473afbb440a47e57f7f93e474febb9e72ff32cf708de7d8da8ba6",
+      "id": "descriptors-extracted-from-ordinary-video-with-3fc5b9"
+    },
+    {
+      "path": "/root/lightsem-vault/hypotheses/feeding-the-group-decoder-the-hazard-features-d0f637.md",
+      "snapshot_sha256": "f334083a97d99af95029af6770b9082571460941a9203638d92b2664b7751338",
+      "current_sha256": "f334083a97d99af95029af6770b9082571460941a9203638d92b2664b7751338",
+      "id": "feeding-the-group-decoder-the-hazard-features-d0f637"
+    },
+    {
+      "path": "/root/lightsem-vault/hypotheses/h-beat-conditioned-visible-motion-20260909.md",
+      "snapshot_sha256": "09b1f388ed8b84b49e5ab99cfd9a0fe9cc8738c559cacc75a3868476fb4d1474",
+      "current_sha256": "09b1f388ed8b84b49e5ab99cfd9a0fe9cc8738c559cacc75a3868476fb4d1474",
+      "id": "h-beat-conditioned-visible-motion-20260909"
+    },
+    {
+      "path": "/root/lightsem-vault/hypotheses/h-dance-actuator-budget-20260911.md",
+      "snapshot_sha256": "97598284cc3c58067fd6dd90d9b255fa971731ad6e0c86a0af2009f31fbfc72c",
+      "current_sha256": "97598284cc3c58067fd6dd90d9b255fa971731ad6e0c86a0af2009f31fbfc72c",
+      "id": "h-dance-actuator-budget-20260911"
+    },
+    {
+      "path": "/root/lightsem-vault/hypotheses/h-dance-no-clock-20260908.md",
+      "snapshot_sha256": "796a42a5511071b143d1630059af2a3800c49e00c601d03a176c62c9ae6690e9",
+      "current_sha256": "796a42a5511071b143d1630059af2a3800c49e00c601d03a176c62c9ae6690e9",
+      "id": "h-dance-no-clock-20260908"
+    },
+    {
+      "path": "/root/lightsem-vault/hypotheses/h-dance-optics-full-20260911.md",
+      "snapshot_sha256": "6a17417df26d91d2ad50e286c0ab7761380502c2a020cda1785656399f67de92",
+      "current_sha256": "6a17417df26d91d2ad50e286c0ab7761380502c2a020cda1785656399f67de92",
+      "id": "h-dance-optics-full-20260911"
+    },
+    {
+      "path": "/root/lightsem-vault/hypotheses/h-dance-physical-objective-20260911.md",
+      "snapshot_sha256": "49153a9ecab4c0de9cbb331ede25687fc9661530a99ed90ea160e98f2607138a",
+      "current_sha256": "49153a9ecab4c0de9cbb331ede25687fc9661530a99ed90ea160e98f2607138a",
+      "id": "h-dance-physical-objective-20260911"
+    },
+    {
+      "path": "/root/lightsem-vault/hypotheses/h-dance-pose-stage-20260911.md",
+      "snapshot_sha256": "cfff31f60fb030a3e4cd6cd0c436f82536f5bf451bfbf8c6d16c68c0f2bd97c2",
+      "current_sha256": "cfff31f60fb030a3e4cd6cd0c436f82536f5bf451bfbf8c6d16c68c0f2bd97c2",
+      "id": "h-dance-pose-stage-20260911"
+    },
+    {
+      "path": "/root/lightsem-vault/hypotheses/h-dance-projection-20260911.md",
+      "snapshot_sha256": "fe76e9a045e9604ad82c382548e4a3a9b83596d105d41977e45f44a8fa1e80e1",
+      "current_sha256": "fe76e9a045e9604ad82c382548e4a3a9b83596d105d41977e45f44a8fa1e80e1",
+      "id": "h-dance-projection-20260911"
+    },
+    {
+      "path": "/root/lightsem-vault/hypotheses/h-dance-stage-anchors-20260911.md",
+      "snapshot_sha256": "be55ff67f70bd240e3cce8dae00851d1ce4af207d013261dbfd3d6beed3612f5",
+      "current_sha256": "be55ff67f70bd240e3cce8dae00851d1ce4af207d013261dbfd3d6beed3612f5",
+      "id": "h-dance-stage-anchors-20260911"
+    },
+    {
+      "path": "/root/lightsem-vault/hypotheses/h-dance-stage-geometry-20260911.md",
+      "snapshot_sha256": "1752d2ea27831a83be1126385dbecdf0bbf619d2979565bb1e24349d2c63b7d7",
+      "current_sha256": "1752d2ea27831a83be1126385dbecdf0bbf619d2979565bb1e24349d2c63b7d7",
+      "id": "h-dance-stage-geometry-20260911"
+    },
+    {
+      "path": "/root/lightsem-vault/hypotheses/h-dance-stage-lean-20260911.md",
+      "snapshot_sha256": "2126ba680e5a58cf10f015c52e080ece84164f30091c819553a8f2413f07cdc8",
+      "current_sha256": "2126ba680e5a58cf10f015c52e080ece84164f30091c819553a8f2413f07cdc8",
+      "id": "h-dance-stage-lean-20260911"
+    },
+    {
+      "path": "/root/lightsem-vault/hypotheses/h-dance-tracking-20260911.md",
+      "snapshot_sha256": "8800af96bbba291be84013fc894c328179dcabb111ac3bf9bfcb8444bcc9014a",
+      "current_sha256": "8800af96bbba291be84013fc894c328179dcabb111ac3bf9bfcb8444bcc9014a",
+      "id": "h-dance-tracking-20260911"
+    },
+    {
+      "path": "/root/lightsem-vault/hypotheses/h-layers-20260922-accent.md",
+      "snapshot_sha256": "b130a56a77533416d2d9c8e247abd7893d8b2daaf5b93fe07440f4144d318ec0",
+      "current_sha256": "b130a56a77533416d2d9c8e247abd7893d8b2daaf5b93fe07440f4144d318ec0",
+      "id": "h-layers-20260922-accent"
+    },
+    {
+      "path": "/root/lightsem-vault/hypotheses/h-layers-20260922-color.md",
+      "snapshot_sha256": "ea86eb203d1b7fd654f7197c1e127c9ea3cbdacb2ce4b33329205a82e1489b97",
+      "current_sha256": "ea86eb203d1b7fd654f7197c1e127c9ea3cbdacb2ce4b33329205a82e1489b97",
+      "id": "h-layers-20260922-color"
+    },
+    {
+      "path": "/root/lightsem-vault/hypotheses/h-layers-20260922-mask.md",
+      "snapshot_sha256": "a22954c14f6cbb3a1d51eba88c21a5a56faca51c8d8cb60c8b1e95de25c3801c",
+      "current_sha256": "a22954c14f6cbb3a1d51eba88c21a5a56faca51c8d8cb60c8b1e95de25c3801c",
+      "id": "h-layers-20260922-mask"
+    },
+    {
+      "path": "/root/lightsem-vault/hypotheses/h-layers-20260922-multihead.md",
+      "snapshot_sha256": "de50a219d7f2b8ce1529ea616f1ea8448c86a229a7f7154529a50a7b816f69a6",
+      "current_sha256": "de50a219d7f2b8ce1529ea616f1ea8448c86a229a7f7154529a50a7b816f69a6",
+      "id": "h-layers-20260922-multihead"
+    },
+    {
+      "path": "/root/lightsem-vault/hypotheses/h-layers-20260922-observer-proxy.md",
+      "snapshot_sha256": "7da966b4d1d38b93422bea244106e6bd54601e99b125fbfcae48394b834c1bd4",
+      "current_sha256": "7da966b4d1d38b93422bea244106e6bd54601e99b125fbfcae48394b834c1bd4",
+      "id": "h-layers-20260922-observer-proxy"
+    },
+    {
+      "path": "/root/lightsem-vault/hypotheses/h-layers-20260922-palette.md",
+      "snapshot_sha256": "2bf94199bc81787b7f2c2fe9ddc573df4ca345da854552d43366250897a8a228",
+      "current_sha256": "2bf94199bc81787b7f2c2fe9ddc573df4ca345da854552d43366250897a8a228",
+      "id": "h-layers-20260922-palette"
+    },
+    {
+      "path": "/root/lightsem-vault/hypotheses/h-layers-20260922-pose-aux.md",
+      "snapshot_sha256": "525e43fe2d0e995878e2c14f8fcb680a1ded7705bfb73378ac67ce14d2cdae93",
+      "current_sha256": "525e43fe2d0e995878e2c14f8fcb680a1ded7705bfb73378ac67ce14d2cdae93",
+      "id": "h-layers-20260922-pose-aux"
+    },
+    {
+      "path": "/root/lightsem-vault/hypotheses/h-layers-20260922-recurrence.md",
+      "snapshot_sha256": "e308a6cefbc0ca8bc4916b1694e3db388d3b47ff1186ac09756c7ba4b4e34033",
+      "current_sha256": "e308a6cefbc0ca8bc4916b1694e3db388d3b47ff1186ac09756c7ba4b4e34033",
+      "id": "h-layers-20260922-recurrence"
+    },
+    {
+      "path": "/root/lightsem-vault/hypotheses/h-layers-20260922-rhythm.md",
+      "snapshot_sha256": "437532458c49fa4dfdef487ce62c7707c622960ae1a3e64dec62ae7dde7ad7a2",
+      "current_sha256": "437532458c49fa4dfdef487ce62c7707c622960ae1a3e64dec62ae7dde7ad7a2",
+      "id": "h-layers-20260922-rhythm"
+    },
+    {
+      "path": "/root/lightsem-vault/hypotheses/h-layers-20260922-visual.md",
+      "snapshot_sha256": "064e5d6eb94f70ccf98a697882dadaf1020d2679688309323336c87e61cee646",
+      "current_sha256": "064e5d6eb94f70ccf98a697882dadaf1020d2679688309323336c87e61cee646",
+      "id": "h-layers-20260922-visual"
+    },
+    {
+      "path": "/root/lightsem-vault/hypotheses/h-motion-audio-20260910.md",
+      "snapshot_sha256": "d87ad66c98726e72ba373ac89da40af0eef411a472ddc2d5fb5efdd93d1ae726",
+      "current_sha256": "d87ad66c98726e72ba373ac89da40af0eef411a472ddc2d5fb5efdd93d1ae726",
+      "id": "h-motion-audio-20260910"
+    },
+    {
+      "path": "/root/lightsem-vault/hypotheses/h-motion-codec-20260910.md",
+      "snapshot_sha256": "0553006890ee632692c2c22e5829fbf53c611847af691fbd990cd1b0cacbffbb",
+      "current_sha256": "0553006890ee632692c2c22e5829fbf53c611847af691fbd990cd1b0cacbffbb",
+      "id": "h-motion-codec-20260910"
+    },
+    {
+      "path": "/root/lightsem-vault/hypotheses/h-motion-coherence-20260910.md",
+      "snapshot_sha256": "1dc6848ce3d5a27626c6be235e485efe592ea27c04ce841fc0e4602d4821f2cb",
+      "current_sha256": "1dc6848ce3d5a27626c6be235e485efe592ea27c04ce841fc0e4602d4821f2cb",
+      "id": "h-motion-coherence-20260910"
+    },
+    {
+      "path": "/root/lightsem-vault/hypotheses/h-motion-dynamics-20260910.md",
+      "snapshot_sha256": "8d13b8b4d3943e7bc9e52ff42fa7f0451ef2fea8775966b16ff0fc5bb41d61fb",
+      "current_sha256": "8d13b8b4d3943e7bc9e52ff42fa7f0451ef2fea8775966b16ff0fc5bb41d61fb",
+      "id": "h-motion-dynamics-20260910"
+    },
+    {
+      "path": "/root/lightsem-vault/hypotheses/h-motion-exposure-20260910.md",
+      "snapshot_sha256": "4f62d558afbb55530262bbfe0c35f8f8f78f13daa19cf65d9576c6428941b312",
+      "current_sha256": "4f62d558afbb55530262bbfe0c35f8f8f78f13daa19cf65d9576c6428941b312",
+      "id": "h-motion-exposure-20260910"
+    },
+    {
+      "path": "/root/lightsem-vault/hypotheses/h-motion-exposure-roles-20260910.md",
+      "snapshot_sha256": "53098383e45e73f1254eac4ff71cb3ee6ebbc2c155e8ec0bcc5c9acebf23eee6",
+      "current_sha256": "53098383e45e73f1254eac4ff71cb3ee6ebbc2c155e8ec0bcc5c9acebf23eee6",
+      "id": "h-motion-exposure-roles-20260910"
+    },
+    {
+      "path": "/root/lightsem-vault/hypotheses/h-motion-incumbent-euler32-20260910.md",
+      "snapshot_sha256": "b8177998a52b638a85282d9af424b23a96260453cd28fc72b1392fc898f8690a",
+      "current_sha256": "b8177998a52b638a85282d9af424b23a96260453cd28fc72b1392fc898f8690a",
+      "id": "h-motion-incumbent-euler32-20260910"
+    },
+    {
+      "path": "/root/lightsem-vault/hypotheses/h-motion-native-audio-20260910.md",
+      "snapshot_sha256": "f4093ec109e02804e178e8ba3b732988c97272d132c65331f98e70526f13e661",
+      "current_sha256": "f4093ec109e02804e178e8ba3b732988c97272d132c65331f98e70526f13e661",
+      "id": "h-motion-native-audio-20260910"
+    },
+    {
+      "path": "/root/lightsem-vault/hypotheses/h-motion-native-phase-codec-20260910.md",
+      "snapshot_sha256": "d5ecd3c2ea9904f7133750cfbd4c94b31b5e9c82d050094dda1d9db82c5d2fe1",
+      "current_sha256": "d5ecd3c2ea9904f7133750cfbd4c94b31b5e9c82d050094dda1d9db82c5d2fe1",
+      "id": "h-motion-native-phase-codec-20260910"
+    },
+    {
+      "path": "/root/lightsem-vault/hypotheses/h-motion-surface-20260910.md",
+      "snapshot_sha256": "97dd4d8694cb70f68780448c2c59354e2695c93cee3f30ca6106316bcf78b4aa",
+      "current_sha256": "97dd4d8694cb70f68780448c2c59354e2695c93cee3f30ca6106316bcf78b4aa",
+      "id": "h-motion-surface-20260910"
+    },
+    {
+      "path": "/root/lightsem-vault/hypotheses/h-motion-surface-bandwidth-20260910.md",
+      "snapshot_sha256": "3b00d3a8c98b805047d035855e6bbef331e1c103d9291d3387215545cf8e5340",
+      "current_sha256": "3b00d3a8c98b805047d035855e6bbef331e1c103d9291d3387215545cf8e5340",
+      "id": "h-motion-surface-bandwidth-20260910"
+    },
+    {
+      "path": "/root/lightsem-vault/hypotheses/h-night-composition-20260909.md",
+      "snapshot_sha256": "2738c8e71bc8888fd286091fce0b449991c29accd5542d8abf2ea88c032ad501",
+      "current_sha256": "2738c8e71bc8888fd286091fce0b449991c29accd5542d8abf2ea88c032ad501",
+      "id": "h-night-composition-20260909"
+    },
+    {
+      "path": "/root/lightsem-vault/hypotheses/h-night-conditioning-20260909.md",
+      "snapshot_sha256": "9e1f0ab5987573a091ef8e123757a844e2d812a36721c90ee7bb63927cfa9559",
+      "current_sha256": "9e1f0ab5987573a091ef8e123757a844e2d812a36721c90ee7bb63927cfa9559",
+      "id": "h-night-conditioning-20260909"
+    },
+    {
+      "path": "/root/lightsem-vault/hypotheses/h-night-fourier-20260909.md",
+      "snapshot_sha256": "4cb61583a968df3ec1390cfc15c8f0398e874e06a80976e9e3ca79c854b4bc6f",
+      "current_sha256": "4cb61583a968df3ec1390cfc15c8f0398e874e06a80976e9e3ca79c854b4bc6f",
+      "id": "h-night-fourier-20260909"
+    },
+    {
+      "path": "/root/lightsem-vault/hypotheses/h-night-iteration-speed-20260910.md",
+      "snapshot_sha256": "4bec3931b54773fcb019d30a0a9de06688a2f3bc74e65f1efd3489e5fa1c0cf8",
+      "current_sha256": "4bec3931b54773fcb019d30a0a9de06688a2f3bc74e65f1efd3489e5fa1c0cf8",
+      "id": "h-night-iteration-speed-20260910"
+    },
+    {
+      "path": "/root/lightsem-vault/hypotheses/h-night-muq-20260909.md",
+      "snapshot_sha256": "a04d2e06fbe3c4ca6951b632d95440be60f857413914bab7b333928fafde4313",
+      "current_sha256": "a04d2e06fbe3c4ca6951b632d95440be60f857413914bab7b333928fafde4313",
+      "id": "h-night-muq-20260909"
+    },
+    {
+      "path": "/root/lightsem-vault/hypotheses/h-night-representation-20260909.md",
+      "snapshot_sha256": "74debea770f2483c90546a1a366439080fd706a6c4eebea871f358eb862d2e4c",
+      "current_sha256": "74debea770f2483c90546a1a366439080fd706a6c4eebea871f358eb862d2e4c",
+      "id": "h-night-representation-20260909"
+    },
+    {
+      "path": "/root/lightsem-vault/hypotheses/h-night-rhythm-20260909.md",
+      "snapshot_sha256": "6c055a5aa16bb2e128ab5ae8f9f81e6d44661c2327c7df1b4673ae8c2551d0fa",
+      "current_sha256": "6c055a5aa16bb2e128ab5ae8f9f81e6d44661c2327c7df1b4673ae8c2551d0fa",
+      "id": "h-night-rhythm-20260909"
+    },
+    {
+      "path": "/root/lightsem-vault/hypotheses/h-rhythm-companion-20260912t193657z.md",
+      "snapshot_sha256": "9bf1474271addca3e171ae6591793daae442c8cf04bd65c92425a27280e6ea07",
+      "current_sha256": "9bf1474271addca3e171ae6591793daae442c8cf04bd65c92425a27280e6ea07",
+      "id": "h-rhythm-companion-20260912t193657z"
+    },
+    {
+      "path": "/root/lightsem-vault/hypotheses/h11-a-nonbeat-audio-dependence-20260908.md",
+      "snapshot_sha256": "3b3c49719e2c4fb279cfbd71d7b479317db0a8c3644e5001ead055f1a1050e61",
+      "current_sha256": "3b3c49719e2c4fb279cfbd71d7b479317db0a8c3644e5001ead055f1a1050e61",
+      "id": "h11-a-nonbeat-audio-dependence-20260908"
+    },
+    {
+      "path": "/root/lightsem-vault/hypotheses/h11-d-expanded-jd-20260908.md",
+      "snapshot_sha256": "edaba564a9f41c6b09502d20c154ce1222ca94bacc17da1639df6ca7164c648e",
+      "current_sha256": "edaba564a9f41c6b09502d20c154ce1222ca94bacc17da1639df6ca7164c648e",
+      "id": "h11-d-expanded-jd-20260908"
+    },
+    {
+      "path": "/root/lightsem-vault/hypotheses/h11-t-temporal-scene-flow-20260908.md",
+      "snapshot_sha256": "2b0310ff09f2b663c80013e8e1302f69cddca33ff28fc2acf3a02445f0bd3c81",
+      "current_sha256": "2b0310ff09f2b663c80013e8e1302f69cddca33ff28fc2acf3a02445f0bd3c81",
+      "id": "h11-t-temporal-scene-flow-20260908"
+    },
+    {
+      "path": "/root/lightsem-vault/hypotheses/just-dance-coach-motion-is-predictable-from-bcb46b.md",
+      "snapshot_sha256": "80b33e81b06e1a05f2250c70a46225f17e039e64268348ce9a495783d559b606",
+      "current_sha256": "80b33e81b06e1a05f2250c70a46225f17e039e64268348ce9a495783d559b606",
+      "id": "just-dance-coach-motion-is-predictable-from-bcb46b"
+    },
+    {
+      "path": "/root/lightsem-vault/hypotheses/light-derived-from-real-dance-motion-by-a-fixed-a3ac3d.md",
+      "snapshot_sha256": "26be95fa1c26298fb757c51862bc41e1f3d7227e6d2799eba1d2447b448c0043",
+      "current_sha256": "26be95fa1c26298fb757c51862bc41e1f3d7227e6d2799eba1d2447b448c0043",
+      "id": "light-derived-from-real-dance-motion-by-a-fixed-a3ac3d"
+    },
+    {
+      "path": "/root/lightsem-vault/hypotheses/most-of-the-gap-between-the-model-s-light-0-018-8b5f6c.md",
+      "snapshot_sha256": "d25ea4d40639474ba50257f5ee3c2169d65af4d9d44948fa0513ed8204c615d1",
+      "current_sha256": "d25ea4d40639474ba50257f5ee3c2169d65af4d9d44948fa0513ed8204c615d1",
+      "id": "most-of-the-gap-between-the-model-s-light-0-018-8b5f6c"
+    },
+    {
+      "path": "/root/lightsem-vault/hypotheses/one-frozen-music-foundation-layer-group-muq-46be80.md",
+      "snapshot_sha256": "e8325f5ddc85fab5909e770e81c34438195e7e9117e4f757654df9c2bb89cdb0",
+      "current_sha256": "e8325f5ddc85fab5909e770e81c34438195e7e9117e4f757654df9c2bb89cdb0",
+      "id": "one-frozen-music-foundation-layer-group-muq-46be80"
+    },
+    {
+      "path": "/root/lightsem-vault/hypotheses/section-level-intent-belongs-on-the-conductor-0f5c23.md",
+      "snapshot_sha256": "ff07596cd94272ff02154de22ab53bb86db2c049592e71c2f50d76b646fefe28",
+      "current_sha256": "ff07596cd94272ff02154de22ab53bb86db2c049592e71c2f50d76b646fefe28",
+      "id": "section-level-intent-belongs-on-the-conductor-0f5c23"
+    },
+    {
+      "path": "/root/lightsem-vault/hypotheses/source-separated-stems-add-lighting-relevant-1a9987.md",
+      "snapshot_sha256": "7fd4e042a45c05541592b000757caea492051efbb1a7e51c09b02764ef55caa7",
+      "current_sha256": "7fd4e042a45c05541592b000757caea492051efbb1a7e51c09b02764ef55caa7",
+      "id": "source-separated-stems-add-lighting-relevant-1a9987"
+    },
+    {
+      "path": "/root/lightsem-vault/hypotheses/the-audio-lighting-event-coupling-is-anticipatory-audio-predicts-an-event-severa.md",
+      "snapshot_sha256": "f6b02870d9c35a2a6bd070162e1fc1a654d52815da0ad7189425095c9928a092",
+      "current_sha256": "f6b02870d9c35a2a6bd070162e1fc1a654d52815da0ad7189425095c9928a092",
+      "id": "the-audio-lighting-event-coupling-is-anticipatory-audio-predicts-an-event-severa"
+    },
+    {
+      "path": "/root/lightsem-vault/hypotheses/the-audio-lighting-event-signal-is-carried-by-loudness-energy-if-true-the-indust.md",
+      "snapshot_sha256": "027152ff58dee1b8ab37143f14c1cb444ce903133735be76029bfdfa2ebe66f9",
+      "current_sha256": "027152ff58dee1b8ab37143f14c1cb444ce903133735be76029bfdfa2ebe66f9",
+      "id": "the-audio-lighting-event-signal-is-carried-by-loudness-energy-if-true-the-indust"
+    },
+    {
+      "path": "/root/lightsem-vault/hypotheses/the-audio-movement-coupling-that-aist-lacks-is-0878d1.md",
+      "snapshot_sha256": "55116fdf9f4ffd847cb50658d9e0ad494df5751598f3c5de56602d6fd9e1794c",
+      "current_sha256": "55116fdf9f4ffd847cb50658d9e0ad494df5751598f3c5de56602d6fd9e1794c",
+      "id": "the-audio-movement-coupling-that-aist-lacks-is-0878d1"
+    },
+    {
+      "path": "/root/lightsem-vault/hypotheses/the-august-audio-lighting-event-result-holds-on-da1204.md",
+      "snapshot_sha256": "8ed3efafb2083e8fbcab106e885cd3b7d272a629076b46757b8cccf96c438fc0",
+      "current_sha256": "8ed3efafb2083e8fbcab106e885cd3b7d272a629076b46757b8cccf96c438fc0",
+      "id": "the-august-audio-lighting-event-result-holds-on-da1204"
+    },
+    {
+      "path": "/root/lightsem-vault/hypotheses/the-deployed-path-meets-its-latency-budget-and-b0aff5.md",
+      "snapshot_sha256": "feb3ee3ceac79a181b93ea8c370ab96e7e9f196a83b03f0d82ecff4433e93de8",
+      "current_sha256": "feb3ee3ceac79a181b93ea8c370ab96e7e9f196a83b03f0d82ecff4433e93de8",
+      "id": "the-deployed-path-meets-its-latency-budget-and-b0aff5"
+    },
+    {
+      "path": "/root/lightsem-vault/hypotheses/the-just-dance-background-with-coach-and-ui-598f33.md",
+      "snapshot_sha256": "3966c68778239de96126728b12a60baaef4a8ca1755df05a0a6bbfaaba9f470b",
+      "current_sha256": "3966c68778239de96126728b12a60baaef4a8ca1755df05a0a6bbfaaba9f470b",
+      "id": "the-just-dance-background-with-coach-and-ui-598f33"
+    },
+    {
+      "path": "/root/lightsem-vault/hypotheses/the-model-s-light-flashes-three-times-too-often-73aafb.md",
+      "snapshot_sha256": "829db7b29bef2ed6b77feced8f9b35884dd51ceeb4709abdd7548cfb2caf7478",
+      "current_sha256": "829db7b29bef2ed6b77feced8f9b35884dd51ceeb4709abdd7548cfb2caf7478",
+      "id": "the-model-s-light-flashes-three-times-too-often-73aafb"
+    },
+    {
+      "path": "/root/lightsem-vault/hypotheses/the-music-induced-movement-literature-s-shared-c6aab2.md",
+      "snapshot_sha256": "6f93d1858c94edcf42c19bfe732ead575c9805c4f08129469e2fbcb4929213c2",
+      "current_sha256": "6f93d1858c94edcf42c19bfe732ead575c9805c4f08129469e2fbcb4929213c2",
+      "id": "the-music-induced-movement-literature-s-shared-c6aab2"
+    },
+    {
+      "path": "/root/lightsem-vault/hypotheses/the-operator-head-which-is-already-the-82dd8e.md",
+      "snapshot_sha256": "9c64479ca0acfef6a23154a01305d0d24bb4d6ec6cf2912e1dbd724024e312d7",
+      "current_sha256": "9c64479ca0acfef6a23154a01305d0d24bb4d6ec6cf2912e1dbd724024e312d7",
+      "id": "the-operator-head-which-is-already-the-82dd8e"
+    },
+    {
+      "path": "/root/lightsem-vault/hypotheses/the-stage-1-audio-bus-was-not-causal-and-the-f24efd.md",
+      "snapshot_sha256": "2cba1ab1710ac5be1b4cc2ed996b7910e86d7d6c407c6db465966b31b34ca082",
+      "current_sha256": "2cba1ab1710ac5be1b4cc2ed996b7910e86d7d6c407c6db465966b31b34ca082",
+      "id": "the-stage-1-audio-bus-was-not-causal-and-the-f24efd"
+    },
+    {
+      "path": "/root/lightsem-vault/hypotheses/two-to-four-hundred-brightness-matched-pairwise-87b2b3.md",
+      "snapshot_sha256": "fd4d53119861b30fe0f45b8f2ce0805e08f1023e37d745d312c5bf72dd681b3a",
+      "current_sha256": "fd4d53119861b30fe0f45b8f2ce0805e08f1023e37d745d312c5bf72dd681b3a",
+      "id": "two-to-four-hundred-brightness-matched-pairwise-87b2b3"
+    },
+    {
+      "path": "/root/lightsem-vault/experiments/audio-predicts-lighting-events-when-the-scene-changes-even-though-it-does-not-pr-exp-2026-08-07t13-50-58.md",
+      "snapshot_sha256": "2ee2817382bca3257aa60af0a8b681148ca41cb70b811d158dbf9c56851fb22d",
+      "current_sha256": "2ee2817382bca3257aa60af0a8b681148ca41cb70b811d158dbf9c56851fb22d",
+      "id": "audio-predicts-lighting-events-when-the-scene-changes-even-though-it-does-not-pr-exp-2026-08-07t13-50-58"
+    },
+    {
+      "path": "/root/lightsem-vault/experiments/exp-001-light-derived-from-real-dance-39fd73.md",
+      "snapshot_sha256": "5d5b28a2a7e96bb24eb70c93d642929f2cf9cd06c021002b5c141bc7772348a8",
+      "current_sha256": "5d5b28a2a7e96bb24eb70c93d642929f2cf9cd06c021002b5c141bc7772348a8",
+      "id": "exp-001-light-derived-from-real-dance-39fd73"
+    },
+    {
+      "path": "/root/lightsem-vault/experiments/exp-002-the-music-induced-movement-46c7b4.md",
+      "snapshot_sha256": "344eba1ca47b443ecca68b3e6296555712e4fb08053bfff4c37e4218b878ee2b",
+      "current_sha256": "344eba1ca47b443ecca68b3e6296555712e4fb08053bfff4c37e4218b878ee2b",
+      "id": "exp-002-the-music-induced-movement-46c7b4"
+    },
+    {
+      "path": "/root/lightsem-vault/experiments/exp-003-the-audio-movement-coupling-a700f6.md",
+      "snapshot_sha256": "9601712513aa606c4de7923ed79ef03164dc8b6c6eeadc412e8aa15779653b78",
+      "current_sha256": "9601712513aa606c4de7923ed79ef03164dc8b6c6eeadc412e8aa15779653b78",
+      "id": "exp-003-the-audio-movement-coupling-a700f6"
+    },
+    {
+      "path": "/root/lightsem-vault/experiments/exp-004-a-causal-conformer-with-three-70f12e.md",
+      "snapshot_sha256": "39f48687ca93cbf92dfbd70c3832e94b376a4ff52b6ed55817eb679275757cc2",
+      "current_sha256": "39f48687ca93cbf92dfbd70c3832e94b376a4ff52b6ed55817eb679275757cc2",
+      "id": "exp-004-a-causal-conformer-with-three-70f12e"
+    },
+    {
+      "path": "/root/lightsem-vault/experiments/exp-005-the-august-audio-lighting-event-af7af5.md",
+      "snapshot_sha256": "c0ec160009326d2a5b2d0ace2d5788823247619459ee62aecca8b85c0642e16d",
+      "current_sha256": "c0ec160009326d2a5b2d0ace2d5788823247619459ee62aecca8b85c0642e16d",
+      "id": "exp-005-the-august-audio-lighting-event-af7af5"
+    },
+    {
+      "path": "/root/lightsem-vault/experiments/exp-006-the-deployed-path-meets-its-eb0fc6.md",
+      "snapshot_sha256": "c973fee49f4d5ce913c8e64c9c3953b7ae0b2884437a18a7be19e5286f241f92",
+      "current_sha256": "c973fee49f4d5ce913c8e64c9c3953b7ae0b2884437a18a7be19e5286f241f92",
+      "id": "exp-006-the-deployed-path-meets-its-eb0fc6"
+    },
+    {
+      "path": "/root/lightsem-vault/experiments/exp-007-descriptors-extracted-from-936a48.md",
+      "snapshot_sha256": "122589af4278112ab2ce59205c494aedd65e4c574a6250bb7bad5e69fa09bbe9",
+      "current_sha256": "122589af4278112ab2ce59205c494aedd65e4c574a6250bb7bad5e69fa09bbe9",
+      "id": "exp-007-descriptors-extracted-from-936a48"
+    },
+    {
+      "path": "/root/lightsem-vault/experiments/exp-008-a-causal-conformer-trained-on-68789d.md",
+      "snapshot_sha256": "bb4f84fc9924061f04469c6bc88cda6f96b8cb1f157281582310d4f751269638",
+      "current_sha256": "bb4f84fc9924061f04469c6bc88cda6f96b8cb1f157281582310d4f751269638",
+      "id": "exp-008-a-causal-conformer-trained-on-68789d"
+    },
+    {
+      "path": "/root/lightsem-vault/experiments/exp-009-the-stage-1-audio-bus-was-not-d97aa0.md",
+      "snapshot_sha256": "68d362106d688c5c01616711f310afc2ee69f5f75e4148dcc97970db5685579e",
+      "current_sha256": "68d362106d688c5c01616711f310afc2ee69f5f75e4148dcc97970db5685579e",
+      "id": "exp-009-the-stage-1-audio-bus-was-not-d97aa0"
+    },
+    {
+      "path": "/root/lightsem-vault/experiments/exp-010-dance-is-not-a-category-error-101dd9.md",
+      "snapshot_sha256": "68d889c33a2a635986fca3e23a32c5713616e4066cffb5004427a8659fdbcb0b",
+      "current_sha256": "68d889c33a2a635986fca3e23a32c5713616e4066cffb5004427a8659fdbcb0b",
+      "id": "exp-010-dance-is-not-a-category-error-101dd9"
+    },
+    {
+      "path": "/root/lightsem-vault/experiments/exp-011-the-model-s-light-flashes-three-1de900.md",
+      "snapshot_sha256": "45961d85860345210e128588012cfbd601a3fe1c7bf4b17f782c7e26d135d13a",
+      "current_sha256": "45961d85860345210e128588012cfbd601a3fe1c7bf4b17f782c7e26d135d13a",
+      "id": "exp-011-the-model-s-light-flashes-three-1de900"
+    },
+    {
+      "path": "/root/lightsem-vault/experiments/exp-012-most-of-the-gap-between-the-1f7d3b.md",
+      "snapshot_sha256": "56cede71baa9b6b9325944af07047a2ecb706b0079baedb5daa66a319c6b621a",
+      "current_sha256": "56cede71baa9b6b9325944af07047a2ecb706b0079baedb5daa66a319c6b621a",
+      "id": "exp-012-most-of-the-gap-between-the-1f7d3b"
+    },
+    {
+      "path": "/root/lightsem-vault/experiments/exp-013-the-operator-head-which-is-8594fa.md",
+      "snapshot_sha256": "4121147fad91929ffea5a612f7c8b31158e30110bd302fb9c2081f9e6b44d6b2",
+      "current_sha256": "4121147fad91929ffea5a612f7c8b31158e30110bd302fb9c2081f9e6b44d6b2",
+      "id": "exp-013-the-operator-head-which-is-8594fa"
+    },
+    {
+      "path": "/root/lightsem-vault/experiments/exp-014-just-dance-coach-motion-is-f086d5.md",
+      "snapshot_sha256": "7b446a6e65437bd595c6bac77c28164c5547fd2446972c8252ee7dd93ff833fa",
+      "current_sha256": "7b446a6e65437bd595c6bac77c28164c5547fd2446972c8252ee7dd93ff833fa",
+      "id": "exp-014-just-dance-coach-motion-is-f086d5"
+    },
+    {
+      "path": "/root/lightsem-vault/experiments/exp-015-conditioning-on-whole-track-229262.md",
+      "snapshot_sha256": "e8a8360c954933f796e6b8291d84f9dad81768a8310cceafa974457da5fd03e1",
+      "current_sha256": "e8a8360c954933f796e6b8291d84f9dad81768a8310cceafa974457da5fd03e1",
+      "id": "exp-015-conditioning-on-whole-track-229262"
+    },
+    {
+      "path": "/root/lightsem-vault/experiments/exp-016-the-just-dance-background-with-ce364b.md",
+      "snapshot_sha256": "458d575240a4128d03844d6d1c511d88bda6eab461095e4ccd2369c220b5f498",
+      "current_sha256": "458d575240a4128d03844d6d1c511d88bda6eab461095e4ccd2369c220b5f498",
+      "id": "exp-016-the-just-dance-background-with-ce364b"
+    },
+    {
+      "path": "/root/lightsem-vault/experiments/exp-017-authored-hobby-game-light-shows-e4a4d0.md",
+      "snapshot_sha256": "37437ba4553631938aba77d30f88f03d1b2f756b235a7739ade9a72ad350e8b7",
+      "current_sha256": "37437ba4553631938aba77d30f88f03d1b2f756b235a7739ade9a72ad350e8b7",
+      "id": "exp-017-authored-hobby-game-light-shows-e4a4d0"
+    },
+    {
+      "path": "/root/lightsem-vault/experiments/exp-018-source-separated-stems-add-e2c503.md",
+      "snapshot_sha256": "a60e58f12063ba41925c745a05ab0932be7f1ae4fc367300b6e1fb7f963a6faa",
+      "current_sha256": "a60e58f12063ba41925c745a05ab0932be7f1ae4fc367300b6e1fb7f963a6faa",
+      "id": "exp-018-source-separated-stems-add-e2c503"
+    },
+    {
+      "path": "/root/lightsem-vault/experiments/exp-019-one-frozen-music-foundation-d4f30f.md",
+      "snapshot_sha256": "d65e32da465b248074647deb24c47db47ff3e07bbac4c02502b4a46a2a1f0469",
+      "current_sha256": "d65e32da465b248074647deb24c47db47ff3e07bbac4c02502b4a46a2a1f0469",
+      "id": "exp-019-one-frozen-music-foundation-d4f30f"
+    },
+    {
+      "path": "/root/lightsem-vault/experiments/exp-020-a-learned-group-effects-decoder-1eac54.md",
+      "snapshot_sha256": "029d860f221c7bc104ccb71e36cc8de035f7d2237e13cd4f2f57ae7c62cfc76f",
+      "current_sha256": "029d860f221c7bc104ccb71e36cc8de035f7d2237e13cd4f2f57ae7c62cfc76f",
+      "id": "exp-020-a-learned-group-effects-decoder-1eac54"
+    },
+    {
+      "path": "/root/lightsem-vault/experiments/exp-021-a-learned-group-effects-decoder-1eac54.md",
+      "snapshot_sha256": "983799489279c06ea895bc5bc75cd2ea3a04b4b7ca82317873b24052d4525ddb",
+      "current_sha256": "983799489279c06ea895bc5bc75cd2ea3a04b4b7ca82317873b24052d4525ddb",
+      "id": "exp-021-a-learned-group-effects-decoder-1eac54"
+    },
+    {
+      "path": "/root/lightsem-vault/experiments/exp-022-section-level-intent-belongs-on-47d660.md",
+      "snapshot_sha256": "70e0ed68a163b5d4728321eb5bbfd22c38559acea5843e08180b487db3382db8",
+      "current_sha256": "70e0ed68a163b5d4728321eb5bbfd22c38559acea5843e08180b487db3382db8",
+      "id": "exp-022-section-level-intent-belongs-on-47d660"
+    },
+    {
+      "path": "/root/lightsem-vault/experiments/exp-023-a-factorised-audio-light-critic-e453c6.md",
+      "snapshot_sha256": "f914ea0cc3877e8c2c22773ca98df22929fd291b7d462cd2d0bf51b05d8fb64f",
+      "current_sha256": "f914ea0cc3877e8c2c22773ca98df22929fd291b7d462cd2d0bf51b05d8fb64f",
+      "id": "exp-023-a-factorised-audio-light-critic-e453c6"
+    },
+    {
+      "path": "/root/lightsem-vault/experiments/exp-024-a-look-sampler-that-holds-its-c32dbb.md",
+      "snapshot_sha256": "26ff599fc48b6dfbf45f4ad50184aec57af0c49e7aa56860ac14b3ad8998f79d",
+      "current_sha256": "26ff599fc48b6dfbf45f4ad50184aec57af0c49e7aa56860ac14b3ad8998f79d",
+      "id": "exp-024-a-look-sampler-that-holds-its-c32dbb"
+    },
+    {
+      "path": "/root/lightsem-vault/experiments/exp-025-feeding-the-group-decoder-the-6ba213.md",
+      "snapshot_sha256": "1c13975b64c309f73d7d3830ae3cefd3ea1e0230818be54abb657316b342eb0b",
+      "current_sha256": "1c13975b64c309f73d7d3830ae3cefd3ea1e0230818be54abb657316b342eb0b",
+      "id": "exp-025-feeding-the-group-decoder-the-6ba213"
+    },
+    {
+      "path": "/root/lightsem-vault/experiments/exp-beat-conditioned-visible-motion-20260909.md",
+      "snapshot_sha256": "3f79c0b332bca8bad41295207c5988ea7f41858a34e55c6330bc0f3f1e6d3fef",
+      "current_sha256": "3f79c0b332bca8bad41295207c5988ea7f41858a34e55c6330bc0f3f1e6d3fef",
+      "id": "exp-beat-conditioned-visible-motion-20260909"
+    },
+    {
+      "path": "/root/lightsem-vault/experiments/exp-dance-actuator-budget-20260911.md",
+      "snapshot_sha256": "42cace862f6592b91564e94b071cd7c86bb412df7cad713a86ea0d16c94c793d",
+      "current_sha256": "42cace862f6592b91564e94b071cd7c86bb412df7cad713a86ea0d16c94c793d",
+      "id": "exp-dance-actuator-budget-20260911"
+    },
+    {
+      "path": "/root/lightsem-vault/experiments/exp-dance-no-clock-20260908.md",
+      "snapshot_sha256": "c2cab1b035025349f2f8e9a838b5a70aa71288ca81e4807f25e878ccb0826a39",
+      "current_sha256": "c2cab1b035025349f2f8e9a838b5a70aa71288ca81e4807f25e878ccb0826a39",
+      "id": "exp-dance-no-clock-20260908"
+    },
+    {
+      "path": "/root/lightsem-vault/experiments/exp-dance-optics-full-20260911.md",
+      "snapshot_sha256": "df3c776bd74c79e5e43d32c1fa27055ea9dddcd4f5e07fe9f56566e28e5a5c5a",
+      "current_sha256": "df3c776bd74c79e5e43d32c1fa27055ea9dddcd4f5e07fe9f56566e28e5a5c5a",
+      "id": "exp-dance-optics-full-20260911"
+    },
+    {
+      "path": "/root/lightsem-vault/experiments/exp-dance-physical-objective-20260911.md",
+      "snapshot_sha256": "7362d1471b535504d51627e75436c6b1496dbf968316591f613baa1a8f8fe388",
+      "current_sha256": "7362d1471b535504d51627e75436c6b1496dbf968316591f613baa1a8f8fe388",
+      "id": "exp-dance-physical-objective-20260911"
+    },
+    {
+      "path": "/root/lightsem-vault/experiments/exp-dance-pose-stage-20260911.md",
+      "snapshot_sha256": "bfb8ce9414888924a644a55182abf9d684e7a96e23f7e21f1fa3901eb496869c",
+      "current_sha256": "bfb8ce9414888924a644a55182abf9d684e7a96e23f7e21f1fa3901eb496869c",
+      "id": "exp-dance-pose-stage-20260911"
+    },
+    {
+      "path": "/root/lightsem-vault/experiments/exp-dance-projection-20260911.md",
+      "snapshot_sha256": "15dbae09e1e06e108fe3c8d52a0dc2bd174eebd824e3685f113812ed81082cb4",
+      "current_sha256": "15dbae09e1e06e108fe3c8d52a0dc2bd174eebd824e3685f113812ed81082cb4",
+      "id": "exp-dance-projection-20260911"
+    },
+    {
+      "path": "/root/lightsem-vault/experiments/exp-dance-stage-anchors-20260911.md",
+      "snapshot_sha256": "7c8b759dde8ca0aab649f68cb1f4970da2a93af3a65b1e15f41d75adf25cb41a",
+      "current_sha256": "7c8b759dde8ca0aab649f68cb1f4970da2a93af3a65b1e15f41d75adf25cb41a",
+      "id": "exp-dance-stage-anchors-20260911"
+    },
+    {
+      "path": "/root/lightsem-vault/experiments/exp-dance-stage-geometry-20260911.md",
+      "snapshot_sha256": "3a2816de990ba2a98edb507ab9cfccf193661e1f9ab36614bf805b55c1f63494",
+      "current_sha256": "3a2816de990ba2a98edb507ab9cfccf193661e1f9ab36614bf805b55c1f63494",
+      "id": "exp-dance-stage-geometry-20260911"
+    },
+    {
+      "path": "/root/lightsem-vault/experiments/exp-dance-stage-lean-20260911.md",
+      "snapshot_sha256": "844cfa587d5437822ab257015c81895db7fe1dcd6d21a65d180f00c9f6555547",
+      "current_sha256": "844cfa587d5437822ab257015c81895db7fe1dcd6d21a65d180f00c9f6555547",
+      "id": "exp-dance-stage-lean-20260911"
+    },
+    {
+      "path": "/root/lightsem-vault/experiments/exp-dance-tracking-20260911.md",
+      "snapshot_sha256": "f4ff9bf26094f4f743a5e620a1efa50f3b49fd3a67066bd7885db1a3a86302f7",
+      "current_sha256": "f4ff9bf26094f4f743a5e620a1efa50f3b49fd3a67066bd7885db1a3a86302f7",
+      "id": "exp-dance-tracking-20260911"
+    },
+    {
+      "path": "/root/lightsem-vault/experiments/exp-layers-20260922-batch4-smokes.md",
+      "snapshot_sha256": "428d25842e0544cb3c0845feac3ca441e38926901623efc0ce4ea4c4dd101cb8",
+      "current_sha256": "428d25842e0544cb3c0845feac3ca441e38926901623efc0ce4ea4c4dd101cb8",
+      "id": "exp-layers-20260922-batch4-smokes"
+    },
+    {
+      "path": "/root/lightsem-vault/experiments/exp-layers-20260922-mask-features-v2.md",
+      "snapshot_sha256": "23c6c1306cb4e379298e1675012f4378e9ab64c669315d3f297e9a49daaa88c5",
+      "current_sha256": "23c6c1306cb4e379298e1675012f4378e9ab64c669315d3f297e9a49daaa88c5",
+      "id": "exp-layers-20260922-mask-features-v2"
+    },
+    {
+      "path": "/root/lightsem-vault/experiments/exp-layers-20260922-mask-features-v3.md",
+      "snapshot_sha256": "87f66156beea55637e85857e98e1f4cb5e122f9fac64768a236994a0af92f0c2",
+      "current_sha256": "87f66156beea55637e85857e98e1f4cb5e122f9fac64768a236994a0af92f0c2",
+      "id": "exp-layers-20260922-mask-features-v3"
+    },
+    {
+      "path": "/root/lightsem-vault/experiments/exp-layers-20260922-mask-features.md",
+      "snapshot_sha256": "be436010d035acf7c2b7243e848a6b1a905ef66e17af69178e14d06af95faa14",
+      "current_sha256": "be436010d035acf7c2b7243e848a6b1a905ef66e17af69178e14d06af95faa14",
+      "id": "exp-layers-20260922-mask-features"
+    },
+    {
+      "path": "/root/lightsem-vault/experiments/exp-layers-20260922-observer-capture.md",
+      "snapshot_sha256": "b0318649e694ccf70f6856b7635928531f9b03f537bb88811397a93863198073",
+      "current_sha256": "b0318649e694ccf70f6856b7635928531f9b03f537bb88811397a93863198073",
+      "id": "exp-layers-20260922-observer-capture"
+    },
+    {
+      "path": "/root/lightsem-vault/experiments/exp-layers-20260922-observer-fits.md",
+      "snapshot_sha256": "461dd14c961013cb11e1f77c095b861909303161a4f6bcab9357fd48c0eca362",
+      "current_sha256": "461dd14c961013cb11e1f77c095b861909303161a4f6bcab9357fd48c0eca362",
+      "id": "exp-layers-20260922-observer-fits"
+    },
+    {
+      "path": "/root/lightsem-vault/experiments/exp-layers-20260922-palette-secondary.md",
+      "snapshot_sha256": "441e02342b187aeac76e1a6e5090ef6a790cc3c2c795826bcc5a9a5243759546",
+      "current_sha256": "441e02342b187aeac76e1a6e5090ef6a790cc3c2c795826bcc5a9a5243759546",
+      "id": "exp-layers-20260922-palette-secondary"
+    },
+    {
+      "path": "/root/lightsem-vault/experiments/exp-layers-20260922-rhythm-dev-features.md",
+      "snapshot_sha256": "aa028d84386cc3db27c2209dac29ee640016c343838bc6e939479e3057b8fb22",
+      "current_sha256": "aa028d84386cc3db27c2209dac29ee640016c343838bc6e939479e3057b8fb22",
+      "id": "exp-layers-20260922-rhythm-dev-features"
+    },
+    {
+      "path": "/root/lightsem-vault/experiments/exp-layers-20260922-rhythm-features.md",
+      "snapshot_sha256": "f941a4a1c1e55ce37195560fdcb92622b646ca4c334409e161a4ab0837be69ac",
+      "current_sha256": "f941a4a1c1e55ce37195560fdcb92622b646ca4c334409e161a4ab0837be69ac",
+      "id": "exp-layers-20260922-rhythm-features"
+    },
+    {
+      "path": "/root/lightsem-vault/experiments/exp-layers-20260922-student-smoke.md",
+      "snapshot_sha256": "ddff743ca2abf0f54482a94655c8b023a8355c816c373d91559fe2604a37d2ab",
+      "current_sha256": "ddff743ca2abf0f54482a94655c8b023a8355c816c373d91559fe2604a37d2ab",
+      "id": "exp-layers-20260922-student-smoke"
+    },
+    {
+      "path": "/root/lightsem-vault/experiments/exp-motion-codec-20260910.md",
+      "snapshot_sha256": "d9777781e258af420cc04148b8f876cb8b46d5907abbeb7afee43d04c66542a6",
+      "current_sha256": "d9777781e258af420cc04148b8f876cb8b46d5907abbeb7afee43d04c66542a6",
+      "id": "exp-motion-codec-20260910"
+    },
+    {
+      "path": "/root/lightsem-vault/experiments/exp-motion-codec-temporal128-20260910.md",
+      "snapshot_sha256": "e0d74f0c3ec316a4c8cd82d24d30896a1a5c05004da64eede4f71e0e737b0d95",
+      "current_sha256": "e0d74f0c3ec316a4c8cd82d24d30896a1a5c05004da64eede4f71e0e737b0d95",
+      "id": "exp-motion-codec-temporal128-20260910"
+    },
+    {
+      "path": "/root/lightsem-vault/experiments/exp-motion-coherence-20260910.md",
+      "snapshot_sha256": "deffb74b90d454332350e8f735f8de463b77310a64d6e91394229f0a25799a8b",
+      "current_sha256": "deffb74b90d454332350e8f735f8de463b77310a64d6e91394229f0a25799a8b",
+      "id": "exp-motion-coherence-20260910"
+    },
+    {
+      "path": "/root/lightsem-vault/experiments/exp-motion-dynamics-20260910.md",
+      "snapshot_sha256": "158cc4c9a2c430a90cc50afa91bd327658487726c9dbe617b9cbe688518b8f20",
+      "current_sha256": "158cc4c9a2c430a90cc50afa91bd327658487726c9dbe617b9cbe688518b8f20",
+      "id": "exp-motion-dynamics-20260910"
+    },
+    {
+      "path": "/root/lightsem-vault/experiments/exp-motion-exposure-20260910.md",
+      "snapshot_sha256": "a565bd18bd6f04f3ff510c18f8642e0973deb26c87ab62602c2398c5d97d38cd",
+      "current_sha256": "a565bd18bd6f04f3ff510c18f8642e0973deb26c87ab62602c2398c5d97d38cd",
+      "id": "exp-motion-exposure-20260910"
+    },
+    {
+      "path": "/root/lightsem-vault/experiments/exp-motion-exposure-roles-20260910.md",
+      "snapshot_sha256": "653d58ea319191ee947e9cdcc498a53ab6b0d6f56c357d2d351933f03d270a2d",
+      "current_sha256": "653d58ea319191ee947e9cdcc498a53ab6b0d6f56c357d2d351933f03d270a2d",
+      "id": "exp-motion-exposure-roles-20260910"
+    },
+    {
+      "path": "/root/lightsem-vault/experiments/exp-motion-incumbent-euler32-20260910.md",
+      "snapshot_sha256": "062fd30fefda77919977f902a0060d4d1693619dd68e0187be9a7aa27f2e93d7",
+      "current_sha256": "062fd30fefda77919977f902a0060d4d1693619dd68e0187be9a7aa27f2e93d7",
+      "id": "exp-motion-incumbent-euler32-20260910"
+    },
+    {
+      "path": "/root/lightsem-vault/experiments/exp-motion-native-audio-20260910.md",
+      "snapshot_sha256": "b42d6778d11663f308e9e49780a535ed904824ee70b2d4d945c7fae94565a7ef",
+      "current_sha256": "b42d6778d11663f308e9e49780a535ed904824ee70b2d4d945c7fae94565a7ef",
+      "id": "exp-motion-native-audio-20260910"
+    },
+    {
+      "path": "/root/lightsem-vault/experiments/exp-motion-native-phase-codec-20260910.md",
+      "snapshot_sha256": "646d93c1e2a61c9d1ad6df2ccc05f4504f51b65c22ea9979f6a86b30f3bf88a9",
+      "current_sha256": "646d93c1e2a61c9d1ad6df2ccc05f4504f51b65c22ea9979f6a86b30f3bf88a9",
+      "id": "exp-motion-native-phase-codec-20260910"
+    },
+    {
+      "path": "/root/lightsem-vault/experiments/exp-motion-surface-20260910.md",
+      "snapshot_sha256": "5660a696e38eef80b14fe27b3c3f082fa2de67f76e3644a4d95a4f6d22b9edfd",
+      "current_sha256": "5660a696e38eef80b14fe27b3c3f082fa2de67f76e3644a4d95a4f6d22b9edfd",
+      "id": "exp-motion-surface-20260910"
+    },
+    {
+      "path": "/root/lightsem-vault/experiments/exp-motion-surface-bandwidth-20260910.md",
+      "snapshot_sha256": "62d0ec1e559e8c58379230a8048ffcf9c671c13c2482646be680f7d27dd34f03",
+      "current_sha256": "62d0ec1e559e8c58379230a8048ffcf9c671c13c2482646be680f7d27dd34f03",
+      "id": "exp-motion-surface-bandwidth-20260910"
+    },
+    {
+      "path": "/root/lightsem-vault/experiments/exp-night-composition-20260909.md",
+      "snapshot_sha256": "adfb3cc7700063dd5d4c6b634efbe6c68eaa99f501777e492d853ee8d8ee8c1c",
+      "current_sha256": "adfb3cc7700063dd5d4c6b634efbe6c68eaa99f501777e492d853ee8d8ee8c1c",
+      "id": "exp-night-composition-20260909"
+    },
+    {
+      "path": "/root/lightsem-vault/experiments/exp-night-conditioning-20260909.md",
+      "snapshot_sha256": "72d8dc8cde3c5820a7a4aa102f5a536b6634ae9c76d484c4b83c9abb1a579b03",
+      "current_sha256": "72d8dc8cde3c5820a7a4aa102f5a536b6634ae9c76d484c4b83c9abb1a579b03",
+      "id": "exp-night-conditioning-20260909"
+    },
+    {
+      "path": "/root/lightsem-vault/experiments/exp-night-fourier-20260909.md",
+      "snapshot_sha256": "09269903df5c41941b91a9f3f543431292c4cc052d566925f897048884592a46",
+      "current_sha256": "09269903df5c41941b91a9f3f543431292c4cc052d566925f897048884592a46",
+      "id": "exp-night-fourier-20260909"
+    },
+    {
+      "path": "/root/lightsem-vault/experiments/exp-night-iteration-speed-20260910.md",
+      "snapshot_sha256": "4ea8ea3632d0ec01b5de01b4d945c62538a0c23a58ce3efaaf65354f7ecd7946",
+      "current_sha256": "4ea8ea3632d0ec01b5de01b4d945c62538a0c23a58ce3efaaf65354f7ecd7946",
+      "id": "exp-night-iteration-speed-20260910"
+    },
+    {
+      "path": "/root/lightsem-vault/experiments/exp-night-muq-20260909.md",
+      "snapshot_sha256": "3abcedb559967cb7710bd85e4243b8562ba73db4a68cece8df2d9cdb120868f0",
+      "current_sha256": "3abcedb559967cb7710bd85e4243b8562ba73db4a68cece8df2d9cdb120868f0",
+      "id": "exp-night-muq-20260909"
+    },
+    {
+      "path": "/root/lightsem-vault/experiments/exp-night-representation-20260909.md",
+      "snapshot_sha256": "022c3ab0e25f31af12854ec9c0a281bdd413c93386a40e7d0c3ced74969324a4",
+      "current_sha256": "022c3ab0e25f31af12854ec9c0a281bdd413c93386a40e7d0c3ced74969324a4",
+      "id": "exp-night-representation-20260909"
+    },
+    {
+      "path": "/root/lightsem-vault/experiments/exp-night-rhythm-20260909.md",
+      "snapshot_sha256": "8f0307d4ad7f65311331f2bc38374fab82bdcadee56d57b7c6ebf69120ea2bca",
+      "current_sha256": "8f0307d4ad7f65311331f2bc38374fab82bdcadee56d57b7c6ebf69120ea2bca",
+      "id": "exp-night-rhythm-20260909"
+    },
+    {
+      "path": "/root/lightsem-vault/experiments/exp-rhythm-companion-20260912t193657z.md",
+      "snapshot_sha256": "88f558fe54398cfb227b130efecaee417b7632e8fb6b0ee957d562160f609a6b",
+      "current_sha256": "88f558fe54398cfb227b130efecaee417b7632e8fb6b0ee957d562160f609a6b",
+      "id": "exp-rhythm-companion-20260912t193657z"
+    },
+    {
+      "path": "/root/lightsem-vault/experiments/exp-stage11-a-20260908.md",
+      "snapshot_sha256": "94a881f51a984c9f76e3b9d77fe5ff840b18f446f73c67b4be2fa70f797e62ab",
+      "current_sha256": "94a881f51a984c9f76e3b9d77fe5ff840b18f446f73c67b4be2fa70f797e62ab",
+      "id": "exp-stage11-a-20260908"
+    },
+    {
+      "path": "/root/lightsem-vault/experiments/exp-stage11-d-20260908.md",
+      "snapshot_sha256": "673e84e55c267e6ad42a4844113f4c42b102c548b889617a0e64fbca04f6b6fb",
+      "current_sha256": "673e84e55c267e6ad42a4844113f4c42b102c548b889617a0e64fbca04f6b6fb",
+      "id": "exp-stage11-d-20260908"
+    },
+    {
+      "path": "/root/lightsem-vault/experiments/exp-stage11-t-20260908.md",
+      "snapshot_sha256": "e69dea6fbe19d458aed724b3f85a0ebb81fe0ada54a1f90bf0cdbc7c91fda130",
+      "current_sha256": "e69dea6fbe19d458aed724b3f85a0ebb81fe0ada54a1f90bf0cdbc7c91fda130",
+      "id": "exp-stage11-t-20260908"
+    },
+    {
+      "path": "/root/lightsem-vault/experiments/the-audio-lighting-event-coupling-is-anticipatory-audio-predicts-an-event-severa-exp-2026-08-07t14-34-32.md",
+      "snapshot_sha256": "b0f41a79bbb9e3a318d01752e41a36dc05f4266fe0d7af74399ff5014d467a30",
+      "current_sha256": "95907fd57b42ad59fa041bf65f5c7a3d5e469d83bbbdcf862107063eca4081a0",
+      "id": "the-audio-lighting-event-coupling-is-anticipatory-audio-predicts-an-event-severa-exp-2026-08-07t14-34-32"
+    },
+    {
+      "path": "/root/lightsem-vault/experiments/the-audio-lighting-event-signal-is-carried-by-loudness-energy-if-true-the-indust-exp-2026-08-07t14-34-32.md",
+      "snapshot_sha256": "81b8a2cc1bf3ce68be173cd92505ee87256775b12ff5c047b753e756cbeb7e1c",
+      "current_sha256": "3fcc64206c76a15a4523fd993554886046a51ba993fdb4e019c951436c768aa5",
+      "id": "the-audio-lighting-event-signal-is-carried-by-loudness-energy-if-true-the-indust-exp-2026-08-07t14-34-32"
+    }
+  ],
+  "review_limits": [
+    "Source texts and summaries were not numerically reproduced. This audit is not model evaluation or data qualification.",
+    "Chronological cross-links do not establish source/checkpoint equivalence unless stated. CS-65 expressly does not refute the exact older full pipeline.",
+    "A nonsignificant effect is not equality or zero signal; failure of a tested recipe is not a universal capability ceiling.",
+    "Do not erase historical Notes. Applying any proposal requires a separate approved native record action by the parent; this audit itself made none."
+  ]
+}

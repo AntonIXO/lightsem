@@ -1,0 +1,8 @@
+{
+  "experiment_id": "exp-020-a-learned-group-effects-decoder-1eac54",
+  "verdict": "refutes",
+  "failure_mode": "recipe_conditional",
+  "lesson": "2026-09-28 retrospective claim-scope clarification, not a new measurement: Both decoder recipes failed their recorded FID/BAS gates on the39-clip motion-validation render set, which was not held out from the decoder (30train/5validation/4test clips). v1 rig transfer passed; v2 failed. Preserve the separately reported authored-corpus metrics without relabelling them from these39-clip counts. Human A/B was not measured; no new run or preference conclusion follows.",
+  "transfers_to": [],
+  "hint": "recipe_conditional: when the recipe changes, reopen_hypothesis('a-learned-group-effects-decoder-anton-s-mixture-2b4f62', reason=...) makes the negative re-testable instead of terminal"
+}

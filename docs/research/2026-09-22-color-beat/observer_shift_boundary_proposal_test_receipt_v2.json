@@ -1,0 +1,52 @@
+{
+  "check_count": 6,
+  "checks": [
+    "both_frozen_fixture_original_fail_proposal_pass_20draws_exact_boundary_only",
+    "one_ulp_inward_not_start_wrap",
+    "disjoint_actual_source_segments_counts_confidences_native_10_40Hz_noop_when_no_endpoint",
+    "undefined_short_segments_and_empty_candidates_unchanged",
+    "genuine_escape_still_ContractError",
+    "million_nonnegative_actual_source_numeric_cases_domain_exact_one_ulp_only_bitwise_noop_elsewhere"
+  ],
+  "environment": {
+    "CUDA_VISIBLE_DEVICES": "",
+    "TORCH_ENV": "/root/lightsem/.venv/torch-access"
+  },
+  "fixture_endpoint_corrections_across_20_draws": {
+    "final": 1,
+    "selected": 1
+  },
+  "original_implementation_hashes_after": {
+    "/root/lightsem/lightsem/experiments/light_layers/evaluation.py": "401825add5d89f9920e2c946e36b2cdf85e07f625ab3230c5a3844655fcca004",
+    "/root/lightsem/lightsem/experiments/light_layers/metrics.py": "2df0707522bf2be0289164deeaf1cd4e8fdfe8f2bc20838ac0e331cceaaf77c3",
+    "/root/lightsem/lightsem/experiments/light_layers/model.py": "aa1d63f0cbf5cf270c3c7d676edf3eaf3debeb394220123493a400aa60835529",
+    "/root/lightsem/lightsem/experiments/light_layers/palette_metrics.py": "80b1301d8ece0c75d8d5b0521c5b9299581dc8ec80eddfbeccade11f10939d07",
+    "/root/lightsem/lightsem/experiments/light_layers/targets.py": "4f1e980ed9f62e2ae2a6d53e426cd44c0ed2381835bf4b1382a7fba1e566d6d1",
+    "/root/lightsem/lightsem/experiments/light_layers/training.py": "31e58e8c7a10cd80f0d3b5be0e87796e35548f2c2d03705856a0cafa1811802b",
+    "/root/lightsem/lightsem/model/light_trunk.py": "b515dcb960259f39f21a8d565b621364aafe0a87d3a6028f5a476659f662cf84",
+    "/root/lightsem/run_light_layers_evaluate.py": "c29d17850d03c478cba7d8fe27a18847e500c5264d6e623c7691b885d7e368ca"
+  },
+  "original_implementation_hashes_before": {
+    "/root/lightsem/lightsem/experiments/light_layers/evaluation.py": "401825add5d89f9920e2c946e36b2cdf85e07f625ab3230c5a3844655fcca004",
+    "/root/lightsem/lightsem/experiments/light_layers/metrics.py": "2df0707522bf2be0289164deeaf1cd4e8fdfe8f2bc20838ac0e331cceaaf77c3",
+    "/root/lightsem/lightsem/experiments/light_layers/model.py": "aa1d63f0cbf5cf270c3c7d676edf3eaf3debeb394220123493a400aa60835529",
+    "/root/lightsem/lightsem/experiments/light_layers/palette_metrics.py": "80b1301d8ece0c75d8d5b0521c5b9299581dc8ec80eddfbeccade11f10939d07",
+    "/root/lightsem/lightsem/experiments/light_layers/targets.py": "4f1e980ed9f62e2ae2a6d53e426cd44c0ed2381835bf4b1382a7fba1e566d6d1",
+    "/root/lightsem/lightsem/experiments/light_layers/training.py": "31e58e8c7a10cd80f0d3b5be0e87796e35548f2c2d03705856a0cafa1811802b",
+    "/root/lightsem/lightsem/model/light_trunk.py": "b515dcb960259f39f21a8d565b621364aafe0a87d3a6028f5a476659f662cf84",
+    "/root/lightsem/run_light_layers_evaluate.py": "c29d17850d03c478cba7d8fe27a18847e500c5264d6e623c7691b885d7e368ca"
+  },
+  "property_cases": 1000000,
+  "property_endpoint_correction_count": 130,
+  "property_seed": 20260922,
+  "schema": 1,
+  "scope": "Geometry-only diagnostic proposal; not a scoring amendment or authorization",
+  "script": {
+    "path": "/root/lightsem/docs/research/2026-09-22-color-beat/test_observer_shift_boundary_proposal_v2.py",
+    "sha256": "7fb4354e3718290846a25a87c17f608d6257a0aae762c3d651aba0bcf833c498"
+  },
+  "tested_replacement": {
+    "new": "            shifted[take] = a+np.mod(local, duration)\n            shifted[take] = np.where(shifted[take] == b, np.nextafter(b, a), shifted[take])",
+    "old": "            shifted[take] = a+np.mod(local, duration)"
+  }
+}

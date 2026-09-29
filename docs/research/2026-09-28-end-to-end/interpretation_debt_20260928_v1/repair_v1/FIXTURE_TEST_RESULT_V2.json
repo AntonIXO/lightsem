@@ -1,0 +1,36 @@
+{
+  "command": [
+    "systemd-run",
+    "--quiet",
+    "--wait",
+    "--pipe",
+    "--collect",
+    "--unit=lightsem-notes-recovery-fixtures-20260929-v2",
+    "--property=MemoryMax=134217728",
+    "--property=MemorySwapMax=0",
+    "--property=PrivateDevices=yes",
+    "--property=PrivateTmp=yes",
+    "--property=RuntimeMaxSec=40",
+    "--setenv=PYTHONDONTWRITEBYTECODE=1",
+    "/usr/bin/python3",
+    "-B",
+    "-m",
+    "unittest",
+    "discover",
+    "-s",
+    "/root/lightsem/docs/research/2026-09-28-end-to-end/interpretation_debt_20260928_v1/repair_v1",
+    "-p",
+    "test_restore_notes.py",
+    "-v"
+  ],
+  "fixture_vaults_only": true,
+  "source_sha256": {
+    "restore_notes_mcp.py": "dddcbd320c4646d08fb56e796c6d6afbf1efaf337a6a541e55b089586403e3f3",
+    "test_restore_notes.py": "ed03bd8160a2cba8337f3df56c3fce9cdb749fdfc48296be2988dccc827bbac3",
+    "run_fixture_checks.py": "ce70231d5b5998bfc65e0c7b829d1a5af13268b7b827425b9de18162161ec610"
+  },
+  "exit_code": 0,
+  "stop_reason": null,
+  "elapsed_seconds": 1.7870680389460176,
+  "combined_log_bytes": 1728
+}

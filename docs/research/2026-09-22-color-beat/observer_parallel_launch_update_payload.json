@@ -1,0 +1,4 @@
+{
+  "id": "dancing-light-generative-20260903",
+  "add_update": "2026-09-22 \u2014 Two-worker capture handoff fixed before launch. Original extractor intentionally stopped with exit130 after record120 completed; no completed record rerun. Remaining11 original records split6+5 in original-order alternating shards. Exact manifests, locations, unchanged observer hashes/checkpoint and controller engineering corrections: /root/lightsem/docs/research/2026-09-22-color-beat/OBSERVER_PARALLEL_CAPTURE_LAUNCH_V1.json SHA256 b11c002af5f665664dcc367fb93e2451ff136e8a2b7cbf12a8d20a9059a074f6. This is user-authorized orchestration only. Preserve all original artifacts and any incomplete next-record directory. Training/evaluation definitions and gates are unchanged; aggregate final per-record receipts before data binding."
+}

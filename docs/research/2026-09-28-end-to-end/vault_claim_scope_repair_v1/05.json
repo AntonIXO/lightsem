@@ -1,0 +1,8 @@
+{
+  "experiment_id": "exp-024-a-look-sampler-that-holds-its-c32dbb",
+  "verdict": "directional_only",
+  "failure_mode": "recipe_conditional",
+  "lesson": "2026-09-28 retrospective claim-scope clarification, not a new measurement: Cue-held transition distance6.86 improves over per-frame8.87 but loses to donor5.66 (floor2.56), so the conjunction remains failed. BAS-minus-shift-null0.5133 versus conductor0.1248 with419 versus771 events/clip is a descriptive zero-phase engine comparison on39 motion-validation clips, not demonstrated decoder-held-out song generalization. Preserve the historical split and beat-fraction timing qualifications; no aesthetic preference is measured.",
+  "transfers_to": [],
+  "hint": "recipe_conditional: when the recipe changes, reopen_hypothesis('a-look-sampler-that-holds-its-sampled-look-2b8adb', reason=...) makes the negative re-testable instead of terminal"
+}

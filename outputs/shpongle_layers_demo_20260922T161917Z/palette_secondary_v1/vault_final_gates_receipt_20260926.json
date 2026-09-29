@@ -1,0 +1,63 @@
+{
+  "id": "exp-layers-20260922-palette-secondary",
+  "hypothesis_id": "h-layers-20260922-palette",
+  "parent_experiment_id": "exp-layers-20260922-observer-fits",
+  "git_ref": "01a14fea1fb9bf517f637d4fcebb7829667cb112",
+  "external_run": "/mnt/lightsem-data/experiments/lightsem/palette-history-secondary-20260922-v1",
+  "config_note": "{\"checkpoint_roles\": [\"selected primary\", \"final companion\"], \"comparison\": \"own-generated mark history vs trained-null independent-held, persistence, fixed tempo-donor; self/quantization floors\", \"controls\": \"Holm2 and family95% Bonferroni intervals over two contrasts; all4 temporal components; support>=30/31; diversity/occupancy/marginal/emitted timing requirements\", \"draws\": [101, 102, 103, 104], \"fits\": 0, \"fixed_recipe\": \"S_VR_P0\", \"historical_mechanism\": \"Different from prior cue-hazard-history timing intervention: palette MARK transition/residence distributions, not audio event lift. Old results remain intact.\", \"original_unmet\": \"Original31/40<80% source gate unchanged; original shuffled-palette control absent; separate emitted-token AP not original head AP; no original hypothesis qualification or automatic sign-based closure\", \"phase\": \"Prospective palette-secondary DEFINITION only; no real calibration/inference/scoring authorization until exact tested sidecar and original input hashes bound\", \"primary_measurement\": \"layers-palette-temporal-error before=null_state error, after=own_state error; predict >=.02 and>=15% reduction\", \"protocol\": {\"path\": \"/root/lightsem/outputs/shpongle_layers_demo_20260922T161917Z/palette_secondary_v1/PALETTE_SECONDARY_PROTOCOL_V1.json\", \"sha256\": \"35ee9ba62d5c04fffb9ce5ddd364f1a82941c7025f9b213800858cca973d11e9\"}, \"resources\": {\"cpu_threads\": 2, \"derived_cap_bytes\": 67108864, \"derived_root\": \"/mnt/lightsem-data/experiments/lightsem/palette-history-secondary-20260922-v1\", \"free_floor_bytes\": 1073741824, \"gpu\": false, \"max_cpu_wall_seconds_per_phase\": 3600, \"overwrite\": false, \"persistent\": \"uint8ids,uint16cues,uniforms,scalarperrecordmetrics andreceipts;no duplicatedHS,contexts,audio,weights\", \"preflight_reserve_bytes\": 33554432, \"source_mutation\": false}, \"scope\": \"full64s observer HS distribution on exposed DEV including edge-context limitations; NOT independent LIGHT truth or fresh confirmation\", \"source_policy\": \"Frozen original model/training/evaluation/palette metrics untouched; new versioned driver only; no TEST, new fits, replacements or lost artifacts\", \"training_seeds\": [0, 1, 2]}",
+  "diagnostics_measured": [
+    {
+      "diagnostic_id": "layers-palette-temporal-error",
+      "before": 0.8305894727985342,
+      "after": 0.8590224721821798
+    }
+  ],
+  "observed_effects": [
+    {
+      "diagnostic_id": "layers-palette-temporal-error",
+      "delta": 0.028432999384,
+      "direction": "up"
+    }
+  ],
+  "gate_results": [
+    {
+      "gate_id": "prerun-provenance",
+      "passed": false,
+      "evidence": "Original definition succeeded prospectively; V1 source/test and calibration were locally frozen but vault updates were rejected before101outputs. Retrospective correction does NOT repair vault-order/execution compliance. Tested continuation source and combined186hash did get successful native bindings before85outputs and scoring. Official deviation df755a9bc9746e74f4270721f36df197dad1142793af70bf68346be241c56205."
+    },
+    {
+      "gate_id": "valid-common-instrument",
+      "passed": false,
+      "evidence": "Original gate NOT met:31/40=.775<.80 sourcecoverage and observer-not-independent-LIGHT labels. Secondary support itself passes30/31 canonicalgroups; one record haszero complete8slagpairs despite92.656% validframes, and staysundefined. Existing eventnull29/30 remains failed but isnot palette prerequisite. Synthetic and independent saved-support/arithmetic checks passed; they do not validate label truth."
+    },
+    {
+      "gate_id": "paired-complete",
+      "passed": false,
+      "evidence": "Original comparator gate NOT complete: original shuffled-palette control absent; limitedtempo-donor doesnotreplace it. Secondary inventory is complete186cells/744rows,3seeds,4draws,4arms, two separate checkpointroles and two explicitproducers. Paired canonical-song statistics/Holm2 used; no role/seed selection."
+    },
+    {
+      "gate_id": "scope-and-output",
+      "passed": true,
+      "evidence": "Audio-only model inputs; no newtraining/TEST access/default promotion. Demo retained allprotectedDMX slots/pan/tilt exactly. Scope is historicalDEV full64 observerHS distributions, not LIGHTtruth/aesthetic/unseenconfirmation or argmax-demo improvement."
+    },
+    {
+      "gate_id": "palette-magnitude",
+      "passed": false,
+      "evidence": "Primaryselected own0.859022 vs independentnull0.830589:3.42%worse. null-minus-own=-.028433, family97.5%CI[-.039850,-.016604], Holm.00019998; donor-minus-own=-.008302,CI[-.016023,-.000323],Holm.019298. Both directions oppose benefit. Final own.750180 vsnull.755757 gain.005577/.738%, uncertain andbelow .02/15% criteria. Persistence1.119751selected/.903743final isnot the primarycomparator. Original qualificationNone; no sign-only autoclosure."
+    }
+  ],
+  "verdict": null,
+  "prediction_match": null,
+  "crash_reason": "",
+  "provenance": {},
+  "notes": "",
+  "artifacts": [],
+  "key_numbers": {},
+  "do_not_retry": [],
+  "interpretation": null,
+  "cost": null,
+  "recipe_fingerprint": {},
+  "former_ids": [],
+  "closed": false,
+  "created_at": "2026-09-22T16:37:39+00:00"
+}

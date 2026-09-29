@@ -1,0 +1,138 @@
+{
+  "schema_version": 1,
+  "created_utc": "2026-09-28T19:11:32.761104+00:00",
+  "scope": "Audit of already-recorded own and direct-child transcripts only. No FineDance raw split/manifest/labels were reopened for this disclosure.",
+  "finding": "Full JSON metadata reads/parse included embedded label objects across TRAIN/VAL/TEST. First displayed label entry was001 TRAIN, not TEST. A global zero-TEST-label-metadata-access assertion is therefore not valid even though no TEST style values were identified as displayed/used.",
+  "events": [
+    {
+      "agent": "legacy-remainder-readiness",
+      "kind": "full_split_read_parse_and_prefix_display",
+      "tool_call_utc": "2026-09-28T18:30:57.069Z",
+      "tool_result_utc": "2026-09-28T18:30:57.554Z",
+      "call_record_id": "ec683bd3",
+      "result_record_id": "85a9565e",
+      "transcript_path": "/root/.prime/agent/session-artifacts/01a0c86b-2ef5-735b-821a-225958ef165e/sub-b165acdc/01a0e947-9e6b-7218-b644-ce0afce383ed.jsonl",
+      "input_path": "/mnt/lightsem-data/experiments/lightsem/motion_representation_20260910/data/split.json",
+      "parsed_scope": "Entire JSON object, including embedded label objects of TRAIN/VAL/TEST entries.",
+      "printed_scope": "First3500 characters; includes full entry001 TRAIN label object and only the start of next entry.",
+      "displayed_entry_id": "001",
+      "displayed_canonical_id": "fd-7a3e6b16cb75f48f",
+      "displayed_partition": "train",
+      "displayed_label_field_names": [
+        "frames",
+        "name",
+        "style1",
+        "style2"
+      ],
+      "values_used_scope": "Identity/key/canonical/partition joins. Later parent-authorized name-only identity extraction. No style field used for selection or scientific calculations in inspected call records.",
+      "record_reference_hash": "9a539202d5089a7aafcf630785b2604354e749e8dff505c99a1f6642ff70401e"
+    },
+    {
+      "agent": "new-frozen-legacy-eval",
+      "kind": "full_split_read_parse",
+      "tool_call_utc": "2026-09-28T18:48:43.037Z",
+      "tool_result_utc": "2026-09-28T18:48:43.063Z",
+      "call_record_id": "d1020841",
+      "result_record_id": "8e291f17",
+      "transcript_path": "/root/.prime/agent/session-artifacts/01a0c86b-2ef5-735b-821a-225958ef165e/sub-b165acdc/sub-9a35a19f/01a0e957-fd9f-734b-a6b1-48ea7b920494.jsonl",
+      "input_path": "/mnt/lightsem-data/experiments/lightsem/motion_representation_20260910/data/split.json",
+      "parsed_scope": "Entire JSON object, including embedded label objects of TRAIN/VAL/TEST entries.",
+      "printed_scope": "Initial first2500-character object prefix; separate next sample print below is explicit label display.",
+      "code_excerpt": "fd = json.loads(metadata_paths[3].read_text()); print('fd', fd.keys(), str(fd)[:2500])",
+      "record_reference_hash": "a2c6efaaeac15cde309659c9e89e7a7e1354d5950570829b950799956f587ced"
+    },
+    {
+      "agent": "new-frozen-legacy-eval",
+      "kind": "first_entry_display",
+      "tool_call_utc": "2026-09-28T18:48:52.275Z",
+      "tool_result_utc": "2026-09-28T18:48:52.300Z",
+      "call_record_id": "c58a9b45",
+      "result_record_id": "c9e53d5e",
+      "transcript_path": "/root/.prime/agent/session-artifacts/01a0c86b-2ef5-735b-821a-225958ef165e/sub-b165acdc/sub-9a35a19f/01a0e957-fd9f-734b-a6b1-48ea7b920494.jsonl",
+      "input_path": "in-memory fd from prior full parse; no new raw file read in this call",
+      "displayed_entry_id": "001",
+      "displayed_canonical_id": "fd-7a3e6b16cb75f48f",
+      "displayed_partition": "train",
+      "displayed_label_field_names": [
+        "frames",
+        "name",
+        "style1",
+        "style2"
+      ],
+      "printed_scope": "Full entries[0] dictionary with identity, filenames/hashes, durations and embedded label object.",
+      "code_excerpt": "print('fd sample', fd['entries'][0] if isinstance(fd['entries'],list) else next(iter(fd['entries'].items())))",
+      "used_scope": "No style values were used in the inspected selection/analysis code. Subsequent title screen used filtered name-only sidecar.",
+      "record_reference_hash": "f97d7a4ae18143942b1295abd11d8b9ce629699147e1786feff61e47902a4c12"
+    },
+    {
+      "agent": "legacy-remainder-readiness",
+      "kind": "full_manifest_read_parse_and_prefix_display",
+      "tool_call_utc": "2026-09-28T18:49:48.509Z",
+      "tool_result_utc": "2026-09-28T18:49:48.548Z",
+      "call_record_id": "f3953675",
+      "result_record_id": "ef416731",
+      "transcript_path": "/root/.prime/agent/session-artifacts/01a0c86b-2ef5-735b-821a-225958ef165e/sub-b165acdc/01a0e947-9e6b-7218-b644-ce0afce383ed.jsonl",
+      "input_path": "/mnt/lightsem-data/experiments/lightsem/motion_representation_20260910/data/manifest.json",
+      "parsed_scope": "Entire manifest JSON. Contains embedded labels and at least the shown TRAIN stored-metric summaries. No claim about other specific stored target fields is inferred here.",
+      "printed_scope": "First1200 characters; entry001 TRAIN identity and label object plus beginning of its stored metrics. Partition TRAIN is established by already-recorded split entry for the same001/canonical identity; the truncated manifest print itself ends before its partition field.",
+      "displayed_entry_id": "001",
+      "displayed_canonical_id": "fd-7a3e6b16cb75f48f",
+      "displayed_partition_from_recorded_split": "train",
+      "displayed_label_field_names": [
+        "frames",
+        "name",
+        "style1",
+        "style2"
+      ],
+      "displayed_stored_metric_fields": [
+        "acceleration_square_mean",
+        "contact_prevalence (prefix only)"
+      ],
+      "used_scope": "Manifest schema/existence audit; these style and stored metric values were not used in new scientific metrics or cohort selection.",
+      "record_reference_hash": "b7960400131fc2d92bf227409888b13cca0de7a3ce0fe80d4ecadfb03926294a"
+    }
+  ],
+  "notification_chronology": {
+    "sender": "new-frozen-legacy-eval",
+    "recipient": "legacy-remainder-readiness (immediate parent, NOT root)",
+    "message_id": "agentmsg_1a9f472d-2c03-4c73-92a3-99674037a5ff",
+    "send_call_record_id": "958ebe2c",
+    "send_call_utc": "2026-09-28T18:54:52.166Z",
+    "send_receipt_record_id": "102274c5",
+    "send_receipt_utc": "2026-09-28T18:54:52.204Z",
+    "delivery_record_id": "163aea2d",
+    "delivery_utc": "2026-09-28T18:54:53.848Z",
+    "root_relay": "No explicit relay occurred before root discovered the embedded disclosure in NEW_EVALUATION_READINESS_V1.json. This was a communication failure by legacy-remainder-readiness.",
+    "correction": "Parent was notified in the old note referred only to immediate parent; it did not mean root had been explicitly informed."
+  },
+  "root_correction_notification": {
+    "message_id": "agentmsg_b518614f-dd20-4282-bc09-3a8d588ee284",
+    "queued_utc": "2026-09-28T19:09:38.443Z",
+    "recipient": "root parent01a0c86b-2ef5-735b-821a-225958ef165e"
+  },
+  "parse_print_use_distinction": {
+    "bytes_read_and_parsed": "Entire relevant JSON metadata files, including embedded label objects and all partitions. This is metadata-label exposure and is not undone by later filtering.",
+    "printed": "Confirmed firstentry001 TRAIN fields above; the recorded firstentry display contains style1/style2. Own manifest preview also displayed beginning of TRAIN001 stored metrics.",
+    "used_for_selection": "Inspected recorded code used IDs/canonical IDs/partitions; after explicit parent permission, song identity label.name. No recorded style-value-based cohort choice or metric computation was found.",
+    "unknown_or_not_claimed": "This audit does not prove the absence of every semantic effect of displayed text. It does not claim zero TEST metadata-label access, does not infer TEST numerical-array exposure, and does not infer training/metric contamination without evidence."
+  },
+  "narrow_non_events": {
+    "no_new_numeric_array_payload_read_identified_in_these_events": true,
+    "no_model_deserialization_forward_or_training": true,
+    "no_new_scientific_metric_or_bootstrap_computed": true,
+    "no_TEST_scientific_array_exposure_conclusion": "No such event identified; do not broaden metadata parsing into blanket TEST numeric exposure."
+  },
+  "future_boundary": {
+    "identity_sidecar_only": "/root/lightsem/docs/research/2026-09-28-end-to-end/NEW_IDENTITY_EXCLUSION_METADATA_V1.json",
+    "sha256_at_creation": "54c12ef64517451c1744c824051ccce7a4d2da46adde9d0742ae52c192672c28",
+    "allowed_fields": [
+      "key",
+      "canonical_id",
+      "partition",
+      "song_identity_name"
+    ],
+    "prohibited": "Do not reopen full split/manifest or use style1/style2/other TESTtargets. Any added identity record requires separately allowed identity-only extraction; no current permission for TEST arrays or evaluation.",
+    "no_retroactive_erasure": "Historical full metadata parse and displayed TRAIN labels remain on record. Name-only filtering does not retroactively undo exposure."
+  },
+  "affected_documents": "Any prior broad no-TEST-label-access statement in this audit lineage is superseded for embedded JSON label metadata by this disclosure. No completed scientific verdict is changed or voided without a demonstrated effect."
+}

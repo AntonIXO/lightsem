@@ -1,0 +1,100 @@
+{
+  "id": "observer-proxy-20260922-v1",
+  "campaign_id": "lighting-cue-model-20260922t094347z",
+  "separate_from_original_quality_claims": true,
+  "primary_scope": "Audio-only prediction of center-eight-second frozen SAM2-filtered authored-video OBSERVER events on selected historicalDEV clips. Unknown cuts, mask error, UI and track nuisance remain part of the observed target. No purelightingtruth, segmentationaccuracy, finebeataccuracy, unseenconfirmation, humanpreference, or originalgatepass.",
+  "selection": {
+    "manifest": "/mnt/lightsem-data/experiments/lightsem/lighting-cue-model-20260922t094347z/observer_proxy_capture_manifest_v1.json",
+    "sha256": "153cf78ff7f331c0b2c7c1bf64412c0d4dc264754982f341af9588eee392b0a8",
+    "candidate_sha256": "7f40dc6d4b62acec6ba0f2f846b5a84b2834ec0fe9bd9b5b9dd6c1914f7a4285",
+    "protocol": "/mnt/lightsem-data/experiments/lightsem/lighting-cue-model-20260922t094347z/cohort_v1_coverage90_selection_protocol.json",
+    "protocol_sha256": "9499df794a526635bc75d87f097d391046854ee211eeee83f73e347a9e666276",
+    "train_groups": 100,
+    "historical_dev_groups": 31,
+    "original_dev_groups": 40,
+    "original_dev_coverage": 0.775,
+    "original80percentgate": "FAILED; not waived/relabelled",
+    "selection_note": "Fixed canonical hash order, no target/model scores used. Registered coach boxes jointlypresent >=.90 of raw poseframes over64s andcenter8; timestamps maxgap.2s, allselecteddatahashes exceptvideo verified; videohashes checked beforecapture. No replacementsafterfreeze."
+  },
+  "capture": {
+    "source_hashes": {
+      "/root/lightsem/run_light_layers_visual.py": "8d74cb751470ffaa39d610bf96153ddd630156e803b02437c472fc2e7895eed9",
+      "/root/lightsem/lightsem/experiments/light_layers/visual.py": "9bcda39c8d56ba640b3344de2b1fcca93244ba0fb95fd76f75a47bb42d0843cf",
+      "/root/lightsem/lightsem/experiments/light_layers/targets.py": "4f1e980ed9f62e2ae2a6d53e426cd44c0ed2381835bf4b1382a7fba1e566d6d1",
+      "/root/lightsem/tests/test_light_layers_visual.py": "7e9bcea213f41d45ffa71cd155aa369355d61005a69562c326eb697bea9d99f5"
+    },
+    "checkpoint_sha256": "6d1aa6f30de5c92224f8172114de081d104bbd23dd9dc5c58996f0cad5dc4d38",
+    "fps": 10,
+    "duration_s": 64,
+    "decode_width": 640,
+    "max_pose_age_s": 0.2,
+    "max_frame_error_s": 0.1,
+    "box_padding": "wholewindow15percent then0 fallback",
+    "min_retained_pixels": 100,
+    "mask_dilation_px": 0,
+    "registered_indices": "manifestcoaches[].coach_index; allfinitepositive otherboxes also masked, unregisteredslots reported",
+    "missing": "Explicit flag only; skipSAM,zero invalid placeholders,no imputation, maskhistoryunknown acrossgap, noveltyunsupportedwindowsinvalid",
+    "cut_policy": "Unknown cuts INCLUDED IN OBSERVER target, never called cut-clean",
+    "audit_images": false,
+    "wall_budget_s": 14400
+  },
+  "student": {
+    "recipes": [
+      "S_none_P0",
+      "S_V6_P0",
+      "S_VR_P0",
+      "I_VR_P0",
+      "S_VR_P0_Ashuf"
+    ],
+    "seeds": [
+      0,
+      1,
+      2
+    ],
+    "max_fits": 15,
+    "steps": 6000,
+    "batch": 4,
+    "optimizer": "AdamW",
+    "lr": 0.0003,
+    "weight_decay": 0.01,
+    "warmup": 300,
+    "clip": 1,
+    "precision": "BF16 mixed/FP32 losses",
+    "compile": false,
+    "state_dropout": 0.5,
+    "main_loss_weights": [
+      1,
+      1,
+      1
+    ],
+    "auxiliary_weight": 0.1,
+    "context": "64s student feature window. IMPORTANT audio bus/beat grid/BeatThis features are constructed offline from FULL SOURCE RECORD; this is NOT a64s raw-audio or causal-context claim. Allcontrols must receive equivalent feature provenance. Legacy6 fullrecord-relative transform provenance must be explicit beforefit.",
+    "loss_support": "center8; events prepost.3s, TRAINeligibleq.95, referenceeventspacing.5s; masks eroded acrossunsupported windows",
+    "checkpoint": "common mainloss only, every300updates, sameDEVselectionpolicyallarms; reportfinal+selected",
+    "pose_and_R1": "UNRUN; missingqualification retained",
+    "parameter_match": "shared128 vsdeterministicallymatched independentwidth; <=5percent activeparams; context/taskframessame; reportwall/FLOPsnotcompute-equivalence"
+  },
+  "primary_prediction": {
+    "contrast": "S_VR_P0 minus S_V6_P0",
+    "diagnostic": "layers-observer-chromatic-event-ap",
+    "minimum_gain": 0.01,
+    "scope": "Selected center-clip observerproxy only; engineeringminimum notmeasuredMDE"
+  },
+  "evaluation_to_freeze_before_fit": {
+    "endpoint": "EventcandidateAP\u00b1.2s, candidateNMS.2s, no topK quotas; central8swith commonvalidsupport, sameboundariesallmethods; noeventAPundefined butFP/min andcoverage retained",
+    "contrasts": "V6-none,VR-V6,S-I,real-Ashuf eachaccent+color, Holm8contrasts; primaryVR-V6color chosennow",
+    "controls": "TRAINprevalence/constant, audioonset, explicitlyaudionovelty, L2logistic,20within-valid-segment circularshifts and distinctcanonical nonrhythm donor; allAUDIO-only deployablecontrols. Exactbaselinecode/config/donor map/source exposure andmetric hashes bind beforefit. Anyunimplementedcontrolblocksinterpretation, not silentlyomitted.",
+    "cohort_gate": "Atleast30 of31 enrolledDEVgroups havequalifiedcommonlabelsupport; at least10 event-bearing groups perchannel forAPinference; reportallconditionalcounts. Original31/40=.775failure staysseparate.",
+    "statistic": "canonical-song macro; paired3trainingseeds;10000songbootstrap;CIuncorrected+HolmPexplicit. No broadconfirmatoryclaim.",
+    "palette": "Secondary/exploratory fullgeneratedhistory only; fixedprototype/cue/noise/stateablation; exactfrozen21testspaletteinstrument beforeuse",
+    "requirements": "No fullfit until exactcommonfittedTRAINtransforms,vocabulary,datapaths,trainingconfig,unknown-cut scopeguard,metric/baseline definitions andsourcehashes registered. No numericalcohorttarget/modelperformance scored yet."
+  },
+  "resource_limits": {
+    "gpu": "oneRTX5070;onecomputejobata time",
+    "gpu_hours_ceiling": 36,
+    "per_fit_wall_minutes_ceiling": 60,
+    "initial_smoke": "12TRAIN-only records + synthetic source/target/gradient/nonangularparity controls; notqualificationscores",
+    "storage": "No creation on read-onlymount. Enforce >=1GiBfree AND <=0.95GiBnew persistent campaign artifacts initially. Reuse source audio/checkpoints; no full masks. Preflight estimatedbytes before eachphase. Exceedingcap blocksphase rather than deletingolddata. Fullvideo delivery needs separately sufficientspace.",
+    "blocked_run": "Missing inputs/labels/rights/runtime/space or budgettimeout is executionblocked, notrefutation; never record fabricatedzero metrics."
+  }
+}

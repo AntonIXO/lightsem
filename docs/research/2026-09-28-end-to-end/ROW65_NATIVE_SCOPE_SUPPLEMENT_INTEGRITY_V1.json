@@ -1,0 +1,31 @@
+{
+  "status": "EXACT_NATIVE_SUPPLEMENT_AND_PRESERVATION_VERIFIED",
+  "definition_ref": {
+    "path": "/root/lightsem/docs/research/2026-09-28-end-to-end/ROW65_NATIVE_SCOPE_SUPPLEMENT_DEFINITION_V1.json",
+    "size_bytes": 3970,
+    "sha256": "cd1095173d2b07b316f32737f61d87ec6771c8611b02d750a8a1bad25aee84e6"
+  },
+  "before_ref": {
+    "path": "/root/lightsem/docs/research/2026-09-28-end-to-end/ROW65_NATIVE_SCOPE_SUPPLEMENT_BEFORE_V1.json",
+    "size_bytes": 6994,
+    "sha256": "095cf787c44f8fab31705f694b4eee6544fbd157ed52486827318f7939a5c5f0"
+  },
+  "receipt_ref": {
+    "path": "/root/lightsem/docs/research/2026-09-28-end-to-end/ROW65_NATIVE_SCOPE_SUPPLEMENT_RECEIPT_V1.json",
+    "size_bytes": 2212,
+    "sha256": "827dea6324a07fd0a12352f92d13b9fb9a3d3f44dc235bb792b75b1252de480f"
+  },
+  "native_exit_code": 0,
+  "exact_returned_experiment_id_lesson_failure_mode_transfers_verdict": true,
+  "metadata_outside_interpretation_unchanged": true,
+  "old_lesson_exact_prefix_retained": true,
+  "interpretation_failure_mode_transfers_unchanged": true,
+  "body_outside_Interpretation_including_all_Notes_unchanged": true,
+  "untargeted_Markdown_count": 407,
+  "untargeted_Markdown_digest_before_and_after": "75fd6778f55a023ef42945d7abf5640d75f168e708731411b30df18e1a42c0be",
+  "all_untargeted_Markdown_unchanged": true,
+  "foreign_vault_hashes_unchanged": true,
+  "after_target_sha256": "9437a4fc209965c1b28bb7525797b0ddd4122f46c9bf82a7480d93b2bae05653",
+  "changed_interpretation_time": "2026-09-28T22:18:17+00:00",
+  "scope": "15thinterpretationwrite acrosssame14experiments/13hypotheses, not15newscientificresults. Hypothesisstatus/experimentverdict/measurements/gates preserved. Twooriginalrow65instrumentqualifications remainunestablished; no latencyoverrun measured."
+}

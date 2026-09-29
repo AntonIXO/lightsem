@@ -1,0 +1,37 @@
+{
+  "plan_path": "/root/lightsem/docs/research/2026-09-22-color-beat/OBSERVER_PARALLEL_CAPTURE_LAUNCH_V1.json",
+  "plan_sha256": "b11c002af5f665664dcc367fb93e2451ff136e8a2b7cbf12a8d20a9059a074f6",
+  "workers": [
+    {
+      "index": 0,
+      "manifest": "/mnt/lightsem-data/experiments/lightsem/lighting-cue-model-20260922t094347z/observer_parallel_shard_0_manifest_v1.json",
+      "manifest_sha256": "3c46f15f4f27d85ea7358b2b9136a8d0a5744ca058634de3e7dbd2a61936b315",
+      "output": "/mnt/lightsem-data/experiments/lightsem/lighting-cue-model-20260922t094347z/observer_parallel_shard_0_features_v1",
+      "log": "/mnt/lightsem-data/experiments/lightsem/lighting-cue-model-20260922t094347z/observer_parallel_shard_0_v1.log",
+      "recording_ids": [
+        "Vf2s-fakSIo",
+        "ARQwK8P1hkg",
+        "2sYjdIN6rv0",
+        "FUDKBgik9uU",
+        "3M9VrJLQDhU",
+        "ZyE3xcxZHnw"
+      ],
+      "shell_pid": 554973
+    },
+    {
+      "index": 1,
+      "manifest": "/mnt/lightsem-data/experiments/lightsem/lighting-cue-model-20260922t094347z/observer_parallel_shard_1_manifest_v1.json",
+      "manifest_sha256": "84bbef07901af3a99a060e3a030674f0dcf7f7bc50f02ca6a117f41f5fb6f250",
+      "output": "/mnt/lightsem-data/experiments/lightsem/lighting-cue-model-20260922t094347z/observer_parallel_shard_1_features_v1",
+      "log": "/mnt/lightsem-data/experiments/lightsem/lighting-cue-model-20260922t094347z/observer_parallel_shard_1_v1.log",
+      "recording_ids": [
+        "NBw54DXeVw8",
+        "TIfHV-Xq9VI",
+        "1ozcUaAXJV8",
+        "8UTvmHbgc5w",
+        "vsW87yPjmSs"
+      ],
+      "shell_pid": 554978
+    }
+  ]
+}

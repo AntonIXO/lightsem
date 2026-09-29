@@ -1,0 +1,25 @@
+{
+  "time": "2026-09-22T15:28:21.610933+00:00",
+  "campaign_artifact_bytes": 952976108,
+  "campaign_cap_bytes": 1020054732,
+  "filesystem_free_bytes": 1279082496,
+  "free_floor_bytes": 1073741824,
+  "foreign_vault_unchanged": true,
+  "original_sources_unchanged": true,
+  "reports": {
+    "selected": {
+      "path": "/mnt/lightsem-data/experiments/lightsem/lighting-cue-model-20260922t094347z/observer_selected_scores_roundoff_v2.json",
+      "sha256": "3268b61e9cc80745586077bd593f1f61ef8978d6665959c56f3d3487d3d77e10"
+    },
+    "final": {
+      "path": "/mnt/lightsem-data/experiments/lightsem/lighting-cue-model-20260922t094347z/observer_final_scores_roundoff_v2.json",
+      "sha256": "a82b4b09490b4a48658806a016d4bb4627cfc8cfc1d72a6edcf63a3f79519568"
+    }
+  },
+  "independent_review": {
+    "path": "/root/lightsem/docs/research/2026-09-22-color-beat/OBSERVER_SCORES_INDEPENDENT_READONLY_AUDIT_V1.md",
+    "sha256": "25cbb1a70a3f08b11d59d906973ffabaa3fc8399d7a168f7db6d598c82ace0fd"
+  },
+  "scientific_status": "unqualified/inconclusive; no promotion; no scientific refutation",
+  "active_GPU_work": false
+}

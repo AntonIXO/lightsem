@@ -1,0 +1,99 @@
+{
+  "weight": {
+    "path": "/mnt/lightsem-data/models/hf/models--m-a-p--MERT-v1-330M/blobs/0c03774d821a6ad972cb48220b128a10ebea2c790116bd0fd35e5a013f8017f6",
+    "size_bytes": 1261846489,
+    "sha256": "0c03774d821a6ad972cb48220b128a10ebea2c790116bd0fd35e5a013f8017f6",
+    "verified_by": "sha256sum byte checksum; no torch deserialization"
+  },
+  "source_tree": {
+    "path": "/mnt/lightsem-data/models/hf/models--m-a-p--MERT-v1-330M/trees/5240c2708a5acaee1007f43fb9735c7dcd0b78c9.json",
+    "sha256": "02d1595f38b3da6bce892a499f9396dc3436eedd407c7b3b3a129e4bfd78a5e2"
+  },
+  "configuration_map": {
+    ".gitattributes": {
+      "size": 1477,
+      "blob_id": "c7d9f3332a950355d5a77d85000f05e6f45435ea"
+    },
+    "MERT-v1-330M_fairseq.pt": {
+      "size": 3991038973,
+      "blob_id": "d616ab0f37dd07eeae57e770117900db1bcc9df3",
+      "lfs_sha256": "13d9b88455f88f8608399aa0e921d23100298d867d04380402be171a01f50a89",
+      "lfs_size": 3991038973,
+      "xet_hash": "1f7febd499e18bf3b0818031a64fe1eaca561fdf97a7bed8bffc464ae5ff10fb"
+    },
+    "README.md": {
+      "size": 6760,
+      "blob_id": "e3e4fc136ccbd1616a54602e03a1d55f541b0503"
+    },
+    "config.json": {
+      "size": 2032,
+      "blob_id": "14f770758c7fe5c5e8ead4fe0f8e5fa727eb6942"
+    },
+    "configuration_MERT.py": {
+      "size": 5340,
+      "blob_id": "91f6098a642bb1e6498beea92025e49fa619e49d"
+    },
+    "modeling_MERT.py": {
+      "size": 18033,
+      "blob_id": "e7ac06ba5bd4a8e633ce6a42e230e8935322c7ee"
+    },
+    "preprocessor_config.json": {
+      "size": 212,
+      "blob_id": "75af8362b0c5762394dcd9cc862aaaf856153f33"
+    },
+    "pytorch_model.bin": {
+      "size": 1261846489,
+      "blob_id": "888c44ad98ac415293bb5bbcc190a1e7b2dcabd0",
+      "lfs_sha256": "0c03774d821a6ad972cb48220b128a10ebea2c790116bd0fd35e5a013f8017f6",
+      "lfs_size": 1261846489,
+      "xet_hash": "f8ae3d69d32f8884b338cab0a3ca8cc549a97edc6ee69f727986a334fed115fd"
+    }
+  },
+  "source_hashes": {
+    "/mnt/lightsem-data/models/hf/models--m-a-p--MERT-v1-330M/blobs/e7ac06ba5bd4a8e633ce6a42e230e8935322c7ee": "6c3ee73cef6f0c30ef494f88d96f891fa6925ffe663fa391b512f4b57abecc6c",
+    "/root/.cache/huggingface/modules/transformers_modules/_5240c2708a5acaee1007f43fb9735c7dcd0b78c9/2a06f2a8cbf1d584/modeling_MERT.py": "6c3ee73cef6f0c30ef494f88d96f891fa6925ffe663fa391b512f4b57abecc6c",
+    "/root/.cache/huggingface/modules/transformers_modules/5240c2708a5acaee1007f43fb9735c7dcd0b78c9/modeling_MERT.py": "6c3ee73cef6f0c30ef494f88d96f891fa6925ffe663fa391b512f4b57abecc6c"
+  },
+  "snapshot_EINVAL": [
+    {
+      "path": "/mnt/lightsem-data/models/hf/models--m-a-p--MERT-v1-330M/snapshots/5240c2708a5acaee1007f43fb9735c7dcd0b78c9/config.json",
+      "size": null,
+      "stat_error": "[Errno 22] Invalid argument: '/mnt/lightsem-data/models/hf/models--m-a-p--MERT-v1-330M/snapshots/5240c2708a5acaee1007f43fb9735c7dcd0b78c9/config.json'",
+      "lstat_size": null,
+      "symlink_target": "error: [Errno 22] Invalid argument: '/mnt/lightsem-data/models/hf/models--m-a-p--MERT-v1-330M/snapshots/5240c2708a5acaee1007f43fb9735c7dcd0b78c9/config.json'"
+    },
+    {
+      "path": "/mnt/lightsem-data/models/hf/models--m-a-p--MERT-v1-330M/snapshots/5240c2708a5acaee1007f43fb9735c7dcd0b78c9/configuration_MERT.py",
+      "size": null,
+      "stat_error": "[Errno 22] Invalid argument: '/mnt/lightsem-data/models/hf/models--m-a-p--MERT-v1-330M/snapshots/5240c2708a5acaee1007f43fb9735c7dcd0b78c9/configuration_MERT.py'",
+      "lstat_size": null,
+      "symlink_target": "error: [Errno 22] Invalid argument: '/mnt/lightsem-data/models/hf/models--m-a-p--MERT-v1-330M/snapshots/5240c2708a5acaee1007f43fb9735c7dcd0b78c9/configuration_MERT.py'"
+    },
+    {
+      "path": "/mnt/lightsem-data/models/hf/models--m-a-p--MERT-v1-330M/snapshots/5240c2708a5acaee1007f43fb9735c7dcd0b78c9/modeling_MERT.py",
+      "size": null,
+      "stat_error": "[Errno 22] Invalid argument: '/mnt/lightsem-data/models/hf/models--m-a-p--MERT-v1-330M/snapshots/5240c2708a5acaee1007f43fb9735c7dcd0b78c9/modeling_MERT.py'",
+      "lstat_size": null,
+      "symlink_target": "error: [Errno 22] Invalid argument: '/mnt/lightsem-data/models/hf/models--m-a-p--MERT-v1-330M/snapshots/5240c2708a5acaee1007f43fb9735c7dcd0b78c9/modeling_MERT.py'"
+    },
+    {
+      "path": "/mnt/lightsem-data/models/hf/models--m-a-p--MERT-v1-330M/snapshots/5240c2708a5acaee1007f43fb9735c7dcd0b78c9/preprocessor_config.json",
+      "size": null,
+      "stat_error": "[Errno 22] Invalid argument: '/mnt/lightsem-data/models/hf/models--m-a-p--MERT-v1-330M/snapshots/5240c2708a5acaee1007f43fb9735c7dcd0b78c9/preprocessor_config.json'",
+      "lstat_size": null,
+      "symlink_target": "error: [Errno 22] Invalid argument: '/mnt/lightsem-data/models/hf/models--m-a-p--MERT-v1-330M/snapshots/5240c2708a5acaee1007f43fb9735c7dcd0b78c9/preprocessor_config.json'"
+    },
+    {
+      "path": "/mnt/lightsem-data/models/hf/models--m-a-p--MERT-v1-330M/snapshots/5240c2708a5acaee1007f43fb9735c7dcd0b78c9/pytorch_model.bin",
+      "size": null,
+      "stat_error": "[Errno 22] Invalid argument: '/mnt/lightsem-data/models/hf/models--m-a-p--MERT-v1-330M/snapshots/5240c2708a5acaee1007f43fb9735c7dcd0b78c9/pytorch_model.bin'",
+      "lstat_size": null,
+      "symlink_target": "error: [Errno 22] Invalid argument: '/mnt/lightsem-data/models/hf/models--m-a-p--MERT-v1-330M/snapshots/5240c2708a5acaee1007f43fb9735c7dcd0b78c9/pytorch_model.bin'"
+    }
+  ],
+  "absent_tree_entries_not_required_for_HF_runtime": [
+    ".gitattributes",
+    "README.md",
+    "MERT-v1-330M_fairseq.pt"
+  ]
+}

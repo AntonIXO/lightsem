@@ -1,0 +1,15 @@
+{
+  "id": "four-demo-postflight-guard-20260928-v1",
+  "status": "prospective definition; no new real model outputs exist",
+  "scope": "Additional CPU readback and execution-evidence checks; not generation changes or a scientific metric",
+  "main_tests": "Require actual22pass/0fail/0error/0skip native log with exact boundcommand/hash and nativeexit0, in addition to V2 driver checks.",
+  "chain": "Require canonical per-arm complete/inference/proof/model_outputs/overlay paths and authenticated hashes/plan/authorization/input/source/recipe/role/audio-route; aggregate inference completion is not media delivery.",
+  "event_probability_sanity": {
+    "reference": "stablefloat64 sigmoid(raw savedfloat32 eventlogits)",
+    "maximum_absolute_error": 9.5367431640625e-07,
+    "bound_rationale": "Prospective small FP32 arithmetic sanity bound, not a bit-exact cross-device sigmoid assertion. Catch gross probability/logit mismatches without modifying any output.",
+    "scope_limit": "Exact cue replay uses actual saved FP32 scores and frozen selection policy. This sanity check does not replace them, shift thresholds, relax palette argmax checks or certify exact CUDA sigmoid bits."
+  },
+  "test_policy": "Freeze parent-auditor source/tests and nativecommands before executing them. Synthetic wrongpaths/chain/teststatus and badlogit-probability cases must fail. No realweights/models/TEST data for tests.",
+  "execution_rule": "No real inference until V2 source review,22native tests and extra parent-auditor tests are accepted and exact execution binding succeeds."
+}

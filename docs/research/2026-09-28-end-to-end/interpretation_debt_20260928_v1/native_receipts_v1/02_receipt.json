@@ -1,0 +1,8 @@
+{
+  "experiment_id": "exp-013-the-operator-head-which-is-8594fa",
+  "verdict": "directional_only",
+  "failure_mode": "recipe_conditional",
+  "lesson": "[2026-09-28 retrospective interpretation; no new experiment] For the audio-only RPMC heads, the offline horizon-zero margin over rhythm was a larger point estimate than the same-split causal margin (+0.1584 versus +0.0964), not a demonstrated significant advantage or a paired comparison with the older different-split ridge margin of +0.3145. At four seconds, the offline margin over rhythm was -0.0206 with CI [-0.1592, 0.1378], failing G-antic-4s despite the recorded shift-control pass. Offline target-derived-hazard arms were invalid because they exposed future target information and remain excluded; the valid audio-only result does not establish anticipation in this recipe or rule out anticipation generally.",
+  "transfers_to": [],
+  "hint": "recipe_conditional: when the recipe changes, reopen_hypothesis('the-operator-head-which-is-already-the-82dd8e', reason=...) makes the negative re-testable instead of terminal"
+}

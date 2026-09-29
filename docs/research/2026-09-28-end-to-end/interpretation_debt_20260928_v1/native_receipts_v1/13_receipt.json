@@ -1,0 +1,8 @@
+{
+  "experiment_id": "exp-dance-actuator-budget-20260911",
+  "verdict": "directional_only",
+  "failure_mode": "recipe_conditional",
+  "lesson": "2026-09-28 retrospective interpretation, not a new experiment: With saved Shpongle targets and the same convex objective, actuator_budget_01 raised the 1-2 Hz emitted/raw amplitude ratio to 0.790 versus timing_revision_02 at 0.221 by changing the declared simulator caps to 90 deg/s and 360 deg/s2 from 30 deg/s and 80 deg/s2. Numerical gates pass only for the new simulation profile, while old-cap exceedances and the failed sampled visual gate remain. This counterfactual does not establish physical fixture safety, human music-fit, learned conditioning or a qualified LIGHT product, and does not authorize cap escalation or default promotion.",
+  "transfers_to": [],
+  "hint": "recipe_conditional: when the recipe changes, reopen_hypothesis('h-dance-actuator-budget-20260911', reason=...) makes the negative re-testable instead of terminal"
+}

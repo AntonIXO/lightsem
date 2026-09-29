@@ -1,0 +1,4905 @@
+{
+  "schema_version": 1,
+  "created_utc": "2026-09-28T18:58:27.098578+00:00",
+  "scope_rows": [
+    11,
+    8
+  ],
+  "title": "Read-only readiness for NEW prospectively registered frozen-legacy missing-endpoint evaluations",
+  "decision": {
+    "scientifically_possible_without_new_fit": true,
+    "ready_to_execute_now": false,
+    "why": "Exact named checkpoint bytes and local input paths exist. Row8 identity cohort is recovered exactly; row11 length/hash candidate cohort matches all archived counts. New eval-only forward passes could create the missing sufficient statistics. Current read-only permission does not authorize them. Cross-corpus sealed identity exclusions, checkpoint/config validation and prospective endpoint choices remain open. Historical TEST exposure alone is not a ban on explicit retrospective reporting.",
+    "row11": "Conditionally feasible new zero-fit inference for a fixed historical pair, not a rerun of the size sweep. Exact final scoring IDs cannot be certified from metadata alone.",
+    "row8": "Conditionally feasible new zero-fit emitted-intensity evaluation of the frozen three arms, not a rerun of the completed BAS/FID primary test. The original40 clips/order and train-vs-heldout aliases are recovered from JSON metadata only.",
+    "not_claimed": [
+      "Fresh TEST evaluation",
+      "Original missing values recovered without forwards",
+      "Checkpoint byte equality to an unrecorded original run digest",
+      "No same-song identity across corpora merely because identifiers differ",
+      "Rescue of refuted H-C or general decoder hypothesis closure"
+    ]
+  },
+  "audit_scope": {
+    "project_imports": false,
+    "model_deserialization": false,
+    "model_forward": false,
+    "new_scientific_metrics": false,
+    "bootstrap_run": false,
+    "training_or_closed_form_fit": false,
+    "feature_extraction": false,
+    "downloads": false,
+    "test_suite_execution": false,
+    "scientific_array_or_numeric_array_header_reads": false,
+    "weight_bytes_hashed_only": true,
+    "metadata_operations": [
+      "Text/source/report reads; file stat and SHA256",
+      "Only meta.npy scalar JSON member read in three legacy tensor ZIPs; no X/A/B/C/clip_id payloads or numeric headers",
+      "Project-native bash run.sh invoked only for NumPy metadata RNG permutations, no project/model import",
+      "ID/fold/canonical/alias joins and metadata counts; no outcome metric recomputation"
+    ],
+    "FineDance_read_disclosure": "Corrected: full FineDance split JSON was parsed including embedded TEST label metadata; displayed sample was001 TRAIN. No style value was used in recorded selection/metrics. Child explicitly informed immediate parent, not root, at18:54:52.204Z; root was explicitly corrected only19:09:38.443Z. See METADATA_FIELD_EXPOSURE_DISCLOSURE_V1.json. No numeric TEST array/model/metric event is established; do not assert global zero TEST-label-metadata access.",
+    "source_edits": false,
+    "vault_calls": false,
+    "only_written_file": "docs/research/2026-09-28-end-to-end/NEW_FROZEN_LEGACY_EVAL_NOTES_V1.json"
+  },
+  "status_authority": "Existing FRONTIER_REVIEW_V1 / LEGACY_REMAINDER_READINESS_V1 snapshots. No live vault status assertion or mutation here. Parent owns native prospective registration and receipt validation.",
+  "source_provenance": {
+    "repository_HEAD": "01a14fea1fb9bf517f637d4fcebb7829667cb112",
+    "row8_historical_git_anchor": "e11900dd2917ca0f97b9ba8a38cd32e997bfdd4d",
+    "row11_historical_git_anchor": "c274c23300f9e4a4c0d0a9a4cf0eae283f28a1d4",
+    "row8_git_blobs": {
+      "calibrate_events.py": "0e5101dc09ed3a7447dfa9d8bd083b86e803e364",
+      "calibrate_smoothing.py": "73a7cb269fd2a952067d3628f92ed7471291dfd5",
+      "lightsem/conductor/hybrid.py": "385c9f3f70c6df3fef3543cc1df9ce3842c85d70",
+      "lightsem/conductor/rig.py": "1c1de717987bac0d93264f27167f03f233cf1956",
+      "lightsem/conductor/scalers.json": "aa0c949a40379cb01776d473854d6debfbd744d3",
+      "lightsem/conductor/scalers.py": "2ce0f2eb615b76c9bceee390ec3156d3306d64b6",
+      "lightsem/conductor/v0.py": "c1df0b184bab7b3dd115e9f382aded8d764be2d1",
+      "lightsem/dmx/decode.py": "95d14a82a52d982015a304d9d931da4c3363be81",
+      "lightsem/dmx/encode.py": "e44fe9af71488a2c12b0c4f4e6e8b3576c2d0340",
+      "lightsem/eval/light_features.py": "4eedeebaaf342b72233acb219de2b3d0b39dddd5",
+      "lightsem/model/infer.py": "9c12ea2b2ea1e734ab75b8e0c3fdbfcab788bdf0",
+      "lightsem/model/jd_data.py": "30448745e06b8d3aae2e8f19c869d5db270bb732",
+      "lightsem/model/light_trunk.py": "1d2bbb9c04805cb2353d6c69babc86a4478a72d1",
+      "run_stage1_eval.py": "55d10b13b2ed79517d0fedc4c5feadc5b7ae5653",
+      "run_stage8_chain3.sh": "6c5cdf8f69d57b42fe9a4c25826fa115b08b6c84",
+      "train_light.py": "c644ea7baa28c7103310dc3b198906aedc922e78"
+    },
+    "row11_git_blobs": {
+      "extract_rpmc_causal.py": "c6496fc01ed39f9b1fa9f1059ef6d09928ee6bed",
+      "lightsem/model/group_decoder.py": "5064429fdc32188f17cb9afd57e366b259927466",
+      "lightsem/model/light_trunk.py": "1d2bbb9c04805cb2353d6c69babc86a4478a72d1",
+      "probe_event_target.py": "4ddc7ba418549659c33b5550318369f7db0dc20f",
+      "run_stage10_sweep2.sh": "7c75027366e59b7fa0fbdb8a27d6e7c8fddd6e14",
+      "summarize_self_hazard_sweep.py": "f3603dc865b8d06b84d733cfc671511656ce92f0",
+      "train_group_decoder.py": "3d1eb0ff2ab81b4169ec0ab037be410146bd73b5",
+      "train_operator_head.py": "519022149acd903fba4df34d127b38a360d3d651"
+    },
+    "working_source_evidence": [
+      {
+        "path": "/root/lightsem/build_justdance_structure.py",
+        "exists": true,
+        "size_bytes": 4152,
+        "mtime_utc": "2026-09-04T12:11:45.404940+00:00",
+        "sha256": "80df499f8d8b5443008f9f7448f5637df9ea635a3683313a0c1a57906ce031df"
+      },
+      {
+        "path": "/root/lightsem/calibrate_events.py",
+        "exists": true,
+        "size_bytes": 4581,
+        "mtime_utc": "2026-09-04T17:32:47.756396+00:00",
+        "sha256": "aa5521b94c41dcdc7dca98c4d61f8827b7ea73ed2c6595d1bbf03c8802bfb7f6"
+      },
+      {
+        "path": "/root/lightsem/calibrate_smoothing.py",
+        "exists": true,
+        "size_bytes": 3685,
+        "mtime_utc": "2026-09-04T17:32:47.756457+00:00",
+        "sha256": "8af01dc2dd60c092cb635e8d6409b8587364103736f497d8f5981e0f1d174270"
+      },
+      {
+        "path": "/root/lightsem/extract_rpmc_causal.py",
+        "exists": true,
+        "size_bytes": 5444,
+        "mtime_utc": "2026-09-04T10:05:13.566955+00:00",
+        "sha256": "4f06a1f12b356dcb8feb505c3918fc3c864a7eacae7352486238dc6d88ae568a"
+      },
+      {
+        "path": "/root/lightsem/lightsem/conductor/hybrid.py",
+        "exists": true,
+        "size_bytes": 7477,
+        "mtime_utc": "2026-09-04T09:19:14.998008+00:00",
+        "sha256": "2accca59f124e79b0c0cdff7f544c88093955fe44616d37af3783ee778ebf725"
+      },
+      {
+        "path": "/root/lightsem/lightsem/conductor/rig.py",
+        "exists": true,
+        "size_bytes": 1936,
+        "mtime_utc": "2026-09-04T09:19:14.999037+00:00",
+        "sha256": "608a7eb9971c2bd583282e4a38f777be96b49e5c1a909baffd47bf76cf28b28a"
+      },
+      {
+        "path": "/root/lightsem/lightsem/conductor/scalers.json",
+        "exists": true,
+        "size_bytes": 4170,
+        "mtime_utc": "2026-09-04T09:19:15.000147+00:00",
+        "sha256": "c3c076b4c3bd9d830ca2eaf4352304e5ab5f6d705ae564e3ba1db5ae0ef3c6d4"
+      },
+      {
+        "path": "/root/lightsem/lightsem/conductor/scalers.py",
+        "exists": true,
+        "size_bytes": 2494,
+        "mtime_utc": "2026-09-04T09:19:15.001441+00:00",
+        "sha256": "af43e106d91f76f9cf555e1eb91dab671a354ece4a5dc1bf0eada13d9be28635"
+      },
+      {
+        "path": "/root/lightsem/lightsem/conductor/v0.py",
+        "exists": true,
+        "size_bytes": 11902,
+        "mtime_utc": "2026-09-04T09:19:15.002501+00:00",
+        "sha256": "c6900c95eadca5d6f0a0f97d68e189cdedf7b86325bbdbed010508051d8a8f68"
+      },
+      {
+        "path": "/root/lightsem/lightsem/dmx/decode.py",
+        "exists": true,
+        "size_bytes": 3906,
+        "mtime_utc": "2026-09-04T09:19:15.006843+00:00",
+        "sha256": "1cf639d1409283733d919e478c8c27084d3f2db4c076518894a180bfd0bd391b"
+      },
+      {
+        "path": "/root/lightsem/lightsem/dmx/encode.py",
+        "exists": true,
+        "size_bytes": 4940,
+        "mtime_utc": "2026-09-04T09:19:15.008146+00:00",
+        "sha256": "f995fcf0b2f38dd49f05c37813e07faebfcdbbe21c92d084f36a2cea64b82891"
+      },
+      {
+        "path": "/root/lightsem/lightsem/eval/light_features.py",
+        "exists": true,
+        "size_bytes": 6740,
+        "mtime_utc": "2026-09-04T09:54:01.121281+00:00",
+        "sha256": "8def407a494e8c97e33f2dcc2b1e46adcfff4bb70b1fbc0f6dbff57354a1b25e"
+      },
+      {
+        "path": "/root/lightsem/lightsem/model/group_decoder.py",
+        "exists": true,
+        "size_bytes": 18995,
+        "mtime_utc": "2026-09-05T05:53:54.338176+00:00",
+        "sha256": "6de586681abc5703274fc9e10241b8af86118c2c4574e7ad90f5cd13657fdfdf"
+      },
+      {
+        "path": "/root/lightsem/lightsem/model/infer.py",
+        "exists": true,
+        "size_bytes": 15163,
+        "mtime_utc": "2026-09-04T17:32:47.756269+00:00",
+        "sha256": "866233e115a7c9b1bca23f3209a49c5b0ddcf8817465efafd566a866811bc892"
+      },
+      {
+        "path": "/root/lightsem/lightsem/model/jd_data.py",
+        "exists": true,
+        "size_bytes": 7467,
+        "mtime_utc": "2026-09-04T12:21:16.384574+00:00",
+        "sha256": "1ebde04a938bcaed22c973efb792170225d7572d70b5bbc36ac82d263f3c8c45"
+      },
+      {
+        "path": "/root/lightsem/lightsem/model/light_trunk.py",
+        "exists": true,
+        "size_bytes": 10694,
+        "mtime_utc": "2026-09-10T11:08:27.168744+00:00",
+        "sha256": "b515dcb960259f39f21a8d565b621364aafe0a87d3a6028f5a476659f662cf84"
+      },
+      {
+        "path": "/root/lightsem/probe_event_target.py",
+        "exists": true,
+        "size_bytes": 10968,
+        "mtime_utc": "2026-08-07T13:27:13.766743+00:00",
+        "sha256": "cc7a81fc788eccd6b1f00969d51bad3a2b7856e2783c1f15c532b20817870b2e"
+      },
+      {
+        "path": "/root/lightsem/queue_offline_pivot_to_vault.py",
+        "exists": true,
+        "size_bytes": 16346,
+        "mtime_utc": "2026-09-04T11:15:18.907109+00:00",
+        "sha256": "3c8af7f664a01ad27a900e0e6d7f69b0e0b91471552fcb0284fd890c8a5eaf12"
+      },
+      {
+        "path": "/root/lightsem/queue_stage10_to_vault.py",
+        "exists": true,
+        "size_bytes": 8001,
+        "mtime_utc": "2026-09-05T05:12:03.627616+00:00",
+        "sha256": "9c8224610f343be4e0b633f49851bdf11d32d2ef4c0bae218d2c1c1be543c578"
+      },
+      {
+        "path": "/root/lightsem/run_stage10_sweep2.sh",
+        "exists": true,
+        "size_bytes": 834,
+        "mtime_utc": "2026-09-05T05:14:27.347979+00:00",
+        "sha256": "a43b2e24aac4b3a606182f692d2682312b0ad23d713e213e498633133835aba3"
+      },
+      {
+        "path": "/root/lightsem/run_stage1_eval.py",
+        "exists": true,
+        "size_bytes": 10886,
+        "mtime_utc": "2026-09-04T12:21:16.384820+00:00",
+        "sha256": "7717f40559a163f4c7f1a45de8f01be5fd5992954c6a8bb03a4fa03683464c0b"
+      },
+      {
+        "path": "/root/lightsem/run_stage8_chain3.sh",
+        "exists": true,
+        "size_bytes": 1439,
+        "mtime_utc": "2026-09-04T17:32:19.275208+00:00",
+        "sha256": "172bfd9615b37947108f8733fc0bb15f1e330cb2f7ce663f762101a9550bc5da"
+      },
+      {
+        "path": "/root/lightsem/summarize_self_hazard_sweep.py",
+        "exists": true,
+        "size_bytes": 4731,
+        "mtime_utc": "2026-09-05T06:06:48.431395+00:00",
+        "sha256": "b512eacfa57c809bbe3673c6f327037d71e6540dbd1cc68fdb0ddc226684d77c"
+      },
+      {
+        "path": "/root/lightsem/train_group_decoder.py",
+        "exists": true,
+        "size_bytes": 13443,
+        "mtime_utc": "2026-09-05T05:11:32.902590+00:00",
+        "sha256": "80aedf23664cdef65c70addc0bee1e499ad90d2037729b03e8d516ce8bac21f9"
+      },
+      {
+        "path": "/root/lightsem/train_light.py",
+        "exists": true,
+        "size_bytes": 11997,
+        "mtime_utc": "2026-09-04T12:31:35.781718+00:00",
+        "sha256": "29e71d2424eee5769be6a5796783f351a4a7166befaf02bb08db4b16014394ed"
+      },
+      {
+        "path": "/root/lightsem/train_operator_head.py",
+        "exists": true,
+        "size_bytes": 10763,
+        "mtime_utc": "2026-09-04T20:13:54.485562+00:00",
+        "sha256": "9a9904814224bf5c1c46239c723f07338742fd4fd203e7949eabc00408188bef"
+      }
+    ],
+    "source_line_refs": {
+      "train_group_decoder.py": {
+        "def load_corpus": [
+          36
+        ],
+        "len(x) < WIN": [
+          42
+        ],
+        "def operator_state": [
+          54
+        ],
+        "tr, va, te = split": [
+          89
+        ],
+        "def own_cue_scores": [
+          147
+        ],
+        "w_h =": [
+          172
+        ],
+        "s[\"t\"].sum()": [
+          184
+        ],
+        "res[\"per_corpus\"]": [
+          200,
+          201
+        ],
+        "torch.save": [
+          206
+        ]
+      },
+      "train_operator_head.py": {
+        "def split": [
+          55
+        ],
+        "k = k.split": [
+          58
+        ],
+        "sample = np.concatenate": [
+          147,
+          149
+        ],
+        "pos = float": [
+          154
+        ]
+      },
+      "train_light.py": {
+        "sub = rng.integers": [
+          178
+        ],
+        "pos = np.clip": [
+          189
+        ],
+        "make_jd_splits": [
+          159,
+          160
+        ],
+        "torch.save": [
+          223
+        ]
+      },
+      "run_stage1_eval.py": {
+        "idx = idx[": [
+          67
+        ],
+        "donors =": [
+          86,
+          90
+        ],
+        "perm = rng.permutation": [
+          89
+        ],
+        "src = mid": [
+          105
+        ],
+        "range(args.seeds)": [
+          119
+        ],
+        "level_model": [
+          142,
+          191
+        ]
+      },
+      "lightsem/model/jd_data.py": {
+        "def make_jd_splits": [
+          51
+        ],
+        "np.savez": [
+          135
+        ],
+        "meta.append": [
+          126
+        ]
+      },
+      "extract_rpmc_causal.py": {
+        "n_out =": [
+          80
+        ],
+        "ORACLE": [
+          93
+        ],
+        "Y =": [
+          106
+        ],
+        "dst =": [
+          70
+        ]
+      }
+    },
+    "working_tree_selected_sources_clean": "git status --short was empty for train_group_decoder.py, train_operator_head.py, train_light.py, run_stage1_eval.py, jd_data.py, infer.py, group_decoder.py, light_trunk.py, hybrid.py and scalers.py. Other evidence files were hashed but not individually certified clean.",
+    "drift": "Across the listed evaluator/model dependency paths, lightsem/model/light_trunk.py is the only current difference from the relevant historic anchor for both rows. Current adds a nonpersistent cached attention mask and calls it; old builds the same mask inline. Static inspection suggests equivalent masks, but no numerical equivalence test was run. Pin the old blob for exact historical source reproduction, or explicitly register current-source reconstruction with this limitation. Do not silently use changed defaults.",
+    "run_association_limit": "Git anchors, file names, source save calls, shell chains, report configs and mtime provide provenance. They are not a run-time signed code/weight/input manifest."
+  },
+  "checkpoint_bytes": [
+    {
+      "path": "/mnt/lightsem-data/ckpt/group_decoder_s_d192b3_self.pt",
+      "exists": true,
+      "size_bytes": 11022813,
+      "mtime_utc": "2026-09-05T05:25:13.218381+00:00",
+      "sha256": "0c4f9fc9fa7964b6a9487f9fde2a6088123bf8b05b327c234c8bb0f152cdc5b4",
+      "deserialized": false,
+      "historical_digest_receipt_found": false,
+      "historical_receipt_paths": []
+    },
+    {
+      "path": "/mnt/lightsem-data/ckpt/group_decoder_s_d256b6_audio.pt",
+      "exists": true,
+      "size_bytes": 37339455,
+      "mtime_utc": "2026-09-05T05:38:14.815293+00:00",
+      "sha256": "26c3729f8ad0183b390bf870f9005f03eb541486f386a7173af31be910a909ad",
+      "deserialized": false,
+      "historical_digest_receipt_found": false,
+      "historical_receipt_paths": []
+    },
+    {
+      "path": "/mnt/lightsem-data/ckpt/group_decoder_s_d256b6_self.pt",
+      "exists": true,
+      "size_bytes": 37345475,
+      "mtime_utc": "2026-09-05T05:20:58.586279+00:00",
+      "sha256": "57718ff1d35892a6454a86d31493023d65551fde5d7ab323d6d972fb36a56b35",
+      "deserialized": false,
+      "historical_digest_receipt_found": false,
+      "historical_receipt_paths": []
+    },
+    {
+      "path": "/mnt/lightsem-data/ckpt/group_decoder_s_d384b6_audio.pt",
+      "exists": true,
+      "size_bytes": 82964799,
+      "mtime_utc": "2026-09-05T06:06:31.222043+00:00",
+      "sha256": "38ddaa9e7967b9798c7b75c6b5eb43f6623cefbdc489a3f89b13cbdffc47bd99",
+      "deserialized": false,
+      "historical_digest_receipt_found": false,
+      "historical_receipt_paths": []
+    },
+    {
+      "path": "/mnt/lightsem-data/ckpt/group_decoder_s_d384b6_self.pt",
+      "exists": true,
+      "size_bytes": 82973891,
+      "mtime_utc": "2026-09-05T05:53:56.829653+00:00",
+      "sha256": "cbea326c12f55b3347c3cfa3fbf4e7aa5c369eeba457a263f5c35a3290d6ac47",
+      "deserialized": false,
+      "historical_digest_receipt_found": false,
+      "historical_receipt_paths": []
+    },
+    {
+      "path": "/mnt/lightsem-data/ckpt/group_decoder_v1.pt",
+      "exists": true,
+      "size_bytes": 10540545,
+      "mtime_utc": "2026-09-04T20:54:35.391351+00:00",
+      "sha256": "6679e449e1fc3ff0d4d101bde72650471b30765201e6e962d0f6a9d36920e5bb",
+      "deserialized": false,
+      "historical_digest_receipt_found": false,
+      "historical_receipt_paths": []
+    },
+    {
+      "path": "/mnt/lightsem-data/ckpt/group_decoder_v2.pt",
+      "exists": true,
+      "size_bytes": 11016869,
+      "mtime_utc": "2026-09-04T22:49:13.721775+00:00",
+      "sha256": "c3cc76265eaf6d423fdfb2361fb2f049d4bc6cdbd3ebf7cada285567e0b51cf6",
+      "deserialized": false,
+      "historical_digest_receipt_found": false,
+      "historical_receipt_paths": []
+    },
+    {
+      "path": "/mnt/lightsem-data/ckpt/light_trunk_jd_none.pt",
+      "exists": true,
+      "size_bytes": 37416547,
+      "mtime_utc": "2026-09-04T17:18:45.881646+00:00",
+      "sha256": "22ea9423be022f51f09c9a6a349e6aa335143bd3fa133e684df433017f054d87",
+      "deserialized": false,
+      "historical_digest_receipt_found": false,
+      "historical_receipt_paths": []
+    },
+    {
+      "path": "/mnt/lightsem-data/ckpt/light_trunk_jd_none_smooth.pt",
+      "exists": true,
+      "size_bytes": 37418631,
+      "mtime_utc": "2026-09-04T17:20:27.170913+00:00",
+      "sha256": "9420bfb431fa8fea0d7b463284945665a9b860c94f3cfef1cc3f5c3a0b7e04ad",
+      "deserialized": false,
+      "historical_digest_receipt_found": true,
+      "historical_receipt_paths": [
+        "/root/lightsem/logs/hl_pair_materials_audit_2026-09-08.json"
+      ]
+    },
+    {
+      "path": "/mnt/lightsem-data/ckpt/light_trunk_jd_shuf.pt",
+      "exists": true,
+      "size_bytes": 37424931,
+      "mtime_utc": "2026-09-04T17:47:20.283095+00:00",
+      "sha256": "5722f44ee2535505ffc52771a8553d4b660206276e373b82e88c874368ac2867",
+      "deserialized": false,
+      "historical_digest_receipt_found": false,
+      "historical_receipt_paths": []
+    },
+    {
+      "path": "/mnt/lightsem-data/ckpt/light_trunk_jd_shuf_smooth.pt",
+      "exists": true,
+      "size_bytes": 37426951,
+      "mtime_utc": "2026-09-04T17:49:01.157222+00:00",
+      "sha256": "4e043491aae00067f69b2463ae5163baaefa9c8493ef730f5fa2e62107c6308e",
+      "deserialized": false,
+      "historical_digest_receipt_found": false,
+      "historical_receipt_paths": []
+    },
+    {
+      "path": "/mnt/lightsem-data/ckpt/light_trunk_jd_struct.pt",
+      "exists": true,
+      "size_bytes": 37425307,
+      "mtime_utc": "2026-09-04T17:34:03.361874+00:00",
+      "sha256": "acdd4ca534acc0a6e2c69d056f7f9421a5f5501ee804471879a28ba8ead37c97",
+      "deserialized": false,
+      "historical_digest_receipt_found": false,
+      "historical_receipt_paths": []
+    },
+    {
+      "path": "/mnt/lightsem-data/ckpt/light_trunk_jd_struct_smooth.pt",
+      "exists": true,
+      "size_bytes": 37427327,
+      "mtime_utc": "2026-09-04T17:35:44.956103+00:00",
+      "sha256": "af2aefcd49f8164b5c175b53d672d67d5af870af0ffde51f08c126f2f3628a63",
+      "deserialized": false,
+      "historical_digest_receipt_found": false,
+      "historical_receipt_paths": []
+    },
+    {
+      "path": "/mnt/lightsem-data/ckpt/operator_head.pt",
+      "exists": true,
+      "size_bytes": 14251355,
+      "mtime_utc": "2026-09-04T00:15:02.899254+00:00",
+      "sha256": "dde9a2c433be0e099d94af24ba43b87a2296aa4dbea1c65199d39c0ea023a4d9",
+      "deserialized": false,
+      "historical_digest_receipt_found": false,
+      "historical_receipt_paths": []
+    }
+  ],
+  "checkpoint_validation_remaining": [
+    "Recheck the recorded byte hash immediately before any allowed load; no copying/refitting/recalibration/overwrite.",
+    "Inside a separately authorized eval-only harness, deserialize only the named local checkpoint and validate embedded cfg, model keys/shapes, mu/sd, conditioning flags, corpus IDs, block names and smoothing/event thresholds against saved config reports and pinned source. No checkpoint config was deserialized in this audit.",
+    "operator_head.pt is a required frozen dependency for row11 conditioning; assert with_hazard=False, 192-dimensional trunk and original normalizers.",
+    "Only light_trunk_jd_none_smooth.pt has an independently located Sep7/Sep8 audit digest matching the new byte hash. Other hashes newly identify the current surviving files; no historic checksum proof was located in the bounded reports/logs/docs search."
+  ],
+  "saved_report_evidence": [
+    {
+      "path": "/root/lightsem/outputs/stage9/group_decoder_v1.json",
+      "exists": true,
+      "size_bytes": 666,
+      "mtime_utc": "2026-09-04T20:54:35.392159+00:00",
+      "sha256": "4fa9d2b35ae1bd7ed43358c507b499e7513f93499049afbde1641841fd2e3c55"
+    },
+    {
+      "path": "/root/lightsem/outputs/stage9/group_decoder_s_d192b3_self.json",
+      "exists": true,
+      "size_bytes": 1086,
+      "mtime_utc": "2026-09-05T05:25:13.219306+00:00",
+      "sha256": "7937178247731984d940eda6d2fc032a39fe679f63d072106b110fb3228b51c8"
+    },
+    {
+      "path": "/root/lightsem/outputs/stage9/group_decoder_s_d384b6_audio.json",
+      "exists": true,
+      "size_bytes": 989,
+      "mtime_utc": "2026-09-05T06:06:31.223057+00:00",
+      "sha256": "471495dfd12a44f47989afccac8210bc5aa603e474ae5999bf4525aaed8a9d2e"
+    },
+    {
+      "path": "/root/lightsem/outputs/stage9/group_decoder_s_d384b6_self.json",
+      "exists": true,
+      "size_bytes": 1087,
+      "mtime_utc": "2026-09-05T05:53:56.830774+00:00",
+      "sha256": "ccb89ffff50c00805576f4eaea3074a0e7804a0e7fc7ef8eea893aae384b7db9"
+    },
+    {
+      "path": "/root/lightsem/outputs/stage9/group_decoder_s_d256b6_self.json",
+      "exists": true,
+      "size_bytes": 1085,
+      "mtime_utc": "2026-09-05T05:20:58.587672+00:00",
+      "sha256": "24a049d683aac0e7607f39a8c8172946ef2e2782efa1dad1b82c3f7c2abd9be5"
+    },
+    {
+      "path": "/root/lightsem/outputs/stage9/group_decoder_v2.json",
+      "exists": true,
+      "size_bytes": 935,
+      "mtime_utc": "2026-09-04T22:49:13.722726+00:00",
+      "sha256": "91b001fb72c48157c6686f258a0e6c81abb3f20a88e157830a5c5bab691967fa"
+    },
+    {
+      "path": "/root/lightsem/outputs/stage9/group_decoder_s_d256b6_audio.json",
+      "exists": true,
+      "size_bytes": 989,
+      "mtime_utc": "2026-09-05T05:38:14.816039+00:00",
+      "sha256": "b43173366d371472f2a59fa531c6f68f14dcd70232c0911bdfb2c215ceec08fe"
+    },
+    {
+      "path": "/root/lightsem/outputs/stage9/self_hazard_sweep.json",
+      "exists": true,
+      "size_bytes": 4911,
+      "mtime_utc": "2026-09-05T06:06:48.479246+00:00",
+      "sha256": "0dce2930596e916741713a175d8d85c8d79d37ef6c089e7e53ecbb228c7c1675"
+    },
+    {
+      "path": "/root/lightsem/outputs/stage1/stage1_light_eval_jd_none_smooth.json",
+      "exists": true,
+      "size_bytes": 112324,
+      "mtime_utc": "2026-09-04T17:25:32.885178+00:00",
+      "sha256": "3372d8a1e63b35edb7834ee469e2cd395c4d4190e8cbf9f81d0cd4993beecac6"
+    },
+    {
+      "path": "/root/lightsem/outputs/stage1/stage1_light_eval_jd_struct_smooth.json",
+      "exists": true,
+      "size_bytes": 112283,
+      "mtime_utc": "2026-09-04T17:40:54.419490+00:00",
+      "sha256": "adf516d99b188ae3f76e7404663fe32497f03de2997d180ac9e7341d3a056fda"
+    },
+    {
+      "path": "/root/lightsem/outputs/stage1/stage1_light_eval_jd_shuf_smooth.json",
+      "exists": true,
+      "size_bytes": 112311,
+      "mtime_utc": "2026-09-04T17:53:58.759806+00:00",
+      "sha256": "f3520c2ee8a73991b4afc3f065ef22a622cbc1d63ccdb855890a4a7c8e8dc285"
+    },
+    {
+      "path": "/root/lightsem/outputs/stage1/train_jd_none.json",
+      "exists": true,
+      "size_bytes": 2395,
+      "mtime_utc": "2026-09-04T16:59:28.581841+00:00",
+      "sha256": "9ee389d9010cde9ee91ff310a74e964ae63a4d97f29943c46de0cdd07fa6b715"
+    },
+    {
+      "path": "/root/lightsem/outputs/stage1/train_jd_struct.json",
+      "exists": true,
+      "size_bytes": 2396,
+      "mtime_utc": "2026-09-04T17:08:28.896980+00:00",
+      "sha256": "92cdb83a7832d1820726c4e482b327d6dea1923d3e6c2a9a148ed731f184d168"
+    },
+    {
+      "path": "/root/lightsem/outputs/stage1/train_jd_shuf.json",
+      "exists": true,
+      "size_bytes": 2393,
+      "mtime_utc": "2026-09-04T17:17:29.029397+00:00",
+      "sha256": "c425e16c01ef586b202c6da5aa1df46c2a1526b24dfc7ad265fe23f574c47998"
+    },
+    {
+      "path": "/root/lightsem/outputs/stage1/event_thresholds_jd_none.json",
+      "exists": true,
+      "size_bytes": 213,
+      "mtime_utc": "2026-09-04T17:18:45.842745+00:00",
+      "sha256": "58ec90e0453c2a12b341647cbb4271bea5ace89dc5674b7ef3fab0b8d817401c"
+    },
+    {
+      "path": "/root/lightsem/outputs/stage1/event_thresholds_jd_struct.json",
+      "exists": true,
+      "size_bytes": 215,
+      "mtime_utc": "2026-09-04T17:34:03.334873+00:00",
+      "sha256": "a5260307823b82a8f7252d6b5eb385081f7f0f4957d4209df8b52b5e2c7b1102"
+    },
+    {
+      "path": "/root/lightsem/outputs/stage1/event_thresholds_jd_shuf.json",
+      "exists": true,
+      "size_bytes": 213,
+      "mtime_utc": "2026-09-04T17:47:20.258521+00:00",
+      "sha256": "982923bc8c9e77f504cac5a2c8a5ea21fb3911438f65ed79e899ad3eb3582e70"
+    },
+    {
+      "path": "/root/lightsem/outputs/stage1/smooth_tau_jd_none.json",
+      "exists": true,
+      "size_bytes": 923,
+      "mtime_utc": "2026-09-04T17:20:27.172177+00:00",
+      "sha256": "3334255ec323da7b27634c1a2ead8b5a749084dfb6f2bf6e2dccd2687d197eba"
+    },
+    {
+      "path": "/root/lightsem/outputs/stage1/smooth_tau_jd_struct.json",
+      "exists": true,
+      "size_bytes": 930,
+      "mtime_utc": "2026-09-04T17:35:44.957060+00:00",
+      "sha256": "552cd70617631b9368fcafddd42bd511b6a2c77d00d13d097c123e479d14f552"
+    },
+    {
+      "path": "/root/lightsem/outputs/stage1/smooth_tau_jd_shuf.json",
+      "exists": true,
+      "size_bytes": 924,
+      "mtime_utc": "2026-09-04T17:49:01.158317+00:00",
+      "sha256": "4056ea27ac40c507a91ad0615cb934e47264bce930cdc9cb7060ee991cc12223"
+    }
+  ],
+  "metadata_evidence": [
+    {
+      "path": "/mnt/lightsem-data/cache/justdance_motion_index.json",
+      "exists": true,
+      "size_bytes": 358959,
+      "mtime_utc": "2026-09-04T16:19:09.799801+00:00",
+      "sha256": "0b374edd05fb18b46932a708b5bd762fd2b0ebc7b4e12b408d924bb2b0bd3266"
+    },
+    {
+      "path": "/mnt/lightsem-data/cache/justdance_songs.json",
+      "exists": true,
+      "size_bytes": 91604,
+      "mtime_utc": "2026-09-04T11:36:34.605520+00:00",
+      "sha256": "2285324f2d3174bf5d92ac8cb99144770b653ee94949c3e262644560b230e1a5"
+    },
+    {
+      "path": "/mnt/lightsem-data/experiments/lightsem/stage11_20260908/data/split_manifest.json",
+      "exists": true,
+      "size_bytes": 72012,
+      "mtime_utc": "2026-09-07T23:28:59.802370+00:00",
+      "sha256": "c5be79ab5ca3e134d3b4d3f7527679f8d9da95c15ffd4eb3141e392bf91007b3"
+    },
+    {
+      "path": "/mnt/lightsem-data/experiments/lightsem/motion_representation_20260910/data/split.json",
+      "exists": true,
+      "size_bytes": 146718,
+      "mtime_utc": "2026-09-10T13:58:33.585351+00:00",
+      "sha256": "821a800a847c2ec337ee0c2a6eca007cfaa1e68f8f67ce2c0788e6dbce2dbe20"
+    },
+    {
+      "path": "/mnt/lightsem-data/cache/rpmc_all_manifest.json",
+      "exists": true,
+      "size_bytes": 39789,
+      "mtime_utc": "2026-09-03T23:38:16.272615+00:00",
+      "sha256": "6437eaa60a99cafec24b254081007af6eca90b21dfb59379378007ef3c357f29"
+    },
+    {
+      "path": "/mnt/lightsem-data/cache/rpmc_causal/manifest.json",
+      "exists": true,
+      "size_bytes": 22,
+      "mtime_utc": "2026-09-04T10:06:57.442822+00:00",
+      "sha256": "ed21b82b9155ef954219aafe08bac91579d44713c3e5b7d4494f99b09efe0f17"
+    },
+    {
+      "path": "/root/lightsem/docs/research/2026-09-28-end-to-end/NEW_IDENTITY_EXCLUSION_METADATA_V1.json",
+      "exists": true,
+      "size_bytes": 30980,
+      "mtime_utc": "2026-09-28T18:54:22.180154+00:00",
+      "sha256": "54c12ef64517451c1744c824051ccce7a4d2da46adde9d0742ae52c192672c28"
+    },
+    {
+      "path": "/mnt/lightsem-data/experiments/lightsem/stage11_20260908/data/canonical_map.json",
+      "exists": true,
+      "size_bytes": 932922,
+      "mtime_utc": "2026-09-07T23:28:59.799370+00:00",
+      "sha256": "5492bfe645d8c4367879b35f11bb38ac64b8450d6f18092c8bd0d30a0ef915fb"
+    }
+  ],
+  "identity_and_exposure": {
+    "current_Stage11": "All332 legacy JD visual IDs and all307 row8 tensor recording IDs map to current TRAIN. All original40 row8 clips and38 row11 candidate TEST IDs have zero current Stage11 TEST canonical aliases. Exclusion is by canonical family, not recording string alone.",
+    "current_Stage11_TEST_canonical_count": 40,
+    "current_Stage11_TEST_recording_count": 51,
+    "FineDance_screen": {
+      "metadata_source": "/root/lightsem/docs/research/2026-09-28-end-to-end/NEW_IDENTITY_EXCLUSION_METADATA_V1.json",
+      "method": "ASCII NFKD lowercase alphanumeric compacting; compare full metadata song names and same-canonical common underscore-prefix variants; conservatively remove trailing numeric version suffixes. Match substrings against both Stage11 title_normalized and legacy JD title_norm. Do not split Just_Begun into the generic word just.",
+      "screened_JD_recording_count": 65,
+      "name_alias_matches": [],
+      "sealed_alias_terms": [
+        {
+          "key": "010",
+          "canonical_id": "fd-40c897769f55da9b",
+          "partition": "test",
+          "song_identity_name": "pink Venom",
+          "screen_terms": [
+            "pinkvenom"
+          ],
+          "unresolved_short_name": false
+        },
+        {
+          "key": "012",
+          "canonical_id": "fd-bf6aaaab7c143ca1",
+          "partition": "test",
+          "song_identity_name": "zaijianmonika",
+          "screen_terms": [
+            "zaijianmonika"
+          ],
+          "unresolved_short_name": false
+        },
+        {
+          "key": "026",
+          "canonical_id": "fd-206d094ed507453a",
+          "partition": "test",
+          "song_identity_name": "hantang2",
+          "screen_terms": [
+            "hantang",
+            "hantang2"
+          ],
+          "unresolved_short_name": false
+        },
+        {
+          "key": "029",
+          "canonical_id": "fd-495b7a9119e3773d",
+          "partition": "test",
+          "song_identity_name": "shenyun1",
+          "screen_terms": [
+            "shenyun",
+            "shenyun1"
+          ],
+          "unresolved_short_name": false
+        },
+        {
+          "key": "036",
+          "canonical_id": "fd-206d094ed507453a",
+          "partition": "test",
+          "song_identity_name": "hantang2",
+          "screen_terms": [
+            "hantang",
+            "hantang2"
+          ],
+          "unresolved_short_name": false
+        },
+        {
+          "key": "037",
+          "canonical_id": "fd-495b7a9119e3773d",
+          "partition": "test",
+          "song_identity_name": "shenyun1",
+          "screen_terms": [
+            "shenyun",
+            "shenyun1"
+          ],
+          "unresolved_short_name": false
+        },
+        {
+          "key": "063",
+          "canonical_id": "fd-060823f51b592344",
+          "partition": "test",
+          "song_identity_name": "Just_Begun",
+          "screen_terms": [
+            "justbegun"
+          ],
+          "unresolved_short_name": false
+        },
+        {
+          "key": "065",
+          "canonical_id": "fd-b64706e7a27319da",
+          "partition": "test",
+          "song_identity_name": "Obstruction",
+          "screen_terms": [
+            "obstruction"
+          ],
+          "unresolved_short_name": false
+        },
+        {
+          "key": "092",
+          "canonical_id": "fd-16e5cb32123fe4bf",
+          "partition": "test",
+          "song_identity_name": "WeAreOne2017",
+          "screen_terms": [
+            "weareone",
+            "weareone2017"
+          ],
+          "unresolved_short_name": false
+        },
+        {
+          "key": "098",
+          "canonical_id": "fd-35e1d1aeed3f7179",
+          "partition": "test",
+          "song_identity_name": "sevenFloul",
+          "screen_terms": [
+            "sevenfloul"
+          ],
+          "unresolved_short_name": false
+        },
+        {
+          "key": "108",
+          "canonical_id": "fd-9d7da6efdb4f6764",
+          "partition": "test",
+          "song_identity_name": "shuangren3_chenmeiying",
+          "screen_terms": [
+            "shuangren",
+            "shuangren3",
+            "shuangren3chenmeiying"
+          ],
+          "unresolved_short_name": false
+        },
+        {
+          "key": "109",
+          "canonical_id": "fd-9d7da6efdb4f6764",
+          "partition": "test",
+          "song_identity_name": "shuangren3_tanglanting",
+          "screen_terms": [
+            "shuangren",
+            "shuangren3",
+            "shuangren3tanglanting"
+          ],
+          "unresolved_short_name": false
+        },
+        {
+          "key": "130",
+          "canonical_id": "fd-7cd46e3ae159d83d",
+          "partition": "test",
+          "song_identity_name": "senorita_47",
+          "screen_terms": [
+            "senorita",
+            "senorita47"
+          ],
+          "unresolved_short_name": false
+        },
+        {
+          "key": "131",
+          "canonical_id": "fd-7cd46e3ae159d83d",
+          "partition": "test",
+          "song_identity_name": "senorita_maiding",
+          "screen_terms": [
+            "senorita",
+            "senoritamaiding"
+          ],
+          "unresolved_short_name": false
+        },
+        {
+          "key": "132",
+          "canonical_id": "fd-e97f414942b489c9",
+          "partition": "test",
+          "song_identity_name": "shuixingji",
+          "screen_terms": [
+            "shuixingji"
+          ],
+          "unresolved_short_name": false
+        },
+        {
+          "key": "133",
+          "canonical_id": "fd-e97f414942b489c9",
+          "partition": "test",
+          "song_identity_name": "shuixingji",
+          "screen_terms": [
+            "shuixingji"
+          ],
+          "unresolved_short_name": false
+        },
+        {
+          "key": "136",
+          "canonical_id": "fd-3f4dae2fdcf43d36",
+          "partition": "test",
+          "song_identity_name": "miaozudonglv",
+          "screen_terms": [
+            "miaozudonglv"
+          ],
+          "unresolved_short_name": false
+        },
+        {
+          "key": "137",
+          "canonical_id": "fd-3f4dae2fdcf43d36",
+          "partition": "test",
+          "song_identity_name": "miaozudonglv",
+          "screen_terms": [
+            "miaozudonglv"
+          ],
+          "unresolved_short_name": false
+        },
+        {
+          "key": "142",
+          "canonical_id": "fd-abfad174ab0f74a5",
+          "partition": "test",
+          "song_identity_name": "xuanyue02",
+          "screen_terms": [
+            "xuanyue",
+            "xuanyue02"
+          ],
+          "unresolved_short_name": false
+        },
+        {
+          "key": "143",
+          "canonical_id": "fd-abfad174ab0f74a5",
+          "partition": "test",
+          "song_identity_name": "xuanyue02",
+          "screen_terms": [
+            "xuanyue",
+            "xuanyue02"
+          ],
+          "unresolved_short_name": false
+        },
+        {
+          "key": "144",
+          "canonical_id": "fd-ec8bf18af9226078",
+          "partition": "test",
+          "song_identity_name": "ying",
+          "screen_terms": [
+            "ying"
+          ],
+          "unresolved_short_name": false
+        },
+        {
+          "key": "145",
+          "canonical_id": "fd-ec8bf18af9226078",
+          "partition": "test",
+          "song_identity_name": "ying",
+          "screen_terms": [
+            "ying"
+          ],
+          "unresolved_short_name": false
+        },
+        {
+          "key": "161",
+          "canonical_id": "fd-bb668ca955632160",
+          "partition": "test",
+          "song_identity_name": "N",
+          "screen_terms": [],
+          "unresolved_short_name": true
+        },
+        {
+          "key": "179",
+          "canonical_id": "fd-40c897769f55da9b",
+          "partition": "test",
+          "song_identity_name": "pinkvenom",
+          "screen_terms": [
+            "pinkvenom"
+          ],
+          "unresolved_short_name": false
+        },
+        {
+          "key": "193",
+          "canonical_id": "fd-684fe39f03758de6",
+          "partition": "test",
+          "song_identity_name": "dreamscometrue",
+          "screen_terms": [
+            "dreamscometrue"
+          ],
+          "unresolved_short_name": false
+        },
+        {
+          "key": "198",
+          "canonical_id": "fd-a4e00d7e6aa82111",
+          "partition": "test",
+          "song_identity_name": "idoit4",
+          "screen_terms": [
+            "idoit",
+            "idoit4"
+          ],
+          "unresolved_short_name": false
+        },
+        {
+          "key": "204",
+          "canonical_id": "fd-fc56dbc6d4652b31",
+          "partition": "test",
+          "song_identity_name": "redeye",
+          "screen_terms": [
+            "redeye"
+          ],
+          "unresolved_short_name": false
+        },
+        {
+          "key": "211",
+          "canonical_id": "fd-093434a3ee9e0a01",
+          "partition": "test",
+          "song_identity_name": "wuluodehuaban",
+          "screen_terms": [
+            "wuluodehuaban"
+          ],
+          "unresolved_short_name": false
+        }
+      ],
+      "unresolved": "No substantive name-alias hit is not authenticated audio deduplication. FineDance TEST key161 has the uninformative name N; several transliterated/abbreviated names cannot prove disjointness. RPMC candidate IDs are opaque and have no located title registry. Cross-corpus identity clearance is incomplete; do not open any ambiguous candidate until parent freezes a conservative exclude/qualified list.",
+      "TEST_payload_opened": false
+    },
+    "row8": {
+      "tensor_meta_receipts": [
+        {
+          "path": "/mnt/lightsem-data/cache/train_tensor_jd_none.npz",
+          "exists": true,
+          "size_bytes": 1914629388,
+          "mtime_utc": "2026-09-04T16:44:36.161509+00:00",
+          "member_read": "meta.npy ONLY",
+          "member_sha256": "094ca1a7fc93ba04c9905bd18fb2916ce59e0da3d22acd7ea31796b4d696c2d4",
+          "meta_value_sha256": "1e9f04c6211d62fa6a6a30cbbbfcbad6a983bbab9fa9996a950b7df1bd715dd9",
+          "n_rows": 453,
+          "n_song_keys": 294
+        },
+        {
+          "path": "/mnt/lightsem-data/cache/train_tensor_jd_real.npz",
+          "exists": true,
+          "size_bytes": 2043316108,
+          "mtime_utc": "2026-09-04T16:44:46.647032+00:00",
+          "member_read": "meta.npy ONLY",
+          "member_sha256": "7ec2e832cc8273a9f50873c6006270b356ade1d916283a4450896edc66047175",
+          "meta_value_sha256": "c3e951c70b7f5403a60097030f4b51b79755ecbcda6a5eef04fa62715ac3e578",
+          "n_rows": 453,
+          "n_song_keys": 294
+        },
+        {
+          "path": "/mnt/lightsem-data/cache/train_tensor_jd_shuffled.npz",
+          "exists": true,
+          "size_bytes": 2043323372,
+          "mtime_utc": "2026-09-04T16:44:57.860593+00:00",
+          "member_read": "meta.npy ONLY",
+          "member_sha256": "71327f1f0d999669e9c6fed0336435fc31efe68121d7c06d0dc1b21795ba57a7",
+          "meta_value_sha256": "df0791f34922846e41e9a1be8e36e5f303473021a8e4573e2fc69913e51ae22d",
+          "n_rows": 453,
+          "n_song_keys": 294
+        }
+      ],
+      "meta_order_and_name_song_keys_identical_across_three_arms": true,
+      "fold_algorithm": "Sorted294 song_keys; np.random.default_rng(0).permutation; first round(.15*294)=44 song keys TEST, next round(.10*294)=29 VAL; restTRAIN. Recovered clips:352TRAIN,39VAL,62test_dancer. Original evaluator RNG seed0 permutation of62 chooses40.",
+      "exact_original40_order_matches_all_three_saved_reports": true,
+      "report_clip_count": 40,
+      "report_recording_count": 31,
+      "report_canonical_count": 29,
+      "old_train_alias_clip_count": 13,
+      "old_train_alias_canonical_count": 7,
+      "old_no_train_alias_clip_count": 27,
+      "old_no_train_alias_recording_count": 24,
+      "old_no_train_alias_canonical_count": 22,
+      "original_shuffled_donor_mapping_recovered": true,
+      "original_shuffled_donor_self_canonical_matches": 0,
+      "clips": [
+        {
+          "clip": "MCxmee3Isv4_c0",
+          "recording_id": "MCxmee3Isv4",
+          "song_key": "MCxmee3Isv4",
+          "canonical_id": "jd-8b7687fc3730f03a4c69",
+          "old_fold": "test_dancer",
+          "current_partition": "train",
+          "old_canonical_folds": [
+            "test_dancer"
+          ],
+          "canonical_aliases": [
+            "MCxmee3Isv4"
+          ],
+          "T_metadata": 8801,
+          "start_s_metadata": 0.0,
+          "duration_s_metadata": 220.0197884321878,
+          "old_train_aliases": [],
+          "old_val_aliases": [],
+          "current_Stage11_TEST_aliases": [],
+          "original_shuffled_donor_recording_id": "SOB351Unqsw",
+          "original_shuffled_donor_canonical_id": "jd-9ad8e6596eaa5d8d3667"
+        },
+        {
+          "clip": "UDQLbRicvic_c0",
+          "recording_id": "UDQLbRicvic",
+          "song_key": "UDQLbRicvic",
+          "canonical_id": "jd-2f89481f4b87d2c77c21",
+          "old_fold": "test_dancer",
+          "current_partition": "train",
+          "old_canonical_folds": [
+            "test_dancer"
+          ],
+          "canonical_aliases": [
+            "UDQLbRicvic"
+          ],
+          "T_metadata": 7861,
+          "start_s_metadata": 0.0,
+          "duration_s_metadata": 196.52966666666666,
+          "old_train_aliases": [],
+          "old_val_aliases": [],
+          "current_Stage11_TEST_aliases": [],
+          "original_shuffled_donor_recording_id": "2B1m9gH_jUc",
+          "original_shuffled_donor_canonical_id": "jd-76c6acb1147814ba659c"
+        },
+        {
+          "clip": "McAbcL9UcrI_c0",
+          "recording_id": "McAbcL9UcrI",
+          "song_key": "McAbcL9UcrI",
+          "canonical_id": "jd-a56fb00bedbaf42ef4be",
+          "old_fold": "test_dancer",
+          "current_partition": "train",
+          "old_canonical_folds": [
+            "test_dancer"
+          ],
+          "canonical_aliases": [
+            "McAbcL9UcrI"
+          ],
+          "T_metadata": 10152,
+          "start_s_metadata": 0.467,
+          "duration_s_metadata": 253.8,
+          "old_train_aliases": [],
+          "old_val_aliases": [],
+          "current_Stage11_TEST_aliases": [],
+          "original_shuffled_donor_recording_id": "UDQLbRicvic",
+          "original_shuffled_donor_canonical_id": "jd-2f89481f4b87d2c77c21"
+        },
+        {
+          "clip": "6h1MUO-uEcU_c1",
+          "recording_id": "6h1MUO-uEcU",
+          "song_key": "6h1MUO-uEcU",
+          "canonical_id": "jd-6feaed54b59505bd1628",
+          "old_fold": "test_dancer",
+          "current_partition": "train",
+          "old_canonical_folds": [
+            "test_dancer"
+          ],
+          "canonical_aliases": [
+            "6h1MUO-uEcU"
+          ],
+          "T_metadata": 9610,
+          "start_s_metadata": 0.0,
+          "duration_s_metadata": 240.24,
+          "old_train_aliases": [],
+          "old_val_aliases": [],
+          "current_Stage11_TEST_aliases": [],
+          "original_shuffled_donor_recording_id": "8STzZEtqBNY",
+          "original_shuffled_donor_canonical_id": "jd-ed4567d227e0c30131ce"
+        },
+        {
+          "clip": "j3CHXyWRcu0_c0",
+          "recording_id": "j3CHXyWRcu0",
+          "song_key": "j3CHXyWRcu0",
+          "canonical_id": "jd-0ff6f4c6189669717a73",
+          "old_fold": "test_dancer",
+          "current_partition": "train",
+          "old_canonical_folds": [
+            "test_dancer"
+          ],
+          "canonical_aliases": [
+            "j3CHXyWRcu0"
+          ],
+          "T_metadata": 6922,
+          "start_s_metadata": 0.0,
+          "duration_s_metadata": 173.03953333333334,
+          "old_train_aliases": [],
+          "old_val_aliases": [],
+          "current_Stage11_TEST_aliases": [],
+          "original_shuffled_donor_recording_id": "x372dV0owm8",
+          "original_shuffled_donor_canonical_id": "jd-73f279fed72976ef8b35"
+        },
+        {
+          "clip": "by-QcR2GehQ_c0",
+          "recording_id": "by-QcR2GehQ",
+          "song_key": "by-QcR2GehQ",
+          "canonical_id": "jd-20d2cf4a080db10ded5d",
+          "old_fold": "test_dancer",
+          "current_partition": "train",
+          "old_canonical_folds": [
+            "test_dancer"
+          ],
+          "canonical_aliases": [
+            "by-QcR2GehQ"
+          ],
+          "T_metadata": 10290,
+          "start_s_metadata": 0.434,
+          "duration_s_metadata": 257.257,
+          "old_train_aliases": [],
+          "old_val_aliases": [],
+          "current_Stage11_TEST_aliases": [],
+          "original_shuffled_donor_recording_id": "y9WUm3QvHK0",
+          "original_shuffled_donor_canonical_id": "jd-a061c06e47270a9c64df"
+        },
+        {
+          "clip": "wDTjpfZMXak_c0",
+          "recording_id": "wDTjpfZMXak",
+          "song_key": "wDTjpfZMXak",
+          "canonical_id": "jd-2cf3ba061facba581e57",
+          "old_fold": "test_dancer",
+          "current_partition": "train",
+          "old_canonical_folds": [
+            "test_dancer"
+          ],
+          "canonical_aliases": [
+            "wDTjpfZMXak"
+          ],
+          "T_metadata": 9505,
+          "start_s_metadata": 2.52,
+          "duration_s_metadata": 237.64,
+          "old_train_aliases": [],
+          "old_val_aliases": [],
+          "current_Stage11_TEST_aliases": [],
+          "original_shuffled_donor_recording_id": "MJTEt4aPhFQ",
+          "original_shuffled_donor_canonical_id": "jd-fc065f98256f8cc4328c"
+        },
+        {
+          "clip": "2B1m9gH_jUc_c1",
+          "recording_id": "2B1m9gH_jUc",
+          "song_key": "2B1m9gH_jUc",
+          "canonical_id": "jd-76c6acb1147814ba659c",
+          "old_fold": "test_dancer",
+          "current_partition": "train",
+          "old_canonical_folds": [
+            "test_dancer",
+            "train"
+          ],
+          "canonical_aliases": [
+            "2B1m9gH_jUc",
+            "yvcmLZLtfEs"
+          ],
+          "T_metadata": 8730,
+          "start_s_metadata": 1.435,
+          "duration_s_metadata": 218.251355191832,
+          "old_train_aliases": [
+            "yvcmLZLtfEs"
+          ],
+          "old_val_aliases": [],
+          "current_Stage11_TEST_aliases": [],
+          "original_shuffled_donor_recording_id": "by-QcR2GehQ",
+          "original_shuffled_donor_canonical_id": "jd-20d2cf4a080db10ded5d"
+        },
+        {
+          "clip": "wn2iikAmmJw_c0",
+          "recording_id": "wn2iikAmmJw",
+          "song_key": "wn2iikAmmJw",
+          "canonical_id": "jd-ebdb71f0c075f60116d7",
+          "old_fold": "test_dancer",
+          "current_partition": "train",
+          "old_canonical_folds": [
+            "test_dancer"
+          ],
+          "canonical_aliases": [
+            "wn2iikAmmJw"
+          ],
+          "T_metadata": 9452,
+          "start_s_metadata": 0.0,
+          "duration_s_metadata": 236.30272090942583,
+          "old_train_aliases": [],
+          "old_val_aliases": [],
+          "current_Stage11_TEST_aliases": [],
+          "original_shuffled_donor_recording_id": "sYFCc12rZTU",
+          "original_shuffled_donor_canonical_id": "jd-86aff85c80b3a6b42055"
+        },
+        {
+          "clip": "zARI9hxqxRM_c0",
+          "recording_id": "zARI9hxqxRM",
+          "song_key": "havana",
+          "canonical_id": "jd-650ab14d5ea8154c7286",
+          "old_fold": "test_dancer",
+          "current_partition": "train",
+          "old_canonical_folds": [
+            "test_dancer"
+          ],
+          "canonical_aliases": [
+            "b7YBs8ZC08s",
+            "pElmR7GBYas",
+            "zARI9hxqxRM"
+          ],
+          "T_metadata": 9596,
+          "start_s_metadata": 0.033,
+          "duration_s_metadata": 239.90633333333335,
+          "old_train_aliases": [],
+          "old_val_aliases": [],
+          "current_Stage11_TEST_aliases": [],
+          "original_shuffled_donor_recording_id": "6h1MUO-uEcU",
+          "original_shuffled_donor_canonical_id": "jd-6feaed54b59505bd1628"
+        },
+        {
+          "clip": "86zl8aljXbA_c0",
+          "recording_id": "86zl8aljXbA",
+          "song_key": "86zl8aljXbA",
+          "canonical_id": "jd-544fc9ee5a0dd988bafe",
+          "old_fold": "test_dancer",
+          "current_partition": "train",
+          "old_canonical_folds": [
+            "test_dancer"
+          ],
+          "canonical_aliases": [
+            "86zl8aljXbA"
+          ],
+          "T_metadata": 10833,
+          "start_s_metadata": 5.7,
+          "duration_s_metadata": 270.8333333333333,
+          "old_train_aliases": [],
+          "old_val_aliases": [],
+          "current_Stage11_TEST_aliases": [],
+          "original_shuffled_donor_recording_id": "QqOZA2nA3lA",
+          "original_shuffled_donor_canonical_id": "jd-27fd7b8271d9607209c1"
+        },
+        {
+          "clip": "-naODqbb4B0_c2",
+          "recording_id": "-naODqbb4B0",
+          "song_key": "-naODqbb4B0",
+          "canonical_id": "jd-7d18324e97a3c1a46bcc",
+          "old_fold": "test_dancer",
+          "current_partition": "train",
+          "old_canonical_folds": [
+            "test_dancer",
+            "train"
+          ],
+          "canonical_aliases": [
+            "-naODqbb4B0",
+            "8aFpbjK64fk",
+            "BZ5C-lq6Kzw"
+          ],
+          "T_metadata": 10053,
+          "start_s_metadata": 0.2,
+          "duration_s_metadata": 251.31773333333334,
+          "old_train_aliases": [
+            "8aFpbjK64fk",
+            "BZ5C-lq6Kzw"
+          ],
+          "old_val_aliases": [],
+          "current_Stage11_TEST_aliases": [],
+          "original_shuffled_donor_recording_id": "S3rvtitHrgs",
+          "original_shuffled_donor_canonical_id": "jd-0f9be956d7abd600d7ed"
+        },
+        {
+          "clip": "kP7vUn33uGU_c0",
+          "recording_id": "kP7vUn33uGU",
+          "song_key": "kP7vUn33uGU",
+          "canonical_id": "jd-5ad2e151a473d9a3956b",
+          "old_fold": "test_dancer",
+          "current_partition": "train",
+          "old_canonical_folds": [
+            "test_dancer"
+          ],
+          "canonical_aliases": [
+            "kP7vUn33uGU"
+          ],
+          "T_metadata": 8140,
+          "start_s_metadata": 0.2,
+          "duration_s_metadata": 203.5033,
+          "old_train_aliases": [],
+          "old_val_aliases": [],
+          "current_Stage11_TEST_aliases": [],
+          "original_shuffled_donor_recording_id": "2B1m9gH_jUc",
+          "original_shuffled_donor_canonical_id": "jd-76c6acb1147814ba659c"
+        },
+        {
+          "clip": "S3rvtitHrgs_c1",
+          "recording_id": "S3rvtitHrgs",
+          "song_key": "S3rvtitHrgs",
+          "canonical_id": "jd-0f9be956d7abd600d7ed",
+          "old_fold": "test_dancer",
+          "current_partition": "train",
+          "old_canonical_folds": [
+            "test_dancer"
+          ],
+          "canonical_aliases": [
+            "S3rvtitHrgs"
+          ],
+          "T_metadata": 7552,
+          "start_s_metadata": 10.177,
+          "duration_s_metadata": 188.7885900742066,
+          "old_train_aliases": [],
+          "old_val_aliases": [],
+          "current_Stage11_TEST_aliases": [],
+          "original_shuffled_donor_recording_id": "6-qHvsxgsRA",
+          "original_shuffled_donor_canonical_id": "jd-ab8a11c53ac0a57fb350"
+        },
+        {
+          "clip": "SOB351Unqsw_c0",
+          "recording_id": "SOB351Unqsw",
+          "song_key": "SOB351Unqsw",
+          "canonical_id": "jd-9ad8e6596eaa5d8d3667",
+          "old_fold": "test_dancer",
+          "current_partition": "train",
+          "old_canonical_folds": [
+            "test_dancer",
+            "train"
+          ],
+          "canonical_aliases": [
+            "2En9zgmwMrM",
+            "FEBJU978e5s",
+            "SOB351Unqsw",
+            "XZUm_HlBdfE"
+          ],
+          "T_metadata": 9251,
+          "start_s_metadata": 0.0,
+          "duration_s_metadata": 231.26436666666666,
+          "old_train_aliases": [
+            "2En9zgmwMrM",
+            "FEBJU978e5s"
+          ],
+          "old_val_aliases": [],
+          "current_Stage11_TEST_aliases": [],
+          "original_shuffled_donor_recording_id": "-naODqbb4B0",
+          "original_shuffled_donor_canonical_id": "jd-7d18324e97a3c1a46bcc"
+        },
+        {
+          "clip": "jtng7Rnn_TE_c0",
+          "recording_id": "jtng7Rnn_TE",
+          "song_key": "jtng7Rnn_TE",
+          "canonical_id": "jd-2799077214c5b2fa8db3",
+          "old_fold": "test_dancer",
+          "current_partition": "train",
+          "old_canonical_folds": [
+            "test_dancer"
+          ],
+          "canonical_aliases": [
+            "jtng7Rnn_TE"
+          ],
+          "T_metadata": 8340,
+          "start_s_metadata": 0.84,
+          "duration_s_metadata": 208.52,
+          "old_train_aliases": [],
+          "old_val_aliases": [],
+          "current_Stage11_TEST_aliases": [],
+          "original_shuffled_donor_recording_id": "by-QcR2GehQ",
+          "original_shuffled_donor_canonical_id": "jd-20d2cf4a080db10ded5d"
+        },
+        {
+          "clip": "8STzZEtqBNY_c0",
+          "recording_id": "8STzZEtqBNY",
+          "song_key": "8STzZEtqBNY",
+          "canonical_id": "jd-ed4567d227e0c30131ce",
+          "old_fold": "test_dancer",
+          "current_partition": "train",
+          "old_canonical_folds": [
+            "test_dancer"
+          ],
+          "canonical_aliases": [
+            "8STzZEtqBNY"
+          ],
+          "T_metadata": 8523,
+          "start_s_metadata": 2.92,
+          "duration_s_metadata": 213.08,
+          "old_train_aliases": [],
+          "old_val_aliases": [],
+          "current_Stage11_TEST_aliases": [],
+          "original_shuffled_donor_recording_id": "pElmR7GBYas",
+          "original_shuffled_donor_canonical_id": "jd-650ab14d5ea8154c7286"
+        },
+        {
+          "clip": "by-QcR2GehQ_c1",
+          "recording_id": "by-QcR2GehQ",
+          "song_key": "by-QcR2GehQ",
+          "canonical_id": "jd-20d2cf4a080db10ded5d",
+          "old_fold": "test_dancer",
+          "current_partition": "train",
+          "old_canonical_folds": [
+            "test_dancer"
+          ],
+          "canonical_aliases": [
+            "by-QcR2GehQ"
+          ],
+          "T_metadata": 10290,
+          "start_s_metadata": 0.434,
+          "duration_s_metadata": 257.257,
+          "old_train_aliases": [],
+          "old_val_aliases": [],
+          "current_Stage11_TEST_aliases": [],
+          "original_shuffled_donor_recording_id": "SOB351Unqsw",
+          "original_shuffled_donor_canonical_id": "jd-9ad8e6596eaa5d8d3667"
+        },
+        {
+          "clip": "Z9yFg55IVls_c0",
+          "recording_id": "Z9yFg55IVls",
+          "song_key": "Z9yFg55IVls",
+          "canonical_id": "jd-425d9333e487e501d98d",
+          "old_fold": "test_dancer",
+          "current_partition": "train",
+          "old_canonical_folds": [
+            "test_dancer",
+            "train"
+          ],
+          "canonical_aliases": [
+            "Z9yFg55IVls",
+            "fBVxwep-Y6U"
+          ],
+          "T_metadata": 10141,
+          "start_s_metadata": 1.88,
+          "duration_s_metadata": 253.52,
+          "old_train_aliases": [
+            "fBVxwep-Y6U"
+          ],
+          "old_val_aliases": [],
+          "current_Stage11_TEST_aliases": [],
+          "original_shuffled_donor_recording_id": "yAvEt3cZI2I",
+          "original_shuffled_donor_canonical_id": "jd-1cc8ff283f821a17791f"
+        },
+        {
+          "clip": "MJTEt4aPhFQ_c1",
+          "recording_id": "MJTEt4aPhFQ",
+          "song_key": "MJTEt4aPhFQ",
+          "canonical_id": "jd-fc065f98256f8cc4328c",
+          "old_fold": "test_dancer",
+          "current_partition": "train",
+          "old_canonical_folds": [
+            "test_dancer",
+            "train"
+          ],
+          "canonical_aliases": [
+            "MJTEt4aPhFQ",
+            "wvG9HFnjl6Q"
+          ],
+          "T_metadata": 9282,
+          "start_s_metadata": 0.0,
+          "duration_s_metadata": 232.06515446555446,
+          "old_train_aliases": [
+            "wvG9HFnjl6Q"
+          ],
+          "old_val_aliases": [],
+          "current_Stage11_TEST_aliases": [],
+          "original_shuffled_donor_recording_id": "SOB351Unqsw",
+          "original_shuffled_donor_canonical_id": "jd-9ad8e6596eaa5d8d3667"
+        },
+        {
+          "clip": "y9WUm3QvHK0_c2",
+          "recording_id": "y9WUm3QvHK0",
+          "song_key": "y9WUm3QvHK0",
+          "canonical_id": "jd-a061c06e47270a9c64df",
+          "old_fold": "test_dancer",
+          "current_partition": "train",
+          "old_canonical_folds": [
+            "test_dancer"
+          ],
+          "canonical_aliases": [
+            "Y_PMTrPhZi4",
+            "y9WUm3QvHK0"
+          ],
+          "T_metadata": 10877,
+          "start_s_metadata": 2.68,
+          "duration_s_metadata": 271.92,
+          "old_train_aliases": [],
+          "old_val_aliases": [],
+          "current_Stage11_TEST_aliases": [],
+          "original_shuffled_donor_recording_id": "MUVg2uB8O2U",
+          "original_shuffled_donor_canonical_id": "jd-5db26890ddcbf4391ccc"
+        },
+        {
+          "clip": "2B1m9gH_jUc_c0",
+          "recording_id": "2B1m9gH_jUc",
+          "song_key": "2B1m9gH_jUc",
+          "canonical_id": "jd-76c6acb1147814ba659c",
+          "old_fold": "test_dancer",
+          "current_partition": "train",
+          "old_canonical_folds": [
+            "test_dancer",
+            "train"
+          ],
+          "canonical_aliases": [
+            "2B1m9gH_jUc",
+            "yvcmLZLtfEs"
+          ],
+          "T_metadata": 8730,
+          "start_s_metadata": 1.435,
+          "duration_s_metadata": 218.251355191832,
+          "old_train_aliases": [
+            "yvcmLZLtfEs"
+          ],
+          "old_val_aliases": [],
+          "current_Stage11_TEST_aliases": [],
+          "original_shuffled_donor_recording_id": "_8f3hZ23ZEs",
+          "original_shuffled_donor_canonical_id": "jd-47dc12b18c333d047726"
+        },
+        {
+          "clip": "-naODqbb4B0_c1",
+          "recording_id": "-naODqbb4B0",
+          "song_key": "-naODqbb4B0",
+          "canonical_id": "jd-7d18324e97a3c1a46bcc",
+          "old_fold": "test_dancer",
+          "current_partition": "train",
+          "old_canonical_folds": [
+            "test_dancer",
+            "train"
+          ],
+          "canonical_aliases": [
+            "-naODqbb4B0",
+            "8aFpbjK64fk",
+            "BZ5C-lq6Kzw"
+          ],
+          "T_metadata": 10053,
+          "start_s_metadata": 0.2,
+          "duration_s_metadata": 251.31773333333334,
+          "old_train_aliases": [
+            "8aFpbjK64fk",
+            "BZ5C-lq6Kzw"
+          ],
+          "old_val_aliases": [],
+          "current_Stage11_TEST_aliases": [],
+          "original_shuffled_donor_recording_id": "86zl8aljXbA",
+          "original_shuffled_donor_canonical_id": "jd-544fc9ee5a0dd988bafe"
+        },
+        {
+          "clip": "yAvEt3cZI2I_c0",
+          "recording_id": "yAvEt3cZI2I",
+          "song_key": "yAvEt3cZI2I",
+          "canonical_id": "jd-1cc8ff283f821a17791f",
+          "old_fold": "test_dancer",
+          "current_partition": "train",
+          "old_canonical_folds": [
+            "test_dancer"
+          ],
+          "canonical_aliases": [
+            "yAvEt3cZI2I"
+          ],
+          "T_metadata": 8985,
+          "start_s_metadata": 0.133,
+          "duration_s_metadata": 224.6244,
+          "old_train_aliases": [],
+          "old_val_aliases": [],
+          "current_Stage11_TEST_aliases": [],
+          "original_shuffled_donor_recording_id": "zBzdeWM3VvE",
+          "original_shuffled_donor_canonical_id": "jd-73f279fed72976ef8b35"
+        },
+        {
+          "clip": "MJTEt4aPhFQ_c0",
+          "recording_id": "MJTEt4aPhFQ",
+          "song_key": "MJTEt4aPhFQ",
+          "canonical_id": "jd-fc065f98256f8cc4328c",
+          "old_fold": "test_dancer",
+          "current_partition": "train",
+          "old_canonical_folds": [
+            "test_dancer",
+            "train"
+          ],
+          "canonical_aliases": [
+            "MJTEt4aPhFQ",
+            "wvG9HFnjl6Q"
+          ],
+          "T_metadata": 9282,
+          "start_s_metadata": 0.0,
+          "duration_s_metadata": 232.06515446555446,
+          "old_train_aliases": [
+            "wvG9HFnjl6Q"
+          ],
+          "old_val_aliases": [],
+          "current_Stage11_TEST_aliases": [],
+          "original_shuffled_donor_recording_id": "MCxmee3Isv4",
+          "original_shuffled_donor_canonical_id": "jd-8b7687fc3730f03a4c69"
+        },
+        {
+          "clip": "QqOZA2nA3lA_c0",
+          "recording_id": "QqOZA2nA3lA",
+          "song_key": "QqOZA2nA3lA",
+          "canonical_id": "jd-27fd7b8271d9607209c1",
+          "old_fold": "test_dancer",
+          "current_partition": "train",
+          "old_canonical_folds": [
+            "test_dancer"
+          ],
+          "canonical_aliases": [
+            "QqOZA2nA3lA"
+          ],
+          "T_metadata": 7714,
+          "start_s_metadata": 1.635,
+          "duration_s_metadata": 192.85933333333332,
+          "old_train_aliases": [],
+          "old_val_aliases": [],
+          "current_Stage11_TEST_aliases": [],
+          "original_shuffled_donor_recording_id": "-naODqbb4B0",
+          "original_shuffled_donor_canonical_id": "jd-7d18324e97a3c1a46bcc"
+        },
+        {
+          "clip": "by-QcR2GehQ_c2",
+          "recording_id": "by-QcR2GehQ",
+          "song_key": "by-QcR2GehQ",
+          "canonical_id": "jd-20d2cf4a080db10ded5d",
+          "old_fold": "test_dancer",
+          "current_partition": "train",
+          "old_canonical_folds": [
+            "test_dancer"
+          ],
+          "canonical_aliases": [
+            "by-QcR2GehQ"
+          ],
+          "T_metadata": 10290,
+          "start_s_metadata": 0.434,
+          "duration_s_metadata": 257.257,
+          "old_train_aliases": [],
+          "old_val_aliases": [],
+          "current_Stage11_TEST_aliases": [],
+          "original_shuffled_donor_recording_id": "-naODqbb4B0",
+          "original_shuffled_donor_canonical_id": "jd-7d18324e97a3c1a46bcc"
+        },
+        {
+          "clip": "-naODqbb4B0_c0",
+          "recording_id": "-naODqbb4B0",
+          "song_key": "-naODqbb4B0",
+          "canonical_id": "jd-7d18324e97a3c1a46bcc",
+          "old_fold": "test_dancer",
+          "current_partition": "train",
+          "old_canonical_folds": [
+            "test_dancer",
+            "train"
+          ],
+          "canonical_aliases": [
+            "-naODqbb4B0",
+            "8aFpbjK64fk",
+            "BZ5C-lq6Kzw"
+          ],
+          "T_metadata": 10053,
+          "start_s_metadata": 0.2,
+          "duration_s_metadata": 251.31773333333334,
+          "old_train_aliases": [
+            "8aFpbjK64fk",
+            "BZ5C-lq6Kzw"
+          ],
+          "old_val_aliases": [],
+          "current_Stage11_TEST_aliases": [],
+          "original_shuffled_donor_recording_id": "YLRnUx-1kyQ",
+          "original_shuffled_donor_canonical_id": "jd-5e69cf5bfb1d9ac43c6f"
+        },
+        {
+          "clip": "YLRnUx-1kyQ_c0",
+          "recording_id": "YLRnUx-1kyQ",
+          "song_key": "YLRnUx-1kyQ",
+          "canonical_id": "jd-5e69cf5bfb1d9ac43c6f",
+          "old_fold": "test_dancer",
+          "current_partition": "train",
+          "old_canonical_folds": [
+            "test_dancer"
+          ],
+          "canonical_aliases": [
+            "YLRnUx-1kyQ"
+          ],
+          "T_metadata": 11403,
+          "start_s_metadata": 1.134,
+          "duration_s_metadata": 285.0847850113152,
+          "old_train_aliases": [],
+          "old_val_aliases": [],
+          "current_Stage11_TEST_aliases": [],
+          "original_shuffled_donor_recording_id": "wn2iikAmmJw",
+          "original_shuffled_donor_canonical_id": "jd-ebdb71f0c075f60116d7"
+        },
+        {
+          "clip": "6-qHvsxgsRA_c0",
+          "recording_id": "6-qHvsxgsRA",
+          "song_key": "6-qHvsxgsRA",
+          "canonical_id": "jd-ab8a11c53ac0a57fb350",
+          "old_fold": "test_dancer",
+          "current_partition": "train",
+          "old_canonical_folds": [
+            "test_dancer",
+            "train"
+          ],
+          "canonical_aliases": [
+            "6-qHvsxgsRA",
+            "eYMni0l8g6Y",
+            "wf0txrUERco"
+          ],
+          "T_metadata": 10107,
+          "start_s_metadata": 0.3,
+          "duration_s_metadata": 252.68576666666667,
+          "old_train_aliases": [
+            "eYMni0l8g6Y"
+          ],
+          "old_val_aliases": [],
+          "current_Stage11_TEST_aliases": [],
+          "original_shuffled_donor_recording_id": "kP7vUn33uGU",
+          "original_shuffled_donor_canonical_id": "jd-5ad2e151a473d9a3956b"
+        },
+        {
+          "clip": "MUVg2uB8O2U_c0",
+          "recording_id": "MUVg2uB8O2U",
+          "song_key": "MUVg2uB8O2U",
+          "canonical_id": "jd-5db26890ddcbf4391ccc",
+          "old_fold": "test_dancer",
+          "current_partition": "train",
+          "old_canonical_folds": [
+            "test_dancer"
+          ],
+          "canonical_aliases": [
+            "MUVg2uB8O2U"
+          ],
+          "T_metadata": 9101,
+          "start_s_metadata": 1.001,
+          "duration_s_metadata": 227.52728803747172,
+          "old_train_aliases": [],
+          "old_val_aliases": [],
+          "current_Stage11_TEST_aliases": [],
+          "original_shuffled_donor_recording_id": "zARI9hxqxRM",
+          "original_shuffled_donor_canonical_id": "jd-650ab14d5ea8154c7286"
+        },
+        {
+          "clip": "sYFCc12rZTU_c0",
+          "recording_id": "sYFCc12rZTU",
+          "song_key": "sYFCc12rZTU",
+          "canonical_id": "jd-86aff85c80b3a6b42055",
+          "old_fold": "test_dancer",
+          "current_partition": "train",
+          "old_canonical_folds": [
+            "test_dancer"
+          ],
+          "canonical_aliases": [
+            "sYFCc12rZTU"
+          ],
+          "T_metadata": 8429,
+          "start_s_metadata": 0.3,
+          "duration_s_metadata": 210.74385558654808,
+          "old_train_aliases": [],
+          "old_val_aliases": [],
+          "current_Stage11_TEST_aliases": [],
+          "original_shuffled_donor_recording_id": "jtng7Rnn_TE",
+          "original_shuffled_donor_canonical_id": "jd-2799077214c5b2fa8db3"
+        },
+        {
+          "clip": "QqOZA2nA3lA_c1",
+          "recording_id": "QqOZA2nA3lA",
+          "song_key": "QqOZA2nA3lA",
+          "canonical_id": "jd-27fd7b8271d9607209c1",
+          "old_fold": "test_dancer",
+          "current_partition": "train",
+          "old_canonical_folds": [
+            "test_dancer"
+          ],
+          "canonical_aliases": [
+            "QqOZA2nA3lA"
+          ],
+          "T_metadata": 7714,
+          "start_s_metadata": 1.635,
+          "duration_s_metadata": 192.85933333333332,
+          "old_train_aliases": [],
+          "old_val_aliases": [],
+          "current_Stage11_TEST_aliases": [],
+          "original_shuffled_donor_recording_id": "cNHRSZt_6t0",
+          "original_shuffled_donor_canonical_id": "jd-a6dc34b3e813e178a499"
+        },
+        {
+          "clip": "SOB351Unqsw_c2",
+          "recording_id": "SOB351Unqsw",
+          "song_key": "SOB351Unqsw",
+          "canonical_id": "jd-9ad8e6596eaa5d8d3667",
+          "old_fold": "test_dancer",
+          "current_partition": "train",
+          "old_canonical_folds": [
+            "test_dancer",
+            "train"
+          ],
+          "canonical_aliases": [
+            "2En9zgmwMrM",
+            "FEBJU978e5s",
+            "SOB351Unqsw",
+            "XZUm_HlBdfE"
+          ],
+          "T_metadata": 9251,
+          "start_s_metadata": 0.0,
+          "duration_s_metadata": 231.26436666666666,
+          "old_train_aliases": [
+            "2En9zgmwMrM",
+            "FEBJU978e5s"
+          ],
+          "old_val_aliases": [],
+          "current_Stage11_TEST_aliases": [],
+          "original_shuffled_donor_recording_id": "-naODqbb4B0",
+          "original_shuffled_donor_canonical_id": "jd-7d18324e97a3c1a46bcc"
+        },
+        {
+          "clip": "cNHRSZt_6t0_c0",
+          "recording_id": "cNHRSZt_6t0",
+          "song_key": "cNHRSZt_6t0",
+          "canonical_id": "jd-a6dc34b3e813e178a499",
+          "old_fold": "test_dancer",
+          "current_partition": "train",
+          "old_canonical_folds": [
+            "test_dancer"
+          ],
+          "canonical_aliases": [
+            "cNHRSZt_6t0"
+          ],
+          "T_metadata": 9208,
+          "start_s_metadata": 1.235,
+          "duration_s_metadata": 230.19663333333332,
+          "old_train_aliases": [],
+          "old_val_aliases": [],
+          "current_Stage11_TEST_aliases": [],
+          "original_shuffled_donor_recording_id": "MJTEt4aPhFQ",
+          "original_shuffled_donor_canonical_id": "jd-fc065f98256f8cc4328c"
+        },
+        {
+          "clip": "pElmR7GBYas_c0",
+          "recording_id": "pElmR7GBYas",
+          "song_key": "havana",
+          "canonical_id": "jd-650ab14d5ea8154c7286",
+          "old_fold": "test_dancer",
+          "current_partition": "train",
+          "old_canonical_folds": [
+            "test_dancer"
+          ],
+          "canonical_aliases": [
+            "b7YBs8ZC08s",
+            "pElmR7GBYas",
+            "zARI9hxqxRM"
+          ],
+          "T_metadata": 9138,
+          "start_s_metadata": 1.602,
+          "duration_s_metadata": 228.46156666666667,
+          "old_train_aliases": [],
+          "old_val_aliases": [],
+          "current_Stage11_TEST_aliases": [],
+          "original_shuffled_donor_recording_id": "wDTjpfZMXak",
+          "original_shuffled_donor_canonical_id": "jd-2cf3ba061facba581e57"
+        },
+        {
+          "clip": "zBzdeWM3VvE_c0",
+          "recording_id": "zBzdeWM3VvE",
+          "song_key": "zBzdeWM3VvE",
+          "canonical_id": "jd-73f279fed72976ef8b35",
+          "old_fold": "test_dancer",
+          "current_partition": "train",
+          "old_canonical_folds": [
+            "test_dancer"
+          ],
+          "canonical_aliases": [
+            "x372dV0owm8",
+            "zBzdeWM3VvE"
+          ],
+          "T_metadata": 10494,
+          "start_s_metadata": 0.0,
+          "duration_s_metadata": 262.36208620598916,
+          "old_train_aliases": [],
+          "old_val_aliases": [],
+          "current_Stage11_TEST_aliases": [],
+          "original_shuffled_donor_recording_id": "Z9yFg55IVls",
+          "original_shuffled_donor_canonical_id": "jd-425d9333e487e501d98d"
+        },
+        {
+          "clip": "_8f3hZ23ZEs_c0",
+          "recording_id": "_8f3hZ23ZEs",
+          "song_key": "_8f3hZ23ZEs",
+          "canonical_id": "jd-47dc12b18c333d047726",
+          "old_fold": "test_dancer",
+          "current_partition": "train",
+          "old_canonical_folds": [
+            "test_dancer",
+            "train"
+          ],
+          "canonical_aliases": [
+            "_8f3hZ23ZEs",
+            "adb-MxGBp8k"
+          ],
+          "T_metadata": 8901,
+          "start_s_metadata": 1.802,
+          "duration_s_metadata": 222.5223,
+          "old_train_aliases": [
+            "adb-MxGBp8k"
+          ],
+          "old_val_aliases": [],
+          "current_Stage11_TEST_aliases": [],
+          "original_shuffled_donor_recording_id": "McAbcL9UcrI",
+          "original_shuffled_donor_canonical_id": "jd-a56fb00bedbaf42ef4be"
+        },
+        {
+          "clip": "SOB351Unqsw_c1",
+          "recording_id": "SOB351Unqsw",
+          "song_key": "SOB351Unqsw",
+          "canonical_id": "jd-9ad8e6596eaa5d8d3667",
+          "old_fold": "test_dancer",
+          "current_partition": "train",
+          "old_canonical_folds": [
+            "test_dancer",
+            "train"
+          ],
+          "canonical_aliases": [
+            "2En9zgmwMrM",
+            "FEBJU978e5s",
+            "SOB351Unqsw",
+            "XZUm_HlBdfE"
+          ],
+          "T_metadata": 9251,
+          "start_s_metadata": 0.0,
+          "duration_s_metadata": 231.26436666666666,
+          "old_train_aliases": [
+            "2En9zgmwMrM",
+            "FEBJU978e5s"
+          ],
+          "old_val_aliases": [],
+          "current_Stage11_TEST_aliases": [],
+          "original_shuffled_donor_recording_id": "j3CHXyWRcu0",
+          "original_shuffled_donor_canonical_id": "jd-0ff6f4c6189669717a73"
+        },
+        {
+          "clip": "x372dV0owm8_c0",
+          "recording_id": "x372dV0owm8",
+          "song_key": "x372dV0owm8",
+          "canonical_id": "jd-73f279fed72976ef8b35",
+          "old_fold": "test_dancer",
+          "current_partition": "train",
+          "old_canonical_folds": [
+            "test_dancer"
+          ],
+          "canonical_aliases": [
+            "x372dV0owm8",
+            "zBzdeWM3VvE"
+          ],
+          "T_metadata": 9088,
+          "start_s_metadata": 0.801,
+          "duration_s_metadata": 227.19363333333334,
+          "old_train_aliases": [],
+          "old_val_aliases": [],
+          "current_Stage11_TEST_aliases": [],
+          "original_shuffled_donor_recording_id": "QqOZA2nA3lA",
+          "original_shuffled_donor_canonical_id": "jd-27fd7b8271d9607209c1"
+        }
+      ],
+      "old_preprocessing_exposure": "train_light.py lines178-190 estimates input mu/sd and event prevalence over the whole tensor, including oldTEST. Smoothing and event thresholds are subsequently fitted on oldVAL. Legacy song_key splits also miss7 canonical training-family overlaps among the original40. Preserve these limitations; not grounds to pretend the missing historical descriptive metric is forbidden.",
+      "boundary_input_limit": "Clip offsets and durations are saved in justdance_motion_index.json; T in tensor meta. Runtime must validate actual bus/motion lengths and offset equality on qualified paths only. No need to load a whole train tensor numeric array."
+    },
+    "row11": {
+      "old_split_algorithm": "u=int.from_bytes(sha256(key.split(\"=\")[0])[:8],big)/2**64; TEST u<.15;VAL u<.30;TRAIN otherwise. Deterministic independent of outcome and no current canonical grouping.",
+      "JD_all332_filename_fold_counts": {
+        "train": 237,
+        "val": 57,
+        "test": 38
+      },
+      "RPMC_all699_filename_fold_counts": {
+        "train": 478,
+        "val": 122,
+        "test": 99
+      },
+      "RPMC_length_filter_metadata": "rpmc_all_manifest.json records original30fps frames. extract_rpmc_causal.py writes10fps n_out=round(frames/30*10). Applying >=320 to this metadata yields598 candidates and410TRAIN/102VAL/86TEST. This is an inferred cache length, not a numeric-header validation.",
+      "candidate_total": 930,
+      "candidate_train": 647,
+      "candidate_val": 159,
+      "candidate_test": 124,
+      "archived_all_report_counts_match": true,
+      "final_scoring_filter_not_recovered": "load_corpus checks finite x AND y and len>=320; AP scoring checks sum(target)>=3 POSITIVE TARGET FRAMES (not >=3 distinct events). Exact count/IDs after the latter are not stored; archived n_test includes even songs skipped by AP. Count agreement is strong but not a per-input immutable membership manifest. Validate qualification only after alias clearance, without using model outcomes.",
+      "JD_test_canonical_count": 38,
+      "JD_test_with_old_train_canonical_alias_count": 5,
+      "JD_test_no_old_train_alias_count": 33,
+      "JD_test_ID_records": [
+        {
+          "recording_id": "1wZ2N37YpwM",
+          "canonical_id": "jd-13b0e86057ae146f459e",
+          "current_partition": "train",
+          "old_hash_fold": "test",
+          "old_canonical_candidate_folds": [
+            "test"
+          ],
+          "canonical_aliases": [
+            "1wZ2N37YpwM"
+          ],
+          "old_hash_train_aliases": [],
+          "old_hash_val_aliases": [],
+          "current_Stage11_TEST_aliases": []
+        },
+        {
+          "recording_id": "1zWsASSn1g0",
+          "canonical_id": "jd-1a38604fb05862dad4c5",
+          "current_partition": "train",
+          "old_hash_fold": "test",
+          "old_canonical_candidate_folds": [
+            "test"
+          ],
+          "canonical_aliases": [
+            "1zWsASSn1g0"
+          ],
+          "old_hash_train_aliases": [],
+          "old_hash_val_aliases": [],
+          "current_Stage11_TEST_aliases": []
+        },
+        {
+          "recording_id": "5X_0mhASGXc",
+          "canonical_id": "jd-0a0cb37813ebaa5e357d",
+          "current_partition": "train",
+          "old_hash_fold": "test",
+          "old_canonical_candidate_folds": [
+            "test"
+          ],
+          "canonical_aliases": [
+            "5X_0mhASGXc"
+          ],
+          "old_hash_train_aliases": [],
+          "old_hash_val_aliases": [],
+          "current_Stage11_TEST_aliases": []
+        },
+        {
+          "recording_id": "61GLugcua28",
+          "canonical_id": "jd-66fb30a86880d409e2fa",
+          "current_partition": "train",
+          "old_hash_fold": "test",
+          "old_canonical_candidate_folds": [
+            "test",
+            "train",
+            "val"
+          ],
+          "canonical_aliases": [
+            "61GLugcua28",
+            "BZeEc6bcyVQ",
+            "Xcft8jpBt70"
+          ],
+          "old_hash_train_aliases": [
+            "Xcft8jpBt70"
+          ],
+          "old_hash_val_aliases": [
+            "BZeEc6bcyVQ"
+          ],
+          "current_Stage11_TEST_aliases": []
+        },
+        {
+          "recording_id": "9G3h3KXwR4o",
+          "canonical_id": "jd-21d2139d09cbe6d72651",
+          "current_partition": "train",
+          "old_hash_fold": "test",
+          "old_canonical_candidate_folds": [
+            "test"
+          ],
+          "canonical_aliases": [
+            "9G3h3KXwR4o"
+          ],
+          "old_hash_train_aliases": [],
+          "old_hash_val_aliases": [],
+          "current_Stage11_TEST_aliases": []
+        },
+        {
+          "recording_id": "9ZBZCeEvjPo",
+          "canonical_id": "jd-5ce04ab61b66c2e7a8e7",
+          "current_partition": "train",
+          "old_hash_fold": "test",
+          "old_canonical_candidate_folds": [
+            "test",
+            "train"
+          ],
+          "canonical_aliases": [
+            "9ZBZCeEvjPo",
+            "mcYesb6qCTI"
+          ],
+          "old_hash_train_aliases": [
+            "mcYesb6qCTI"
+          ],
+          "old_hash_val_aliases": [],
+          "current_Stage11_TEST_aliases": []
+        },
+        {
+          "recording_id": "9jopfWudYww",
+          "canonical_id": "jd-3644bee02795526451e0",
+          "current_partition": "train",
+          "old_hash_fold": "test",
+          "old_canonical_candidate_folds": [
+            "test"
+          ],
+          "canonical_aliases": [
+            "9jopfWudYww",
+            "GfPQg75UQVY"
+          ],
+          "old_hash_train_aliases": [],
+          "old_hash_val_aliases": [],
+          "current_Stage11_TEST_aliases": []
+        },
+        {
+          "recording_id": "AjR5kkPmJvE",
+          "canonical_id": "jd-1d2fd48ff18dd1a9add0",
+          "current_partition": "train",
+          "old_hash_fold": "test",
+          "old_canonical_candidate_folds": [
+            "test"
+          ],
+          "canonical_aliases": [
+            "AjR5kkPmJvE"
+          ],
+          "old_hash_train_aliases": [],
+          "old_hash_val_aliases": [],
+          "current_Stage11_TEST_aliases": []
+        },
+        {
+          "recording_id": "AtCDv9rpNwE",
+          "canonical_id": "jd-1894e8a8a4e1e2a73d6f",
+          "current_partition": "train",
+          "old_hash_fold": "test",
+          "old_canonical_candidate_folds": [
+            "test"
+          ],
+          "canonical_aliases": [
+            "AtCDv9rpNwE"
+          ],
+          "old_hash_train_aliases": [],
+          "old_hash_val_aliases": [],
+          "current_Stage11_TEST_aliases": []
+        },
+        {
+          "recording_id": "IozjYg1Wdd4",
+          "canonical_id": "jd-260e194d6f65570c460c",
+          "current_partition": "train",
+          "old_hash_fold": "test",
+          "old_canonical_candidate_folds": [
+            "test"
+          ],
+          "canonical_aliases": [
+            "IozjYg1Wdd4"
+          ],
+          "old_hash_train_aliases": [],
+          "old_hash_val_aliases": [],
+          "current_Stage11_TEST_aliases": []
+        },
+        {
+          "recording_id": "P5yQCdmz3ew",
+          "canonical_id": "jd-4ab798097fed04d089a2",
+          "current_partition": "train",
+          "old_hash_fold": "test",
+          "old_canonical_candidate_folds": [
+            "test",
+            "train"
+          ],
+          "canonical_aliases": [
+            "9PHxtHex4UM",
+            "P5yQCdmz3ew"
+          ],
+          "old_hash_train_aliases": [
+            "9PHxtHex4UM"
+          ],
+          "old_hash_val_aliases": [],
+          "current_Stage11_TEST_aliases": []
+        },
+        {
+          "recording_id": "QtlqkJQBCp8",
+          "canonical_id": "jd-1023b2e2d2fc65d4d32d",
+          "current_partition": "train",
+          "old_hash_fold": "test",
+          "old_canonical_candidate_folds": [
+            "test"
+          ],
+          "canonical_aliases": [
+            "QtlqkJQBCp8"
+          ],
+          "old_hash_train_aliases": [],
+          "old_hash_val_aliases": [],
+          "current_Stage11_TEST_aliases": []
+        },
+        {
+          "recording_id": "QwYqMzg6LfQ",
+          "canonical_id": "jd-2954b1880dc62efc464e",
+          "current_partition": "train",
+          "old_hash_fold": "test",
+          "old_canonical_candidate_folds": [
+            "test",
+            "train"
+          ],
+          "canonical_aliases": [
+            "QwYqMzg6LfQ",
+            "jYoLNSzaUOQ"
+          ],
+          "old_hash_train_aliases": [
+            "jYoLNSzaUOQ"
+          ],
+          "old_hash_val_aliases": [],
+          "current_Stage11_TEST_aliases": []
+        },
+        {
+          "recording_id": "S3rvtitHrgs",
+          "canonical_id": "jd-0f9be956d7abd600d7ed",
+          "current_partition": "train",
+          "old_hash_fold": "test",
+          "old_canonical_candidate_folds": [
+            "test"
+          ],
+          "canonical_aliases": [
+            "S3rvtitHrgs"
+          ],
+          "old_hash_train_aliases": [],
+          "old_hash_val_aliases": [],
+          "current_Stage11_TEST_aliases": []
+        },
+        {
+          "recording_id": "SWJ2veRyobU",
+          "canonical_id": "jd-10ffd58dfc5892fbad09",
+          "current_partition": "train",
+          "old_hash_fold": "test",
+          "old_canonical_candidate_folds": [
+            "test"
+          ],
+          "canonical_aliases": [
+            "8h1Ox0YmEAc",
+            "SWJ2veRyobU"
+          ],
+          "old_hash_train_aliases": [],
+          "old_hash_val_aliases": [],
+          "current_Stage11_TEST_aliases": []
+        },
+        {
+          "recording_id": "Vq_Un3r6-QE",
+          "canonical_id": "jd-16f02b3fa2a77915e962",
+          "current_partition": "train",
+          "old_hash_fold": "test",
+          "old_canonical_candidate_folds": [
+            "test"
+          ],
+          "canonical_aliases": [
+            "Vq_Un3r6-QE"
+          ],
+          "old_hash_train_aliases": [],
+          "old_hash_val_aliases": [],
+          "current_Stage11_TEST_aliases": []
+        },
+        {
+          "recording_id": "awVxB4MdMeE",
+          "canonical_id": "jd-1066f38acdaf08271fa6",
+          "current_partition": "train",
+          "old_hash_fold": "test",
+          "old_canonical_candidate_folds": [
+            "test"
+          ],
+          "canonical_aliases": [
+            "awVxB4MdMeE"
+          ],
+          "old_hash_train_aliases": [],
+          "old_hash_val_aliases": [],
+          "current_Stage11_TEST_aliases": []
+        },
+        {
+          "recording_id": "bMZAuhadz2Y",
+          "canonical_id": "jd-1368a768fc792cbbdf78",
+          "current_partition": "train",
+          "old_hash_fold": "test",
+          "old_canonical_candidate_folds": [
+            "test"
+          ],
+          "canonical_aliases": [
+            "bMZAuhadz2Y"
+          ],
+          "old_hash_train_aliases": [],
+          "old_hash_val_aliases": [],
+          "current_Stage11_TEST_aliases": []
+        },
+        {
+          "recording_id": "bQca5WpcNjI",
+          "canonical_id": "jd-065c91b0ae8a498dfcbf",
+          "current_partition": "train",
+          "old_hash_fold": "test",
+          "old_canonical_candidate_folds": [
+            "test"
+          ],
+          "canonical_aliases": [
+            "bQca5WpcNjI"
+          ],
+          "old_hash_train_aliases": [],
+          "old_hash_val_aliases": [],
+          "current_Stage11_TEST_aliases": []
+        },
+        {
+          "recording_id": "by-QcR2GehQ",
+          "canonical_id": "jd-20d2cf4a080db10ded5d",
+          "current_partition": "train",
+          "old_hash_fold": "test",
+          "old_canonical_candidate_folds": [
+            "test"
+          ],
+          "canonical_aliases": [
+            "by-QcR2GehQ"
+          ],
+          "old_hash_train_aliases": [],
+          "old_hash_val_aliases": [],
+          "current_Stage11_TEST_aliases": []
+        },
+        {
+          "recording_id": "eV4kPGM2RBo",
+          "canonical_id": "jd-1619dd6316d6e0ee9d02",
+          "current_partition": "train",
+          "old_hash_fold": "test",
+          "old_canonical_candidate_folds": [
+            "test"
+          ],
+          "canonical_aliases": [
+            "eV4kPGM2RBo"
+          ],
+          "old_hash_train_aliases": [],
+          "old_hash_val_aliases": [],
+          "current_Stage11_TEST_aliases": []
+        },
+        {
+          "recording_id": "ftzNL18PRxg",
+          "canonical_id": "jd-09971ffbd31df1a6e96b",
+          "current_partition": "train",
+          "old_hash_fold": "test",
+          "old_canonical_candidate_folds": [
+            "test"
+          ],
+          "canonical_aliases": [
+            "ftzNL18PRxg"
+          ],
+          "old_hash_train_aliases": [],
+          "old_hash_val_aliases": [],
+          "current_Stage11_TEST_aliases": []
+        },
+        {
+          "recording_id": "i2RG2XFUfd0",
+          "canonical_id": "jd-037f2fb8542cc347f247",
+          "current_partition": "train",
+          "old_hash_fold": "test",
+          "old_canonical_candidate_folds": [
+            "test"
+          ],
+          "canonical_aliases": [
+            "i2RG2XFUfd0"
+          ],
+          "old_hash_train_aliases": [],
+          "old_hash_val_aliases": [],
+          "current_Stage11_TEST_aliases": []
+        },
+        {
+          "recording_id": "j3CHXyWRcu0",
+          "canonical_id": "jd-0ff6f4c6189669717a73",
+          "current_partition": "train",
+          "old_hash_fold": "test",
+          "old_canonical_candidate_folds": [
+            "test"
+          ],
+          "canonical_aliases": [
+            "j3CHXyWRcu0"
+          ],
+          "old_hash_train_aliases": [],
+          "old_hash_val_aliases": [],
+          "current_Stage11_TEST_aliases": []
+        },
+        {
+          "recording_id": "l8WxpazGFug",
+          "canonical_id": "jd-13137f2fbb381b505079",
+          "current_partition": "train",
+          "old_hash_fold": "test",
+          "old_canonical_candidate_folds": [
+            "test"
+          ],
+          "canonical_aliases": [
+            "l8WxpazGFug"
+          ],
+          "old_hash_train_aliases": [],
+          "old_hash_val_aliases": [],
+          "current_Stage11_TEST_aliases": []
+        },
+        {
+          "recording_id": "mSaM3yScgjY",
+          "canonical_id": "jd-058db609a37bd428f11e",
+          "current_partition": "train",
+          "old_hash_fold": "test",
+          "old_canonical_candidate_folds": [
+            "test"
+          ],
+          "canonical_aliases": [
+            "mSaM3yScgjY"
+          ],
+          "old_hash_train_aliases": [],
+          "old_hash_val_aliases": [],
+          "current_Stage11_TEST_aliases": []
+        },
+        {
+          "recording_id": "moryohPkTSY",
+          "canonical_id": "jd-1651ab74f358534cea79",
+          "current_partition": "train",
+          "old_hash_fold": "test",
+          "old_canonical_candidate_folds": [
+            "test"
+          ],
+          "canonical_aliases": [
+            "moryohPkTSY"
+          ],
+          "old_hash_train_aliases": [],
+          "old_hash_val_aliases": [],
+          "current_Stage11_TEST_aliases": []
+        },
+        {
+          "recording_id": "oxioohk_i9M",
+          "canonical_id": "jd-f51288c36dc42f436e87",
+          "current_partition": "train",
+          "old_hash_fold": "test",
+          "old_canonical_candidate_folds": [
+            "test"
+          ],
+          "canonical_aliases": [
+            "WyAwc_c20lQ",
+            "oxioohk_i9M"
+          ],
+          "old_hash_train_aliases": [],
+          "old_hash_val_aliases": [],
+          "current_Stage11_TEST_aliases": []
+        },
+        {
+          "recording_id": "pRsYZ4Gcf2Y",
+          "canonical_id": "jd-25df9a5ab499348d81fa",
+          "current_partition": "train",
+          "old_hash_fold": "test",
+          "old_canonical_candidate_folds": [
+            "test"
+          ],
+          "canonical_aliases": [
+            "pRsYZ4Gcf2Y"
+          ],
+          "old_hash_train_aliases": [],
+          "old_hash_val_aliases": [],
+          "current_Stage11_TEST_aliases": []
+        },
+        {
+          "recording_id": "qryAuIqG8oo",
+          "canonical_id": "jd-305d0e79da2bee5efb90",
+          "current_partition": "train",
+          "old_hash_fold": "test",
+          "old_canonical_candidate_folds": [
+            "test"
+          ],
+          "canonical_aliases": [
+            "eKB8UxdxKBs",
+            "qryAuIqG8oo"
+          ],
+          "old_hash_train_aliases": [],
+          "old_hash_val_aliases": [],
+          "current_Stage11_TEST_aliases": []
+        },
+        {
+          "recording_id": "v-8l_EBgloE",
+          "canonical_id": "jd-2089610159d97db4542d",
+          "current_partition": "train",
+          "old_hash_fold": "test",
+          "old_canonical_candidate_folds": [
+            "test"
+          ],
+          "canonical_aliases": [
+            "v-8l_EBgloE"
+          ],
+          "old_hash_train_aliases": [],
+          "old_hash_val_aliases": [],
+          "current_Stage11_TEST_aliases": []
+        },
+        {
+          "recording_id": "vK9-GpUW-9I",
+          "canonical_id": "jd-06128ffd8a34479c213d",
+          "current_partition": "train",
+          "old_hash_fold": "test",
+          "old_canonical_candidate_folds": [
+            "test"
+          ],
+          "canonical_aliases": [
+            "vK9-GpUW-9I"
+          ],
+          "old_hash_train_aliases": [],
+          "old_hash_val_aliases": [],
+          "current_Stage11_TEST_aliases": []
+        },
+        {
+          "recording_id": "vPu3WGIoyD4",
+          "canonical_id": "jd-16c2f95263c214604785",
+          "current_partition": "train",
+          "old_hash_fold": "test",
+          "old_canonical_candidate_folds": [
+            "test",
+            "train"
+          ],
+          "canonical_aliases": [
+            "rWo5v_99zn0",
+            "vPu3WGIoyD4"
+          ],
+          "old_hash_train_aliases": [
+            "rWo5v_99zn0"
+          ],
+          "old_hash_val_aliases": [],
+          "current_Stage11_TEST_aliases": []
+        },
+        {
+          "recording_id": "vYSr3hlJT5s",
+          "canonical_id": "jd-0216c5dc0994f95a4f74",
+          "current_partition": "train",
+          "old_hash_fold": "test",
+          "old_canonical_candidate_folds": [
+            "test"
+          ],
+          "canonical_aliases": [
+            "vYSr3hlJT5s"
+          ],
+          "old_hash_train_aliases": [],
+          "old_hash_val_aliases": [],
+          "current_Stage11_TEST_aliases": []
+        },
+        {
+          "recording_id": "xl0R5sSUv4A",
+          "canonical_id": "jd-157ba77975349a849d76",
+          "current_partition": "train",
+          "old_hash_fold": "test",
+          "old_canonical_candidate_folds": [
+            "test"
+          ],
+          "canonical_aliases": [
+            "xl0R5sSUv4A"
+          ],
+          "old_hash_train_aliases": [],
+          "old_hash_val_aliases": [],
+          "current_Stage11_TEST_aliases": []
+        },
+        {
+          "recording_id": "yAvEt3cZI2I",
+          "canonical_id": "jd-1cc8ff283f821a17791f",
+          "current_partition": "train",
+          "old_hash_fold": "test",
+          "old_canonical_candidate_folds": [
+            "test"
+          ],
+          "canonical_aliases": [
+            "yAvEt3cZI2I"
+          ],
+          "old_hash_train_aliases": [],
+          "old_hash_val_aliases": [],
+          "current_Stage11_TEST_aliases": []
+        },
+        {
+          "recording_id": "yk16UVCP7wY",
+          "canonical_id": "jd-246344a67ccaa1d3efc2",
+          "current_partition": "train",
+          "old_hash_fold": "test",
+          "old_canonical_candidate_folds": [
+            "test"
+          ],
+          "canonical_aliases": [
+            "yk16UVCP7wY"
+          ],
+          "old_hash_train_aliases": [],
+          "old_hash_val_aliases": [],
+          "current_Stage11_TEST_aliases": []
+        },
+        {
+          "recording_id": "zoi0FvFcr9A",
+          "canonical_id": "jd-bab92a194b7e4c162096",
+          "current_partition": "train",
+          "old_hash_fold": "test",
+          "old_canonical_candidate_folds": [
+            "test"
+          ],
+          "canonical_aliases": [
+            "k2xCMZBRBUA",
+            "zoi0FvFcr9A"
+          ],
+          "old_hash_train_aliases": [],
+          "old_hash_val_aliases": [],
+          "current_Stage11_TEST_aliases": []
+        }
+      ],
+      "RPMC_length_test_candidates": [
+        {
+          "recording_id": "04436530643fd8c0",
+          "frames_30fps_metadata": 3278,
+          "frames_10fps_inferred_by_writer": 1093,
+          "old_hash_fold": "test",
+          "canonical_identity": "unresolved_no_title_or_cross_corpus_registry"
+        },
+        {
+          "recording_id": "0882b0514fcbe441",
+          "frames_30fps_metadata": 1262,
+          "frames_10fps_inferred_by_writer": 421,
+          "old_hash_fold": "test",
+          "canonical_identity": "unresolved_no_title_or_cross_corpus_registry"
+        },
+        {
+          "recording_id": "10dbe9df876b1027",
+          "frames_30fps_metadata": 3427,
+          "frames_10fps_inferred_by_writer": 1142,
+          "old_hash_fold": "test",
+          "canonical_identity": "unresolved_no_title_or_cross_corpus_registry"
+        },
+        {
+          "recording_id": "146cba3ba997447d",
+          "frames_30fps_metadata": 2482,
+          "frames_10fps_inferred_by_writer": 827,
+          "old_hash_fold": "test",
+          "canonical_identity": "unresolved_no_title_or_cross_corpus_registry"
+        },
+        {
+          "recording_id": "16f032753044f20d",
+          "frames_30fps_metadata": 3163,
+          "frames_10fps_inferred_by_writer": 1054,
+          "old_hash_fold": "test",
+          "canonical_identity": "unresolved_no_title_or_cross_corpus_registry"
+        },
+        {
+          "recording_id": "1768fb9677cd5421",
+          "frames_30fps_metadata": 1661,
+          "frames_10fps_inferred_by_writer": 554,
+          "old_hash_fold": "test",
+          "canonical_identity": "unresolved_no_title_or_cross_corpus_registry"
+        },
+        {
+          "recording_id": "1876123b5bac1b66",
+          "frames_30fps_metadata": 1412,
+          "frames_10fps_inferred_by_writer": 471,
+          "old_hash_fold": "test",
+          "canonical_identity": "unresolved_no_title_or_cross_corpus_registry"
+        },
+        {
+          "recording_id": "1c326f2f4c5c8e00",
+          "frames_30fps_metadata": 1911,
+          "frames_10fps_inferred_by_writer": 637,
+          "old_hash_fold": "test",
+          "canonical_identity": "unresolved_no_title_or_cross_corpus_registry"
+        },
+        {
+          "recording_id": "2424d3db986f925f",
+          "frames_30fps_metadata": 2077,
+          "frames_10fps_inferred_by_writer": 692,
+          "old_hash_fold": "test",
+          "canonical_identity": "unresolved_no_title_or_cross_corpus_registry"
+        },
+        {
+          "recording_id": "258eeea9dcb006fa",
+          "frames_30fps_metadata": 3540,
+          "frames_10fps_inferred_by_writer": 1180,
+          "old_hash_fold": "test",
+          "canonical_identity": "unresolved_no_title_or_cross_corpus_registry"
+        },
+        {
+          "recording_id": "28b121a0a64289f1",
+          "frames_30fps_metadata": 1182,
+          "frames_10fps_inferred_by_writer": 394,
+          "old_hash_fold": "test",
+          "canonical_identity": "unresolved_no_title_or_cross_corpus_registry"
+        },
+        {
+          "recording_id": "2c1da45364156487",
+          "frames_30fps_metadata": 1029,
+          "frames_10fps_inferred_by_writer": 343,
+          "old_hash_fold": "test",
+          "canonical_identity": "unresolved_no_title_or_cross_corpus_registry"
+        },
+        {
+          "recording_id": "2fc4f78f11360b83",
+          "frames_30fps_metadata": 3981,
+          "frames_10fps_inferred_by_writer": 1327,
+          "old_hash_fold": "test",
+          "canonical_identity": "unresolved_no_title_or_cross_corpus_registry"
+        },
+        {
+          "recording_id": "32676ccebbd90a36",
+          "frames_30fps_metadata": 1239,
+          "frames_10fps_inferred_by_writer": 413,
+          "old_hash_fold": "test",
+          "canonical_identity": "unresolved_no_title_or_cross_corpus_registry"
+        },
+        {
+          "recording_id": "39ccb76525fab747",
+          "frames_30fps_metadata": 6472,
+          "frames_10fps_inferred_by_writer": 2157,
+          "old_hash_fold": "test",
+          "canonical_identity": "unresolved_no_title_or_cross_corpus_registry"
+        },
+        {
+          "recording_id": "3c50291222827f62",
+          "frames_30fps_metadata": 1785,
+          "frames_10fps_inferred_by_writer": 595,
+          "old_hash_fold": "test",
+          "canonical_identity": "unresolved_no_title_or_cross_corpus_registry"
+        },
+        {
+          "recording_id": "401c305b95ae91fd",
+          "frames_30fps_metadata": 7238,
+          "frames_10fps_inferred_by_writer": 2413,
+          "old_hash_fold": "test",
+          "canonical_identity": "unresolved_no_title_or_cross_corpus_registry"
+        },
+        {
+          "recording_id": "405e97e28bddcd9f",
+          "frames_30fps_metadata": 2088,
+          "frames_10fps_inferred_by_writer": 696,
+          "old_hash_fold": "test",
+          "canonical_identity": "unresolved_no_title_or_cross_corpus_registry"
+        },
+        {
+          "recording_id": "40b67f00f59f364e",
+          "frames_30fps_metadata": 1478,
+          "frames_10fps_inferred_by_writer": 493,
+          "old_hash_fold": "test",
+          "canonical_identity": "unresolved_no_title_or_cross_corpus_registry"
+        },
+        {
+          "recording_id": "41eb3b20a6168d52",
+          "frames_30fps_metadata": 2372,
+          "frames_10fps_inferred_by_writer": 791,
+          "old_hash_fold": "test",
+          "canonical_identity": "unresolved_no_title_or_cross_corpus_registry"
+        },
+        {
+          "recording_id": "42cf25ccf9721818",
+          "frames_30fps_metadata": 1796,
+          "frames_10fps_inferred_by_writer": 599,
+          "old_hash_fold": "test",
+          "canonical_identity": "unresolved_no_title_or_cross_corpus_registry"
+        },
+        {
+          "recording_id": "44b55433147b270a",
+          "frames_30fps_metadata": 3780,
+          "frames_10fps_inferred_by_writer": 1260,
+          "old_hash_fold": "test",
+          "canonical_identity": "unresolved_no_title_or_cross_corpus_registry"
+        },
+        {
+          "recording_id": "4650ac89141c2117",
+          "frames_30fps_metadata": 2619,
+          "frames_10fps_inferred_by_writer": 873,
+          "old_hash_fold": "test",
+          "canonical_identity": "unresolved_no_title_or_cross_corpus_registry"
+        },
+        {
+          "recording_id": "4694e88902bb0e0e",
+          "frames_30fps_metadata": 1807,
+          "frames_10fps_inferred_by_writer": 602,
+          "old_hash_fold": "test",
+          "canonical_identity": "unresolved_no_title_or_cross_corpus_registry"
+        },
+        {
+          "recording_id": "4ca29af76cb2d136",
+          "frames_30fps_metadata": 4745,
+          "frames_10fps_inferred_by_writer": 1582,
+          "old_hash_fold": "test",
+          "canonical_identity": "unresolved_no_title_or_cross_corpus_registry"
+        },
+        {
+          "recording_id": "4e38e900f40c10da",
+          "frames_30fps_metadata": 7316,
+          "frames_10fps_inferred_by_writer": 2439,
+          "old_hash_fold": "test",
+          "canonical_identity": "unresolved_no_title_or_cross_corpus_registry"
+        },
+        {
+          "recording_id": "570e22a62e2695b7",
+          "frames_30fps_metadata": 1277,
+          "frames_10fps_inferred_by_writer": 426,
+          "old_hash_fold": "test",
+          "canonical_identity": "unresolved_no_title_or_cross_corpus_registry"
+        },
+        {
+          "recording_id": "58833267052c6077",
+          "frames_30fps_metadata": 1010,
+          "frames_10fps_inferred_by_writer": 337,
+          "old_hash_fold": "test",
+          "canonical_identity": "unresolved_no_title_or_cross_corpus_registry"
+        },
+        {
+          "recording_id": "5d0ea1d3b9bf1289",
+          "frames_30fps_metadata": 3098,
+          "frames_10fps_inferred_by_writer": 1033,
+          "old_hash_fold": "test",
+          "canonical_identity": "unresolved_no_title_or_cross_corpus_registry"
+        },
+        {
+          "recording_id": "5d722e22224186d4",
+          "frames_30fps_metadata": 1034,
+          "frames_10fps_inferred_by_writer": 345,
+          "old_hash_fold": "test",
+          "canonical_identity": "unresolved_no_title_or_cross_corpus_registry"
+        },
+        {
+          "recording_id": "5f936c817b6cfd9b",
+          "frames_30fps_metadata": 2706,
+          "frames_10fps_inferred_by_writer": 902,
+          "old_hash_fold": "test",
+          "canonical_identity": "unresolved_no_title_or_cross_corpus_registry"
+        },
+        {
+          "recording_id": "60145ac9e7eae0a7",
+          "frames_30fps_metadata": 2457,
+          "frames_10fps_inferred_by_writer": 819,
+          "old_hash_fold": "test",
+          "canonical_identity": "unresolved_no_title_or_cross_corpus_registry"
+        },
+        {
+          "recording_id": "69679e7337f8b21d",
+          "frames_30fps_metadata": 2706,
+          "frames_10fps_inferred_by_writer": 902,
+          "old_hash_fold": "test",
+          "canonical_identity": "unresolved_no_title_or_cross_corpus_registry"
+        },
+        {
+          "recording_id": "6c8ed6ed77f0456e",
+          "frames_30fps_metadata": 6492,
+          "frames_10fps_inferred_by_writer": 2164,
+          "old_hash_fold": "test",
+          "canonical_identity": "unresolved_no_title_or_cross_corpus_registry"
+        },
+        {
+          "recording_id": "73742bfbf8b7201f",
+          "frames_30fps_metadata": 1034,
+          "frames_10fps_inferred_by_writer": 345,
+          "old_hash_fold": "test",
+          "canonical_identity": "unresolved_no_title_or_cross_corpus_registry"
+        },
+        {
+          "recording_id": "747430db6f2806c7",
+          "frames_30fps_metadata": 10381,
+          "frames_10fps_inferred_by_writer": 3460,
+          "old_hash_fold": "test",
+          "canonical_identity": "unresolved_no_title_or_cross_corpus_registry"
+        },
+        {
+          "recording_id": "779faf83c234e5d4",
+          "frames_30fps_metadata": 5379,
+          "frames_10fps_inferred_by_writer": 1793,
+          "old_hash_fold": "test",
+          "canonical_identity": "unresolved_no_title_or_cross_corpus_registry"
+        },
+        {
+          "recording_id": "77d5f19b5a41cd4f",
+          "frames_30fps_metadata": 4535,
+          "frames_10fps_inferred_by_writer": 1512,
+          "old_hash_fold": "test",
+          "canonical_identity": "unresolved_no_title_or_cross_corpus_registry"
+        },
+        {
+          "recording_id": "7df345eeb9081cc7",
+          "frames_30fps_metadata": 4626,
+          "frames_10fps_inferred_by_writer": 1542,
+          "old_hash_fold": "test",
+          "canonical_identity": "unresolved_no_title_or_cross_corpus_registry"
+        },
+        {
+          "recording_id": "8169c5a20da534d7",
+          "frames_30fps_metadata": 1903,
+          "frames_10fps_inferred_by_writer": 634,
+          "old_hash_fold": "test",
+          "canonical_identity": "unresolved_no_title_or_cross_corpus_registry"
+        },
+        {
+          "recording_id": "83fbd9412033e461",
+          "frames_30fps_metadata": 2241,
+          "frames_10fps_inferred_by_writer": 747,
+          "old_hash_fold": "test",
+          "canonical_identity": "unresolved_no_title_or_cross_corpus_registry"
+        },
+        {
+          "recording_id": "84de10d66a856158",
+          "frames_30fps_metadata": 1272,
+          "frames_10fps_inferred_by_writer": 424,
+          "old_hash_fold": "test",
+          "canonical_identity": "unresolved_no_title_or_cross_corpus_registry"
+        },
+        {
+          "recording_id": "85520fae5a631ae6",
+          "frames_30fps_metadata": 9115,
+          "frames_10fps_inferred_by_writer": 3038,
+          "old_hash_fold": "test",
+          "canonical_identity": "unresolved_no_title_or_cross_corpus_registry"
+        },
+        {
+          "recording_id": "871e59349747b82d",
+          "frames_30fps_metadata": 4147,
+          "frames_10fps_inferred_by_writer": 1382,
+          "old_hash_fold": "test",
+          "canonical_identity": "unresolved_no_title_or_cross_corpus_registry"
+        },
+        {
+          "recording_id": "89e2bf337a994603",
+          "frames_30fps_metadata": 11240,
+          "frames_10fps_inferred_by_writer": 3747,
+          "old_hash_fold": "test",
+          "canonical_identity": "unresolved_no_title_or_cross_corpus_registry"
+        },
+        {
+          "recording_id": "8c917a701b18ada8",
+          "frames_30fps_metadata": 1057,
+          "frames_10fps_inferred_by_writer": 352,
+          "old_hash_fold": "test",
+          "canonical_identity": "unresolved_no_title_or_cross_corpus_registry"
+        },
+        {
+          "recording_id": "8eab8b9b1be0869b",
+          "frames_30fps_metadata": 2534,
+          "frames_10fps_inferred_by_writer": 845,
+          "old_hash_fold": "test",
+          "canonical_identity": "unresolved_no_title_or_cross_corpus_registry"
+        },
+        {
+          "recording_id": "911c8667eef06967",
+          "frames_30fps_metadata": 2079,
+          "frames_10fps_inferred_by_writer": 693,
+          "old_hash_fold": "test",
+          "canonical_identity": "unresolved_no_title_or_cross_corpus_registry"
+        },
+        {
+          "recording_id": "9227b92ff40e45b1",
+          "frames_30fps_metadata": 8520,
+          "frames_10fps_inferred_by_writer": 2840,
+          "old_hash_fold": "test",
+          "canonical_identity": "unresolved_no_title_or_cross_corpus_registry"
+        },
+        {
+          "recording_id": "941c7caa0fff0fec",
+          "frames_30fps_metadata": 6372,
+          "frames_10fps_inferred_by_writer": 2124,
+          "old_hash_fold": "test",
+          "canonical_identity": "unresolved_no_title_or_cross_corpus_registry"
+        },
+        {
+          "recording_id": "99ef7ae8b39fa2db",
+          "frames_30fps_metadata": 3621,
+          "frames_10fps_inferred_by_writer": 1207,
+          "old_hash_fold": "test",
+          "canonical_identity": "unresolved_no_title_or_cross_corpus_registry"
+        },
+        {
+          "recording_id": "9cbf0405dd953860",
+          "frames_30fps_metadata": 1344,
+          "frames_10fps_inferred_by_writer": 448,
+          "old_hash_fold": "test",
+          "canonical_identity": "unresolved_no_title_or_cross_corpus_registry"
+        },
+        {
+          "recording_id": "a29750c8aa0e1b34",
+          "frames_30fps_metadata": 3042,
+          "frames_10fps_inferred_by_writer": 1014,
+          "old_hash_fold": "test",
+          "canonical_identity": "unresolved_no_title_or_cross_corpus_registry"
+        },
+        {
+          "recording_id": "a62c2e8100dcb360",
+          "frames_30fps_metadata": 2925,
+          "frames_10fps_inferred_by_writer": 975,
+          "old_hash_fold": "test",
+          "canonical_identity": "unresolved_no_title_or_cross_corpus_registry"
+        },
+        {
+          "recording_id": "aae136a4a4ecf337",
+          "frames_30fps_metadata": 1638,
+          "frames_10fps_inferred_by_writer": 546,
+          "old_hash_fold": "test",
+          "canonical_identity": "unresolved_no_title_or_cross_corpus_registry"
+        },
+        {
+          "recording_id": "aced2f8b2fe6d3db",
+          "frames_30fps_metadata": 2983,
+          "frames_10fps_inferred_by_writer": 994,
+          "old_hash_fold": "test",
+          "canonical_identity": "unresolved_no_title_or_cross_corpus_registry"
+        },
+        {
+          "recording_id": "af04dd13f4740db6",
+          "frames_30fps_metadata": 6059,
+          "frames_10fps_inferred_by_writer": 2020,
+          "old_hash_fold": "test",
+          "canonical_identity": "unresolved_no_title_or_cross_corpus_registry"
+        },
+        {
+          "recording_id": "bc70e66b5ded3db8",
+          "frames_30fps_metadata": 2703,
+          "frames_10fps_inferred_by_writer": 901,
+          "old_hash_fold": "test",
+          "canonical_identity": "unresolved_no_title_or_cross_corpus_registry"
+        },
+        {
+          "recording_id": "bd7bf65595b0b041",
+          "frames_30fps_metadata": 2114,
+          "frames_10fps_inferred_by_writer": 705,
+          "old_hash_fold": "test",
+          "canonical_identity": "unresolved_no_title_or_cross_corpus_registry"
+        },
+        {
+          "recording_id": "be59063d1a50879b",
+          "frames_30fps_metadata": 1572,
+          "frames_10fps_inferred_by_writer": 524,
+          "old_hash_fold": "test",
+          "canonical_identity": "unresolved_no_title_or_cross_corpus_registry"
+        },
+        {
+          "recording_id": "c19bcaa28d2b2b30",
+          "frames_30fps_metadata": 1641,
+          "frames_10fps_inferred_by_writer": 547,
+          "old_hash_fold": "test",
+          "canonical_identity": "unresolved_no_title_or_cross_corpus_registry"
+        },
+        {
+          "recording_id": "c1d1ab4b8b859314",
+          "frames_30fps_metadata": 1500,
+          "frames_10fps_inferred_by_writer": 500,
+          "old_hash_fold": "test",
+          "canonical_identity": "unresolved_no_title_or_cross_corpus_registry"
+        },
+        {
+          "recording_id": "c3787f00ef5cf3e6",
+          "frames_30fps_metadata": 1310,
+          "frames_10fps_inferred_by_writer": 437,
+          "old_hash_fold": "test",
+          "canonical_identity": "unresolved_no_title_or_cross_corpus_registry"
+        },
+        {
+          "recording_id": "c4112da4d0469a89",
+          "frames_30fps_metadata": 3449,
+          "frames_10fps_inferred_by_writer": 1150,
+          "old_hash_fold": "test",
+          "canonical_identity": "unresolved_no_title_or_cross_corpus_registry"
+        },
+        {
+          "recording_id": "c720f294575ec1dd",
+          "frames_30fps_metadata": 1260,
+          "frames_10fps_inferred_by_writer": 420,
+          "old_hash_fold": "test",
+          "canonical_identity": "unresolved_no_title_or_cross_corpus_registry"
+        },
+        {
+          "recording_id": "cc9d69dc660f8d3d",
+          "frames_30fps_metadata": 1349,
+          "frames_10fps_inferred_by_writer": 450,
+          "old_hash_fold": "test",
+          "canonical_identity": "unresolved_no_title_or_cross_corpus_registry"
+        },
+        {
+          "recording_id": "cea0df715ca6cdf7",
+          "frames_30fps_metadata": 4673,
+          "frames_10fps_inferred_by_writer": 1558,
+          "old_hash_fold": "test",
+          "canonical_identity": "unresolved_no_title_or_cross_corpus_registry"
+        },
+        {
+          "recording_id": "d07a25b22d751dd8",
+          "frames_30fps_metadata": 1467,
+          "frames_10fps_inferred_by_writer": 489,
+          "old_hash_fold": "test",
+          "canonical_identity": "unresolved_no_title_or_cross_corpus_registry"
+        },
+        {
+          "recording_id": "d610bb3dc9114041",
+          "frames_30fps_metadata": 4838,
+          "frames_10fps_inferred_by_writer": 1613,
+          "old_hash_fold": "test",
+          "canonical_identity": "unresolved_no_title_or_cross_corpus_registry"
+        },
+        {
+          "recording_id": "d6e718b854000da6",
+          "frames_30fps_metadata": 997,
+          "frames_10fps_inferred_by_writer": 332,
+          "old_hash_fold": "test",
+          "canonical_identity": "unresolved_no_title_or_cross_corpus_registry"
+        },
+        {
+          "recording_id": "d91b68917d28679b",
+          "frames_30fps_metadata": 1998,
+          "frames_10fps_inferred_by_writer": 666,
+          "old_hash_fold": "test",
+          "canonical_identity": "unresolved_no_title_or_cross_corpus_registry"
+        },
+        {
+          "recording_id": "dac7b47ea59485d5",
+          "frames_30fps_metadata": 2696,
+          "frames_10fps_inferred_by_writer": 899,
+          "old_hash_fold": "test",
+          "canonical_identity": "unresolved_no_title_or_cross_corpus_registry"
+        },
+        {
+          "recording_id": "dc1ada1c6124de6c",
+          "frames_30fps_metadata": 1166,
+          "frames_10fps_inferred_by_writer": 389,
+          "old_hash_fold": "test",
+          "canonical_identity": "unresolved_no_title_or_cross_corpus_registry"
+        },
+        {
+          "recording_id": "dfe5b34425d843a7",
+          "frames_30fps_metadata": 2594,
+          "frames_10fps_inferred_by_writer": 865,
+          "old_hash_fold": "test",
+          "canonical_identity": "unresolved_no_title_or_cross_corpus_registry"
+        },
+        {
+          "recording_id": "e2ec43fdc62a31aa",
+          "frames_30fps_metadata": 1200,
+          "frames_10fps_inferred_by_writer": 400,
+          "old_hash_fold": "test",
+          "canonical_identity": "unresolved_no_title_or_cross_corpus_registry"
+        },
+        {
+          "recording_id": "e83bcedbf2cdc53f",
+          "frames_30fps_metadata": 2683,
+          "frames_10fps_inferred_by_writer": 894,
+          "old_hash_fold": "test",
+          "canonical_identity": "unresolved_no_title_or_cross_corpus_registry"
+        },
+        {
+          "recording_id": "e9fd48e464938f15",
+          "frames_30fps_metadata": 3572,
+          "frames_10fps_inferred_by_writer": 1191,
+          "old_hash_fold": "test",
+          "canonical_identity": "unresolved_no_title_or_cross_corpus_registry"
+        },
+        {
+          "recording_id": "ef0f63b82d59cb1b",
+          "frames_30fps_metadata": 1006,
+          "frames_10fps_inferred_by_writer": 335,
+          "old_hash_fold": "test",
+          "canonical_identity": "unresolved_no_title_or_cross_corpus_registry"
+        },
+        {
+          "recording_id": "f48f5eae69443561",
+          "frames_30fps_metadata": 3447,
+          "frames_10fps_inferred_by_writer": 1149,
+          "old_hash_fold": "test",
+          "canonical_identity": "unresolved_no_title_or_cross_corpus_registry"
+        },
+        {
+          "recording_id": "f5aa70e691a565c4",
+          "frames_30fps_metadata": 3311,
+          "frames_10fps_inferred_by_writer": 1104,
+          "old_hash_fold": "test",
+          "canonical_identity": "unresolved_no_title_or_cross_corpus_registry"
+        },
+        {
+          "recording_id": "f621739635c157e9",
+          "frames_30fps_metadata": 2459,
+          "frames_10fps_inferred_by_writer": 820,
+          "old_hash_fold": "test",
+          "canonical_identity": "unresolved_no_title_or_cross_corpus_registry"
+        },
+        {
+          "recording_id": "f83b3cafcf56c064",
+          "frames_30fps_metadata": 1335,
+          "frames_10fps_inferred_by_writer": 445,
+          "old_hash_fold": "test",
+          "canonical_identity": "unresolved_no_title_or_cross_corpus_registry"
+        },
+        {
+          "recording_id": "fa3a3799ae825374",
+          "frames_30fps_metadata": 5537,
+          "frames_10fps_inferred_by_writer": 1846,
+          "old_hash_fold": "test",
+          "canonical_identity": "unresolved_no_title_or_cross_corpus_registry"
+        },
+        {
+          "recording_id": "fa616d239a817a85",
+          "frames_30fps_metadata": 1309,
+          "frames_10fps_inferred_by_writer": 436,
+          "old_hash_fold": "test",
+          "canonical_identity": "unresolved_no_title_or_cross_corpus_registry"
+        },
+        {
+          "recording_id": "fb3db31d394bf53a",
+          "frames_30fps_metadata": 3774,
+          "frames_10fps_inferred_by_writer": 1258,
+          "old_hash_fold": "test",
+          "canonical_identity": "unresolved_no_title_or_cross_corpus_registry"
+        },
+        {
+          "recording_id": "fbcbd90d2d1d8a11",
+          "frames_30fps_metadata": 6141,
+          "frames_10fps_inferred_by_writer": 2047,
+          "old_hash_fold": "test",
+          "canonical_identity": "unresolved_no_title_or_cross_corpus_registry"
+        }
+      ],
+      "RPMC_canonical_status": "Opaque keys, no song-title/duplicate or cross-corpus source alias map found in bounded local metadata. Same-recording old heldout follows hash rule, but independent-song and sealed cross-corpus exclusions not proved.",
+      "frozen_conditioner_membership": "operator_head uses same capture-key split. Each test key is not a gradient-training key for that head under the recorded source; unknown cross-recording and cross-corpus aliases remain."
+    }
+  },
+  "local_input_existence": {
+    "row8": [
+      {
+        "path": "/mnt/lightsem-data/cache/justdance_audio/-naODqbb4B0.npz",
+        "exists": true,
+        "size_bytes": 2177910,
+        "mtime_utc": "2026-09-04T11:49:04.323267+00:00"
+      },
+      {
+        "path": "/mnt/lightsem-data/cache/justdance_structure/-naODqbb4B0.npz",
+        "exists": true,
+        "size_bytes": 85052,
+        "mtime_utc": "2026-09-04T12:11:59.062239+00:00"
+      },
+      {
+        "path": "/mnt/lightsem-data/cache/justdance_audio/2B1m9gH_jUc.npz",
+        "exists": true,
+        "size_bytes": 1684142,
+        "mtime_utc": "2026-09-04T11:46:52.794849+00:00"
+      },
+      {
+        "path": "/mnt/lightsem-data/cache/justdance_structure/2B1m9gH_jUc.npz",
+        "exists": true,
+        "size_bytes": 67505,
+        "mtime_utc": "2026-09-04T12:12:15.955564+00:00"
+      },
+      {
+        "path": "/mnt/lightsem-data/cache/justdance_audio/6-qHvsxgsRA.npz",
+        "exists": true,
+        "size_bytes": 2150727,
+        "mtime_utc": "2026-09-04T11:48:17.995657+00:00"
+      },
+      {
+        "path": "/mnt/lightsem-data/cache/justdance_structure/6-qHvsxgsRA.npz",
+        "exists": true,
+        "size_bytes": 83661,
+        "mtime_utc": "2026-09-04T12:12:39.652406+00:00"
+      },
+      {
+        "path": "/mnt/lightsem-data/cache/justdance_audio/6h1MUO-uEcU.npz",
+        "exists": true,
+        "size_bytes": 1809742,
+        "mtime_utc": "2026-09-04T11:53:06.787897+00:00"
+      },
+      {
+        "path": "/mnt/lightsem-data/cache/justdance_structure/6h1MUO-uEcU.npz",
+        "exists": true,
+        "size_bytes": 73130,
+        "mtime_utc": "2026-09-04T12:12:44.438776+00:00"
+      },
+      {
+        "path": "/mnt/lightsem-data/cache/justdance_audio/86zl8aljXbA.npz",
+        "exists": true,
+        "size_bytes": 2156581,
+        "mtime_utc": "2026-09-04T11:42:15.075098+00:00"
+      },
+      {
+        "path": "/mnt/lightsem-data/cache/justdance_structure/86zl8aljXbA.npz",
+        "exists": true,
+        "size_bytes": 89683,
+        "mtime_utc": "2026-09-04T12:12:53.493473+00:00"
+      },
+      {
+        "path": "/mnt/lightsem-data/cache/justdance_audio/8STzZEtqBNY.npz",
+        "exists": true,
+        "size_bytes": 1798733,
+        "mtime_utc": "2026-09-04T11:54:07.315293+00:00"
+      },
+      {
+        "path": "/mnt/lightsem-data/cache/justdance_structure/8STzZEtqBNY.npz",
+        "exists": true,
+        "size_bytes": 68569,
+        "mtime_utc": "2026-09-04T12:12:54.361540+00:00"
+      },
+      {
+        "path": "/mnt/lightsem-data/cache/justdance_audio/MCxmee3Isv4.npz",
+        "exists": true,
+        "size_bytes": 1761091,
+        "mtime_utc": "2026-09-04T11:53:45.001041+00:00"
+      },
+      {
+        "path": "/mnt/lightsem-data/cache/justdance_structure/MCxmee3Isv4.npz",
+        "exists": true,
+        "size_bytes": 68302,
+        "mtime_utc": "2026-09-04T12:14:18.679920+00:00"
+      },
+      {
+        "path": "/mnt/lightsem-data/cache/justdance_audio/MJTEt4aPhFQ.npz",
+        "exists": true,
+        "size_bytes": 1804798,
+        "mtime_utc": "2026-09-04T11:51:51.139650+00:00"
+      },
+      {
+        "path": "/mnt/lightsem-data/cache/justdance_structure/MJTEt4aPhFQ.npz",
+        "exists": true,
+        "size_bytes": 70544,
+        "mtime_utc": "2026-09-04T12:14:21.299115+00:00"
+      },
+      {
+        "path": "/mnt/lightsem-data/cache/justdance_audio/MUVg2uB8O2U.npz",
+        "exists": true,
+        "size_bytes": 1794870,
+        "mtime_utc": "2026-09-04T11:46:34.036789+00:00"
+      },
+      {
+        "path": "/mnt/lightsem-data/cache/justdance_structure/MUVg2uB8O2U.npz",
+        "exists": true,
+        "size_bytes": 71687,
+        "mtime_utc": "2026-09-04T12:14:22.643215+00:00"
+      },
+      {
+        "path": "/mnt/lightsem-data/cache/justdance_audio/McAbcL9UcrI.npz",
+        "exists": true,
+        "size_bytes": 1995740,
+        "mtime_utc": "2026-09-04T11:44:34.001995+00:00"
+      },
+      {
+        "path": "/mnt/lightsem-data/cache/justdance_structure/McAbcL9UcrI.npz",
+        "exists": true,
+        "size_bytes": 79210,
+        "mtime_utc": "2026-09-04T12:14:24.169328+00:00"
+      },
+      {
+        "path": "/mnt/lightsem-data/cache/justdance_audio/QqOZA2nA3lA.npz",
+        "exists": true,
+        "size_bytes": 1545675,
+        "mtime_utc": "2026-09-04T11:48:24.324013+00:00"
+      },
+      {
+        "path": "/mnt/lightsem-data/cache/justdance_structure/QqOZA2nA3lA.npz",
+        "exists": true,
+        "size_bytes": 60606,
+        "mtime_utc": "2026-09-04T12:14:50.669290+00:00"
+      },
+      {
+        "path": "/mnt/lightsem-data/cache/justdance_audio/S3rvtitHrgs.npz",
+        "exists": true,
+        "size_bytes": 1585277,
+        "mtime_utc": "2026-09-04T11:46:32.254689+00:00"
+      },
+      {
+        "path": "/mnt/lightsem-data/cache/justdance_structure/S3rvtitHrgs.npz",
+        "exists": true,
+        "size_bytes": 61856,
+        "mtime_utc": "2026-09-04T12:15:07.395519+00:00"
+      },
+      {
+        "path": "/mnt/lightsem-data/cache/justdance_audio/SOB351Unqsw.npz",
+        "exists": true,
+        "size_bytes": 1928312,
+        "mtime_utc": "2026-09-04T11:50:23.570728+00:00"
+      },
+      {
+        "path": "/mnt/lightsem-data/cache/justdance_structure/SOB351Unqsw.npz",
+        "exists": true,
+        "size_bytes": 76929,
+        "mtime_utc": "2026-09-04T12:15:12.731910+00:00"
+      },
+      {
+        "path": "/mnt/lightsem-data/cache/justdance_audio/UDQLbRicvic.npz",
+        "exists": true,
+        "size_bytes": 1584826,
+        "mtime_utc": "2026-09-04T11:42:51.952198+00:00"
+      },
+      {
+        "path": "/mnt/lightsem-data/cache/justdance_structure/UDQLbRicvic.npz",
+        "exists": true,
+        "size_bytes": 61971,
+        "mtime_utc": "2026-09-04T12:15:23.565701+00:00"
+      },
+      {
+        "path": "/mnt/lightsem-data/cache/justdance_audio/YLRnUx-1kyQ.npz",
+        "exists": true,
+        "size_bytes": 2196624,
+        "mtime_utc": "2026-09-04T11:46:56.634066+00:00"
+      },
+      {
+        "path": "/mnt/lightsem-data/cache/justdance_structure/YLRnUx-1kyQ.npz",
+        "exists": true,
+        "size_bytes": 87774,
+        "mtime_utc": "2026-09-04T12:15:45.729311+00:00"
+      },
+      {
+        "path": "/mnt/lightsem-data/cache/justdance_audio/Z9yFg55IVls.npz",
+        "exists": true,
+        "size_bytes": 1947249,
+        "mtime_utc": "2026-09-04T11:54:18.328910+00:00"
+      },
+      {
+        "path": "/mnt/lightsem-data/cache/justdance_structure/Z9yFg55IVls.npz",
+        "exists": true,
+        "size_bytes": 76954,
+        "mtime_utc": "2026-09-04T12:15:56.007053+00:00"
+      },
+      {
+        "path": "/mnt/lightsem-data/cache/justdance_audio/_8f3hZ23ZEs.npz",
+        "exists": true,
+        "size_bytes": 1711074,
+        "mtime_utc": "2026-09-04T11:50:13.916185+00:00"
+      },
+      {
+        "path": "/mnt/lightsem-data/cache/justdance_structure/_8f3hZ23ZEs.npz",
+        "exists": true,
+        "size_bytes": 69838,
+        "mtime_utc": "2026-09-04T12:16:01.306436+00:00"
+      },
+      {
+        "path": "/mnt/lightsem-data/cache/justdance_audio/by-QcR2GehQ.npz",
+        "exists": true,
+        "size_bytes": 1967025,
+        "mtime_utc": "2026-09-04T11:47:37.338364+00:00"
+      },
+      {
+        "path": "/mnt/lightsem-data/cache/justdance_structure/by-QcR2GehQ.npz",
+        "exists": true,
+        "size_bytes": 80125,
+        "mtime_utc": "2026-09-04T12:16:18.655682+00:00"
+      },
+      {
+        "path": "/mnt/lightsem-data/cache/justdance_audio/cNHRSZt_6t0.npz",
+        "exists": true,
+        "size_bytes": 1859139,
+        "mtime_utc": "2026-09-04T11:41:45.066387+00:00"
+      },
+      {
+        "path": "/mnt/lightsem-data/cache/justdance_structure/cNHRSZt_6t0.npz",
+        "exists": true,
+        "size_bytes": 76874,
+        "mtime_utc": "2026-09-04T12:16:23.351019+00:00"
+      },
+      {
+        "path": "/mnt/lightsem-data/cache/justdance_audio/j3CHXyWRcu0.npz",
+        "exists": true,
+        "size_bytes": 1320918,
+        "mtime_utc": "2026-09-04T11:45:24.810874+00:00"
+      },
+      {
+        "path": "/mnt/lightsem-data/cache/justdance_structure/j3CHXyWRcu0.npz",
+        "exists": true,
+        "size_bytes": 54627,
+        "mtime_utc": "2026-09-04T12:17:10.584378+00:00"
+      },
+      {
+        "path": "/mnt/lightsem-data/cache/justdance_audio/jtng7Rnn_TE.npz",
+        "exists": true,
+        "size_bytes": 1611909,
+        "mtime_utc": "2026-09-04T11:54:28.636488+00:00"
+      },
+      {
+        "path": "/mnt/lightsem-data/cache/justdance_structure/jtng7Rnn_TE.npz",
+        "exists": true,
+        "size_bytes": 64731,
+        "mtime_utc": "2026-09-04T12:17:15.951757+00:00"
+      },
+      {
+        "path": "/mnt/lightsem-data/cache/justdance_audio/kP7vUn33uGU.npz",
+        "exists": true,
+        "size_bytes": 1690123,
+        "mtime_utc": "2026-09-04T11:49:48.728767+00:00"
+      },
+      {
+        "path": "/mnt/lightsem-data/cache/justdance_structure/kP7vUn33uGU.npz",
+        "exists": true,
+        "size_bytes": 67763,
+        "mtime_utc": "2026-09-04T12:17:18.356927+00:00"
+      },
+      {
+        "path": "/mnt/lightsem-data/cache/justdance_audio/pElmR7GBYas.npz",
+        "exists": true,
+        "size_bytes": 1884956,
+        "mtime_utc": "2026-09-04T11:50:49.310175+00:00"
+      },
+      {
+        "path": "/mnt/lightsem-data/cache/justdance_structure/pElmR7GBYas.npz",
+        "exists": true,
+        "size_bytes": 74864,
+        "mtime_utc": "2026-09-04T12:17:51.367245+00:00"
+      },
+      {
+        "path": "/mnt/lightsem-data/cache/justdance_audio/sYFCc12rZTU.npz",
+        "exists": true,
+        "size_bytes": 1662163,
+        "mtime_utc": "2026-09-04T11:51:41.193091+00:00"
+      },
+      {
+        "path": "/mnt/lightsem-data/cache/justdance_structure/sYFCc12rZTU.npz",
+        "exists": true,
+        "size_bytes": 65015,
+        "mtime_utc": "2026-09-04T12:18:12.497719+00:00"
+      },
+      {
+        "path": "/mnt/lightsem-data/cache/justdance_audio/wDTjpfZMXak.npz",
+        "exists": true,
+        "size_bytes": 1861123,
+        "mtime_utc": "2026-09-04T11:44:34.076999+00:00"
+      },
+      {
+        "path": "/mnt/lightsem-data/cache/justdance_structure/wDTjpfZMXak.npz",
+        "exists": true,
+        "size_bytes": 74841,
+        "mtime_utc": "2026-09-04T12:18:47.090115+00:00"
+      },
+      {
+        "path": "/mnt/lightsem-data/cache/justdance_audio/wn2iikAmmJw.npz",
+        "exists": true,
+        "size_bytes": 1808171,
+        "mtime_utc": "2026-09-04T11:51:34.095692+00:00"
+      },
+      {
+        "path": "/mnt/lightsem-data/cache/justdance_structure/wn2iikAmmJw.npz",
+        "exists": true,
+        "size_bytes": 73199,
+        "mtime_utc": "2026-09-04T12:18:51.718435+00:00"
+      },
+      {
+        "path": "/mnt/lightsem-data/cache/justdance_audio/x372dV0owm8.npz",
+        "exists": true,
+        "size_bytes": 1763941,
+        "mtime_utc": "2026-09-04T11:53:21.874744+00:00"
+      },
+      {
+        "path": "/mnt/lightsem-data/cache/justdance_structure/x372dV0owm8.npz",
+        "exists": true,
+        "size_bytes": 70752,
+        "mtime_utc": "2026-09-04T12:18:52.974521+00:00"
+      },
+      {
+        "path": "/mnt/lightsem-data/cache/justdance_audio/y9WUm3QvHK0.npz",
+        "exists": true,
+        "size_bytes": 2105822,
+        "mtime_utc": "2026-09-04T11:54:12.229568+00:00"
+      },
+      {
+        "path": "/mnt/lightsem-data/cache/justdance_structure/y9WUm3QvHK0.npz",
+        "exists": true,
+        "size_bytes": 83487,
+        "mtime_utc": "2026-09-04T12:18:59.668982+00:00"
+      },
+      {
+        "path": "/mnt/lightsem-data/cache/justdance_audio/yAvEt3cZI2I.npz",
+        "exists": true,
+        "size_bytes": 1892900,
+        "mtime_utc": "2026-09-04T11:51:06.400136+00:00"
+      },
+      {
+        "path": "/mnt/lightsem-data/cache/justdance_structure/yAvEt3cZI2I.npz",
+        "exists": true,
+        "size_bytes": 74056,
+        "mtime_utc": "2026-09-04T12:19:00.365030+00:00"
+      },
+      {
+        "path": "/mnt/lightsem-data/cache/justdance_audio/zARI9hxqxRM.npz",
+        "exists": true,
+        "size_bytes": 1964255,
+        "mtime_utc": "2026-09-04T11:50:49.679196+00:00"
+      },
+      {
+        "path": "/mnt/lightsem-data/cache/justdance_structure/zARI9hxqxRM.npz",
+        "exists": true,
+        "size_bytes": 78782,
+        "mtime_utc": "2026-09-04T12:19:07.531523+00:00"
+      },
+      {
+        "path": "/mnt/lightsem-data/cache/justdance_audio/zBzdeWM3VvE.npz",
+        "exists": true,
+        "size_bytes": 2029998,
+        "mtime_utc": "2026-09-04T11:45:00.506497+00:00"
+      },
+      {
+        "path": "/mnt/lightsem-data/cache/justdance_structure/zBzdeWM3VvE.npz",
+        "exists": true,
+        "size_bytes": 80502,
+        "mtime_utc": "2026-09-04T12:19:12.341853+00:00"
+      },
+      {
+        "path": "/mnt/lightsem-data/cache/justdance_motion/MCxmee3Isv4_c0.npz",
+        "exists": true,
+        "size_bytes": 831709,
+        "mtime_utc": "2026-09-04T16:19:00.387343+00:00"
+      },
+      {
+        "path": "/mnt/lightsem-data/cache/justdance_motion/UDQLbRicvic_c0.npz",
+        "exists": true,
+        "size_bytes": 742018,
+        "mtime_utc": "2026-09-04T16:19:02.408441+00:00"
+      },
+      {
+        "path": "/mnt/lightsem-data/cache/justdance_motion/McAbcL9UcrI_c0.npz",
+        "exists": true,
+        "size_bytes": 942845,
+        "mtime_utc": "2026-09-04T14:46:34.806722+00:00"
+      },
+      {
+        "path": "/mnt/lightsem-data/cache/justdance_motion/6h1MUO-uEcU_c1.npz",
+        "exists": true,
+        "size_bytes": 892063,
+        "mtime_utc": "2026-09-04T14:46:32.424565+00:00"
+      },
+      {
+        "path": "/mnt/lightsem-data/cache/justdance_motion/j3CHXyWRcu0_c0.npz",
+        "exists": true,
+        "size_bytes": 654636,
+        "mtime_utc": "2026-09-04T16:19:06.520641+00:00"
+      },
+      {
+        "path": "/mnt/lightsem-data/cache/justdance_motion/by-QcR2GehQ_c0.npz",
+        "exists": true,
+        "size_bytes": 926132,
+        "mtime_utc": "2026-09-04T14:46:37.470897+00:00"
+      },
+      {
+        "path": "/mnt/lightsem-data/cache/justdance_motion/wDTjpfZMXak_c0.npz",
+        "exists": true,
+        "size_bytes": 897164,
+        "mtime_utc": "2026-09-04T14:46:41.463160+00:00"
+      },
+      {
+        "path": "/mnt/lightsem-data/cache/justdance_motion/2B1m9gH_jUc_c1.npz",
+        "exists": true,
+        "size_bytes": 803694,
+        "mtime_utc": "2026-09-04T16:18:57.282192+00:00"
+      },
+      {
+        "path": "/mnt/lightsem-data/cache/justdance_motion/wn2iikAmmJw_c0.npz",
+        "exists": true,
+        "size_bytes": 873691,
+        "mtime_utc": "2026-09-04T14:46:41.654172+00:00"
+      },
+      {
+        "path": "/mnt/lightsem-data/cache/justdance_motion/zARI9hxqxRM_c0.npz",
+        "exists": true,
+        "size_bytes": 855239,
+        "mtime_utc": "2026-09-04T14:46:41.933191+00:00"
+      },
+      {
+        "path": "/mnt/lightsem-data/cache/justdance_motion/86zl8aljXbA_c0.npz",
+        "exists": true,
+        "size_bytes": 1008071,
+        "mtime_utc": "2026-09-04T12:30:40.542744+00:00"
+      },
+      {
+        "path": "/mnt/lightsem-data/cache/justdance_motion/-naODqbb4B0_c2.npz",
+        "exists": true,
+        "size_bytes": 928094,
+        "mtime_utc": "2026-09-04T13:25:52.964304+00:00"
+      },
+      {
+        "path": "/mnt/lightsem-data/cache/justdance_motion/kP7vUn33uGU_c0.npz",
+        "exists": true,
+        "size_bytes": 750456,
+        "mtime_utc": "2026-09-04T16:19:06.694650+00:00"
+      },
+      {
+        "path": "/mnt/lightsem-data/cache/justdance_motion/S3rvtitHrgs_c1.npz",
+        "exists": true,
+        "size_bytes": 703100,
+        "mtime_utc": "2026-09-04T16:19:01.962420+00:00"
+      },
+      {
+        "path": "/mnt/lightsem-data/cache/justdance_motion/SOB351Unqsw_c0.npz",
+        "exists": true,
+        "size_bytes": 851183,
+        "mtime_utc": "2026-09-04T14:46:35.859791+00:00"
+      },
+      {
+        "path": "/mnt/lightsem-data/cache/justdance_motion/jtng7Rnn_TE_c0.npz",
+        "exists": true,
+        "size_bytes": 773036,
+        "mtime_utc": "2026-09-04T16:19:06.621646+00:00"
+      },
+      {
+        "path": "/mnt/lightsem-data/cache/justdance_motion/8STzZEtqBNY_c0.npz",
+        "exists": true,
+        "size_bytes": 800633,
+        "mtime_utc": "2026-09-04T16:18:58.321243+00:00"
+      },
+      {
+        "path": "/mnt/lightsem-data/cache/justdance_motion/by-QcR2GehQ_c1.npz",
+        "exists": true,
+        "size_bytes": 929519,
+        "mtime_utc": "2026-09-04T14:46:37.523901+00:00"
+      },
+      {
+        "path": "/mnt/lightsem-data/cache/justdance_motion/Z9yFg55IVls_c0.npz",
+        "exists": true,
+        "size_bytes": 945579,
+        "mtime_utc": "2026-09-04T14:46:36.929862+00:00"
+      },
+      {
+        "path": "/mnt/lightsem-data/cache/justdance_motion/MJTEt4aPhFQ_c1.npz",
+        "exists": true,
+        "size_bytes": 859614,
+        "mtime_utc": "2026-09-04T16:19:00.586353+00:00"
+      },
+      {
+        "path": "/mnt/lightsem-data/cache/justdance_motion/y9WUm3QvHK0_c2.npz",
+        "exists": true,
+        "size_bytes": 1016787,
+        "mtime_utc": "2026-09-04T13:25:55.790487+00:00"
+      },
+      {
+        "path": "/mnt/lightsem-data/cache/justdance_motion/2B1m9gH_jUc_c0.npz",
+        "exists": true,
+        "size_bytes": 815482,
+        "mtime_utc": "2026-09-04T16:18:57.235190+00:00"
+      },
+      {
+        "path": "/mnt/lightsem-data/cache/justdance_motion/-naODqbb4B0_c1.npz",
+        "exists": true,
+        "size_bytes": 922663,
+        "mtime_utc": "2026-09-04T13:25:52.910300+00:00"
+      },
+      {
+        "path": "/mnt/lightsem-data/cache/justdance_motion/yAvEt3cZI2I_c0.npz",
+        "exists": true,
+        "size_bytes": 832043,
+        "mtime_utc": "2026-09-04T14:46:41.734178+00:00"
+      },
+      {
+        "path": "/mnt/lightsem-data/cache/justdance_motion/MJTEt4aPhFQ_c0.npz",
+        "exists": true,
+        "size_bytes": 861315,
+        "mtime_utc": "2026-09-04T16:19:00.536350+00:00"
+      },
+      {
+        "path": "/mnt/lightsem-data/cache/justdance_motion/QqOZA2nA3lA_c0.npz",
+        "exists": true,
+        "size_bytes": 698456,
+        "mtime_utc": "2026-09-04T16:19:01.363390+00:00"
+      },
+      {
+        "path": "/mnt/lightsem-data/cache/justdance_motion/by-QcR2GehQ_c2.npz",
+        "exists": true,
+        "size_bytes": 930421,
+        "mtime_utc": "2026-09-04T14:46:37.577904+00:00"
+      },
+      {
+        "path": "/mnt/lightsem-data/cache/justdance_motion/-naODqbb4B0_c0.npz",
+        "exists": true,
+        "size_bytes": 917065,
+        "mtime_utc": "2026-09-04T13:25:52.854297+00:00"
+      },
+      {
+        "path": "/mnt/lightsem-data/cache/justdance_motion/YLRnUx-1kyQ_c0.npz",
+        "exists": true,
+        "size_bytes": 1029346,
+        "mtime_utc": "2026-09-04T12:56:17.368033+00:00"
+      },
+      {
+        "path": "/mnt/lightsem-data/cache/justdance_motion/6-qHvsxgsRA_c0.npz",
+        "exists": true,
+        "size_bytes": 927834,
+        "mtime_utc": "2026-09-04T13:25:53.338328+00:00"
+      },
+      {
+        "path": "/mnt/lightsem-data/cache/justdance_motion/MUVg2uB8O2U_c0.npz",
+        "exists": true,
+        "size_bytes": 850446,
+        "mtime_utc": "2026-09-04T16:19:00.652356+00:00"
+      },
+      {
+        "path": "/mnt/lightsem-data/cache/justdance_motion/sYFCc12rZTU_c0.npz",
+        "exists": true,
+        "size_bytes": 780080,
+        "mtime_utc": "2026-09-04T16:19:08.069717+00:00"
+      },
+      {
+        "path": "/mnt/lightsem-data/cache/justdance_motion/QqOZA2nA3lA_c1.npz",
+        "exists": true,
+        "size_bytes": 703552,
+        "mtime_utc": "2026-09-04T16:19:01.404392+00:00"
+      },
+      {
+        "path": "/mnt/lightsem-data/cache/justdance_motion/SOB351Unqsw_c2.npz",
+        "exists": true,
+        "size_bytes": 854414,
+        "mtime_utc": "2026-09-04T14:46:35.960798+00:00"
+      },
+      {
+        "path": "/mnt/lightsem-data/cache/justdance_motion/cNHRSZt_6t0_c0.npz",
+        "exists": true,
+        "size_bytes": 859517,
+        "mtime_utc": "2026-09-04T14:46:37.650909+00:00"
+      },
+      {
+        "path": "/mnt/lightsem-data/cache/justdance_motion/pElmR7GBYas_c0.npz",
+        "exists": true,
+        "size_bytes": 826703,
+        "mtime_utc": "2026-09-04T14:46:40.511097+00:00"
+      },
+      {
+        "path": "/mnt/lightsem-data/cache/justdance_motion/zBzdeWM3VvE_c0.npz",
+        "exists": true,
+        "size_bytes": 987179,
+        "mtime_utc": "2026-09-04T14:46:42.013196+00:00"
+      },
+      {
+        "path": "/mnt/lightsem-data/cache/justdance_motion/_8f3hZ23ZEs_c0.npz",
+        "exists": true,
+        "size_bytes": 844063,
+        "mtime_utc": "2026-09-04T16:19:03.345487+00:00"
+      },
+      {
+        "path": "/mnt/lightsem-data/cache/justdance_motion/SOB351Unqsw_c1.npz",
+        "exists": true,
+        "size_bytes": 866210,
+        "mtime_utc": "2026-09-04T14:46:35.910794+00:00"
+      },
+      {
+        "path": "/mnt/lightsem-data/cache/justdance_motion/x372dV0owm8_c0.npz",
+        "exists": true,
+        "size_bytes": 848210,
+        "mtime_utc": "2026-09-04T16:19:09.340779+00:00"
+      }
+    ],
+    "row11": [
+      {
+        "path": "/mnt/lightsem-data/cache/justdance_visual/1wZ2N37YpwM.npz",
+        "exists": true,
+        "size_bytes": 504858,
+        "mtime_utc": "2026-09-04T16:20:14.168958+00:00"
+      },
+      {
+        "path": "/mnt/lightsem-data/cache/justdance_visual/1zWsASSn1g0.npz",
+        "exists": true,
+        "size_bytes": 480652,
+        "mtime_utc": "2026-09-04T16:20:08.924700+00:00"
+      },
+      {
+        "path": "/mnt/lightsem-data/cache/justdance_visual/5X_0mhASGXc.npz",
+        "exists": true,
+        "size_bytes": 597837,
+        "mtime_utc": "2026-09-04T13:27:08.479163+00:00"
+      },
+      {
+        "path": "/mnt/lightsem-data/cache/justdance_visual/61GLugcua28.npz",
+        "exists": true,
+        "size_bytes": 453957,
+        "mtime_utc": "2026-09-04T16:21:13.160887+00:00"
+      },
+      {
+        "path": "/mnt/lightsem-data/cache/justdance_visual/9G3h3KXwR4o.npz",
+        "exists": true,
+        "size_bytes": 453189,
+        "mtime_utc": "2026-09-04T16:22:04.504461+00:00"
+      },
+      {
+        "path": "/mnt/lightsem-data/cache/justdance_visual/9ZBZCeEvjPo.npz",
+        "exists": true,
+        "size_bytes": 414596,
+        "mtime_utc": "2026-09-04T16:22:32.502873+00:00"
+      },
+      {
+        "path": "/mnt/lightsem-data/cache/justdance_visual/9jopfWudYww.npz",
+        "exists": true,
+        "size_bytes": 550909,
+        "mtime_utc": "2026-09-04T13:27:37.294998+00:00"
+      },
+      {
+        "path": "/mnt/lightsem-data/cache/justdance_visual/AjR5kkPmJvE.npz",
+        "exists": true,
+        "size_bytes": 372909,
+        "mtime_utc": "2026-09-04T16:22:46.113562+00:00"
+      },
+      {
+        "path": "/mnt/lightsem-data/cache/justdance_visual/AtCDv9rpNwE.npz",
+        "exists": true,
+        "size_bytes": 460500,
+        "mtime_utc": "2026-09-04T16:22:45.856549+00:00"
+      },
+      {
+        "path": "/mnt/lightsem-data/cache/justdance_visual/IozjYg1Wdd4.npz",
+        "exists": true,
+        "size_bytes": 622491,
+        "mtime_utc": "2026-09-04T12:57:08.581498+00:00"
+      },
+      {
+        "path": "/mnt/lightsem-data/cache/justdance_visual/P5yQCdmz3ew.npz",
+        "exists": true,
+        "size_bytes": 473887,
+        "mtime_utc": "2026-09-04T16:26:26.815893+00:00"
+      },
+      {
+        "path": "/mnt/lightsem-data/cache/justdance_visual/QtlqkJQBCp8.npz",
+        "exists": true,
+        "size_bytes": 564473,
+        "mtime_utc": "2026-09-04T13:28:48.891515+00:00"
+      },
+      {
+        "path": "/mnt/lightsem-data/cache/justdance_visual/QwYqMzg6LfQ.npz",
+        "exists": true,
+        "size_bytes": 494652,
+        "mtime_utc": "2026-09-04T16:27:14.186358+00:00"
+      },
+      {
+        "path": "/mnt/lightsem-data/cache/justdance_visual/S3rvtitHrgs.npz",
+        "exists": true,
+        "size_bytes": 429048,
+        "mtime_utc": "2026-09-04T16:27:52.642367+00:00"
+      },
+      {
+        "path": "/mnt/lightsem-data/cache/justdance_visual/SWJ2veRyobU.npz",
+        "exists": true,
+        "size_bytes": 427859,
+        "mtime_utc": "2026-09-04T16:28:06.794107+00:00"
+      },
+      {
+        "path": "/mnt/lightsem-data/cache/justdance_visual/Vq_Un3r6-QE.npz",
+        "exists": true,
+        "size_bytes": 510902,
+        "mtime_utc": "2026-09-04T16:29:07.845311+00:00"
+      },
+      {
+        "path": "/mnt/lightsem-data/cache/justdance_visual/awVxB4MdMeE.npz",
+        "exists": true,
+        "size_bytes": 368686,
+        "mtime_utc": "2026-09-04T16:30:44.128389+00:00"
+      },
+      {
+        "path": "/mnt/lightsem-data/cache/justdance_visual/bMZAuhadz2Y.npz",
+        "exists": true,
+        "size_bytes": 421116,
+        "mtime_utc": "2026-09-04T16:30:52.877851+00:00"
+      },
+      {
+        "path": "/mnt/lightsem-data/cache/justdance_visual/bQca5WpcNjI.npz",
+        "exists": true,
+        "size_bytes": 527469,
+        "mtime_utc": "2026-09-04T16:31:05.795535+00:00"
+      },
+      {
+        "path": "/mnt/lightsem-data/cache/justdance_visual/by-QcR2GehQ.npz",
+        "exists": true,
+        "size_bytes": 526050,
+        "mtime_utc": "2026-09-04T16:31:19.633268+00:00"
+      },
+      {
+        "path": "/mnt/lightsem-data/cache/justdance_visual/eV4kPGM2RBo.npz",
+        "exists": true,
+        "size_bytes": 431104,
+        "mtime_utc": "2026-09-04T16:32:12.223058+00:00"
+      },
+      {
+        "path": "/mnt/lightsem-data/cache/justdance_visual/ftzNL18PRxg.npz",
+        "exists": true,
+        "size_bytes": 558060,
+        "mtime_utc": "2026-09-04T13:29:44.614995+00:00"
+      },
+      {
+        "path": "/mnt/lightsem-data/cache/justdance_visual/i2RG2XFUfd0.npz",
+        "exists": true,
+        "size_bytes": 343910,
+        "mtime_utc": "2026-09-04T16:33:53.900469+00:00"
+      },
+      {
+        "path": "/mnt/lightsem-data/cache/justdance_visual/j3CHXyWRcu0.npz",
+        "exists": true,
+        "size_bytes": 350563,
+        "mtime_utc": "2026-09-04T16:34:14.046544+00:00"
+      },
+      {
+        "path": "/mnt/lightsem-data/cache/justdance_visual/l8WxpazGFug.npz",
+        "exists": true,
+        "size_bytes": 440894,
+        "mtime_utc": "2026-09-04T16:35:07.872419+00:00"
+      },
+      {
+        "path": "/mnt/lightsem-data/cache/justdance_visual/mSaM3yScgjY.npz",
+        "exists": true,
+        "size_bytes": 520826,
+        "mtime_utc": "2026-09-04T16:35:17.373927+00:00"
+      },
+      {
+        "path": "/mnt/lightsem-data/cache/justdance_visual/moryohPkTSY.npz",
+        "exists": true,
+        "size_bytes": 359361,
+        "mtime_utc": "2026-09-04T16:35:19.869061+00:00"
+      },
+      {
+        "path": "/mnt/lightsem-data/cache/justdance_visual/oxioohk_i9M.npz",
+        "exists": true,
+        "size_bytes": 568334,
+        "mtime_utc": "2026-09-04T12:57:29.343504+00:00"
+      },
+      {
+        "path": "/mnt/lightsem-data/cache/justdance_visual/pRsYZ4Gcf2Y.npz",
+        "exists": true,
+        "size_bytes": 535850,
+        "mtime_utc": "2026-09-04T16:36:26.375621+00:00"
+      },
+      {
+        "path": "/mnt/lightsem-data/cache/justdance_visual/qryAuIqG8oo.npz",
+        "exists": true,
+        "size_bytes": 506834,
+        "mtime_utc": "2026-09-04T16:36:56.589241+00:00"
+      },
+      {
+        "path": "/mnt/lightsem-data/cache/justdance_visual/v-8l_EBgloE.npz",
+        "exists": true,
+        "size_bytes": 476756,
+        "mtime_utc": "2026-09-04T16:38:08.586844+00:00"
+      },
+      {
+        "path": "/mnt/lightsem-data/cache/justdance_visual/vK9-GpUW-9I.npz",
+        "exists": true,
+        "size_bytes": 462675,
+        "mtime_utc": "2026-09-04T16:38:27.472715+00:00"
+      },
+      {
+        "path": "/mnt/lightsem-data/cache/justdance_visual/vPu3WGIoyD4.npz",
+        "exists": true,
+        "size_bytes": 575186,
+        "mtime_utc": "2026-09-04T12:57:44.974264+00:00"
+      },
+      {
+        "path": "/mnt/lightsem-data/cache/justdance_visual/vYSr3hlJT5s.npz",
+        "exists": true,
+        "size_bytes": 463415,
+        "mtime_utc": "2026-09-04T16:38:38.799239+00:00"
+      },
+      {
+        "path": "/mnt/lightsem-data/cache/justdance_visual/xl0R5sSUv4A.npz",
+        "exists": true,
+        "size_bytes": 367865,
+        "mtime_utc": "2026-09-04T16:39:06.725539+00:00"
+      },
+      {
+        "path": "/mnt/lightsem-data/cache/justdance_visual/yAvEt3cZI2I.npz",
+        "exists": true,
+        "size_bytes": 490369,
+        "mtime_utc": "2026-09-04T16:39:19.083118+00:00"
+      },
+      {
+        "path": "/mnt/lightsem-data/cache/justdance_visual/yk16UVCP7wY.npz",
+        "exists": true,
+        "size_bytes": 504622,
+        "mtime_utc": "2026-09-04T16:39:42.077200+00:00"
+      },
+      {
+        "path": "/mnt/lightsem-data/cache/justdance_visual/zoi0FvFcr9A.npz",
+        "exists": true,
+        "size_bytes": 263200,
+        "mtime_utc": "2026-09-04T16:40:07.096384+00:00"
+      },
+      {
+        "path": "/mnt/lightsem-data/cache/rpmc_causal/04436530643fd8c0.npz",
+        "exists": true,
+        "size_bytes": 226941,
+        "mtime_utc": "2026-09-04T10:05:24.514268+00:00"
+      },
+      {
+        "path": "/mnt/lightsem-data/cache/rpmc_causal/0882b0514fcbe441.npz",
+        "exists": true,
+        "size_bytes": 88326,
+        "mtime_utc": "2026-09-04T10:05:25.932353+00:00"
+      },
+      {
+        "path": "/mnt/lightsem-data/cache/rpmc_causal/10dbe9df876b1027.npz",
+        "exists": true,
+        "size_bytes": 246624,
+        "mtime_utc": "2026-09-04T10:05:29.193548+00:00"
+      },
+      {
+        "path": "/mnt/lightsem-data/cache/rpmc_causal/146cba3ba997447d.npz",
+        "exists": true,
+        "size_bytes": 170421,
+        "mtime_utc": "2026-09-04T10:05:30.345617+00:00"
+      },
+      {
+        "path": "/mnt/lightsem-data/cache/rpmc_causal/16f032753044f20d.npz",
+        "exists": true,
+        "size_bytes": 217213,
+        "mtime_utc": "2026-09-04T10:05:30.918652+00:00"
+      },
+      {
+        "path": "/mnt/lightsem-data/cache/rpmc_causal/1768fb9677cd5421.npz",
+        "exists": true,
+        "size_bytes": 119819,
+        "mtime_utc": "2026-09-04T10:05:31.151666+00:00"
+      },
+      {
+        "path": "/mnt/lightsem-data/cache/rpmc_causal/1876123b5bac1b66.npz",
+        "exists": true,
+        "size_bytes": 96976,
+        "mtime_utc": "2026-09-04T10:05:32.220730+00:00"
+      },
+      {
+        "path": "/mnt/lightsem-data/cache/rpmc_causal/1c326f2f4c5c8e00.npz",
+        "exists": true,
+        "size_bytes": 137582,
+        "mtime_utc": "2026-09-04T10:05:32.595752+00:00"
+      },
+      {
+        "path": "/mnt/lightsem-data/cache/rpmc_causal/2424d3db986f925f.npz",
+        "exists": true,
+        "size_bytes": 143064,
+        "mtime_utc": "2026-09-04T10:05:34.792883+00:00"
+      },
+      {
+        "path": "/mnt/lightsem-data/cache/rpmc_causal/258eeea9dcb006fa.npz",
+        "exists": true,
+        "size_bytes": 255749,
+        "mtime_utc": "2026-09-04T10:05:35.871948+00:00"
+      },
+      {
+        "path": "/mnt/lightsem-data/cache/rpmc_causal/28b121a0a64289f1.npz",
+        "exists": true,
+        "size_bytes": 86123,
+        "mtime_utc": "2026-09-04T10:05:36.476984+00:00"
+      },
+      {
+        "path": "/mnt/lightsem-data/cache/rpmc_causal/2c1da45364156487.npz",
+        "exists": true,
+        "size_bytes": 74448,
+        "mtime_utc": "2026-09-04T10:05:37.717058+00:00"
+      },
+      {
+        "path": "/mnt/lightsem-data/cache/rpmc_causal/2fc4f78f11360b83.npz",
+        "exists": true,
+        "size_bytes": 286814,
+        "mtime_utc": "2026-09-04T10:05:40.091200+00:00"
+      },
+      {
+        "path": "/mnt/lightsem-data/cache/rpmc_causal/32676ccebbd90a36.npz",
+        "exists": true,
+        "size_bytes": 85601,
+        "mtime_utc": "2026-09-04T10:05:40.845246+00:00"
+      },
+      {
+        "path": "/mnt/lightsem-data/cache/rpmc_causal/39ccb76525fab747.npz",
+        "exists": true,
+        "size_bytes": 441984,
+        "mtime_utc": "2026-09-04T10:05:44.115441+00:00"
+      },
+      {
+        "path": "/mnt/lightsem-data/cache/rpmc_causal/3c50291222827f62.npz",
+        "exists": true,
+        "size_bytes": 128537,
+        "mtime_utc": "2026-09-04T10:05:44.808482+00:00"
+      },
+      {
+        "path": "/mnt/lightsem-data/cache/rpmc_causal/401c305b95ae91fd.npz",
+        "exists": true,
+        "size_bytes": 506044,
+        "mtime_utc": "2026-09-04T10:05:45.831544+00:00"
+      },
+      {
+        "path": "/mnt/lightsem-data/cache/rpmc_causal/405e97e28bddcd9f.npz",
+        "exists": true,
+        "size_bytes": 143417,
+        "mtime_utc": "2026-09-04T10:05:45.937550+00:00"
+      },
+      {
+        "path": "/mnt/lightsem-data/cache/rpmc_causal/40b67f00f59f364e.npz",
+        "exists": true,
+        "size_bytes": 103309,
+        "mtime_utc": "2026-09-04T10:05:46.021555+00:00"
+      },
+      {
+        "path": "/mnt/lightsem-data/cache/rpmc_causal/41eb3b20a6168d52.npz",
+        "exists": true,
+        "size_bytes": 162867,
+        "mtime_utc": "2026-09-04T10:05:46.325573+00:00"
+      },
+      {
+        "path": "/mnt/lightsem-data/cache/rpmc_causal/42cf25ccf9721818.npz",
+        "exists": true,
+        "size_bytes": 123741,
+        "mtime_utc": "2026-09-04T10:05:46.558587+00:00"
+      },
+      {
+        "path": "/mnt/lightsem-data/cache/rpmc_causal/44b55433147b270a.npz",
+        "exists": true,
+        "size_bytes": 272136,
+        "mtime_utc": "2026-09-04T10:05:47.034616+00:00"
+      },
+      {
+        "path": "/mnt/lightsem-data/cache/rpmc_causal/4650ac89141c2117.npz",
+        "exists": true,
+        "size_bytes": 179309,
+        "mtime_utc": "2026-09-04T10:05:47.626651+00:00"
+      },
+      {
+        "path": "/mnt/lightsem-data/cache/rpmc_causal/4694e88902bb0e0e.npz",
+        "exists": true,
+        "size_bytes": 130341,
+        "mtime_utc": "2026-09-04T10:05:47.794661+00:00"
+      },
+      {
+        "path": "/mnt/lightsem-data/cache/rpmc_causal/4ca29af76cb2d136.npz",
+        "exists": true,
+        "size_bytes": 338444,
+        "mtime_utc": "2026-09-04T10:05:49.878786+00:00"
+      },
+      {
+        "path": "/mnt/lightsem-data/cache/rpmc_causal/4e38e900f40c10da.npz",
+        "exists": true,
+        "size_bytes": 498431,
+        "mtime_utc": "2026-09-04T10:05:50.880846+00:00"
+      },
+      {
+        "path": "/mnt/lightsem-data/cache/rpmc_causal/570e22a62e2695b7.npz",
+        "exists": true,
+        "size_bytes": 87734,
+        "mtime_utc": "2026-09-04T10:05:52.785959+00:00"
+      },
+      {
+        "path": "/mnt/lightsem-data/cache/rpmc_causal/58833267052c6077.npz",
+        "exists": true,
+        "size_bytes": 70021,
+        "mtime_utc": "2026-09-04T10:05:53.318991+00:00"
+      },
+      {
+        "path": "/mnt/lightsem-data/cache/rpmc_causal/5d0ea1d3b9bf1289.npz",
+        "exists": true,
+        "size_bytes": 223844,
+        "mtime_utc": "2026-09-04T10:05:55.102098+00:00"
+      },
+      {
+        "path": "/mnt/lightsem-data/cache/rpmc_causal/5d722e22224186d4.npz",
+        "exists": true,
+        "size_bytes": 74904,
+        "mtime_utc": "2026-09-04T10:05:55.584127+00:00"
+      },
+      {
+        "path": "/mnt/lightsem-data/cache/rpmc_causal/5f936c817b6cfd9b.npz",
+        "exists": true,
+        "size_bytes": 186687,
+        "mtime_utc": "2026-09-04T10:05:56.220165+00:00"
+      },
+      {
+        "path": "/mnt/lightsem-data/cache/rpmc_causal/60145ac9e7eae0a7.npz",
+        "exists": true,
+        "size_bytes": 177401,
+        "mtime_utc": "2026-09-04T10:05:56.631189+00:00"
+      },
+      {
+        "path": "/mnt/lightsem-data/cache/rpmc_causal/69679e7337f8b21d.npz",
+        "exists": true,
+        "size_bytes": 195403,
+        "mtime_utc": "2026-09-04T10:06:01.064454+00:00"
+      },
+      {
+        "path": "/mnt/lightsem-data/cache/rpmc_causal/6c8ed6ed77f0456e.npz",
+        "exists": true,
+        "size_bytes": 443593,
+        "mtime_utc": "2026-09-04T10:06:01.733494+00:00"
+      },
+      {
+        "path": "/mnt/lightsem-data/cache/rpmc_causal/73742bfbf8b7201f.npz",
+        "exists": true,
+        "size_bytes": 71397,
+        "mtime_utc": "2026-09-04T10:06:02.590546+00:00"
+      },
+      {
+        "path": "/mnt/lightsem-data/cache/rpmc_causal/747430db6f2806c7.npz",
+        "exists": true,
+        "size_bytes": 707607,
+        "mtime_utc": "2026-09-04T10:06:03.016571+00:00"
+      },
+      {
+        "path": "/mnt/lightsem-data/cache/rpmc_causal/779faf83c234e5d4.npz",
+        "exists": true,
+        "size_bytes": 365845,
+        "mtime_utc": "2026-09-04T10:06:04.355651+00:00"
+      },
+      {
+        "path": "/mnt/lightsem-data/cache/rpmc_causal/77d5f19b5a41cd4f.npz",
+        "exists": true,
+        "size_bytes": 309892,
+        "mtime_utc": "2026-09-04T10:06:04.554663+00:00"
+      },
+      {
+        "path": "/mnt/lightsem-data/cache/rpmc_causal/7df345eeb9081cc7.npz",
+        "exists": true,
+        "size_bytes": 315387,
+        "mtime_utc": "2026-09-04T10:06:08.395893+00:00"
+      },
+      {
+        "path": "/mnt/lightsem-data/cache/rpmc_causal/8169c5a20da534d7.npz",
+        "exists": true,
+        "size_bytes": 137006,
+        "mtime_utc": "2026-09-04T10:06:09.672969+00:00"
+      },
+      {
+        "path": "/mnt/lightsem-data/cache/rpmc_causal/83fbd9412033e461.npz",
+        "exists": true,
+        "size_bytes": 161883,
+        "mtime_utc": "2026-09-04T10:06:10.327008+00:00"
+      },
+      {
+        "path": "/mnt/lightsem-data/cache/rpmc_causal/84de10d66a856158.npz",
+        "exists": true,
+        "size_bytes": 91813,
+        "mtime_utc": "2026-09-04T10:06:10.605025+00:00"
+      },
+      {
+        "path": "/mnt/lightsem-data/cache/rpmc_causal/85520fae5a631ae6.npz",
+        "exists": true,
+        "size_bytes": 620705,
+        "mtime_utc": "2026-09-04T10:06:11.511079+00:00"
+      },
+      {
+        "path": "/mnt/lightsem-data/cache/rpmc_causal/871e59349747b82d.npz",
+        "exists": true,
+        "size_bytes": 284025,
+        "mtime_utc": "2026-09-04T10:06:12.264124+00:00"
+      },
+      {
+        "path": "/mnt/lightsem-data/cache/rpmc_causal/89e2bf337a994603.npz",
+        "exists": true,
+        "size_bytes": 765642,
+        "mtime_utc": "2026-09-04T10:06:13.611204+00:00"
+      },
+      {
+        "path": "/mnt/lightsem-data/cache/rpmc_causal/8c917a701b18ada8.npz",
+        "exists": true,
+        "size_bytes": 72858,
+        "mtime_utc": "2026-09-04T10:06:14.881280+00:00"
+      },
+      {
+        "path": "/mnt/lightsem-data/cache/rpmc_causal/8eab8b9b1be0869b.npz",
+        "exists": true,
+        "size_bytes": 174440,
+        "mtime_utc": "2026-09-04T10:06:16.180358+00:00"
+      },
+      {
+        "path": "/mnt/lightsem-data/cache/rpmc_causal/911c8667eef06967.npz",
+        "exists": true,
+        "size_bytes": 143094,
+        "mtime_utc": "2026-09-04T10:06:19.995586+00:00"
+      },
+      {
+        "path": "/mnt/lightsem-data/cache/rpmc_causal/9227b92ff40e45b1.npz",
+        "exists": true,
+        "size_bytes": 610033,
+        "mtime_utc": "2026-09-04T10:06:21.000646+00:00"
+      },
+      {
+        "path": "/mnt/lightsem-data/cache/rpmc_causal/941c7caa0fff0fec.npz",
+        "exists": true,
+        "size_bytes": 437378,
+        "mtime_utc": "2026-09-04T10:06:21.922701+00:00"
+      },
+      {
+        "path": "/mnt/lightsem-data/cache/rpmc_causal/99ef7ae8b39fa2db.npz",
+        "exists": true,
+        "size_bytes": 246283,
+        "mtime_utc": "2026-09-04T10:06:25.218898+00:00"
+      },
+      {
+        "path": "/mnt/lightsem-data/cache/rpmc_causal/9cbf0405dd953860.npz",
+        "exists": true,
+        "size_bytes": 92585,
+        "mtime_utc": "2026-09-04T10:06:26.869996+00:00"
+      },
+      {
+        "path": "/mnt/lightsem-data/cache/rpmc_causal/a29750c8aa0e1b34.npz",
+        "exists": true,
+        "size_bytes": 219268,
+        "mtime_utc": "2026-09-04T10:06:28.477093+00:00"
+      },
+      {
+        "path": "/mnt/lightsem-data/cache/rpmc_causal/a62c2e8100dcb360.npz",
+        "exists": true,
+        "size_bytes": 209911,
+        "mtime_utc": "2026-09-04T10:06:28.974122+00:00"
+      },
+      {
+        "path": "/mnt/lightsem-data/cache/rpmc_causal/aae136a4a4ecf337.npz",
+        "exists": true,
+        "size_bytes": 113262,
+        "mtime_utc": "2026-09-04T10:06:30.463211+00:00"
+      },
+      {
+        "path": "/mnt/lightsem-data/cache/rpmc_causal/aced2f8b2fe6d3db.npz",
+        "exists": true,
+        "size_bytes": 214428,
+        "mtime_utc": "2026-09-04T10:06:31.179254+00:00"
+      },
+      {
+        "path": "/mnt/lightsem-data/cache/rpmc_causal/af04dd13f4740db6.npz",
+        "exists": true,
+        "size_bytes": 417349,
+        "mtime_utc": "2026-09-04T10:06:31.588278+00:00"
+      },
+      {
+        "path": "/mnt/lightsem-data/cache/rpmc_causal/bc70e66b5ded3db8.npz",
+        "exists": true,
+        "size_bytes": 184604,
+        "mtime_utc": "2026-09-04T10:06:36.167552+00:00"
+      },
+      {
+        "path": "/mnt/lightsem-data/cache/rpmc_causal/bd7bf65595b0b041.npz",
+        "exists": true,
+        "size_bytes": 143934,
+        "mtime_utc": "2026-09-04T10:06:36.604578+00:00"
+      },
+      {
+        "path": "/mnt/lightsem-data/cache/rpmc_causal/be59063d1a50879b.npz",
+        "exists": true,
+        "size_bytes": 113812,
+        "mtime_utc": "2026-09-04T10:06:37.279618+00:00"
+      },
+      {
+        "path": "/mnt/lightsem-data/cache/rpmc_causal/c19bcaa28d2b2b30.npz",
+        "exists": true,
+        "size_bytes": 113960,
+        "mtime_utc": "2026-09-04T10:06:37.948658+00:00"
+      },
+      {
+        "path": "/mnt/lightsem-data/cache/rpmc_causal/c1d1ab4b8b859314.npz",
+        "exists": true,
+        "size_bytes": 102602,
+        "mtime_utc": "2026-09-04T10:06:38.091667+00:00"
+      },
+      {
+        "path": "/mnt/lightsem-data/cache/rpmc_causal/c3787f00ef5cf3e6.npz",
+        "exists": true,
+        "size_bytes": 95062,
+        "mtime_utc": "2026-09-04T10:06:38.423687+00:00"
+      },
+      {
+        "path": "/mnt/lightsem-data/cache/rpmc_causal/c4112da4d0469a89.npz",
+        "exists": true,
+        "size_bytes": 237062,
+        "mtime_utc": "2026-09-04T10:06:38.687702+00:00"
+      },
+      {
+        "path": "/mnt/lightsem-data/cache/rpmc_causal/c720f294575ec1dd.npz",
+        "exists": true,
+        "size_bytes": 87687,
+        "mtime_utc": "2026-09-04T10:06:39.602757+00:00"
+      },
+      {
+        "path": "/mnt/lightsem-data/cache/rpmc_causal/cc9d69dc660f8d3d.npz",
+        "exists": true,
+        "size_bytes": 97654,
+        "mtime_utc": "2026-09-04T10:06:41.088845+00:00"
+      },
+      {
+        "path": "/mnt/lightsem-data/cache/rpmc_causal/cea0df715ca6cdf7.npz",
+        "exists": true,
+        "size_bytes": 319787,
+        "mtime_utc": "2026-09-04T10:06:41.633878+00:00"
+      },
+      {
+        "path": "/mnt/lightsem-data/cache/rpmc_causal/d07a25b22d751dd8.npz",
+        "exists": true,
+        "size_bytes": 102091,
+        "mtime_utc": "2026-09-04T10:06:42.410925+00:00"
+      },
+      {
+        "path": "/mnt/lightsem-data/cache/rpmc_causal/d610bb3dc9114041.npz",
+        "exists": true,
+        "size_bytes": 331925,
+        "mtime_utc": "2026-09-04T10:06:44.329039+00:00"
+      },
+      {
+        "path": "/mnt/lightsem-data/cache/rpmc_causal/d6e718b854000da6.npz",
+        "exists": true,
+        "size_bytes": 72534,
+        "mtime_utc": "2026-09-04T10:06:44.527051+00:00"
+      },
+      {
+        "path": "/mnt/lightsem-data/cache/rpmc_causal/d91b68917d28679b.npz",
+        "exists": true,
+        "size_bytes": 138295,
+        "mtime_utc": "2026-09-04T10:06:45.475108+00:00"
+      },
+      {
+        "path": "/mnt/lightsem-data/cache/rpmc_causal/dac7b47ea59485d5.npz",
+        "exists": true,
+        "size_bytes": 185821,
+        "mtime_utc": "2026-09-04T10:06:46.011140+00:00"
+      },
+      {
+        "path": "/mnt/lightsem-data/cache/rpmc_causal/dc1ada1c6124de6c.npz",
+        "exists": true,
+        "size_bytes": 84383,
+        "mtime_utc": "2026-09-04T10:06:46.428164+00:00"
+      },
+      {
+        "path": "/mnt/lightsem-data/cache/rpmc_causal/dfe5b34425d843a7.npz",
+        "exists": true,
+        "size_bytes": 187115,
+        "mtime_utc": "2026-09-04T10:06:47.028200+00:00"
+      },
+      {
+        "path": "/mnt/lightsem-data/cache/rpmc_causal/e2ec43fdc62a31aa.npz",
+        "exists": true,
+        "size_bytes": 84758,
+        "mtime_utc": "2026-09-04T10:06:47.724242+00:00"
+      },
+      {
+        "path": "/mnt/lightsem-data/cache/rpmc_causal/e83bcedbf2cdc53f.npz",
+        "exists": true,
+        "size_bytes": 183774,
+        "mtime_utc": "2026-09-04T10:06:49.189329+00:00"
+      },
+      {
+        "path": "/mnt/lightsem-data/cache/rpmc_causal/e9fd48e464938f15.npz",
+        "exists": true,
+        "size_bytes": 244262,
+        "mtime_utc": "2026-09-04T10:06:49.725361+00:00"
+      },
+      {
+        "path": "/mnt/lightsem-data/cache/rpmc_causal/ef0f63b82d59cb1b.npz",
+        "exists": true,
+        "size_bytes": 69979,
+        "mtime_utc": "2026-09-04T10:06:50.385401+00:00"
+      },
+      {
+        "path": "/mnt/lightsem-data/cache/rpmc_causal/f48f5eae69443561.npz",
+        "exists": true,
+        "size_bytes": 234843,
+        "mtime_utc": "2026-09-04T10:06:52.634535+00:00"
+      },
+      {
+        "path": "/mnt/lightsem-data/cache/rpmc_causal/f5aa70e691a565c4.npz",
+        "exists": true,
+        "size_bytes": 226181,
+        "mtime_utc": "2026-09-04T10:06:52.854548+00:00"
+      },
+      {
+        "path": "/mnt/lightsem-data/cache/rpmc_causal/f621739635c157e9.npz",
+        "exists": true,
+        "size_bytes": 167873,
+        "mtime_utc": "2026-09-04T10:06:52.974555+00:00"
+      },
+      {
+        "path": "/mnt/lightsem-data/cache/rpmc_causal/f83b3cafcf56c064.npz",
+        "exists": true,
+        "size_bytes": 92807,
+        "mtime_utc": "2026-09-04T10:06:53.553590+00:00"
+      },
+      {
+        "path": "/mnt/lightsem-data/cache/rpmc_causal/fa3a3799ae825374.npz",
+        "exists": true,
+        "size_bytes": 399654,
+        "mtime_utc": "2026-09-04T10:06:55.012677+00:00"
+      },
+      {
+        "path": "/mnt/lightsem-data/cache/rpmc_causal/fa616d239a817a85.npz",
+        "exists": true,
+        "size_bytes": 90428,
+        "mtime_utc": "2026-09-04T10:06:55.091682+00:00"
+      },
+      {
+        "path": "/mnt/lightsem-data/cache/rpmc_causal/fb3db31d394bf53a.npz",
+        "exists": true,
+        "size_bytes": 269128,
+        "mtime_utc": "2026-09-04T10:06:55.729720+00:00"
+      },
+      {
+        "path": "/mnt/lightsem-data/cache/rpmc_causal/fbcbd90d2d1d8a11.npz",
+        "exists": true,
+        "size_bytes": 437286,
+        "mtime_utc": "2026-09-04T10:06:55.995736+00:00"
+      }
+    ],
+    "payloads_opened": false,
+    "fresh_content_hashes_available": false,
+    "limit": "Per-input metadata shows existence, not valid bytes or immutable original contents. After identity clearance, freeze hashes of exact input files before evaluation; do not substitute modern Stage11 arrays or regenerate caches."
+  },
+  "prospective_plan": {
+    "registration_class": "NEW frozen-checkpoint evaluation with prospectively fixed code/cohort/metrics; retrospectively exposed legacy data and previously selected checkpoints. Register before any new predictions, target-derived qualification or missing metrics. This is NOT preregistration of historical training/results.",
+    "global_stop_gates": [
+      "Parent native registration receipt validates successfully and explicit execution approval arrives.",
+      "A hashed path allowlist carries old fold, current canonical partition, known train aliases, cross-corpus exclusion decision, and no Stage11/FineDance sealed or ambiguous song. No glob-based scientific loader.",
+      "Byte hashes/config/source validation passes; missing weights or mismatches STOP, never refit or silently choose another arm.",
+      "Input qualification finite/length/target checks predeclared and logged before scoring; changed cohort gets a named new-subset result, not an asserted recreation.",
+      "Total output cap, free-space floor, and fixed seeds enforced. No external fetch, new feature extraction, cue tuning, calibration or best-run selection."
+    ],
+    "row11": {
+      "smallest_recommended_pair": [
+        "group_decoder_s_d256b6_audio.pt",
+        "group_decoder_s_d256b6_self.pt"
+      ],
+      "why_this_pair": "The already published self_hazard_sweep.json explicitly chose these d256/b6 best-by-JD arms. Freeze them now to fill the missing CI for that exact historical comparison, not choose again from new results. This is post-selection retrospective descriptive uncertainty; a nominal CI does not undo historical selection.",
+      "frozen_dependency": "operator_head.pt",
+      "forward_modes": [
+        "Frozen audio-only decoder once per qualified song",
+        "Same frozen self-hazard decoder with its OWN cue history: original block10=1s, threshold0.5, refractory20=2s, scores concatenated in original order",
+        "Same self-hazard decoder with TRUE label hazard as privileged ceiling, explicitly not deployable"
+      ],
+      "do_not_compute": [
+        "No sampled look or scene-MSE output",
+        "No donor/random-rig/FID/BAS/capacity sweep rerun",
+        "No operator-head fit",
+        "No rhythm-ridge solve; its old weight vector was not saved in decoder checkpoint and trainer refits it. Use base-rate AP/lift1 and frozen audio-only comparator; old aggregate rhythm lift may be quoted as historical only."
+      ],
+      "metrics_to_register": "For each prequalified oldtest recording save T, target-positive count, base rate, AP_audio, AP_own, AP_true_hazard; lift=AP/base rate; paired own-minus-audio lift delta. This is the missing endpoint. For JD use equal current-canonical weights and paired canonical resampling; do not weight multiple captures/coaches as independent songs. For RPMC require canonical identity qualification, otherwise label recording-level CI only and do not claim G10.2 heldout-song resolution.",
+      "cohort": "Start candidate38JD/86RPMC oldTEST metadata list, then exclude sealed/ambiguous IDs. Preserve oldTRAIN-alias flags. Provide original-exposed full-cohort descriptive table if qualified and a no-oldTRAIN-alias sensitivity subset (<=33JD). No claim of new unseen songs. If alias exclusions change the cohort, do not replace the original historical mean.",
+      "CI_proposal": "Paired percentile bootstrap10000 resamples, fixed seed20260928; resample canonical groups within each corpus separately. Report two-sided95% percentile intervals. The old positive-effect conjunction is lower2.5th percentile>0 separately for JD and RPMC; no pooling. This is fixed-pair descriptive uncertainty, not selection-adjusted inference over all past capacities or training seeds. No equivalence claim when CI contains0. If canonical identity is unresolved for RPMC, only recording-level descriptive CIs are allowed and the heldout-song gate remains unresolved.",
+      "estimated_saved_bytes_cap": 1048576,
+      "training_fits": 0,
+      "closed_form_fits": 0,
+      "config_from_saved_source_reports": {
+        "d_model": 256,
+        "n_blocks": 6,
+        "cond_dim_operator": 192,
+        "raw_audio_dim": 52,
+        "self_hazard_extra_dim": 6,
+        "flow": true,
+        "offline": false,
+        "random_rig_training": true,
+        "steps_historical": 6000,
+        "configs_deserialized_now": false
+      }
+    },
+    "row8": {
+      "checkpoints": [
+        "light_trunk_jd_none_smooth.pt",
+        "light_trunk_jd_struct_smooth.pt",
+        "light_trunk_jd_shuf_smooth.pt"
+      ],
+      "cohort": "Original40 reports clips/order and original shuf donor map above, subject to sealed/ambiguous exclusions. Named original-exposed summary and separate no-oldTRAIN-alias sensitivity subset<=27clips/22canonical families. Do not resample40 clips as40 independent songs.",
+      "render_mode": "New candidate protocol supersedes earlier sums-only suggestion: in-memory historical packedDMX, save scalar per-frame+per-section intensity for3frozen arms+BT. No DMX/video cache. Use new common-noise seed0 retrospective draws; not exact archived predictions. See PROSPECTIVE_STRUCT_INTENSITY_PROTOCOL_CANDIDATE_V1 for clock/read/normalizer safeguards.",
+      "comparators": [
+        "Frozen none vs real-structure vs original shuffled-structure arms",
+        "Frozen beat-trigger on same bus and exact constant positive-intensity ratio1",
+        "Published movement-contrast range1.68-2.53; no newly computed real-motion-mapped comparator or pose read"
+      ],
+      "intensity_definition": "Per40fps frame b(t)=mean across all canonical-rig fixtures of decoded dimmer*max(decoded HSV value,1e-6), exactly lightsem.dmx.decode.brightness. This is the old DMX emitted-intensity proxy, NOT calibrated physical or video-pixel luminance. No per-section brightness matching (would destroy contrast); any whole-clip scaling must be fixed once and cancels in within-clip ratios.",
+      "section_contract_proposal": "SUPERSEDED by candidate protocol exact rounded-frame clock and cached-role assignment. See PROSPECTIVE_STRUCT_INTENSITY_PROTOCOL_CANDIDATE_V1.json clock_and_conditioning and estimands_and_uncertainty; no raw-offset role shift, no auto-truncation.",
+      "statistics_proposal": "Report equal-canonical geometric mean of nested-averaged log-ratios with paired canonical percentile bootstrap10000 resamples seed20260928, two-sided95% intervals. Report paired real-structure minus none and real-structure minus originalshuf log-ratio contrasts. Same intensity-ratio summaries for real-mapped and beat-trigger comparators. Original40-exposed and no-oldTRAIN-alias subsets remain separate; cohort losses are explicit. No BAS/FID/primary-gate rerun.",
+      "original_gate_ambiguity": "G-struct-contrast says intensity drop/breakdown within1.3x of corpus1.68-2.53. A prospective unambiguous descriptive tolerance proposal is [1.68/1.3,2.53*1.3]=[1.2923076923,3.289]. This is an explicit proposed operationalization, not a retroactive claim that the old gate already fixed those limits. The parent must accept/freeze a definition first.",
+      "label_validity_blocker": "build_justdance_structure.py explicitly calls the EDM role labeller unvalidated and says loud pop sections are labelled drop. This can measure contrast conditioned on heuristic labels only. It cannot establish verified drop/breakdown contrast or fulfill the originally promised Oslo-ground-truth label-validation component. No new segmentation/Oslo label experiment belongs in this row8 minimal run.",
+      "estimated_saved_bytes_cap": 12582912,
+      "training_fits": 0,
+      "closed_form_fits": 0,
+      "config_from_saved_source_reports": {
+        "v2": true,
+        "offline": false,
+        "structure_dim": 8,
+        "drop_a": "hip_yaw_speed,footfall_rate",
+        "trained_steps": 12000,
+        "none_report_steps_note": "train_jd_none.json was overwritten by eval-only reporting and says steps0; chain2 documents12000-step existing checkpoint use. Do not mistake it for untrained.",
+        "event_thresholds_and_smooth_tau": "Existing per-arm JSON calibrator reports and checkpoint bytes, no recalibration.",
+        "configs_deserialized_now": false
+      }
+    },
+    "baseline_fit_ledger": {
+      "new_neural_fits": 0,
+      "new_linear_ridge_fits": 0,
+      "new_PCA_or_scaler_fits": 0,
+      "new_threshold_or_smoothing_calibration_fits": 0,
+      "frozen_parameter_loads_only": true,
+      "slots_consumed_from_27_neural_fit_cap": 0,
+      "unchanged_completed_work": [
+        "original15event fits",
+        "palette186",
+        "poseG3",
+        "completed decoder capacity sweep",
+        "completed HC primary arms"
+      ]
+    },
+    "implementation_remaining": [
+      "Write a separate eval-only harness under new explicit approval; do not invoke train_group_decoder.py main (contains training and unsaved rhythm-ridge refit) or rerun run_stage10_sweep*.sh.",
+      "For row8 bypass load_tensor numeric arrays by using frozen JSON metadata allowlist. Existing run_stage1_eval.py recomputes unrelated completed metrics and does not save section sums, so do not rerun it unchanged.",
+      "Freeze all source dependencies and configs; use exact old source blob for light_trunk attention or register source difference explicitly.",
+      "Unit/static safety checks and one qualifying-TRAIN-input smoke forward need separate execution approval; this audit ran no test.",
+      "Apply provenance, oldalias and crosssealed checks to shuf donors as well as scored row8 songs. Donor mappings recovered only from original selected40 metadata."
+    ]
+  },
+  "output_and_storage_budget": {
+    "status": "UPDATED_PROPOSAL_ONLY",
+    "supersedes_original_4MiB_estimate": true,
+    "row8_hard_cap_bytes": 12582912,
+    "row11_hard_cap_bytes": 1048576,
+    "combined_requested_bytes": 13631488,
+    "shared_total_scientific_headroom_bytes": 33524192,
+    "remaining_for_other_science_bytes": 19892704,
+    "minimum_free_floor_bytes": 1073741824,
+    "details_protocol": "/root/lightsem/docs/research/2026-09-28-end-to-end/PROSPECTIVE_STRUCT_INTENSITY_PROTOCOL_CANDIDATE_V1.json",
+    "original_estimate_superseded_not_active": {
+      "parent_total_scientific_headroom_bytes": 33524192,
+      "parent_total_scientific_headroom_MiB": 31.971160888671875,
+      "row11_results_cap_bytes": 1048576,
+      "row8_results_cap_bytes": 2097152,
+      "combined_shared_manifest_logs_sources_cap_bytes": 1048576,
+      "requested_combined_cap_bytes": 4194304,
+      "remaining_headroom_for_other_science_bytes": 29329888,
+      "remaining_headroom_for_other_science_MiB": 27.971160888671875,
+      "new_checkpoint_copies": 0,
+      "new_feature_cache_bytes": 0,
+      "new_DMX_or_video_files": 0,
+      "full_prediction_traces_saved": false,
+      "sufficient_statistics": "row11 AP/base-rate/paired per-song table; row8 section sum/count/role/boundary/clip/arm table plus provenance/CI report. Strict writer caps include temp files and logs. Rows8/11 share metadata instead of duplicating scientific arrays.",
+      "row8_optional_trace_estimate_not_requested": "Original40 T metadata sum371393; scalarfloat32 brightness=1.4167519MiB per arm, or7.0837593MiB for3frozen arms+real+BT. Do not reserve this optional archive in the minimal4MiB plan.",
+      "minimum_free_floor_bytes": 1073741824,
+      "free_bytes_at_audit": 1254227968,
+      "preflight_condition": "Require statvfs free>=1GiB+remaining reserved peak writes before each phase; abort before falling below1GiB. Parent reconciles this4MiB reservation with all other scientific and demo allocations. No durable scientific output has been created by this audit."
+    }
+  },
+  "remaining_blockers": [
+    {
+      "id": "B1",
+      "scope": "both",
+      "kind": "authorization",
+      "detail": "Read-only task is not inference permission. Parent must prospectively register NEW evaluation and validate native receipts before run."
+    },
+    {
+      "id": "B2",
+      "scope": "both",
+      "kind": "identity",
+      "detail": "Stage11 exclusion passes by canonical alias. FineDance name-only screen has no full-title hit but161=N and opaque/transliterated IDs remain unresolved; RPMC has no cross-corpus title/identity map. Qualify/exclude ambiguity before numeric input access. No absence-by-namespace argument."
+    },
+    {
+      "id": "B3",
+      "scope": "both",
+      "kind": "artifact_validation",
+      "detail": "Fresh weight hashes exist, but most lack original checksum receipts; embedded cfg/state/normalizers not read here. Original input bytes not hash-frozen. Must validate before allowed forward and transparently call reconstruction if original provenance cannot be proved."
+    },
+    {
+      "id": "B4",
+      "scope": "row11",
+      "kind": "membership",
+      "detail": "Hash and length candidate cohort matches archived930/647/159/124 and38JD/86RPMC; final finite and >=3-positive-target qualification is not in metadata. Record-count coincidence is not exact proof of valid scoring IDs."
+    },
+    {
+      "id": "B5",
+      "scope": "both",
+      "kind": "protocol",
+      "detail": "Freeze exact estimator, CIs, oldTRAIN-alias strata, title exclusions and row8 ambiguous tolerance/section aggregation before observing new outputs. Historical model/TEST selection remains in result labels."
+    },
+    {
+      "id": "B6",
+      "scope": "row8",
+      "kind": "construct_validity",
+      "detail": "Heuristic cached labels are unvalidated. A new contrast value fills a bounded heuristic-label measurement, not original independent label validation or failed primary structure claim."
+    }
+  ],
+  "bottom_line": "Both missing quantities could be generated by NEW prospectively fixed evaluations of existing frozen models with zero fits. Updated proposal reserves<=12MiB for row8 auditable frame+section scalarintensity and<=1MiB for row11, totaling13MiB within31.97MiB sharedscience headroom. Neither is execution-ready. Row8 exact legacy report cohort and row11 strong candidate cohort are recoverable without sealed arrays; oldcanonicaltraining contamination, heuristic labels and incomplete cross-corpus identity clearance remain explicit. No completed sweep, event fit, palette fit, pose gate, or primary metric is authorized to repeat.",
+  "protocol_update": {
+    "created_utc": "2026-09-28T19:05:08.905905+00:00",
+    "status": "PROPOSAL_ONLY_PARENT_REVIEW_PENDING",
+    "candidate_protocol_json": "/root/lightsem/docs/research/2026-09-28-end-to-end/PROSPECTIVE_STRUCT_INTENSITY_PROTOCOL_CANDIDATE_V1.json",
+    "candidate_protocol_md": "/root/lightsem/docs/research/2026-09-28-end-to-end/PROSPECTIVE_STRUCT_INTENSITY_PROTOCOL_CANDIDATE_V1.md",
+    "reason": "Parent requires auditable per-frame+per-section scalar intensity. Row8 cap changes from2MiB noframes to12MiB including3frozen learned arms+BT; no real-pose/reference-motion access. Original gate does not require new real-motion mapping. Earlier combined4MiB estimate is superseded explicitly, not an execution receipt."
+  },
+  "runtime_protocol_update": {
+    "protocol_json": "/root/lightsem/docs/research/2026-09-28-end-to-end/PROSPECTIVE_STRUCT_INTENSITY_PROTOCOL_CANDIDATE_V1.json",
+    "protocol_md": "/root/lightsem/docs/research/2026-09-28-end-to-end/PROSPECTIVE_STRUCT_INTENSITY_PROTOCOL_CANDIDATE_V1.md",
+    "status": "PROPOSAL_ONLY_NOT_MEASURED",
+    "limits": {
+      "one_GPU_job_at_a_time": true,
+      "per_arm_seconds": 3600,
+      "three_arms_seconds": 10800,
+      "smoke_seconds": 300,
+      "host_RAM_bytes": 4294967296,
+      "VRAM_bytes": 8589934592
+    },
+    "parent_ledger_check": "Verify remaining cumulative36GPU-hours before admission; nofit does not bypass ledger. If the source-aware smoke estimate cannot meet caps, stop rather than drop components."
+  },
+  "metadata_field_exposure_disclosure": {
+    "scope": "Audit of already recorded child transcript only; rawsplit/labels not reopened for this disclosure.",
+    "rollout_path": "/root/.prime/agent/session-artifacts/01a0c86b-2ef5-735b-821a-225958ef165e/sub-b165acdc/sub-9a35a19f/01a0e957-fd9f-734b-a6b1-48ea7b920494.jsonl",
+    "parsed": {
+      "source": "/mnt/lightsem-data/experiments/lightsem/motion_representation_20260910/data/split.json",
+      "operation": "fd=json.loads(metadata_paths[3].read_text())",
+      "scope": "WholeJSON, all203 entries including TEST label/style metadata, entered REPLmemory. This was not a projected-field parser.",
+      "call_line_1based": 26,
+      "call_entry_id": "d1020841",
+      "call_timestamp_utc": "2026-09-28T18:48:43.037Z",
+      "result_line_1based": 27,
+      "result_entry_id": "8e291f17",
+      "result_timestamp_utc": "2026-09-28T18:48:43.063Z"
+    },
+    "printed_entry": {
+      "operation": "print('fd sample',fd['entries'][0])",
+      "array_index_0based": 0,
+      "key": "001",
+      "source_id": "001",
+      "canonical_id": "fd-7a3e6b16cb75f48f",
+      "partition": "train",
+      "displayed_label": {
+        "frames": 2927,
+        "name": "feedback",
+        "style1": "Street",
+        "style2": "Jazz"
+      },
+      "other_displayed_fields": [
+        "audio_duration_s",
+        "excluded",
+        "exclusion_reason",
+        "motion_path",
+        "motion_sha256",
+        "wav_path",
+        "wav_sha256"
+      ],
+      "call_line_1based": 28,
+      "call_entry_id": "c58a9b45",
+      "call_timestamp_utc": "2026-09-28T18:48:52.275Z",
+      "result_line_1based": 29,
+      "result_entry_id": "c9e53d5e",
+      "result_timestamp_utc": "2026-09-28T18:48:52.300Z"
+    },
+    "usage": "Stylefields were not used in identity matching, cohort selection, scoring, model calls or scientific metrics. Identity names/IDs/partitions were used. The fullJSON parse still means zeroTEST-label-field-access is an invalid claim.",
+    "narrowed_instruction": {
+      "line_1based": 71,
+      "entry_id": "aab41a72",
+      "timestamp_utc": "2026-09-28T18:54:40.584Z",
+      "source": "immediateparent legacy-remainder-readiness",
+      "instruction": "Use label.name plus ID/canonical/partition only; no style1/style2 or targetfields."
+    },
+    "first_notification": {
+      "recipient": "immediateparent legacy-remainder-readiness, NOTroot",
+      "explicit_send_call_line_1based": 72,
+      "entry_id": "958ebe2c",
+      "timestamp_utc": "2026-09-28T18:54:52.166Z",
+      "completed_result_line_1based": 73,
+      "result_entry_id": "102274c5",
+      "result_timestamp_utc": "2026-09-28T18:54:52.204Z",
+      "receipt_id": "not_printed_or_bound; do_not_invent",
+      "message": "Earlier (before this clarification) I parsed full split.json as metadata and printed first entry, which includes style1/style2. No scientific arrays or model forwards were opened, and no style fields were used in selection/analysis."
+    },
+    "subsequent_scope": "Filtered NEW_IDENTITY_EXCLUSION_METADATA_V1.json for alias screening; stylefields not used. Parent/root relay chronology is recorded by the immediateparent, not asserted as direct child notification.",
+    "bounded_conclusion": "Recorded metadata-field exposure occurred, including parse of TEST labelmetadata and explicit display of one TRAINentry. No recorded evidence of numericTESTarray, waveform/posepayload, model-forward or scientificmetric exposure in this task. Do not broaden this to scientificTESTevaluation and do not narrow it to zeroTESTlabelread.",
+    "future_contract": "Use only the fixed identity projection table for cross-corpus exclusions. Any future access beyond it requires parentauthorization. No raw FineDance split reparse in the evaluation harness."
+  },
+  "metadata_exposure_correction": {
+    "date_utc": "2026-09-28T19:12:12.566026+00:00",
+    "disclosure_path": "/root/lightsem/docs/research/2026-09-28-end-to-end/METADATA_FIELD_EXPOSURE_DISCLOSURE_V1.json",
+    "disclosure_sha256": "6d55cd95d5ccddd2e6a89bc01f732c48cd0289c5fed42fdfd27d86158d1334a6",
+    "scope": "Full FineDance split/manifest JSON was read and parsed, including embedded label metadata across partitions. Confirmed style display was TRAIN entry001. No numeric TEST array read/model call/new scientific metric is identified in these events. Prior blanket zero-TEST-label-access wording is superseded for embedded metadata.",
+    "notification": "Child notified immediate parent at18:54:52.204Z; immediate-parent receipt18:54:53.848Z. Root was not explicitly informed then; explicit correction to root was19:09:38.443Z.",
+    "future": "Use the frozen identity-only table; no reopening full label-bearing split/manifest. The field restriction does not retroactively erase prior access."
+  },
+  "document_revision": 2,
+  "preserved_V1_path": "/root/lightsem/docs/research/2026-09-28-end-to-end/NEW_FROZEN_LEGACY_EVAL_NOTES_V1.json",
+  "revision_reason": "Dated metadata-exposure correction; original V1 restored byte-exact and kept. Proposal/source scope only, no new scientific execution."
+}

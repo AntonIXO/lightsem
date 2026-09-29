@@ -1,0 +1,8 @@
+{
+  "experiment_id": "exp-002-the-music-induced-movement-46c7b4",
+  "verdict": "refutes",
+  "failure_mode": "recipe_conditional",
+  "lesson": "2026-09-28 retrospective claim-scope clarification, not a new measurement: the registered AIST++ shared-skeleton gate failed for this causal-feature ridge recipe and track-held-out splits; dancer identity outperformed audio on23/29channels, including footfall R2 audio.035 versus identity.403 and vertical amplitude audio-.018 versus identity+.241. Retain that measured negative and the reported genre association, but attained ridge scores do not bound all audio models or isolate corpus design rather than method/features as the sole cause. The reported split-half statistic is a separate reproducibility estimate, not proof that this audio ridge attained the best possible prediction; preserve the completed study and do not reopen it.",
+  "transfers_to": [],
+  "hint": "recipe_conditional: when the recipe changes, reopen_hypothesis('the-music-induced-movement-literature-s-shared-c6aab2', reason=...) makes the negative re-testable instead of terminal"
+}

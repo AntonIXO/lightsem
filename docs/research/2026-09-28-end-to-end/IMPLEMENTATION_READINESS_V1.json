@@ -1,0 +1,551 @@
+{
+  "schema_version": 1,
+  "created_utc": "2026-09-28T18:25:45.753785+00:00",
+  "status": "read_only_review_complete_no_execution_authorized_by_this_report",
+  "scope": "Pose auxiliary recipes, R1 recurrence, old2D video-pose/mocap validation; learned LIGHT only; accepted dancer unchanged",
+  "source_snapshot": {
+    "path": "/root/lightsem/docs/research/2026-09-28-end-to-end/VAULT_INVENTORY_V1.json",
+    "queried_at_utc": "2026-09-28T18:16:46.988875+00:00",
+    "sha256": "582d1c7a3fd1ca87d3c18eeb04711c5873a8cbd3577bcc9c8a42d4111f4be550"
+  },
+  "read_only_actions": {
+    "read_source": true,
+    "read_prior_results_and_completed_fit_metadata": true,
+    "read_test_source_files": false,
+    "read_sealed_TEST_inputs": false,
+    "ran_tests": false,
+    "ran_project_imports": false,
+    "ran_scoring_or_inference": false,
+    "ran_experiments": false,
+    "called_vault": false,
+    "downloaded": false,
+    "edited_source": false,
+    "created_only": [
+      "IMPLEMENTATION_READINESS_V1.md",
+      "IMPLEMENTATION_READINESS_V1.json"
+    ]
+  },
+  "implementation_identity": [
+    {
+      "path": "lightsem/experiments/light_layers/training.py",
+      "current_sha256": "31e58e8c7a10cd80f0d3b5be0e87796e35548f2c2d03705856a0cafa1811802b",
+      "frozen_exists": true,
+      "frozen_sha256": "31e58e8c7a10cd80f0d3b5be0e87796e35548f2c2d03705856a0cafa1811802b",
+      "same_as_frozen": true
+    },
+    {
+      "path": "lightsem/experiments/light_layers/model.py",
+      "current_sha256": "aa1d63f0cbf5cf270c3c7d676edf3eaf3debeb394220123493a400aa60835529",
+      "frozen_exists": true,
+      "frozen_sha256": "aa1d63f0cbf5cf270c3c7d676edf3eaf3debeb394220123493a400aa60835529",
+      "same_as_frozen": true
+    },
+    {
+      "path": "lightsem/experiments/light_layers/palette_metrics.py",
+      "current_sha256": "80b1301d8ece0c75d8d5b0521c5b9299581dc8ec80eddfbeccade11f10939d07",
+      "frozen_exists": true,
+      "frozen_sha256": "80b1301d8ece0c75d8d5b0521c5b9299581dc8ec80eddfbeccade11f10939d07",
+      "same_as_frozen": true
+    },
+    {
+      "path": "lightsem/experiments/light_layers/evaluation.py",
+      "current_sha256": "401825add5d89f9920e2c946e36b2cdf85e07f625ab3230c5a3844655fcca004",
+      "frozen_exists": true,
+      "frozen_sha256": "401825add5d89f9920e2c946e36b2cdf85e07f625ab3230c5a3844655fcca004",
+      "same_as_frozen": true
+    },
+    {
+      "path": "lightsem/audio/structure.py",
+      "current_sha256": "95c1a72dce073172bf93481f8a565cb52b9a60acd1790d459cee502aaf20c04e",
+      "frozen_exists": false
+    }
+  ],
+  "hypotheses": [
+    {
+      "id": "h-layers-20260922-pose-aux",
+      "vault_status": "proposed",
+      "readiness": "partially_implemented_data_and_evaluation_blocked",
+      "recipes": [
+        "S_V6_P1",
+        "S_VR_P1",
+        "S_VR_Pshuf"
+      ],
+      "implemented": [
+        "4D train-only pose head",
+        "hash-checked motion/validity loading",
+        "offset checked and added once",
+        "masked equal-valid-coach aggregation",
+        "TRAIN-only standardization",
+        "center8s pose loss weight0.1",
+        "same-partition different-canonical tempo donor",
+        "generated palette-history main training",
+        "full-fit provenance/storage/gpu guards"
+      ],
+      "missing": [
+        "independently qualified per-channel pose gap/cut/ID validity producer and receipts",
+        "verified descriptor precision/timeline/support",
+        "qualified original LIGHT common target/cohort",
+        "non-observer evaluator and contrast registry admitting P1/Pshuf",
+        "prospective exact new source/test/data/config binding",
+        "predeclared handling of Pshuf donor-mask missingness confound"
+      ],
+      "matched_primary": [
+        "S_VR_P1",
+        "S_VR_P0",
+        "S_VR_Pshuf"
+      ],
+      "matched_secondary": [
+        "S_V6_P1",
+        "S_V6_P0"
+      ],
+      "seeds": [
+        0,
+        1,
+        2
+      ],
+      "primary_effect": {
+        "accent_AP_gain_vs_both_min": 0.01,
+        "corrected_paired_evidence": "positive",
+        "color_AP_loss_max": 0.01,
+        "palette_error_relative_increase_max": 0.05
+      },
+      "source_locations": [
+        "training.py:69,76-81",
+        "training.py:583-608",
+        "training.py:612-722",
+        "training.py:800-828",
+        "training.py:990-1009",
+        "evaluation.py:29-37"
+      ]
+    },
+    {
+      "id": "h-layers-20260922-recurrence",
+      "vault_status": "proposed",
+      "readiness": "not_implemented_and_data_unqualified",
+      "recipe": "S_VR_P0_R1",
+      "existing_not_equivalent": [
+        "audio structure recurrence matrix used only for boundaries",
+        "unvalidated heuristic functional labels",
+        "one-previous-generated-token palette state",
+        "non-repeat temporal palette metrics"
+      ],
+      "missing": [
+        "audio-only repeat-ID producer and qualification",
+        "operational return/section/nonrepeat definition",
+        ">=20 qualifying repeat songs within common student cohort",
+        "trained keyed repeat memory and state/dropout/reset contracts",
+        "long-range chronological exposure/context design",
+        "R1 checkpoint/predict/train/source/test contracts",
+        "repeat-relation distance metric and constants/nonrepeat controls",
+        "genuine relation-breaking ID shuffle, not bijective renaming"
+      ],
+      "matched": [
+        "R1",
+        "S_VR_P0 with matched exposure/context/cohort",
+        "same R1 with relation-breaking shuffled repeat IDs"
+      ],
+      "seeds": [
+        0,
+        1,
+        2
+      ],
+      "gates": {
+        "repeat_relation_absolute_error_reduction_min": 0.02,
+        "relative_reduction_min": 0.15,
+        "repeat_canonical_songs_min": 20,
+        "diversity_fraction_reference_min": 0.7,
+        "color_AP_loss_max": 0.01,
+        "marginal_palette_error_increase_max": 0.05
+      }
+    },
+    {
+      "id": "descriptors-extracted-from-ordinary-video-with-3fc5b9",
+      "vault_status": "testing",
+      "experiment": "exp-007-descriptors-extracted-from-936a48",
+      "readiness": "existing_historical_gate_failure_available_no_rerun_needed",
+      "measured": {
+        "n_clips": 10,
+        "planned_n_clips": 12,
+        "core_macro_correlation": 0.627,
+        "registered_threshold": 0.8,
+        "G3_passed": false,
+        "shift_or_donor_null_recorded": false,
+        "constant_predictor_error_recorded": false
+      },
+      "pose_aux_channel_correlations_vs_old_threshold_0_8": {
+        "vert_bounce_amp": 0.7942595394979652,
+        "hand_spread": 0.8115753845259427,
+        "qom": 0.6821905052565921,
+        "head_speed": 0.597559878649882
+      },
+      "limits": [
+        "10 camera1 AIST clips do not certify all video pose or Just Dance",
+        "not every four-channel auxiliary meets0.8",
+        "current CLI default model differs from saved YOLO11x",
+        "fixed60fps and prefix-index alignment",
+        "filled gaps not per-frame validity",
+        "one-clip-per-genre sampler discrepancy",
+        "fixed result path overwrites and built-in download unsafe for immutable follow-up"
+      ],
+      "recommendation": "Reconcile historical result administratively with narrow recipe scope and sample discrepancy; new validation only for distinct changed mechanism/qualification claim."
+    }
+  ],
+  "common_data_qualification": {
+    "min_TRAIN_canonical_groups": 80,
+    "min_DEV_canonical_groups": 30,
+    "min_prespecified_DEV_eligible_fraction": 0.8,
+    "original_DEV_enrollment": 40,
+    "original_source_eligible_DEV": 31,
+    "original_min_eligible_DEV": 32,
+    "original_gate_passed": false,
+    "fresh_confirmation_min_unexposed_groups": 40,
+    "TEST_policy": "sealed; no reads/unlock here",
+    "grouping": "canonical music family before recordings/coaches/crops; preserve historical split and identity exclusions",
+    "transform_fit": "TRAIN only; freeze thresholds/palette vocab/audio and auxiliary normalization before fits",
+    "pose_channels": [
+      "vert_bounce_amp",
+      "hand_spread",
+      "qom",
+      "head_speed"
+    ],
+    "motion_schema": [
+      "times",
+      "meta.start_s",
+      "ch__vert_bounce_amp",
+      "ch__hand_spread",
+      "ch__qom",
+      "ch__head_speed"
+    ],
+    "pose_validity_schema": {
+      "times_s": "absolute, finite strictly increasing",
+      "valid": "boolean[T,4] in POSE_NAMES order",
+      "support": "gap/cut/identity masks propagated across descriptor/filter window; no imputed observations"
+    },
+    "unfrozen_operational_details": [
+      "per-channel precision/reliability threshold",
+      "gap/filter contamination support policy",
+      "independent identity/cut labeling QA",
+      "repeat occurrence minimum duration/separation/accuracy",
+      "relation error exact distance/scaling/pairing/zero-IQR behavior"
+    ],
+    "SAM2_common_target_audit_if_used": {
+      "independent_frames_min": 120,
+      "canonical_videos_min": 30,
+      "composites": "separate synthetic truth only",
+      "negative": "moving masks on frozen background"
+    },
+    "statistics": {
+      "unit": "macro canonical song, equal recording/coach exposure",
+      "training_seeds": [
+        0,
+        1,
+        2
+      ],
+      "bootstrap_replicates": 10000,
+      "multiplicity": "prospectively specified Holm primary contrast family",
+      "nonevent": "retain for falsecue/coverage; AP undefined explicitly",
+      "shift_draws": 20
+    },
+    "not_truth": [
+      "box completeness is not keypoint or identity/cut quality",
+      "10Hz video intensity is not fine beat timing",
+      "pose footfall is not beat truth",
+      "absolute KE is not dimmer truth",
+      "functional drop label is not repeated motif identity"
+    ]
+  },
+  "reuse_without_rerun": [
+    {
+      "evidence": "old G3 result",
+      "answers": "historical measured recipe failed0.8 core gate",
+      "does_not_answer": "all video pose or LIGHT auxiliary utility"
+    },
+    {
+      "evidence": "observer15 fits",
+      "answers": "existing P0 runtime/engineering and limited observer descriptives",
+      "does_not_answer": "pose/R1; clean LIGHT; fresh confirmation",
+      "original_source_gate": "31/40<0.8",
+      "paired_null_gate": "29<30"
+    },
+    {
+      "evidence": "palette secondary",
+      "answers": "fixed previous-token observer history benefit conjunction failed",
+      "does_not_answer": "long-range repeat memory",
+      "selected_own_error": 0.859022,
+      "selected_null_error": 0.830589,
+      "provenance_note": "retrospective vault-binding repair remains disclosed"
+    },
+    {
+      "evidence": "existing P0 checkpoints",
+      "condition_for_reuse": "exact matching scientific scope, source/cohort/exposure, labels/support, transforms, config and instrument in prospectively registered continuation",
+      "default_decision": "not matched controls for newly qualified LIGHT labels/cohort"
+    }
+  ],
+  "next_steps": [
+    {
+      "order": 1,
+      "kind": "administrative_readonly",
+      "task": "Reconcile existing G3 evidence; do not rerun for open status"
+    },
+    {
+      "order": 2,
+      "kind": "actionable_code",
+      "task": "Versioned validity/provenance producer, schema/loader guards, future synthetic timing/precision/masking/donor/gradient/inference-invariance controls"
+    },
+    {
+      "order": 3,
+      "kind": "human_and_data_blocker",
+      "task": "Independent coach/cut/gap audit and original common LIGHT target qualification; complete source/enrollment gate prospectively"
+    },
+    {
+      "order": 4,
+      "kind": "actionable_code",
+      "task": "New non-observer pose evaluator/index/contrast contract and exact source/test binding; preserve old observer code snapshot"
+    },
+    {
+      "order": 5,
+      "kind": "space_and_registration_blocker",
+      "task": "Authorize enough scientific cap/physical space/full matched fit slots; native receipt verification before prepare/fit"
+    },
+    {
+      "order": 6,
+      "kind": "future_test",
+      "task": "12TRAIN-only functional pose smoke, then all primary trio seeds0/1/2; legacy secondary afterward as prespecified"
+    },
+    {
+      "order": 7,
+      "kind": "actionable_code_and_label_blocker",
+      "task": "R1 audio repeat schema/qualified cohort/learned memory/long-range exposure/relationship metric; future synthetic ABA/nonrepeat/reset/shuffle/constant tests"
+    },
+    {
+      "order": 8,
+      "kind": "future_test",
+      "task": "R1 12TRAIN smoke before full paired fits; exact new no-memory baseline if chronological exposure changes"
+    },
+    {
+      "order": 9,
+      "kind": "separately_authorized_media",
+      "task": "Versioned full Shpongle demo after each major LIGHT change, even negative results; root preflight separate from scientific cap"
+    }
+  ],
+  "resource_budget": {
+    "scientific_campaign_root": "/mnt/lightsem-data/experiments/lightsem/lighting-cue-model-20260922t094347z",
+    "scientific_campaign_bytes_supplied": 952976108,
+    "scientific_cap_bytes": 1020054732,
+    "scientific_headroom_bytes": 67078624,
+    "scientific_headroom_MiB": 63.971160888671875,
+    "free_bytes_parent_approx": {
+      "mnt": 1254000000,
+      "root": 6310000000
+    },
+    "required_free_floor_bytes_each_filesystem": 1073741824,
+    "prior_full_fits": 15,
+    "fit_cap": 27,
+    "remaining_fit_slots_without_revision": 12,
+    "max_GPU_hours": 36,
+    "per_fit_max_minutes": 60,
+    "student_gpu_jobs_at_once": 1,
+    "prior_completed_fit_persistent_bytes": 205362821,
+    "prior_completed_fit_sum_elapsed_s": 3199.4891403259244,
+    "prior_fit_queue_elapsed_s": 3254.131177317002,
+    "rich_shared_fit_mean_seconds": 191.8084100719619,
+    "rich_shared_fit_mean_persistent_bytes": 13679636,
+    "rich_shared_fit_preflight_reserve_bytes": 35578088,
+    "additional_pose_head_parameters": 516,
+    "pose_rich_parameters_static": 1242306,
+    "pose_legacy_parameters_static": 1230696,
+    "plans": [
+      {
+        "name": "primary_pose_with_new_matched_P0",
+        "new_fits": 9,
+        "prior_scale_persistent_bytes": 123116724,
+        "prior_scale_minutes": 28.7713,
+        "scientific_headroom_sufficient": false
+      },
+      {
+        "name": "full_pose_primary_and_legacy_secondary",
+        "new_fits": 15,
+        "prior_scale_persistent_bytes": 205194540,
+        "prior_scale_minutes": 47.9521,
+        "original_total_fits": 30,
+        "fit_cap_sufficient": false
+      },
+      {
+        "name": "full_pose_plus_R1_if_new_P0_truly_shared",
+        "new_fits": 18,
+        "prior_scale_persistent_bytes": 246233448,
+        "prior_scale_minutes": 57.5425,
+        "original_total_fits": 33,
+        "fit_cap_sufficient": false
+      },
+      {
+        "name": "full_pose_R1_needs_distinct_context_matched_P0",
+        "new_fits": 21,
+        "prior_scale_persistent_bytes": 287272356,
+        "original_total_fits": 36,
+        "fit_cap_sufficient": false
+      }
+    ],
+    "scientific_capacity_request_proposal_GiB": [
+      0.25,
+      0.5
+    ],
+    "request_limit": "not authorized; add exact data/predictions/R1 memory/transient estimates; /mnt physical space must also increase or separately authorized non-study archival occur",
+    "runtime_limit": "Prior64s workload timings only; repeat full-song memory unmeasured; use bounded smoke before extrapolation",
+    "media_separate": {
+      "authorized_by_current_user_goal": true,
+      "default_location": "versioned root media directory",
+      "does_not_necessarily_count_against_scientific_cap": true,
+      "old_full_duration_s": 277.3,
+      "old_full_frames": 8319,
+      "old_media_bytes": 223607757,
+      "old_render_seconds": 193.52947639895137,
+      "proposed_reserve_MB_per_demo": [
+        250,
+        350
+      ],
+      "root_free_sufficient_for_several_old_scale_demos_subject_to_preflight": true,
+      "scientific_artifacts_must_not_be_hidden_in_media_directory": true
+    },
+    "no_deletion_or_overwrite": true,
+    "no_scientific_cap_bypass_new_directory": true
+  },
+  "release": {
+    "new_full_demo_after_every_major_light_change_even_worse_numbers": true,
+    "learned_color_transitions_and_beat_required": true,
+    "no_manual_rules_as_model_fix": true,
+    "accepted_movement_unchanged": true,
+    "real_pose_in_student_inference": false,
+    "no_dancer_training_or_retiming": true,
+    "protected_DMX_bytes_exact": true,
+    "output": "native1920x1080 AV1 with sourceaudio, full decode, frozen exposure/camera comparison",
+    "no_default_promotion": true,
+    "human_AV_acceptance": "separate unestablished claim"
+  },
+  "report": {
+    "path": "/root/lightsem/docs/research/2026-09-28-end-to-end/IMPLEMENTATION_READINESS_V1.md",
+    "sha256": "d85066166d2cc09fe77e1b50ef14bc28bce6e9322928e621eb982a66ebabb7de"
+  },
+  "prior_fit_resource_metadata": [
+    {
+      "recipe": "I_VR_P0",
+      "seed": 1,
+      "params": 1284410,
+      "elapsed_s": 274.71926179598086,
+      "reserve": 36089528,
+      "bytes": 14108768
+    },
+    {
+      "recipe": "S_VR_P0_Ashuf",
+      "seed": 1,
+      "params": 1241790,
+      "elapsed_s": 224.82709349598736,
+      "reserve": 35578088,
+      "bytes": 13692966
+    },
+    {
+      "recipe": "S_none_P0",
+      "seed": 2,
+      "params": 1229406,
+      "elapsed_s": 186.23343401495367,
+      "reserve": 35429480,
+      "bytes": 13376495
+    },
+    {
+      "recipe": "S_V6_P0",
+      "seed": 2,
+      "params": 1230180,
+      "elapsed_s": 190.71492220601067,
+      "reserve": 35438768,
+      "bytes": 13590023
+    },
+    {
+      "recipe": "S_VR_P0",
+      "seed": 2,
+      "params": 1241790,
+      "elapsed_s": 190.2423357059015,
+      "reserve": 35578088,
+      "bytes": 13678983
+    },
+    {
+      "recipe": "I_VR_P0",
+      "seed": 2,
+      "params": 1284410,
+      "elapsed_s": 267.85537293797825,
+      "reserve": 36089528,
+      "bytes": 14109477
+    },
+    {
+      "recipe": "S_VR_P0_Ashuf",
+      "seed": 2,
+      "params": 1241790,
+      "elapsed_s": 229.3542441870086,
+      "reserve": 35578088,
+      "bytes": 13692777
+    },
+    {
+      "recipe": "S_none_P0",
+      "seed": 0,
+      "params": 1229406,
+      "elapsed_s": 182.77845437603537,
+      "reserve": 35429480,
+      "bytes": 13383604
+    },
+    {
+      "recipe": "S_V6_P0",
+      "seed": 0,
+      "params": 1230180,
+      "elapsed_s": 191.82591838005465,
+      "reserve": 35438768,
+      "bytes": 13589250
+    },
+    {
+      "recipe": "S_VR_P0",
+      "seed": 0,
+      "params": 1241790,
+      "elapsed_s": 192.84384808596224,
+      "reserve": 35578088,
+      "bytes": 13680199
+    },
+    {
+      "recipe": "I_VR_P0",
+      "seed": 0,
+      "params": 1284410,
+      "elapsed_s": 264.7496447280282,
+      "reserve": 36089528,
+      "bytes": 14111053
+    },
+    {
+      "recipe": "S_VR_P0_Ashuf",
+      "seed": 0,
+      "params": 1241790,
+      "elapsed_s": 230.35481273999903,
+      "reserve": 35578088,
+      "bytes": 13695192
+    },
+    {
+      "recipe": "S_none_P0",
+      "seed": 1,
+      "params": 1229406,
+      "elapsed_s": 187.621673847083,
+      "reserve": 35429480,
+      "bytes": 13384154
+    },
+    {
+      "recipe": "S_V6_P0",
+      "seed": 1,
+      "params": 1230180,
+      "elapsed_s": 193.02907740091905,
+      "reserve": 35438768,
+      "bytes": 13590154
+    },
+    {
+      "recipe": "S_VR_P0",
+      "seed": 1,
+      "params": 1241790,
+      "elapsed_s": 192.33904642402194,
+      "reserve": 35578088,
+      "bytes": 13679726
+    }
+  ]
+}

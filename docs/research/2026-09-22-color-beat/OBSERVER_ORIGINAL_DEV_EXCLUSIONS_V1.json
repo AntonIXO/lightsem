@@ -1,0 +1,1114 @@
+{
+  "artifact_id": "observer-original-dev-exclusions-v1",
+  "audit_access": {
+    "GPU_used": false,
+    "metadata_only": true,
+    "model_metric_reads": 0,
+    "raw_data_reads": 0,
+    "target_array_reads": 0,
+    "vault_calls": 0
+  },
+  "bindings": {
+    "frozen_capture_manifest": {
+      "path": "/mnt/lightsem-data/experiments/lightsem/lighting-cue-model-20260922t094347z/observer_proxy_capture_manifest_v1.json",
+      "sha256": "153cf78ff7f331c0b2c7c1bf64412c0d4dc264754982f341af9588eee392b0a8"
+    },
+    "frozen_source_qualification_report": {
+      "path": "/mnt/lightsem-data/experiments/lightsem/lighting-cue-model-20260922t094347z/cohort_v1_coverage90_qualification_report.json",
+      "sha256": "18477a05297d08d50dee25b7d1f9be65783c7606be1b08698ae53cba6b6e68ab"
+    },
+    "frozen_source_selection_protocol": {
+      "path": "/mnt/lightsem-data/experiments/lightsem/lighting-cue-model-20260922t094347z/cohort_v1_coverage90_selection_protocol.json",
+      "sha256": "9499df794a526635bc75d87f097d391046854ee211eeee83f73e347a9e666276"
+    },
+    "original_manifest": {
+      "path": "/mnt/lightsem-data/experiments/lightsem/stage11_20260908/data/manifest.json",
+      "sha256": "509db5a29d5190dd3a8b07559787d81c8c9725f82e8006f48a09b88dd1451f7a"
+    },
+    "original_split_manifest": {
+      "path": "/mnt/lightsem-data/experiments/lightsem/stage11_20260908/data/split_manifest.json",
+      "sha256": "c5be79ab5ca3e134d3b4d3f7527679f8d9da95c15ffd4eb3141e392bf91007b3"
+    },
+    "source_only_candidate_manifest": {
+      "path": "/mnt/lightsem-data/experiments/lightsem/lighting-cue-model-20260922t094347z/cohort_v1_coverage90_candidate.json",
+      "sha256": "7f40dc6d4b62acec6ba0f2f846b5a84b2834ec0fe9bd9b5b9dd6c1914f7a4285"
+    }
+  },
+  "campaign_id": "lighting-cue-model-20260922t094347z",
+  "checks": {
+    "all_unselected_group_candidates_source_excluded": true,
+    "candidate_inputs_equal_capture_inputs": true,
+    "capture_dependency_hashes_exact": true,
+    "original_exclusions_keys_exactly_nine_unselected_DEV_groups": true,
+    "original_groups_equal_original_split_VAL": true,
+    "qualification_report_candidate_hash_exact": true,
+    "selected_groups_exactly_match_frozen_capture": true,
+    "selection_protocol_hash_exact": true,
+    "unselected_exact_original_minus_selected": true
+  },
+  "counts": {
+    "excluded_eligible_recordings": 12,
+    "frozen_selected_dev_canonical_groups": 31,
+    "original_eligible_dev_canonical_groups": 40,
+    "unselected_dev_canonical_groups": 9
+  },
+  "evaluator_contract": {
+    "original_exclusions": "dict[str canonical_id, str nonempty source-qualification reason]",
+    "requirement": "Bind this ledger path and SHA256 in evaluator registration; preserve excluded groups in original40-group coverage accounting.",
+    "usage": "registration.original_exclusions = ledger.original_exclusions; original universe = ledger.original_dev_canonical_ids; selected DEV universe = ledger.selected_dev_canonical_ids"
+  },
+  "exclusion_details": [
+    {
+      "canonical_id": "jd-097baa1c9d585a013f9c",
+      "exposure_role": "historical_VAL_exposed_development",
+      "historical_partition": "val",
+      "reason": "No eligible recording in this historical DEV canonical group passed the fixed source-only qualification: PeYhiDbAWkk: window64s_registered_coach_presence_below_0.90, center8s_registered_coach_presence_below_0.90. No replacement or threshold relaxation.",
+      "recordings": [
+        {
+          "center8s_presence": {
+            "all_registered_valid_frames": 199,
+            "fraction": 0.8326359832635983,
+            "interval_convention": "half-open",
+            "interval_s": [
+              99.1,
+              107.1
+            ],
+            "pose_frames": 239
+          },
+          "reason_codes": [
+            "window64s_registered_coach_presence_below_0.90",
+            "center8s_registered_coach_presence_below_0.90"
+          ],
+          "recording_id": "PeYhiDbAWkk",
+          "status": "source_excluded",
+          "window64s_presence": {
+            "all_registered_valid_frames": 1676,
+            "fraction": 0.8738269030239834,
+            "interval_convention": "half-open",
+            "interval_s": [
+              71.1,
+              135.1
+            ],
+            "pose_frames": 1918
+          }
+        }
+      ],
+      "scope": "source-only registered-coach box completeness/coverage; not target/model quality",
+      "source_report": "/mnt/lightsem-data/experiments/lightsem/lighting-cue-model-20260922t094347z/cohort_v1_coverage90_qualification_report.json"
+    },
+    {
+      "canonical_id": "jd-0ed8d37469d207f0c942",
+      "exposure_role": "historical_VAL_exposed_development",
+      "historical_partition": "val",
+      "reason": "No eligible recording in this historical DEV canonical group passed the fixed source-only qualification: 3WjC-P1nbfk: window64s_registered_coach_presence_below_0.90; JCoTYCP01QU: window64s_registered_coach_presence_below_0.90, center8s_registered_coach_presence_below_0.90; _TdFu1X5n4g: window64s_registered_coach_presence_below_0.90, center8s_registered_coach_presence_below_0.90. No replacement or threshold relaxation.",
+      "recordings": [
+        {
+          "center8s_presence": {
+            "all_registered_valid_frames": 224,
+            "fraction": 0.9333333333333333,
+            "interval_convention": "half-open",
+            "interval_s": [
+              90.2,
+              98.2
+            ],
+            "pose_frames": 240
+          },
+          "reason_codes": [
+            "window64s_registered_coach_presence_below_0.90"
+          ],
+          "recording_id": "3WjC-P1nbfk",
+          "status": "source_excluded",
+          "window64s_presence": {
+            "all_registered_valid_frames": 1654,
+            "fraction": 0.8614583333333333,
+            "interval_convention": "half-open",
+            "interval_s": [
+              62.2,
+              126.2
+            ],
+            "pose_frames": 1920
+          }
+        },
+        {
+          "center8s_presence": {
+            "all_registered_valid_frames": 156,
+            "fraction": 0.65,
+            "interval_convention": "half-open",
+            "interval_s": [
+              100.3,
+              108.3
+            ],
+            "pose_frames": 240
+          },
+          "reason_codes": [
+            "window64s_registered_coach_presence_below_0.90",
+            "center8s_registered_coach_presence_below_0.90"
+          ],
+          "recording_id": "JCoTYCP01QU",
+          "status": "source_excluded",
+          "window64s_presence": {
+            "all_registered_valid_frames": 1664,
+            "fraction": 0.8666666666666667,
+            "interval_convention": "half-open",
+            "interval_s": [
+              72.3,
+              136.3
+            ],
+            "pose_frames": 1920
+          }
+        },
+        {
+          "center8s_presence": {
+            "all_registered_valid_frames": 138,
+            "fraction": 0.575,
+            "interval_convention": "half-open",
+            "interval_s": [
+              87.8,
+              95.8
+            ],
+            "pose_frames": 240
+          },
+          "reason_codes": [
+            "window64s_registered_coach_presence_below_0.90",
+            "center8s_registered_coach_presence_below_0.90"
+          ],
+          "recording_id": "_TdFu1X5n4g",
+          "status": "source_excluded",
+          "window64s_presence": {
+            "all_registered_valid_frames": 1552,
+            "fraction": 0.8083333333333333,
+            "interval_convention": "half-open",
+            "interval_s": [
+              59.8,
+              123.8
+            ],
+            "pose_frames": 1920
+          }
+        }
+      ],
+      "scope": "source-only registered-coach box completeness/coverage; not target/model quality",
+      "source_report": "/mnt/lightsem-data/experiments/lightsem/lighting-cue-model-20260922t094347z/cohort_v1_coverage90_qualification_report.json"
+    },
+    {
+      "canonical_id": "jd-260469c1506f38e04138",
+      "exposure_role": "historical_VAL_exposed_development",
+      "historical_partition": "val",
+      "reason": "No eligible recording in this historical DEV canonical group passed the fixed source-only qualification: otZUfAnm5hU: center8s_registered_coach_presence_below_0.90. No replacement or threshold relaxation.",
+      "recordings": [
+        {
+          "center8s_presence": {
+            "all_registered_valid_frames": 208,
+            "fraction": 0.8666666666666667,
+            "interval_convention": "half-open",
+            "interval_s": [
+              119.9,
+              127.9
+            ],
+            "pose_frames": 240
+          },
+          "reason_codes": [
+            "center8s_registered_coach_presence_below_0.90"
+          ],
+          "recording_id": "otZUfAnm5hU",
+          "status": "source_excluded",
+          "window64s_presence": {
+            "all_registered_valid_frames": 1800,
+            "fraction": 0.9375,
+            "interval_convention": "half-open",
+            "interval_s": [
+              91.9,
+              155.9
+            ],
+            "pose_frames": 1920
+          }
+        }
+      ],
+      "scope": "source-only registered-coach box completeness/coverage; not target/model quality",
+      "source_report": "/mnt/lightsem-data/experiments/lightsem/lighting-cue-model-20260922t094347z/cohort_v1_coverage90_qualification_report.json"
+    },
+    {
+      "canonical_id": "jd-278032cbd182b76a75f7",
+      "exposure_role": "historical_VAL_exposed_development",
+      "historical_partition": "val",
+      "reason": "No eligible recording in this historical DEV canonical group passed the fixed source-only qualification: 3wr7CuBq6Kg: window64s_registered_coach_presence_below_0.90; kQ1sbdLAWrc: window64s_registered_coach_presence_below_0.90, center8s_registered_coach_presence_below_0.90. No replacement or threshold relaxation.",
+      "recordings": [
+        {
+          "center8s_presence": {
+            "all_registered_valid_frames": 240,
+            "fraction": 1.0,
+            "interval_convention": "half-open",
+            "interval_s": [
+              147.8,
+              155.8
+            ],
+            "pose_frames": 240
+          },
+          "reason_codes": [
+            "window64s_registered_coach_presence_below_0.90"
+          ],
+          "recording_id": "3wr7CuBq6Kg",
+          "status": "source_excluded",
+          "window64s_presence": {
+            "all_registered_valid_frames": 1556,
+            "fraction": 0.8112617309697602,
+            "interval_convention": "half-open",
+            "interval_s": [
+              119.8,
+              183.8
+            ],
+            "pose_frames": 1918
+          }
+        },
+        {
+          "center8s_presence": {
+            "all_registered_valid_frames": 165,
+            "fraction": 0.6875,
+            "interval_convention": "half-open",
+            "interval_s": [
+              134.0,
+              142.0
+            ],
+            "pose_frames": 240
+          },
+          "reason_codes": [
+            "window64s_registered_coach_presence_below_0.90",
+            "center8s_registered_coach_presence_below_0.90"
+          ],
+          "recording_id": "kQ1sbdLAWrc",
+          "status": "source_excluded",
+          "window64s_presence": {
+            "all_registered_valid_frames": 1612,
+            "fraction": 0.8395833333333333,
+            "interval_convention": "half-open",
+            "interval_s": [
+              106.0,
+              170.0
+            ],
+            "pose_frames": 1920
+          }
+        }
+      ],
+      "scope": "source-only registered-coach box completeness/coverage; not target/model quality",
+      "source_report": "/mnt/lightsem-data/experiments/lightsem/lighting-cue-model-20260922t094347z/cohort_v1_coverage90_qualification_report.json"
+    },
+    {
+      "canonical_id": "jd-3a05f756402f22a05898",
+      "exposure_role": "historical_VAL_exposed_development",
+      "historical_partition": "val",
+      "reason": "No eligible recording in this historical DEV canonical group passed the fixed source-only qualification: FkGH4F-xPnE: window64s_registered_coach_presence_below_0.90. No replacement or threshold relaxation.",
+      "recordings": [
+        {
+          "center8s_presence": {
+            "all_registered_valid_frames": 238,
+            "fraction": 0.9916666666666667,
+            "interval_convention": "half-open",
+            "interval_s": [
+              106.8,
+              114.8
+            ],
+            "pose_frames": 240
+          },
+          "reason_codes": [
+            "window64s_registered_coach_presence_below_0.90"
+          ],
+          "recording_id": "FkGH4F-xPnE",
+          "status": "source_excluded",
+          "window64s_presence": {
+            "all_registered_valid_frames": 1666,
+            "fraction": 0.8677083333333333,
+            "interval_convention": "half-open",
+            "interval_s": [
+              78.8,
+              142.8
+            ],
+            "pose_frames": 1920
+          }
+        }
+      ],
+      "scope": "source-only registered-coach box completeness/coverage; not target/model quality",
+      "source_report": "/mnt/lightsem-data/experiments/lightsem/lighting-cue-model-20260922t094347z/cohort_v1_coverage90_qualification_report.json"
+    },
+    {
+      "canonical_id": "jd-60a55fd9947fbdbf4513",
+      "exposure_role": "historical_VAL_exposed_development",
+      "historical_partition": "val",
+      "reason": "No eligible recording in this historical DEV canonical group passed the fixed source-only qualification: pHB_Yal8cc0: window64s_registered_coach_presence_below_0.90, center8s_registered_coach_presence_below_0.90. No replacement or threshold relaxation.",
+      "recordings": [
+        {
+          "center8s_presence": {
+            "all_registered_valid_frames": 213,
+            "fraction": 0.8875,
+            "interval_convention": "half-open",
+            "interval_s": [
+              100.7,
+              108.7
+            ],
+            "pose_frames": 240
+          },
+          "reason_codes": [
+            "window64s_registered_coach_presence_below_0.90",
+            "center8s_registered_coach_presence_below_0.90"
+          ],
+          "recording_id": "pHB_Yal8cc0",
+          "status": "source_excluded",
+          "window64s_presence": {
+            "all_registered_valid_frames": 1458,
+            "fraction": 0.759375,
+            "interval_convention": "half-open",
+            "interval_s": [
+              72.7,
+              136.7
+            ],
+            "pose_frames": 1920
+          }
+        }
+      ],
+      "scope": "source-only registered-coach box completeness/coverage; not target/model quality",
+      "source_report": "/mnt/lightsem-data/experiments/lightsem/lighting-cue-model-20260922t094347z/cohort_v1_coverage90_qualification_report.json"
+    },
+    {
+      "canonical_id": "jd-8271f643dba047e0aa62",
+      "exposure_role": "historical_VAL_exposed_development",
+      "historical_partition": "val",
+      "reason": "No eligible recording in this historical DEV canonical group passed the fixed source-only qualification: 6diuUFMp3qo: window64s_registered_coach_presence_below_0.90. No replacement or threshold relaxation.",
+      "recordings": [
+        {
+          "center8s_presence": {
+            "all_registered_valid_frames": 240,
+            "fraction": 1.0,
+            "interval_convention": "half-open",
+            "interval_s": [
+              107.7,
+              115.7
+            ],
+            "pose_frames": 240
+          },
+          "reason_codes": [
+            "window64s_registered_coach_presence_below_0.90"
+          ],
+          "recording_id": "6diuUFMp3qo",
+          "status": "source_excluded",
+          "window64s_presence": {
+            "all_registered_valid_frames": 1710,
+            "fraction": 0.890625,
+            "interval_convention": "half-open",
+            "interval_s": [
+              79.7,
+              143.7
+            ],
+            "pose_frames": 1920
+          }
+        }
+      ],
+      "scope": "source-only registered-coach box completeness/coverage; not target/model quality",
+      "source_report": "/mnt/lightsem-data/experiments/lightsem/lighting-cue-model-20260922t094347z/cohort_v1_coverage90_qualification_report.json"
+    },
+    {
+      "canonical_id": "jd-e250688889a71932501d",
+      "exposure_role": "historical_VAL_exposed_development",
+      "historical_partition": "val",
+      "reason": "No eligible recording in this historical DEV canonical group passed the fixed source-only qualification: mDD-0K-RV4U: center8s_registered_coach_presence_below_0.90. No replacement or threshold relaxation.",
+      "recordings": [
+        {
+          "center8s_presence": {
+            "all_registered_valid_frames": 215,
+            "fraction": 0.8958333333333334,
+            "interval_convention": "half-open",
+            "interval_s": [
+              89.7,
+              97.7
+            ],
+            "pose_frames": 240
+          },
+          "reason_codes": [
+            "center8s_registered_coach_presence_below_0.90"
+          ],
+          "recording_id": "mDD-0K-RV4U",
+          "status": "source_excluded",
+          "window64s_presence": {
+            "all_registered_valid_frames": 1820,
+            "fraction": 0.9479166666666666,
+            "interval_convention": "half-open",
+            "interval_s": [
+              61.7,
+              125.7
+            ],
+            "pose_frames": 1920
+          }
+        }
+      ],
+      "scope": "source-only registered-coach box completeness/coverage; not target/model quality",
+      "source_report": "/mnt/lightsem-data/experiments/lightsem/lighting-cue-model-20260922t094347z/cohort_v1_coverage90_qualification_report.json"
+    },
+    {
+      "canonical_id": "jd-ee18d3f86df18b22e8d9",
+      "exposure_role": "historical_VAL_exposed_development",
+      "historical_partition": "val",
+      "reason": "No eligible recording in this historical DEV canonical group passed the fixed source-only qualification: HAaqFejias8: center8s_registered_coach_presence_below_0.90. No replacement or threshold relaxation.",
+      "recordings": [
+        {
+          "center8s_presence": {
+            "all_registered_valid_frames": 196,
+            "fraction": 0.8166666666666667,
+            "interval_convention": "half-open",
+            "interval_s": [
+              100.4,
+              108.4
+            ],
+            "pose_frames": 240
+          },
+          "reason_codes": [
+            "center8s_registered_coach_presence_below_0.90"
+          ],
+          "recording_id": "HAaqFejias8",
+          "status": "source_excluded",
+          "window64s_presence": {
+            "all_registered_valid_frames": 1815,
+            "fraction": 0.9462982273201251,
+            "interval_convention": "half-open",
+            "interval_s": [
+              72.4,
+              136.4
+            ],
+            "pose_frames": 1918
+          }
+        }
+      ],
+      "scope": "source-only registered-coach box completeness/coverage; not target/model quality",
+      "source_report": "/mnt/lightsem-data/experiments/lightsem/lighting-cue-model-20260922t094347z/cohort_v1_coverage90_qualification_report.json"
+    }
+  ],
+  "exposure_role": "historical_VAL_exposed_development",
+  "fresh_confirmation": false,
+  "historical_partition": "val",
+  "original_dev_canonical_ids": [
+    "jd-0928ee4d1de962b531b9",
+    "jd-097baa1c9d585a013f9c",
+    "jd-0ed8d37469d207f0c942",
+    "jd-260469c1506f38e04138",
+    "jd-278032cbd182b76a75f7",
+    "jd-2c77ae090404e55f756a",
+    "jd-2d5d5defd33a5ae0bdc3",
+    "jd-3a05f756402f22a05898",
+    "jd-3b9ff4e655382e86d13e",
+    "jd-3befa145e6969e6c9a95",
+    "jd-3c5e68ae33c47c290479",
+    "jd-41ab77f7b47086034bdd",
+    "jd-456e07ff2d55abce6615",
+    "jd-55b5e12d13bb65af40c4",
+    "jd-60a55fd9947fbdbf4513",
+    "jd-669b916cd15af69ae82c",
+    "jd-700bceaf8b0e9265bafe",
+    "jd-747150134cf9e99c3c3c",
+    "jd-74e48db9c68c3ba7518c",
+    "jd-8271f643dba047e0aa62",
+    "jd-86d4dcca00cd5d4c8660",
+    "jd-8a679ca83b209ec3b56d",
+    "jd-91a59e9979e5c8c83a4b",
+    "jd-95ce22181d5e92287572",
+    "jd-97b196cd3a7f8f8c644e",
+    "jd-9853154cde288d120418",
+    "jd-a93d208ad804d0dcaf1a",
+    "jd-d3581d2b1eb7b0beb7d1",
+    "jd-d79d29aa3c0f14c7e4f8",
+    "jd-e1da76a76ac38851fb95",
+    "jd-e23374aa3965d47673e4",
+    "jd-e250688889a71932501d",
+    "jd-e41ede5dd92ce64a6170",
+    "jd-ea120a8bdace51e8b6f6",
+    "jd-ee18d3f86df18b22e8d9",
+    "jd-efebde221c7bbf18bf6a",
+    "jd-f19a7edfa3a9eca671bf",
+    "jd-f4c8176fa3a91973b592",
+    "jd-f6d8aa9c97422610fd37",
+    "jd-fafcdb519fee22dbc70c"
+  ],
+  "original_dev_group_records": [
+    {
+      "canonical_id": "jd-0928ee4d1de962b531b9",
+      "eligible_recording_ids": [
+        "wnw4_ZfVmrA"
+      ],
+      "historical_partition": "val",
+      "historical_recording_ids": [
+        "wnw4_ZfVmrA"
+      ],
+      "selected": true,
+      "selected_recording_id": "wnw4_ZfVmrA"
+    },
+    {
+      "canonical_id": "jd-097baa1c9d585a013f9c",
+      "eligible_recording_ids": [
+        "PeYhiDbAWkk"
+      ],
+      "historical_partition": "val",
+      "historical_recording_ids": [
+        "PeYhiDbAWkk"
+      ],
+      "selected": false,
+      "selected_recording_id": null
+    },
+    {
+      "canonical_id": "jd-0ed8d37469d207f0c942",
+      "eligible_recording_ids": [
+        "3WjC-P1nbfk",
+        "JCoTYCP01QU",
+        "_TdFu1X5n4g"
+      ],
+      "historical_partition": "val",
+      "historical_recording_ids": [
+        "3WjC-P1nbfk",
+        "JCoTYCP01QU",
+        "_TdFu1X5n4g"
+      ],
+      "selected": false,
+      "selected_recording_id": null
+    },
+    {
+      "canonical_id": "jd-260469c1506f38e04138",
+      "eligible_recording_ids": [
+        "otZUfAnm5hU"
+      ],
+      "historical_partition": "val",
+      "historical_recording_ids": [
+        "otZUfAnm5hU"
+      ],
+      "selected": false,
+      "selected_recording_id": null
+    },
+    {
+      "canonical_id": "jd-278032cbd182b76a75f7",
+      "eligible_recording_ids": [
+        "3wr7CuBq6Kg",
+        "kQ1sbdLAWrc"
+      ],
+      "historical_partition": "val",
+      "historical_recording_ids": [
+        "3wr7CuBq6Kg",
+        "kQ1sbdLAWrc"
+      ],
+      "selected": false,
+      "selected_recording_id": null
+    },
+    {
+      "canonical_id": "jd-2c77ae090404e55f756a",
+      "eligible_recording_ids": [
+        "WxPy_sHLpCM"
+      ],
+      "historical_partition": "val",
+      "historical_recording_ids": [
+        "WxPy_sHLpCM"
+      ],
+      "selected": true,
+      "selected_recording_id": "WxPy_sHLpCM"
+    },
+    {
+      "canonical_id": "jd-2d5d5defd33a5ae0bdc3",
+      "eligible_recording_ids": [
+        "ZyE3xcxZHnw"
+      ],
+      "historical_partition": "val",
+      "historical_recording_ids": [
+        "UhYdRikhI50",
+        "ZyE3xcxZHnw",
+        "rX1R1-aLVK4"
+      ],
+      "selected": true,
+      "selected_recording_id": "ZyE3xcxZHnw"
+    },
+    {
+      "canonical_id": "jd-3a05f756402f22a05898",
+      "eligible_recording_ids": [
+        "FkGH4F-xPnE"
+      ],
+      "historical_partition": "val",
+      "historical_recording_ids": [
+        "FkGH4F-xPnE"
+      ],
+      "selected": false,
+      "selected_recording_id": null
+    },
+    {
+      "canonical_id": "jd-3b9ff4e655382e86d13e",
+      "eligible_recording_ids": [
+        "NBw54DXeVw8"
+      ],
+      "historical_partition": "val",
+      "historical_recording_ids": [
+        "NBw54DXeVw8"
+      ],
+      "selected": true,
+      "selected_recording_id": "NBw54DXeVw8"
+    },
+    {
+      "canonical_id": "jd-3befa145e6969e6c9a95",
+      "eligible_recording_ids": [
+        "uFcIni6A3P0"
+      ],
+      "historical_partition": "val",
+      "historical_recording_ids": [
+        "uFcIni6A3P0"
+      ],
+      "selected": true,
+      "selected_recording_id": "uFcIni6A3P0"
+    },
+    {
+      "canonical_id": "jd-3c5e68ae33c47c290479",
+      "eligible_recording_ids": [
+        "Z9Got5FyrXI",
+        "aNXRjL3c-4w"
+      ],
+      "historical_partition": "val",
+      "historical_recording_ids": [
+        "Z9Got5FyrXI",
+        "aNXRjL3c-4w"
+      ],
+      "selected": true,
+      "selected_recording_id": "Z9Got5FyrXI"
+    },
+    {
+      "canonical_id": "jd-41ab77f7b47086034bdd",
+      "eligible_recording_ids": [
+        "FUDKBgik9uU",
+        "OQSFTue2T9U",
+        "otgwHljZEF8"
+      ],
+      "historical_partition": "val",
+      "historical_recording_ids": [
+        "FUDKBgik9uU",
+        "OQSFTue2T9U",
+        "otgwHljZEF8"
+      ],
+      "selected": true,
+      "selected_recording_id": "FUDKBgik9uU"
+    },
+    {
+      "canonical_id": "jd-456e07ff2d55abce6615",
+      "eligible_recording_ids": [
+        "5pb-txxfRDk",
+        "Cl-ogl2AHDs"
+      ],
+      "historical_partition": "val",
+      "historical_recording_ids": [
+        "5pb-txxfRDk",
+        "Cl-ogl2AHDs"
+      ],
+      "selected": true,
+      "selected_recording_id": "5pb-txxfRDk"
+    },
+    {
+      "canonical_id": "jd-55b5e12d13bb65af40c4",
+      "eligible_recording_ids": [
+        "ApisF-hdoZg"
+      ],
+      "historical_partition": "val",
+      "historical_recording_ids": [
+        "ApisF-hdoZg"
+      ],
+      "selected": true,
+      "selected_recording_id": "ApisF-hdoZg"
+    },
+    {
+      "canonical_id": "jd-60a55fd9947fbdbf4513",
+      "eligible_recording_ids": [
+        "pHB_Yal8cc0"
+      ],
+      "historical_partition": "val",
+      "historical_recording_ids": [
+        "pHB_Yal8cc0"
+      ],
+      "selected": false,
+      "selected_recording_id": null
+    },
+    {
+      "canonical_id": "jd-669b916cd15af69ae82c",
+      "eligible_recording_ids": [
+        "J21d603A7T4"
+      ],
+      "historical_partition": "val",
+      "historical_recording_ids": [
+        "J21d603A7T4"
+      ],
+      "selected": true,
+      "selected_recording_id": "J21d603A7T4"
+    },
+    {
+      "canonical_id": "jd-700bceaf8b0e9265bafe",
+      "eligible_recording_ids": [
+        "1ozcUaAXJV8"
+      ],
+      "historical_partition": "val",
+      "historical_recording_ids": [
+        "1ozcUaAXJV8"
+      ],
+      "selected": true,
+      "selected_recording_id": "1ozcUaAXJV8"
+    },
+    {
+      "canonical_id": "jd-747150134cf9e99c3c3c",
+      "eligible_recording_ids": [
+        "E3Af6_rVeSQ"
+      ],
+      "historical_partition": "val",
+      "historical_recording_ids": [
+        "E3Af6_rVeSQ"
+      ],
+      "selected": true,
+      "selected_recording_id": "E3Af6_rVeSQ"
+    },
+    {
+      "canonical_id": "jd-74e48db9c68c3ba7518c",
+      "eligible_recording_ids": [
+        "uCxcK7PhvBY"
+      ],
+      "historical_partition": "val",
+      "historical_recording_ids": [
+        "uCxcK7PhvBY"
+      ],
+      "selected": true,
+      "selected_recording_id": "uCxcK7PhvBY"
+    },
+    {
+      "canonical_id": "jd-8271f643dba047e0aa62",
+      "eligible_recording_ids": [
+        "6diuUFMp3qo"
+      ],
+      "historical_partition": "val",
+      "historical_recording_ids": [
+        "6diuUFMp3qo"
+      ],
+      "selected": false,
+      "selected_recording_id": null
+    },
+    {
+      "canonical_id": "jd-86d4dcca00cd5d4c8660",
+      "eligible_recording_ids": [
+        "RPTeAkorooA"
+      ],
+      "historical_partition": "val",
+      "historical_recording_ids": [
+        "RPTeAkorooA"
+      ],
+      "selected": true,
+      "selected_recording_id": "RPTeAkorooA"
+    },
+    {
+      "canonical_id": "jd-8a679ca83b209ec3b56d",
+      "eligible_recording_ids": [
+        "SQu7mn2LFxI"
+      ],
+      "historical_partition": "val",
+      "historical_recording_ids": [
+        "SQu7mn2LFxI"
+      ],
+      "selected": true,
+      "selected_recording_id": "SQu7mn2LFxI"
+    },
+    {
+      "canonical_id": "jd-91a59e9979e5c8c83a4b",
+      "eligible_recording_ids": [
+        "TIfHV-Xq9VI"
+      ],
+      "historical_partition": "val",
+      "historical_recording_ids": [
+        "TIfHV-Xq9VI"
+      ],
+      "selected": true,
+      "selected_recording_id": "TIfHV-Xq9VI"
+    },
+    {
+      "canonical_id": "jd-95ce22181d5e92287572",
+      "eligible_recording_ids": [
+        "9_htm1JQxBg"
+      ],
+      "historical_partition": "val",
+      "historical_recording_ids": [
+        "9_htm1JQxBg"
+      ],
+      "selected": true,
+      "selected_recording_id": "9_htm1JQxBg"
+    },
+    {
+      "canonical_id": "jd-97b196cd3a7f8f8c644e",
+      "eligible_recording_ids": [
+        "2sYjdIN6rv0",
+        "nbYZH3Eu6hs"
+      ],
+      "historical_partition": "val",
+      "historical_recording_ids": [
+        "2sYjdIN6rv0",
+        "nbYZH3Eu6hs"
+      ],
+      "selected": true,
+      "selected_recording_id": "2sYjdIN6rv0"
+    },
+    {
+      "canonical_id": "jd-9853154cde288d120418",
+      "eligible_recording_ids": [
+        "OeYSabCXfjU"
+      ],
+      "historical_partition": "val",
+      "historical_recording_ids": [
+        "OeYSabCXfjU"
+      ],
+      "selected": true,
+      "selected_recording_id": "OeYSabCXfjU"
+    },
+    {
+      "canonical_id": "jd-a93d208ad804d0dcaf1a",
+      "eligible_recording_ids": [
+        "ARQwK8P1hkg"
+      ],
+      "historical_partition": "val",
+      "historical_recording_ids": [
+        "ARQwK8P1hkg"
+      ],
+      "selected": true,
+      "selected_recording_id": "ARQwK8P1hkg"
+    },
+    {
+      "canonical_id": "jd-d3581d2b1eb7b0beb7d1",
+      "eligible_recording_ids": [
+        "vsW87yPjmSs"
+      ],
+      "historical_partition": "val",
+      "historical_recording_ids": [
+        "vsW87yPjmSs"
+      ],
+      "selected": true,
+      "selected_recording_id": "vsW87yPjmSs"
+    },
+    {
+      "canonical_id": "jd-d79d29aa3c0f14c7e4f8",
+      "eligible_recording_ids": [
+        "8UTvmHbgc5w",
+        "_MmgNOOVYIY"
+      ],
+      "historical_partition": "val",
+      "historical_recording_ids": [
+        "8UTvmHbgc5w",
+        "_MmgNOOVYIY"
+      ],
+      "selected": true,
+      "selected_recording_id": "8UTvmHbgc5w"
+    },
+    {
+      "canonical_id": "jd-e1da76a76ac38851fb95",
+      "eligible_recording_ids": [
+        "jkGH7JIHDSk"
+      ],
+      "historical_partition": "val",
+      "historical_recording_ids": [
+        "jkGH7JIHDSk"
+      ],
+      "selected": true,
+      "selected_recording_id": "jkGH7JIHDSk"
+    },
+    {
+      "canonical_id": "jd-e23374aa3965d47673e4",
+      "eligible_recording_ids": [
+        "hnVwwzCVoqg"
+      ],
+      "historical_partition": "val",
+      "historical_recording_ids": [
+        "hnVwwzCVoqg"
+      ],
+      "selected": true,
+      "selected_recording_id": "hnVwwzCVoqg"
+    },
+    {
+      "canonical_id": "jd-e250688889a71932501d",
+      "eligible_recording_ids": [
+        "mDD-0K-RV4U"
+      ],
+      "historical_partition": "val",
+      "historical_recording_ids": [
+        "mDD-0K-RV4U"
+      ],
+      "selected": false,
+      "selected_recording_id": null
+    },
+    {
+      "canonical_id": "jd-e41ede5dd92ce64a6170",
+      "eligible_recording_ids": [
+        "NA7shs-6IYo",
+        "YZ2q5gGnRS8",
+        "eX8MGJI9BNE"
+      ],
+      "historical_partition": "val",
+      "historical_recording_ids": [
+        "NA7shs-6IYo",
+        "YZ2q5gGnRS8",
+        "eX8MGJI9BNE"
+      ],
+      "selected": true,
+      "selected_recording_id": "NA7shs-6IYo"
+    },
+    {
+      "canonical_id": "jd-ea120a8bdace51e8b6f6",
+      "eligible_recording_ids": [
+        "V2yuC5yLxws"
+      ],
+      "historical_partition": "val",
+      "historical_recording_ids": [
+        "V2yuC5yLxws"
+      ],
+      "selected": true,
+      "selected_recording_id": "V2yuC5yLxws"
+    },
+    {
+      "canonical_id": "jd-ee18d3f86df18b22e8d9",
+      "eligible_recording_ids": [
+        "HAaqFejias8"
+      ],
+      "historical_partition": "val",
+      "historical_recording_ids": [
+        "HAaqFejias8"
+      ],
+      "selected": false,
+      "selected_recording_id": null
+    },
+    {
+      "canonical_id": "jd-efebde221c7bbf18bf6a",
+      "eligible_recording_ids": [
+        "Vf2s-fakSIo"
+      ],
+      "historical_partition": "val",
+      "historical_recording_ids": [
+        "Vf2s-fakSIo"
+      ],
+      "selected": true,
+      "selected_recording_id": "Vf2s-fakSIo"
+    },
+    {
+      "canonical_id": "jd-f19a7edfa3a9eca671bf",
+      "eligible_recording_ids": [
+        "3M9VrJLQDhU"
+      ],
+      "historical_partition": "val",
+      "historical_recording_ids": [
+        "3M9VrJLQDhU"
+      ],
+      "selected": true,
+      "selected_recording_id": "3M9VrJLQDhU"
+    },
+    {
+      "canonical_id": "jd-f4c8176fa3a91973b592",
+      "eligible_recording_ids": [
+        "8hDff6PV2KA",
+        "PaLZfNzUrNU"
+      ],
+      "historical_partition": "val",
+      "historical_recording_ids": [
+        "8hDff6PV2KA",
+        "PaLZfNzUrNU"
+      ],
+      "selected": true,
+      "selected_recording_id": "8hDff6PV2KA"
+    },
+    {
+      "canonical_id": "jd-f6d8aa9c97422610fd37",
+      "eligible_recording_ids": [
+        "Ub3Cc9DLhK4"
+      ],
+      "historical_partition": "val",
+      "historical_recording_ids": [
+        "Ub3Cc9DLhK4"
+      ],
+      "selected": true,
+      "selected_recording_id": "Ub3Cc9DLhK4"
+    },
+    {
+      "canonical_id": "jd-fafcdb519fee22dbc70c",
+      "eligible_recording_ids": [
+        "T4NAdlh-suQ"
+      ],
+      "historical_partition": "val",
+      "historical_recording_ids": [
+        "T4NAdlh-suQ"
+      ],
+      "selected": true,
+      "selected_recording_id": "T4NAdlh-suQ"
+    }
+  ],
+  "original_exclusions": {
+    "jd-097baa1c9d585a013f9c": "No eligible recording in this historical DEV canonical group passed the fixed source-only qualification: PeYhiDbAWkk: window64s_registered_coach_presence_below_0.90, center8s_registered_coach_presence_below_0.90. No replacement or threshold relaxation.",
+    "jd-0ed8d37469d207f0c942": "No eligible recording in this historical DEV canonical group passed the fixed source-only qualification: 3WjC-P1nbfk: window64s_registered_coach_presence_below_0.90; JCoTYCP01QU: window64s_registered_coach_presence_below_0.90, center8s_registered_coach_presence_below_0.90; _TdFu1X5n4g: window64s_registered_coach_presence_below_0.90, center8s_registered_coach_presence_below_0.90. No replacement or threshold relaxation.",
+    "jd-260469c1506f38e04138": "No eligible recording in this historical DEV canonical group passed the fixed source-only qualification: otZUfAnm5hU: center8s_registered_coach_presence_below_0.90. No replacement or threshold relaxation.",
+    "jd-278032cbd182b76a75f7": "No eligible recording in this historical DEV canonical group passed the fixed source-only qualification: 3wr7CuBq6Kg: window64s_registered_coach_presence_below_0.90; kQ1sbdLAWrc: window64s_registered_coach_presence_below_0.90, center8s_registered_coach_presence_below_0.90. No replacement or threshold relaxation.",
+    "jd-3a05f756402f22a05898": "No eligible recording in this historical DEV canonical group passed the fixed source-only qualification: FkGH4F-xPnE: window64s_registered_coach_presence_below_0.90. No replacement or threshold relaxation.",
+    "jd-60a55fd9947fbdbf4513": "No eligible recording in this historical DEV canonical group passed the fixed source-only qualification: pHB_Yal8cc0: window64s_registered_coach_presence_below_0.90, center8s_registered_coach_presence_below_0.90. No replacement or threshold relaxation.",
+    "jd-8271f643dba047e0aa62": "No eligible recording in this historical DEV canonical group passed the fixed source-only qualification: 6diuUFMp3qo: window64s_registered_coach_presence_below_0.90. No replacement or threshold relaxation.",
+    "jd-e250688889a71932501d": "No eligible recording in this historical DEV canonical group passed the fixed source-only qualification: mDD-0K-RV4U: center8s_registered_coach_presence_below_0.90. No replacement or threshold relaxation.",
+    "jd-ee18d3f86df18b22e8d9": "No eligible recording in this historical DEV canonical group passed the fixed source-only qualification: HAaqFejias8: center8s_registered_coach_presence_below_0.90. No replacement or threshold relaxation."
+  },
+  "original_gate": {
+    "coverage": 0.775,
+    "note": "31/40=77.5%. Original80percentgate remains failed; not waived or relabeled.",
+    "passed": false,
+    "threshold": 0.8
+  },
+  "schema_version": 1,
+  "scope": "Original historical DEV canonical-group coverage exclusions from frozen source qualification only. Not the separate TRAIN identity quarantine.",
+  "selected_dev_canonical_ids": [
+    "jd-0928ee4d1de962b531b9",
+    "jd-2c77ae090404e55f756a",
+    "jd-2d5d5defd33a5ae0bdc3",
+    "jd-3b9ff4e655382e86d13e",
+    "jd-3befa145e6969e6c9a95",
+    "jd-3c5e68ae33c47c290479",
+    "jd-41ab77f7b47086034bdd",
+    "jd-456e07ff2d55abce6615",
+    "jd-55b5e12d13bb65af40c4",
+    "jd-669b916cd15af69ae82c",
+    "jd-700bceaf8b0e9265bafe",
+    "jd-747150134cf9e99c3c3c",
+    "jd-74e48db9c68c3ba7518c",
+    "jd-86d4dcca00cd5d4c8660",
+    "jd-8a679ca83b209ec3b56d",
+    "jd-91a59e9979e5c8c83a4b",
+    "jd-95ce22181d5e92287572",
+    "jd-97b196cd3a7f8f8c644e",
+    "jd-9853154cde288d120418",
+    "jd-a93d208ad804d0dcaf1a",
+    "jd-d3581d2b1eb7b0beb7d1",
+    "jd-d79d29aa3c0f14c7e4f8",
+    "jd-e1da76a76ac38851fb95",
+    "jd-e23374aa3965d47673e4",
+    "jd-e41ede5dd92ce64a6170",
+    "jd-ea120a8bdace51e8b6f6",
+    "jd-efebde221c7bbf18bf6a",
+    "jd-f19a7edfa3a9eca671bf",
+    "jd-f4c8176fa3a91973b592",
+    "jd-f6d8aa9c97422610fd37",
+    "jd-fafcdb519fee22dbc70c"
+  ],
+  "selection_policy": {
+    "canonical_order": "SHA256(UTF8(campaign_id + 'cohort-v1' + canonical_id)); ascending hexdigest",
+    "joint_registered_box_presence_threshold": 0.9,
+    "no_replacements": true,
+    "no_target_or_model_score_selection": true,
+    "recording_order": "ascending lexicographic recording_id within canonical_id",
+    "required_intervals": [
+      "full64s",
+      "center8s"
+    ]
+  },
+  "separation_from_TRAIN_identity_quarantines": {
+    "TRAIN_identity_quarantine_not_changed": true,
+    "no_TRAIN_group_in_this_original_exclusions_map": true,
+    "same_count_nine_is_coincidental": true,
+    "unrelated_ledger": true
+  },
+  "unselected_dev_canonical_ids": [
+    "jd-097baa1c9d585a013f9c",
+    "jd-0ed8d37469d207f0c942",
+    "jd-260469c1506f38e04138",
+    "jd-278032cbd182b76a75f7",
+    "jd-3a05f756402f22a05898",
+    "jd-60a55fd9947fbdbf4513",
+    "jd-8271f643dba047e0aa62",
+    "jd-e250688889a71932501d",
+    "jd-ee18d3f86df18b22e8d9"
+  ]
+}

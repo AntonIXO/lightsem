@@ -1,0 +1,55 @@
+{
+  "exit_code": 0,
+  "wrapper_seconds": 8.224685247056186,
+  "captured_native_output": "Running as unit: lightsem-struct-preparation-v6.service\n          Finished with result: success\nMain processes terminated with: code=exited, status=0/SUCCESS\n               Service runtime: 8.209s\n             CPU time consumed: 8.666s\n                   Memory peak: 384.7M (swap: 0B)\n",
+  "service_runtime_reported_seconds": 8.209,
+  "peak_memory_reported_text": "384.7M (swap: 0B)",
+  "peak_memory_exact_bytes": null,
+  "live_service_properties": {
+    "Id": "lightsem-struct-preparation-v6.service",
+    "ActiveState": "active",
+    "SubState": "running",
+    "DropInPaths": "",
+    "RuntimeMaxUSec": "14min 50s",
+    "Result": "success",
+    "ExecMainStartTimestampMonotonic": "1132023884532",
+    "ExecMainExitTimestampMonotonic": "0",
+    "ExecMainPID": "1065133",
+    "ExecMainCode": "0",
+    "ExecMainStatus": "0",
+    "ControlGroup": "/system.slice/lightsem-struct-preparation-v6.service",
+    "MemoryPeak": "1310720",
+    "MemoryMax": "4294967296",
+    "MemorySwapMax": "0",
+    "PrivateDevices": "yes",
+    "ProtectControlGroups": "yes",
+    "NoNewPrivileges": "yes",
+    "KillMode": "control-group",
+    "KillSignal": "9"
+  },
+  "post_completion_service_query": {
+    "exit_code": 0,
+    "output": "Id=lightsem-struct-preparation-v6.service\nLoadState=not-found\nActiveState=inactive\nSubState=dead\nDropInPaths=\nRuntimeMaxUSec=infinity\nResult=success\nExecMainStartTimestampMonotonic=0\nExecMainExitTimestampMonotonic=0\nExecMainCode=0\nExecMainStatus=0\nMemoryPeak=[not set]\nMemoryMax=infinity\nMemorySwapMax=infinity\n"
+  },
+  "execution_binding_ref": {
+    "path": "/root/lightsem/outputs/legacy_struct_intensity_20260928_v1/PREPARATION_EXECUTION_BINDING_V6.json",
+    "size_bytes": 2517,
+    "sha256": "367ce6428811a438820d6f81735af8af396aced0c556a2b61c2af1336dbe35f7"
+  },
+  "envelope_proof_ref": {
+    "path": "/root/lightsem/outputs/legacy_struct_intensity_20260928_v1/preparation_resource_envelope_v6.json",
+    "size_bytes": 2628,
+    "sha256": "e0232a84eb81f5e57911e635ff2b4275b2d43345e447d27f30ae17c67c8f6de6"
+  },
+  "readiness_ref": {
+    "path": "/mnt/lightsem-data/experiments/lightsem/end_to_end_20260928_v1/legacy_struct_intensity_v6/preparation_readiness_v6.json",
+    "size_bytes": 202345,
+    "sha256": "54049eb742d6e796f3356cb278e1044320a6a7e56cf9c4af04cd33536520a878"
+  },
+  "log_ref": {
+    "path": "/root/lightsem/outputs/legacy_struct_intensity_20260928_v1/preparation_v6.log",
+    "size_bytes": 12087,
+    "sha256": "3c022aefa388d2558c16de5f03d314e7cb65366f6bc2815d9bc4480b7b9dce0c"
+  },
+  "interpretation": "Native exit0 and published readiness observed. Initial properties were observed while running, not as completion proof. Exact peak-byte count not captured; report native rounded text only. Final parent/independent metadata/resource audits remain separate. No model/scientific execution."
+}

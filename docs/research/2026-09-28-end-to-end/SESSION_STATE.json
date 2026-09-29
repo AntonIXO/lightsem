@@ -1,0 +1,601 @@
+{
+  "goal_id": "25e0b629-2cad-4b34-847b-47c7bba587b8",
+  "policy": {
+    "path": "/root/lightsem/docs/research/2026-09-28-end-to-end/GOAL_AND_DEMO_POLICY_V1.json",
+    "sha256": "cc19b793b288028b3fe01d61708ed26732fbdf593e2b5f134a294677114da5c0"
+  },
+  "inventory": {
+    "path": "/root/lightsem/docs/research/2026-09-28-end-to-end/VAULT_INVENTORY_V1.json",
+    "sha256": "582d1c7a3fd1ca87d3c18eeb04711c5873a8cbd3577bcc9c8a42d4111f4be550"
+  },
+  "native_goal_authorization": {
+    "path": "/root/lightsem/docs/research/2026-09-28-end-to-end/vault_goal_authorization_receipt_v1.json",
+    "sha256": "bdd1c4145c15d8b48798006c7a41d5bab0b0c6f1da878b3d82c5071e54bb7cc4"
+  },
+  "status": "active: full71 frontier complete; legacy/source/demo readiness and external prerequisites pending",
+  "scientific_runs_started": false,
+  "new_major_change": false,
+  "new_demo_due": false,
+  "counts": {
+    "all_hypotheses": 71,
+    "all_experiments": 71,
+    "formal_testing": 7,
+    "formal_proposed": 7,
+    "confirmed": 15,
+    "refuted": 10,
+    "inconclusive": 32
+  },
+  "workers": [
+    "remaining-test-readiness (V2 demo source/tests)",
+    "comparison-driver-review (independent static review)",
+    "legacy-remainder-readiness (new evaluation readiness + row8 protocol candidate)"
+  ],
+  "prior_completed_state": "/root/lightsem/docs/research/2026-09-22-color-beat/SESSION_STATE.json",
+  "resource_observation": {
+    "root_free_bytes": 6308167680,
+    "data_free_bytes": 1254227968,
+    "data_free_floor_bytes": 1073741824,
+    "campaign_bytes": 952976108,
+    "campaign_cap_bytes": 1020054732
+  },
+  "next": "Obtain V2 handoff/review; bind exact protocol/source/test/input plan then run native synthetic tests. New full demos only after passed bindings; source-gated new legacy evaluation planned separately. User scientificfit/storage expansion unapproved.",
+  "frontier": {
+    "path": "/root/lightsem/docs/research/2026-09-28-end-to-end/FRONTIER_REVIEW_V1.json",
+    "sha256": "4857b0e7cf5136cfb42ce6af7c085b632933dfbb746322e7fcd54a77e46c923d"
+  },
+  "implementation_readiness": {
+    "path": "/root/lightsem/docs/research/2026-09-28-end-to-end/IMPLEMENTATION_READINESS_V1.json",
+    "sha256": "ad3211f42fe51aa09052536d879739c8e87f0e70c2b789b751fa385654678d64"
+  },
+  "execution_plan": {
+    "path": "/root/lightsem/docs/research/2026-09-28-end-to-end/EXECUTION_PLAN_V1.json",
+    "sha256": "d0bab10aa9db51803e5921fe7cc39b5a6540059f5639280e34bb8524a50e8591"
+  },
+  "retrospective_interpretation_integrity": {
+    "path": "/root/lightsem/docs/research/2026-09-28-end-to-end/INTERPRETATION_REPAIR_INTEGRITY_V1.json",
+    "sha256": "040639bea99ff8d8631b19d5e75c3c88041b8559a713785dd607f948b90fbbee"
+  },
+  "native_frontier_receipt": {
+    "path": "/root/lightsem/docs/research/2026-09-28-end-to-end/vault_frontier_receipt_v1.json",
+    "sha256": "76c3fd3e0a647a57e62d1ac37fcdbf6d73c7aef477333aa2be85be4723884899"
+  },
+  "feedback_audit": "Primary Sept22feedback preserved with exactmessage/time. No new post-demoestheticreview found. Redundant historical worker stopped; do notwaitforit.",
+  "legacy_remainder_readiness": {
+    "path": "/root/lightsem/docs/research/2026-09-28-end-to-end/LEGACY_REMAINDER_READINESS_V1.json",
+    "sha256": "715e4240693e3ec68ce1ae33168ce98d621213f8c643f85af28457c21835c666"
+  },
+  "no_run_reconciliation": {
+    "path": "/root/lightsem/docs/research/2026-09-28-end-to-end/COMPLETED_AND_BLOCKED_RECONCILIATION_V1.json",
+    "sha256": "929cc0d6bdb971c1ddf0ba1c24d690d4ddd28df540e1607de8f0e68652d3036e"
+  },
+  "native_reconciliation_receipts": {
+    "path": "/root/lightsem/docs/research/2026-09-28-end-to-end/vault_reconciliation_receipts_v1.json",
+    "sha256": "691b4b0c35ed7939788d6fb219aba9c6961555e036797126f3f8dee14e82d4b3"
+  },
+  "comparison_readiness": {
+    "path": "/root/lightsem/docs/research/2026-09-28-end-to-end/COMPARISON_DEMO_READINESS_V1.json",
+    "sha256": "e6db03a0bbc65ff0e473f179c74f1aea8d4fcd6dce43f9124d11cfe9ace74104"
+  },
+  "current_work": "New exclusive four-recipe comparison driver/tests being written; no execution yet. Further source/readiness audit checks whether missing legacy endpoints can be produced by newly preregistered evaluation, beyond saved-artifact-only analysis.",
+  "resource_permission": "Asked user for36 totalfullfits,1.45GiB scientificcap andadditional0.5GiB/mntcapacity; no approval received. Existingcaps stay.",
+  "comparison_protocol": {
+    "path": "/root/lightsem/docs/research/2026-09-28-end-to-end/COMPARISON_DEMO_PROTOCOL_V2.json",
+    "sha256": "673a31f7ca76bd17f43814088f823cf1a455ac0374fedba5ac3dde82a5b4fa42"
+  },
+  "comparison_static_review": {
+    "path": "/root/lightsem/docs/research/2026-09-28-end-to-end/STATIC_DEMO_REVIEW_V1.json",
+    "sha256": "d1e0e14048d10c7ae5f22ece7dd079e445235be1689cf1c9a1f4af615bb2c071"
+  },
+  "comparison_status": "FULL DELIVERY COMPLETE and independently audited:all4homehardlinks/media/proofs/37test-chain verified; oldRich/defaultunchanged. No quality/music-fitacceptance or promotion.",
+  "candidate_new_science": "Row8 has recovered original40/order and frozen3checkpoints; candidate new0-fit per-frame/per-section intensity packet bounded12MiB is being drafted. Must bypass eager load_tensor and use exact approved inputs; no currentTEST arrays, no referencepose. Old primary refutation retained; heuristic roles and historical exposure disclosed.",
+  "new_evaluation_readiness": {
+    "path": "/root/lightsem/docs/research/2026-09-28-end-to-end/NEW_EVALUATION_READINESS_V1.json",
+    "sha256": "82560dc98d438eb9e58df75aba1bad685a89ef922b38e5222412a95c0d188272"
+  },
+  "metadata_exposure_followup": "Native-recorded and root-verified: full all-partition metadata parsed, shown001TRAIN; no numerical TEST evaluation established. Seven V1 files restored byte-exact, rewritten snapshots and corrected V2 retained. Future identity-table only.",
+  "comparison_plan_v2": {
+    "path": "/root/lightsem/outputs/shpongle_model_comparisons_20260928_v1/COMPARISON_PLAN_V2.json",
+    "sha256": "0e9286f7428346a2ff01d2f5cd45b75fd39ac1b564d663bb209a2e48f17cffd4"
+  },
+  "comparison_native_tests": {
+    "path": "/root/lightsem/outputs/shpongle_model_comparisons_20260928_v1/NATIVE_SYNTHETIC_TEST_RECEIPT_V2.json",
+    "sha256": "1579b97f23a86b65b9119900b4718d3ef03825e7f9fc5fd3ec2f54bdfed6a3d8"
+  },
+  "comparison_postflight_policy": {
+    "path": "/root/lightsem/docs/research/2026-09-28-end-to-end/COMPARISON_POSTFLIGHT_POLICY_V1.json",
+    "sha256": "00f6fa55758c43dc79545d0e6ea33d1d82a28b8f087522efc27606b09973f8ee"
+  },
+  "metadata_exposure_disclosure": {
+    "path": "/root/lightsem/docs/research/2026-09-28-end-to-end/METADATA_FIELD_EXPOSURE_DISCLOSURE_V1.json",
+    "sha256": "6d55cd95d5ccddd2e6a89bc01f732c48cd0289c5fed42fdfd27d86158d1334a6"
+  },
+  "metadata_mutation_addendum": {
+    "path": "/root/lightsem/docs/research/2026-09-28-end-to-end/V1_MUTATION_DISCLOSURE_ADDENDUM_20260928.json",
+    "sha256": "0c736a6a65dcba637b02bbea2d12e7a36373da2a8d3f198a8b2a954cf19ee51e"
+  },
+  "metadata_parent_integrity": {
+    "path": "/root/lightsem/docs/research/2026-09-28-end-to-end/METADATA_DISCLOSURE_PARENT_INTEGRITY_V1.json",
+    "sha256": "1084434d5acc0e67a61c7ae2b3b9b1a2e10fb1c5cc2c6c7bd51423468dd9621b"
+  },
+  "native_metadata_disclosure_receipt": {
+    "path": "/root/lightsem/docs/research/2026-09-28-end-to-end/vault_metadata_disclosure_receipt_v1.json",
+    "sha256": "9338e021ea31432993298862f2073c57b0e8e498de9a0d2ede4077fa5abfc482"
+  },
+  "authoritative_new_eval_readiness": {
+    "path": "/root/lightsem/docs/research/2026-09-28-end-to-end/NEW_EVALUATION_READINESS_V2.json",
+    "sha256": "c8452b8032592c679fbafb69435b84f2a1d762f9ef3ed2e007a0c3282bc206e5"
+  },
+  "struct_intensity_candidate": {
+    "path": "/root/lightsem/docs/research/2026-09-28-end-to-end/PROSPECTIVE_STRUCT_INTENSITY_PROTOCOL_CANDIDATE_V2.json",
+    "sha256": "87f012698e5dbbc837d2459d45fbd771f4eeca5af2e346596ff64bce8a378e08"
+  },
+  "environment_note": "CUDA_VISIBLE_DEVICES is empty for CPU tests. Set 0 before authorized GPU inference.",
+  "comparison_execution_binding": {
+    "path": "/root/lightsem/outputs/shpongle_model_comparisons_20260928_v1/EXECUTION_AUTHORIZATION_V2.json",
+    "sha256": "68d80a40f6d2cf98ff015a948f0338f1abd27be87dfdc8c9ee95aae385873a37",
+    "bytes": 7894
+  },
+  "comparison_native_execution_receipt": {
+    "path": "/root/lightsem/outputs/shpongle_model_comparisons_20260928_v1/vault_comparison_execution_v2_receipt.json",
+    "sha256": "e689487f228624d425e2324201efe06dc8d52dd8839fb231d475fa5e34009cde",
+    "bytes": 88876
+  },
+  "comparison_parent_readback": {
+    "path": "/root/lightsem/outputs/shpongle_model_comparisons_20260928_v1/PARENT_AUDIT_READBACK_V1.json",
+    "sha256": "f076974bb9da105c4e5456b5ef2b2dbc378c8b90d0e49c861657a5256942cc6c",
+    "bytes": 12742
+  },
+  "comparison_scientific_workspace_bytes": 7082491,
+  "comparison_readback_summary": {
+    "path": "/root/lightsem/outputs/shpongle_model_comparisons_20260928_v1/INFERENCE_READBACK_SUMMARY_V1.json",
+    "sha256": "44eeb956bb8eeca65a51a3d9fd6497664593a7799113ba88fe1042a67593fa19",
+    "bytes": 4295
+  },
+  "row8_status": "V6 CPU preparation COMPLETE:112tests,actualexit0,3checkpointmetadata+40inputdecisions(33qualified/7zero-cached-breakdown-support), parent+independent75checks passed, nativeoutcome semanticallyverified. Originalgate/scientific/model/GPU stillUNMEASURED/UNADMITTED. Frozen rawall40futuretrace lowerbound nowexceeds12MiBpacket withretainedcontrolbytes.",
+  "comparison_delivery_manifest": {
+    "path": "/root/lightsem/outputs/shpongle_model_comparisons_20260928_v1/DELIVERY_MANIFEST_V1.json",
+    "sha256": "e85632d369f6912733b1133fc4a6c29f1264f20f383012b2a6215d079902571a",
+    "bytes": 7797
+  },
+  "comparison_delivery_native_receipt": {
+    "path": "/root/lightsem/outputs/shpongle_model_comparisons_20260928_v1/vault_comparison_delivery_v1_receipt.json",
+    "sha256": "8530e5083067321b63212d8b032bc322e35ebb876a0b029d05dd1088cd746f55",
+    "bytes": 90676
+  },
+  "comparison_home_paths": [
+    "/root/shpongle_20260928_S_none_P0.mp4",
+    "/root/shpongle_20260928_S_V6_P0.mp4",
+    "/root/shpongle_20260928_I_VR_P0.mp4",
+    "/root/shpongle_20260928_S_VR_P0_Ashuf.mp4"
+  ],
+  "claim_scope_audit_status": "COMPLETE all71 covered. Parent applied14 dated interpretation repairs for13hypotheses. Every old scientificfield/Notes/gate/verdict and71hypothesisdocuments preserved; onelegacyrecord gained5 empty native schema defaults, disclosedV2. Main/legacy/capability nativeupdates complete; independent repair/delta review pending.",
+  "claim_scope_audit": {
+    "path": "/root/lightsem/docs/research/2026-09-28-end-to-end/CLAIM_SCOPE_AUDIT_V1.json",
+    "sha256": "83ed200e4c560ac52491533074a0bae3c7d41d280ee23995b195ec1244fc2ea6",
+    "bytes": 186414
+  },
+  "claim_scope_repair_integrity": {
+    "path": "/root/lightsem/docs/research/2026-09-28-end-to-end/CLAIM_SCOPE_REPAIR_INTEGRITY_V1.json",
+    "sha256": "37d85405a73113c846377a7d222b76330210e51a1db44df1e8dbee902fb4ecdd",
+    "bytes": 17555
+  },
+  "claim_scope_native_receipts": {
+    "path": "/root/lightsem/docs/research/2026-09-28-end-to-end/vault_claim_scope_repair_v1/all_receipts.json",
+    "sha256": "c1a43c988e71fe395704ba7391a603a18dc5fdd8fa7da54c1883633032ce4042",
+    "bytes": 12703
+  },
+  "claim_scope_problem_updates": {
+    "path": "/root/lightsem/docs/research/2026-09-28-end-to-end/vault_claim_scope_problem_updates_v1.json",
+    "sha256": "788facc775f877a1368773151388794e71cc4fc62cee5446c789719139c1c395",
+    "bytes": 103767
+  },
+  "row8_preparation_handoff": {
+    "path": "/root/lightsem/outputs/legacy_struct_intensity_20260928_v1/IMPLEMENTATION_HANDOFF_V3.json",
+    "sha256": "c194872940f3794e4f2ecb757dff544f3f5280360d63eb1231283ded36a30c85",
+    "bytes": 7983
+  },
+  "row8_candidate_v3": {
+    "path": "/root/lightsem/docs/research/2026-09-28-end-to-end/PROSPECTIVE_STRUCT_INTENSITY_PROTOCOL_CANDIDATE_V3.json",
+    "sha256": "96e5017b5fdf90e21e31f1b24c44586812f0724c954515cfdc170b8d88a9d9af",
+    "bytes": 257231
+  },
+  "next_actions": [
+    "WAITforexplicitUSERapprovalbeforeanynotes-repaircapability/test/restore. ExacttwoRESTORE_CANDIDATEfilespreservewholecurrentfrontmatter/newinterpretationincludingat andrestoreoriginalbodyoutsideInterpretation. Globalserverunchangedproposal; noexistingnativeendpointcanrepairwithoutrecomputingfields.",
+    "20interpretationssemanticallywritten;20allothermetadataunchanged,18bodypasses/2bodyfailures;388protectedMD+foreignunchanged. PreserveNATIVE_WRITE_PRESERVATION_FAILURE/PARTIAL_NATIVE_INTEGRITY/badcurrentcopies/BEFORE_SNAPSHOT.gz/diagnosis. No finalPASSorcompletedrepairclaim.",
+    "Archiveprototype6files136452Bsourcefrozen/67authorednotpassedtests; independentstaticreviewbyinterpretation-debt-models pending. No import/compile/test/prototype/modelsauthorized. Allnativewritespausedpendingpreservationissue.",
+    "GPUledgerUNRECONCILED, no safe remaining/positiveadmissioncredit, notexhausted. No newGPU/modelwork. Main15fits/30predictions and186palettestudy complete/no qualifiedimprovement;fourfull1080pAV1demoscomplete.",
+    "Goalactive. Humanratings/independentlabels/historicalpins/resourceadmissionstillblockactualscientificfrontier. Metadata/prototype worknotLIGHTchange anddoesnotowe newdemo. Preserveglobalcap1020054732 andcurrentreservedcommitments999965420;12MiBprep/512KiBinterpretationpacket unchanged."
+  ],
+  "comparison_independent_delivery_audit": {
+    "path": "/root/lightsem/outputs/shpongle_model_comparisons_20260928_v1/DELIVERY_INDEPENDENT_AUDIT_V1.json",
+    "sha256": "5e864792bf6491aec389107f3b235e9dce9fb40d80c1141878025cbecfd9c9a5",
+    "bytes": 27414
+  },
+  "claim_scope_independent_review": {
+    "path": "/root/lightsem/docs/research/2026-09-28-end-to-end/CLAIM_SCOPE_REPAIR_INDEPENDENT_REVIEW_V1.json",
+    "sha256": "e4599acd4d743bddff0236806e8e2ed4e29f16203fd364f60f9b2d88b016a7e3",
+    "bytes": 66767
+  },
+  "frontier_scope_delta": {
+    "path": "/root/lightsem/docs/research/2026-09-28-end-to-end/FRONTIER_SCOPE_DELTA_V1.json",
+    "sha256": "43e934b404b47a7824efae2d7f1ac24afb7c789500aca99a906139638ded42f8",
+    "bytes": 25838
+  },
+  "scope_delta_status": "Final: only65 is newly missing original instrument (future AUDIO through output). Row4 propagates alreadyknown decoder split failure into original heldout qualification; row3 adds critic material eligibility blocker. No automatic reruns or new execution permission.",
+  "resource_limit_probe_binding": {
+    "path": "/root/lightsem/outputs/legacy_struct_intensity_20260928_v1/RESOURCE_LIMIT_PROBE_BINDING_V1.json",
+    "sha256": "c731c94a04c887045172d9089219394cbba77827e6dd0a0d6c1eeecdd4fd71a0",
+    "bytes": 2110
+  },
+  "row8_preparation_handoff_v4": {
+    "path": "/root/lightsem/outputs/legacy_struct_intensity_20260928_v1/IMPLEMENTATION_HANDOFF_V4.json",
+    "sha256": "eeb839010f6fffdfdcfb7faec63d4aeb666b0174a66dec64437afe6d94886c00",
+    "bytes": 15882
+  },
+  "row8_candidate_v4": {
+    "path": "/root/lightsem/docs/research/2026-09-28-end-to-end/PROSPECTIVE_STRUCT_INTENSITY_PROTOCOL_CANDIDATE_V4.json",
+    "sha256": "62e80c63b0bb213fa3080cdc9672e7c3c7db95fa97f25b24abe7fae1c1920f59",
+    "bytes": 264086
+  },
+  "row8_v4_test_binding": {
+    "path": "/root/lightsem/outputs/legacy_struct_intensity_20260928_v1/NATIVE_SYNTHETIC_TEST_BINDING_V4.json",
+    "sha256": "92230633b8f29dc0cca2bc71081a6a8373204bed9a8cd3ef9bdd3664143358f0",
+    "bytes": 2288
+  },
+  "row8_cpu_checks_native_registration": {
+    "path": "/root/lightsem/outputs/legacy_struct_intensity_20260928_v1/vault_v4_synthetic_and_envelope_checks_receipt.json",
+    "sha256": "c923efe20e4d6d695a49bdaa709ca944fc1533e0b48af2aa159256d70d72502f",
+    "bytes": 98349
+  },
+  "row65_readiness": {
+    "path": "/root/lightsem/docs/research/2026-09-28-end-to-end/ROW65_CAUSALITY_PROVENANCE_READINESS_V1.json",
+    "sha256": "306a5c439547cb09ae7683515914b628301720af083a1c7c53023d16a5de06c9",
+    "bytes": 27116
+  },
+  "row65_status": "15thnativeinterpretationclarification completed/parent+independent13checkauditpassed, 407untargetedMDdocs+allothermetadata/Notes/numbers/gates/verdict unchanged. Originalrow65 hasTWOunestablishedinstruments:futureAUDIO andfull/defensiblycomposedlearnedsoftwarelatencyp99. Candidatecodeexecutionunpinned;no measuredlatencyoverrun/currentversiontest. Mainproblemconsolidatedupdate pending.",
+  "external_limit_status": "V5-targeted envelopeV3 CHECK_ONLY running. Actualbranchunrun;V2checkandtimerdiagnostic preserved. Requires890sconfigured/4GiB/no swap/privateGPUview;actualservicewall<=900foracceptance, nothardreal-time.",
+  "external_limit_result": {
+    "path": "/root/lightsem/outputs/legacy_struct_intensity_20260928_v1/RESOURCE_LIMIT_PROBE_RESULT_V2.json",
+    "sha256": "b78841115cb760cbc568d29448b6fc861a6dd93794d8b9fbdf0642984b82d647",
+    "bytes": 2883
+  },
+  "external_envelope_check_binding": {
+    "path": "/root/lightsem/outputs/legacy_struct_intensity_20260928_v1/ENVELOPE_CHECK_ONLY_BINDING_V2.json",
+    "sha256": "6429ece8da8785e6f58c0f44a4234d761b66103d8a202e0ee06bd026d1514758",
+    "bytes": 2069
+  },
+  "row8_v4_test_failure": {
+    "path": "/root/lightsem/outputs/legacy_struct_intensity_20260928_v1/NATIVE_SYNTHETIC_TEST_FAILURE_V4.json",
+    "sha256": "937abbb1d692d72965cbc108f5b2ef5186d582bd5978456af1e6c9284ce85e86",
+    "bytes": 1320
+  },
+  "external_envelope_check_result": {
+    "path": "/root/lightsem/outputs/legacy_struct_intensity_20260928_v1/ENVELOPE_CHECK_ONLY_RESULT_V2.json",
+    "sha256": "ec4f585c3d3e4209475ef6b35ec08278cb13b9e4babc18c843efb328965465bc",
+    "bytes": 2160
+  },
+  "row8_v4_failure_native_receipt": {
+    "path": "/root/lightsem/outputs/legacy_struct_intensity_20260928_v1/vault_v4_native_failure_and_envelope_result_receipt.json",
+    "sha256": "629575a29253ec0f9234e44aa311a6020ee17ddc28f68cb336c103b9c7b69eab",
+    "bytes": 99795
+  },
+  "row8_preparation_handoff_v5": {
+    "path": "/root/lightsem/outputs/legacy_struct_intensity_20260928_v1/IMPLEMENTATION_HANDOFF_V5.json",
+    "sha256": "0c538ac7cd1bbe863c42364f58ca6b16ce4360e1bc12cd83b20fd0d3a036bcc0",
+    "bytes": 18370
+  },
+  "row8_candidate_v5": {
+    "path": "/root/lightsem/docs/research/2026-09-28-end-to-end/PROSPECTIVE_STRUCT_INTENSITY_PROTOCOL_CANDIDATE_V5.json",
+    "sha256": "ceb5166d5323bbf013ef47c976bd6ab85edcece3a22314816c2b2ec04a3c61d1",
+    "bytes": 271804
+  },
+  "row8_v5_test_binding": {
+    "path": "/root/lightsem/outputs/legacy_struct_intensity_20260928_v1/NATIVE_SYNTHETIC_TEST_BINDING_V5.json",
+    "sha256": "77f7fa341c7be7672af832d392d4fb31552c2db2516e24a017cd201ec03fbc1e",
+    "bytes": 2366
+  },
+  "row8_v5_checks_native_registration": {
+    "path": "/root/lightsem/outputs/legacy_struct_intensity_20260928_v1/vault_v5_synthetic_and_envelope_checks_receipt.json",
+    "sha256": "9429e6eb0c3bafaa6a2b6f743f069ae8c726017138c12bb0a129b0e98422d886",
+    "bytes": 102123
+  },
+  "external_envelope_v3_check_binding": {
+    "path": "/root/lightsem/outputs/legacy_struct_intensity_20260928_v1/ENVELOPE_CHECK_ONLY_BINDING_V3.json",
+    "sha256": "fd912218f6e0a5b93a29738687a3363f1e43831fe7ad8311323092dedc7545b0",
+    "bytes": 1890
+  },
+  "row8_train_identity_stat_review": {
+    "path": "/root/lightsem/outputs/legacy_struct_intensity_20260928_v1/TRAIN_INPUT_IDENTITY_STAT_REVIEW_V1.json",
+    "sha256": "3677203a829ca66c7a6e4eaf8cbbc261d742580a8350ddf964d53665ab449050",
+    "bytes": 37728
+  },
+  "row8_v5_test_result": {
+    "path": "/root/lightsem/outputs/legacy_struct_intensity_20260928_v1/NATIVE_SYNTHETIC_TEST_RESULT_V5.json",
+    "sha256": "802ed5fe76f16fdc3e0266b4cc3355d3e8c49eb859aa0f63e9cfbb54138b1fa5",
+    "bytes": 2390
+  },
+  "external_envelope_v3_check_result": {
+    "path": "/root/lightsem/outputs/legacy_struct_intensity_20260928_v1/ENVELOPE_CHECK_ONLY_RESULT_V3.json",
+    "sha256": "000d3eb27e6e5b6058256b3e5309ea18cafebe873daffea471163027fbfd174c",
+    "bytes": 2128
+  },
+  "row8_train_hash_only_binding": {
+    "path": "/root/lightsem/outputs/legacy_struct_intensity_20260928_v1/TRAIN_INPUT_HASH_ONLY_BINDING_V1.json",
+    "sha256": "0aadef2e1c3567dc13ded3b1aa9428fc9d7a768c5340055d7f244de8adcd1315",
+    "bytes": 42089
+  },
+  "row8_train_hash_only_registration": {
+    "path": "/root/lightsem/outputs/legacy_struct_intensity_20260928_v1/vault_v5_results_and_train_hash_only_receipt.json",
+    "sha256": "39b106acac62f23467971bfaafe148a6c2cef43f907226e1e566bb14120fbbe6",
+    "bytes": 103929
+  },
+  "row8_train_hash_only_result": {
+    "path": "/root/lightsem/outputs/legacy_struct_intensity_20260928_v1/TRAIN_INPUT_HASH_ONLY_RESULT_V1.json",
+    "sha256": "88b45a5c572b31b6bde5312dcb35dfbc5cc97b3f6bddebe97e6aac15c113b692",
+    "bytes": 71313
+  },
+  "row8_preparation_definition": {
+    "path": "/root/lightsem/outputs/legacy_struct_intensity_20260928_v1/PREPARATION_ADMISSION_DEFINITION_V5.json",
+    "sha256": "b99b4b60b49e434a51362765f483cfe4f5983285ff877a22db4b8591a7dcc7bd",
+    "bytes": 85406
+  },
+  "row8_preparation_authorization": {
+    "path": "/root/lightsem/outputs/legacy_struct_intensity_20260928_v1/PARENT_BOUND_PREPARATION_AUTHORIZATION_V5.json",
+    "sha256": "7cf01bc0c3fab1bae4e57b1f6e23e229c8e1827282165ec895cbe0e8665959c2",
+    "bytes": 84851
+  },
+  "row8_preparation_execution_binding": {
+    "path": "/root/lightsem/outputs/legacy_struct_intensity_20260928_v1/PREPARATION_EXECUTION_BINDING_V5.json",
+    "sha256": "c16bb603ed07b32e6afa2a919ebdd34d411acbe24f035805569e34d51cb1a7ba",
+    "bytes": 2494
+  },
+  "row8_preparation_execution_native_receipt": {
+    "path": "/root/lightsem/outputs/legacy_struct_intensity_20260928_v1/vault_preparation_execution_v5_receipt.json",
+    "sha256": "7798670359c42b151b3c64c7f76c6944578c7217081e2610a9dbee60fcdbd486",
+    "bytes": 108439
+  },
+  "row8_preparation_preflight": {
+    "path": "/root/lightsem/outputs/legacy_struct_intensity_20260928_v1/PARENT_PREPARATION_PREFLIGHT_V5.json",
+    "sha256": "349a0f0bf9705789f98a7e657f39d0497232e79fc1e85fa0f319359aeb472d4f",
+    "bytes": 10464
+  },
+  "row8_preparation_failure_v5": {
+    "path": "/root/lightsem/outputs/legacy_struct_intensity_20260928_v1/PREPARATION_FAILURE_V5.json",
+    "sha256": "a0e4aa78eedce5b873201f224a364a8a33a0d2bfa549ce8585e1f8c9732e59c6",
+    "bytes": 3849
+  },
+  "row8_actual_envelope_v5": {
+    "path": "/root/lightsem/outputs/legacy_struct_intensity_20260928_v1/preparation_resource_envelope_v5.json",
+    "sha256": "005c01bdff0a431105dbe5f582051f92229ef1391a88b62a345a5d6936402f3b",
+    "bytes": 2628
+  },
+  "row8_preparation_failure_v5_native_receipt": {
+    "path": "/root/lightsem/outputs/legacy_struct_intensity_20260928_v1/vault_preparation_failure_v5_receipt.json",
+    "sha256": "623ffd3b26c90822741cabdf2d7871cc6cae9bcba95a42fef0348659dc992522",
+    "bytes": 110082
+  },
+  "row8_v6_handoff": {
+    "path": "/root/lightsem/outputs/legacy_struct_intensity_20260928_v1/IMPLEMENTATION_HANDOFF_V6.json",
+    "sha256": "b99964f4b951c00df3357fb852982443944a3e336773f80be925b32670f24833",
+    "bytes": 23733
+  },
+  "row8_v6_test_binding": {
+    "path": "/root/lightsem/outputs/legacy_struct_intensity_20260928_v1/NATIVE_SYNTHETIC_TEST_BINDING_V6.json",
+    "sha256": "2584bf8b3018f1073c6199edfd1b5af0737cde18e6c7e443a82f6b4cd827dbb3",
+    "bytes": 9094
+  },
+  "row8_v6_envelope_target_static_delta": {
+    "path": "/root/lightsem/outputs/legacy_struct_intensity_20260928_v1/ENVELOPE_RETARGET_STATIC_REVIEW_V4.json",
+    "sha256": "f8daee573816eeafc94f207858948c3352b9c7756055e8514d381566438bf929",
+    "bytes": 1823
+  },
+  "row8_v6_static_review": {
+    "path": "/root/lightsem/outputs/legacy_struct_intensity_20260928_v1/STATIC_PREPARATION_REVIEW_V6.json",
+    "sha256": "b49e5f21f8062a9ed20b0261c8e4350d71070d81297cd42f74334a99c8861e8f",
+    "bytes": 23548
+  },
+  "row8_v6_test_native_registration": {
+    "path": "/root/lightsem/outputs/legacy_struct_intensity_20260928_v1/vault_v6_synthetic_test_binding_receipt.json",
+    "sha256": "0238935a002361dfe551e1571ee7bed4c79d02379b5b600ab02c3c70a46ffe34",
+    "bytes": 111998
+  },
+  "row8_v6_test_result": {
+    "path": "/root/lightsem/outputs/legacy_struct_intensity_20260928_v1/NATIVE_SYNTHETIC_TEST_RESULT_V6.json",
+    "sha256": "73405d1d2986817b6f3bbd10a3db8ab9c02af79e075f068e743cda21d885c12d",
+    "bytes": 2500
+  },
+  "row8_v6_scope": {
+    "path": "/root/lightsem/outputs/legacy_struct_intensity_20260928_v1/PREPARATION_ADMISSION_DEFINITION_V6.json",
+    "sha256": "e739d94d9c0fdecfe7446ec103208d3e2d77cb16050f1342e325635814c3d65e",
+    "bytes": 19184
+  },
+  "row8_v6_authorization": {
+    "path": "/root/lightsem/outputs/legacy_struct_intensity_20260928_v1/PARENT_BOUND_PREPARATION_AUTHORIZATION_V6.json",
+    "sha256": "e6672dfdb4ee9c5d4109735824bf1dcf67da7f4c3869460f73d1844ee600d744",
+    "bytes": 85455
+  },
+  "row8_v6_execution_binding": {
+    "path": "/root/lightsem/outputs/legacy_struct_intensity_20260928_v1/PREPARATION_EXECUTION_BINDING_V6.json",
+    "sha256": "367ce6428811a438820d6f81735af8af396aced0c556a2b61c2af1336dbe35f7",
+    "bytes": 2517
+  },
+  "row8_v6_execution_native_receipt": {
+    "path": "/root/lightsem/outputs/legacy_struct_intensity_20260928_v1/vault_preparation_execution_v6_receipt.json",
+    "sha256": "b044ad4fdf8efa5bb14c4df3da71f67a0d391806c1a58dde92d8edbb2fe1e43b",
+    "bytes": 116212
+  },
+  "row8_v6_preflight": {
+    "path": "/root/lightsem/outputs/legacy_struct_intensity_20260928_v1/PARENT_PREPARATION_PREFLIGHT_V6.json",
+    "sha256": "dbc363daad117c5c5a8f9be5a9a78242dcdeb568e6d3f24475cf3b5fea02ec91",
+    "bytes": 11035
+  },
+  "row8_v6_native_execution_result": {
+    "path": "/root/lightsem/outputs/legacy_struct_intensity_20260928_v1/NATIVE_PREPARATION_EXECUTION_RESULT_V6.json",
+    "sha256": "82fda383caecea3707f83f23d49308fbce749944e51ef19eb67e90aa58e2d8d8",
+    "bytes": 2935
+  },
+  "row8_v6_readiness": {
+    "path": "/mnt/lightsem-data/experiments/lightsem/end_to_end_20260928_v1/legacy_struct_intensity_v6/preparation_readiness_v6.json",
+    "sha256": "54049eb742d6e796f3356cb278e1044320a6a7e56cf9c4af04cd33536520a878",
+    "bytes": 202345
+  },
+  "row8_v6_actual_envelope": {
+    "path": "/root/lightsem/outputs/legacy_struct_intensity_20260928_v1/preparation_resource_envelope_v6.json",
+    "sha256": "e0232a84eb81f5e57911e635ff2b4275b2d43345e447d27f30ae17c67c8f6de6",
+    "bytes": 2628
+  },
+  "row8_v6_parent_post_audit": {
+    "path": "/root/lightsem/outputs/legacy_struct_intensity_20260928_v1/PARENT_POST_PREPARATION_AUDIT_V6.json",
+    "sha256": "faf83f0e3e72951efec6239fa174d8f1d33683b3900ec26fb12de536bd4b4a75",
+    "bytes": 2955
+  },
+  "row65_project_archive_followup": "Bounded PROJECT archive search COMPLETE: no stronger runbinding withinsearchedscope. Exactoldlatency.json fullyreadwithnumericaccessdisclosed; possible metadatafollowofinternal logs/jd_pose_new.txt->logs/jd_pose_resume.txt beforeguard, no logcontent/outside-repotraversal. NewnarrowSOURCE-ONLYreview pending: whether calculated latencybudget omitsCsampling/postprocess/featurecompute andrequires additionaloriginal-instrument clarification. Current-source timinglm.model(x) anduntimeddescriptors call observed; historicalsource comparison andpriorrepaircoverage beingchecked. No resultfailure or actualexecutionidentity inference yet.",
+  "row8_v6_independent_post_audit": {
+    "path": "/root/lightsem/outputs/legacy_struct_intensity_20260928_v1/POST_PREPARATION_INDEPENDENT_REVIEW_V6.json",
+    "sha256": "0aeeaef79117b98754e93395c1c9de74338612776400cbf0b978c9d03e7ba91d",
+    "bytes": 7406
+  },
+  "row8_v6_outcome_native_receipt": {
+    "path": "/root/lightsem/outputs/legacy_struct_intensity_20260928_v1/vault_preparation_result_v6_receipt.json",
+    "sha256": "5ed9f93b349e2fcf58883cb4c8da343867f4c13ddd02fb3927eef05d94d80dc5",
+    "bytes": 119655
+  },
+  "row8_v6_post_recording_resource_ledger": {
+    "path": "/root/lightsem/outputs/legacy_struct_intensity_20260928_v1/POST_RECORDING_RESOURCE_LEDGER_V6.json",
+    "sha256": "e6b9681c23219c5d042628f26adffa822eb8fd757eab19c1662157a73531c65b",
+    "bytes": 1557
+  },
+  "row65_project_archive_addendum": {
+    "path": "/root/lightsem/docs/research/2026-09-28-end-to-end/ROW65_PROJECT_ARCHIVE_PROVENANCE_ADDENDUM_V1.json",
+    "sha256": "f1e6cae92a70680eb920cc58e0f005130737e70b45ed3dc8b22b7882368cd4fa",
+    "bytes": 21849
+  },
+  "row65_latency_scope_followup": "Independent targetedsource review CONFIRMED additionalmissing support forORIGINAL software-latencyqualification (notnewtarget, notoverrun). In execution-unpinned1656ffde candidate, syntheticlm.modeltiming excludesfeaturecompute/Csample/descriptorprocessing; conductor/packoneclipscalarrepeated100cannotgiveperframep99; sumhop+modelp99+conductormedians+assumednetwork/fixture ispartialbudget, notestablishedE2Ep99. Originalplanallowsstagewisetimingbutrequirescompletecoverage/defensiblecomposition. PriorrepaironlyexcludedwholeAUDIOcausality/realfixture,insufficientforthissoftwareboundary. Childwritingnewlatencyscopeaddendum+FRONTIER_SCOPE_DELTA_V2, preservingV1; native15thclarificationpending, no source/model/runtimechange.",
+  "row65_metadata_followup_budget": {
+    "path": "/root/lightsem/docs/research/2026-09-28-end-to-end/ROW65_METADATA_FOLLOWUP_BUDGET_V1.json",
+    "sha256": "6d60f8512c00bc6bee73e9cba5c41e3623c0161927858e3bca743298f920f15e",
+    "bytes": 1176
+  },
+  "row65_latency_scope_addendum": {
+    "path": "/root/lightsem/docs/research/2026-09-28-end-to-end/ROW65_LATENCY_INSTRUMENT_SCOPE_ADDENDUM_V1.json",
+    "sha256": "4023fdc7606be4f846da19950759574158464f1c409cce934176d064b1ff0be4",
+    "bytes": 8459
+  },
+  "frontier_scope_delta_v2": {
+    "path": "/root/lightsem/docs/research/2026-09-28-end-to-end/FRONTIER_SCOPE_DELTA_V2.json",
+    "sha256": "bc0afeb4f7915fd4dd56e1460fb12166d58986c460aed9624e4b34a37393cbf2",
+    "bytes": 7459
+  },
+  "row65_native_supplement_definition": {
+    "path": "/root/lightsem/docs/research/2026-09-28-end-to-end/ROW65_NATIVE_SCOPE_SUPPLEMENT_DEFINITION_V1.json",
+    "sha256": "cd1095173d2b07b316f32737f61d87ec6771c8611b02d750a8a1bad25aee84e6",
+    "bytes": 3970
+  },
+  "row65_native_supplement_receipt": {
+    "path": "/root/lightsem/docs/research/2026-09-28-end-to-end/ROW65_NATIVE_SCOPE_SUPPLEMENT_RECEIPT_V1.json",
+    "sha256": "827dea6324a07fd0a12352f92d13b9fb9a3d3f44dc235bb792b75b1252de480f",
+    "bytes": 2212
+  },
+  "row65_native_supplement_integrity": {
+    "path": "/root/lightsem/docs/research/2026-09-28-end-to-end/ROW65_NATIVE_SCOPE_SUPPLEMENT_INTEGRITY_V1.json",
+    "sha256": "df31fba15fd38ebd20f97d1eda789644cc69f0bd78a88ac9f1c1ebbed5663de8",
+    "bytes": 1775
+  },
+  "row65_native_supplement_independent_review": {
+    "path": "/root/lightsem/docs/research/2026-09-28-end-to-end/ROW65_NATIVE_SCOPE_SUPPLEMENT_INDEPENDENT_REVIEW_V1.json",
+    "sha256": "e8931369e791b847ceece54894fd0ac32d8606fc31c574a31876534d31f4f789",
+    "bytes": 4878
+  },
+  "GPU_ledger_metadata_review_budget": {
+    "path": "/root/lightsem/docs/research/2026-09-28-end-to-end/GPU_LEDGER_METADATA_REVIEW_BUDGET_V1.json",
+    "sha256": "1daddb9ac5f619b979bc3e880101ec12cd66b279cd920b0edac444e35431092f",
+    "bytes": 514
+  },
+  "GPU_ledger_review_status": "Accounting-only review continues. Five completedROOTnativehandles provided (comparisoninfer+4renders), fullwrappercommands/PIDs/exit0/durations, no newruns/transcripts. Originaldemoresult-onlyvariables notadmittedwithoutassociatedhandle; capture/initialsmoke/othercoveragegaps mayleaveUNRECONCILED. Authority36hfromcampaigndesign+9nativeproposals+endtoendinheritance,notliteralCONTROLfilename.",
+  "lossless_archive_feasibility_status": "FrozenreviewtestableNOTfitproof. Source-onlyprototype+tests beingauthoredbyremaining-test-readiness; noexecutionauthorized. Preferred160standaloneNPYfloats+one120memberintegerNPZ; losslessall40/fields/bits. Metadatafullyspecifiesintegerarrays; nativeinmemorycodec/complete-schema/peak validation needed. Unknownfloats5,942,288B storeduncompressed;128KiBheaders+512KiBmetadata/tables+>=1MiBfuturecode/control+64KiBledger charge remain.",
+  "GPU_ledger_root_completed_handle_metadata": {
+    "path": "/root/lightsem/docs/research/2026-09-28-end-to-end/GPU_LEDGER_ROOT_COMPLETED_HANDLE_METADATA_V1.json",
+    "sha256": "bf39447085d2ff56833164cdeebe571943dd63bcb234beeccd39fbed90f7b288",
+    "bytes": 5769
+  },
+  "row65_consolidated_problem_update_receipt": {
+    "path": "/root/lightsem/docs/research/2026-09-28-end-to-end/vault_row65_scope_and_resource_followup_v1_receipt.json",
+    "sha256": "ec4c8cb0215d1319524bf7a2be1dd40934a1ad24621f2f61737aa591878ddbe0",
+    "bytes": 123415
+  },
+  "GPU_ledger_report": {
+    "path": "/root/lightsem/docs/research/2026-09-28-end-to-end/GPU_EXECUTION_LEDGER_READINESS_V1.json",
+    "sha256": "c52307c20f2ad7dd7f7808cf72f4c1d81dd121a6124fb0afb3ffd4c3af32c71e",
+    "bytes": 42038
+  },
+  "lossless_archive_source_review": {
+    "path": "/root/lightsem/outputs/legacy_struct_intensity_20260928_v1/LOSSLESS_ARCHIVE_FEASIBILITY_REVIEW_V1.json",
+    "sha256": "5cdaa1d1fe29f8e7ae5cb735b95c05e0709c054fa2561faf325fb620e243ef5e",
+    "bytes": 11479
+  },
+  "interpretation_debt_work": "20nativeinterpret calls completedexit0 withexactsemanticreceipts, BUT preservationfailure: nativewriterdroppedcustom##notesections inphysical-objective andoptics-full records. Other21metadatafields unchanged forall20;other18bodiesunchanged;388protectedMDandforeignunchanged. Originalscomplete inBEFORE_SNAPSHOT_V1.json.gz; badcurrentcopies+failureDIFFpreserved. No restoration/reclosure attempted. ExistingMCPnote-onlypathunderinvestigationbycomparison-driver-review; nativewritespaused. Cannotclaim20integritycomplete.",
+  "interpretation_debt_directory": "/root/lightsem/docs/research/2026-09-28-end-to-end/interpretation_debt_20260928_v1",
+  "interpretation_debt_API_correction": "Nativecore negative tuple includes directional_only/inconclusive/null/weak_signal/refutes, ALL requirefailure_mode. ModelsV1publishedwith9null directional_modes mustPRESERVEandreviseV2; motionworker warnedbeforefinalization. Recipe_conditional onlywherejustified, preservevalidpartialresults; test_invalidserverhintwouldoverstateifonlysubmetricinvalid. Supportsnull/transfers[]. No native20writes yet.",
+  "row65_metadata_final_ledger": {
+    "path": "/root/lightsem/docs/research/2026-09-28-end-to-end/ROW65_METADATA_FINAL_LEDGER_V1.json",
+    "sha256": "0f38221964b5b6ffb44631d4e83e889f77d15ca4669683060b54153c8e36afaa",
+    "bytes": 4747
+  },
+  "interpretation_debt_before_snapshot": {
+    "path": "/root/lightsem/docs/research/2026-09-28-end-to-end/interpretation_debt_20260928_v1/BEFORE_SNAPSHOT_V1.json.gz",
+    "sha256": "bb0b6d6850eb80329a22ee2e0ef5f28629209742c9746128bb0ccb2159fb3f75",
+    "bytes": 56271
+  },
+  "archive_codec_amendment_before_any_measurement": "Sourceauthor askedtoincludeexplicitDEFLATE(level9) andZIP_LZMA(default) candidates inonefutureboundedCPUjob. BothstandardNPZmemberbytes/fields unchanged, no codecmeasurementsyet andno automaticfallback/selection/admission. All128KiB/512KiB/>=1MiB/64KiB reserves preserved; unknownfloatNPYs uncompressed; no large diskfixtures. Sourceauthorpre-freezeonly.",
+  "interpretation_debt_preservation_failure": {
+    "path": "/root/lightsem/docs/research/2026-09-28-end-to-end/interpretation_debt_20260928_v1/NATIVE_WRITE_PRESERVATION_FAILURE_V1.json",
+    "sha256": "7f99d6b5d5daf403546690816be03c689f3dddfe3694f86ad5f4e040bddd2fa9",
+    "bytes": 8879
+  },
+  "archive_prototype_handoff": {
+    "path": "/root/lightsem/outputs/legacy_struct_intensity_20260928_v1/LOSSLESS_ARCHIVE_IMPLEMENTATION_HANDOFF_V1.json",
+    "sha256": "c8c6529b81cd5b7c24146591aab47e9e1b3fe564618c1b7c649d84e0c44d979e",
+    "bytes": 15995
+  },
+  "archive_prototype_status": "IndependentSTATICSOURCEreviewSCOPEDPASS.67authoredtestsUNRUN; neithercodecmeasured; no archivefit/runtime/admissionclaim. Source/coverageaddendum/review frozen, allbytescountretained12MiBpacket. Freshaccounting/nativebindings/512MiBenforcement/testandCPUmeasurement remainunexecuted andblockedwhileexplicitnotes-repairapprovalpending.",
+  "interpretation_restoration_candidates": {
+    "path": "/root/lightsem/docs/research/2026-09-28-end-to-end/interpretation_debt_20260928_v1/RESTORATION_CANDIDATES_V1.json",
+    "sha256": "87431c538e5713ba735b022434e895a1dca33854eee96721fe729aaefe0d9d13",
+    "bytes": 1624
+  },
+  "interpretation_partial_integrity": {
+    "path": "/root/lightsem/docs/research/2026-09-28-end-to-end/interpretation_debt_20260928_v1/PARTIAL_NATIVE_INTEGRITY_V1.json",
+    "sha256": "083d4dded39591cd13f6a2a95afab9954a0b5501bba0418e047f2eebee0515c7",
+    "bytes": 10302
+  },
+  "native_notes_repair_blocker": "Independent sourceinspectionconfirmsno exposedMCPnotes-onlyrestore: parserstorage45/83-91/read_experiment271-274 truncatesunknown##underNotes;interpret_experiment1091/1115-1123 rewrites. Reclosingwouldrecomputeverdict/status/fingerprint\u2192prohibited. Exactrestorationcandidatespreparedoutsidevault; needapprovalfornarrowLightSem-onlynativewriterrepair/preservationpath. No directvaultedit/patchdone.",
+  "native_notes_repair_approval_status": "AWAITING_EXPLICIT_USER_APPROVAL. Rootasked permissiontoadd/testnarrowLightSem-onlyMCPadapter andrestoreonlytwohash-boundrecords. Genericgoalcontinuation/priorinterpretationauthority isNOTapproval. No adapter/codepatch/fixtures/servercall/restoreexecuted. DoNOTreclose/directedit/claimfinalintegrityPASS.",
+  "native_notes_preservation_diagnosis": {
+    "path": "/root/lightsem/docs/research/2026-09-28-end-to-end/interpretation_debt_20260928_v1/NATIVE_NOTES_PRESERVATION_DIAGNOSIS_V1.json",
+    "sha256": "8e916762529bb44f502625c4812b426c8fa8fe50593a482507c7c69108ee9551",
+    "bytes": 11807
+  },
+  "archive_static_coverage_clarification": {
+    "path": "/root/lightsem/outputs/legacy_struct_intensity_20260928_v1/LOSSLESS_ARCHIVE_COVERAGE_CLARIFICATION_V1.json",
+    "sha256": "7e011af09338c85aa502664c1075910ea11637afd05adfadb97457dd01234849",
+    "bytes": 1368
+  },
+  "archive_static_review": {
+    "path": "/root/lightsem/outputs/legacy_struct_intensity_20260928_v1/STATIC_LOSSLESS_ARCHIVE_REVIEW_V1.json",
+    "sha256": "13d2284aa158b3ff0a60f634ad87dd4bd4f39331dd82ec4b24c47d35e107fb02",
+    "bytes": 13425
+  },
+  "pending_workers": "None. Allsource/content/read-onlypartialintegrityreviewscomplete. ExplicitUSERapprovalfornewtwo-targetMCPnotesrepair capability/fixturevalidation/restoration stillrequired; genericgoalcontinuationisNOTapproval. No authorizedexecutionpending.",
+  "goal_requirement_audit_blocked": {
+    "path": "/root/lightsem/docs/research/2026-09-28-end-to-end/interpretation_debt_20260928_v1/GOAL_REQUIREMENT_AUDIT_BLOCKED_V1.json",
+    "sha256": "f0c0373612ab5ad6a6d7cfe2b9413f5a7035be5bd90347951b4b6fa48a34e465",
+    "bytes": 7314
+  },
+  "completion_audit_status": "READ_ONLYcheckofeveryobjectiverequirement saved; NOTcomplete. TwoNoteslossesstillliveandexacthash-bound;388protectedMDunchanged. Explicitrepairapprovalstillpending. No newnative/repair/test/scientificexecution.",
+  "independent_partial_postwrite_review": "COMPLETE_OVERALL_NOTPASS.606checks:604pass/2knownbodyfailures. All20native/nested/renderedinterpretations andother21metadatafields verified;18intactbodies/2contiguouscustomNoteslosses3904/2707chars.388protectedMDandall408MDpathsetunchanged. BothUNAPPLIEDcandidatespass24checks combined inclwholecurrentfrontmatter/Interpretation.at andoriginalbodyrestoration. No nativecalls/repair/fixture/modelwork; foreignintegrityparent-reportednotindependentlyrerun. Eighteen-targetchecks reusableonlyatboundhashes.",
+  "independent_partial_native_integrity": {
+    "path": "/root/lightsem/docs/research/2026-09-28-end-to-end/interpretation_debt_20260928_v1/INDEPENDENT_PARTIAL_NATIVE_INTEGRITY_V1.json",
+    "sha256": "9e116a71d4ed494d0b1bf43eaac3abada6b60e99734990152326e11f19d8ae36",
+    "bytes": 8726
+  }
+}

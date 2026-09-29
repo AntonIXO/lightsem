@@ -1,0 +1,8 @@
+{
+  "experiment_id": "exp-dance-projection-20260911",
+  "verdict": "directional_only",
+  "failure_mode": "recipe_conditional",
+  "lesson": "2026-09-28 retrospective interpretation, not a new experiment: On the same saved Shpongle requests, timing_revision_02 achieved a pooled signed requested-to-emitted lag estimate of 0 s versus surface_revision_02 at 0.450 s, passing timing under the original software mechanics. The descriptive 1-2 Hz emitted/raw amplitude ratio fell to 0.221 versus 0.243 for that baseline and missed 0.35, while the sampled visual gate failed despite quiet, photometry and spatial passes. This completed offline fitting study does not measure audio-to-light synchronization or establish human music-fit, hardware capability or product qualification.",
+  "transfers_to": [],
+  "hint": "recipe_conditional: when the recipe changes, reopen_hypothesis('h-dance-projection-20260911', reason=...) makes the negative re-testable instead of terminal"
+}

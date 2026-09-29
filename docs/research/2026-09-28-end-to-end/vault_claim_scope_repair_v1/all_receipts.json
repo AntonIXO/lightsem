@@ -1,0 +1,114 @@
+[
+  {
+    "experiment_id": "exp-008-a-causal-conformer-trained-on-68789d",
+    "verdict": "supports",
+    "failure_mode": null,
+    "lesson": "2026-09-28 retrospective claim-scope clarification, not a new measurement: On 86 RPMC test recordings, the head using audio and reference-event history improved AP/base-rate lift to1.805 versus rhythm1.250 (marginal+0.555,95%CI[+0.385,+0.739]); audio-only1.347 did not beat same-feature ridge1.500. This is reference-history event-proxy support, not demonstrated generated-history deployment. The separate JD own-cue test lost to its audio-only comparator; neither result establishes human LIGHT quality. The older99-show/openl3 ridge study is not a paired same-split comparator for this86-show result.",
+    "transfers_to": [],
+    "hint": null
+  },
+  {
+    "experiment_id": "exp-004-a-causal-conformer-with-three-70f12e",
+    "verdict": "refutes",
+    "failure_mode": "recipe_conditional",
+    "lesson": "2026-09-28 retrospective claim-scope clarification, not a new measurement: This frozen AIST++ three-head recipe failed BAS, FID and diversity gates while passing exact model causality. Near-median blockA output and independent-frame jitter are reported failure observations; these data do not isolate one cause of every failed gate or establish an architecture-independent corpus ceiling. Retain the scoped recipe failure and all null comparators.",
+    "transfers_to": [],
+    "hint": "recipe_conditional: when the recipe changes, reopen_hypothesis('a-causal-conformer-with-three-heads-b18294', reason=...) makes the negative re-testable instead of terminal"
+  },
+  {
+    "experiment_id": "exp-023-a-factorised-audio-light-critic-e453c6",
+    "verdict": "directional_only",
+    "failure_mode": "recipe_conditional",
+    "lesson": "2026-09-28 retrospective claim-scope clarification, not a new measurement: The reranking proxies compare39 motion-model-validation clips: FID41.38 versus random43.82 and BAS-minus-shift-null0.1234 versus0.1237. The source does not establish that this set is held out from the independently split critic. Keep the separate critic-split pair-accuracy result and additive projection result; beyond-level understanding and best-of8 human preference remain unestablished.",
+    "transfers_to": [],
+    "hint": "recipe_conditional: when the recipe changes, reopen_hypothesis('a-factorised-audio-light-critic-trained-with-a97ada', reason=...) makes the negative re-testable instead of terminal"
+  },
+  {
+    "experiment_id": "exp-020-a-learned-group-effects-decoder-1eac54",
+    "verdict": "refutes",
+    "failure_mode": "recipe_conditional",
+    "lesson": "2026-09-28 retrospective claim-scope clarification, not a new measurement: Both decoder recipes failed their recorded FID/BAS gates on the39-clip motion-validation render set, which was not held out from the decoder (30train/5validation/4test clips). v1 rig transfer passed; v2 failed. Preserve the separately reported authored-corpus metrics without relabelling them from these39-clip counts. Human A/B was not measured; no new run or preference conclusion follows.",
+    "transfers_to": [],
+    "hint": "recipe_conditional: when the recipe changes, reopen_hypothesis('a-learned-group-effects-decoder-anton-s-mixture-2b4f62', reason=...) makes the negative re-testable instead of terminal"
+  },
+  {
+    "experiment_id": "exp-021-a-learned-group-effects-decoder-1eac54",
+    "verdict": "refutes",
+    "failure_mode": "recipe_conditional",
+    "lesson": "2026-09-28 retrospective claim-scope clarification, not a new measurement: Both decoder recipes failed their recorded FID/BAS gates on the39-clip motion-validation render set, which was not held out from the decoder (30train/5validation/4test clips). v1 rig transfer passed; v2 failed. Preserve the separately reported authored-corpus metrics without relabelling them from these39-clip counts. Human A/B was not measured; no new run or preference conclusion follows.",
+    "transfers_to": [],
+    "hint": "recipe_conditional: when the recipe changes, reopen_hypothesis('a-learned-group-effects-decoder-anton-s-mixture-2b4f62', reason=...) makes the negative re-testable instead of terminal"
+  },
+  {
+    "experiment_id": "exp-024-a-look-sampler-that-holds-its-c32dbb",
+    "verdict": "directional_only",
+    "failure_mode": "recipe_conditional",
+    "lesson": "2026-09-28 retrospective claim-scope clarification, not a new measurement: Cue-held transition distance6.86 improves over per-frame8.87 but loses to donor5.66 (floor2.56), so the conjunction remains failed. BAS-minus-shift-null0.5133 versus conductor0.1248 with419 versus771 events/clip is a descriptive zero-phase engine comparison on39 motion-validation clips, not demonstrated decoder-held-out song generalization. Preserve the historical split and beat-fraction timing qualifications; no aesthetic preference is measured.",
+    "transfers_to": [],
+    "hint": "recipe_conditional: when the recipe changes, reopen_hypothesis('a-look-sampler-that-holds-its-sampled-look-2b8adb', reason=...) makes the negative re-testable instead of terminal"
+  },
+  {
+    "experiment_id": "exp-022-section-level-intent-belongs-on-47d660",
+    "verdict": "directional_only",
+    "failure_mode": "recipe_conditional",
+    "lesson": "2026-09-28 retrospective claim-scope clarification, not a new measurement: This historical 39-clip comparison is held out under the motion selector, not fully held out from the evaluated decoder: the existing audit reports 30 decoder-TRAIN clips, 5 VAL and 4 TEST. Planner FID 597.34 versus no-planner6211.29/shuffled610.46 does not establish held-out decoder generalization; paired BAS worsened by -0.0067, CI [-0.0116,-0.0023]. Human structure judgment remains explicitly unmeasured. Preserve the completed numeric negative; no new execution follows.",
+    "transfers_to": [],
+    "hint": "recipe_conditional: when the recipe changes, reopen_hypothesis('section-level-intent-belongs-on-the-conductor-0f5c23', reason=...) makes the negative re-testable instead of terminal"
+  },
+  {
+    "experiment_id": "audio-predicts-lighting-events-when-the-scene-changes-even-though-it-does-not-pr-exp-2026-08-07t13-50-58",
+    "verdict": "supports",
+    "failure_mode": null,
+    "lesson": "2026-09-28 retrospective claim-scope clarification, not a new measurement: Audio is associated with the video-derived event proxy: rhythm+audio lift1.4151 versus rhythm1.3241, marginal+0.0909 against the circular-shift null\u22120.1568\u00b10.0876. The36-song rise/reversion measurements describe filtered novelty morphology only. Without validated shot-boundary labels they do not bound the proportion of editing contamination, identify lighting-only coupling, or establish useful cue anticipation.",
+    "transfers_to": [],
+    "hint": null
+  },
+  {
+    "experiment_id": "exp-010-dance-is-not-a-category-error-101dd9",
+    "verdict": "directional_only",
+    "failure_mode": "test_invalid",
+    "lesson": "2026-09-28 retrospective claim-scope clarification, not a new measurement: The reduced one-rater pilot recorded a hybrid-appearance preference in8/9decided trials versus chance.5 (reported exact95%CI[.518,.997]). Music-fit5/9 (CI[.212,.863]) is inconclusive, not equivalence. Shared transient phase does not prove the rating question cannot distinguish the outputs. The incomplete/blinding-limited protocol leaves the broad category claim unestablished; retain only the pilot appearance direction.",
+    "transfers_to": [],
+    "hint": "the TEST was broken, not the idea \u2014 the hypothesis was never actually evaluated; fix the harness and start a new experiment with parent_experiment_id='exp-010-dance-is-not-a-category-error-101dd9'"
+  },
+  {
+    "experiment_id": "exp-001-light-derived-from-real-dance-39fd73",
+    "verdict": "refutes",
+    "failure_mode": "recipe_conditional",
+    "lesson": "2026-09-28 retrospective claim-scope clarification, not a new measurement: On the evaluated AIST++ clips, this fixed motion-only conductor did not establish beat-phase alignment above its circular-shift null (+0.0082, CI [-0.0101,+0.0259]). The audio-phased hybrid scored +0.1242 versus +0.0942 for the beat trigger under the same metric. This supports that hybrid timing choice for this recipe; it does not show that choreography phase is absent from audio or unlearnable. Keep the disclosed metronome-gate and FID-null limitations; no aesthetic claim or rerun follows.",
+    "transfers_to": [],
+    "hint": "recipe_conditional: when the recipe changes, reopen_hypothesis('light-derived-from-real-dance-motion-by-a-fixed-a3ac3d', reason=...) makes the negative re-testable instead of terminal"
+  },
+  {
+    "experiment_id": "exp-012-most-of-the-gap-between-the-1f7d3b",
+    "verdict": "refutes",
+    "failure_mode": "recipe_conditional",
+    "lesson": "2026-09-28 retrospective claim-scope clarification, not a new measurement: For this AIST++ trunk, seed, split and 12k-step budget, removing the tested causality constraints did not earn the specified gain: R2 -0.0092 versus causal +0.0192 and BAS-minus-null +0.0185 versus +0.0179, below +0.105. This recipe did not close the gap; it does not identify the corpus as the sole bottleneck or exclude other architectures, context mechanisms or optimization. Preserve the completed negative without another seed or context sweep.",
+    "transfers_to": [],
+    "hint": "recipe_conditional: when the recipe changes, reopen_hypothesis('most-of-the-gap-between-the-model-s-light-0-018-8b5f6c', reason=...) makes the negative re-testable instead of terminal"
+  },
+  {
+    "experiment_id": "the-audio-lighting-event-signal-is-carried-by-loudness-energy-if-true-the-indust-exp-2026-08-07t14-34-32",
+    "verdict": "supports",
+    "failure_mode": null,
+    "lesson": "2026-09-28 retrospective scope and factual correction, not a new experiment: historical supports does not establish the proposed loudness-only ceiling; the named energy-family lift1.4704 versus its permutation null1.4381 has p=.240, while the spectral family scored1.7060 versus its null1.4562, with common rhythm baseline1.3241. The retained historical statement that energy was the ONLY family to fail its own null is incorrect: harmonic lift1.3832 versus its null1.4609 (p=.960) also failed. These are comparisons of tested, correlated feature families, not proof of zero energy contribution, a uniquely identified physical cause, or an independent MFCC-versus-spectral mechanism; preserve the measured table, historical closure and earlier scope correction.",
+    "transfers_to": [],
+    "hint": null
+  },
+  {
+    "experiment_id": "exp-006-the-deployed-path-meets-its-eb0fc6",
+    "verdict": "supports",
+    "failure_mode": null,
+    "lesson": "2026-09-28 retrospective claim-scope clarification, not a new measurement: Retain the historical software timing result and zero leakage under model-input perturbation. This experiment establishes conditional model causality only: its saved instrument perturbs synthetic model inputs, not audio through the feature builder. It does not establish whole deployed-pipeline future-audio independence or measured real-fixture latency. The later exp-009 is a separate, version-bounded example: that tested pipeline had upstream feature leakage and its repair still exempted five oracle beat-grid channels. Upstream source/version equivalence between the two historical runs is not established here; do not treat this cross-link as a new refutation of the exact earlier full path. Preserve historical gates and verdict; no rerun.",
+    "transfers_to": [],
+    "hint": null
+  },
+  {
+    "experiment_id": "exp-002-the-music-induced-movement-46c7b4",
+    "verdict": "refutes",
+    "failure_mode": "recipe_conditional",
+    "lesson": "2026-09-28 retrospective claim-scope clarification, not a new measurement: the registered AIST++ shared-skeleton gate failed for this causal-feature ridge recipe and track-held-out splits; dancer identity outperformed audio on23/29channels, including footfall R2 audio.035 versus identity.403 and vertical amplitude audio-.018 versus identity+.241. Retain that measured negative and the reported genre association, but attained ridge scores do not bound all audio models or isolate corpus design rather than method/features as the sole cause. The reported split-half statistic is a separate reproducibility estimate, not proof that this audio ridge attained the best possible prediction; preserve the completed study and do not reopen it.",
+    "transfers_to": [],
+    "hint": "recipe_conditional: when the recipe changes, reopen_hypothesis('the-music-induced-movement-literature-s-shared-c6aab2', reason=...) makes the negative re-testable instead of terminal"
+  }
+]

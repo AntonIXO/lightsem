@@ -1,0 +1,4 @@
+{"status": "complete", "recipe": "S_none_P0", "derived_dir": "/mnt/lightsem-data/experiments/lightsem/end_to_end_20260928_v1/comparison_demos_v1/01_S_none_P0"}
+{"status": "complete", "recipe": "S_V6_P0", "derived_dir": "/mnt/lightsem-data/experiments/lightsem/end_to_end_20260928_v1/comparison_demos_v1/02_S_V6_P0"}
+{"status": "complete", "recipe": "I_VR_P0", "derived_dir": "/mnt/lightsem-data/experiments/lightsem/end_to_end_20260928_v1/comparison_demos_v1/03_I_VR_P0"}
+{"status": "complete", "recipe": "S_VR_P0_Ashuf", "derived_dir": "/mnt/lightsem-data/experiments/lightsem/end_to_end_20260928_v1/comparison_demos_v1/04_S_VR_P0_Ashuf"}

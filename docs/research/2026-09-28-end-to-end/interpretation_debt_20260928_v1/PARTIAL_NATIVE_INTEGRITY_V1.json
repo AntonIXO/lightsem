@@ -1,0 +1,245 @@
+{
+  "result": "FAIL_BODY_PRESERVATION_TWO_RECORDS",
+  "rows": [
+    {
+      "experiment_id": "exp-009-the-stage-1-audio-bus-was-not-d97aa0",
+      "checks": {
+        "native_payload_exact": true,
+        "nested_interpretation_exact": true,
+        "other_metadata_unchanged": true,
+        "body_outside_interpretation_unchanged": true
+      },
+      "before_sha256": "68d362106d688c5c01616711f310afc2ee69f5f75e4148dcc97970db5685579e",
+      "after_sha256": "1558e8b94fa219af73b5f0b7c70cffb3ee04410156ffeae747e1d9c58108033b"
+    },
+    {
+      "experiment_id": "exp-011-the-model-s-light-flashes-three-1de900",
+      "checks": {
+        "native_payload_exact": true,
+        "nested_interpretation_exact": true,
+        "other_metadata_unchanged": true,
+        "body_outside_interpretation_unchanged": true
+      },
+      "before_sha256": "45961d85860345210e128588012cfbd601a3fe1c7bf4b17f782c7e26d135d13a",
+      "after_sha256": "44e3257ffca5870cf0ee42b2546ebce0874b9c5b3286cbb97d83f3405fa07d37"
+    },
+    {
+      "experiment_id": "exp-013-the-operator-head-which-is-8594fa",
+      "checks": {
+        "native_payload_exact": true,
+        "nested_interpretation_exact": true,
+        "other_metadata_unchanged": true,
+        "body_outside_interpretation_unchanged": true
+      },
+      "before_sha256": "4121147fad91929ffea5a612f7c8b31158e30110bd302fb9c2081f9e6b44d6b2",
+      "after_sha256": "370d0627b636956bb98626ef783f89b0798bc620e7acfecd672d9d38bab94650"
+    },
+    {
+      "experiment_id": "exp-014-just-dance-coach-motion-is-f086d5",
+      "checks": {
+        "native_payload_exact": true,
+        "nested_interpretation_exact": true,
+        "other_metadata_unchanged": true,
+        "body_outside_interpretation_unchanged": true
+      },
+      "before_sha256": "7b446a6e65437bd595c6bac77c28164c5547fd2446972c8252ee7dd93ff833fa",
+      "after_sha256": "f1932b3e41e86afa2cd1452165ae8683b705ea4c5474c4a35939125c01eeb08c"
+    },
+    {
+      "experiment_id": "exp-015-conditioning-on-whole-track-229262",
+      "checks": {
+        "native_payload_exact": true,
+        "nested_interpretation_exact": true,
+        "other_metadata_unchanged": true,
+        "body_outside_interpretation_unchanged": true
+      },
+      "before_sha256": "e8a8360c954933f796e6b8291d84f9dad81768a8310cceafa974457da5fd03e1",
+      "after_sha256": "75c6049f0184a41d70a7e552bc0d5bca782f81f10ae2c0b6ecb5ae50ecd5d36a"
+    },
+    {
+      "experiment_id": "exp-016-the-just-dance-background-with-ce364b",
+      "checks": {
+        "native_payload_exact": true,
+        "nested_interpretation_exact": true,
+        "other_metadata_unchanged": true,
+        "body_outside_interpretation_unchanged": true
+      },
+      "before_sha256": "458d575240a4128d03844d6d1c511d88bda6eab461095e4ccd2369c220b5f498",
+      "after_sha256": "778d7572002221cb88915cfccc3242771dd39b521e9ad8b3d4f67092bcb2b5e1"
+    },
+    {
+      "experiment_id": "exp-017-authored-hobby-game-light-shows-e4a4d0",
+      "checks": {
+        "native_payload_exact": true,
+        "nested_interpretation_exact": true,
+        "other_metadata_unchanged": true,
+        "body_outside_interpretation_unchanged": true
+      },
+      "before_sha256": "37437ba4553631938aba77d30f88f03d1b2f756b235a7739ade9a72ad350e8b7",
+      "after_sha256": "7af9ce7709b9ea2a9745e441ff152153c4c4d9cfe6ac597e3648260e57af7b40"
+    },
+    {
+      "experiment_id": "exp-018-source-separated-stems-add-e2c503",
+      "checks": {
+        "native_payload_exact": true,
+        "nested_interpretation_exact": true,
+        "other_metadata_unchanged": true,
+        "body_outside_interpretation_unchanged": true
+      },
+      "before_sha256": "a60e58f12063ba41925c745a05ab0932be7f1ae4fc367300b6e1fb7f963a6faa",
+      "after_sha256": "8f038af0b76b98cb7f5430ea774136bc9004404c344dcdb0b670ebf244fc71a4"
+    },
+    {
+      "experiment_id": "exp-019-one-frozen-music-foundation-d4f30f",
+      "checks": {
+        "native_payload_exact": true,
+        "nested_interpretation_exact": true,
+        "other_metadata_unchanged": true,
+        "body_outside_interpretation_unchanged": true
+      },
+      "before_sha256": "d65e32da465b248074647deb24c47db47ff3e07bbac4c02502b4a46a2a1f0469",
+      "after_sha256": "d4a316fa37832ab89b68a14246390279c21bc725b4bfb7b600729f5e092fd9ca"
+    },
+    {
+      "experiment_id": "exp-025-feeding-the-group-decoder-the-6ba213",
+      "checks": {
+        "native_payload_exact": true,
+        "nested_interpretation_exact": true,
+        "other_metadata_unchanged": true,
+        "body_outside_interpretation_unchanged": true
+      },
+      "before_sha256": "1c13975b64c309f73d7d3830ae3cefd3ea1e0230818be54abb657316b342eb0b",
+      "after_sha256": "d18c1023c9ee081f34d6ece894f82d44ff65b9f5d639ec6f1d846099debfd5bf"
+    },
+    {
+      "experiment_id": "exp-motion-exposure-roles-20260910",
+      "checks": {
+        "native_payload_exact": true,
+        "nested_interpretation_exact": true,
+        "other_metadata_unchanged": true,
+        "body_outside_interpretation_unchanged": true
+      },
+      "before_sha256": "653d58ea319191ee947e9cdcc498a53ab6b0d6f56c357d2d351933f03d270a2d",
+      "after_sha256": "dae4da6216fcc3acef0ba2009f7dfb16a418eaf3f7aa3b5b0df89e2a4157a12f"
+    },
+    {
+      "experiment_id": "exp-dance-tracking-20260911",
+      "checks": {
+        "native_payload_exact": true,
+        "nested_interpretation_exact": true,
+        "other_metadata_unchanged": true,
+        "body_outside_interpretation_unchanged": true
+      },
+      "before_sha256": "f4ff9bf26094f4f743a5e620a1efa50f3b49fd3a67066bd7885db1a3a86302f7",
+      "after_sha256": "5a06a24f1f5b2561e9914388ad8b6318c09b595110da78738ad28554e593d07a"
+    },
+    {
+      "experiment_id": "exp-dance-projection-20260911",
+      "checks": {
+        "native_payload_exact": true,
+        "nested_interpretation_exact": true,
+        "other_metadata_unchanged": true,
+        "body_outside_interpretation_unchanged": true
+      },
+      "before_sha256": "15dbae09e1e06e108fe3c8d52a0dc2bd174eebd824e3685f113812ed81082cb4",
+      "after_sha256": "b50ad265893c2cabcaa41e42efd908781ae54cd8c02189bae966b236f2e95ded"
+    },
+    {
+      "experiment_id": "exp-dance-actuator-budget-20260911",
+      "checks": {
+        "native_payload_exact": true,
+        "nested_interpretation_exact": true,
+        "other_metadata_unchanged": true,
+        "body_outside_interpretation_unchanged": true
+      },
+      "before_sha256": "42cace862f6592b91564e94b071cd7c86bb412df7cad713a86ea0d16c94c793d",
+      "after_sha256": "b462bacbb55ff5c55d714e3d987e4eb65d6770767d126958eacc27ce67b5bad8"
+    },
+    {
+      "experiment_id": "exp-dance-stage-geometry-20260911",
+      "checks": {
+        "native_payload_exact": true,
+        "nested_interpretation_exact": true,
+        "other_metadata_unchanged": true,
+        "body_outside_interpretation_unchanged": true
+      },
+      "before_sha256": "3a2816de990ba2a98edb507ab9cfccf193661e1f9ab36614bf805b55c1f63494",
+      "after_sha256": "bb5f3fec061106f44397ef6b4c27ef75f2151a4aba7648613eda9ffc8c4d3271"
+    },
+    {
+      "experiment_id": "exp-dance-stage-anchors-20260911",
+      "checks": {
+        "native_payload_exact": true,
+        "nested_interpretation_exact": true,
+        "other_metadata_unchanged": true,
+        "body_outside_interpretation_unchanged": true
+      },
+      "before_sha256": "7c8b759dde8ca0aab649f68cb1f4970da2a93af3a65b1e15f41d75adf25cb41a",
+      "after_sha256": "b951c0a32fb8965d5c1064a497ad71b8e6f35bde62f7a98d3ea82e4645ecd080"
+    },
+    {
+      "experiment_id": "exp-dance-physical-objective-20260911",
+      "checks": {
+        "native_payload_exact": true,
+        "nested_interpretation_exact": true,
+        "other_metadata_unchanged": true,
+        "body_outside_interpretation_unchanged": false
+      },
+      "before_sha256": "7362d1471b535504d51627e75436c6b1496dbf968316591f613baa1a8f8fe388",
+      "after_sha256": "8273459fb27ddba1e5f221bd60d6f374a197f0501ff268efc8ae1cda637c2b63"
+    },
+    {
+      "experiment_id": "exp-dance-stage-lean-20260911",
+      "checks": {
+        "native_payload_exact": true,
+        "nested_interpretation_exact": true,
+        "other_metadata_unchanged": true,
+        "body_outside_interpretation_unchanged": true
+      },
+      "before_sha256": "844cfa587d5437822ab257015c81895db7fe1dcd6d21a65d180f00c9f6555547",
+      "after_sha256": "1be64fa9b113c97f7690420e83871e9db098e4ffda42ab11ce8cf931488d9a8b"
+    },
+    {
+      "experiment_id": "exp-dance-optics-full-20260911",
+      "checks": {
+        "native_payload_exact": true,
+        "nested_interpretation_exact": true,
+        "other_metadata_unchanged": true,
+        "body_outside_interpretation_unchanged": false
+      },
+      "before_sha256": "df3c776bd74c79e5e43d32c1fa27055ea9dddcd4f5e07fe9f56566e28e5a5c5a",
+      "after_sha256": "586a0a89536dc5407e647b113b258693b308d9f1b55ff31c1361f209e477ba30"
+    },
+    {
+      "experiment_id": "exp-dance-pose-stage-20260911",
+      "checks": {
+        "native_payload_exact": true,
+        "nested_interpretation_exact": true,
+        "other_metadata_unchanged": true,
+        "body_outside_interpretation_unchanged": true
+      },
+      "before_sha256": "bfb8ce9414888924a644a55182abf9d684e7a96e23f7e21f1fa3901eb496869c",
+      "after_sha256": "d65c9880e87b7a7b9c6913c55dd3659324f3653d7c72f0124ec594937880d32e"
+    }
+  ],
+  "native_payload_and_metadata_pass_count": 20,
+  "body_preservation_pass_count": 18,
+  "protected_388_markdown_unchanged": true,
+  "foreign_vault_unchanged": true,
+  "no_restoration_executed": true,
+  "failure": {
+    "path": "/root/lightsem/docs/research/2026-09-28-end-to-end/interpretation_debt_20260928_v1/NATIVE_WRITE_PRESERVATION_FAILURE_V1.json",
+    "sha256": "7f99d6b5d5daf403546690816be03c689f3dddfe3694f86ad5f4e040bddd2fa9",
+    "bytes": 8879
+  },
+  "before_snapshot": {
+    "path": "/root/lightsem/docs/research/2026-09-28-end-to-end/interpretation_debt_20260928_v1/BEFORE_SNAPSHOT_V1.json.gz",
+    "sha256": "bb0b6d6850eb80329a22ee2e0ef5f28629209742c9746128bb0ccb2159fb3f75",
+    "bytes": 56271
+  },
+  "candidates": {
+    "path": "/root/lightsem/docs/research/2026-09-28-end-to-end/interpretation_debt_20260928_v1/RESTORATION_CANDIDATES_V1.json",
+    "sha256": "87431c538e5713ba735b022434e895a1dca33854eee96721fe729aaefe0d9d13",
+    "bytes": 1624
+  }
+}

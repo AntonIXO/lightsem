@@ -1,0 +1,27 @@
+{
+  "status": "passed",
+  "audit_status": "all_101_passed",
+  "partial_status": "interrupted_not_complete",
+  "exit_code": 0,
+  "duration_s": 2.153746092924848,
+  "command": "PYTHONDONTWRITEBYTECODE=1 CUDA_VISIBLE_DEVICES= TORCH_ENV=/root/lightsem/.venv/torch-access bash run_torch.sh -u /root/lightsem/outputs/shpongle_layers_demo_20260922T161917Z/palette_secondary_v1/validate_partial_interrupted_v1.py > /root/lightsem/outputs/shpongle_layers_demo_20260922T161917Z/palette_secondary_v1/partial_validation_v1.log 2>&1",
+  "validator": {
+    "path": "/root/lightsem/outputs/shpongle_layers_demo_20260922T161917Z/palette_secondary_v1/validate_partial_interrupted_v1.py",
+    "sha256": "95652b804e7086542c8743d173093e12d601283e7db48be3695b1b7b3dec404c"
+  },
+  "log": {
+    "path": "/root/lightsem/outputs/shpongle_layers_demo_20260922T161917Z/palette_secondary_v1/partial_validation_v1.log",
+    "sha256": "8fd6685b46ce50d80e149d5b366318e5d6ddfa19f048c15dd6e2614bef47ed9b"
+  },
+  "partial_receipt": {
+    "path": "/mnt/lightsem-data/experiments/lightsem/palette-history-secondary-20260922-v1/PARTIAL_INTERRUPTED_RECEIPT_V1.json",
+    "sha256": "67e49eafa0331d06d553090d7e4559ebecba07e315ada2bb77825192ba6ccca3"
+  },
+  "model_forward_calls": 0,
+  "rollout_calls": 0,
+  "metric_outcomes_computed": false,
+  "original_predictions_untouched": true,
+  "expected_cells": 186,
+  "validated_cells": 101,
+  "missing_cells": 85
+}

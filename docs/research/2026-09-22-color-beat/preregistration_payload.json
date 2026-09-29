@@ -1,0 +1,665 @@
+{
+  "campaign": "lighting-cue-model-20260922t094347z",
+  "design_path": "/root/lightsem/docs/research/2026-09-22-color-beat/CAMPAIGN_DESIGN.json",
+  "design_sha256": "1d3819baecc70cb9f4d62a19e4ef1eea0e825e2256760f8b86f505d298760935",
+  "diagnostics": [
+    {
+      "id": "layers-annotated-beat-f1-70ms",
+      "name": "Annotated beat F1 at 70 ms",
+      "unit": "fraction",
+      "direction": "higher_better",
+      "description": "Macro over canonical-song groups, independent annotated beats, one-to-one mir_eval default70ms matching and first5s trimmed. Companion clock and learned tracker on identical audio. Output grid does not define label accuracy; exclude known pretrained training overlap for unseen-song claim.",
+      "topic_tags": [
+        "audio-to-light",
+        "evaluation-metric"
+      ]
+    },
+    {
+      "id": "layers-beat-cmlt",
+      "name": "Annotated beat continuity CMLt",
+      "unit": "fraction",
+      "direction": "higher_better",
+      "description": "mir_eval CMLt with the same independently annotated songs, exclusions and trimming as layers-annotated-beat-f1-70ms. Report half/double tempo diagnostics and annotation ambiguity separately.",
+      "topic_tags": [
+        "audio-to-light",
+        "evaluation-metric"
+      ]
+    },
+    {
+      "id": "layers-color-event-ap",
+      "name": "Chromatic-only event average precision",
+      "unit": "fraction",
+      "direction": "higher_better",
+      "description": "Macro-song event AP from ranked local maxima with >=.2s suppression; one-to-one matching to frozen chromatic-only events within\u00b1.2s, tied confidence groups handled together. Referenceevents from jointHS pre/post windows, never V/p90. TRAIN-only label thresholds, cut/dark/achromatic/mask eligibility frozen. Nonevent songs retained in falsecue-rate/coverage, not fabricated AP. Common truth across everyrepresentationarm; report prevalence and shift/history/beat/coverageonly baselines.",
+      "topic_tags": [
+        "audio-to-light",
+        "evaluation-metric"
+      ]
+    },
+    {
+      "id": "layers-accent-event-ap",
+      "name": "Authored-video intensity-accent event average precision",
+      "unit": "fraction",
+      "direction": "higher_better",
+      "description": "Same event-level matching/aggregation as layers-color-event-ap but independent normalized intensity-rise visual events at native target resolution, tolerance\u00b1.2s. These are authored-video light proxies, not70ms acousticbeat annotations. Compare beat-only, eventhistory, onset/spectral baselines and circular shifts.",
+      "topic_tags": [
+        "audio-to-light",
+        "evaluation-metric"
+      ]
+    },
+    {
+      "id": "layers-palette-temporal-error",
+      "name": "Palette state temporal distribution error",
+      "unit": "train-scaled distance",
+      "direction": "lower_better",
+      "description": "Mean1D Wasserstein across fixed palette-state transition summaries: log residence durations, conditional mark-change distance, inter-transition drift, long-lag change. Component scales fit onTRAINonly; components and diversity separatelyreported. Same vocabulary, cue times, draws and output intensity for independent-held vs persistent comparison. Constant palette must fail diversity gate. GAME-proxy distribution fidelity, not aestheticquality.",
+      "topic_tags": [
+        "audio-to-light",
+        "evaluation-metric"
+      ]
+    },
+    {
+      "id": "layers-palette-marginal-error",
+      "name": "Palette marginal distribution error",
+      "unit": "distance",
+      "direction": "lower_better",
+      "description": "TRAIN-scaled jointHS palette distribution discrepancy to common heldout chromatic target. Same prototypes/observer acrossarms; report quantizationfloor, persistence andshuffleddonor references. Not pixelRGBregression.",
+      "topic_tags": [
+        "audio-to-light",
+        "evaluation-metric"
+      ]
+    },
+    {
+      "id": "layers-mask-color-error",
+      "name": "Background chromatic extraction error under independently known masks",
+      "unit": "JS distance",
+      "direction": "lower_better",
+      "description": "Mean Jensen-Shannon distance of extracted jointHS distribution to independent retained-background reference on prespecified auditedframes/known-backgroundcomposites. Color validity identical; frames/canonicalvideos equallyweighted. Existingboxmask comparator. Syntheticcontrols alone limitclaimtosynthetic recovery; no self-scoring againstSAMderivedtruth.",
+      "topic_tags": [
+        "audio-to-light",
+        "evaluation-metric"
+      ]
+    },
+    {
+      "id": "layers-mask-iou",
+      "name": "Human foreground mask IoU",
+      "unit": "fraction",
+      "direction": "higher_better",
+      "description": "Pixel IoU against independent audited human masks on prespecified sourceframes. Box and SAM2 prompts share sameoriginalcoordinate space. No modelgeneratedmask as groundtruth; source annotationprovenance required.",
+      "topic_tags": [
+        "audio-to-light",
+        "evaluation-metric"
+      ]
+    },
+    {
+      "id": "layers-repeat-palette-error",
+      "name": "Repeated-section palette relation error",
+      "unit": "distance",
+      "direction": "lower_better",
+      "description": "Absolute error in pairwise jointHS palette distances for independently audio-derived repeated-section pairs versus matchednonrepeat pairs; compare common-reference relationships, not simplyreward identical colors. Same cue times/vocabulary/variationbudget; compare no-memory and shuffledrepeatIDs. TRAIN-scaled and macro-song aggregated.",
+      "topic_tags": [
+        "audio-to-light",
+        "evaluation-metric"
+      ]
+    },
+    {
+      "id": "layers-false-cues-per-minute",
+      "name": "False cues on nonevent valid regions",
+      "unit": "events/min",
+      "direction": "lower_better",
+      "description": "Count emitted events unmatched to reference within registeredtolerance per eligibleminute, including nonevent songs. Separate color and accent channels in report; primarypairedscorecannotdropquiettracks.",
+      "topic_tags": [
+        "audio-to-light",
+        "evaluation-metric"
+      ]
+    }
+  ],
+  "hypotheses": [
+    {
+      "id": "h-layers-20260922-mask",
+      "problem_id": "dancing-light-generative-20260903",
+      "statement": "Frozen SAM2.1 human masks improve background chromatic target extraction versus current pose boxes on an independently annotated/composited audit, without increasing moving-mask false transitions.",
+      "predicted_effects": [
+        {
+          "diagnostic_id": "layers-mask-color-error",
+          "direction": "down",
+          "magnitude_note": ">=15% and >=.02 absolute reduction vs current pose-box masks; engineering minimum chosen before run, not a measured power/MDE claim."
+        }
+      ],
+      "rationale": "User-observed loss of color transitions and beat accents despite accepted movement motivates isolated lighting layers. Primary papers read and current scoped failures recalled. Changed mechanism is stated in plan; no old negative is universally erased.",
+      "plan": "Campaign lighting-cue-model-20260922t094347z. Design /root/lightsem/docs/research/2026-09-22-color-beat/CAMPAIGN_DESIGN.json SHA256 1d3819baecc70cb9f4d62a19e4ef1eea0e825e2256760f8b86f505d298760935. Read-only restored source, writablemountpermission/space pending. Before ANY scientific run: verify/freeze exact input/split/exposure/annotation/vocabulary/checkpoint/source/config hashes and implementation; attach these to experiment config. If any design choice changes materially, issue a superseding preregistration before outcomes. Nine fixed student recipes, seeds0/1/2, at most27fits; oneGPU,36GPUhour ceiling; >=1GiBfree and <=.95GiBnew persistent artifacts until space authorization. No datasetresults were examined for this proposal. Historical development remains development, notfreshconfirmation. Accepted companion body/angles protected. No successful proxy verdict implies humanAV acceptance or defaultpromotion.\nFAMILY: Same video frames/UI/promptboxes/timestamps; frozenSAM2.1Small vs box masks. Audit at least120frames across30canonicalvideos with independentmaskreference; known-backgroundcomposites separatelylabelled. If onlysynthetic truth exists, scientificclaim stayssynthetic. Streammask summaries; nofullvideoloaders.",
+      "papers": [
+        "sam2-2408-00714-v2",
+        "skip-bart-2506-01482-v2"
+      ],
+      "gates": [
+        {
+          "id": "prerun-provenance",
+          "blocking": true,
+          "description": "Before execution exact source/audio/video/pose/annotation/feature/model/config hashes, canonical train/dev grouping and exposure ledger are frozen; all fitting onlyTRAIN. No known cross-splitduplicates. Existing exposedTEST cannot be calledfreshconfirmation."
+        },
+        {
+          "id": "valid-common-instrument",
+          "blocking": true,
+          "description": "Metric implementation passes synthetic positive/negative/shift/tie/nonevent controls BEFORE scoring; >=80% prespecified evaluation songs remaineligible and the family-specific minimum audited group count. Same common target acrossarms. Missing labels or modalityquality meansblocked, notzeroresult."
+        },
+        {
+          "id": "scope-and-output",
+          "blocking": true,
+          "description": "No realpose/video input to audio student at inference. Any product overlay retains acceptedbody and allprotectedDMXbytes exactly; onlydeclaredRGB/nonstrobe dimmer slotsmaychange. Proxy interpretation remains limited; no humanpreference/defaultpromotion inferred."
+        },
+        {
+          "id": "mask-improvement",
+          "blocking": true,
+          "description": "Background JS error reduction >=15% and>=.02absolute vsbox, pairedCIpositive; humanmaskIoUimproves>=.02 whenrealannotationtruthavailable. Engineeringminimum, notassertedpower."
+        },
+        {
+          "id": "mask-nuisance",
+          "blocking": true,
+          "description": "Frozen-background/moving-mask control and coverageonly predictor reported; falsecolor events must not increase versusbox control. No grantingrealdomainqualificationfromsyntheticcomposites."
+        }
+      ],
+      "topic_tags": [
+        "audio-to-light",
+        "evaluation-metric",
+        "offline-vs-online"
+      ],
+      "problem_tags": [
+        "matched-baseline",
+        "metric-gaming"
+      ],
+      "ambition_class": "mechanism"
+    },
+    {
+      "id": "h-layers-20260922-rhythm",
+      "problem_id": "dancing-light-generative-20260903",
+      "statement": "A frozen learned audio beat tracker improves independently annotated beat accuracy over the companion clock on a provenance-audited corpus without material continuity loss.",
+      "predicted_effects": [
+        {
+          "diagnostic_id": "layers-annotated-beat-f1-70ms",
+          "direction": "up",
+          "magnitude_note": ">=.03 F1 vs the incumbent companion clock, paired positive confidence interval; engineering minimum chosen before run, not a measured power/MDE claim."
+        }
+      ],
+      "rationale": "User-observed loss of color transitions and beat accents despite accepted movement motivates isolated lighting layers. Primary papers read and current scoped failures recalled. Changed mechanism is stated in plan; no old negative is universally erased.",
+      "plan": "Campaign lighting-cue-model-20260922t094347z. Design /root/lightsem/docs/research/2026-09-22-color-beat/CAMPAIGN_DESIGN.json SHA256 1d3819baecc70cb9f4d62a19e4ef1eea0e825e2256760f8b86f505d298760935. Read-only restored source, writablemountpermission/space pending. Before ANY scientific run: verify/freeze exact input/split/exposure/annotation/vocabulary/checkpoint/source/config hashes and implementation; attach these to experiment config. If any design choice changes materially, issue a superseding preregistration before outcomes. Nine fixed student recipes, seeds0/1/2, at most27fits; oneGPU,36GPUhour ceiling; >=1GiBfree and <=.95GiBnew persistent artifacts until space authorization. No datasetresults were examined for this proposal. Historical development remains development, notfreshconfirmation. Accepted companion body/angles protected. No successful proxy verdict implies humanAV acceptance or defaultpromotion.\nFAMILY: Primarytracker BeatThis checkpoint withheldoutprovenance; comparisoncurrentcompanion. AIO metrical predictions are a namedsecondary comparator only ifruntimereadiness andoverlap auditpass, never defaultensemble onits trainingHarmonix. Useatleast20independentcanonicalannotatedsongs for cleancomparison. Knownoverlap/unknownannotationprecision restrictstodescriptive, not supportsunseensong claim.",
+      "papers": [
+        "lit-20260908-beat-this",
+        "all-in-one-metrical-functional-2307-16425-v1"
+      ],
+      "gates": [
+        {
+          "id": "prerun-provenance",
+          "blocking": true,
+          "description": "Before execution exact source/audio/video/pose/annotation/feature/model/config hashes, canonical train/dev grouping and exposure ledger are frozen; all fitting onlyTRAIN. No known cross-splitduplicates. Existing exposedTEST cannot be calledfreshconfirmation."
+        },
+        {
+          "id": "valid-common-instrument",
+          "blocking": true,
+          "description": "Metric implementation passes synthetic positive/negative/shift/tie/nonevent controls BEFORE scoring; >=80% prespecified evaluation songs remaineligible and the family-specific minimum audited group count. Same common target acrossarms. Missing labels or modalityquality meansblocked, notzeroresult."
+        },
+        {
+          "id": "scope-and-output",
+          "blocking": true,
+          "description": "No realpose/video input to audio student at inference. Any product overlay retains acceptedbody and allprotectedDMXbytes exactly; onlydeclaredRGB/nonstrobe dimmer slotsmaychange. Proxy interpretation remains limited; no humanpreference/defaultpromotion inferred."
+        },
+        {
+          "id": "rhythm-magnitude",
+          "blocking": true,
+          "description": "Macro beatF1 improvement>=.03 vscompanion andpaired95%CI lower>0."
+        },
+        {
+          "id": "rhythm-continuity",
+          "blocking": true,
+          "description": "CMLt decline no morethan.02; octave/phase errorsandannotationambiguityreported. No downbeatclaimwithoutindependentdownbeatlabels."
+        },
+        {
+          "id": "rhythm-no-pretraining-leak",
+          "blocking": true,
+          "description": "Known trainingoverlap excluded forunseen-song claim. BeatThisfinal/small GuitarSet/Harmonix andAIOharmonix-all-onHarmonix cannotpass thisgate."
+        }
+      ],
+      "topic_tags": [
+        "audio-to-light",
+        "evaluation-metric",
+        "offline-vs-online"
+      ],
+      "problem_tags": [
+        "matched-baseline",
+        "metric-gaming"
+      ],
+      "ambition_class": "mechanism"
+    },
+    {
+      "id": "h-layers-20260922-accent",
+      "problem_id": "dancing-light-generative-20260903",
+      "statement": "An audio-conditioned selective accent head improves authored-video intensity-accent timing over beat-only/history/shallow-audio policies while preserving accepted spatial movement.",
+      "predicted_effects": [
+        {
+          "diagnostic_id": "layers-accent-event-ap",
+          "direction": "up",
+          "magnitude_note": ">=.02 AP vs every fixed beat-only, event-history and shallow onset/spectral comparator; engineering minimum chosen before run, not a measured power/MDE claim."
+        }
+      ],
+      "rationale": "User-observed loss of color transitions and beat accents despite accepted movement motivates isolated lighting layers. Primary papers read and current scoped failures recalled. Changed mechanism is stated in plan; no old negative is universally erased.",
+      "plan": "Campaign lighting-cue-model-20260922t094347z. Design /root/lightsem/docs/research/2026-09-22-color-beat/CAMPAIGN_DESIGN.json SHA256 1d3819baecc70cb9f4d62a19e4ef1eea0e825e2256760f8b86f505d298760935. Read-only restored source, writablemountpermission/space pending. Before ANY scientific run: verify/freeze exact input/split/exposure/annotation/vocabulary/checkpoint/source/config hashes and implementation; attach these to experiment config. If any design choice changes materially, issue a superseding preregistration before outcomes. Nine fixed student recipes, seeds0/1/2, at most27fits; oneGPU,36GPUhour ceiling; >=1GiBfree and <=.95GiBnew persistent artifacts until space authorization. No datasetresults were examined for this proposal. Historical development remains development, notfreshconfirmation. Accepted companion body/angles protected. No successful proxy verdict implies humanAV acceptance or defaultpromotion.\nFAMILY: Use S_VR_P0 fixedstudent and separatelycalibrated beat-only,event-history,shallowonset/spectralbaselines; sourcevisual events\u00b1.2s, notacousticbeattruth. Comparecorrect vs recipient-rhythm-preservingdonor and20circularshifts. No every-beatforcedpulse orrateadjustmentusingtesttargetcount. PrimarydeploymentthresholdfitTRAIN only.",
+      "papers": [
+        "lit-20260908-beat-this",
+        "all-in-one-metrical-functional-2307-16425-v1",
+        "skip-bart-2506-01482-v2"
+      ],
+      "gates": [
+        {
+          "id": "prerun-provenance",
+          "blocking": true,
+          "description": "Before execution exact source/audio/video/pose/annotation/feature/model/config hashes, canonical train/dev grouping and exposure ledger are frozen; all fitting onlyTRAIN. No known cross-splitduplicates. Existing exposedTEST cannot be calledfreshconfirmation."
+        },
+        {
+          "id": "valid-common-instrument",
+          "blocking": true,
+          "description": "Metric implementation passes synthetic positive/negative/shift/tie/nonevent controls BEFORE scoring; >=80% prespecified evaluation songs remaineligible and >=30canonicaldevelopmentgroups for student contrasts. Same common target acrossarms. Missing labels or modalityquality meansblocked, notzeroresult."
+        },
+        {
+          "id": "paired-complete",
+          "blocking": true,
+          "description": "All3 fixed trainingseeds and everyprespecified comparator/draw complete; macrocanonical-song aggregation, paired10000bootstrap and Holm primaryfamily correction. No best-seedsubstitution or teacher-forced referencehistory at inference."
+        },
+        {
+          "id": "scope-and-output",
+          "blocking": true,
+          "description": "No realpose/video input to audio student at inference. Any product overlay retains acceptedbody and allprotectedDMXbytes exactly; onlydeclaredRGB/nonstrobe dimmer slotsmaychange. Proxy interpretation remains limited; no humanpreference/defaultpromotion inferred."
+        },
+        {
+          "id": "accent-magnitude",
+          "blocking": true,
+          "description": "Paired APgain>=.02 over EACH namedbaseline andshiftcontrol, correctedCI lower>0; eventrate .75..1.25reference andnoneventfalsecuerate notworse thanbestbaseline."
+        },
+        {
+          "id": "accent-not-beat-proxy",
+          "blocking": true,
+          "description": "Authored visualaccenttarget provenance remains separatefrommotioncontacts/acousticbeatlabels. Rendered accents andrawprobabilities bothsaved; source10Hzdoesnotearn70mstimingclaim."
+        }
+      ],
+      "topic_tags": [
+        "audio-to-light",
+        "evaluation-metric",
+        "offline-vs-online"
+      ],
+      "problem_tags": [
+        "matched-baseline",
+        "metric-gaming"
+      ],
+      "ambition_class": "mechanism"
+    },
+    {
+      "id": "h-layers-20260922-color",
+      "problem_id": "dancing-light-generative-20260903",
+      "statement": "A chromatic-only change head detects authored color transitions better than beat/history/spectral novelty while rejecting pure brightness and mask-motion artifacts.",
+      "predicted_effects": [
+        {
+          "diagnostic_id": "layers-color-event-ap",
+          "direction": "up",
+          "magnitude_note": ">=.02 AP vs every fixed beat-only, event-history, spectral-novelty and mask-coverage-only comparator; engineering minimum chosen before run, not a measured power/MDE claim."
+        }
+      ],
+      "rationale": "User-observed loss of color transitions and beat accents despite accepted movement motivates isolated lighting layers. Primary papers read and current scoped failures recalled. Changed mechanism is stated in plan; no old negative is universally erased.",
+      "plan": "Campaign lighting-cue-model-20260922t094347z. Design /root/lightsem/docs/research/2026-09-22-color-beat/CAMPAIGN_DESIGN.json SHA256 1d3819baecc70cb9f4d62a19e4ef1eea0e825e2256760f8b86f505d298760935. Read-only restored source, writablemountpermission/space pending. Before ANY scientific run: verify/freeze exact input/split/exposure/annotation/vocabulary/checkpoint/source/config hashes and implementation; attach these to experiment config. If any design choice changes materially, issue a superseding preregistration before outcomes. Nine fixed student recipes, seeds0/1/2, at most27fits; oneGPU,36GPUhour ceiling; >=1GiBfree and <=.95GiBnew persistent artifacts until space authorization. No datasetresults were examined for this proposal. Historical development remains development, notfreshconfirmation. Accepted companion body/angles protected. No successful proxy verdict implies humanAV acceptance or defaultpromotion.\nFAMILY: Use S_VR_P0 commoncolor targetjointHS andstrictvalidity; pre/post.3s novelty reference, frozenTRAINthreshold, candidateeventNMS.2s, match\u00b1.2s. Allmain representationvariants use thisSAMEobserver/labels. Sixstat jointnovelty is never relabelledcolor. Evaluate deployment andcountmatched diagnostic separately.",
+      "papers": [
+        "all-in-one-metrical-functional-2307-16425-v1",
+        "skip-bart-2506-01482-v2",
+        "palmer-music-color-emotion-2013"
+      ],
+      "gates": [
+        {
+          "id": "prerun-provenance",
+          "blocking": true,
+          "description": "Before execution exact source/audio/video/pose/annotation/feature/model/config hashes, canonical train/dev grouping and exposure ledger are frozen; all fitting onlyTRAIN. No known cross-splitduplicates. Existing exposedTEST cannot be calledfreshconfirmation."
+        },
+        {
+          "id": "valid-common-instrument",
+          "blocking": true,
+          "description": "Metric implementation passes synthetic positive/negative/shift/tie/nonevent controls BEFORE scoring; >=80% prespecified evaluation songs remaineligible and >=30canonicaldevelopmentgroups for student contrasts. Same common target acrossarms. Missing labels or modalityquality meansblocked, notzeroresult."
+        },
+        {
+          "id": "paired-complete",
+          "blocking": true,
+          "description": "All3 fixed trainingseeds and everyprespecified comparator/draw complete; macrocanonical-song aggregation, paired10000bootstrap and Holm primaryfamily correction. No best-seedsubstitution or teacher-forced referencehistory at inference."
+        },
+        {
+          "id": "scope-and-output",
+          "blocking": true,
+          "description": "No realpose/video input to audio student at inference. Any product overlay retains acceptedbody and allprotectedDMXbytes exactly; onlydeclaredRGB/nonstrobe dimmer slotsmaychange. Proxy interpretation remains limited; no humanpreference/defaultpromotion inferred."
+        },
+        {
+          "id": "color-magnitude",
+          "blocking": true,
+          "description": "Paired APgain>=.02 over each fixedbaseline andshiftcontrol, correctedCI lower>0; eventrate .75..1.25reference withnoneventfalsecue control."
+        },
+        {
+          "id": "color-isolation",
+          "blocking": true,
+          "description": "Constantchromaticity brightnessscalesabovethreshold produce nocolorevents; achromatic/dark transitions invalidcolor, notred. Constantluma huechanges detected. Cut/maskvalidity/fraction exclusionsfrozen andreported."
+        }
+      ],
+      "topic_tags": [
+        "audio-to-light",
+        "evaluation-metric",
+        "offline-vs-online"
+      ],
+      "problem_tags": [
+        "matched-baseline",
+        "metric-gaming"
+      ],
+      "ambition_class": "mechanism"
+    },
+    {
+      "id": "h-layers-20260922-palette",
+      "problem_id": "dancing-light-generative-20260903",
+      "statement": "A generated-history palette-mark model improves palette residence and transition distributions over independent cue-held sampling, without collapse or timing damage.",
+      "predicted_effects": [
+        {
+          "diagnostic_id": "layers-palette-temporal-error",
+          "direction": "down",
+          "magnitude_note": ">=15% and>=.02 normalized error reduction vs independent cue-held palette sampling; engineering minimum chosen before run, not a measured power/MDE claim."
+        }
+      ],
+      "rationale": "User-observed loss of color transitions and beat accents despite accepted movement motivates isolated lighting layers. Primary papers read and current scoped failures recalled. Changed mechanism is stated in plan; no old negative is universally erased.",
+      "plan": "Campaign lighting-cue-model-20260922t094347z. Design /root/lightsem/docs/research/2026-09-22-color-beat/CAMPAIGN_DESIGN.json SHA256 1d3819baecc70cb9f4d62a19e4ef1eea0e825e2256760f8b86f505d298760935. Read-only restored source, writablemountpermission/space pending. Before ANY scientific run: verify/freeze exact input/split/exposure/annotation/vocabulary/checkpoint/source/config hashes and implementation; attach these to experiment config. If any design choice changes materially, issue a superseding preregistration before outcomes. Nine fixed student recipes, seeds0/1/2, at most27fits; oneGPU,36GPUhour ceiling; >=1GiBfree and <=.95GiBnew persistent artifacts until space authorization. No datasetresults were examined for this proposal. Historical development remains development, notfreshconfirmation. Accepted companion body/angles protected. No successful proxy verdict implies humanAV acceptance or defaultpromotion.\nFAMILY: Same S_VR_P0 cue stream, TRAINpalette32vocabulary, drawseeds anddimmer; train explicitgeneratedhistory andnullstate-dropout beforecomparison. Persistent state cankeep paletteacrossmultiplecues andconditionnextmark. Compare independentcueheld/nulldrop trainedbranch, persistenceandshuffleddonor. Merelysample-and-hold is thecomparator, notthenewmechanism.",
+      "papers": [
+        "skip-bart-2506-01482-v2",
+        "palmer-music-color-emotion-2013"
+      ],
+      "gates": [
+        {
+          "id": "prerun-provenance",
+          "blocking": true,
+          "description": "Before execution exact source/audio/video/pose/annotation/feature/model/config hashes, canonical train/dev grouping and exposure ledger are frozen; all fitting onlyTRAIN. No known cross-splitduplicates. Existing exposedTEST cannot be calledfreshconfirmation."
+        },
+        {
+          "id": "valid-common-instrument",
+          "blocking": true,
+          "description": "Metric implementation passes synthetic positive/negative/shift/tie/nonevent controls BEFORE scoring; >=80% prespecified evaluation songs remaineligible and >=30canonicaldevelopmentgroups for student contrasts. Same common target acrossarms. Missing labels or modalityquality meansblocked, notzeroresult."
+        },
+        {
+          "id": "paired-complete",
+          "blocking": true,
+          "description": "All3 fixed trainingseeds and everyprespecified comparator/draw complete; macrocanonical-song aggregation, paired10000bootstrap and Holm primaryfamily correction. No best-seedsubstitution or teacher-forced referencehistory at inference."
+        },
+        {
+          "id": "scope-and-output",
+          "blocking": true,
+          "description": "No realpose/video input to audio student at inference. Any product overlay retains acceptedbody and allprotectedDMXbytes exactly; onlydeclaredRGB/nonstrobe dimmer slotsmaychange. Proxy interpretation remains limited; no humanpreference/defaultpromotion inferred."
+        },
+        {
+          "id": "palette-magnitude",
+          "blocking": true,
+          "description": "Temporalerrorreduction>=15% and>=.02 vsindependentcueheld, correctedpairedCIpositive andbetterthanshuffleddonor."
+        },
+        {
+          "id": "palette-no-collapse",
+          "blocking": true,
+          "description": "Diversity/occupancy>=70%reference; marginalerror no>5%degradation; colorAP no>.01degradation. Constantpalette andrandomflicker failcontrols. Reporteachcomponent, notjustaggregate."
+        }
+      ],
+      "topic_tags": [
+        "audio-to-light",
+        "evaluation-metric",
+        "offline-vs-online"
+      ],
+      "problem_tags": [
+        "matched-baseline",
+        "metric-gaming"
+      ],
+      "ambition_class": "mechanism"
+    },
+    {
+      "id": "h-layers-20260922-multihead",
+      "problem_id": "dancing-light-generative-20260903",
+      "statement": "A shared multi-rate audio encoder with separate accent, chromatic hazard and palette heads improves color-event prediction over independent encoders at matched total active capacity without negative transfer.",
+      "predicted_effects": [
+        {
+          "diagnostic_id": "layers-color-event-ap",
+          "direction": "up",
+          "magnitude_note": ">=.01 AP shared S_VR_P0 vs independent I_VR_P0 at matched total active parameters; engineering minimum chosen before run, not a measured power/MDE claim."
+        }
+      ],
+      "rationale": "User-observed loss of color transitions and beat accents despite accepted movement motivates isolated lighting layers. Primary papers read and current scoped failures recalled. Changed mechanism is stated in plan; no old negative is universally erased.",
+      "plan": "Campaign lighting-cue-model-20260922t094347z. Design /root/lightsem/docs/research/2026-09-22-color-beat/CAMPAIGN_DESIGN.json SHA256 1d3819baecc70cb9f4d62a19e4ef1eea0e825e2256760f8b86f505d298760935. Read-only restored source, writablemountpermission/space pending. Before ANY scientific run: verify/freeze exact input/split/exposure/annotation/vocabulary/checkpoint/source/config hashes and implementation; attach these to experiment config. If any design choice changes materially, issue a superseding preregistration before outcomes. Nine fixed student recipes, seeds0/1/2, at most27fits; oneGPU,36GPUhour ceiling; >=1GiBfree and <=.95GiBnew persistent artifacts until space authorization. No datasetresults were examined for this proposal. Historical development remains development, notfreshconfirmation. Accepted companion body/angles protected. No successful proxy verdict implies humanAV acceptance or defaultpromotion.\nFAMILY: Primaryarchitecturecontrast S_VR_P0 vs I_VR_P0, no poseaux. Actualindependentencoders, not separateMLPsononesharedtrunk. Deterministicwidthmatching<=5%totalACTIVEparameters beforedata; same64scontext/8scenterloss/updates/taskframes. ExactFLOPs,time,memoryreported, nosimultaneouscomputeequalityassumed.",
+      "papers": [
+        "all-in-one-metrical-functional-2307-16425-v1",
+        "lit-20260908-beat-this",
+        "skip-bart-2506-01482-v2"
+      ],
+      "gates": [
+        {
+          "id": "prerun-provenance",
+          "blocking": true,
+          "description": "Before execution exact source/audio/video/pose/annotation/feature/model/config hashes, canonical train/dev grouping and exposure ledger are frozen; all fitting onlyTRAIN. No known cross-splitduplicates. Existing exposedTEST cannot be calledfreshconfirmation."
+        },
+        {
+          "id": "valid-common-instrument",
+          "blocking": true,
+          "description": "Metric implementation passes synthetic positive/negative/shift/tie/nonevent controls BEFORE scoring; >=80% prespecified evaluation songs remaineligible and >=30canonicaldevelopmentgroups for student contrasts. Same common target acrossarms. Missing labels or modalityquality meansblocked, notzeroresult."
+        },
+        {
+          "id": "paired-complete",
+          "blocking": true,
+          "description": "All3 fixed trainingseeds and everyprespecified comparator/draw complete; macrocanonical-song aggregation, paired10000bootstrap and Holm primaryfamily correction. No best-seedsubstitution or teacher-forced referencehistory at inference."
+        },
+        {
+          "id": "scope-and-output",
+          "blocking": true,
+          "description": "No realpose/video input to audio student at inference. Any product overlay retains acceptedbody and allprotectedDMXbytes exactly; onlydeclaredRGB/nonstrobe dimmer slotsmaychange. Proxy interpretation remains limited; no humanpreference/defaultpromotion inferred."
+        },
+        {
+          "id": "sharing-magnitude",
+          "blocking": true,
+          "description": "Color AP gain>=.01 overindependent, correctedpairedCIpositive."
+        },
+        {
+          "id": "sharing-no-negative-transfer",
+          "blocking": true,
+          "description": "AccentAP decline<=.01 andpalettetemporalerrorincrease<=5%; eachheadreported, noaveragehidingtradeoff."
+        },
+        {
+          "id": "capacity-context-match",
+          "blocking": true,
+          "description": "Total activeparameterdifference<=5%, identicaltemporalsupport/taskframes/updatebudget; actualwidth/FLOPs/walltime/peakVRAMserialized. No unusedpaddingparameters."
+        }
+      ],
+      "topic_tags": [
+        "audio-to-light",
+        "evaluation-metric",
+        "offline-vs-online"
+      ],
+      "problem_tags": [
+        "matched-baseline",
+        "metric-gaming"
+      ],
+      "ambition_class": "mechanism"
+    },
+    {
+      "id": "h-layers-20260922-visual",
+      "problem_id": "dancing-light-generative-20260903",
+      "statement": "Training-only richer masked color/spatial visual features improve the audio-only lighting student over six-statistic or no-visual supervision, independently of pose auxiliary.",
+      "predicted_effects": [
+        {
+          "diagnostic_id": "layers-color-event-ap",
+          "direction": "up",
+          "magnitude_note": ">=.01 AP rich visual auxiliary vs both six-stat and no-visual auxiliary; engineering minimum chosen before run, not a measured power/MDE claim."
+        }
+      ],
+      "rationale": "User-observed loss of color transitions and beat accents despite accepted movement motivates isolated lighting layers. Primary papers read and current scoped failures recalled. Changed mechanism is stated in plan; no old negative is universally erased.",
+      "plan": "Campaign lighting-cue-model-20260922t094347z. Design /root/lightsem/docs/research/2026-09-22-color-beat/CAMPAIGN_DESIGN.json SHA256 1d3819baecc70cb9f4d62a19e4ef1eea0e825e2256760f8b86f505d298760935. Read-only restored source, writablemountpermission/space pending. Before ANY scientific run: verify/freeze exact input/split/exposure/annotation/vocabulary/checkpoint/source/config hashes and implementation; attach these to experiment config. If any design choice changes materially, issue a superseding preregistration before outcomes. Nine fixed student recipes, seeds0/1/2, at most27fits; oneGPU,36GPUhour ceiling; >=1GiBfree and <=.95GiBnew persistent artifacts until space authorization. No datasetresults were examined for this proposal. Historical development remains development, notfreshconfirmation. Accepted companion body/angles protected. No successful proxy verdict implies humanAV acceptance or defaultpromotion.\nFAMILY: Primary S_VR_P0 vs S_V6_P0 and S_none_P0; fixedsameaudio/songs/common maincolortarget/capacity/training. VR96dimjointHS+quadrants requiresresourcedecode, notmarginalreconstruction. Secondary2x2 V6/VR xP0/P1 reportsinteraction withoutclaiming synergyfromonearm. Maskextractorqualification separate.",
+      "papers": [
+        "sam2-2408-00714-v2",
+        "skip-bart-2506-01482-v2",
+        "all-in-one-metrical-functional-2307-16425-v1"
+      ],
+      "gates": [
+        {
+          "id": "prerun-provenance",
+          "blocking": true,
+          "description": "Before execution exact source/audio/video/pose/annotation/feature/model/config hashes, canonical train/dev grouping and exposure ledger are frozen; all fitting onlyTRAIN. No known cross-splitduplicates. Existing exposedTEST cannot be calledfreshconfirmation."
+        },
+        {
+          "id": "valid-common-instrument",
+          "blocking": true,
+          "description": "Metric implementation passes synthetic positive/negative/shift/tie/nonevent controls BEFORE scoring; >=80% prespecified evaluation songs remaineligible and >=30canonicaldevelopmentgroups for student contrasts. Same common target acrossarms. Missing labels or modalityquality meansblocked, notzeroresult."
+        },
+        {
+          "id": "paired-complete",
+          "blocking": true,
+          "description": "All3 fixed trainingseeds and everyprespecified comparator/draw complete; macrocanonical-song aggregation, paired10000bootstrap and Holm primaryfamily correction. No best-seedsubstitution or teacher-forced referencehistory at inference."
+        },
+        {
+          "id": "scope-and-output",
+          "blocking": true,
+          "description": "No realpose/video input to audio student at inference. Any product overlay retains acceptedbody and allprotectedDMXbytes exactly; onlydeclaredRGB/nonstrobe dimmer slotsmaychange. Proxy interpretation remains limited; no humanpreference/defaultpromotion inferred."
+        },
+        {
+          "id": "visual-magnitude",
+          "blocking": true,
+          "description": "Color APgain>=.01 over BOTHsixstat/noaux, correctedpairedCIpositive; accentAP decline<=.01 andpaletteerrorincrease<=5%."
+        },
+        {
+          "id": "visual-not-input",
+          "blocking": true,
+          "description": "Video/mask/poseonlytraininglabels, noheldoutreferencevisualinput atplayback. Coverageonly/time-shift nuisancecontrols andsamecommontruth usedforallarms."
+        }
+      ],
+      "topic_tags": [
+        "audio-to-light",
+        "evaluation-metric",
+        "offline-vs-online"
+      ],
+      "problem_tags": [
+        "matched-baseline",
+        "metric-gaming"
+      ],
+      "ambition_class": "mechanism"
+    },
+    {
+      "id": "h-layers-20260922-pose-aux",
+      "problem_id": "dancing-light-generative-20260903",
+      "statement": "Validated dance-descriptor auxiliary supervision adds useful accent information to the audio-only lighting student beyond the same audio/visual training data and shuffled-pose regularization.",
+      "predicted_effects": [
+        {
+          "diagnostic_id": "layers-accent-event-ap",
+          "direction": "up",
+          "magnitude_note": ">=.01 AP aligned pose auxiliary vs both no-pose and song-shuffled pose auxiliary; engineering minimum chosen before run, not a measured power/MDE claim."
+        }
+      ],
+      "rationale": "User-observed loss of color transitions and beat accents despite accepted movement motivates isolated lighting layers. Primary papers read and current scoped failures recalled. Changed mechanism is stated in plan; no old negative is universally erased.",
+      "plan": "Campaign lighting-cue-model-20260922t094347z. Design /root/lightsem/docs/research/2026-09-22-color-beat/CAMPAIGN_DESIGN.json SHA256 1d3819baecc70cb9f4d62a19e4ef1eea0e825e2256760f8b86f505d298760935. Read-only restored source, writablemountpermission/space pending. Before ANY scientific run: verify/freeze exact input/split/exposure/annotation/vocabulary/checkpoint/source/config hashes and implementation; attach these to experiment config. If any design choice changes materially, issue a superseding preregistration before outcomes. Nine fixed student recipes, seeds0/1/2, at most27fits; oneGPU,36GPUhour ceiling; >=1GiBfree and <=.95GiBnew persistent artifacts until space authorization. No datasetresults were examined for this proposal. Historical development remains development, notfreshconfirmation. Accepted companion body/angles protected. No successful proxy verdict implies humanAV acceptance or defaultpromotion.\nFAMILY: Primary S_VR_P1 vs S_VR_P0 and S_VR_Pshuf; secondary S_V6_P1 vsS_V6_P0. Sameaudio/songs/exposure/capacity. Four2D-supportedslowdescriptors andqualitymasks only; noKE-dimmer orfootfall-beat groundtruth. No motiongenerationtrain/inferencechange. Equalweightcoacheswithinrecordings.",
+      "papers": [
+        "ai-choreographer-aistpp-2101-08779-v3",
+        "all-in-one-metrical-functional-2307-16425-v1"
+      ],
+      "gates": [
+        {
+          "id": "prerun-provenance",
+          "blocking": true,
+          "description": "Before execution exact source/audio/video/pose/annotation/feature/model/config hashes, canonical train/dev grouping and exposure ledger are frozen; all fitting onlyTRAIN. No known cross-splitduplicates. Existing exposedTEST cannot be calledfreshconfirmation."
+        },
+        {
+          "id": "valid-common-instrument",
+          "blocking": true,
+          "description": "Metric implementation passes synthetic positive/negative/shift/tie/nonevent controls BEFORE scoring; >=80% prespecified evaluation songs remaineligible and >=30canonicaldevelopmentgroups for student contrasts. Same common target acrossarms. Missing labels or modalityquality meansblocked, notzeroresult."
+        },
+        {
+          "id": "paired-complete",
+          "blocking": true,
+          "description": "All3 fixed trainingseeds and everyprespecified comparator/draw complete; macrocanonical-song aggregation, paired10000bootstrap and Holm primaryfamily correction. No best-seedsubstitution or teacher-forced referencehistory at inference."
+        },
+        {
+          "id": "scope-and-output",
+          "blocking": true,
+          "description": "No realpose/video input to audio student at inference. Any product overlay retains acceptedbody and allprotectedDMXbytes exactly; onlydeclaredRGB/nonstrobe dimmer slotsmaychange. Proxy interpretation remains limited; no humanpreference/defaultpromotion inferred."
+        },
+        {
+          "id": "pose-magnitude",
+          "blocking": true,
+          "description": "Accent APgain>=.01 over BOTH noaux/shuffledpose, correctedpairedCIpositive; colorAP decline<=.01 andpaletteerrorincrease<=5%."
+        },
+        {
+          "id": "pose-quality",
+          "blocking": true,
+          "description": "Pose gaps/camera cuts/IDswaps masked, derivativeprecisionandtimelinesverified; auxiliarygainnotmeasuredonlyonitsownloss. Realposeabsentatstudentinference."
+        }
+      ],
+      "topic_tags": [
+        "audio-to-light",
+        "evaluation-metric",
+        "offline-vs-online"
+      ],
+      "problem_tags": [
+        "matched-baseline",
+        "metric-gaming"
+      ],
+      "ambition_class": "mechanism"
+    },
+    {
+      "id": "h-layers-20260922-recurrence",
+      "problem_id": "dancing-light-generative-20260903",
+      "statement": "An audio-derived repeated-section memory improves learned palette relationships across returning musical sections over boundary-only history without flattening variation.",
+      "predicted_effects": [
+        {
+          "diagnostic_id": "layers-repeat-palette-error",
+          "direction": "down",
+          "magnitude_note": ">=15% and>=.02 normalized error reduction vs no-memory and shuffled-repeat IDs; engineering minimum chosen before run, not a measured power/MDE claim."
+        }
+      ],
+      "rationale": "User-observed loss of color transitions and beat accents despite accepted movement motivates isolated lighting layers. Primary papers read and current scoped failures recalled. Changed mechanism is stated in plan; no old negative is universally erased.",
+      "plan": "Campaign lighting-cue-model-20260922t094347z. Design /root/lightsem/docs/research/2026-09-22-color-beat/CAMPAIGN_DESIGN.json SHA256 1d3819baecc70cb9f4d62a19e4ef1eea0e825e2256760f8b86f505d298760935. Read-only restored source, writablemountpermission/space pending. Before ANY scientific run: verify/freeze exact input/split/exposure/annotation/vocabulary/checkpoint/source/config hashes and implementation; attach these to experiment config. If any design choice changes materially, issue a superseding preregistration before outcomes. Nine fixed student recipes, seeds0/1/2, at most27fits; oneGPU,36GPUhour ceiling; >=1GiBfree and <=.95GiBnew persistent artifacts until space authorization. No datasetresults were examined for this proposal. Historical development remains development, notfreshconfirmation. Accepted companion body/angles protected. No successful proxy verdict implies humanAV acceptance or defaultpromotion.\nFAMILY: Conditionalfixedrecipe S_VR_P0_R1 vs S_VR_P0; recurringIDsfromaudioonly, nevervisualtruth. Explicittrainedmemory/state-dropout implementation andqualified repeatcohort mustbefrozen BEFOREfit, otherwiseblockthisarm. Compareunshuffled/shuffledrepeatIDs atsamecueinventory andpairedgenerationnoise. Thisisnotolderper-barknobregression orafixedchoruscolor rule.",
+      "papers": [
+        "all-in-one-metrical-functional-2307-16425-v1",
+        "skip-bart-2506-01482-v2",
+        "palmer-music-color-emotion-2013"
+      ],
+      "gates": [
+        {
+          "id": "prerun-provenance",
+          "blocking": true,
+          "description": "Before execution exact source/audio/video/pose/annotation/feature/model/config hashes, canonical train/dev grouping and exposure ledger are frozen; all fitting onlyTRAIN. No known cross-splitduplicates. Existing exposedTEST cannot be calledfreshconfirmation."
+        },
+        {
+          "id": "valid-common-instrument",
+          "blocking": true,
+          "description": "Metric implementation passes synthetic positive/negative/shift/tie/nonevent controls BEFORE scoring; >=80% prespecified evaluation songs remaineligible and >=30canonicaldevelopmentgroups for student contrasts. Same common target acrossarms. Missing labels or modalityquality meansblocked, notzeroresult."
+        },
+        {
+          "id": "paired-complete",
+          "blocking": true,
+          "description": "All3 fixed trainingseeds and everyprespecified comparator/draw complete; macrocanonical-song aggregation, paired10000bootstrap and Holm primaryfamily correction. No best-seedsubstitution or teacher-forced referencehistory at inference."
+        },
+        {
+          "id": "scope-and-output",
+          "blocking": true,
+          "description": "No realpose/video input to audio student at inference. Any product overlay retains acceptedbody and allprotectedDMXbytes exactly; onlydeclaredRGB/nonstrobe dimmer slotsmaychange. Proxy interpretation remains limited; no humanpreference/defaultpromotion inferred."
+        },
+        {
+          "id": "repeat-magnitude",
+          "blocking": true,
+          "description": "Repeat-relationerrorreduction>=15% and>=.02 vsnomemory/shuffledIDs, correctedpairedCIpositive, at least20eligiblecanonical songswithtwoqualifyingreturningsections."
+        },
+        {
+          "id": "repeat-not-constancy",
+          "blocking": true,
+          "description": "Diversity>=70%reference, colorAP decline<=.01, marginalpaletteerrorincrease<=5%; comparematchednonrepeatsections andconstantpalette, noalwayssame-colorrescue."
+        }
+      ],
+      "topic_tags": [
+        "audio-to-light",
+        "evaluation-metric",
+        "offline-vs-online"
+      ],
+      "problem_tags": [
+        "matched-baseline",
+        "metric-gaming"
+      ],
+      "ambition_class": "mechanism"
+    }
+  ],
+  "execution_status": "blocked_pending_writable_storage_and_verified_pre_run_manifest"
+}

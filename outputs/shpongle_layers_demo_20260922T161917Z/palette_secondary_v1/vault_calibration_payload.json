@@ -1,0 +1,4 @@
+{
+  "problem_id": "dancing-light-generative-20260903",
+  "add_update": "2026-09-22 \u2014 Palette secondary TRAIN calibration completed BEFORE new DEV predictions. Experiment exp-layers-20260922-palette-secondary. Exact artifact /mnt/lightsem-data/experiments/lightsem/palette-history-secondary-20260922-v1/calibration_v1.json SHA256 2675fc76b4e71d951b26d2e7eea9d98bd85870f744e12fb81b00fe4ac76216d7.91exact TRAIN records, four strictly-positive componentIQRs [1.5982646118359751, 0.10280754501025255, 0.09562010574473015, 0.12705819582066794], marginalIQR 0.0694692894962266. No dropped records/components or epsilon; no DEV-fitted scales. Native phase exit0 in3.401s. Calibration content hash 21c1f3a86794568178acc5ff4e190714693e37f9779e52b8008b36b1f6e01924. Authorize fixed conditional prediction phase under existing immutable registration; no source/config/threshold change."
+}

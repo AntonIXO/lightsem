@@ -1,0 +1,33 @@
+{
+  "status": "CHECK_ONLY_PASSED_NO_PREPARATION",
+  "binding": {
+    "path": "/root/lightsem/outputs/legacy_struct_intensity_20260928_v1/ENVELOPE_CHECK_ONLY_BINDING_V2.json",
+    "size_bytes": 2069,
+    "sha256": "6429ece8da8785e6f58c0f44a4234d761b66103d8a202e0ee06bd026d1514758"
+  },
+  "log": {
+    "path": "/root/lightsem/outputs/legacy_struct_intensity_20260928_v1/envelope_check_only_v2.log",
+    "size_bytes": 1669,
+    "sha256": "ffd686381d3c05e733a19f8cadcaa9b66da17c6c519f2a3501b8384dee92643e"
+  },
+  "proof": {
+    "GPU_devices_visible": false,
+    "cgroup": "/system.slice/lightsem-struct-envelope-v2.service",
+    "declared_wall_ceiling_seconds": 900,
+    "dispatch_slack_seconds": 10,
+    "guard_sha256": "65c66d70d240d48fdad739b0903b3dadfcfdc23ef6ea83cd03c9f7e5c41072a6",
+    "memory_max_bytes": 4294967296,
+    "memory_swap_max_bytes": 0,
+    "model_imports": 0,
+    "payload_reads": 0,
+    "runtime_max_seconds": 890,
+    "status": "ENVELOPE_CHECK_ONLY_NO_PREPARATION",
+    "transient_configuration": "# This is a transient unit file, created programmatically via the systemd API. Do not edit.\n[Unit]\nDescription=[systemd-run] /usr/bin/bash /root/lightsem/run.sh -u /root/lightsem/outputs/legacy_struct_intensity_20260928_v1/enforce_preparation_envelope_v2.py --unit lightsem-struct-envelope-v2.service --check-only\n\n[Service]\nMemoryMax=4294967296\nMemorySwapMax=0\nRuntimeMaxSec=14min 50s\nKillMode=control-group\nKillSignal=KILL\nPrivateDevices=yes\nProtectControlGroups=yes\nNoNewPrivileges=yes\nWorkingDirectory=/root/lightsem\nEnvironment=\"CUDA_VISIBLE_DEVICES=\" \"PYTHONDONTWRITEBYTECODE=1\" \"TORCH_ENV=/root/lightsem/.venv/torch-access\"\nExecStart=\nExecStart=\"/usr/bin/bash\" \"/root/lightsem/run.sh\" \"-u\" \"/root/lightsem/outputs/legacy_struct_intensity_20260928_v1/enforce_preparation_envelope_v2.py\" \"--unit\" \"lightsem-struct-envelope-v2.service\" \"--check-only\"\n",
+    "unit": "lightsem-struct-envelope-v2.service"
+  },
+  "exit_code": 0,
+  "observed_wrapper_seconds": 0.04526559007354081,
+  "observed_service_seconds": 0.032,
+  "actual_exec_branch_not_executed": true,
+  "actual_preparation_still_blocked": true
+}

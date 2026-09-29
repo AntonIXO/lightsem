@@ -1,0 +1,11 @@
+Traceback (most recent call last):
+  File "/root/lightsem/outputs/shpongle_layers_demo_20260922T161917Z/palette_secondary_v1/run_palette_history_secondary_v1.py", line 627, in <module>
+    if __name__ == "__main__": main()
+                               ^^^^^^
+  File "/root/lightsem/outputs/shpongle_layers_demo_20260922T161917Z/palette_secondary_v1/run_palette_history_secondary_v1.py", line 624, in main
+    execute(args)
+  File "/root/lightsem/outputs/shpongle_layers_demo_20260922T161917Z/palette_secondary_v1/run_palette_history_secondary_v1.py", line 549, in execute
+    require(np.isfinite(donor_logits).all() and np.allclose(donor_logits,saved_donor_logits,rtol=1e-5,atol=1e-5),
+  File "/root/lightsem/outputs/shpongle_layers_demo_20260922T161917Z/palette_secondary_v1/run_palette_history_secondary_v1.py", line 34, in require
+    raise tr.ContractError(message)
+lightsem.experiments.light_layers.training.ContractError: FP32 donor color replay differs from saved predictions

@@ -1,0 +1,8 @@
+{
+  "experiment_id": "exp-dance-stage-lean-20260911",
+  "verdict": "directional_only",
+  "failure_mode": "recipe_conditional",
+  "lesson": "2026-09-28 retrospective interpretation, not a new experiment: On fixed Shpongle and the legacy camera, stage03 gain2 produced geometric torso 1-2 Hz RMS of 0.480092 px versus stage02 gain0 at 0.432625 px, missing both the 2x and 1 px requirements. Other numeric gates and the sampled visual-coverage procedure passed, but synthetic sign restoration and projected geometry do not establish decoded pixel tracking, a new large composition or human music-fit acceptance. Retain the parent caption correction and limit this failure to the tested gain, track, band and camera, without a global signed-lean rule-out or product/default promotion.",
+  "transfers_to": [],
+  "hint": "recipe_conditional: when the recipe changes, reopen_hypothesis('h-dance-stage-lean-20260911', reason=...) makes the negative re-testable instead of terminal"
+}

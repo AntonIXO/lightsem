@@ -1,0 +1,89 @@
+{
+  "checked": [
+    {
+      "checkpoint_sha256": "ef32122167bbc2721a776af9a205fe5bcd5c774e20f588a83242803f2a09c5c9",
+      "parameters": 1229406,
+      "recipe": "S_none_P0",
+      "role": "selected",
+      "seed": 0,
+      "step": 300
+    },
+    {
+      "checkpoint_sha256": "b9fdb159b1b4e27ecc8485051098cb2b795ce25785a820a6f439558b7209cd8d",
+      "parameters": 1229406,
+      "recipe": "S_none_P0",
+      "role": "final",
+      "seed": 0,
+      "step": 6000
+    },
+    {
+      "checkpoint_sha256": "0c44d937a9a7b57ad4bd10f62bec970cd6722616ffb12f351c0af764799ce79f",
+      "parameters": 1230180,
+      "recipe": "S_V6_P0",
+      "role": "selected",
+      "seed": 0,
+      "step": 300
+    },
+    {
+      "checkpoint_sha256": "a15703cf2edfc61460eb2c9adc09cbc7f156a183af07f5103c9f1aeb7ba335cf",
+      "parameters": 1230180,
+      "recipe": "S_V6_P0",
+      "role": "final",
+      "seed": 0,
+      "step": 6000
+    },
+    {
+      "checkpoint_sha256": "1396e8177c8a936d8c6de41314fbf2419c6ddc0fd616ba98c2aebd7e49309fd7",
+      "parameters": 1241790,
+      "recipe": "S_VR_P0",
+      "role": "selected",
+      "seed": 0,
+      "step": 300
+    },
+    {
+      "checkpoint_sha256": "8fe38597654cddc7c471611bbedf9101bf97305beb3d84ec20a59bc14b4f13df",
+      "parameters": 1241790,
+      "recipe": "S_VR_P0",
+      "role": "final",
+      "seed": 0,
+      "step": 6000
+    },
+    {
+      "checkpoint_sha256": "8de865906cfabb49290971eccf6016ab38edebe885eec7e6369f020fb5544b8a",
+      "parameters": 1284410,
+      "recipe": "I_VR_P0",
+      "role": "selected",
+      "seed": 0,
+      "step": 300
+    },
+    {
+      "checkpoint_sha256": "ab94ea81f5aaf496986f4cbb7a60f115f0eb871894deb9f5ce297d99cd84025d",
+      "parameters": 1284410,
+      "recipe": "I_VR_P0",
+      "role": "final",
+      "seed": 0,
+      "step": 6000
+    },
+    {
+      "checkpoint_sha256": "9f447f04debb9df2dd985b6fb5f4c21f1698d664eb6b7d1d902b029428b8be74",
+      "parameters": 1241790,
+      "recipe": "S_VR_P0_Ashuf",
+      "role": "selected",
+      "seed": 0,
+      "step": 300
+    },
+    {
+      "checkpoint_sha256": "1e4b8f2618f1c3815be9a12516c048cdc6cbdc509d4ea90fa2acf78556bbfde0",
+      "parameters": 1241790,
+      "recipe": "S_VR_P0_Ashuf",
+      "role": "final",
+      "seed": 0,
+      "step": 6000
+    }
+  ],
+  "cuda_used": false,
+  "prediction_or_metric_scoring": false,
+  "scope": "checkpoint_integrity_only",
+  "source_data_access": false,
+  "status": "passed"
+}

@@ -1,0 +1,4 @@
+{
+  "id": "dancing-light-generative-20260903",
+  "add_update": "2026-09-28 PROSPECTIVE CPU RESOURCE-ENVELOPE DIAGNOSTIC ONLY. Binding /root/lightsem/outputs/legacy_struct_intensity_20260928_v1/RESOURCE_LIMIT_PROBE_BINDING_V1.json SHA256 c731c94a04c887045172d9089219394cbba77827e6dd0a0d6c1eeecdd4fd71a0; source /root/lightsem/outputs/legacy_struct_intensity_20260928_v1/probe_systemd_limits_v1.py SHA256 83018661353c85896187215166cd1fd10bfda297a631216e0a53f63b297a0122. Exact command bound in JSON. 4GiB process-tree MemoryMax/no swap, private GPU devices, runtime2s/SIGKILL control-group. Expect structured effective-limit proof then systemd timeout signal9; normal success or property failure is NOT a passing envelope test. No data/model/torch/checkpoint reads, no scientific execution or fit, no preparation authorization. Source/binding/log/receipt count in same12MiB preparation packet. No fallback/retry/cleanup."
+}

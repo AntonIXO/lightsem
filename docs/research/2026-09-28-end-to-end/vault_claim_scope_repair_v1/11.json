@@ -1,0 +1,8 @@
+{
+  "experiment_id": "the-audio-lighting-event-signal-is-carried-by-loudness-energy-if-true-the-indust-exp-2026-08-07t14-34-32",
+  "verdict": "supports",
+  "failure_mode": null,
+  "lesson": "2026-09-28 retrospective scope and factual correction, not a new experiment: historical supports does not establish the proposed loudness-only ceiling; the named energy-family lift1.4704 versus its permutation null1.4381 has p=.240, while the spectral family scored1.7060 versus its null1.4562, with common rhythm baseline1.3241. The retained historical statement that energy was the ONLY family to fail its own null is incorrect: harmonic lift1.3832 versus its null1.4609 (p=.960) also failed. These are comparisons of tested, correlated feature families, not proof of zero energy contribution, a uniquely identified physical cause, or an independent MFCC-versus-spectral mechanism; preserve the measured table, historical closure and earlier scope correction.",
+  "transfers_to": [],
+  "hint": null
+}

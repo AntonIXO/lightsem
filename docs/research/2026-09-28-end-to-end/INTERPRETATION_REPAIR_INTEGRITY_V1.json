@@ -1,0 +1,21 @@
+{
+  "checks": {
+    "the-audio-lighting-event-coupling-is-anticipatory-audio-predicts-an-event-severa-exp-2026-08-07t14-34-32": {
+      "historical_metadata_preserved": true,
+      "notes_preserved": true,
+      "before_sha256": "b0f41a79bbb9e3a318d01752e41a36dc05f4266fe0d7af74399ff5014d467a30",
+      "after_sha256": "95907fd57b42ad59fa041bf65f5c7a3d5e469d83bbbdcf862107063eca4081a0"
+    },
+    "the-audio-lighting-event-signal-is-carried-by-loudness-energy-if-true-the-indust-exp-2026-08-07t14-34-32": {
+      "historical_metadata_preserved": true,
+      "notes_preserved": true,
+      "before_sha256": "81b8a2cc1bf3ce68be173cd92505ee87256775b12ff5c047b753e756cbeb7e1c",
+      "after_sha256": "3fcc64206c76a15a4523fd993554886046a51ba993fdb4e019c951436c768aa5"
+    }
+  },
+  "foreign_vault_unchanged": true,
+  "receipt": {
+    "path": "/root/lightsem/docs/research/2026-09-28-end-to-end/vault_interpretation_repair_receipt_v1.json",
+    "sha256": "b0e65426ba37203b26f6551a71c7e753455d3517d28201c1ad9a288ec88135f9"
+  }
+}

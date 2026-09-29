@@ -1,0 +1,9 @@
+{
+  "experiment_id": "exp-layers-20260922-palette-secondary",
+  "status": "registered",
+  "protocol_sha256": "35ee9ba62d5c04fffb9ce5ddd364f1a82941c7025f9b213800858cca973d11e9",
+  "native_vault_receipt": {
+    "path": "/root/lightsem/outputs/shpongle_layers_demo_20260922T161917Z/palette_secondary_v1/vault_definition_receipt.json",
+    "sha256": "9f663205773a9d5eaff0925800e5d747d4c423e029f834dbd40edf899fee915e"
+  }
+}

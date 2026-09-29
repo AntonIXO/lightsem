@@ -1,0 +1,175 @@
+{
+  "status": "all_four_media_verified",
+  "goal_complete": false,
+  "human_audiovisual_acceptance": false,
+  "scientific_promotion": false,
+  "new_fits": 0,
+  "real_encoder_forwards": 4,
+  "prior_rich_anchor_unchanged": true,
+  "prior_home_demo_unchanged": true,
+  "plan": {
+    "path": "/root/lightsem/outputs/shpongle_model_comparisons_20260928_v1/COMPARISON_PLAN_V2.json",
+    "sha256": "0e9286f7428346a2ff01d2f5cd45b75fd39ac1b564d663bb209a2e48f17cffd4",
+    "bytes": 25491
+  },
+  "execution_authorization": {
+    "path": "/root/lightsem/outputs/shpongle_model_comparisons_20260928_v1/EXECUTION_AUTHORIZATION_V2.json",
+    "sha256": "68d80a40f6d2cf98ff015a948f0338f1abd27be87dfdc8c9ee95aae385873a37",
+    "bytes": 7894
+  },
+  "execution_native_receipt": {
+    "path": "/root/lightsem/outputs/shpongle_model_comparisons_20260928_v1/vault_comparison_execution_v2_receipt.json",
+    "sha256": "e689487f228624d425e2324201efe06dc8d52dd8839fb231d475fa5e34009cde",
+    "bytes": 88876
+  },
+  "parent_readback": {
+    "path": "/root/lightsem/outputs/shpongle_model_comparisons_20260928_v1/PARENT_AUDIT_READBACK_V1.json",
+    "sha256": "f076974bb9da105c4e5456b5ef2b2dbc378c8b90d0e49c861657a5256942cc6c",
+    "bytes": 12742
+  },
+  "descriptive_summary": {
+    "path": "/root/lightsem/outputs/shpongle_model_comparisons_20260928_v1/SAVED_DELIVERY_DESCRIPTIVES_V1.json",
+    "sha256": "da1b53c93c6cd93f1148db1ca37692131ba5609fa71c1be18cd86558492a328a",
+    "bytes": 11813
+  },
+  "media": [
+    {
+      "recipe": "S_none_P0",
+      "video": {
+        "path": "/root/lightsem/outputs/shpongle_model_comparisons_20260928_v1/media/01_S_none_P0/01_S_none_P0_full_1080p_av1.mp4",
+        "sha256": "d813e3326f1cc891a736a3c1350eb64189d99dd5d29a8c153be7ca0eef253f73",
+        "bytes": 223564696
+      },
+      "home_alias": "/root/shpongle_20260928_S_none_P0.mp4",
+      "alias_kind": "hardlink_same_inode_no_second_payload",
+      "render_receipt": {
+        "path": "/root/lightsem/outputs/shpongle_model_comparisons_20260928_v1/media/01_S_none_P0/01_S_none_P0_full_1080p_av1_render.json",
+        "sha256": "4a8baca3af56b8a6a978a3ce4f9bf3b1f65e8a3034a4ce0e007867bb15d1030a",
+        "bytes": 2915
+      },
+      "media_audit": {
+        "path": "/root/lightsem/outputs/shpongle_model_comparisons_20260928_v1/media/01_S_none_P0/01_S_none_P0_full_1080p_av1_audit.json",
+        "sha256": "c6597ca27a9ef9403ffb6c10fdfd83c678b55b91f543594f3111a8bd85567271",
+        "bytes": 6500
+      },
+      "decoded_frames": 8319,
+      "duration_s": 277.3,
+      "native_resolution": [
+        1920,
+        1080
+      ],
+      "video_codec": "av1",
+      "audio_codec": "aac",
+      "pcm_sha256": "6d5d8917556e5b7247fef054c758e975b9bf9d8ad206dccae755d4b51d794455",
+      "uniform_timestamps": true,
+      "full_software_AV_decode": true
+    },
+    {
+      "recipe": "S_V6_P0",
+      "video": {
+        "path": "/root/lightsem/outputs/shpongle_model_comparisons_20260928_v1/media/02_S_V6_P0/02_S_V6_P0_full_1080p_av1.mp4",
+        "sha256": "d643c4bab3c6048d84702cb12ffae1602ee2040db926ece0618cc6f1fbe8c49b",
+        "bytes": 223497715
+      },
+      "home_alias": "/root/shpongle_20260928_S_V6_P0.mp4",
+      "alias_kind": "hardlink_same_inode_no_second_payload",
+      "render_receipt": {
+        "path": "/root/lightsem/outputs/shpongle_model_comparisons_20260928_v1/media/02_S_V6_P0/02_S_V6_P0_full_1080p_av1_render.json",
+        "sha256": "432978a638514015c7cc17b27d396b1860bb8a29c951b992b2645db5e24691ff",
+        "bytes": 2905
+      },
+      "media_audit": {
+        "path": "/root/lightsem/outputs/shpongle_model_comparisons_20260928_v1/media/02_S_V6_P0/02_S_V6_P0_full_1080p_av1_audit.json",
+        "sha256": "ae7ecce79dc89c205f495fd7002bd5da03c467873cee4f8ab56087c8685bd6c1",
+        "bytes": 6400
+      },
+      "decoded_frames": 8319,
+      "duration_s": 277.3,
+      "native_resolution": [
+        1920,
+        1080
+      ],
+      "video_codec": "av1",
+      "audio_codec": "aac",
+      "pcm_sha256": "6d5d8917556e5b7247fef054c758e975b9bf9d8ad206dccae755d4b51d794455",
+      "uniform_timestamps": true,
+      "full_software_AV_decode": true
+    },
+    {
+      "recipe": "I_VR_P0",
+      "video": {
+        "path": "/root/lightsem/outputs/shpongle_model_comparisons_20260928_v1/media/03_I_VR_P0/03_I_VR_P0_full_1080p_av1.mp4",
+        "sha256": "0656487bce4c490d5d823a93b0c4029b899329cfb643740a749789c538caf317",
+        "bytes": 225382466
+      },
+      "home_alias": "/root/shpongle_20260928_I_VR_P0.mp4",
+      "alias_kind": "hardlink_same_inode_no_second_payload",
+      "render_receipt": {
+        "path": "/root/lightsem/outputs/shpongle_model_comparisons_20260928_v1/media/03_I_VR_P0/03_I_VR_P0_full_1080p_av1_render.json",
+        "sha256": "c7099350799582330c2a0de68b3103192cff7a9746737642c7b339e1245cff06",
+        "bytes": 2905
+      },
+      "media_audit": {
+        "path": "/root/lightsem/outputs/shpongle_model_comparisons_20260928_v1/media/03_I_VR_P0/03_I_VR_P0_full_1080p_av1_audit.json",
+        "sha256": "fedf2589f6284438c5f1ffd070ae67b4af2c47694bc067f27ce1e71c3529f10c",
+        "bytes": 6400
+      },
+      "decoded_frames": 8319,
+      "duration_s": 277.3,
+      "native_resolution": [
+        1920,
+        1080
+      ],
+      "video_codec": "av1",
+      "audio_codec": "aac",
+      "pcm_sha256": "6d5d8917556e5b7247fef054c758e975b9bf9d8ad206dccae755d4b51d794455",
+      "uniform_timestamps": true,
+      "full_software_AV_decode": true
+    },
+    {
+      "recipe": "S_VR_P0_Ashuf",
+      "video": {
+        "path": "/root/lightsem/outputs/shpongle_model_comparisons_20260928_v1/media/04_S_VR_P0_Ashuf/04_S_VR_P0_Ashuf_full_1080p_av1.mp4",
+        "sha256": "f86dbfe665418cf35ff2475fdd0a0d55c13f71413aeae6ccc4e08042f63c64f1",
+        "bytes": 227372817
+      },
+      "home_alias": "/root/shpongle_20260928_S_VR_P0_Ashuf.mp4",
+      "alias_kind": "hardlink_same_inode_no_second_payload",
+      "render_receipt": {
+        "path": "/root/lightsem/outputs/shpongle_model_comparisons_20260928_v1/media/04_S_VR_P0_Ashuf/04_S_VR_P0_Ashuf_full_1080p_av1_render.json",
+        "sha256": "edb95ed0cb02dfc058b6be078dd327a759957fbc121de82c325345985334350a",
+        "bytes": 2936
+      },
+      "media_audit": {
+        "path": "/root/lightsem/outputs/shpongle_model_comparisons_20260928_v1/media/04_S_VR_P0_Ashuf/04_S_VR_P0_Ashuf_full_1080p_av1_audit.json",
+        "sha256": "be4bc3cd1df1818c89b40c4eaed4982d428b8fa1c66ebfa8467fca44e9c1caad",
+        "bytes": 6700
+      },
+      "decoded_frames": 8319,
+      "duration_s": 277.3,
+      "native_resolution": [
+        1920,
+        1080
+      ],
+      "video_codec": "av1",
+      "audio_codec": "aac",
+      "pcm_sha256": "6d5d8917556e5b7247fef054c758e975b9bf9d8ad206dccae755d4b51d794455",
+      "uniform_timestamps": true,
+      "full_software_AV_decode": true
+    }
+  ],
+  "resource_accounting": {
+    "media_bytes": 913610671,
+    "whole_delivery_package_bytes": 914497314,
+    "remaining_reservation_bytes": 1300095198,
+    "root_free": 5354590208,
+    "data_free": 1247051776,
+    "home_hardlink_logical_bytes": 899817694,
+    "package_plus_hardlink_logical_bytes": 1814315008,
+    "new_scientific_workspace_bytes": 7082491,
+    "original_campaign_bytes": 952976108,
+    "shared_scientific_cap_bytes": 1020054732,
+    "original_campaign_full_hash_manifest_unchanged": true
+  },
+  "scope": "Four engineering deliveries of fixed saved models. No data-driven selection, new fitting, motion retiming, threshold retuning or default replacement. Main and independent readback plus full media decode passed. Cues/counts and silent contact sheets do not establish beat accuracy, generalization or human acceptance; models retain prior unqualified/negative scientific results. Ashuf uses recipient Shpongle audio, not scientific donor evaluation."
+}

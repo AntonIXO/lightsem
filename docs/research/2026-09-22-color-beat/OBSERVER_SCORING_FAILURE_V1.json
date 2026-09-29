@@ -1,0 +1,32 @@
+{
+  "time": "2026-09-22T14:58:46.288641+00:00",
+  "status": "execution_blocked_not_scientific_refutation",
+  "phase": "event_scoring",
+  "failed_roles": {
+    "selected": {
+      "exit_code": 1,
+      "duration_s": 1.490291599999182,
+      "log": {
+        "path": "/mnt/lightsem-data/experiments/lightsem/lighting-cue-model-20260922t094347z/observer_selected_score_v1.log",
+        "sha256": "7baffbc76252826e6ca2ad47a20e69f90ee4a5f9becd10c0345798ab98250887"
+      },
+      "output_exists": false,
+      "error": "ContractError: Circular shift escaped its valid segment"
+    },
+    "final": {
+      "exit_code": 1,
+      "duration_s": 1.4805728089995682,
+      "log": {
+        "path": "/mnt/lightsem-data/experiments/lightsem/lighting-cue-model-20260922t094347z/observer_final_score_v1.log",
+        "sha256": "7baffbc76252826e6ca2ad47a20e69f90ee4a5f9becd10c0345798ab98250887"
+      },
+      "output_exists": false,
+      "error": "ContractError: Circular shift escaped its valid segment"
+    }
+  },
+  "training": "15/15 complete, intact",
+  "predictions": "30/30 complete, intact",
+  "reportable_quality_results": false,
+  "aggregate_outcomes_inspected": false,
+  "action": "Reproduce circular-shift interval failure; preserve original scorer/predictions/bindings. Any numerical correction must be separately tested, hash-bound, prospectively registered before rescore."
+}

@@ -1,0 +1,1061 @@
+{
+  "status": "complete",
+  "unique_recordings": 131,
+  "frames": 83840,
+  "valid_frames": 82377,
+  "claims": "Feature extraction completeness only, not mask or lighting accuracy",
+  "plan": {
+    "path": "/root/lightsem/docs/research/2026-09-22-color-beat/OBSERVER_PARALLEL_CAPTURE_LAUNCH_V2.json",
+    "sha256": "bd9e0f8b48a3ff3776fb6d11eaa7d807da57c4c9ce44018aaa4ca41a8a404d49"
+  },
+  "records": [
+    {
+      "recording_id": "KatqpM7-x9I",
+      "partition": "train",
+      "frames": 640,
+      "valid_frames": 627,
+      "directory": "/mnt/lightsem-data/experiments/lightsem/lighting-cue-model-20260922t094347z/observer_proxy_features_v1/KatqpM7-x9I",
+      "receipt_sha256": "e1b9af96128d77aa1f5a7a1096bb42ef6099812f5a3a98cef14f4f136dbcd76e"
+    },
+    {
+      "recording_id": "ETVdSfgXlw0",
+      "partition": "train",
+      "frames": 640,
+      "valid_frames": 597,
+      "directory": "/mnt/lightsem-data/experiments/lightsem/lighting-cue-model-20260922t094347z/observer_proxy_features_v1/ETVdSfgXlw0",
+      "receipt_sha256": "96f2bcd0008394883b1dda28f8e03b7439184cd5761e628010eac71d0c8effc0"
+    },
+    {
+      "recording_id": "kQPBrFLGe3c",
+      "partition": "train",
+      "frames": 640,
+      "valid_frames": 639,
+      "directory": "/mnt/lightsem-data/experiments/lightsem/lighting-cue-model-20260922t094347z/observer_proxy_features_v1/kQPBrFLGe3c",
+      "receipt_sha256": "a594d4edc11af100d7bf848317c98100b98f6ef1d33e8d2ce7b0c267eca65331"
+    },
+    {
+      "recording_id": "93bIgp5lVM8",
+      "partition": "train",
+      "frames": 640,
+      "valid_frames": 640,
+      "directory": "/mnt/lightsem-data/experiments/lightsem/lighting-cue-model-20260922t094347z/observer_proxy_features_v1/93bIgp5lVM8",
+      "receipt_sha256": "7d39572b4c200f15beee1eb5ca85bed19f7959e1cd5b6483b0faa80d74c11eeb"
+    },
+    {
+      "recording_id": "J21d603A7T4",
+      "partition": "val",
+      "frames": 640,
+      "valid_frames": 633,
+      "directory": "/mnt/lightsem-data/experiments/lightsem/lighting-cue-model-20260922t094347z/observer_proxy_features_v1/J21d603A7T4",
+      "receipt_sha256": "746e44eeee5de9dc8c0cd9a0720f6090495fd5d682e2bfc4a966489e4243da74"
+    },
+    {
+      "recording_id": "YLRnUx-1kyQ",
+      "partition": "train",
+      "frames": 640,
+      "valid_frames": 640,
+      "directory": "/mnt/lightsem-data/experiments/lightsem/lighting-cue-model-20260922t094347z/observer_proxy_features_v1/YLRnUx-1kyQ",
+      "receipt_sha256": "ca08c00f228d5651b98f6e25f4a842cfb86d97fc6f9ac9cc33d69bcf082e0d6a"
+    },
+    {
+      "recording_id": "4e33gj1W0EY",
+      "partition": "train",
+      "frames": 640,
+      "valid_frames": 637,
+      "directory": "/mnt/lightsem-data/experiments/lightsem/lighting-cue-model-20260922t094347z/observer_proxy_features_v1/4e33gj1W0EY",
+      "receipt_sha256": "7996d35d2327de5427591b6d8192ff6bfb7d0e607608e7ff0e7af3ee7077e346"
+    },
+    {
+      "recording_id": "oOJsePJlp2Q",
+      "partition": "train",
+      "frames": 640,
+      "valid_frames": 617,
+      "directory": "/mnt/lightsem-data/experiments/lightsem/lighting-cue-model-20260922t094347z/observer_proxy_features_v1/oOJsePJlp2Q",
+      "receipt_sha256": "62bb67e2f1ce4cb059b95052f691db16949cfbdf1323d3440307de0d55ecf2c2"
+    },
+    {
+      "recording_id": "9_htm1JQxBg",
+      "partition": "val",
+      "frames": 640,
+      "valid_frames": 640,
+      "directory": "/mnt/lightsem-data/experiments/lightsem/lighting-cue-model-20260922t094347z/observer_proxy_features_v1/9_htm1JQxBg",
+      "receipt_sha256": "199b44cfb2d92378bb859861c7530767608dcc8d8960ee14e49e9ba4aa598a01"
+    },
+    {
+      "recording_id": "RX459vSKJWo",
+      "partition": "train",
+      "frames": 640,
+      "valid_frames": 624,
+      "directory": "/mnt/lightsem-data/experiments/lightsem/lighting-cue-model-20260922t094347z/observer_proxy_features_v1/RX459vSKJWo",
+      "receipt_sha256": "f3f5f9bbb7633f925c25a1a18282596bd808f262275796a9a4bb14f225f3dd06"
+    },
+    {
+      "recording_id": "OirUr9-j7VA",
+      "partition": "train",
+      "frames": 640,
+      "valid_frames": 640,
+      "directory": "/mnt/lightsem-data/experiments/lightsem/lighting-cue-model-20260922t094347z/observer_proxy_features_v1/OirUr9-j7VA",
+      "receipt_sha256": "74249ba5141c6b0735fe44d41a921db04fa82edb1bb52ed9f374effacb4a2dc8"
+    },
+    {
+      "recording_id": "oCcLoAdFBNI",
+      "partition": "train",
+      "frames": 640,
+      "valid_frames": 621,
+      "directory": "/mnt/lightsem-data/experiments/lightsem/lighting-cue-model-20260922t094347z/observer_proxy_features_v1/oCcLoAdFBNI",
+      "receipt_sha256": "8214958d28c8b2a4ef8655d34fd5eaad1819029dd8dadb54c743b14ca16c1996"
+    },
+    {
+      "recording_id": "eJY9i54ob0U",
+      "partition": "train",
+      "frames": 640,
+      "valid_frames": 640,
+      "directory": "/mnt/lightsem-data/experiments/lightsem/lighting-cue-model-20260922t094347z/observer_proxy_features_v1/eJY9i54ob0U",
+      "receipt_sha256": "00b874a6b7431e6f1a1f73828be2c46e98ac00b7d69dd2a4e30aad8b7027bfc6"
+    },
+    {
+      "recording_id": "CdXP-aZLuOI",
+      "partition": "train",
+      "frames": 640,
+      "valid_frames": 621,
+      "directory": "/mnt/lightsem-data/experiments/lightsem/lighting-cue-model-20260922t094347z/observer_proxy_features_v1/CdXP-aZLuOI",
+      "receipt_sha256": "e2ebac890c5c135a035b91d353335ce630a43a0fe61393467e520339023ab997"
+    },
+    {
+      "recording_id": "ZPaJilpDyaI",
+      "partition": "train",
+      "frames": 640,
+      "valid_frames": 640,
+      "directory": "/mnt/lightsem-data/experiments/lightsem/lighting-cue-model-20260922t094347z/observer_proxy_features_v1/ZPaJilpDyaI",
+      "receipt_sha256": "e3246ed78c6d11b16106b285d8b83931ea0db790ae9bfc32b542b258a563f8e5"
+    },
+    {
+      "recording_id": "v4NJh-AtM48",
+      "partition": "train",
+      "frames": 640,
+      "valid_frames": 640,
+      "directory": "/mnt/lightsem-data/experiments/lightsem/lighting-cue-model-20260922t094347z/observer_proxy_features_v1/v4NJh-AtM48",
+      "receipt_sha256": "dfb65a9890a91dc405066ebfe63c9e3b87bb64585defdabb64e98a4d00a270b7"
+    },
+    {
+      "recording_id": "NA7shs-6IYo",
+      "partition": "val",
+      "frames": 640,
+      "valid_frames": 639,
+      "directory": "/mnt/lightsem-data/experiments/lightsem/lighting-cue-model-20260922t094347z/observer_proxy_features_v1/NA7shs-6IYo",
+      "receipt_sha256": "a989b6e4327e3b8c9af6402c0318fd4076d344389024e77a4590a92444f3d9f9"
+    },
+    {
+      "recording_id": "Ub3Cc9DLhK4",
+      "partition": "val",
+      "frames": 640,
+      "valid_frames": 635,
+      "directory": "/mnt/lightsem-data/experiments/lightsem/lighting-cue-model-20260922t094347z/observer_proxy_features_v1/Ub3Cc9DLhK4",
+      "receipt_sha256": "4663289cbddcdefa799a90f01859ddce7712abc0d74d063f272fb23f94124bb2"
+    },
+    {
+      "recording_id": "9ZBZCeEvjPo",
+      "partition": "train",
+      "frames": 640,
+      "valid_frames": 636,
+      "directory": "/mnt/lightsem-data/experiments/lightsem/lighting-cue-model-20260922t094347z/observer_proxy_features_v1/9ZBZCeEvjPo",
+      "receipt_sha256": "7f2fa17faea23186973762ef071c63d5545502ad82a2f63115f7243c1681e77f"
+    },
+    {
+      "recording_id": "jQQ7wLruBTQ",
+      "partition": "train",
+      "frames": 640,
+      "valid_frames": 639,
+      "directory": "/mnt/lightsem-data/experiments/lightsem/lighting-cue-model-20260922t094347z/observer_proxy_features_v1/jQQ7wLruBTQ",
+      "receipt_sha256": "afb79c8fff6d41cdb4db8ed7c69128e903f4a64c087fa6a899fc84035d031b8f"
+    },
+    {
+      "recording_id": "3HN1Y3VGXGI",
+      "partition": "train",
+      "frames": 640,
+      "valid_frames": 640,
+      "directory": "/mnt/lightsem-data/experiments/lightsem/lighting-cue-model-20260922t094347z/observer_proxy_features_v1/3HN1Y3VGXGI",
+      "receipt_sha256": "5e2f10970d5431667284c8ac74a39e675c17f7228f9c725ea69d879ef9723b1e"
+    },
+    {
+      "recording_id": "LVToJcQHttI",
+      "partition": "train",
+      "frames": 640,
+      "valid_frames": 634,
+      "directory": "/mnt/lightsem-data/experiments/lightsem/lighting-cue-model-20260922t094347z/observer_proxy_features_v1/LVToJcQHttI",
+      "receipt_sha256": "a4539369ea26b635fe78b8baef1b46741d635961ee1e2b0842f7d76df5582e07"
+    },
+    {
+      "recording_id": "hnVwwzCVoqg",
+      "partition": "val",
+      "frames": 640,
+      "valid_frames": 640,
+      "directory": "/mnt/lightsem-data/experiments/lightsem/lighting-cue-model-20260922t094347z/observer_proxy_features_v1/hnVwwzCVoqg",
+      "receipt_sha256": "3d3bcbc8dbadaec749e16e8df38484146167410899114fa448c3c9a5be6f4d7a"
+    },
+    {
+      "recording_id": "qfeiJD6_JZw",
+      "partition": "train",
+      "frames": 640,
+      "valid_frames": 636,
+      "directory": "/mnt/lightsem-data/experiments/lightsem/lighting-cue-model-20260922t094347z/observer_proxy_features_v1/qfeiJD6_JZw",
+      "receipt_sha256": "88cfc13fb4184acc0c5550c1f6fa910b7936fd32acab244acb8b6c10cd7c392c"
+    },
+    {
+      "recording_id": "uRDsHaXZ6kU",
+      "partition": "train",
+      "frames": 640,
+      "valid_frames": 637,
+      "directory": "/mnt/lightsem-data/experiments/lightsem/lighting-cue-model-20260922t094347z/observer_proxy_features_v1/uRDsHaXZ6kU",
+      "receipt_sha256": "bad7fd16bfd06937cc1e3ccc459bb27249a48014e616d69fe76a8e4e9c625ab3"
+    },
+    {
+      "recording_id": "6Aw7qMFYvd8",
+      "partition": "train",
+      "frames": 640,
+      "valid_frames": 605,
+      "directory": "/mnt/lightsem-data/experiments/lightsem/lighting-cue-model-20260922t094347z/observer_proxy_features_v1/6Aw7qMFYvd8",
+      "receipt_sha256": "e5158d6ec15f1adbed3e5a867634b228668d7aff59d4a870754e63bac30a5c57"
+    },
+    {
+      "recording_id": "FTzAOLS1nx8",
+      "partition": "train",
+      "frames": 640,
+      "valid_frames": 611,
+      "directory": "/mnt/lightsem-data/experiments/lightsem/lighting-cue-model-20260922t094347z/observer_proxy_features_v1/FTzAOLS1nx8",
+      "receipt_sha256": "76399ee54e0897060b19c6233b44f8902867dc49f06ed062171544acc1fb1681"
+    },
+    {
+      "recording_id": "bp-E24Hm3Ac",
+      "partition": "train",
+      "frames": 640,
+      "valid_frames": 627,
+      "directory": "/mnt/lightsem-data/experiments/lightsem/lighting-cue-model-20260922t094347z/observer_proxy_features_v1/bp-E24Hm3Ac",
+      "receipt_sha256": "4b200a98c01d4db56dd456a7243baf979e5cda3d700bf817ec50ec912252ff43"
+    },
+    {
+      "recording_id": "yfY35esJnRg",
+      "partition": "train",
+      "frames": 640,
+      "valid_frames": 621,
+      "directory": "/mnt/lightsem-data/experiments/lightsem/lighting-cue-model-20260922t094347z/observer_proxy_features_v1/yfY35esJnRg",
+      "receipt_sha256": "782d0cee2ade73b26c891959bb941c6e703db7e18eebd45ee54b1697759695a9"
+    },
+    {
+      "recording_id": "RxOKsZim_kQ",
+      "partition": "train",
+      "frames": 640,
+      "valid_frames": 640,
+      "directory": "/mnt/lightsem-data/experiments/lightsem/lighting-cue-model-20260922t094347z/observer_proxy_features_v1/RxOKsZim_kQ",
+      "receipt_sha256": "b041f4c85ed8c5740748db16a3883b333693a44e3a38b1f5f960ca82a2506f20"
+    },
+    {
+      "recording_id": "l50jVKa1daI",
+      "partition": "train",
+      "frames": 640,
+      "valid_frames": 628,
+      "directory": "/mnt/lightsem-data/experiments/lightsem/lighting-cue-model-20260922t094347z/observer_proxy_features_v1/l50jVKa1daI",
+      "receipt_sha256": "2a7f4086b0538bd80c6b2de1c16a9b451b648697b4e070f787cc151256e703b9"
+    },
+    {
+      "recording_id": "SAM13SzjLfo",
+      "partition": "train",
+      "frames": 640,
+      "valid_frames": 639,
+      "directory": "/mnt/lightsem-data/experiments/lightsem/lighting-cue-model-20260922t094347z/observer_proxy_features_v1/SAM13SzjLfo",
+      "receipt_sha256": "cbc77e7d2aa66db4313f88749ec06f5dcd139eda778f7d0f84e09388d7f61f70"
+    },
+    {
+      "recording_id": "8hDff6PV2KA",
+      "partition": "val",
+      "frames": 640,
+      "valid_frames": 638,
+      "directory": "/mnt/lightsem-data/experiments/lightsem/lighting-cue-model-20260922t094347z/observer_proxy_features_v1/8hDff6PV2KA",
+      "receipt_sha256": "2ef701dbea2a8c9ee03636e4ffdd8ef2bb1b2e90b5ead01c56225b71c1a9c769"
+    },
+    {
+      "recording_id": "Gj2eRYbHINE",
+      "partition": "train",
+      "frames": 640,
+      "valid_frames": 640,
+      "directory": "/mnt/lightsem-data/experiments/lightsem/lighting-cue-model-20260922t094347z/observer_proxy_features_v1/Gj2eRYbHINE",
+      "receipt_sha256": "e2b508d18bf76ce526f71b567afd25ac0d42e5627ab0546554ea90e31ea8bad7"
+    },
+    {
+      "recording_id": "MJTEt4aPhFQ",
+      "partition": "train",
+      "frames": 640,
+      "valid_frames": 621,
+      "directory": "/mnt/lightsem-data/experiments/lightsem/lighting-cue-model-20260922t094347z/observer_proxy_features_v1/MJTEt4aPhFQ",
+      "receipt_sha256": "cb224263776a304212893843eeba730e44b6cc389846a53461b874edb5f00002"
+    },
+    {
+      "recording_id": "wnw4_ZfVmrA",
+      "partition": "val",
+      "frames": 640,
+      "valid_frames": 640,
+      "directory": "/mnt/lightsem-data/experiments/lightsem/lighting-cue-model-20260922t094347z/observer_proxy_features_v1/wnw4_ZfVmrA",
+      "receipt_sha256": "c4a4be18bf20843b81cbb373c6ff085a4a5f3e7830ffaf8f0a24b528a6d5da97"
+    },
+    {
+      "recording_id": "tU4HWgDs9Ck",
+      "partition": "train",
+      "frames": 640,
+      "valid_frames": 639,
+      "directory": "/mnt/lightsem-data/experiments/lightsem/lighting-cue-model-20260922t094347z/observer_proxy_features_v1/tU4HWgDs9Ck",
+      "receipt_sha256": "a3789572aab1079d7264dd9d30a831e2ee4540883fbb6a92882b99a1591b7b68"
+    },
+    {
+      "recording_id": "jWdv2daMowE",
+      "partition": "train",
+      "frames": 640,
+      "valid_frames": 640,
+      "directory": "/mnt/lightsem-data/experiments/lightsem/lighting-cue-model-20260922t094347z/observer_proxy_features_v1/jWdv2daMowE",
+      "receipt_sha256": "a78a3014696784599f92fe06b0c4147c4ec3481be3345246eb3a8fa421229350"
+    },
+    {
+      "recording_id": "OcYYKHVN0MQ",
+      "partition": "train",
+      "frames": 640,
+      "valid_frames": 622,
+      "directory": "/mnt/lightsem-data/experiments/lightsem/lighting-cue-model-20260922t094347z/observer_proxy_features_v1/OcYYKHVN0MQ",
+      "receipt_sha256": "e2749b37b9fe4088a2c393cda28605220490e5b437b6a69b43bd92d2fcdc5174"
+    },
+    {
+      "recording_id": "Z9Got5FyrXI",
+      "partition": "val",
+      "frames": 640,
+      "valid_frames": 640,
+      "directory": "/mnt/lightsem-data/experiments/lightsem/lighting-cue-model-20260922t094347z/observer_proxy_features_v1/Z9Got5FyrXI",
+      "receipt_sha256": "f08e68cd3807add27074eaa4ace202defca100c4bea2ec9ad7cafba4c6cc4e9d"
+    },
+    {
+      "recording_id": "T4NAdlh-suQ",
+      "partition": "val",
+      "frames": 640,
+      "valid_frames": 624,
+      "directory": "/mnt/lightsem-data/experiments/lightsem/lighting-cue-model-20260922t094347z/observer_proxy_features_v1/T4NAdlh-suQ",
+      "receipt_sha256": "6360f8c1bc628a4f096e19da278f2158a335855fd0097e0ea6ed38c6026f2770"
+    },
+    {
+      "recording_id": "WxPy_sHLpCM",
+      "partition": "val",
+      "frames": 640,
+      "valid_frames": 640,
+      "directory": "/mnt/lightsem-data/experiments/lightsem/lighting-cue-model-20260922t094347z/observer_proxy_features_v1/WxPy_sHLpCM",
+      "receipt_sha256": "d213a946390419258e9ffc3794cc92d7a3c5f07a970287bed7663f129db11e77"
+    },
+    {
+      "recording_id": "b_rI0UaI00g",
+      "partition": "train",
+      "frames": 640,
+      "valid_frames": 639,
+      "directory": "/mnt/lightsem-data/experiments/lightsem/lighting-cue-model-20260922t094347z/observer_proxy_features_v1/b_rI0UaI00g",
+      "receipt_sha256": "4b12d78acb3afe7df3b5480e95335ce268d622fd90dbf3e13c16d24f2317c594"
+    },
+    {
+      "recording_id": "WyAwc_c20lQ",
+      "partition": "train",
+      "frames": 640,
+      "valid_frames": 640,
+      "directory": "/mnt/lightsem-data/experiments/lightsem/lighting-cue-model-20260922t094347z/observer_proxy_features_v1/WyAwc_c20lQ",
+      "receipt_sha256": "cf1038472cfd1965b7b7d9a1a02e2c0f82b0dbeb148a06992e1e88866df667fd"
+    },
+    {
+      "recording_id": "2ABEKrS4cWI",
+      "partition": "train",
+      "frames": 640,
+      "valid_frames": 640,
+      "directory": "/mnt/lightsem-data/experiments/lightsem/lighting-cue-model-20260922t094347z/observer_proxy_features_v1/2ABEKrS4cWI",
+      "receipt_sha256": "9d754b6d4c92019cda2f69dd7bcba6faee0a6aa7d06bab8e58512ba9670486d8"
+    },
+    {
+      "recording_id": "UD8feFd_5To",
+      "partition": "train",
+      "frames": 640,
+      "valid_frames": 628,
+      "directory": "/mnt/lightsem-data/experiments/lightsem/lighting-cue-model-20260922t094347z/observer_proxy_features_v1/UD8feFd_5To",
+      "receipt_sha256": "f3719a521ffbe3eec1389053c490029f68df2f90ae07903da21fc0286b56121d"
+    },
+    {
+      "recording_id": "NI31AWYYuFI",
+      "partition": "train",
+      "frames": 640,
+      "valid_frames": 586,
+      "directory": "/mnt/lightsem-data/experiments/lightsem/lighting-cue-model-20260922t094347z/observer_proxy_features_v1/NI31AWYYuFI",
+      "receipt_sha256": "c57557c903a15659dc8e995010ac44cf6511d96af4e7ba394afeb83a8b01447d"
+    },
+    {
+      "recording_id": "64r5zwzki1E",
+      "partition": "train",
+      "frames": 640,
+      "valid_frames": 640,
+      "directory": "/mnt/lightsem-data/experiments/lightsem/lighting-cue-model-20260922t094347z/observer_proxy_features_v1/64r5zwzki1E",
+      "receipt_sha256": "ca0c779de9211af367d7474807cbdb89eb792fe3f10f63db3c9a6698bb65c7a9"
+    },
+    {
+      "recording_id": "uCxcK7PhvBY",
+      "partition": "val",
+      "frames": 640,
+      "valid_frames": 640,
+      "directory": "/mnt/lightsem-data/experiments/lightsem/lighting-cue-model-20260922t094347z/observer_proxy_features_v1/uCxcK7PhvBY",
+      "receipt_sha256": "ecef0de744226f497cef8b8260ec6ac93e7e6f83bdc2433dc74f4812a169f0cf"
+    },
+    {
+      "recording_id": "8STzZEtqBNY",
+      "partition": "train",
+      "frames": 640,
+      "valid_frames": 632,
+      "directory": "/mnt/lightsem-data/experiments/lightsem/lighting-cue-model-20260922t094347z/observer_proxy_features_v1/8STzZEtqBNY",
+      "receipt_sha256": "0c3959b5d8ca28c214831c5caeb25436548aaeac8f28da0bd7d3255c69282872"
+    },
+    {
+      "recording_id": "bl399rfzD5s",
+      "partition": "train",
+      "frames": 640,
+      "valid_frames": 640,
+      "directory": "/mnt/lightsem-data/experiments/lightsem/lighting-cue-model-20260922t094347z/observer_proxy_features_v1/bl399rfzD5s",
+      "receipt_sha256": "d5db4c556592bc5a926f6514c76f00d3f0f21726ede0eba64315b9d07a8bb109"
+    },
+    {
+      "recording_id": "V3RG7EVvLdI",
+      "partition": "train",
+      "frames": 640,
+      "valid_frames": 640,
+      "directory": "/mnt/lightsem-data/experiments/lightsem/lighting-cue-model-20260922t094347z/observer_proxy_features_v1/V3RG7EVvLdI",
+      "receipt_sha256": "52cbd4ed9f185cd4a91c5536e7facf4c3c8218cf3a47dded5dae75a3bce77379"
+    },
+    {
+      "recording_id": "GvfesBmYmxg",
+      "partition": "train",
+      "frames": 640,
+      "valid_frames": 598,
+      "directory": "/mnt/lightsem-data/experiments/lightsem/lighting-cue-model-20260922t094347z/observer_proxy_features_v1/GvfesBmYmxg",
+      "receipt_sha256": "b2aacecfddc4ee1141b5ddbd7b1e8662dc05f81b4249bee6a4b521cb40b3047c"
+    },
+    {
+      "recording_id": "uFcIni6A3P0",
+      "partition": "val",
+      "frames": 640,
+      "valid_frames": 640,
+      "directory": "/mnt/lightsem-data/experiments/lightsem/lighting-cue-model-20260922t094347z/observer_proxy_features_v1/uFcIni6A3P0",
+      "receipt_sha256": "a0403c715e06933bf8d6bf83545ae99f48799eb8e90f65112140ff71d1f2744b"
+    },
+    {
+      "recording_id": "AWO_SIlz2u8",
+      "partition": "train",
+      "frames": 640,
+      "valid_frames": 630,
+      "directory": "/mnt/lightsem-data/experiments/lightsem/lighting-cue-model-20260922t094347z/observer_proxy_features_v1/AWO_SIlz2u8",
+      "receipt_sha256": "5fe0d913792e08dd857b7b4ca9bd74238b1cf85942ea673b7e1726aa2e89c771"
+    },
+    {
+      "recording_id": "kcStkv3SiUA",
+      "partition": "train",
+      "frames": 640,
+      "valid_frames": 636,
+      "directory": "/mnt/lightsem-data/experiments/lightsem/lighting-cue-model-20260922t094347z/observer_proxy_features_v1/kcStkv3SiUA",
+      "receipt_sha256": "48896a16e43d0eafd4acbe1b2986b28abb9e2cec1aa8cd0c13af78ab06a1ca53"
+    },
+    {
+      "recording_id": "n8GguUJtOa4",
+      "partition": "train",
+      "frames": 640,
+      "valid_frames": 581,
+      "directory": "/mnt/lightsem-data/experiments/lightsem/lighting-cue-model-20260922t094347z/observer_proxy_features_v1/n8GguUJtOa4",
+      "receipt_sha256": "c163f5f69de51a1fcdb73de83271de6be5ef2f8222471ff0b8f43b0305a499e5"
+    },
+    {
+      "recording_id": "fqMFg4Lq5AE",
+      "partition": "train",
+      "frames": 640,
+      "valid_frames": 583,
+      "directory": "/mnt/lightsem-data/experiments/lightsem/lighting-cue-model-20260922t094347z/observer_proxy_features_v1/fqMFg4Lq5AE",
+      "receipt_sha256": "b901a41d6198ab18b99f4b66e25ea310bb687fa7469ca99b6f1df2bed6961f8e"
+    },
+    {
+      "recording_id": "EUySMhKfFFc",
+      "partition": "train",
+      "frames": 640,
+      "valid_frames": 640,
+      "directory": "/mnt/lightsem-data/experiments/lightsem/lighting-cue-model-20260922t094347z/observer_proxy_features_v1/EUySMhKfFFc",
+      "receipt_sha256": "c3b95aa8f04b7b5032e860c44475a54600d5bfad5e81705845e321b89b1ff139"
+    },
+    {
+      "recording_id": "SQu7mn2LFxI",
+      "partition": "val",
+      "frames": 640,
+      "valid_frames": 640,
+      "directory": "/mnt/lightsem-data/experiments/lightsem/lighting-cue-model-20260922t094347z/observer_proxy_features_v1/SQu7mn2LFxI",
+      "receipt_sha256": "3d52e44cb20db26c7474f0e0a208f9975479c3a1747e482c280d6c436884d248"
+    },
+    {
+      "recording_id": "fR5sTs4nTXg",
+      "partition": "train",
+      "frames": 640,
+      "valid_frames": 601,
+      "directory": "/mnt/lightsem-data/experiments/lightsem/lighting-cue-model-20260922t094347z/observer_proxy_features_v1/fR5sTs4nTXg",
+      "receipt_sha256": "15e4dbbf7352cac7a03bfc1fee31a83d1ff9f4f620db3b8a3fa94ba0250021ac"
+    },
+    {
+      "recording_id": "jtng7Rnn_TE",
+      "partition": "train",
+      "frames": 640,
+      "valid_frames": 635,
+      "directory": "/mnt/lightsem-data/experiments/lightsem/lighting-cue-model-20260922t094347z/observer_proxy_features_v1/jtng7Rnn_TE",
+      "receipt_sha256": "94b84818d86798e5c1efb39a3b668ff48935bbe4313de1d496fd0d4717ea8fb1"
+    },
+    {
+      "recording_id": "2GE4hc83D5g",
+      "partition": "train",
+      "frames": 640,
+      "valid_frames": 619,
+      "directory": "/mnt/lightsem-data/experiments/lightsem/lighting-cue-model-20260922t094347z/observer_proxy_features_v1/2GE4hc83D5g",
+      "receipt_sha256": "7f93949fcbb9db209f070592ae40a6d3a73feec27c9f51c0a7933b3373dda604"
+    },
+    {
+      "recording_id": "AITiEKLQeoY",
+      "partition": "train",
+      "frames": 640,
+      "valid_frames": 636,
+      "directory": "/mnt/lightsem-data/experiments/lightsem/lighting-cue-model-20260922t094347z/observer_proxy_features_v1/AITiEKLQeoY",
+      "receipt_sha256": "0b35651bac379f7f5dc04c0c82544b127a9735bfe76e50e92b6e9c2d96367f7c"
+    },
+    {
+      "recording_id": "0ru0jk8VsE4",
+      "partition": "train",
+      "frames": 640,
+      "valid_frames": 613,
+      "directory": "/mnt/lightsem-data/experiments/lightsem/lighting-cue-model-20260922t094347z/observer_proxy_features_v1/0ru0jk8VsE4",
+      "receipt_sha256": "6985e8f61fccdc56682d9e4a919551461a4475a8c71d052a72d70158b2503198"
+    },
+    {
+      "recording_id": "1a-UH0VJI_k",
+      "partition": "train",
+      "frames": 640,
+      "valid_frames": 639,
+      "directory": "/mnt/lightsem-data/experiments/lightsem/lighting-cue-model-20260922t094347z/observer_proxy_features_v1/1a-UH0VJI_k",
+      "receipt_sha256": "4ffe280ffc27e48da8bef6b6e29889dd1801e1db40ad0c09437c9e4203ca9e32"
+    },
+    {
+      "recording_id": "FdC1LqUIcmY",
+      "partition": "train",
+      "frames": 640,
+      "valid_frames": 606,
+      "directory": "/mnt/lightsem-data/experiments/lightsem/lighting-cue-model-20260922t094347z/observer_proxy_features_v1/FdC1LqUIcmY",
+      "receipt_sha256": "c8db512d25673eb58fd409e47211d0692eaf970ae0f4f25e81f5255bb80016eb"
+    },
+    {
+      "recording_id": "t2ndGC7n_60",
+      "partition": "train",
+      "frames": 640,
+      "valid_frames": 579,
+      "directory": "/mnt/lightsem-data/experiments/lightsem/lighting-cue-model-20260922t094347z/observer_proxy_features_v1/t2ndGC7n_60",
+      "receipt_sha256": "7d3ced96502d55f35caa27de4d5f1e810ab3b97e564ef728f1b0735dc57a61a9"
+    },
+    {
+      "recording_id": "jkGH7JIHDSk",
+      "partition": "val",
+      "frames": 640,
+      "valid_frames": 614,
+      "directory": "/mnt/lightsem-data/experiments/lightsem/lighting-cue-model-20260922t094347z/observer_proxy_features_v1/jkGH7JIHDSk",
+      "receipt_sha256": "a2961a09abb74b9c861a8b1648d020663f92730c221c35ddb9401306b1000929"
+    },
+    {
+      "recording_id": "4wpUUeRK11o",
+      "partition": "train",
+      "frames": 640,
+      "valid_frames": 640,
+      "directory": "/mnt/lightsem-data/experiments/lightsem/lighting-cue-model-20260922t094347z/observer_proxy_features_v1/4wpUUeRK11o",
+      "receipt_sha256": "0f4f45b8f1ba17994721c8659c561c978531df30d0e6e38195739d2ba327b00c"
+    },
+    {
+      "recording_id": "9CXXS3zldUU",
+      "partition": "train",
+      "frames": 640,
+      "valid_frames": 640,
+      "directory": "/mnt/lightsem-data/experiments/lightsem/lighting-cue-model-20260922t094347z/observer_proxy_features_v1/9CXXS3zldUU",
+      "receipt_sha256": "9c049b5f1a1abe1090fbfd531d210138b7c348c1c9c3fb514f244fddf1acc0c7"
+    },
+    {
+      "recording_id": "oI2IghC6gj0",
+      "partition": "train",
+      "frames": 640,
+      "valid_frames": 584,
+      "directory": "/mnt/lightsem-data/experiments/lightsem/lighting-cue-model-20260922t094347z/observer_proxy_features_v1/oI2IghC6gj0",
+      "receipt_sha256": "b8ceabebd787bfdeea838d8720b12e0584433ce392be396076e2eeb71f593701"
+    },
+    {
+      "recording_id": "GQwriWlFJtw",
+      "partition": "train",
+      "frames": 640,
+      "valid_frames": 627,
+      "directory": "/mnt/lightsem-data/experiments/lightsem/lighting-cue-model-20260922t094347z/observer_proxy_features_v1/GQwriWlFJtw",
+      "receipt_sha256": "a8a6002a0a8ccaef295122f5096acb18fbd868ca61a26e861f8775dcf47f5135"
+    },
+    {
+      "recording_id": "r7tYZXTL9Zw",
+      "partition": "train",
+      "frames": 640,
+      "valid_frames": 638,
+      "directory": "/mnt/lightsem-data/experiments/lightsem/lighting-cue-model-20260922t094347z/observer_proxy_features_v1/r7tYZXTL9Zw",
+      "receipt_sha256": "8754b8d04b2827badbb1990f574c373c238b2ffcb50aaebd960670a01e8e6aff"
+    },
+    {
+      "recording_id": "McAbcL9UcrI",
+      "partition": "train",
+      "frames": 640,
+      "valid_frames": 634,
+      "directory": "/mnt/lightsem-data/experiments/lightsem/lighting-cue-model-20260922t094347z/observer_proxy_features_v1/McAbcL9UcrI",
+      "receipt_sha256": "8e5524715bc0b870594c6e93c7d1ccab7392625f343bb759b5a6d617ec043a5c"
+    },
+    {
+      "recording_id": "uzZxaIQUTXA",
+      "partition": "train",
+      "frames": 640,
+      "valid_frames": 636,
+      "directory": "/mnt/lightsem-data/experiments/lightsem/lighting-cue-model-20260922t094347z/observer_proxy_features_v1/uzZxaIQUTXA",
+      "receipt_sha256": "d89bd09d8746cb287ea440d5e91fd4da773712b9bfb2351256c69f7801d225e1"
+    },
+    {
+      "recording_id": "Y4_qz8RZPt0",
+      "partition": "train",
+      "frames": 640,
+      "valid_frames": 637,
+      "directory": "/mnt/lightsem-data/experiments/lightsem/lighting-cue-model-20260922t094347z/observer_proxy_features_v1/Y4_qz8RZPt0",
+      "receipt_sha256": "371c2fd22be2c48f70e6f5e51c1e4579177b17e39d0e16ececd73385e16e5ab4"
+    },
+    {
+      "recording_id": "gpT7kYP-7Ts",
+      "partition": "train",
+      "frames": 640,
+      "valid_frames": 594,
+      "directory": "/mnt/lightsem-data/experiments/lightsem/lighting-cue-model-20260922t094347z/observer_proxy_features_v1/gpT7kYP-7Ts",
+      "receipt_sha256": "25da7cd340b1446b503ebbd57a50d864f638a7cfd3218b6ec004af6d91e6de32"
+    },
+    {
+      "recording_id": "BDpOYD2nk4Y",
+      "partition": "train",
+      "frames": 640,
+      "valid_frames": 631,
+      "directory": "/mnt/lightsem-data/experiments/lightsem/lighting-cue-model-20260922t094347z/observer_proxy_features_v1/BDpOYD2nk4Y",
+      "receipt_sha256": "fb3f887035a911d2c8054406858acf3cf581e2a4d548de6eee9b7bb5ffb72f97"
+    },
+    {
+      "recording_id": "xcUO7v2OqxI",
+      "partition": "train",
+      "frames": 640,
+      "valid_frames": 640,
+      "directory": "/mnt/lightsem-data/experiments/lightsem/lighting-cue-model-20260922t094347z/observer_proxy_features_v1/xcUO7v2OqxI",
+      "receipt_sha256": "9334382e55f3cec324dea4ea2ccac8e64e33ba169b9580b363d6e03a99b99dca"
+    },
+    {
+      "recording_id": "w62VtPkxZ9I",
+      "partition": "train",
+      "frames": 640,
+      "valid_frames": 640,
+      "directory": "/mnt/lightsem-data/experiments/lightsem/lighting-cue-model-20260922t094347z/observer_proxy_features_v1/w62VtPkxZ9I",
+      "receipt_sha256": "2194f0ced6e9fc700125bc2e8a7a178b98c83f64fa983af189bce68342edddee"
+    },
+    {
+      "recording_id": "EIL_QOVGOeU",
+      "partition": "train",
+      "frames": 640,
+      "valid_frames": 637,
+      "directory": "/mnt/lightsem-data/experiments/lightsem/lighting-cue-model-20260922t094347z/observer_proxy_features_v1/EIL_QOVGOeU",
+      "receipt_sha256": "57e6b1c76b2b147aed994afa2ce92920912cbe601cdac0ca6d1453e5d6bbacc7"
+    },
+    {
+      "recording_id": "ApisF-hdoZg",
+      "partition": "val",
+      "frames": 640,
+      "valid_frames": 640,
+      "directory": "/mnt/lightsem-data/experiments/lightsem/lighting-cue-model-20260922t094347z/observer_proxy_features_v1/ApisF-hdoZg",
+      "receipt_sha256": "51aee78a8c6cd9ae191545025e028499346ec0a99a0ac366f04b7972ea3c5734"
+    },
+    {
+      "recording_id": "2-yKZv77RYo",
+      "partition": "train",
+      "frames": 640,
+      "valid_frames": 614,
+      "directory": "/mnt/lightsem-data/experiments/lightsem/lighting-cue-model-20260922t094347z/observer_proxy_features_v1/2-yKZv77RYo",
+      "receipt_sha256": "67d9ee38ab177bcfd91a06177f3d9e2307d1a0aef85df9453d58eb720ce8b97e"
+    },
+    {
+      "recording_id": "yAvEt3cZI2I",
+      "partition": "train",
+      "frames": 640,
+      "valid_frames": 640,
+      "directory": "/mnt/lightsem-data/experiments/lightsem/lighting-cue-model-20260922t094347z/observer_proxy_features_v1/yAvEt3cZI2I",
+      "receipt_sha256": "73da302ed99d6832280565466edfd6482370b1186975df4d07569d7fe55e85fb"
+    },
+    {
+      "recording_id": "5pb-txxfRDk",
+      "partition": "val",
+      "frames": 640,
+      "valid_frames": 624,
+      "directory": "/mnt/lightsem-data/experiments/lightsem/lighting-cue-model-20260922t094347z/observer_proxy_features_v1/5pb-txxfRDk",
+      "receipt_sha256": "3cf022de4c657e4fbddb1cd66b6bed63346a86b6071d5bfcdeab025fdb074136"
+    },
+    {
+      "recording_id": "dXBEANOhKLw",
+      "partition": "train",
+      "frames": 640,
+      "valid_frames": 631,
+      "directory": "/mnt/lightsem-data/experiments/lightsem/lighting-cue-model-20260922t094347z/observer_proxy_features_v1/dXBEANOhKLw",
+      "receipt_sha256": "b9e2166833722d14f2b316245c1ef7b66ad5a8244b34ad9e0aac0b7076c26585"
+    },
+    {
+      "recording_id": "xV3dqkP1RrY",
+      "partition": "train",
+      "frames": 640,
+      "valid_frames": 640,
+      "directory": "/mnt/lightsem-data/experiments/lightsem/lighting-cue-model-20260922t094347z/observer_proxy_features_v1/xV3dqkP1RrY",
+      "receipt_sha256": "a367f184380c3a84744109010c931dcf60517e8bb6aab06a6e4e0a10d37ae194"
+    },
+    {
+      "recording_id": "E3Af6_rVeSQ",
+      "partition": "val",
+      "frames": 640,
+      "valid_frames": 633,
+      "directory": "/mnt/lightsem-data/experiments/lightsem/lighting-cue-model-20260922t094347z/observer_proxy_features_v1/E3Af6_rVeSQ",
+      "receipt_sha256": "39d5c0b1a68307513a91eff7ec4bcc9c8873df865a71484966883ffb9a3facdc"
+    },
+    {
+      "recording_id": "2WzjnaFjHYY",
+      "partition": "train",
+      "frames": 640,
+      "valid_frames": 638,
+      "directory": "/mnt/lightsem-data/experiments/lightsem/lighting-cue-model-20260922t094347z/observer_proxy_features_v1/2WzjnaFjHYY",
+      "receipt_sha256": "6b44ab1c9a7e577561cc980141ed9c3c231e88a1bc49afbf3cf0ec24bc5ba034"
+    },
+    {
+      "recording_id": "-3ORYC-Y-Gs",
+      "partition": "train",
+      "frames": 640,
+      "valid_frames": 616,
+      "directory": "/mnt/lightsem-data/experiments/lightsem/lighting-cue-model-20260922t094347z/observer_proxy_features_v1/-3ORYC-Y-Gs",
+      "receipt_sha256": "fe5ea8951e9cc6c4307e6a54aeea5017be141eb29e4fbaa0051814ed24522d95"
+    },
+    {
+      "recording_id": "suUCZNQJHQw",
+      "partition": "train",
+      "frames": 640,
+      "valid_frames": 640,
+      "directory": "/mnt/lightsem-data/experiments/lightsem/lighting-cue-model-20260922t094347z/observer_proxy_features_v1/suUCZNQJHQw",
+      "receipt_sha256": "24cc332cbed6bc0b48716e801f62a40810f6e84d2537506fe14d6572b4dc64bf"
+    },
+    {
+      "recording_id": "OeYSabCXfjU",
+      "partition": "val",
+      "frames": 640,
+      "valid_frames": 639,
+      "directory": "/mnt/lightsem-data/experiments/lightsem/lighting-cue-model-20260922t094347z/observer_proxy_features_v1/OeYSabCXfjU",
+      "receipt_sha256": "475f820822ff745bb357f4da2551a939580f4f9ad9a2ccb1a93db910198df11c"
+    },
+    {
+      "recording_id": "EbE_NJWIOtg",
+      "partition": "train",
+      "frames": 640,
+      "valid_frames": 640,
+      "directory": "/mnt/lightsem-data/experiments/lightsem/lighting-cue-model-20260922t094347z/observer_proxy_features_v1/EbE_NJWIOtg",
+      "receipt_sha256": "7a8cd9af60aa3b9cd0f37336c604f09cbbb3fc7569dad93bbcef5057271d37af"
+    },
+    {
+      "recording_id": "xcrhizzbF_M",
+      "partition": "train",
+      "frames": 640,
+      "valid_frames": 639,
+      "directory": "/mnt/lightsem-data/experiments/lightsem/lighting-cue-model-20260922t094347z/observer_proxy_features_v1/xcrhizzbF_M",
+      "receipt_sha256": "19aa581f36eeba03aca748687692eb3309efbdf748b48b85499607b06a747a9d"
+    },
+    {
+      "recording_id": "OQD75k0fHog",
+      "partition": "train",
+      "frames": 640,
+      "valid_frames": 623,
+      "directory": "/mnt/lightsem-data/experiments/lightsem/lighting-cue-model-20260922t094347z/observer_proxy_features_v1/OQD75k0fHog",
+      "receipt_sha256": "c4fa281f98dcaabc5d34f8a822ff6ea401969e2ee7a08c3d6405e3f806cdab18"
+    },
+    {
+      "recording_id": "ZUL5-mYg_us",
+      "partition": "train",
+      "frames": 640,
+      "valid_frames": 638,
+      "directory": "/mnt/lightsem-data/experiments/lightsem/lighting-cue-model-20260922t094347z/observer_proxy_features_v1/ZUL5-mYg_us",
+      "receipt_sha256": "0b490ab14e874ff272c969c270df08910f185695a2afc87f17b5e5a99c54dc01"
+    },
+    {
+      "recording_id": "0bZbusRBSvc",
+      "partition": "train",
+      "frames": 640,
+      "valid_frames": 634,
+      "directory": "/mnt/lightsem-data/experiments/lightsem/lighting-cue-model-20260922t094347z/observer_proxy_features_v1/0bZbusRBSvc",
+      "receipt_sha256": "bcfae67c9498375d83fb0943ac4d79a8bc32773caca8c39c6e01b0effe9ab941"
+    },
+    {
+      "recording_id": "3qG22Y7dm4g",
+      "partition": "train",
+      "frames": 640,
+      "valid_frames": 639,
+      "directory": "/mnt/lightsem-data/experiments/lightsem/lighting-cue-model-20260922t094347z/observer_proxy_features_v1/3qG22Y7dm4g",
+      "receipt_sha256": "d03c63bb0620dbb05b5bb5a95f60037ab804f2d7054a07fcc5dfac70ca1b7abc"
+    },
+    {
+      "recording_id": "7-HRathkyu8",
+      "partition": "train",
+      "frames": 640,
+      "valid_frames": 640,
+      "directory": "/mnt/lightsem-data/experiments/lightsem/lighting-cue-model-20260922t094347z/observer_proxy_features_v1/7-HRathkyu8",
+      "receipt_sha256": "3dea0b7f7516c86bb75228b96bcc1ff503594a3a89f26cb03af873f4ec811375"
+    },
+    {
+      "recording_id": "vK9-GpUW-9I",
+      "partition": "train",
+      "frames": 640,
+      "valid_frames": 601,
+      "directory": "/mnt/lightsem-data/experiments/lightsem/lighting-cue-model-20260922t094347z/observer_proxy_features_v1/vK9-GpUW-9I",
+      "receipt_sha256": "cd6aca04e00d958707209d05498dd131dba7fbd5234da48a7258799febf0bd71"
+    },
+    {
+      "recording_id": "-df0tTGxUUo",
+      "partition": "train",
+      "frames": 640,
+      "valid_frames": 614,
+      "directory": "/mnt/lightsem-data/experiments/lightsem/lighting-cue-model-20260922t094347z/observer_proxy_features_v1/-df0tTGxUUo",
+      "receipt_sha256": "cc51083cebfdb12cf87937b2691f8c56024899dda05bccdcbbac6c74ce29c2c9"
+    },
+    {
+      "recording_id": "jY0vCOZz6Mo",
+      "partition": "train",
+      "frames": 640,
+      "valid_frames": 628,
+      "directory": "/mnt/lightsem-data/experiments/lightsem/lighting-cue-model-20260922t094347z/observer_proxy_features_v1/jY0vCOZz6Mo",
+      "receipt_sha256": "75dcae02bb8e1459c79431bf9299887056bd1271f3f40d60a6282e3b4004ab9e"
+    },
+    {
+      "recording_id": "awVxB4MdMeE",
+      "partition": "train",
+      "frames": 640,
+      "valid_frames": 637,
+      "directory": "/mnt/lightsem-data/experiments/lightsem/lighting-cue-model-20260922t094347z/observer_proxy_features_v1/awVxB4MdMeE",
+      "receipt_sha256": "4ef7643bf5922a5d7588f2ca93423af409991f83200275abe818cafe744bb74f"
+    },
+    {
+      "recording_id": "--74o20SmOs",
+      "partition": "train",
+      "frames": 640,
+      "valid_frames": 640,
+      "directory": "/mnt/lightsem-data/experiments/lightsem/lighting-cue-model-20260922t094347z/observer_proxy_features_v1/--74o20SmOs",
+      "receipt_sha256": "5192684b61664b88d0e104e0d1e9c60d631c2d8e3d366593af6498539bd19e8f"
+    },
+    {
+      "recording_id": "Bjh5wHglC1k",
+      "partition": "train",
+      "frames": 640,
+      "valid_frames": 640,
+      "directory": "/mnt/lightsem-data/experiments/lightsem/lighting-cue-model-20260922t094347z/observer_proxy_features_v1/Bjh5wHglC1k",
+      "receipt_sha256": "c1767f23fa434543860acdae688dc02d8be2ac2b8631393af97b018cb764841e"
+    },
+    {
+      "recording_id": "l8WxpazGFug",
+      "partition": "train",
+      "frames": 640,
+      "valid_frames": 640,
+      "directory": "/mnt/lightsem-data/experiments/lightsem/lighting-cue-model-20260922t094347z/observer_proxy_features_v1/l8WxpazGFug",
+      "receipt_sha256": "a1087b29148f7f6de83f2bcee5efdd9c7b9cba990d244e896adecb337b0dc26e"
+    },
+    {
+      "recording_id": "KIuUrr7ca-0",
+      "partition": "train",
+      "frames": 640,
+      "valid_frames": 640,
+      "directory": "/mnt/lightsem-data/experiments/lightsem/lighting-cue-model-20260922t094347z/observer_proxy_features_v1/KIuUrr7ca-0",
+      "receipt_sha256": "73cdfae5c6f884bb478c49a7a366a66793d6e04cc3b3f6b6a9d406e8ef6c9f65"
+    },
+    {
+      "recording_id": "CpjPKIUGSE4",
+      "partition": "train",
+      "frames": 640,
+      "valid_frames": 637,
+      "directory": "/mnt/lightsem-data/experiments/lightsem/lighting-cue-model-20260922t094347z/observer_proxy_features_v1/CpjPKIUGSE4",
+      "receipt_sha256": "a0ea14e0173495de61b417eb142700b6b1e8976d4de9f9e69cf95c294d701bbe"
+    },
+    {
+      "recording_id": "V2yuC5yLxws",
+      "partition": "val",
+      "frames": 640,
+      "valid_frames": 640,
+      "directory": "/mnt/lightsem-data/experiments/lightsem/lighting-cue-model-20260922t094347z/observer_proxy_features_v1/V2yuC5yLxws",
+      "receipt_sha256": "e7d9e1dc953b9f3b59c7232a4c966bb8808d327d18fc6142fa054920a1f49de2"
+    },
+    {
+      "recording_id": "Vq_Un3r6-QE",
+      "partition": "train",
+      "frames": 640,
+      "valid_frames": 640,
+      "directory": "/mnt/lightsem-data/experiments/lightsem/lighting-cue-model-20260922t094347z/observer_proxy_features_v1/Vq_Un3r6-QE",
+      "receipt_sha256": "1f1d2f891808a581c177224fd1840298fa3d1bd93a73a058febbf122f6e94773"
+    },
+    {
+      "recording_id": "RPTeAkorooA",
+      "partition": "val",
+      "frames": 640,
+      "valid_frames": 640,
+      "directory": "/mnt/lightsem-data/experiments/lightsem/lighting-cue-model-20260922t094347z/observer_proxy_features_v1/RPTeAkorooA",
+      "receipt_sha256": "ce278ddf592ba14862b3d1f7ec5e8b9bf1bbff07e74aa68118ecd844eeeb7461"
+    },
+    {
+      "recording_id": "wn2iikAmmJw",
+      "partition": "train",
+      "frames": 640,
+      "valid_frames": 590,
+      "directory": "/mnt/lightsem-data/experiments/lightsem/lighting-cue-model-20260922t094347z/observer_proxy_features_v1/wn2iikAmmJw",
+      "receipt_sha256": "cc4cc1410ce3b384d8e46337fee280d5e759845d607bd76773a81d3a2ce5c9cc"
+    },
+    {
+      "recording_id": "7eDnzVJH5W8",
+      "partition": "train",
+      "frames": 640,
+      "valid_frames": 640,
+      "directory": "/mnt/lightsem-data/experiments/lightsem/lighting-cue-model-20260922t094347z/observer_proxy_features_v1/7eDnzVJH5W8",
+      "receipt_sha256": "dc3a5126320f413ef71b58b2b7a42b9f079b65773ded06d912b06d88b13bef36"
+    },
+    {
+      "recording_id": "4kFZvBkODro",
+      "partition": "train",
+      "frames": 640,
+      "valid_frames": 640,
+      "directory": "/mnt/lightsem-data/experiments/lightsem/lighting-cue-model-20260922t094347z/observer_proxy_features_v1/4kFZvBkODro",
+      "receipt_sha256": "f9b3beda4d2520033d68c300a659695dd74cfda5beaa80876e4954cbc476c277"
+    },
+    {
+      "recording_id": "M07egCIUiGs",
+      "partition": "train",
+      "frames": 640,
+      "valid_frames": 631,
+      "directory": "/mnt/lightsem-data/experiments/lightsem/lighting-cue-model-20260922t094347z/observer_proxy_features_v1/M07egCIUiGs",
+      "receipt_sha256": "12e77a3dca39fba57e13b672eb47dad5ce89231822102a6f6fec5ce0df7f0117"
+    },
+    {
+      "recording_id": "UOn8c9cQvWE",
+      "partition": "train",
+      "frames": 640,
+      "valid_frames": 613,
+      "directory": "/mnt/lightsem-data/experiments/lightsem/lighting-cue-model-20260922t094347z/observer_proxy_features_v1/UOn8c9cQvWE",
+      "receipt_sha256": "dfa841002c95e170e880ab870f8a7f0e998b87905fabcd9b2586d6bf48cb6afb"
+    },
+    {
+      "recording_id": "IsYSaTlIghQ",
+      "partition": "train",
+      "frames": 640,
+      "valid_frames": 600,
+      "directory": "/mnt/lightsem-data/experiments/lightsem/lighting-cue-model-20260922t094347z/observer_proxy_features_v1/IsYSaTlIghQ",
+      "receipt_sha256": "7a024578733d2bb1c328e19572a2109d5b9f73ae608070b7b5e494e49806ea39"
+    },
+    {
+      "recording_id": "zzbEszeDB7c",
+      "partition": "train",
+      "frames": 640,
+      "valid_frames": 611,
+      "directory": "/mnt/lightsem-data/experiments/lightsem/lighting-cue-model-20260922t094347z/observer_proxy_features_v1/zzbEszeDB7c",
+      "receipt_sha256": "094fee98c879cc5f9b94cb149a820b49d314204c26e828e54529bc73e82ffd46"
+    },
+    {
+      "recording_id": "NmUIPD7n310",
+      "partition": "train",
+      "frames": 640,
+      "valid_frames": 629,
+      "directory": "/mnt/lightsem-data/experiments/lightsem/lighting-cue-model-20260922t094347z/observer_proxy_features_v1/NmUIPD7n310",
+      "receipt_sha256": "5a60e671ed722abcf636cd9447796fc040a47786325833e11bdf1709814529b0"
+    },
+    {
+      "recording_id": "Vf2s-fakSIo",
+      "partition": "val",
+      "frames": 640,
+      "valid_frames": 640,
+      "directory": "/mnt/lightsem-data/experiments/lightsem/lighting-cue-model-20260922t094347z/observer_parallel_shard_0_features_v1/Vf2s-fakSIo",
+      "receipt_sha256": "6e2cf0785f392688208f1a61b8cfd279385cc6033b715cdb1d4109b8de6903b6"
+    },
+    {
+      "recording_id": "ARQwK8P1hkg",
+      "partition": "val",
+      "frames": 640,
+      "valid_frames": 630,
+      "directory": "/mnt/lightsem-data/experiments/lightsem/lighting-cue-model-20260922t094347z/observer_parallel_shard_0_features_v1/ARQwK8P1hkg",
+      "receipt_sha256": "1b19935a25ecc7f7e9806c5cb84e2beff3be9066818b37cae2aceb297307459f"
+    },
+    {
+      "recording_id": "2sYjdIN6rv0",
+      "partition": "val",
+      "frames": 640,
+      "valid_frames": 640,
+      "directory": "/mnt/lightsem-data/experiments/lightsem/lighting-cue-model-20260922t094347z/observer_parallel_shard_0_features_v1/2sYjdIN6rv0",
+      "receipt_sha256": "33e26c626a17c3b91d7a1994c73b6b5bb8fe238941bcc892c497aeacd74053a6"
+    },
+    {
+      "recording_id": "FUDKBgik9uU",
+      "partition": "val",
+      "frames": 640,
+      "valid_frames": 612,
+      "directory": "/mnt/lightsem-data/experiments/lightsem/lighting-cue-model-20260922t094347z/observer_parallel_shard_0_features_v1/FUDKBgik9uU",
+      "receipt_sha256": "88df172d739bb2a07a6a0c26e1951126c7e75b961fc3d0a1ff1e9c6779f49869"
+    },
+    {
+      "recording_id": "3M9VrJLQDhU",
+      "partition": "val",
+      "frames": 640,
+      "valid_frames": 629,
+      "directory": "/mnt/lightsem-data/experiments/lightsem/lighting-cue-model-20260922t094347z/observer_parallel_shard_0_features_v1/3M9VrJLQDhU",
+      "receipt_sha256": "a893d27fce613c2469ed5b8731df7c9f3b9d7ff0ec7f6a207fb3b59e9c0051c3"
+    },
+    {
+      "recording_id": "ZyE3xcxZHnw",
+      "partition": "val",
+      "frames": 640,
+      "valid_frames": 622,
+      "directory": "/mnt/lightsem-data/experiments/lightsem/lighting-cue-model-20260922t094347z/observer_parallel_shard_2_features_v1/ZyE3xcxZHnw",
+      "receipt_sha256": "54db95d5437b8049e55e8a3d2d835782da982a09bb652755e9e6fbd94effc267"
+    },
+    {
+      "recording_id": "NBw54DXeVw8",
+      "partition": "val",
+      "frames": 640,
+      "valid_frames": 640,
+      "directory": "/mnt/lightsem-data/experiments/lightsem/lighting-cue-model-20260922t094347z/observer_parallel_shard_1_features_v1/NBw54DXeVw8",
+      "receipt_sha256": "183901c0882d138e7e8af0ef3beaaa1d61fdf952337518dbcc1017efc087f43d"
+    },
+    {
+      "recording_id": "TIfHV-Xq9VI",
+      "partition": "val",
+      "frames": 640,
+      "valid_frames": 639,
+      "directory": "/mnt/lightsem-data/experiments/lightsem/lighting-cue-model-20260922t094347z/observer_parallel_shard_1_features_v1/TIfHV-Xq9VI",
+      "receipt_sha256": "66c309e8dd0208eb1d6bb05d230c23b33d6035ad939c1499160b3e47430a4bfb"
+    },
+    {
+      "recording_id": "1ozcUaAXJV8",
+      "partition": "val",
+      "frames": 640,
+      "valid_frames": 640,
+      "directory": "/mnt/lightsem-data/experiments/lightsem/lighting-cue-model-20260922t094347z/observer_parallel_shard_1_features_v1/1ozcUaAXJV8",
+      "receipt_sha256": "9552e4b00dfa248eb6013cb5017d25f24f1a3ad19233e2e358dbd460614dc47f"
+    },
+    {
+      "recording_id": "8UTvmHbgc5w",
+      "partition": "val",
+      "frames": 640,
+      "valid_frames": 593,
+      "directory": "/mnt/lightsem-data/experiments/lightsem/lighting-cue-model-20260922t094347z/observer_parallel_shard_1_features_v1/8UTvmHbgc5w",
+      "receipt_sha256": "af64cf07d795aedbfd044494117f32b48c2afa6436ab7ba871695b77b852812c"
+    },
+    {
+      "recording_id": "vsW87yPjmSs",
+      "partition": "val",
+      "frames": 640,
+      "valid_frames": 593,
+      "directory": "/mnt/lightsem-data/experiments/lightsem/lighting-cue-model-20260922t094347z/observer_parallel_shard_1_features_v1/vsW87yPjmSs",
+      "receipt_sha256": "cf841909b39cc58f3c8c19a786983e121413f7038e8f2b4c13c51f6f3417bc0e"
+    }
+  ]
+}

@@ -1,0 +1,13 @@
+{
+  "scope": "EXISTING_CLOSED_EXPERIMENT_INTERPRETATION_DEBT_ONLY_NO_NEW_MEASUREMENT",
+  "directory": "/root/lightsem/docs/research/2026-09-28-end-to-end/interpretation_debt_20260928_v1",
+  "total_control_report_receipt_cap_bytes": 524288,
+  "global_scientific_cap_bytes": 1020054732,
+  "base_commitments_bytes": 999113452,
+  "row65_metadata_reservation_bytes": 262144,
+  "GPU_ledger_metadata_reservation_bytes": 65536,
+  "new_total_conservative_global_commitments_bytes": 999965420,
+  "does_not_change_preparation_packet_cap_bytes": 12582912,
+  "does_not_change_fit_or_GPU_authority": true,
+  "policy": "All oldmeasurements/Notes/gates/statuses/verdicts preserved; datedinterpretation only, no fabricatedscientificcompletion. Capture before/after anddiscloseanynativeabsent-default normalization."
+}

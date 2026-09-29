@@ -1,0 +1,4 @@
+GPU NVIDIA GeForce RTX 5070/PCIe/SSE2 / 3.3.0 NVIDIA 610.57.04
+RENDER 0 600 elapsed_s 0.22
+RENDER 300 600 elapsed_s 7.5
+RENDER_COMPLETE /root/lightsem/outputs/shpongle_layers_demo_20260922T161917Z/shpongle_experimental_preview_70_90_1080p_av1.mp4

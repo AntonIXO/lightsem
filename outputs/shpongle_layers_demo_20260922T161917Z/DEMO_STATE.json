@@ -1,0 +1,29 @@
+{
+  "status": "DELIVERED: full and preview media verified",
+  "artifact_root": "/mnt/lightsem-data/experiments/lightsem/shpongle_layers_demo_20260922T161917Z",
+  "media_root": "/root/lightsem/outputs/shpongle_layers_demo_20260922T161917Z",
+  "preview": "fixed70-90s then full277.3s",
+  "render_script": "/root/lightsem/outputs/shpongle_layers_demo_20260922T161917Z/render_demo.py",
+  "demo_plan": "/root/lightsem/outputs/shpongle_layers_demo_20260922T161917Z/DEMO_PLAN.json",
+  "worker": "shpongle-demo-inference",
+  "test_review_worker": "remaining-hypotheses-review",
+  "preview_path": "/root/lightsem/outputs/shpongle_layers_demo_20260922T161917Z/shpongle_experimental_preview_70_90_1080p_av1.mp4",
+  "preview_pid": 578384,
+  "overlay_receipt": "/mnt/lightsem-data/experiments/lightsem/shpongle_layers_demo_20260922T161917Z/protected_byte_equality.json",
+  "full_path": "/root/lightsem/outputs/shpongle_layers_demo_20260922T161917Z/shpongle_experimental_full_1080p_av1.mp4",
+  "full_pid": 578611,
+  "preview_audit": "/root/lightsem/outputs/shpongle_layers_demo_20260922T161917Z/shpongle_experimental_preview_70_90_1080p_av1_audit.json",
+  "full_render_seconds": 194.28496784192976,
+  "full_audit_pid": 579087,
+  "full_audit": "/root/lightsem/outputs/shpongle_layers_demo_20260922T161917Z/shpongle_experimental_full_1080p_av1_audit.json",
+  "home_alias": "/root/shpongle_light_demo.mp4",
+  "active_gpu_work": false,
+  "palette_secondary_completion": {
+    "status": "complete_negative_observer_secondary",
+    "report": "/root/lightsem/docs/research/2026-09-22-color-beat/PALETTE_SECONDARY_RESULTS_V1.md",
+    "audit": "/root/lightsem/outputs/shpongle_layers_demo_20260922T161917Z/palette_secondary_v1/PALETTE_SECONDARY_INDEPENDENT_AUDIT_V1.json",
+    "promotion": false,
+    "fully_prospective_vault_compliance": false,
+    "original_palette_qualified": null
+  }
+}

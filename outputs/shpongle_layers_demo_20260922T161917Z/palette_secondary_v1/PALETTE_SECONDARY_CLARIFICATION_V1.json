@@ -1,0 +1,18 @@
+{
+  "id": "palette-secondary-clarification-20260922-v1",
+  "status": "prospective; before real calibration/inference/scoring",
+  "protocol": {
+    "path": "/root/lightsem/outputs/shpongle_layers_demo_20260922T161917Z/palette_secondary_v1/PALETTE_SECONDARY_PROTOCOL_V1.json",
+    "sha256": "35ee9ba62d5c04fffb9ce5ddd364f1a82941c7025f9b213800858cca973d11e9"
+  },
+  "timing_clocks": "Generated candidate times = requested_times10_s[cue]. Reference events = actual source_times10_s at frozen color labels. Apply one shared absolute-to-center-relative origin exactly once. Never retime generated cues to observed video PTS.",
+  "ratio_aggregation": "Compute occupancy and exp(entropy) diversity ratios own/reference per recording/draw/seed. Equal-average paired draws and seeds within recording, recordings within canonical song, then canonical songs; gates use that macro mean of ratios, not ratio of means or worst case. No-event palette support is not discarded solely for absent emitted events.",
+  "zero_denominators": {
+    "relative_error_reduction": "(null_mean-own_mean)/null_mean only if null_mean>0; null_mean0 makes relative reduction undefined and secondary_pass undefined. No epsilon. Absolute delta still reported.",
+    "marginal": "Gate uses own_mean <=1.05*null_mean directly. If null_mean0, only own_mean0 passes. Any displayed ratio is undefined at null0; no epsilon.",
+    "reference_occupancy_diversity": "No valid samples gives undefined ratio, never zero/one fill. Such a record cannot satisfy the common valid-support gate."
+  },
+  "unsupported_tokens": "Canonical token0 in entirely invalid cue intervals is metric-only. Preserve raw sampled IDs and autoregressive history, including invalid periods; never substitute placeholder into future generation. Perturbing unsupported placeholders must not alter valid-frame statistics, calibration content or invalid-change bookkeeping after canonicalization.",
+  "all_state_numeric_guard": "Reject nonfinite context or any cue/state palette logits/probabilities before calling frozen inverse-CDF rollout. Valid-looking output token IDs alone are insufficient. Require normalized finite probability rows.",
+  "no_gate_change": true
+}

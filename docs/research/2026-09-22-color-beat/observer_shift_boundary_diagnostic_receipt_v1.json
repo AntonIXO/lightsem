@@ -1,0 +1,270 @@
+{
+  "diagnostic_script": {
+    "path": "/root/lightsem/docs/research/2026-09-22-color-beat/diagnose_observer_shift_boundary_v1.py",
+    "sha256": "f72d7eda27728723bab9af3d350a54fb8908aa865f77a3032eadee9ced81a2b5"
+  },
+  "environment": {
+    "CUDA_VISIBLE_DEVICES": "",
+    "TORCH_ENV": "/root/lightsem/.venv/torch-access"
+  },
+  "original_implementation_hashes_after": {
+    "/root/lightsem/lightsem/experiments/light_layers/evaluation.py": "401825add5d89f9920e2c946e36b2cdf85e07f625ab3230c5a3844655fcca004",
+    "/root/lightsem/lightsem/experiments/light_layers/metrics.py": "2df0707522bf2be0289164deeaf1cd4e8fdfe8f2bc20838ac0e331cceaaf77c3",
+    "/root/lightsem/lightsem/experiments/light_layers/model.py": "aa1d63f0cbf5cf270c3c7d676edf3eaf3debeb394220123493a400aa60835529",
+    "/root/lightsem/lightsem/experiments/light_layers/palette_metrics.py": "80b1301d8ece0c75d8d5b0521c5b9299581dc8ec80eddfbeccade11f10939d07",
+    "/root/lightsem/lightsem/experiments/light_layers/targets.py": "4f1e980ed9f62e2ae2a6d53e426cd44c0ed2381835bf4b1382a7fba1e566d6d1",
+    "/root/lightsem/lightsem/experiments/light_layers/training.py": "31e58e8c7a10cd80f0d3b5be0e87796e35548f2c2d03705856a0cafa1811802b",
+    "/root/lightsem/lightsem/model/light_trunk.py": "b515dcb960259f39f21a8d565b621364aafe0a87d3a6028f5a476659f662cf84",
+    "/root/lightsem/run_light_layers_evaluate.py": "c29d17850d03c478cba7d8fe27a18847e500c5264d6e623c7691b885d7e368ca"
+  },
+  "original_implementation_hashes_before": {
+    "/root/lightsem/lightsem/experiments/light_layers/evaluation.py": "401825add5d89f9920e2c946e36b2cdf85e07f625ab3230c5a3844655fcca004",
+    "/root/lightsem/lightsem/experiments/light_layers/metrics.py": "2df0707522bf2be0289164deeaf1cd4e8fdfe8f2bc20838ac0e331cceaaf77c3",
+    "/root/lightsem/lightsem/experiments/light_layers/model.py": "aa1d63f0cbf5cf270c3c7d676edf3eaf3debeb394220123493a400aa60835529",
+    "/root/lightsem/lightsem/experiments/light_layers/palette_metrics.py": "80b1301d8ece0c75d8d5b0521c5b9299581dc8ec80eddfbeccade11f10939d07",
+    "/root/lightsem/lightsem/experiments/light_layers/targets.py": "4f1e980ed9f62e2ae2a6d53e426cd44c0ed2381835bf4b1382a7fba1e566d6d1",
+    "/root/lightsem/lightsem/experiments/light_layers/training.py": "31e58e8c7a10cd80f0d3b5be0e87796e35548f2c2d03705856a0cafa1811802b",
+    "/root/lightsem/lightsem/model/light_trunk.py": "b515dcb960259f39f21a8d565b621364aafe0a87d3a6028f5a476659f662cf84",
+    "/root/lightsem/run_light_layers_evaluate.py": "c29d17850d03c478cba7d8fe27a18847e500c5264d6e623c7691b885d7e368ca"
+  },
+  "results": [
+    {
+      "checkpoint": {
+        "path": "/mnt/lightsem-data/experiments/lightsem/lighting-cue-model-20260922t094347z/observer_fits_v1/01_seed0_S_none_P0/best.pt",
+        "recipe": "S_none_P0",
+        "role": "selected",
+        "seed": 0,
+        "sha256": "ef32122167bbc2721a776af9a205fe5bcd5c774e20f588a83242803f2a09c5c9"
+      },
+      "first_failure": {
+        "a": {
+          "decimal": "126.6",
+          "hex": "0x1.fa66666666666p+6"
+        },
+        "b": {
+          "decimal": "134.6",
+          "hex": "0x1.0d33333333333p+7"
+        },
+        "candidate_index_in_segment": 22,
+        "distance_from_largest_in_domain_float_s": 2.842170943040401e-14,
+        "distance_from_largest_in_domain_float_ulps": 1.0,
+        "distance_from_stop_s": 0.0,
+        "draw_one_based": 5,
+        "draw_zero_based": 4,
+        "duration": {
+          "decimal": "8.0",
+          "hex": "0x1.0000000000000p+3"
+        },
+        "endpoint_ulp_s": 2.842170943040401e-14,
+        "exact_real_distance_below_stop_s": 5.773159728050814e-15,
+        "exact_real_distance_below_stop_ulps": 0.203125,
+        "exact_real_result_denominator": 2251799813685248,
+        "exact_real_result_numerator": 303092254922034355,
+        "exact_real_result_rounded": {
+          "decimal": "134.6",
+          "hex": "0x1.0d33333333333p+7"
+        },
+        "local": {
+          "decimal": "7.999999999999995",
+          "hex": "0x1.ffffffffffffap+2"
+        },
+        "offset": {
+          "decimal": "1.9",
+          "hex": "0x1.e666666666666p+0"
+        },
+        "original": {
+          "decimal": "132.7",
+          "hex": "0x1.0966666666666p+7"
+        },
+        "residue": {
+          "decimal": "7.999999999999995",
+          "hex": "0x1.ffffffffffffap+2"
+        },
+        "row": {
+          "duration_s": 8.0,
+          "offsets_frames": [
+            5,
+            8,
+            12,
+            16,
+            19,
+            23,
+            27,
+            30,
+            34,
+            38,
+            41,
+            45,
+            49,
+            52,
+            56,
+            60,
+            63,
+            67,
+            71,
+            75
+          ],
+          "offsets_s": [
+            0.5,
+            0.8,
+            1.2,
+            1.6,
+            1.9,
+            2.3,
+            2.7,
+            3.0,
+            3.4,
+            3.8,
+            4.1,
+            4.5,
+            4.9,
+            5.2,
+            5.6,
+            6.0,
+            6.3,
+            6.7,
+            7.1,
+            7.5
+          ],
+          "requested_grid_samples": 80,
+          "start_s": 126.6,
+          "stop_s": 134.6,
+          "undefined_reason": null
+        },
+        "segment_zero_based": 0,
+        "shifted": {
+          "decimal": "134.6",
+          "hex": "0x1.0d33333333333p+7"
+        }
+      },
+      "fixture": {
+        "path": "/root/lightsem/docs/research/2026-09-22-color-beat/observer_shift_boundary_fixture_selected_v1.json",
+        "sha256": "89b605634e326ee850980db93e11e51c7b169461f47177c5a5242e8cae1ca761"
+      },
+      "head": "color",
+      "recording_id": "E3Af6_rVeSQ",
+      "role": "selected",
+      "visited_record_heads": 2
+    },
+    {
+      "checkpoint": {
+        "path": "/mnt/lightsem-data/experiments/lightsem/lighting-cue-model-20260922t094347z/observer_fits_v1/01_seed0_S_none_P0/final.pt",
+        "recipe": "S_none_P0",
+        "role": "final",
+        "seed": 0,
+        "sha256": "b9fdb159b1b4e27ecc8485051098cb2b795ce25785a820a6f439558b7209cd8d"
+      },
+      "first_failure": {
+        "a": {
+          "decimal": "126.6",
+          "hex": "0x1.fa66666666666p+6"
+        },
+        "b": {
+          "decimal": "134.6",
+          "hex": "0x1.0d33333333333p+7"
+        },
+        "candidate_index_in_segment": 23,
+        "distance_from_largest_in_domain_float_s": 2.842170943040401e-14,
+        "distance_from_largest_in_domain_float_ulps": 1.0,
+        "distance_from_stop_s": 0.0,
+        "draw_one_based": 5,
+        "draw_zero_based": 4,
+        "duration": {
+          "decimal": "8.0",
+          "hex": "0x1.0000000000000p+3"
+        },
+        "endpoint_ulp_s": 2.842170943040401e-14,
+        "exact_real_distance_below_stop_s": 5.773159728050814e-15,
+        "exact_real_distance_below_stop_ulps": 0.203125,
+        "exact_real_result_denominator": 2251799813685248,
+        "exact_real_result_numerator": 303092254922034355,
+        "exact_real_result_rounded": {
+          "decimal": "134.6",
+          "hex": "0x1.0d33333333333p+7"
+        },
+        "local": {
+          "decimal": "7.999999999999995",
+          "hex": "0x1.ffffffffffffap+2"
+        },
+        "offset": {
+          "decimal": "1.9",
+          "hex": "0x1.e666666666666p+0"
+        },
+        "original": {
+          "decimal": "132.7",
+          "hex": "0x1.0966666666666p+7"
+        },
+        "residue": {
+          "decimal": "7.999999999999995",
+          "hex": "0x1.ffffffffffffap+2"
+        },
+        "row": {
+          "duration_s": 8.0,
+          "offsets_frames": [
+            5,
+            8,
+            12,
+            16,
+            19,
+            23,
+            27,
+            30,
+            34,
+            38,
+            41,
+            45,
+            49,
+            52,
+            56,
+            60,
+            63,
+            67,
+            71,
+            75
+          ],
+          "offsets_s": [
+            0.5,
+            0.8,
+            1.2,
+            1.6,
+            1.9,
+            2.3,
+            2.7,
+            3.0,
+            3.4,
+            3.8,
+            4.1,
+            4.5,
+            4.9,
+            5.2,
+            5.6,
+            6.0,
+            6.3,
+            6.7,
+            7.1,
+            7.5
+          ],
+          "requested_grid_samples": 80,
+          "start_s": 126.6,
+          "stop_s": 134.6,
+          "undefined_reason": null
+        },
+        "segment_zero_based": 0,
+        "shifted": {
+          "decimal": "134.6",
+          "hex": "0x1.0d33333333333p+7"
+        }
+      },
+      "fixture": {
+        "path": "/root/lightsem/docs/research/2026-09-22-color-beat/observer_shift_boundary_fixture_final_v1.json",
+        "sha256": "b8c8d4792ea806ac0a91fef32d65d2e08aa437179705ae7c3d87e3f171840fbd"
+      },
+      "head": "color",
+      "recording_id": "E3Af6_rVeSQ",
+      "role": "final",
+      "visited_record_heads": 2
+    }
+  ],
+  "schema": 1,
+  "scope": "Candidate geometry only; score_record, summarize_campaign, visual_event_ap blocked; no AP outcomes computed or inspected"
+}

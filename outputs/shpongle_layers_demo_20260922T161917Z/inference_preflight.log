@@ -1,0 +1,11 @@
+Traceback (most recent call last):
+  File "/root/lightsem/outputs/shpongle_layers_demo_20260922T161917Z/infer_overlay.py", line 296, in <module>
+    if __name__=='__main__': main()
+                             ^^^^^^
+  File "/root/lightsem/outputs/shpongle_layers_demo_20260922T161917Z/infer_overlay.py", line 154, in main
+    values=load_inputs()
+           ^^^^^^^^^^^^^
+  File "/root/lightsem/outputs/shpongle_layers_demo_20260922T161917Z/infer_overlay.py", line 129, in load_inputs
+    assert np.array_equal(z['times'],np.arange(len(raw))/40)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError

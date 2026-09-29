@@ -1,0 +1,32 @@
+{
+  "scope": "EXACT_CPU_PREPARATION_ONLY",
+  "command": "systemd-run --unit=lightsem-struct-preparation-v5.service --wait --pipe --no-ask-password --working-directory=/root/lightsem -p MemoryMax=4294967296 -p MemorySwapMax=0 -p RuntimeMaxSec=890s -p KillMode=control-group -p KillSignal=SIGKILL -p PrivateDevices=yes -p ProtectControlGroups=yes -p NoNewPrivileges=yes --setenv=CUDA_VISIBLE_DEVICES= --setenv=PYTHONDONTWRITEBYTECODE=1 --setenv=TORCH_ENV=/root/lightsem/.venv/torch-access /usr/bin/bash /root/lightsem/run.sh -u /root/lightsem/outputs/legacy_struct_intensity_20260928_v1/enforce_preparation_envelope_v3.py --unit lightsem-struct-preparation-v5.service --authorization-sha256 7cf01bc0c3fab1bae4e57b1f6e23e229c8e1827282165ec895cbe0e8665959c2",
+  "authorization_ref": {
+    "path": "/root/lightsem/outputs/legacy_struct_intensity_20260928_v1/PARENT_BOUND_PREPARATION_AUTHORIZATION_V5.json",
+    "size_bytes": 84851,
+    "sha256": "7cf01bc0c3fab1bae4e57b1f6e23e229c8e1827282165ec895cbe0e8665959c2"
+  },
+  "envelope_ref": {
+    "path": "/root/lightsem/outputs/legacy_struct_intensity_20260928_v1/enforce_preparation_envelope_v3.py",
+    "size_bytes": 6384,
+    "sha256": "cd3dc533ce7a51b71c7d1dda736cbae5da63586f52541c1d4d355bb5085c44aa"
+  },
+  "entry_wrapper_ref": {
+    "path": "/root/lightsem/run.sh",
+    "size_bytes": 227,
+    "sha256": "232ca5a566ae3b22f0677b6b5879c6901abf9decb16dc66967a4895174289556"
+  },
+  "definition_ref": {
+    "path": "/root/lightsem/outputs/legacy_struct_intensity_20260928_v1/PREPARATION_ADMISSION_DEFINITION_V5.json",
+    "size_bytes": 85406,
+    "sha256": "b99b4b60b49e434a51362765f483cfe4f5983285ff877a22db4b8591a7dcc7bd"
+  },
+  "scope_registration_receipt_ref": {
+    "path": "/root/lightsem/outputs/legacy_struct_intensity_20260928_v1/vault_preparation_scope_v5_receipt.json",
+    "size_bytes": 106458,
+    "sha256": "4976a6921efbb0c34ab040f7350c08c2a7c0e80f18da5e1263d95df3e64ed345"
+  },
+  "no_extra_preparation_log_redirection": true,
+  "expected": "Nativeexit0 and all40readiness decisions plusexactbindings/source/input/resource/effectiveenvelopeproof. This is not scientific/model/GPUexecution. Any fatalfailure/partial is preserved and blocks automaticrepair/resume.",
+  "packet_accounting": "Entire sharedsource/control/log/receipt/temp tree, all6 V3/V4/V5 protocol FILES (threeJSON/MDpairs), and newv5 workspace within12MiB; original+entireworkspace+externalpacket+reservations within1,020,054,732B;32MiBcomparisonand1GiBfloors retained."
+}

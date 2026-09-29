@@ -1,0 +1,8 @@
+{
+  "experiment_id": "exp-014-just-dance-coach-motion-is-f086d5",
+  "verdict": "directional_only",
+  "failure_mode": "recipe_conditional",
+  "lesson": "[2026-09-28 retrospective interpretation; no new experiment] The frozen gain-normalised ridge recipe missed G8.2-r2 on the historical song split: its best two-second channel R2 was +0.0045 versus the zero null and the required +0.20. The loudest-third versus quietest-third section QoM ratio of 1.57, CI [1.52, 1.63], versus equality at 1 supports that measured movement contrast, not the registered chorus/verse endpoint or LIGHT quality. Genre/Effort partialling and independently labelled chorus/verse response remain unmeasured, and inter-coach agreement does not establish audio learnability or a corpus-wide capability ceiling.",
+  "transfers_to": [],
+  "hint": "recipe_conditional: when the recipe changes, reopen_hypothesis('just-dance-coach-motion-is-predictable-from-bcb46b', reason=...) makes the negative re-testable instead of terminal"
+}

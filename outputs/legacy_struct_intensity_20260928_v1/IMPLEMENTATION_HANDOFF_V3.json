@@ -1,0 +1,105 @@
+{
+  "schema_version": 3,
+  "status": "IMPLEMENTATION_ONLY_UNIMPORTED_UNCOMPILED_UNTESTED_UNRUN",
+  "created_utc": "2026-09-28T20:25:18.767502+00:00",
+  "files": {
+    "/root/lightsem/outputs/legacy_struct_intensity_20260928_v1/prepare_struct_intensity_v3.py": {
+      "path": "/root/lightsem/outputs/legacy_struct_intensity_20260928_v1/prepare_struct_intensity_v3.py",
+      "size_bytes": 36188,
+      "sha256": "82ddd7ea4296ece2d9f5c70c421756a4208c6ebc4bc6dd3fe3de3aace0cd0fc2"
+    },
+    "/root/lightsem/outputs/legacy_struct_intensity_20260928_v1/test_prepare_struct_intensity_v3.py": {
+      "path": "/root/lightsem/outputs/legacy_struct_intensity_20260928_v1/test_prepare_struct_intensity_v3.py",
+      "size_bytes": 53250,
+      "sha256": "5f801e85999f1ea6ef3b0d73b5f7babcbaf83bbd6a813ef2785ee0c604340b4e"
+    },
+    "/root/lightsem/docs/research/2026-09-28-end-to-end/PROSPECTIVE_STRUCT_INTENSITY_PROTOCOL_CANDIDATE_V3.json": {
+      "path": "/root/lightsem/docs/research/2026-09-28-end-to-end/PROSPECTIVE_STRUCT_INTENSITY_PROTOCOL_CANDIDATE_V3.json",
+      "size_bytes": 257231,
+      "sha256": "96e5017b5fdf90e21e31f1b24c44586812f0724c954515cfdc170b8d88a9d9af"
+    },
+    "/root/lightsem/docs/research/2026-09-28-end-to-end/PROSPECTIVE_STRUCT_INTENSITY_PROTOCOL_CANDIDATE_V3.md": {
+      "path": "/root/lightsem/docs/research/2026-09-28-end-to-end/PROSPECTIVE_STRUCT_INTENSITY_PROTOCOL_CANDIDATE_V3.md",
+      "size_bytes": 14256,
+      "sha256": "09c05f2026fad9bdaa055e5c0d5a96e5d620c41fb9449f95fc615fefc87f680c"
+    },
+    "/root/lightsem/outputs/legacy_struct_intensity_20260928_v1/historical/light_trunk.py": {
+      "path": "/root/lightsem/outputs/legacy_struct_intensity_20260928_v1/historical/light_trunk.py",
+      "size_bytes": 10400,
+      "sha256": "7603b168695bea0b920c5039a02b380cbc796cb1dbc4ae40b0e91352e8c87290"
+    }
+  },
+  "authorization_template": {
+    "path": "/root/lightsem/outputs/legacy_struct_intensity_20260928_v1/AUTHORIZATION_SCHEMA_TEMPLATE_V3.json",
+    "size_bytes": 58835,
+    "sha256": "e15475e4625841d8d8303d1514e15768b79f333550063438058c200a38dff630"
+  },
+  "historical_source_retrieval": {
+    "command": "git show 1d2bbb9c04805cb2353d6c69babc86a4478a72d1",
+    "exit_code": 0,
+    "content_git_blob": "1d2bbb9c04805cb2353d6c69babc86a4478a72d1",
+    "destination": "/root/lightsem/outputs/legacy_struct_intensity_20260928_v1/historical/light_trunk.py",
+    "no_checkout_or_existing_source_edit": true
+  },
+  "commands_for_parent_only": {
+    "cwd": "/root/lightsem",
+    "native_synthetic_tests": "CUDA_VISIBLE_DEVICES='' PYTHONDONTWRITEBYTECODE=1 TORCH_ENV=/root/lightsem/.venv/torch-access bash run_torch.sh -u -m unittest discover -s /root/lightsem/outputs/legacy_struct_intensity_20260928_v1 -p test_prepare_struct_intensity_v3.py -v > /root/lightsem/outputs/legacy_struct_intensity_20260928_v1/native_synthetic_tests_v3.log 2>&1",
+    "expected_native_tests": 95,
+    "preparation_after_additional_registration_and_binding": "CUDA_VISIBLE_DEVICES='' PYTHONDONTWRITEBYTECODE=1 TORCH_ENV=/root/lightsem/.venv/torch-access bash run_torch.sh -u /root/lightsem/outputs/legacy_struct_intensity_20260928_v1/prepare_struct_intensity_v3.py prepare --plan /root/lightsem/docs/research/2026-09-28-end-to-end/PROSPECTIVE_STRUCT_INTENSITY_PROTOCOL_CANDIDATE_V3.json --authorization /root/lightsem/outputs/legacy_struct_intensity_20260928_v1/PARENT_BOUND_PREPARATION_AUTHORIZATION_V3.json",
+    "preparation_argv": [
+      "/root/lightsem/outputs/legacy_struct_intensity_20260928_v1/prepare_struct_intensity_v3.py",
+      "prepare",
+      "--plan",
+      "/root/lightsem/docs/research/2026-09-28-end-to-end/PROSPECTIVE_STRUCT_INTENSITY_PROTOCOL_CANDIDATE_V3.json",
+      "--authorization",
+      "/root/lightsem/outputs/legacy_struct_intensity_20260928_v1/PARENT_BOUND_PREPARATION_AUTHORIZATION_V3.json"
+    ],
+    "external_resource_enforcement": "Parent must bind and enforce900s wall/4GiB host process-tree caps before preparation. Exact project CLI above is not itself an OS/cgroup limiter. CUDA hidden. No new dependency/runtime checks were run now.",
+    "preparation_logging": "Internal new exclusive64KiB source_dir/preparation_v3.log. Do not additionally redirect preparation output into an uncounted file. Python stdout/stderr is captured; native C/C++ fd writes may reach the parent harness and are not guaranteed in this log."
+  },
+  "stage_boundary": {
+    "implemented_CLI_stages": [
+      "prepare"
+    ],
+    "model_construction": false,
+    "model_forward": false,
+    "scientific_scores_or_ratios": false,
+    "GPU_smoke_or_study_dispatch": false,
+    "automatic_fallback": false,
+    "CPU_restricted_checkpoint_reader_implemented_but_not_called": true
+  },
+  "source_only_tests": {
+    "methods_authored": 95,
+    "native_tests_run": 0,
+    "native_results_claimed": false,
+    "real_model_forwards": 0,
+    "checkpoint_deserializations": 0,
+    "numerical_file_reads": 0,
+    "note": "Tests create synthetic arrays only when root later executes them. They deny torch/project imports and operational file/payload helpers."
+  },
+  "remaining_blocks": [
+    "Root separately registers exact95-test native synthetic stage and validates log/process status against frozen hashes. No native result exists yet.",
+    "Root validates preparation-only native registration receipt semantic success and binds full authorization template; no new TEST access.",
+    "Root fills all62 TRAIN recipient/donor size/hash identities with no known currentTEST alias, retaining unknown cross-corpus/old exposure limitations. No raw manifest reads.",
+    "Root binds original inventory hash from sorted [relativepath,size,mtime_ns] regular-file rows (no original file content reads needed); rejects symlinks/hardlinks/special files per source policy.",
+    "Root reconciles original+entireworkspace+externalpacket with12MiB row8/32MiBcomparison/all other reservations,1GiB floors, new exclusive output/log paths,900s/4GiB external CPU caps.",
+    "CPU weights_only reader compatibility and exact actual checkpoint/bus/role schema are intentionally untested. Unsupported legacy pickle types or any mismatch stop; no unsafe fallback/repair.",
+    "Any existing partial packet/log requires root review; no overwrite/resume/delete permission is embedded.",
+    "A preparation receipt needs native exit0, exact source/plan/input binding and all40 outcomes audited by parent. It grants NO GPU/scientific-model stage.",
+    "Future GPU source/transitive runtime, full3439 memory plus480 AR timing within5min engineering ceiling, conservative3h study admission and scientific predictions require separate prospective root registration. No code for those stages exists here."
+  ],
+  "static_review_fixes": [
+    "float32 representability for audio and transformed energy",
+    "exact grid and adjacent-clock tolerance",
+    "malformed flags fail as material schema error",
+    "knownTEST/nonTRAIN/identity-hash allowlist rejection",
+    "control metadata counted once; original/comparison trees cannot host new controls",
+    "exact all95 native success with no skipped/expected-failure cases and parsed verbose log",
+    "bounded internal log and no logging after readiness publication",
+    "readiness explicitly requires parent native exit0",
+    "test AST guards updated for authenticated helper boundary"
+  ],
+  "scope": "Original40 whole-rig emitted proxy only, still not original rendered/independent-label G-struct-contrast completion. No blinder-only or C-null substitution. V1/V2 and original campaign untouched.",
+  "native_receipt_trust_boundary": "Driver hash-authenticates the native registration artifact and root verification attestation. Root must verify semantic success independently; this is not an independent vault-semantic verifier.",
+  "all_new_files_counted_in_packet": "source_dir recursively, V3 JSON/MD, new scientific packet, root authorization/native receipt if elsewhere (never original/comparison). No root-location bypass."
+}

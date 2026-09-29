@@ -1,0 +1,575 @@
+{
+  "schema_version": 1,
+  "status": "DRAFT_FOR_PARENT_REVIEW_NOT_NATIVE_WRITE",
+  "date": "2026-09-28",
+  "purpose": "Interpretation proposals only for the ten assigned closed experiments with missing native interpretations.",
+  "boundaries": [
+    "Lessons are dated retrospective scope statements, not new predictions, runs, gates or verdict changes.",
+    "Native Notes, measurements, statuses, formal verdicts, gates and historical failures remain unchanged.",
+    "The parent reported bound native-core validation: directional_only requires failure_mode. Use recipe_conditional for these valid mixed-result recipes; supports remains null. No claim_false, mechanism_wrong, noise or whole-test-invalid classification is proposed.",
+    "No existing interpretation/failure_mode/transfers are present in these ten source records; transfers_to=[] makes no automatic transfer or rule-out claim.",
+    "Product is LIGHT. Motion, optics, geometry and sampled visual diagnostics do not establish human audiovisual acceptance, learned conditioning, physical hardware or product qualification.",
+    "No native/vault/server calls or writes, scientific computation, model execution, tests, inference, training, raw manifest/audio/array/checkpoint/TEST access, or other-agent transcript reads were performed for this draft.",
+    "Read only assigned native experiment/hypothesis Markdown and existing listed audit/frontier reports. Artifact paths embedded in those texts were not dereferenced. Prior row65 reports and all existing files are untouched.",
+    "Only this exclusive new proposal JSON is written. The parent must review before any native interpretation action."
+  ],
+  "context_sources": {
+    "all71_claim_scope_audit": {
+      "path": "/root/lightsem/docs/research/2026-09-28-end-to-end/CLAIM_SCOPE_AUDIT_V1.json",
+      "sha256": "83ed200e4c560ac52491533074a0bae3c7d41d280ee23995b195ec1244fc2ea6"
+    },
+    "frontier_review": {
+      "path": "/root/lightsem/docs/research/2026-09-28-end-to-end/FRONTIER_REVIEW_V1.json",
+      "sha256": "4857b0e7cf5136cfb42ce6af7c085b632933dfbb746322e7fcd54a77e46c923d"
+    },
+    "frontier_scope_delta_v2": {
+      "path": "/root/lightsem/docs/research/2026-09-28-end-to-end/FRONTIER_SCOPE_DELTA_V2.json",
+      "sha256": "bc0afeb4f7915fd4dd56e1460fb12166d58986c460aed9624e4b34a37393cbf2",
+      "use": "Scope-accounting constraint only; no new row65 investigation or instrument."
+    }
+  },
+  "proposal_count": 10,
+  "proposals": [
+    {
+      "experiment_id": "exp-motion-exposure-roles-20260910",
+      "hypothesis_id": "h-motion-exposure-roles-20260910",
+      "current_verdict": "supports",
+      "current_interpretation": null,
+      "proposed_interpretation": {
+        "lesson": "2026-09-28 retrospective interpretation, not a new experiment: The registered fixed-role optical calibration passed the three-scene ramp controls, with whole-rig dimmer response 3.68561 versus 1.06714 for the recorded pre-role comparator at the frozen comparison settings. This supports only the fixed-rig/camera simulator calibration, not learned music conditioning, full-track LIGHT quality, human acceptance, physical photometry or default promotion; the separate native-music failure is unchanged.",
+        "failure_mode": null,
+        "transfers_to": []
+      },
+      "failure_mode_rationale": "Keep null: supports verdict and scoped optical gates do not require a negative failure category.",
+      "scope_rationale": "Static optical ramp controls across three registered scenes, not music-conditioned generation or full-track aesthetic evidence.",
+      "uncertainty": "The external protocol and renderer outputs were cited by the native record, not reopened; fixed scene/camera support does not establish transfer to other rigs, cameras or physical fixtures.",
+      "gate_statuses_as_recorded": {
+        "beam_visibility": true,
+        "clipping": true,
+        "dynamic_range": true,
+        "quiet_visibility": true,
+        "ramp_monotonicity": true,
+        "integrity": true
+      },
+      "evidence_references": [
+        {
+          "path": "/root/lightsem-vault/experiments/exp-motion-exposure-roles-20260910.md",
+          "sha256": "653d58ea319191ee947e9cdcc498a53ab6b0d6f56c357d2d351933f03d270a2d",
+          "sections": [
+            "front matter",
+            "Measurements",
+            "Gates",
+            "Notes"
+          ]
+        },
+        {
+          "path": "/root/lightsem-vault/hypotheses/h-motion-exposure-roles-20260910.md",
+          "sha256": "53098383e45e73f1254eac4ff71cb3ee6ebbc2c155e8ec0bcc5c9acebf23eee6",
+          "sections": [
+            "Statement",
+            "Rationale",
+            "Plan",
+            "Links"
+          ]
+        },
+        {
+          "source": "all71_claim_scope_audit",
+          "selector": "coverage entry h-motion-exposure-roles-20260910"
+        },
+        {
+          "source": "frontier_review",
+          "selector": "row 38"
+        }
+      ]
+    },
+    {
+      "experiment_id": "exp-dance-tracking-20260911",
+      "hypothesis_id": "h-dance-tracking-20260911",
+      "current_verdict": "directional_only",
+      "current_interpretation": null,
+      "proposed_interpretation": {
+        "lesson": "2026-09-28 retrospective interpretation, not a new experiment: On saved Shpongle, timing_revision_01 reduced requested-motion-to-emitted-DMX lag to 0.225 s versus surface_revision_02 at 0.450 s, but missed the 0.20 s gate. Its descriptive 1-2 Hz emitted/raw amplitude ratio was 0.301 versus 0.243 for that baseline and still missed 0.35; the sampled visual gate also failed despite mechanics, quiet, photometry and spatial passes. Completed sampled review is not continuous human audiovisual acceptance, and this offline controller result does not qualify audio synchronization, music generation, hardware or the LIGHT product.",
+        "failure_mode": "recipe_conditional",
+        "transfers_to": []
+      },
+      "failure_mode_rationale": "recipe_conditional: this valid saved-track controller test improved lag but failed timing, bandwidth and sampled visual thresholds; its other control passes remain valid, and no universal controller failure is inferred.",
+      "scope_rationale": "Saved raw-request to emitted-angle correlation and descriptive band-amplitude ratio; timing, bandwidth and visual failures stay failed.",
+      "uncertainty": "Offline nonnegative-lag instrument on one saved track is not future-audio causality, end-to-end latency or human listening; no claims about other controller recipes.",
+      "gate_statuses_as_recorded": {
+        "timing": false,
+        "bandwidth": false,
+        "mechanics": true,
+        "quiet": true,
+        "photometry": true,
+        "spatial": true,
+        "visual": false
+      },
+      "evidence_references": [
+        {
+          "path": "/root/lightsem-vault/experiments/exp-dance-tracking-20260911.md",
+          "sha256": "f4ff9bf26094f4f743a5e620a1efa50f3b49fd3a67066bd7885db1a3a86302f7",
+          "sections": [
+            "front matter",
+            "Measurements",
+            "Gates",
+            "Notes"
+          ]
+        },
+        {
+          "path": "/root/lightsem-vault/hypotheses/h-dance-tracking-20260911.md",
+          "sha256": "8800af96bbba291be84013fc894c328179dcabb111ac3bf9bfcb8444bcc9014a",
+          "sections": [
+            "Statement",
+            "Rationale",
+            "Plan",
+            "Links"
+          ]
+        },
+        {
+          "source": "all71_claim_scope_audit",
+          "selector": "coverage entry h-dance-tracking-20260911"
+        },
+        {
+          "source": "frontier_review",
+          "selector": "row 22"
+        }
+      ]
+    },
+    {
+      "experiment_id": "exp-dance-projection-20260911",
+      "hypothesis_id": "h-dance-projection-20260911",
+      "current_verdict": "directional_only",
+      "current_interpretation": null,
+      "proposed_interpretation": {
+        "lesson": "2026-09-28 retrospective interpretation, not a new experiment: On the same saved Shpongle requests, timing_revision_02 achieved a pooled signed requested-to-emitted lag estimate of 0 s versus surface_revision_02 at 0.450 s, passing timing under the original software mechanics. The descriptive 1-2 Hz emitted/raw amplitude ratio fell to 0.221 versus 0.243 for that baseline and missed 0.35, while the sampled visual gate failed despite quiet, photometry and spatial passes. This completed offline fitting study does not measure audio-to-light synchronization or establish human music-fit, hardware capability or product qualification.",
+        "failure_mode": "recipe_conditional",
+        "transfers_to": []
+      },
+      "failure_mode_rationale": "recipe_conditional: this valid offline fitting recipe passed timing but failed bandwidth and sampled visual gates under the original caps; neither claim_false nor whole-test invalidity follows.",
+      "scope_rationale": "Full-track offline projection under original caps; zero pooled signed lag is not zero physical/end-to-end delay, and bandwidth/visual failures remain.",
+      "uncertainty": "Review was sampled rather than continuous human audiovisual viewing; this is a constrained saved-target recipe, not a universal limit on controllers or an audio-model result.",
+      "gate_statuses_as_recorded": {
+        "timing": true,
+        "bandwidth": false,
+        "mechanics": true,
+        "quiet": true,
+        "photometry": true,
+        "spatial": true,
+        "visual": false
+      },
+      "evidence_references": [
+        {
+          "path": "/root/lightsem-vault/experiments/exp-dance-projection-20260911.md",
+          "sha256": "15dbae09e1e06e108fe3c8d52a0dc2bd174eebd824e3685f113812ed81082cb4",
+          "sections": [
+            "front matter",
+            "Measurements",
+            "Gates",
+            "Notes"
+          ]
+        },
+        {
+          "path": "/root/lightsem-vault/hypotheses/h-dance-projection-20260911.md",
+          "sha256": "fe76e9a045e9604ad82c382548e4a3a9b83596d105d41977e45f44a8fa1e80e1",
+          "sections": [
+            "Statement",
+            "Rationale",
+            "Plan",
+            "Links"
+          ]
+        },
+        {
+          "source": "all71_claim_scope_audit",
+          "selector": "coverage entry h-dance-projection-20260911"
+        },
+        {
+          "source": "frontier_review",
+          "selector": "row 18"
+        }
+      ]
+    },
+    {
+      "experiment_id": "exp-dance-actuator-budget-20260911",
+      "hypothesis_id": "h-dance-actuator-budget-20260911",
+      "current_verdict": "directional_only",
+      "current_interpretation": null,
+      "proposed_interpretation": {
+        "lesson": "2026-09-28 retrospective interpretation, not a new experiment: With saved Shpongle targets and the same convex objective, actuator_budget_01 raised the 1-2 Hz emitted/raw amplitude ratio to 0.790 versus timing_revision_02 at 0.221 by changing the declared simulator caps to 90 deg/s and 360 deg/s2 from 30 deg/s and 80 deg/s2. Numerical gates pass only for the new simulation profile, while old-cap exceedances and the failed sampled visual gate remain. This counterfactual does not establish physical fixture safety, human music-fit, learned conditioning or a qualified LIGHT product, and does not authorize cap escalation or default promotion.",
+        "failure_mode": "recipe_conditional",
+        "transfers_to": []
+      },
+      "failure_mode_rationale": "recipe_conditional: higher declared simulator caps pass numerical gates but retain a failed sampled visual gate and do not certify hardware; the mixed result belongs to this counterfactual recipe, not all actuator budgets.",
+      "scope_rationale": "Only the declared simulator speed/acceleration budget changed; new-cap passes cannot certify the exceeded old caps or real fixtures.",
+      "uncertainty": "No measured hardware limits are established; sampled visual acceptance failed and human music-fit is unmeasured. Frontier already marks this bounded counterfactual complete, not permission for further cap tuning.",
+      "gate_statuses_as_recorded": {
+        "timing": true,
+        "bandwidth": true,
+        "mechanics": true,
+        "quiet": true,
+        "photometry": true,
+        "spatial": true,
+        "visual": false
+      },
+      "evidence_references": [
+        {
+          "path": "/root/lightsem-vault/experiments/exp-dance-actuator-budget-20260911.md",
+          "sha256": "42cace862f6592b91564e94b071cd7c86bb412df7cad713a86ea0d16c94c793d",
+          "sections": [
+            "front matter",
+            "Measurements",
+            "Gates",
+            "Notes"
+          ]
+        },
+        {
+          "path": "/root/lightsem-vault/hypotheses/h-dance-actuator-budget-20260911.md",
+          "sha256": "97598284cc3c58067fd6dd90d9b255fa971731ad6e0c86a0af2009f31fbfc72c",
+          "sections": [
+            "Statement",
+            "Rationale",
+            "Plan",
+            "Links"
+          ]
+        },
+        {
+          "source": "all71_claim_scope_audit",
+          "selector": "coverage entry h-dance-actuator-budget-20260911"
+        },
+        {
+          "source": "frontier_review",
+          "selector": "row 13"
+        }
+      ]
+    },
+    {
+      "experiment_id": "exp-dance-stage-geometry-20260911",
+      "hypothesis_id": "h-dance-stage-geometry-20260911",
+      "current_verdict": "directional_only",
+      "current_interpretation": null,
+      "proposed_interpretation": {
+        "lesson": "2026-09-28 retrospective interpretation, not a new experiment: On the fixed saved body and unchanged faster simulator profile, stage_geometry_01 increased the 194-201 s median first-hit span to 10.610 m versus actuator_budget_01 at 3.770 m. The active wall fraction 0.00958 still missed the 0.10 requirement and the sampled visual gate failed despite the other geometry, dynamics, validity, quiet, mechanics and photometry passes. This bounded geometry improvement is not human music-fit, hardware or product qualification, and later stage02 anchor results do not retroactively pass this revision.",
+        "failure_mode": "recipe_conditional",
+        "transfers_to": []
+      },
+      "failure_mode_rationale": "recipe_conditional: contraction and several geometry/control gates pass, but wall-use and sampled visual gates fail for stage01; a later anchor revision does not change that result or establish global geometry failure.",
+      "scope_rationale": "First-hit contraction/spread improvement on the same saved body does not pass the failed wall-use or sampled visual gates.",
+      "uncertainty": "Synthetic geometry controls and sampled reviews do not establish choreography, human acceptance or physical validity. Later stage02 evidence is a separate revision, not a repaired stage01 verdict.",
+      "gate_statuses_as_recorded": {
+        "span": true,
+        "surfaces": false,
+        "dynamic": true,
+        "valid": true,
+        "quiet": true,
+        "mechanics": true,
+        "photometry": true,
+        "visual": false
+      },
+      "evidence_references": [
+        {
+          "path": "/root/lightsem-vault/experiments/exp-dance-stage-geometry-20260911.md",
+          "sha256": "3a2816de990ba2a98edb507ab9cfccf193661e1f9ab36614bf805b55c1f63494",
+          "sections": [
+            "front matter",
+            "Measurements",
+            "Gates",
+            "Notes"
+          ]
+        },
+        {
+          "path": "/root/lightsem-vault/hypotheses/h-dance-stage-geometry-20260911.md",
+          "sha256": "1752d2ea27831a83be1126385dbecdf0bbf619d2979565bb1e24349d2c63b7d7",
+          "sections": [
+            "Statement",
+            "Rationale",
+            "Plan",
+            "Links"
+          ]
+        },
+        {
+          "source": "all71_claim_scope_audit",
+          "selector": "coverage entry h-dance-stage-geometry-20260911"
+        },
+        {
+          "source": "frontier_review",
+          "selector": "row 20"
+        }
+      ]
+    },
+    {
+      "experiment_id": "exp-dance-stage-anchors-20260911",
+      "hypothesis_id": "h-dance-stage-anchors-20260911",
+      "current_verdict": "supports",
+      "current_interpretation": null,
+      "proposed_interpretation": {
+        "lesson": "2026-09-28 retrospective interpretation, not a new experiment: On the same saved Shpongle body and simulator profile, stage_geometry_02 static anchors increased active geometric wall first-hit fraction to 0.487917 versus stage_geometry_01 at 0.009583, passing the registered numeric gates and sampled visual-coverage procedure. Stage02 redistributes already-separated targets; it does not own stage01's contraction rescue or establish improved decoded coverage from geometric wall use alone. The fan/row persists, while human audiovisual, music-fit, aesthetic, physical-fixture and LIGHT-product acceptance are not established by this result; no default promotion follows.",
+        "failure_mode": null,
+        "transfers_to": []
+      },
+      "failure_mode_rationale": "Keep null: supports verdict applies to registered geometry and completed sampled-coverage gates, without claiming human music-fit or hardware acceptance.",
+      "scope_rationale": "Static-anchor revision supports geometric wall/floor use and changing trajectories under frozen controls; visual PASS means completed sampled coverage.",
+      "uncertainty": "Geometric wall fraction is not decoded pixel coverage; no human music-fit/aesthetic score or hardware calibration. Earlier contraction rescue belongs to stage01, and the fan/row persists.",
+      "gate_statuses_as_recorded": {
+        "span": true,
+        "surfaces": true,
+        "dynamic": true,
+        "valid": true,
+        "quiet": true,
+        "mechanics": true,
+        "photometry": true,
+        "visual": true
+      },
+      "evidence_references": [
+        {
+          "path": "/root/lightsem-vault/experiments/exp-dance-stage-anchors-20260911.md",
+          "sha256": "7c8b759dde8ca0aab649f68cb1f4970da2a93af3a65b1e15f41d75adf25cb41a",
+          "sections": [
+            "front matter",
+            "Measurements",
+            "Gates",
+            "Notes"
+          ]
+        },
+        {
+          "path": "/root/lightsem-vault/hypotheses/h-dance-stage-anchors-20260911.md",
+          "sha256": "be55ff67f70bd240e3cce8dae00851d1ce4af207d013261dbfd3d6beed3612f5",
+          "sections": [
+            "Statement",
+            "Rationale",
+            "Plan",
+            "Links"
+          ]
+        },
+        {
+          "source": "all71_claim_scope_audit",
+          "selector": "coverage entry h-dance-stage-anchors-20260911"
+        },
+        {
+          "source": "frontier_review",
+          "selector": "row 19"
+        }
+      ]
+    },
+    {
+      "experiment_id": "exp-dance-physical-objective-20260911",
+      "hypothesis_id": "h-dance-physical-objective-20260911",
+      "current_verdict": "directional_only",
+      "current_interpretation": null,
+      "proposed_interpretation": {
+        "lesson": "2026-09-28 retrospective interpretation, not a new experiment: In the matched seed0 study, the physical objective reduced generated sliding excess to 0.343127 m/s versus masked_native at 0.881744 m/s, but still failed the absolute 0.20 m/s gate. Correct-versus-donor/shift conditioning failed on the frozen summary-energy-score instrument, and visual qualification failed, with matched incumbent 3D lighting unavailable despite completed scheduled renders and sampled reviews. Other physical, consistency and coverage passes do not establish learned music-driven LIGHT quality or human music-fit acceptance, reverse the blocked qualification/seed1 decision, or refute physical objectives generally.",
+        "failure_mode": "recipe_conditional",
+        "transfers_to": []
+      },
+      "failure_mode_rationale": "recipe_conditional: the matched seed0 physical recipe improves sliding direction but misses absolute sliding and frozen conditioning gates; visual qualification remains failed/incomplete for the unavailable incumbent-light comparator. Valid physical/control results prevent whole-test invalidity, and this does not refute every physical objective.",
+      "scope_rationale": "Matched seed0 physical-objective comparison gives a scoped sliding improvement but fails absolute sliding, frozen conditioning and visual qualification.",
+      "uncertainty": "The summary-energy instrument cannot exclude every audio influence. Incumbent 3D lighting is unavailable, direct audio dynamics confound lighting attribution, chunk equality is not drift quality, and short/hold coverage is not successful hold generation.",
+      "gate_statuses_as_recorded": {
+        "sliding": false,
+        "conditioning": false,
+        "energy": true,
+        "travel": true,
+        "contacts": true,
+        "floor": true,
+        "high_frequency": true,
+        "continuity": true,
+        "short_holds": true,
+        "finite": true,
+        "visual": false
+      },
+      "evidence_references": [
+        {
+          "path": "/root/lightsem-vault/experiments/exp-dance-physical-objective-20260911.md",
+          "sha256": "7362d1471b535504d51627e75436c6b1496dbf968316591f613baa1a8f8fe388",
+          "sections": [
+            "front matter",
+            "Measurements",
+            "Gates",
+            "Notes"
+          ]
+        },
+        {
+          "path": "/root/lightsem-vault/hypotheses/h-dance-physical-objective-20260911.md",
+          "sha256": "49153a9ecab4c0de9cbb331ede25687fc9661530a99ed90ea160e98f2607138a",
+          "sections": [
+            "Statement",
+            "Rationale",
+            "Plan",
+            "Links"
+          ]
+        },
+        {
+          "source": "all71_claim_scope_audit",
+          "selector": "coverage entry h-dance-physical-objective-20260911"
+        },
+        {
+          "source": "frontier_review",
+          "selector": "row 16"
+        }
+      ]
+    },
+    {
+      "experiment_id": "exp-dance-stage-lean-20260911",
+      "hypothesis_id": "h-dance-stage-lean-20260911",
+      "current_verdict": "directional_only",
+      "current_interpretation": null,
+      "proposed_interpretation": {
+        "lesson": "2026-09-28 retrospective interpretation, not a new experiment: On fixed Shpongle and the legacy camera, stage03 gain2 produced geometric torso 1-2 Hz RMS of 0.480092 px versus stage02 gain0 at 0.432625 px, missing both the 2x and 1 px requirements. Other numeric gates and the sampled visual-coverage procedure passed, but synthetic sign restoration and projected geometry do not establish decoded pixel tracking, a new large composition or human music-fit acceptance. Retain the parent caption correction and limit this failure to the tested gain, track, band and camera, without a global signed-lean rule-out or product/default promotion.",
+        "failure_mode": "recipe_conditional",
+        "transfers_to": []
+      },
+      "failure_mode_rationale": "recipe_conditional: the tested gain/track/band/camera misses both bandwidth thresholds while other numeric and sampled-coverage gates pass; synthetic sign restoration is not actual-track qualification, and no global signed-lean failure follows.",
+      "scope_rationale": "Tested signed-lean gain improves the geometric projection metric directionally but fails both registered size thresholds; other gates stay passed.",
+      "uncertainty": "Geometric projected RMS is not pixel tracking or music quality. The parent caption addendum does not corroborate the child caption-loss claim; no global signed-lean failure or all-motion rule-out is warranted.",
+      "gate_statuses_as_recorded": {
+        "span": true,
+        "surfaces": true,
+        "dynamic": true,
+        "valid": true,
+        "quiet": true,
+        "mechanics": true,
+        "photometry": true,
+        "visual": true,
+        "lean_bandwidth": false
+      },
+      "evidence_references": [
+        {
+          "path": "/root/lightsem-vault/experiments/exp-dance-stage-lean-20260911.md",
+          "sha256": "844cfa587d5437822ab257015c81895db7fe1dcd6d21a65d180f00c9f6555547",
+          "sections": [
+            "front matter",
+            "Measurements",
+            "Gates",
+            "Notes"
+          ]
+        },
+        {
+          "path": "/root/lightsem-vault/hypotheses/h-dance-stage-lean-20260911.md",
+          "sha256": "2126ba680e5a58cf10f015c52e080ece84164f30091c819553a8f2413f07cdc8",
+          "sections": [
+            "Statement",
+            "Rationale",
+            "Plan",
+            "Links"
+          ]
+        },
+        {
+          "source": "all71_claim_scope_audit",
+          "selector": "coverage entry h-dance-stage-lean-20260911"
+        },
+        {
+          "source": "frontier_review",
+          "selector": "row 21"
+        }
+      ]
+    },
+    {
+      "experiment_id": "exp-dance-optics-full-20260911",
+      "hypothesis_id": "h-dance-optics-full-20260911",
+      "current_verdict": "supports",
+      "current_interpretation": null,
+      "proposed_interpretation": {
+        "lesson": "2026-09-28 retrospective interpretation, not a new experiment: With fixed stage02 emitted movement, the combined closer-camera/zero-zoom/angular-flux recipe increased the geometric 1-2 Hz motion/radius proxy to 0.336552 versus legacy-camera/native-zoom/legacy-edge at 0.140474. Completed factorial controls, the global mean display-brightness procedure with reported rounding residual, and sampled reviews support fixed-scene observability, not decoded optical flow, calibrated lumens or universal absence of clipping. The music PASS gate is explicitly a held-source/no-music-claim control, not human acceptance; the persistent fan remains and no learned conditioning, hardware, LIGHT-product qualification or default promotion follows.",
+        "failure_mode": null,
+        "transfers_to": []
+      },
+      "failure_mode_rationale": "Keep null: supports verdict concerns fixed-source geometric optics and controls; music PASS is a no-music-claim control, not a failed or passed human acceptance test.",
+      "scope_rationale": "Fixed-source factorial tests a combined optics recipe and observability controls; the music gate deliberately forbids rather than establishes a music claim.",
+      "uncertainty": "Camera alone worsened the registered ratio. Display-mean matching has rounding residual and does not match local contrast, perceived brightness, HDR energy or lumens; sampled AI review is not human audiovisual acceptance.",
+      "gate_statuses_as_recorded": {
+        "proxy": true,
+        "pixels": true,
+        "parity": true,
+        "coverage": true,
+        "brightness_control": true,
+        "music": true
+      },
+      "evidence_references": [
+        {
+          "path": "/root/lightsem-vault/experiments/exp-dance-optics-full-20260911.md",
+          "sha256": "df3c776bd74c79e5e43d32c1fa27055ea9dddcd4f5e07fe9f56566e28e5a5c5a",
+          "sections": [
+            "front matter",
+            "Measurements",
+            "Gates",
+            "Notes"
+          ]
+        },
+        {
+          "path": "/root/lightsem-vault/hypotheses/h-dance-optics-full-20260911.md",
+          "sha256": "6a17417df26d91d2ad50e286c0ab7761380502c2a020cda1785656399f67de92",
+          "sections": [
+            "Statement",
+            "Rationale",
+            "Plan",
+            "Links"
+          ]
+        },
+        {
+          "source": "all71_claim_scope_audit",
+          "selector": "coverage entry h-dance-optics-full-20260911"
+        },
+        {
+          "source": "frontier_review",
+          "selector": "row 15"
+        }
+      ]
+    },
+    {
+      "experiment_id": "exp-dance-pose-stage-20260911",
+      "hypothesis_id": "h-dance-pose-stage-20260911",
+      "current_verdict": "supports",
+      "current_interpretation": null,
+      "proposed_interpretation": {
+        "lesson": "2026-09-28 retrospective interpretation, not a new experiment: On fixed saved bodies, pose_stage_01 raised the NEW exact-edge 0.5-4 Hz geometric mean-per-head motion/radius ratio to 1.456716 versus same-body stage02 at 0.635937 in the Shpongle 70-90 s interval, with registered numeric/control gates and the selected reference comparisons passing. Sampled media coverage and the global brightness procedure completed with a reported rounding residual, but the projection nullspace, fan and tangles remain; this instrument is not interchangeable with the earlier 1-2 Hz optics measure or proof of literal body readability or universal gesture preservation. No human audiovisual acceptance, learned music conditioning, hardware or LIGHT-product/default qualification follows, and the earlier generator conditioning and absolute-sliding failures remain unchanged.",
+        "failure_mode": null,
+        "transfers_to": []
+      },
+      "failure_mode_rationale": "Keep null: supports verdict concerns a fixed-saved-body geometry bundle and selected controls; absent broader conditioning/human/hardware claims are not new failures of that instrument.",
+      "scope_rationale": "Fixed-saved-body pose-chart bundle plus selected reference windows supports only the registered exact-edge broadband geometry/control claim.",
+      "uncertainty": "No new inference or learned conditioning test; direct audio dynamics obstruct learned attribution from appearance. Pair overlap is not whole-group collapse or 3D intersection; sample coverage/global brightness controls do not establish human acceptance or generalization.",
+      "gate_statuses_as_recorded": {
+        "primary": true,
+        "mechanics": true,
+        "valid": true,
+        "surfaces": true,
+        "quiet": true,
+        "nonangle": true,
+        "collapse": true,
+        "oracle_transfer": true,
+        "pixels": true,
+        "coverage": true,
+        "brightness": true
+      },
+      "evidence_references": [
+        {
+          "path": "/root/lightsem-vault/experiments/exp-dance-pose-stage-20260911.md",
+          "sha256": "bfb8ce9414888924a644a55182abf9d684e7a96e23f7e21f1fa3901eb496869c",
+          "sections": [
+            "front matter",
+            "Measurements",
+            "Gates",
+            "Notes"
+          ]
+        },
+        {
+          "path": "/root/lightsem-vault/hypotheses/h-dance-pose-stage-20260911.md",
+          "sha256": "cfff31f60fb030a3e4cd6cd0c436f82536f5bf451bfbf8c6d16c68c0f2bd97c2",
+          "sections": [
+            "Statement",
+            "Rationale",
+            "Plan",
+            "Links"
+          ]
+        },
+        {
+          "source": "all71_claim_scope_audit",
+          "selector": "coverage entry h-dance-pose-stage-20260911"
+        },
+        {
+          "source": "frontier_review",
+          "selector": "row 17"
+        }
+      ]
+    }
+  ],
+  "source_preservation_check": "All twenty assigned native Markdown hashes unchanged immediately before exclusive proposal creation."
+}

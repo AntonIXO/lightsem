@@ -1,0 +1,125 @@
+{
+  "schema_version": 2,
+  "created_at_utc": "2026-09-28T22:14:51.520727+00:00",
+  "status": "row65_only_refinement_two_original_instrument_gaps",
+  "goal_status": "active",
+  "preserves_and_refines": [
+    {
+      "path": "/root/lightsem/docs/research/2026-09-28-end-to-end/FRONTIER_SCOPE_DELTA_V1.json",
+      "sha256": "43e934b404b47a7824efae2d7f1ac24afb7c789500aca99a906139638ded42f8",
+      "bytes": 25838
+    },
+    {
+      "path": "/root/lightsem/docs/research/2026-09-28-end-to-end/FRONTIER_SCOPE_DELTA_V1.md",
+      "sha256": "319af9a716df1c49759f723d602408e238b74ba852e06e471f2fdb223bf42615",
+      "bytes": 8060
+    }
+  ],
+  "new_evidence_report": [
+    {
+      "path": "/root/lightsem/docs/research/2026-09-28-end-to-end/ROW65_LATENCY_INSTRUMENT_SCOPE_ADDENDUM_V1.json",
+      "sha256": "4023fdc7606be4f846da19950759574158464f1c409cce934176d064b1ff0be4",
+      "bytes": 8459
+    },
+    {
+      "path": "/root/lightsem/docs/research/2026-09-28-end-to-end/ROW65_LATENCY_INSTRUMENT_SCOPE_ADDENDUM_V1.md",
+      "sha256": "0c6ae0571241d453ea35529ab8cd702ec84c184c72f6b4d913e5c49c89dfb35a",
+      "bytes": 4226
+    }
+  ],
+  "change_from_V1": "Only row65 changes:its genuinely missing original instruments increase fromone to two. Future-AUDIO causality remains unestablished;complete or defensibly composed software-latency qualification is also unestablished. This does not create a second affected row,a new target,an observed failure or execution authorization. All other V1row dispositions and detailed permissions/unknowns remain unchanged.",
+  "summary": {
+    "affected_hypotheses_reviewed_in_V1": 13,
+    "rows_with_genuinely_new_original_debt": [
+      65
+    ],
+    "genuinely_new_missing_original_instruments": 2,
+    "newly_propagated_original_cohort_qualification_rows_unchanged": [
+      4
+    ],
+    "existing_debt_with_specific_material_blocker_rows_unchanged": [
+      3
+    ],
+    "other_reviewed_rows_without_new_component_unchanged": [
+      1,
+      2,
+      5,
+      6,
+      9,
+      56,
+      57,
+      59,
+      62,
+      68
+    ],
+    "new_targets": 0,
+    "new_hypotheses_or_predictions": 0,
+    "formal_status_or_verdict_changes": 0,
+    "native_writes_by_child": 0,
+    "new_executions_authorized": 0
+  },
+  "row65": {
+    "hypothesis_id": "the-deployed-path-meets-its-latency-budget-and-b0aff5",
+    "experiment_id": "exp-006-the-deployed-path-meets-its-eb0fc6",
+    "original_targets_unchanged": {
+      "G-causal-mech": "Future-audio perturbation leaves output before cut unchanged.",
+      "G-lat-learned": "Learned-path p99<=65ms,as the original audio-in→DMX-out claim."
+    },
+    "instruments": [
+      {
+        "id": "row65-future-audio-causality",
+        "change_from_V1": "Unchanged missing original instrument.",
+        "original_plan": "Replace all audio after a cut with noise and assert output before the cut is bit-identical.",
+        "available_evidence_boundary": "Available candidate source perturbs synthetic model inputs and observes only A-head output. Audio construction,B/C/postprocessing and DMX are not observed under that perturbation.",
+        "qualification": "Original audio-path component unmeasured/unauthenticated;not a measured causal failure."
+      },
+      {
+        "id": "row65-complete-software-latency-qualification",
+        "change_from_V1": "Newly recognized missing original instrument/qualification.",
+        "original_gate": "Learned-path p99<=65ms;Plan permits stagewise p50/p99 timing.",
+        "available_evidence_boundary": "Available candidate times trunk+A/B forward;feature computation,C sampling and descriptor processing are outside that timer. It uses amortized conductor/packing summaries and adds model p99 to other medians plus assumed network/fixture terms.",
+        "qualification": "Retain reported62.5ms versus65ms as a partial calculated budget. Complete or defensibly composed software-path p99 is unestablished. No omitted-cost magnitude or latency overrun was measured.",
+        "plan_nuance": "Do not invent a mandatory single end-to-end stopwatch protocol. Complete stage/critical-path coverage with justified tail/overlap composition is compatible with the original Plan."
+      }
+    ],
+    "shared_provenance_blocker": "Actual historical source/checkpoint/upstream/calibration/environment identity is not authenticated. Candidate-source exclusions do not prove which exact code exp-006 executed. Do not substitute currentHEAD,nearest commit or current checkpoint.",
+    "retained_evidence": "Recorded model/component timings,calculated budget and model-input probe remain historical evidence within their instrument scope. Preserve numbers,Notes,gates and immutable labels.",
+    "not_new_debt": "Physical fixture,Art-Net/photodiode and runtime version limitations were already known. Universal models,hardware tests,current-version substitutions and stricter latency targets are not newly mandated."
+  },
+  "other_rows": "For3/4/5/59split provenance,1reference-history/comparators,6video-proxy scope,9human protocol,2/56/57/68bounded negatives,and62completed factual repair,inherit FRONTIER_SCOPE_DELTA_V1 exactly. No new component or rerun is inferred. The other58frontier rows are unchanged by this refinement.",
+  "recommended_parent_record_note": "Row65 now has two unqualified original components:future-AUDIO causality and complete/defensibly composed software-latency qualification. The saved62.5ms budget is partial accounting,not measured full-path p99. Exact historical identity remains blocked. No measured gate failure,status change,new target or execution follows.",
+  "budget": {
+    "authority_path": "/root/lightsem/docs/research/2026-09-28-end-to-end/ROW65_METADATA_FOLLOWUP_BUDGET_V1.json",
+    "authority_sha256": "6d60f8512c00bc6bee73e9cba5c41e3623c0161927858e3bca743298f920f15e",
+    "independent_row65_metadata_total_cap_bytes": 262144,
+    "this_V2_pair_cap_bytes": 32768,
+    "global_cap_bytes_unchanged": 1020054732,
+    "global_commitments_with_metadata_reserve_bytes": 999375596,
+    "preparation_cap_bytes_unchanged": 12582912,
+    "no_preparation_allowance_reset_or_increase": true
+  },
+  "no_run_policy": [
+    "No native writes by this child. Parent may make the separately approved dated interpretation clarification.",
+    "No payload/model/test/inference/training/rendering/scoring or server work is authorized.",
+    "No rewrite of V1reports or source;no numerical or formal gate/status/verdict edits.",
+    "No current-version substitution study or reopening of completed bounded negative/conditional-stop branches."
+  ],
+  "references_for_prior_scope": [
+    {
+      "path": "/root/lightsem/docs/research/2026-09-28-end-to-end/ROW65_CAUSALITY_PROVENANCE_READINESS_V1.json",
+      "sha256": "306a5c439547cb09ae7683515914b628301720af083a1c7c53023d16a5de06c9"
+    },
+    {
+      "path": "/root/lightsem/docs/research/2026-09-28-end-to-end/ROW65_CAUSALITY_PROVENANCE_READINESS_V1.md",
+      "sha256": "f27203f545fe897e1026ff67fabd1a659a76466e5f8be531412180b1197f7a75"
+    },
+    {
+      "path": "/root/lightsem/docs/research/2026-09-28-end-to-end/ROW65_PROJECT_ARCHIVE_PROVENANCE_ADDENDUM_V1.json",
+      "sha256": "f1e6cae92a70680eb920cc58e0f005130737e70b45ed3dc8b22b7882368cd4fa"
+    },
+    {
+      "path": "/root/lightsem/docs/research/2026-09-28-end-to-end/ROW65_PROJECT_ARCHIVE_PROVENANCE_ADDENDUM_V1.md",
+      "sha256": "c7a31c5309ebfaad3a1c477b57c2d98d14470560e07a138a5a2780cd85e173db"
+    }
+  ]
+}

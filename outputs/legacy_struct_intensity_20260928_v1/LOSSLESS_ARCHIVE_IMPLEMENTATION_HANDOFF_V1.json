@@ -1,0 +1,157 @@
+{
+  "status": "SOURCE_ONLY_IMPLEMENTATION_UNEXECUTED_NOT_AUTHORIZATION",
+  "scope": "Bounded CPU feasibility of metadata-determined integer arrays and a complete prospective lossless layout. No scientific values, archive publication, model/GPU/scoring dispatch, or V6 change.",
+  "new_files": {
+    "driver": {
+      "path": "/root/lightsem/outputs/legacy_struct_intensity_20260928_v1/measure_lossless_archive_v1.py",
+      "size_bytes": 45837,
+      "sha256": "2c068d0062ae0b9dd24d88b848c80201dffd284221ae4e25d84a5da8d8febf39"
+    },
+    "tests": {
+      "path": "/root/lightsem/outputs/legacy_struct_intensity_20260928_v1/test_measure_lossless_archive_v1.py",
+      "size_bytes": 67145,
+      "sha256": "79866d5de485812d3b6483a3f0073774fa139772a2d4667622a493358fd1eaa1"
+    },
+    "authorization_template": {
+      "path": "/root/lightsem/outputs/legacy_struct_intensity_20260928_v1/LOSSLESS_ARCHIVE_AUTHORIZATION_TEMPLATE_V1.json",
+      "size_bytes": 2951,
+      "sha256": "57d5afb92e84e571e1d373c319a55d32ecf887ddce22ed161aea0965d6ada347"
+    },
+    "envelope_template": {
+      "path": "/root/lightsem/outputs/legacy_struct_intensity_20260928_v1/LOSSLESS_ARCHIVE_EXTERNAL_ENVELOPE_TEMPLATE_V1.json",
+      "size_bytes": 1140,
+      "sha256": "1e654c3a5fc225cc67f189ed3cf4a4649cf989d74952b74f8d63dfad0e7697a5"
+    }
+  },
+  "authored_test_methods": 67,
+  "native_test_result": null,
+  "commands": {
+    "cwd": "/root/lightsem",
+    "native_test_component": "CUDA_VISIBLE_DEVICES='' PYTHONDONTWRITEBYTECODE=1 TORCH_ENV=/root/lightsem/.venv/torch-access bash run_torch.sh -u -m unittest discover -s /root/lightsem/outputs/legacy_struct_intensity_20260928_v1 -p test_measure_lossless_archive_v1.py -v",
+    "CPU_prototype_component": "CUDA_VISIBLE_DEVICES='' PYTHONDONTWRITEBYTECODE=1 TORCH_ENV=/root/lightsem/.venv/torch-access bash run_torch.sh -u /root/lightsem/outputs/legacy_struct_intensity_20260928_v1/measure_lossless_archive_v1.py measure --authorization /root/lightsem/outputs/legacy_struct_intensity_20260928_v1/PARENT_BOUND_LOSSLESS_ARCHIVE_AUTHORIZATION_V1.json",
+    "warning": "These are command components, NOT external enforcement or authority. Root must bind exact separately admitted systemd targets and bounded stdout/stderr collection; do not run a bare component as admission.",
+    "candidate_order": [
+      "deflate9",
+      "lzma_default"
+    ]
+  },
+  "control_read_allowlist": {
+    "authorization": "/root/lightsem/outputs/legacy_struct_intensity_20260928_v1/PARENT_BOUND_LOSSLESS_ARCHIVE_AUTHORIZATION_V1.json",
+    "envelope": "/root/lightsem/outputs/legacy_struct_intensity_20260928_v1/LOSSLESS_ARCHIVE_EXTERNAL_ENVELOPE_V1.json",
+    "plan": {
+      "path": "/root/lightsem/docs/research/2026-09-28-end-to-end/PROSPECTIVE_STRUCT_INTENSITY_PROTOCOL_CANDIDATE_V6.json",
+      "sha256": "977241748163f747064cfc28e2998f707085431aee8189814c914707d7599267",
+      "size_bytes": 285563
+    },
+    "readiness": {
+      "path": "/mnt/lightsem-data/experiments/lightsem/end_to_end_20260928_v1/legacy_struct_intensity_v6/preparation_readiness_v6.json",
+      "sha256": "54049eb742d6e796f3356cb278e1044320a6a7e56cf9c4af04cd33536520a878",
+      "size_bytes": 202345
+    },
+    "never_dereference": "All checkpoint/audio/structure/input/source paths nested in these metadata files are references only; no raw manifest/NPZ/checkpoint/media reads. Root\u2014not the CLI\u2014verifies driver/test/native receipt source bytes externally."
+  },
+  "limits": {
+    "CPU_only": true,
+    "MemoryMax_bytes": 536870912,
+    "MemorySwapMax_bytes": 0,
+    "RuntimeMaxSec": 50,
+    "acceptance_whole_job_wall_seconds": 60,
+    "PrivateDevices": true,
+    "CUDA_VISIBLE_DEVICES": "",
+    "PYTHONDONTWRITEBYTECODE": "1",
+    "receipt_bytes": 65536,
+    "combined_stdout_stderr_bytes": 32768,
+    "in_memory_integer_archive_cap_bytes": 4194304,
+    "archive_or_float_payload_disk_files": 0,
+    "control_auth_max_bytes": 32768,
+    "envelope_max_bytes": 16384,
+    "plan_exact_bytes": 285563,
+    "readiness_exact_bytes": 202345,
+    "snapshot_age_seconds_max": 300
+  },
+  "layout": {
+    "candidate_not_frozen_V6_amendment": true,
+    "clips": 40,
+    "integer_members": 120,
+    "unknown_float32_files": 160,
+    "section_intersections": 613,
+    "section_arm_rows": 2452,
+    "float_payload_bytes_no_compression_discount": 5942288,
+    "integer_arrays": "Perclip local<i4 frame_index0..T-1; |u1 target_role0..4/255; <u2 originalsectionID/65535. Retain short sections; no renumbering/resampling/replacement. Exact member keys cNN_{frame_index,target_role,section_id}.npy.",
+    "float_files": "cNN_{none,struct,shuf,beat_trigger}.npy, dtype<f4, shape(T,), C layout, uncompressed standaloneNPY; header-only sizing, no dummy vectors.",
+    "codec": "Two prospectively declared independent candidates in fixed order: ZIP_DEFLATED level9 (method8,flags0,version20) then standard ZIP_LZMA default (method14,EOSflag2,version63,LZMA1 lc3/lp0/pb2,8MiBdict,SDK9.4/propertylength5). NPY1.0; noZIP64/extras/comments/data descriptors. Never choose/fallback/admit automatically. Record fullPython/NumPy/zlib identities and cached _lzma module path; linked_liblzma_version=null because stdlib does not expose it. Bind the recorded runtime values from the native synthetic test CONTROL before prototype. No binary/environment identity or future compressed-size invariance is claimed; changed runtime requires fresh validation before reuse. Every candidate compressedstream total includes NPYheader andcodecwrapper; ZIPcontainer entersfull128KiBheaderreserve.",
+    "reader": "Exact ordered member names/counts, safe names and methods, no flags/encryption/ZIP64/extras/comments, local/central metadata equality, exactexpandedbyte cap, bounded rawDEFLATE EOF/no unused or unconsumed tail, independent ZIP CRC+EOF, exactNPYheader/dtype/shape/EOF before allow_pickle=False load, then rawbyte equality to reconstructed integers. ZIP_LZMA filter/dictionary/header are fixed before FORMAT_RAW decoder construction; bounded max_length expected+1, eof and no unused_data. Both candidates ALSO undergo actual NumPy wholeNPZload(BytesIO,allow_pickle=False), then materialize everymember and check dtype/shape/layout/rawbits, not just lazyopen."
+  },
+  "section_manifest_proof": {
+    "CSV": "Normalized12-column ASCII comma CSV/LF, noBOM/quoting. clip_ordinal,arm_ordinal,originalsectionID,rolecode,start,end,validcount,retainedcount,retained,reasoncode,sum,mean. All2452 rows preserved, including short and7 role-ineligible clips.",
+    "lossless_join": "Full unchanged40 frozenclip dictionaries and full readiness except section rows, all source/input/checkpoint/driver/test/auth/log refs, explicitarm/role/reasondictionaries. Original sectionrows reconstruct exactly from arm0 and all4 arm geometries/counts/reasons must agree. Explicit280 outputarray records name every shape/dtype/layout/clip/arm/field and file/member hash slot.",
+    "statistics": "Unknown finitebinary64 sum/mean from actual SAVED float32 file bytes in a future separately authorized stage. Format +.17e, at most25ASCII bytes including sign and exponent, preserves signedzero; no NA substitution even for rejected positive-length section. No statistics computed in prototype.",
+    "bound": "Count serialized complete compactASCIIJSON (explicit noLF) using fixed64hex SIZE_ONLY unknownhash slots, plus separately capped16384B futurebinding object, plus exactknown CSV prefix bytes and2*25 unknownstat bytes perrow. Reject if combined>524288. No illustrative earlier subtotal is accepted instead of this runtime whole-format bound. section_table.bytes=524288 is a sizing placeholder upper-width inside the prospective manifest, not an observed CSV size.",
+    "future_binding_cap": "16384 encodedJSON bytes including braces, writer/config/authorization/amendment refs only; further fields or growth require a new bound."
+  },
+  "accounting": {
+    "packet_cap_bytes": 12582912,
+    "global_cap_bytes": 1020054732,
+    "free_floor_bytes_each": 1073741824,
+    "header_reserve_bytes": 131072,
+    "table_manifest_reserve_bytes": 524288,
+    "minimum_UNSPENT_future_code_control_metrics_bytes": 1048576,
+    "distinct_GPU_ledger_charge_bytes": 65536,
+    "prototype_output_reserve_bytes": 98304,
+    "formula": "retainedP + other_unwritten_controls + 98304 + future_unspent>=1048576 +65536+131072+524288+5942288 + ACTUALcompressedIntegerNPYstreams. Keep full reserved buckets even if measured headers/table are smaller. Applied independently to EACH candidate, never assuming both archives will be stored. Prototype stores neither.",
+    "retainedP": "Fresh root count of complete sharedprep directory including this prototype/tests/templates/handoff/all native controls+failed logs, all8 V3/V4/V5/V6protocol files, savedreadiness and complete other row8 packets. Excludes only the explicitly separate64KiB GPU-ledger charge. Reserve any yet-unwritten source/control/envelope/receipt bytes exactly once. Do not substitute stale reviewP.",
+    "global_base": "Fresh root total of originalcampaign + completeworkspace + externalpacket/control files + other outstanding allocations, including retainedP once but EXCLUDING row8 new growth and the separately charged64KiB GPU-ledger allocation. No doublecount/release of unrelated reservations. CLI validates arithmetic from root-attested CONTROL, not a filesystem recount.",
+    "peak": "Write final future160floatNPY files once, then oneintegerNPZ, oneCSV and onemanifest. No rawfloat/archive second copy or rawinteger intermediate disk files. Same-name overwrite/retry/cleanup forbidden; failed partials stay charged and require new accounting. Prototype stores only small exclusive receipt; integerarchive is BytesIO only.",
+    "global_free": "Globalbase+(wholepacketpeak-retainedP)<=globalcap; eachfilesystem free>=1GiB+(wholepacketpeak-retainedP), conservatively booking every new byte on both. This is root snapshot arithmetic, not a disk reservation system.",
+    "current_compressed_integer_bytes": {
+      "deflate9": null,
+      "lzma_default": null
+    },
+    "current_complete_table_manifest_bound_bytes": null,
+    "current_total_or_peak_fit_result": null
+  },
+  "root_admission_sequence": [
+    "Preserve all oldfiles. Review source and complete schema. Record source-only scope and prospectiveCPU/test/format definitions in parent-owned native records; optional gzip only for NEW native control receipts, hash stored bytes and preserve originals. No generic vault writer supplied.",
+    "Bind exact67 synthetic test count after source freeze and run nativeCPUtests under separate authorization/envelope/logcap. Require exact plainpasses: no errors/failures/skips/xfails/unexpected success. Retain any failure as a new artifact; do not overwrite.",
+    "Record exact codec_versions from bounded CODEC_VERSIONS test line and declare both candidates before prototype. No binary/environment identity or future compressed-size invariance is established beyond recorded runtime; changed runtime requires fresh validation before reuse. No binary hashing, dependency probe or extra job is required. Reconcile whole12MiB/global/free accounting AFTER new source/controls/testlogs; preserve >=1MiB genuinely future headroom and distinct64KiB ledger charge.",
+    "Write a fresh real authorization from template, bind source/test/native receipts/exactcommand and live external512MiB/no swap/PrivateDevices/50s process-tree proof. CLI does not implement or prove OS enforcement. Root must bound ALL stdout/stderr to32KiB; exception text is capped but libraries/interpreter output needs external control.",
+    "Only root may launch approvedCPU measure command. Nativeexit0 means BOTH declared candidates produced complete measurements; it does NOT mean budget fit. Each candidate reports measured compressedbytes, complete schema bound and total/peak fit/rejection independently. Unsupported/error/time-guard incomplete measurement yields exit2. No automatic candidate choice, fallback or scienceadmission. Accept controller performance only with verified live limits and wholejob<=60s. Preserve all outcomes.",
+    "Even a successful prototype grants NO scientificarchive/model/GPU/scoring authority and does NOT amend frozenV6 no-compression budget. A separate prospective representation/science amendment and independentGPUledger admission would still be needed."
+  ],
+  "known_limits": [
+    "Metadata determines intended integer traces; this is not independent source-cache bytevalidation.",
+    "Sourceandnative-test authorization is root-attested. EnvelopeJSON is a bound claim about separately enforced limits, not self-created OS protection.",
+    "Current source is unimported/uncompiled/untested. Runtimecodec compatibility, actual compressedsize, complete manifest bound and full packet fit remain unmeasured.",
+    "No removal of aliased clips, original section IDs, unknown float bits or rejected rows is permitted to obtain a fit.",
+    "GPU ledger remains UNRECONCILED; none of this CPU format work creates GPU admission credit.",
+    "No static guarantee that both120-member codec encodes plus strict+NumPy readbacks fit50s/512MiB. Fixed8MiB LZMA dictionary and sequential candidate lifetime bound codec dimensions, not total nativeRSS/runtime. External limits must fail closed; never enlarge/retry/promote a partial first-candidate result.",
+    "No binary/environment identity or future compressed-size invariance is established beyond recorded runtime. Changed runtime requires fresh validation before reuse; linked_liblzma_version is null/not exposed."
+  ],
+  "native_test_log_target": "/root/lightsem/outputs/legacy_struct_intensity_20260928_v1/native_lossless_archive_tests_v1.log",
+  "prototype_log_target": "/root/lightsem/outputs/legacy_struct_intensity_20260928_v1/native_lossless_archive_feasibility_v1.log",
+  "source_authorship": "Source/control-only authoring and text/hash review. No prototype imports, compilation, test execution, codec measurement, model call or scientific data reads occurred. Frozen source count is not native evidence.",
+  "authorizations_missing": [
+    "Root native registration/admission",
+    "67/67 plain native test pass",
+    "Fresh complete packet/global/free accounting",
+    "Live external process-tree limits and capped log collector",
+    "Separate prospective scientific representation amendment after any valid feasibility result"
+  ],
+  "template_statuses": {
+    "authorization": "TEMPLATE_NOT_AUTHORIZATION",
+    "external_envelope": "TEMPLATE_NOT_ENFORCED"
+  },
+  "synthetic_test_scope": [
+    "Strict CONTROL JSON/metadata validation and count drift",
+    "Local frame indices, original IDs, sentinels, gaps and short sections",
+    "Deterministic standard DEFLATE/LZMA in-memory NPZ and actual NumPy whole-NPZ bit checks",
+    "Malformed member names/dtype/shape/NPY headers/CRC/stream EOF/LZMA properties/dictionary",
+    "Tiny explicit synthetic float32 signed-zero/subnormal/nonfinite bit patterns, never predicted model values",
+    "Complete readiness/manifest/table joins and finite binary64 CSV formatting",
+    "Full undiscounted float payload, retained-growth/peak/global/free checks and no duplicate raw/archive copies",
+    "Plain native evidence/auth/envelope gates and I/O/model/CLI guards",
+    "Unexpected candidate error resets completion; independent fixed two-candidate dispatch after first budget rejection"
+  ],
+  "read_this_before_use": "Do not run either command until root separately authorizes it. Published templates are deliberately invalid authority/enforcement. All six new source/control files, any failed test/log/native records and any further authorization material must enter fresh retainedP or other unwritten control reserve.",
+  "baseline_comparison": "The comparison is lossless compression of the same metadata-derived integer NPY members under two predeclared codecs; floats receive zero compression credit. It does not compare scientific outputs or prove rendered-light quality."
+}

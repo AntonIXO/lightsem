@@ -1,0 +1,167 @@
+{
+  "definition": {
+    "baselines": {
+      "Ashuf_primary_input": "same_frozen_training_tempo_donor_route_as_TRAIN_and_DEV_selection",
+      "audio_novelty": "Euclidean_.3s_pre_post_TRAIN_standardized64mel_means_at_native_rate",
+      "audio_onset": "standardized_bus_onset_ema_fixed_not_best_channel",
+      "donor": "EXACT_training_tempo_nearest_map; same_partition_distinct_canonical; >=640frames; observer_cropindex0; many_to_one_not_bijection",
+      "donor_scope": "correct_record_association_of_nonretained_columns_only; mel_onset_flux_may_carry_rhythm; NOT_all_rhythm_held",
+      "donor_transform": "raw_columns0:86_replaced; raw86:94_retained; then_common_TRAIN_affine_normalization",
+      "logistic": {
+        "C": 1.0,
+        "class_weight": "balanced",
+        "fit_support": "TRAIN_center8_same_observed_labels_and_validity",
+        "input": "same94_at40Hz_accent_mean4_pool10Hz_color",
+        "loss_difference": "sklearn_balanced_L2_not_neural_clamped_posweight_BCE",
+        "max_iter": 1000,
+        "penalty": "l2",
+        "random_state": 0,
+        "solver": "lbfgs"
+      },
+      "preserved_rhythm_columns": [
+        86,
+        87,
+        88,
+        89,
+        90,
+        91,
+        92,
+        93
+      ],
+      "prevalence": "TRAIN_center_eligible_label_mean_constant",
+      "training_Ashuf_donor": "nearest_abs_log_tempo_ratio_fullsource_median_beat_period; samepartition_distinctcanonical; hash_rid_donor_tie; many_to_one"
+    },
+    "candidates": {
+      "constant_and_segment_endpoints": "no_candidates",
+      "local_max": "interior_plateau_strictly_above_both_neighbors_earliest_plateau_time",
+      "nms_order": "global_after_valid_segment_localmax; descending_confidence_then_earlier_time",
+      "nms_s": 0.2,
+      "quota": null,
+      "scope": "full64s_valid_support_peak_extraction_then_identical_center8_clip"
+    },
+    "checkpoint_reporting": "separate_complete15_cell_indices_for_selected_primary_and_final_companion",
+    "cohort": {
+      "capture_exclusions": "pre_fit_hashed_source_only_receipts; immutable31_enrolled; all15_cells_for_exact_usable_subset; no_missing_record_imputation",
+      "enrolled": 31,
+      "event_bearing_min_per_head": 10,
+      "original": 40,
+      "original80percentgate": "FAILED_NOT_WAIVED",
+      "original_fraction": 0.775,
+      "qualified_center_coverage_min": 0.8,
+      "qualified_min": 30
+    },
+    "deployment": {
+      "audio_novelty": "TRAIN_center_eligible_q95",
+      "audio_onset": "TRAIN_center_eligible_q95",
+      "donor": 0.5,
+      "logistic": 0.5,
+      "model": 0.5,
+      "prevalence": "TRAIN_prevalence"
+    },
+    "fit_exposure": {
+      "audio_normalizer": "FULL_SOURCE_94feature_buses_of_final_usable_TRAIN_records_only; not_DEV; not_64s_only",
+      "feature_generation": "bus_globalbeatgrid_BeatThis_OFFLINE_FULL_SOURCE_for_all_inputs_controls; NOT64s_rawaudio_or_causal_claim",
+      "legacy_V6_local": "cached_z[y]_value_columns3/4_already_full_active_record_mean_std_normalized_before_crop_then_TRAIN_global_auxnorm",
+      "supervised_labels": "center8_of_selected_TRAIN64s_only_for_neural_and_logistic; no_DEVfit",
+      "visual_transforms": "selected_TRAIN64s_windows_only: q95_thresholds_posweights_palette_vocab_and_Rich/V6_global_auxnorms; palette_sampling_as_frozen_transforms"
+    },
+    "generated_history": {
+      "clip_start_display_initialization_is_event": false,
+      "cue_input": "own_color_probability_only",
+      "cue_nms_s": 0.5,
+      "cue_threshold": 0.5,
+      "initial_state": "null_at_clip_start",
+      "mark_choice": "own_argmax",
+      "teacher_history": false
+    },
+    "model_input": "one_exact64s_normalized94_window; fullsource_offline_feature_provenance",
+    "palette": "separate_exploratory_phase_fixed_common_cues_seeds101_102_103_104_inverseCDF",
+    "prediction_clock": "absolute_requested_audio_grid",
+    "prediction_precision": "FP32_autocast_disabled_TF32_disabled",
+    "protocol_id": "observer-proxy-20260922-v1",
+    "reference": {
+      "accent": "one_native10Hz_point_not_four_repeated_training_bins",
+      "nms_s": 0.5,
+      "pre_post_s": 0.3,
+      "train_quantile": 0.95
+    },
+    "reference_clock": "actual_source_PTS",
+    "schema_version": 1,
+    "scope": "selected_historicalDEV_center8_frozen_authored_video_OBSERVER_proxy; unknown_cuts_INCLUDED; not_LIGHTtruth_finebeataccuracy_or_generalization",
+    "score_interval_relative_s": [
+      28.0,
+      36.0
+    ],
+    "selection_scope": "selected_on_same_historicalDEV_commonmainloss; conditional_development_estimates_not_unbiased_or_fresh_generalization",
+    "shift_schema": {
+      "allowed_integer_offsets": "positive_j/native_rate < actual_segment_duration; min(offset,duration-offset) > .4",
+      "count": 20,
+      "distinct_offsets_required": true,
+      "event_bearing_groups_per_head_minimum": 10,
+      "minimum_fraction_of_primary_eligible_duration": 0.8,
+      "minimum_wrapped_displacement_strict_s": 0.4,
+      "post_shift_NMS": false,
+      "qualified_groups_minimum": 30,
+      "segment": "each_contiguous_eligible_requested_grid_segment_in_center8",
+      "selection": "allowed[floor(linspace(0,len(allowed)-1,20))]",
+      "too_short": "exclude_only_from_shift_paired_null; real_rescored_on_identical_shift_support",
+      "transform": "fixed_postNMS_candidate_event_time modulo_actual_segment_duration; preserve_confidences_counts",
+      "wrap_limitation": "report_wrapped_candidates_and_close_pairs; no_independent_replicate_claim"
+    },
+    "statistics": {
+      "bootstrap_seed": 0,
+      "canonical_song_bootstraps": 10000,
+      "contrasts": {
+        "S-I": [
+          "S_VR_P0",
+          "I_VR_P0"
+        ],
+        "V6-none": [
+          "S_V6_P0",
+          "S_none_P0"
+        ],
+        "VR-V6": [
+          "S_VR_P0",
+          "S_V6_P0"
+        ],
+        "real-Ashuf": [
+          "S_VR_P0",
+          "S_VR_P0_Ashuf"
+        ]
+      },
+      "heads": [
+        "accent",
+        "color"
+      ],
+      "multiplicity": "Holm8_p_values_only_CI_unadjusted",
+      "observer_effect_gate": {
+        "Holm8_p_strictly_below": 0.05,
+        "accent_AP_gain_minimum": -0.01,
+        "color_AP_gain_minimum": 0.01,
+        "numerical_gain_alone_is_success": false,
+        "paired95_CI_lower_strictly_positive": true,
+        "prerequisites": "support_null_complete_controls_and15_cells; otherwise_undefined_not_zero",
+        "registered_hypothesis": "h-layers-20260922-observer-proxy"
+      },
+      "primary": "VR-V6_color_AP_gain_at_least_.01",
+      "seeds": [
+        0,
+        1,
+        2
+      ]
+    },
+    "visual_tolerance_s": 0.2
+  },
+  "definition_sha256": "1ea214e938962f6dabec542ffbe4e6924de1f308654e55c01ced2fcdf631fbc8",
+  "implementation_files": {
+    "/root/lightsem/lightsem/experiments/light_layers/evaluation.py": "401825add5d89f9920e2c946e36b2cdf85e07f625ab3230c5a3844655fcca004",
+    "/root/lightsem/lightsem/experiments/light_layers/metrics.py": "2df0707522bf2be0289164deeaf1cd4e8fdfe8f2bc20838ac0e331cceaaf77c3",
+    "/root/lightsem/lightsem/experiments/light_layers/model.py": "aa1d63f0cbf5cf270c3c7d676edf3eaf3debeb394220123493a400aa60835529",
+    "/root/lightsem/lightsem/experiments/light_layers/palette_metrics.py": "80b1301d8ece0c75d8d5b0521c5b9299581dc8ec80eddfbeccade11f10939d07",
+    "/root/lightsem/lightsem/experiments/light_layers/targets.py": "4f1e980ed9f62e2ae2a6d53e426cd44c0ed2381835bf4b1382a7fba1e566d6d1",
+    "/root/lightsem/lightsem/experiments/light_layers/training.py": "31e58e8c7a10cd80f0d3b5be0e87796e35548f2c2d03705856a0cafa1811802b",
+    "/root/lightsem/lightsem/model/light_trunk.py": "b515dcb960259f39f21a8d565b621364aafe0a87d3a6028f5a476659f662cf84",
+    "/root/lightsem/run_light_layers_evaluate.py": "c29d17850d03c478cba7d8fe27a18847e500c5264d6e623c7691b885d7e368ca"
+  },
+  "implementation_sha256": "d7c5b437644cab753c35c3850be9523b6ff15dfff74727b9eec9ca5023449090"
+}

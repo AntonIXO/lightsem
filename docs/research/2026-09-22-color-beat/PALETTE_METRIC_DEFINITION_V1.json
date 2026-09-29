@@ -1,0 +1,20 @@
+{
+  "source_path": "/root/lightsem/lightsem/experiments/light_layers/palette_metrics.py",
+  "source_sha256": "80b1301d8ece0c75d8d5b0521c5b9299581dc8ec80eddfbeccade11f10939d07",
+  "tests_path": "/root/lightsem/tests/test_light_layers_palette_metrics.py",
+  "tests_sha256": "794a3015a3a152687fc55d949fe388cf569cb2007a8bb1b6cdfd989b857c13e2",
+  "unit_tests": 21,
+  "status": "Synthetic qualification only; no real-data palette diagnostic scored",
+  "timing": "Exact definition frozen after engineering training smokes, before any scientific palette scoring or full fit",
+  "joint_hs": "36fixedprojections of (S*cos2piH,S*sin2piH), weighted1DW1 /2",
+  "temporal_components": [
+    "log1p observed residence duration (censored segment bounds reported)",
+    "prototype HS distance on observed differing cue tokens (zero atom when no changes, flagged)",
+    "single mean adjacent raw-HS drift/sec within cue intervals",
+    "raw-HS distance at fixed8s lag; excludes pairs crossing invalid support"
+  ],
+  "calibration": "TRAIN canonical-song/record/sample equal weighted inverseCDF IQR; noepsilon; missing/degenerate any component makes totalundefined",
+  "marginal": "durationweightedmean jointHS slicedW1 dividedby TRAIN song-equal IQR ofTRAINmarginal distancesfromTRAINmean",
+  "controls": "Commoncueinventory/vocabulary/validity; self-floor/quantization/constant/independent-held/shuffleddonor plusseparatediversity controls; no aesthetic/DMXtruth claim",
+  "missing": "Common externalvalidity; no joiningresidences/gaps, lagpairs crossingANYinvalid excluded, observedcoverage+censoring reported"
+}

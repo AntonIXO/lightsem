@@ -1,0 +1,126 @@
+{
+  "schema_version": 1,
+  "created_utc": "2026-09-28T19:19:56.926927+00:00",
+  "scope": "Text/document version history only. No scientific artifact, payload, vault, source implementation or model was modified by this restoration.",
+  "chronology": [
+    {
+      "action": "first_V1_metadata_rewrite",
+      "call_record_id": "f615a1ca",
+      "timestamp_utc": "2026-09-28T19:12:58.880Z",
+      "transcript_path": "/root/.prime/agent/session-artifacts/01a0c86b-2ef5-735b-821a-225958ef165e/sub-b165acdc/01a0e947-9e6b-7218-b644-ce0afce383ed.jsonl"
+    },
+    {
+      "action": "first_V2_copies_and_legacy_candidate_restore",
+      "call_record_id": "0ef24efd",
+      "timestamp_utc": "2026-09-28T19:15:13.470Z",
+      "transcript_path": "/root/.prime/agent/session-artifacts/01a0c86b-2ef5-735b-821a-225958ef165e/sub-b165acdc/01a0e947-9e6b-7218-b644-ce0afce383ed.jsonl"
+    },
+    {
+      "action": "main_V1_restore",
+      "call_record_id": "b6da87d7",
+      "timestamp_utc": "2026-09-28T19:16:46.995Z",
+      "transcript_path": "/root/.prime/agent/session-artifacts/01a0c86b-2ef5-735b-821a-225958ef165e/sub-b165acdc/01a0e947-9e6b-7218-b644-ce0afce383ed.jsonl"
+    },
+    {
+      "action": "frozen_V1_restore",
+      "call_record_id": "6fb37317",
+      "timestamp_utc": "2026-09-28T19:17:19.735Z",
+      "transcript_path": "/root/.prime/agent/session-artifacts/01a0c86b-2ef5-735b-821a-225958ef165e/sub-b165acdc/01a0e947-9e6b-7218-b644-ce0afce383ed.jsonl"
+    },
+    {
+      "action": "V2_reference_and_revision_update",
+      "call_record_id": "57f3b903",
+      "timestamp_utc": "2026-09-28T19:18:16.250Z",
+      "transcript_path": "/root/.prime/agent/session-artifacts/01a0c86b-2ef5-735b-821a-225958ef165e/sub-b165acdc/01a0e947-9e6b-7218-b644-ce0afce383ed.jsonl"
+    }
+  ],
+  "disclosure": "The initial metadata correction modified V1 files before the root preservation instruction arrived. Corrected content was first copied to V2 before restoring V1. Later V2 routing/revision text was added. This addendum preserves the exact first-rewritten contents separately in exclusive snapshots from retained objects/strings. All V1 restorations match their previously published SHA256; no approximate reconstruction is claimed.",
+  "affected_paths": [
+    {
+      "affected_path": "/root/lightsem/docs/research/2026-09-28-end-to-end/LEGACY_REMAINDER_READINESS_V1.json",
+      "previously_published_original_sha256": "715e4240693e3ec68ce1ae33168ce98d621213f8c643f85af28457c21835c666",
+      "first_rewritten_sha256": "b4b41f9b2c165b5047faf65913bb8af4f262cdc5849f8d681b5d724a4d0d471a",
+      "exclusive_rewritten_snapshot_path": "/root/lightsem/docs/research/2026-09-28-end-to-end/LEGACY_REMAINDER_READINESS_V1_REWRITTEN_SNAPSHOT_20260928.json",
+      "snapshot_sha256": "b4b41f9b2c165b5047faf65913bb8af4f262cdc5849f8d681b5d724a4d0d471a",
+      "restored_sha256": "715e4240693e3ec68ce1ae33168ce98d621213f8c643f85af28457c21835c666",
+      "restoration_verified_byte_exact_by_published_sha256": true,
+      "corrected_V2_path": "/root/lightsem/docs/research/2026-09-28-end-to-end/LEGACY_REMAINDER_READINESS_V2.json",
+      "corrected_V2_current_sha256": "bd64840ef55b8acb6041a75097b0eb62208c4b4a8fac13927f38fd588c94c1e5"
+    },
+    {
+      "affected_path": "/root/lightsem/docs/research/2026-09-28-end-to-end/LEGACY_REMAINDER_READINESS_V1.md",
+      "previously_published_original_sha256": "9af79aa6ef0b8f7731eb53f2b2167a2d789ae5de8218bdae5b62d362c7245bab",
+      "first_rewritten_sha256": "29a50c94e46985bd566c1f40b9a35a9bf6e608a016ba5015dfd1c8b6aebb706a",
+      "exclusive_rewritten_snapshot_path": "/root/lightsem/docs/research/2026-09-28-end-to-end/LEGACY_REMAINDER_READINESS_V1_REWRITTEN_SNAPSHOT_20260928.md",
+      "snapshot_sha256": "29a50c94e46985bd566c1f40b9a35a9bf6e608a016ba5015dfd1c8b6aebb706a",
+      "restored_sha256": "9af79aa6ef0b8f7731eb53f2b2167a2d789ae5de8218bdae5b62d362c7245bab",
+      "restoration_verified_byte_exact_by_published_sha256": true,
+      "corrected_V2_path": "/root/lightsem/docs/research/2026-09-28-end-to-end/LEGACY_REMAINDER_READINESS_V2.md",
+      "corrected_V2_current_sha256": "29a50c94e46985bd566c1f40b9a35a9bf6e608a016ba5015dfd1c8b6aebb706a"
+    },
+    {
+      "affected_path": "/root/lightsem/docs/research/2026-09-28-end-to-end/NEW_EVALUATION_READINESS_V1.json",
+      "previously_published_original_sha256": "82560dc98d438eb9e58df75aba1bad685a89ef922b38e5222412a95c0d188272",
+      "first_rewritten_sha256": "7fb3c8fed8827d8df6e8222832ddc5161c21c814943ecf20bdb8241a6cd7ba1a",
+      "exclusive_rewritten_snapshot_path": "/root/lightsem/docs/research/2026-09-28-end-to-end/NEW_EVALUATION_READINESS_V1_REWRITTEN_SNAPSHOT_20260928.json",
+      "snapshot_sha256": "7fb3c8fed8827d8df6e8222832ddc5161c21c814943ecf20bdb8241a6cd7ba1a",
+      "restored_sha256": "82560dc98d438eb9e58df75aba1bad685a89ef922b38e5222412a95c0d188272",
+      "restoration_verified_byte_exact_by_published_sha256": true,
+      "corrected_V2_path": "/root/lightsem/docs/research/2026-09-28-end-to-end/NEW_EVALUATION_READINESS_V2.json",
+      "corrected_V2_current_sha256": "c8452b8032592c679fbafb69435b84f2a1d762f9ef3ed2e007a0c3282bc206e5"
+    },
+    {
+      "affected_path": "/root/lightsem/docs/research/2026-09-28-end-to-end/NEW_EVALUATION_READINESS_V1.md",
+      "previously_published_original_sha256": "e10a5ef26ca28798f9544e2c7fb8c13ee0e4ac9d87ac9e3bc3080303830ff65f",
+      "first_rewritten_sha256": "e8b75b0b24d0b915502b9700c9dbe21887293f828f95a123824cccfcc8ad5f3d",
+      "exclusive_rewritten_snapshot_path": "/root/lightsem/docs/research/2026-09-28-end-to-end/NEW_EVALUATION_READINESS_V1_REWRITTEN_SNAPSHOT_20260928.md",
+      "snapshot_sha256": "e8b75b0b24d0b915502b9700c9dbe21887293f828f95a123824cccfcc8ad5f3d",
+      "restored_sha256": "e10a5ef26ca28798f9544e2c7fb8c13ee0e4ac9d87ac9e3bc3080303830ff65f",
+      "restoration_verified_byte_exact_by_published_sha256": true,
+      "corrected_V2_path": "/root/lightsem/docs/research/2026-09-28-end-to-end/NEW_EVALUATION_READINESS_V2.md",
+      "corrected_V2_current_sha256": "2df19816d58ac68c61e1805d4bbc7e849c1bbaa650f36d168066338d18522c3b"
+    },
+    {
+      "affected_path": "/root/lightsem/docs/research/2026-09-28-end-to-end/NEW_FROZEN_LEGACY_EVAL_NOTES_V1.json",
+      "previously_published_original_sha256": "5ab17db74c436b076509f2b2bc418cbeabdd047a3c8eef191d84414083f6e3e0",
+      "first_rewritten_sha256": "2fc42f0ef9181f1d493744997575658b96ea101e60fa460c959aafc7c8d64ce1",
+      "exclusive_rewritten_snapshot_path": "/root/lightsem/docs/research/2026-09-28-end-to-end/NEW_FROZEN_LEGACY_EVAL_NOTES_V1_REWRITTEN_SNAPSHOT_20260928.json",
+      "snapshot_sha256": "2fc42f0ef9181f1d493744997575658b96ea101e60fa460c959aafc7c8d64ce1",
+      "restored_sha256": "5ab17db74c436b076509f2b2bc418cbeabdd047a3c8eef191d84414083f6e3e0",
+      "restoration_verified_byte_exact_by_published_sha256": true,
+      "corrected_V2_path": "/root/lightsem/docs/research/2026-09-28-end-to-end/NEW_FROZEN_LEGACY_EVAL_NOTES_V2.json",
+      "corrected_V2_current_sha256": "ee37d5fce603f8bccc5ae9bc064121ef3a01455f7a7498f4b64ca3f861ef7750"
+    },
+    {
+      "affected_path": "/root/lightsem/docs/research/2026-09-28-end-to-end/PROSPECTIVE_STRUCT_INTENSITY_PROTOCOL_CANDIDATE_V1.json",
+      "previously_published_original_sha256": "aede9e52f7b934b510627189c5235e410e85a83fa4db4f9d29f802133de5c095",
+      "first_rewritten_sha256": "839778634d14988d713d22961cab7ba6ae6f293dcd8e507177ee619a1d78a33b",
+      "exclusive_rewritten_snapshot_path": "/root/lightsem/docs/research/2026-09-28-end-to-end/PROSPECTIVE_STRUCT_INTENSITY_PROTOCOL_CANDIDATE_V1_REWRITTEN_SNAPSHOT_20260928.json",
+      "snapshot_sha256": "839778634d14988d713d22961cab7ba6ae6f293dcd8e507177ee619a1d78a33b",
+      "restored_sha256": "aede9e52f7b934b510627189c5235e410e85a83fa4db4f9d29f802133de5c095",
+      "restoration_verified_byte_exact_by_published_sha256": true,
+      "corrected_V2_path": "/root/lightsem/docs/research/2026-09-28-end-to-end/PROSPECTIVE_STRUCT_INTENSITY_PROTOCOL_CANDIDATE_V2.json",
+      "corrected_V2_current_sha256": "87f012698e5dbbc837d2459d45fbd771f4eeca5af2e346596ff64bce8a378e08"
+    },
+    {
+      "affected_path": "/root/lightsem/docs/research/2026-09-28-end-to-end/PROSPECTIVE_STRUCT_INTENSITY_PROTOCOL_CANDIDATE_V1.md",
+      "previously_published_original_sha256": "3902961ba52f202423272c8a2ffd84eabe28ba402952cbe611e9c9c17a78f356",
+      "first_rewritten_sha256": "2950034f849352108537da7eeeda5c50b8a6a5d69b0e47e8e1ec420e29d82e06",
+      "exclusive_rewritten_snapshot_path": "/root/lightsem/docs/research/2026-09-28-end-to-end/PROSPECTIVE_STRUCT_INTENSITY_PROTOCOL_CANDIDATE_V1_REWRITTEN_SNAPSHOT_20260928.md",
+      "snapshot_sha256": "2950034f849352108537da7eeeda5c50b8a6a5d69b0e47e8e1ec420e29d82e06",
+      "restored_sha256": "3902961ba52f202423272c8a2ffd84eabe28ba402952cbe611e9c9c17a78f356",
+      "restoration_verified_byte_exact_by_published_sha256": true,
+      "corrected_V2_path": "/root/lightsem/docs/research/2026-09-28-end-to-end/PROSPECTIVE_STRUCT_INTENSITY_PROTOCOL_CANDIDATE_V2.md",
+      "corrected_V2_current_sha256": "91e15416064aaa2b00b760c209d4f6ff3840ebeb867f65effe1e3e42a8db38f1"
+    }
+  ],
+  "frozen_notes_additional_lineage": {
+    "original_first_draft_sha256": "95ec297353b662259cad925b277a1bc77495124324a4b71b2a253bf4d92f5000",
+    "delivered_V1_restored_sha256": "5ab17db74c436b076509f2b2bc418cbeabdd047a3c8eef191d84414083f6e3e0",
+    "child_later_protocol_addendum_sha256_before_local_rewrite": "1438e4d05b91c72057e2e0a2560d51902f1d757975a335f03806cedce7c261f8",
+    "note": "Restored is the original delivered V1 cited by main readiness report. Later budget/exposure changes are retained in V2/snapshot, not silently presented as original."
+  },
+  "candidate_V1_restored_revision": "Latest child-published V1 before this agent correction: JSONaede9e52..., MD3902961b...; original includes child exposure chronology and runtime bounds. Qualified-gate/additional root-notification correction is in V2.",
+  "status": "Proposal only. Root review of disclosure and eligibility pending. No implementation/execution/TEST evaluation. Future worker identity lookups use only approved identity-only table.",
+  "identity_table_unchanged_sha256": "54c12ef64517451c1744c824051ccce7a4d2da46adde9d0742ae52c192672c28"
+}

@@ -1,0 +1,46 @@
+{
+  "diagnostics": {
+    "experiment_id": "exp-layers-20260922-palette-secondary",
+    "measurements": [
+      {
+        "diagnostic_id": "layers-palette-temporal-error",
+        "before": 0.8305894727985342,
+        "after": 0.8590224721821798
+      }
+    ]
+  },
+  "gates": {
+    "experiment_id": "exp-layers-20260922-palette-secondary",
+    "results": [
+      {
+        "gate_id": "prerun-provenance",
+        "passed": false,
+        "evidence": "Original definition succeeded prospectively; V1 source/test and calibration were locally frozen but vault updates were rejected before101outputs. Retrospective correction does NOT repair vault-order/execution compliance. Tested continuation source and combined186hash did get successful native bindings before85outputs and scoring. Official deviation df755a9bc9746e74f4270721f36df197dad1142793af70bf68346be241c56205."
+      },
+      {
+        "gate_id": "valid-common-instrument",
+        "passed": false,
+        "evidence": "Original gate NOT met:31/40=.775<.80 sourcecoverage and observer-not-independent-LIGHT labels. Secondary support itself passes30/31 canonicalgroups; one record haszero complete8slagpairs despite92.656% validframes, and staysundefined. Existing eventnull29/30 remains failed but isnot palette prerequisite. Synthetic and independent saved-support/arithmetic checks passed; they do not validate label truth."
+      },
+      {
+        "gate_id": "paired-complete",
+        "passed": false,
+        "evidence": "Original comparator gate NOT complete: original shuffled-palette control absent; limitedtempo-donor doesnotreplace it. Secondary inventory is complete186cells/744rows,3seeds,4draws,4arms, two separate checkpointroles and two explicitproducers. Paired canonical-song statistics/Holm2 used; no role/seed selection."
+      },
+      {
+        "gate_id": "scope-and-output",
+        "passed": true,
+        "evidence": "Audio-only model inputs; no newtraining/TEST access/default promotion. Demo retained allprotectedDMX slots/pan/tilt exactly. Scope is historicalDEV full64 observerHS distributions, not LIGHTtruth/aesthetic/unseenconfirmation or argmax-demo improvement."
+      },
+      {
+        "gate_id": "palette-magnitude",
+        "passed": false,
+        "evidence": "Primaryselected own0.859022 vs independentnull0.830589:3.42%worse. null-minus-own=-.028433, family97.5%CI[-.039850,-.016604], Holm.00019998; donor-minus-own=-.008302,CI[-.016023,-.000323],Holm.019298. Both directions oppose benefit. Final own.750180 vsnull.755757 gain.005577/.738%, uncertain andbelow .02/15% criteria. Persistence1.119751selected/.903743final isnot the primarycomparator. Original qualificationNone; no sign-only autoclosure."
+      }
+    ]
+  },
+  "update": {
+    "id": "dancing-light-generative-20260903",
+    "add_update": "2026-09-26 \u2014 FINAL RECORDING of palette-history secondary scored2026-09-22; experiment exp-layers-20260922-palette-secondary COMPUTATION COMPLETE. Independent read-only audit finished today. Rawreport /mnt/lightsem-data/experiments/lightsem/palette-history-secondary-20260922-v1/palette_secondary_report_v1.json SHA256 d25c8edbf229869fd8b3b8a7e0428bba09326703216d5583c1554efafc0336f6. Finalsummary /root/lightsem/docs/research/2026-09-22-color-beat/PALETTE_SECONDARY_RESULTS_SUMMARY_V1.json SHA256 f9f3a26d7aa10b15f2e0ae8ac2c4a9517efad4ccb604753fd52853e0d67bfa97; reportMD /root/lightsem/docs/research/2026-09-22-color-beat/PALETTE_SECONDARY_RESULTS_V1.md SHA256 50314bef1ef1c26ff4eb3c762df078dfab759f17d9af6f5b805f8a3df44aa89a; audit /root/lightsem/outputs/shpongle_layers_demo_20260922T161917Z/palette_secondary_v1/PALETTE_SECONDARY_INDEPENDENT_AUDIT_V1.json SHA256 52e6212ef2b90867eb1156e4a22ceb61c49c014bc77072f4db5a90de008f9cd6. NEGATIVE primary observer result: selected own-history temporalerror.859022 vsnull.830589 (3.42%worse), donor.850720, persistence1.119751; null-minus-own97.5%CI[-.039850,-.016604], donor-minus-own[-.016023,-.000323]. Finalcompanion own.750180 vsnull.755757 (0.738%gain,CI includes0), donor.754158,persistence.903743; both roles fail benefitconjunction. All186cells/744rows done,101unchanged+85new; no newfits. Secondary common30/31groups; AP17event-bearinggroups, false-cue-rate30groups. Selected ownoccupancy18.864 vsnull16.931 vsreference4.833: lower-only collapseguard passing isnot realisticdiversity. Shared intercue drift error isstructural,notbenefit. Self0 andquantization floors(.465517selected/.538344final) notsubtracted. Secondary diversity/marginal/emittedtiming guards pass; this isnot a full original palette-no-collapse/head-AP qualification, so no original gate value is fabricated for that partialinstrument. Original31/40sourcefailure, missingoriginalshuffledpalette control, historicalDEV/observernuisances and V1 retrospectivevault-order deviation remain. No broadrefutation/LIGHTquality claim, no model/default promotion; deliveredargmaxdemo unchanged. Experiment remains ADMINISTRATIVELY open only because sign-only autoclosure couldmislabelunqualifiedevidence; do not reruncompletedwork. Beatcomparison stillblocked:0verifiedexactlocalexpert-referencepairs vs>=20needed; masktruth unavailable; pose/R1unrun. Noadditional scientific execution started during finalization."
+  }
+}

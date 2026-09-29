@@ -1,0 +1,8 @@
+{
+  "experiment_id": "exp-001-light-derived-from-real-dance-39fd73",
+  "verdict": "refutes",
+  "failure_mode": "recipe_conditional",
+  "lesson": "2026-09-28 retrospective claim-scope clarification, not a new measurement: On the evaluated AIST++ clips, this fixed motion-only conductor did not establish beat-phase alignment above its circular-shift null (+0.0082, CI [-0.0101,+0.0259]). The audio-phased hybrid scored +0.1242 versus +0.0942 for the beat trigger under the same metric. This supports that hybrid timing choice for this recipe; it does not show that choreography phase is absent from audio or unlearnable. Keep the disclosed metronome-gate and FID-null limitations; no aesthetic claim or rerun follows.",
+  "transfers_to": [],
+  "hint": "recipe_conditional: when the recipe changes, reopen_hypothesis('light-derived-from-real-dance-motion-by-a-fixed-a3ac3d', reason=...) makes the negative re-testable instead of terminal"
+}

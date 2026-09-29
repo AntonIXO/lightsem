@@ -1,0 +1,30 @@
+{
+  "status": "disclosed_native_schema_default_additions",
+  "supersedes_incomplete_report": {
+    "path": "/root/lightsem/docs/research/2026-09-28-end-to-end/CLAIM_SCOPE_METADATA_NORMALIZATION_V1.json",
+    "sha256": "a55fea403657afe0cc3326c7b77a6a397cea2cd357defd19bfe1eb919aa05d0a",
+    "bytes": 1322
+  },
+  "experiment_id": "audio-predicts-lighting-events-when-the-scene-changes-even-though-it-does-not-pr-exp-2026-08-07t13-50-58",
+  "added_defaults": {
+    "cost": null,
+    "do_not_retry": [],
+    "former_ids": [],
+    "key_numbers": {},
+    "recipe_fingerprint": {}
+  },
+  "correction": "V1 listed4 defaults by value comparison. Key-presence review identified a fifth inserted field: previously absent cost now explicit null. V1 retained, not erased.",
+  "strict_all_noninterpretation_metadata_equality": "FAILED by five native schema additions on one legacy record",
+  "all_preexisting_noninterpretation_fields_unchanged": true,
+  "all_body_except_interpretation_unchanged": true,
+  "all_hypothesis_files_unchanged": true,
+  "scientific_values_verdicts_gates_notes_predictions_changed": false,
+  "reason": "Current native serializer adds empty/default fields while recording interpretation. This is not a manual record edit, scientific-result change or tolerance expansion.",
+  "before_sha256": "2ee2817382bca3257aa60af0a8b681148ca41cb70b811d158dbf9c56851fb22d",
+  "after_sha256": "797f2f413b00c2e23be59e5beedc04d0e3c50abf1d77397fa2692965e01151c5",
+  "definition": {
+    "path": "/root/lightsem/docs/research/2026-09-28-end-to-end/CLAIM_SCOPE_NATIVE_REPAIR_DEFINITION_V1.json",
+    "sha256": "53788029112ac1d7f988f3f88b64cbbe4a958f81764c52170092e6d72eacc72c",
+    "bytes": 108506
+  }
+}

@@ -1,0 +1,66 @@
+{
+  "id": "lightsem-all-hypotheses-execution-plan-20260928-v1",
+  "goal_id": "25e0b629-2cad-4b34-847b-47c7bba587b8",
+  "scope": "All71; reviewed57 formally closed and14 formally open. Closed labels do not prove every component measured; blocked components are not completion.",
+  "frontier": {
+    "path": "/root/lightsem/docs/research/2026-09-28-end-to-end/FRONTIER_REVIEW_V1.json",
+    "sha256": "4857b0e7cf5136cfb42ce6af7c085b632933dfbb746322e7fcd54a77e46c923d"
+  },
+  "implementation_readiness": {
+    "path": "/root/lightsem/docs/research/2026-09-28-end-to-end/IMPLEMENTATION_READINESS_V1.json",
+    "sha256": "ad3211f42fe51aa09052536d879739c8e87f0e70c2b789b751fa385654678d64"
+  },
+  "interpretation_repairs": {
+    "path": "/root/lightsem/docs/research/2026-09-28-end-to-end/INTERPRETATION_REPAIR_INTEGRITY_V1.json",
+    "sha256": "040639bea99ff8d8631b19d5e75c3c88041b8559a713785dd607f948b90fbbee"
+  },
+  "stages": [
+    {
+      "id": "record_reconciliation",
+      "state": "two legacy closed-record interpretations corrected; other completed-open scopes to link",
+      "rule": "No forced or sign-only closure; no fake diagnostics; old numeric/verdict fields immutable"
+    },
+    {
+      "id": "legacy_saved_components",
+      "state": "read-only inventory running",
+      "scope": "CI/per-section/per-corpus/hue/Oslo-L0/local-label prerequisites only; no inference or newmetrics yet"
+    },
+    {
+      "id": "remaining_original_recipe_demos",
+      "state": "readiness review requested; NOT execution-authorized by this draft",
+      "scope": "Four other existing selected seed0 checkpoints in fixedoriginal order, nofits: S_none_P0, S_V6_P0, I_VR_P0, S_VR_P0_Ashuf. Existing RichS_VR video reused unchanged; no metricwinner selection.",
+      "candidate_resource_reservation": {
+        "derived_bytes": 33554432,
+        "charged_against": "remainingoriginalcampaignheadroom; no capreset",
+        "media_bytes": 1610612736,
+        "media_filesystem": "root",
+        "free_floor_each_bytes": 1073741824
+      },
+      "condition": "exactsource/input/tests/budget and successfulnativebinding before modelcalls; unchanged thresholds/adapters and469protectedslots; full277.3s1080pAV1+audio for each integratedvariant evenworse"
+    },
+    {
+      "id": "qualification_materials",
+      "state": "needed; independent labels/ratings notavailable",
+      "scope": "existingnon-TEST-only provenance/pose-validity schema, mask/cut/beat/repeat/human-label materials; synthetic checks are engineering only"
+    },
+    {
+      "id": "new_scientific_fits",
+      "state": "blocked",
+      "scope": "Pose/R1 and other truly unfinished tests only after independentdata/scope/evaluator/budget gates pass; no repeat of completeevent/palette studies"
+    },
+    {
+      "id": "scientific_completion",
+      "state": "notachieved",
+      "scope": "Audit and record actual outcome of each requiredtest, including negatives; human/data/resource blocks remain unfinished. No defaultpromotion withoutacceptance."
+    }
+  ],
+  "permissions_and_external_inputs_needed": {
+    "scientific_storage_proposal_not_authorized": "Bounded additional0.5GiB prospective allowance: originalcampaigncap0.95GiB ->1.45GiB, after exact newdata/prediction estimates. Need at least0.5GiB more usable capacity on/mnt; do not delete or relocate evidence without permission.",
+    "fit_cap_proposal_not_authorized": "Original27 -> up to36 totalfullfits if complete15fitposefamily plusR1 and separatelymatchedR1-P0 require21newfits. Existing15 count. Separate trained shuffledR1, ifchosenlater, would need another budget decision; not currently authorized.",
+    "unchanged_runtime_caps": "oneGPUjob,60min/fit,36GPUh unlessexplicitlyrevised",
+    "labels": "Independent masks/cuts/posevalidity, >=20 exact beat-reference pairs and overlapclearance, repeated-section identity qualification; cannot turn sameextractoroutputs into truth.",
+    "humans": "Actual blinded human responses for unresolved paired music/style/structure questions and200\u2013400rating H-L experiment; neither agent ratings nor metrics replace them.",
+    "rights": "No newdata downloads/access/payment assumptions; request sources/permissions when needed."
+  },
+  "as_of": "2026-09-28; no new scientific model run or emitted-LIGHT change yet"
+}

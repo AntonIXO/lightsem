@@ -1,0 +1,70 @@
+{
+  "status": "FATAL_PREPARATION_FAILURE_NO_READINESS_OR_SCIENTIFIC_RESULT",
+  "execution_binding": {
+    "path": "/root/lightsem/outputs/legacy_struct_intensity_20260928_v1/PREPARATION_EXECUTION_BINDING_V5.json",
+    "size_bytes": 2494,
+    "sha256": "c16bb603ed07b32e6afa2a919ebdd34d411acbe24f035805569e34d51cb1a7ba"
+  },
+  "authorization": {
+    "path": "/root/lightsem/outputs/legacy_struct_intensity_20260928_v1/PARENT_BOUND_PREPARATION_AUTHORIZATION_V5.json",
+    "size_bytes": 84851,
+    "sha256": "7cf01bc0c3fab1bae4e57b1f6e23e229c8e1827282165ec895cbe0e8665959c2"
+  },
+  "native_scope_receipt": {
+    "path": "/root/lightsem/outputs/legacy_struct_intensity_20260928_v1/vault_preparation_scope_v5_receipt.json",
+    "size_bytes": 106458,
+    "sha256": "4976a6921efbb0c34ab040f7350c08c2a7c0e80f18da5e1263d95df3e64ed345"
+  },
+  "native_exact_command_receipt": {
+    "path": "/root/lightsem/outputs/legacy_struct_intensity_20260928_v1/vault_preparation_execution_v5_receipt.json",
+    "size_bytes": 108439,
+    "sha256": "7798670359c42b151b3c64c7f76c6944578c7217081e2610a9dbee60fcdbd486"
+  },
+  "exit_code": 2,
+  "captured_native_stdout_stderr": "Running as unit: lightsem-struct-preparation-v5.service; invocation ID: 2ab05a5e8d7047bbaca09afe2e3201a6\nPREPARATION_STOP: OverflowError: Python integer 255 out of bounds for int8\n          Finished with result: exit-code\nMain processes terminated with: code=exited, status=2/INVALIDARGUMENT\n               Service runtime: 1.167s\n             CPU time consumed: 1.905s\n                   Memory peak: 484.3M (swap: 0B)\n",
+  "wrapper_seconds": 1.1854892200790346,
+  "service_seconds": 1.167552,
+  "peak_RAM_bytes": 507879424,
+  "effective_service_properties": {
+    "Id": "lightsem-struct-preparation-v5.service",
+    "ActiveState": "failed",
+    "SubState": "failed",
+    "DropInPaths": "",
+    "RuntimeMaxUSec": "14min 50s",
+    "Result": "exit-code",
+    "ExecMainStartTimestampMonotonic": "1130391648224",
+    "ExecMainExitTimestampMonotonic": "1130392815776",
+    "ExecMainPID": "1063800",
+    "ExecMainCode": "1",
+    "ExecMainStatus": "2",
+    "ControlGroup": "",
+    "MemoryPeak": "507879424",
+    "MemoryMax": "4294967296",
+    "MemorySwapMax": "0",
+    "PrivateDevices": "yes",
+    "ProtectControlGroups": "yes",
+    "NoNewPrivileges": "yes",
+    "KillMode": "control-group",
+    "KillSignal": "9"
+  },
+  "pre_exec_envelope_proof": {
+    "path": "/root/lightsem/outputs/legacy_struct_intensity_20260928_v1/preparation_resource_envelope_v5.json",
+    "size_bytes": 2628,
+    "sha256": "005c01bdff0a431105dbe5f582051f92229ef1391a88b62a345a5d6936402f3b"
+  },
+  "internal_log": {
+    "path": "/root/lightsem/outputs/legacy_struct_intensity_20260928_v1/preparation_v5.log",
+    "size_bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  "partial_packet_directory": "/mnt/lightsem-data/experiments/lightsem/end_to_end_20260928_v1/legacy_struct_intensity_v5",
+  "readiness_receipt_published": false,
+  "original_stat_inventory_preserved": true,
+  "observed_error": "OverflowError: Python integer255 out of bounds for int8",
+  "diagnosis_scope": "Source candidate: qualify_clip np.where with producer int8 roles and255 missing sentinel. Confirm via producer source and synthetic regression; no eligibility/score conclusion from this failure. No individual checkpoint/clip receipts were published, so do not claim audited successful qualification from control-flow inference. Real authorized payload access began; do not claim zero checkpoint/cache reads.",
+  "model_constructions": 0,
+  "model_forwards": 0,
+  "scientific_scores": 0,
+  "GPU_jobs": 0,
+  "root_disposition": "Stop, preserve allV5 code/auth/log/envelope/empty packet. New source/test correction requires review and separate native execution binding; no automatic retry/resume."
+}

@@ -1,0 +1,34 @@
+{
+  "status": "NARROW_HANDOFF_GOAL_COMPLETE",
+  "source_readiness": {
+    "source_hashes_unchanged": true,
+    "native_test_count": 67,
+    "plain_pass": true,
+    "live_envelope_and_log_bound_verified": true,
+    "runtime_identity_guarantee": false
+  },
+  "repair": {
+    "exact_two_candidate_hashes_match": true,
+    "all20_frontmatter_still_unchanged": true,
+    "protected_existing_lightsem_markdown": 406,
+    "foreign_files_unchanged": 756,
+    "new_native_runbook": "/root/lightsem-vault/runbooks/rb-ls2-lossless-format-readiness-20260929.md"
+  },
+  "approval_constraint": "Superseded by explicit user instruction 2026-09-29; no further memory approval required.",
+  "required_scope_complete": [
+    "runtime-field removal and fixture alignment",
+    "fresh native readiness validation",
+    "exact two-record notes restoration via MCP",
+    "metadata/interpretation/result preservation and full readback"
+  ],
+  "separate_future_work": [
+    "Full40 dual-codec feasibility measurement and its admission",
+    "Generic installed writer preservation fix",
+    "Scientific campaign and GPU admission"
+  ],
+  "evidence": {
+    "/root/lightsem/docs/research/2026-09-28-end-to-end/interpretation_debt_20260928_v1/repair_v1/REPAIR_AUDIT_V1.json": "5bd31affc50d3ec50def991b341c495ee79e0310380798d638d60f20a09d056a",
+    "/root/lightsem/outputs/legacy_struct_intensity_20260928_v1/NATIVE_LOSSLESS_ARCHIVE_TEST_RESULT_V1.json": "16221a6f030f3150a6220b6c230a36df1fe1e945f47f7b1bab4e7e3639eaa698",
+    "/root/lightsem/docs/research/2026-09-28-end-to-end/interpretation_debt_20260928_v1/RECOVERY_AND_READINESS_COMPLETE_20260929.md": "db2474f088dc198962f6a958a182869310867e37ebb040135a49b5ccdf6c71bd"
+  }
+}

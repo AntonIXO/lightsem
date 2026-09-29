@@ -1,0 +1,4 @@
+{
+  "problem_id": "dancing-light-generative-20260903",
+  "add_update": "2026-09-22 \u2014 Palette secondary PREDICTION EXECUTION FAILURE, not a scientific result. /root/lightsem/outputs/shpongle_layers_demo_20260922T161917Z/palette_secondary_v1/PREDICTION_FAILURE_V1.json SHA256 eb387716c4f45f50d88503f0dee34adb3480c854f0e9d4160a66faf1bd465730. TRAIN calibration passed; CPU predict exited1 at donor saved-GPU replay allclose check after101/186 preserved complete NPZ files, with no whole-phase completion receipt. No palette scoring or outcome inspection. Frozen source/config/tolerances remain unchanged. Input/provenance-vs-backend-numerics diagnosis authorized on failed fixture only, including one original-GPU replay if needed; no repeat of completed outputs or tolerance change yet."
+}

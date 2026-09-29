@@ -1,0 +1,8 @@
+{
+  "experiment_id": "exp-dance-physical-objective-20260911",
+  "verdict": "directional_only",
+  "failure_mode": "recipe_conditional",
+  "lesson": "2026-09-28 retrospective interpretation, not a new experiment: In the matched seed0 study, the physical objective reduced generated sliding excess to 0.343127 m/s versus masked_native at 0.881744 m/s, but still failed the absolute 0.20 m/s gate. Correct-versus-donor/shift conditioning failed on the frozen summary-energy-score instrument, and visual qualification failed, with matched incumbent 3D lighting unavailable despite completed scheduled renders and sampled reviews. Other physical, consistency and coverage passes do not establish learned music-driven LIGHT quality or human music-fit acceptance, reverse the blocked qualification/seed1 decision, or refute physical objectives generally.",
+  "transfers_to": [],
+  "hint": "recipe_conditional: when the recipe changes, reopen_hypothesis('h-dance-physical-objective-20260911', reason=...) makes the negative re-testable instead of terminal"
+}

@@ -1,0 +1,132 @@
+{
+  "status": "all_four_inference_and_readback_passed",
+  "model_forward_calls": 4,
+  "new_fits": 0,
+  "inference_exit_code": 0,
+  "main_verify_exit_code": 0,
+  "parent_audit_exit_code": 0,
+  "parent_audit": {
+    "path": "/root/lightsem/outputs/shpongle_model_comparisons_20260928_v1/PARENT_AUDIT_READBACK_V1.json",
+    "sha256": "f076974bb9da105c4e5456b5ef2b2dbc378c8b90d0e49c861657a5256942cc6c",
+    "bytes": 12742
+  },
+  "arms": [
+    {
+      "recipe": "S_none_P0",
+      "counts": {
+        "accent_events": 1,
+        "color_cues": 54
+      },
+      "runtime": {
+        "encoder_forward_calls": 1,
+        "generated_palette_head_rollout": true,
+        "actual_action_logits_authority": true,
+        "all_state_head_calls": 1,
+        "full_T_palette_head_recomputation": false,
+        "no_argmax_tolerance_expansion": true,
+        "elapsed_forward_and_rollout_s": 0.17919435095973313,
+        "peak_allocated_bytes": 135405568,
+        "torch": "2.14.0+cu130",
+        "numpy": "2.5.2",
+        "device": "NVIDIA GeForce RTX 5070",
+        "float32": true,
+        "autocast": false,
+        "TF32": false,
+        "model_eval": true,
+        "chunking": false,
+        "training": false,
+        "visual_or_pose_input": false
+      }
+    },
+    {
+      "recipe": "S_V6_P0",
+      "counts": {
+        "accent_events": 1,
+        "color_cues": 49
+      },
+      "runtime": {
+        "encoder_forward_calls": 1,
+        "generated_palette_head_rollout": true,
+        "actual_action_logits_authority": true,
+        "all_state_head_calls": 1,
+        "full_T_palette_head_recomputation": false,
+        "no_argmax_tolerance_expansion": true,
+        "elapsed_forward_and_rollout_s": 0.01389014394953847,
+        "peak_allocated_bytes": 135409152,
+        "torch": "2.14.0+cu130",
+        "numpy": "2.5.2",
+        "device": "NVIDIA GeForce RTX 5070",
+        "float32": true,
+        "autocast": false,
+        "TF32": false,
+        "model_eval": true,
+        "chunking": false,
+        "training": false,
+        "visual_or_pose_input": false
+      }
+    },
+    {
+      "recipe": "I_VR_P0",
+      "counts": {
+        "accent_events": 30,
+        "color_cues": 262
+      },
+      "runtime": {
+        "encoder_forward_calls": 1,
+        "generated_palette_head_rollout": true,
+        "actual_action_logits_authority": true,
+        "all_state_head_calls": 1,
+        "full_T_palette_head_recomputation": false,
+        "no_argmax_tolerance_expansion": true,
+        "elapsed_forward_and_rollout_s": 0.05215262598358095,
+        "peak_allocated_bytes": 427520000,
+        "torch": "2.14.0+cu130",
+        "numpy": "2.5.2",
+        "device": "NVIDIA GeForce RTX 5070",
+        "float32": true,
+        "autocast": false,
+        "TF32": false,
+        "model_eval": true,
+        "chunking": false,
+        "training": false,
+        "visual_or_pose_input": false
+      }
+    },
+    {
+      "recipe": "S_VR_P0_Ashuf",
+      "counts": {
+        "accent_events": 247,
+        "color_cues": 112
+      },
+      "runtime": {
+        "encoder_forward_calls": 1,
+        "generated_palette_head_rollout": true,
+        "actual_action_logits_authority": true,
+        "all_state_head_calls": 1,
+        "full_T_palette_head_recomputation": false,
+        "no_argmax_tolerance_expansion": true,
+        "elapsed_forward_and_rollout_s": 0.014986061956733465,
+        "peak_allocated_bytes": 135455232,
+        "torch": "2.14.0+cu130",
+        "numpy": "2.5.2",
+        "device": "NVIDIA GeForce RTX 5070",
+        "float32": true,
+        "autocast": false,
+        "TF32": false,
+        "model_eval": true,
+        "chunking": false,
+        "training": false,
+        "visual_or_pose_input": false
+      }
+    }
+  ],
+  "original_campaign_hash_manifest_unchanged": true,
+  "original_snapshot": {
+    "path": "/root/lightsem/outputs/shpongle_model_comparisons_20260928_v1/ORIGINAL_CAMPAIGN_BEFORE_V1.json",
+    "sha256": "b1cea8ebb27c5e46df8301df4da1fab3a11d95d71013f0d843a9a4283be42e94",
+    "bytes": 313451
+  },
+  "new_workspace_bytes": 7082491,
+  "media_status": "first_render_in_progress",
+  "scope": "Counts are descriptive, not beat accuracy or quality. Ashuf recipient route is not donor evaluation. All-complete refers to inference only. Protected DMX proof is not human acceptance."
+}

@@ -1,0 +1,8 @@
+{
+  "experiment_id": "exp-010-dance-is-not-a-category-error-101dd9",
+  "verdict": "directional_only",
+  "failure_mode": "test_invalid",
+  "lesson": "2026-09-28 retrospective claim-scope clarification, not a new measurement: The reduced one-rater pilot recorded a hybrid-appearance preference in8/9decided trials versus chance.5 (reported exact95%CI[.518,.997]). Music-fit5/9 (CI[.212,.863]) is inconclusive, not equivalence. Shared transient phase does not prove the rating question cannot distinguish the outputs. The incomplete/blinding-limited protocol leaves the broad category claim unestablished; retain only the pilot appearance direction.",
+  "transfers_to": [],
+  "hint": "the TEST was broken, not the idea \u2014 the hypothesis was never actually evaluated; fix the harness and start a new experiment with parent_experiment_id='exp-010-dance-is-not-a-category-error-101dd9'"
+}

@@ -1,0 +1,18 @@
+{
+  "ok": true,
+  "data": {
+    "id": "rb-ls2-lossless-format-readiness-20260929",
+    "problem_id": "dancing-light-generative-20260903",
+    "prompt": "Engineering readiness and subsequent CPU-only format feasibility, not a new scientific hypothesis or evidence. Source: /root/lightsem/outputs/legacy_struct_intensity_20260928_v1/measure_lossless_archive_v1.py SHA256 2c068d0062ae0b9dd24d88b848c80201dffd284221ae4e25d84a5da8d8febf39; tests: test_measure_lossless_archive_v1.py SHA256 79866d5de485812d3b6483a3f0073774fa139772a2d4667622a493358fd1eaa1; 67 authored methods. Run those pure synthetic tests through existing run_torch.sh and /root/lightsem/.venv/torch-access under actual 512MiB memory, no swap, PrivateDevices, hidden CUDA, configured 50s and whole-job <=60s; combined log <=32768B. Require zero failures/errors/skips/expected failures/unexpected successes, preserve any failed attempt. Capture Python/NumPy/zlib versions and cached _lzma path; linked_liblzma_version stays null, no binary identity or future size invariance claim. Runtime changes require fresh validation. This readiness step reads sibling driver source and synthetic fixtures only. Separately, AFTER a plain test pass and fresh admission/accounting, the existing handoff defines two prospective measurements in fixed order (deflate9 then standard LZMA), all40 clips/120 integer members and strict+NumPy readback. Keep all160 float32 arrays uncompressed and retain every rejected row/section. No automatic candidate selection, V6 amendment, scientific/GPU execution or storage-fit claim. Keep 12582912B row8 and 1020054732B global caps, all previous files/failures, both 1GiB free floors, >=1MiB unspent future code/control reserve and distinct64KiB GPU-ledger allocation. Existing templates are not authorization/enforcement. Full format measurement remains future work until separately admitted; native test completion alone completes only engineering test readiness.",
+    "preconditions": "Two-record notes repair must pass preservation audit; it passed in /root/lightsem/docs/research/2026-09-28-end-to-end/interpretation_debt_20260928_v1/repair_v1/REPAIR_AUDIT_V1.json. First obtain a native plain pass of the 67 already-authored synthetic tests with exact source binding. No existing test pass or measured codec fit is asserted by this registration.",
+    "gates": [],
+    "status": "queued",
+    "hypothesis_id": null,
+    "priority": 100,
+    "notes": [],
+    "former_ids": [],
+    "topic_tags": [],
+    "created_at": "2026-09-29T08:03:31+00:00",
+    "updated_at": "2026-09-29T08:03:31+00:00"
+  }
+}

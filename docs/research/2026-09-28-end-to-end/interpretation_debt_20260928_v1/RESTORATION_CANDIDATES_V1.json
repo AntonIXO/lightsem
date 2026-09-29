@@ -1,0 +1,30 @@
+{
+  "status": "PREPARED_NOT_APPLIED",
+  "candidates": [
+    {
+      "experiment_id": "exp-dance-physical-objective-20260911",
+      "live_path": "/root/lightsem-vault/experiments/exp-dance-physical-objective-20260911.md",
+      "current_dropped_body_sha256": "8273459fb27ddba1e5f221bd60d6f374a197f0501ff268efc8ae1cda637c2b63",
+      "candidate": {
+        "path": "/root/lightsem/docs/research/2026-09-28-end-to-end/interpretation_debt_20260928_v1/RESTORE_CANDIDATE_exp-dance-physical-objective-20260911.md",
+        "sha256": "588434c50b6fd566ad7df8a8efaf94b10e04af1b93dcbbc56f52664bf49169d1",
+        "bytes": 14879
+      },
+      "restored_chars": 3904,
+      "proof": "CandidatechangesNOmetadata andrestoresALLoriginalbodyoutsideInterpretation exactly. NOTappliedtovault."
+    },
+    {
+      "experiment_id": "exp-dance-optics-full-20260911",
+      "live_path": "/root/lightsem-vault/experiments/exp-dance-optics-full-20260911.md",
+      "current_dropped_body_sha256": "586a0a89536dc5407e647b113b258693b308d9f1b55ff31c1361f209e477ba30",
+      "candidate": {
+        "path": "/root/lightsem/docs/research/2026-09-28-end-to-end/interpretation_debt_20260928_v1/RESTORE_CANDIDATE_exp-dance-optics-full-20260911.md",
+        "sha256": "c594246f09808412167e4c38d2363cc8749fff20d07eaac981c5d7a0cbbb191f",
+        "bytes": 18561
+      },
+      "restored_chars": 2707,
+      "proof": "CandidatechangesNOmetadata andrestoresALLoriginalbodyoutsideInterpretation exactly. NOTappliedtovault."
+    }
+  ],
+  "constraint": "NativeClient/MCPwriterrequired; no supportednotes-onlyrestorationmechanismyetidentified. Reclosureprohibited."
+}

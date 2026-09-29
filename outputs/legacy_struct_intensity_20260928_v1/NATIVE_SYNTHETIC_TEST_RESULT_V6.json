@@ -1,0 +1,49 @@
+{
+  "exit_code": 0,
+  "failures": 0,
+  "errors": 0,
+  "skipped": 0,
+  "expected_failures": 0,
+  "unexpected_successes": 0,
+  "tests_run": 112,
+  "tests_expected": 112,
+  "plan_ref": {
+    "path": "/root/lightsem/docs/research/2026-09-28-end-to-end/PROSPECTIVE_STRUCT_INTENSITY_PROTOCOL_CANDIDATE_V6.json",
+    "size_bytes": 285563,
+    "sha256": "977241748163f747064cfc28e2998f707085431aee8189814c914707d7599267"
+  },
+  "driver_ref": {
+    "path": "/root/lightsem/outputs/legacy_struct_intensity_20260928_v1/prepare_struct_intensity_v6.py",
+    "size_bytes": 40582,
+    "sha256": "14285f8279b385014e4635da9db7ba74fc48e9ae93ab404a7ef10e0d3109fb26"
+  },
+  "test_refs": [
+    {
+      "path": "/root/lightsem/outputs/legacy_struct_intensity_20260928_v1/test_prepare_struct_intensity_v6.py",
+      "size_bytes": 66295,
+      "sha256": "a1a39ecc6654d0ae2a562a9c36985e71d3571474cee69accd5f0ed86843bd9cd"
+    }
+  ],
+  "command": "CUDA_VISIBLE_DEVICES='' PYTHONDONTWRITEBYTECODE=1 TORCH_ENV=/root/lightsem/.venv/torch-access bash run_torch.sh -u -m unittest discover -s /root/lightsem/outputs/legacy_struct_intensity_20260928_v1 -p test_prepare_struct_intensity_v6.py -v > /root/lightsem/outputs/legacy_struct_intensity_20260928_v1/native_synthetic_tests_v6.log 2>&1",
+  "log_ref": {
+    "path": "/root/lightsem/outputs/legacy_struct_intensity_20260928_v1/native_synthetic_tests_v6.log",
+    "size_bytes": 18282,
+    "sha256": "f46225ca81e0b9619737e330fdad264f70b7ef49f2c73a126c64fc1d43b373e6"
+  },
+  "real_model_forwards": 0,
+  "sealed_TEST_reads": 0,
+  "checkpoint_deserializations": 0,
+  "native_binding": {
+    "path": "/root/lightsem/outputs/legacy_struct_intensity_20260928_v1/NATIVE_SYNTHETIC_TEST_BINDING_V6.json",
+    "size_bytes": 9094,
+    "sha256": "2584bf8b3018f1073c6199edfd1b5af0737cde18e6c7e443a82f6b4cd827dbb3"
+  },
+  "binding_vault_receipt": {
+    "path": "/root/lightsem/outputs/legacy_struct_intensity_20260928_v1/vault_v6_synthetic_test_binding_receipt.json",
+    "size_bytes": 111998,
+    "sha256": "0238935a002361dfe551e1571ee7bed4c79d02379b5b600ab02c3c70a46ffe34"
+  },
+  "wrapper_seconds": 0.2753303931094706,
+  "dependency_initialization": "numpy.testing initialized before strict filesystem guards; installed-package metadata may be read. No scientific payloads.",
+  "qualification_limits": "Synthetic helpers and static code checks only; real checkpoint/cache compatibility and actual progress fsync remain unqualified by this test run. No preparation/scientific execution grant."
+}

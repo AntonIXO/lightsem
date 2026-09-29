@@ -1,0 +1,56 @@
+{
+  "scope": "RETROSPECTIVE_CONTROL_METADATA_FROM_RETAINED_COMPLETED_NATIVE_HANDLES",
+  "job_records": [
+    {
+      "root_variable": "comparison_infer_h28",
+      "command": "TORCH_ENV=/root/lightsem/.venv/torch-access timeout 1800s bash run_torch.sh -u /root/lightsem/outputs/shpongle_model_comparisons_20260928_v1/run_comparison_demo_v2.py infer --plan /root/lightsem/outputs/shpongle_model_comparisons_20260928_v1/COMPARISON_PLAN_V2.json --binding /root/lightsem/outputs/shpongle_model_comparisons_20260928_v1/EXECUTION_AUTHORIZATION_V2.json > /root/lightsem/outputs/shpongle_model_comparisons_20260928_v1/infer_v2.log 2>&1",
+      "pid": 1056076,
+      "exit_code": 0,
+      "elapsed_wall_seconds": 6.804081256967038,
+      "evidence": "Direct retained completed BashHandle.command/pid and its matching BashResult in the persistent root REPL; no new execution or transcript recovery.",
+      "scope": "Whole wrapper job elapsed, not device-busy integral; no complete campaign-coverage claim."
+    },
+    {
+      "root_variable": "comparison_first_render28.handle",
+      "command": "bash run.sh /root/lightsem/outputs/shpongle_layers_demo_20260922T161917Z/render_demo.py render --streams /mnt/lightsem-data/experiments/lightsem/end_to_end_20260928_v1/comparison_demos_v1/01_S_none_P0/overlay_dmx.npz --key overlay --output /root/lightsem/outputs/shpongle_model_comparisons_20260928_v1/media/01_S_none_P0/01_S_none_P0_full_1080p_av1.mp4 --audio /root/shpongle.flac --start 0 --duration 277.3 > /root/lightsem/outputs/shpongle_model_comparisons_20260928_v1/media/01_S_none_P0/render_process.log 2>&1",
+      "pid": 1056613,
+      "exit_code": 0,
+      "elapsed_wall_seconds": 208.11752959201112,
+      "evidence": "Direct retained completed BashHandle.command/pid and its matching BashResult in the persistent root REPL; no new execution or transcript recovery.",
+      "scope": "Whole wrapper job elapsed, not device-busy integral; no complete campaign-coverage claim."
+    },
+    {
+      "root_variable": "comparison_second_render28.handle",
+      "command": "bash run.sh /root/lightsem/outputs/shpongle_layers_demo_20260922T161917Z/render_demo.py render --streams /mnt/lightsem-data/experiments/lightsem/end_to_end_20260928_v1/comparison_demos_v1/02_S_V6_P0/overlay_dmx.npz --key overlay --output /root/lightsem/outputs/shpongle_model_comparisons_20260928_v1/media/02_S_V6_P0/02_S_V6_P0_full_1080p_av1.mp4 --audio /root/shpongle.flac --start 0 --duration 277.3 > /root/lightsem/outputs/shpongle_model_comparisons_20260928_v1/media/02_S_V6_P0/render_process.log 2>&1",
+      "pid": 1057343,
+      "exit_code": 0,
+      "elapsed_wall_seconds": 204.99767462699674,
+      "evidence": "Direct retained completed BashHandle.command/pid and its matching BashResult in the persistent root REPL; no new execution or transcript recovery.",
+      "scope": "Whole wrapper job elapsed, not device-busy integral; no complete campaign-coverage claim."
+    },
+    {
+      "root_variable": "comparison_third_render28.handle",
+      "command": "bash run.sh /root/lightsem/outputs/shpongle_layers_demo_20260922T161917Z/render_demo.py render --streams /mnt/lightsem-data/experiments/lightsem/end_to_end_20260928_v1/comparison_demos_v1/03_I_VR_P0/overlay_dmx.npz --key overlay --output /root/lightsem/outputs/shpongle_model_comparisons_20260928_v1/media/03_I_VR_P0/03_I_VR_P0_full_1080p_av1.mp4 --audio /root/shpongle.flac --start 0 --duration 277.3 > /root/lightsem/outputs/shpongle_model_comparisons_20260928_v1/media/03_I_VR_P0/render_process.log 2>&1",
+      "pid": 1057813,
+      "exit_code": 0,
+      "elapsed_wall_seconds": 194.810030070832,
+      "evidence": "Direct retained completed BashHandle.command/pid and its matching BashResult in the persistent root REPL; no new execution or transcript recovery.",
+      "scope": "Whole wrapper job elapsed, not device-busy integral; no complete campaign-coverage claim."
+    },
+    {
+      "root_variable": "comparison_fourth_render28.handle",
+      "command": "bash run.sh /root/lightsem/outputs/shpongle_layers_demo_20260922T161917Z/render_demo.py render --streams /mnt/lightsem-data/experiments/lightsem/end_to_end_20260928_v1/comparison_demos_v1/04_S_VR_P0_Ashuf/overlay_dmx.npz --key overlay --output /root/lightsem/outputs/shpongle_model_comparisons_20260928_v1/media/04_S_VR_P0_Ashuf/04_S_VR_P0_Ashuf_full_1080p_av1.mp4 --audio /root/shpongle.flac --start 0 --duration 277.3 > /root/lightsem/outputs/shpongle_model_comparisons_20260928_v1/media/04_S_VR_P0_Ashuf/render_process.log 2>&1",
+      "pid": 1058673,
+      "exit_code": 0,
+      "elapsed_wall_seconds": 192.7096952951979,
+      "evidence": "Direct retained completed BashHandle.command/pid and its matching BashResult in the persistent root REPL; no new execution or transcript recovery.",
+      "scope": "Whole wrapper job elapsed, not device-busy integral; no complete campaign-coverage claim."
+    }
+  ],
+  "whole_job_elapsed_sum_seconds": 807.4390108420048,
+  "no_new_runs_or_payload_reads": true,
+  "not_complete_campaign_ledger": true,
+  "original_demo_gap": "Original demo_full_result and demo_full_cmd variables survive, but no directly associated original full/preview/inference BashHandle was found in the root retained handle variables. Per requested evidence condition, no original-demo duration is admitted from result-only/name association.",
+  "command_note": "Exact comparison inference command uses --binding, not --authorization. The recorded command is copied from retained native handle, not reconstructed from a proposal.",
+  "limits": "Does not resolve original capture wrappers, initial GPU smoke, child jobs or other missing coverage. This is root retained-handle evidence, not an independent rerun or retroactive source-byte attestation."
+}

@@ -1,0 +1,32 @@
+{
+  "id": "shpongle_layers_demo_20260922T161917Z",
+  "requested_audio": "/root/shpongle.flac",
+  "scope": "Experimental visual preview, NOT a scientific result or model promotion",
+  "selected_model": "fixed seed0 S_VR_P0 best.pt; no outcome-based seed or checkpoint-role choice",
+  "baseline_stream": "/mnt/lightsem-data/experiments/lightsem/rhythm_companion_20260912T193657Z/streams.npz:companion",
+  "motion": "unchanged; no new dancer or retiming",
+  "allowed_overlay": "RGB on MH/wash/projector; bounded multiplicative MH/wash dimmer accents only; every other raw DMX byte exact",
+  "accent": {
+    "peak_threshold": 0.5,
+    "nms_seconds": 0.2,
+    "gain_increment": 0.35,
+    "full_cosine_width_s": 0.25
+  },
+  "palette": "Frozen generated history and cues; HS prototype z=sum(p*S*exp(i2piH)); rendered H=arg(z),S=abs(z),V1; baseline RGB until first real cue; global fixed visualization, not learned fixture arrangement",
+  "frames": 8319,
+  "fps": 30,
+  "video_codec": "AV1",
+  "native_size": [
+    1920,
+    1080
+  ],
+  "audio": "source soundtrack, AAC192kb/s; trim to277.3s video boundary",
+  "derived_artifacts": "/mnt/lightsem-data/experiments/lightsem/shpongle_layers_demo_20260922T161917Z",
+  "derived_budget_mib": 64,
+  "media_path": "/root/lightsem/outputs/shpongle_layers_demo_20260922T161917Z",
+  "media_budget_mib": 512,
+  "free_disk_floor_gib": 1,
+  "previous_campaign_immutable": true,
+  "scientific_status": "observer result remains unqualified; source77.5% and null29<30 failures unchanged",
+  "future_testing": "reviewing prespecified secondary palette comparison and missing independent mask/beat truth; do not rerun complete15fits or relax gates"
+}

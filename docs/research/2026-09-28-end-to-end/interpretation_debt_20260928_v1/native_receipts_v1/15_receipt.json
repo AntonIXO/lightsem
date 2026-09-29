@@ -1,0 +1,8 @@
+{
+  "experiment_id": "exp-dance-stage-anchors-20260911",
+  "verdict": "supports",
+  "failure_mode": null,
+  "lesson": "2026-09-28 retrospective interpretation, not a new experiment: On the same saved Shpongle body and simulator profile, stage_geometry_02 static anchors increased active geometric wall first-hit fraction to 0.487917 versus stage_geometry_01 at 0.009583, passing the registered numeric gates and sampled visual-coverage procedure. Stage02 redistributes already-separated targets; it does not own stage01's contraction rescue or establish improved decoded coverage from geometric wall use alone. The fan/row persists, while human audiovisual, music-fit, aesthetic, physical-fixture and LIGHT-product acceptance are not established by this result; no default promotion follows.",
+  "transfers_to": [],
+  "hint": null
+}

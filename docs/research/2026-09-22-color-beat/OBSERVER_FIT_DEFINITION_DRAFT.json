@@ -1,0 +1,113 @@
+{
+  "id": "observer-proxy-fit-definition-v1",
+  "status": "DRAFT exact decisions; final implementation hashes and preregistration binding required before fits/scoring",
+  "observer_protocol": {
+    "path": "/root/lightsem/docs/research/2026-09-22-color-beat/OBSERVER_PROXY_PROTOCOL_V1.json",
+    "sha256": "7f77802b8bd66729227887b0051a2e8533fd0474e2842230c5c0894e828a4186"
+  },
+  "identity_exclusions": {
+    "path": "/root/lightsem/docs/research/2026-09-22-color-beat/OBSERVER_IDENTITY_EXCLUSIONS_V1.json",
+    "sha256": "602486f42ba4e090239d19aa7a2c1854796977d70f5b2e2fb0a45a9d1ec3fe74"
+  },
+  "enrollment": {
+    "capture_train": 100,
+    "capture_dev": 31,
+    "expected_fit_train": 91,
+    "expected_fit_dev": 31,
+    "original_dev": 40,
+    "original_dev_coverage": 0.775,
+    "original80percentgate_passed": false,
+    "no_replacements": true,
+    "additional_exclusions": "explicit receipts only; >=80usableTRAIN/30usableDEV for fullfit"
+  },
+  "fit_domains": {
+    "audio_mean_std": "FULL SOURCE TRAIN94D buses for usable trainingrecords, including interpolatedBeatThis",
+    "visual_thresholds_posweights_vocabulary_global_aux_norms": "selectedTRAIN64s windows only",
+    "legacy6_input": "immutablecachedz[y], includesfullactive-record per-record value normalization beforecrop",
+    "neural_and_logistic_supervision": "samecenter8TRAINlabels/support",
+    "constant_prevalence_onset_novelty_thresholds": "center8TRAINeligible support",
+    "dev_fitting": "none; DEVusedonlycommonmainlosscheckpointselection"
+  },
+  "context": "64s STUDENT FEATURE window; offlinefeatureconstruction/globalgrid/frozenrhythm andaudio norm usewiderfullsource. No64srawcontext/causalclaim.",
+  "reference_clock": "one native10Hz event atactual source timestamp; neverfourupsampled accentpositives",
+  "prediction_clock": "requestedgrid40Hzaccent/10Hzcolor, bothsource/requested preserved",
+  "candidates": {
+    "scope": "full64continuousvalidsegments thenclipcenter[28,36)",
+    "peak": "interiorplateau strictlyhigherthanbothneighbors, earliestplateauindex; no endpoints/constantpeaks",
+    "nms_seconds": 0.2,
+    "ordering": "highestconfidence then earliesttime",
+    "quotas": "none",
+    "invalidity": "maskedBEFOREpeak/NMS; do notbridgegaps",
+    "reference_nms_seconds": 0.5,
+    "tolerance_seconds": 0.2
+  },
+  "deployment_thresholds": {
+    "model_and_logistic": 0.5,
+    "onset_and_audio_novelty": "TRAINcentereligibleq95",
+    "constant": "TRAINcenterprevalence; nopeaksonconstantcurve"
+  },
+  "baselines": {
+    "onset": "audio onset_ema",
+    "audio_novelty": ".3s pre/post Euclidean distance ofTRAINstandardized64melmeans; notvideooracle/notclaimedincumbentmapper",
+    "logistic": "L2 C1 class_weightbalanced max_iter1000 seed0, same94features; fitcentre8only",
+    "donor": "EXACT trainingdeterministic_donors: samepartition,differentcanonical,len>=640; tempo60/medianFULLsourcebeat_period_s; minimizeabslogtemporatio,tieSHA256compactJSON[recipientID,donorID]; reuseallowed, NOTbijectivepermutation",
+    "donor_columns": "replace0..85 retain86..93 only; mel/onset/flux rhythm content mayalsochange; rawcolumns thencommonTRAINnorm",
+    "donor_start": "min(recipientindex, donorframes-640); thiscohortindex0",
+    "donor_reporting": "map/hash +unique/reuse counts; limitedconditional-donor-route claim",
+    "Ashuf_primary_evaluation": "Same frozen tempo-donor intervention as Ashuf training AND DEV checkpoint selection. Real-audio-on-Ashuf is optional separately named diagnostic, never primary or selected after results."
+  },
+  "shift_control": {
+    "count": 20,
+    "offsets": "integernativegridj/rate withmin(offset,actualL-offset)>.4; choosefloorlinspace indices overadmittedlist,20unique",
+    "transform": "shiftfixed EVENTcandidate times moduloactualsourceeligibleinterval length; keepconfidence/count; NOcurve rolling/redetection/postshiftNMS",
+    "support": "primarysupportUNCHANGED; null separatelypairedREALvsSHIFT onidenticalshifteligible segments; shorts excludedonlyfromnullpair",
+    "report": "retainedduration/fraction,shortsegments,wrapclosepairs/jitter;20shiftsnot20independentsamples"
+  },
+  "qualification": {
+    "primary_valid_time_each_head": 0.8,
+    "primary_groups_min": 30,
+    "primary_event_bearing_each_head_min": 10,
+    "null_retained_primary_support_each_head": 0.8,
+    "null_groups_min": 30,
+    "null_event_bearing_each_head_min": 10,
+    "missing": "undefined notzero; numericaldescriptivesallowedwithgatefalse, no supportedconclusion"
+  },
+  "reports": {
+    "selected_checkpoint": "primary complete15-cellindex",
+    "final_checkpoint": "separatecompanion complete15-cellindex",
+    "selection_bias": "DEVselected; conditionaldevelopment estimate, notunbiased/freshgeneralization",
+    "primary_contrast": "VRminusV6colorAP>=.01",
+    "family": "8contrasts(V6-none,VR-V6,S-I,real-Ashuf)x(accent,color),HolmP; paired10000canonicalbootstrap CIunadjusted",
+    "seeds": "0,1,2 paired; selected/finalnotextraseeds",
+    "nonevent": "APundefined butFP/min/coverage retained",
+    "primary_effect_gate": {
+      "color_ap_delta_min": 0.01,
+      "paired_95_ci_lower_strict_min": 0.0,
+      "holm8_p_strict_max": 0.05,
+      "accent_ap_delta_min": -0.01,
+      "prerequisites": "primary/null support and all controls qualified",
+      "source": "Already registered observer-effect gate, not a new threshold"
+    }
+  },
+  "training_queue": {
+    "recipes": [
+      "S_none_P0",
+      "S_V6_P0",
+      "S_VR_P0",
+      "I_VR_P0",
+      "S_VR_P0_Ashuf"
+    ],
+    "seeds": [
+      0,
+      1,
+      2
+    ],
+    "order": "seedouter thenprotocolrecipeorder",
+    "steps": 6000,
+    "batch": 4,
+    "aggregate_vault_experiment": "ONEexperiment covers15fits, not15independenttests",
+    "failures": "stopandpreserve; noautotuning/replacement",
+    "one_gpu_job": true
+  },
+  "palette": "Separate secondarygeneratedhistory/stateablation withfixedcues/paired4draws andfrozenpaletteinstrument; undefinedcalibrationcomponents notinvented. No palettequalityclaimfromprimaryobserverAP."
+}

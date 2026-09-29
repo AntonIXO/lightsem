@@ -1,0 +1,371 @@
+{
+  "campaign_id": "lighting-cue-model-20260922t094347z",
+  "experiment_id": "exp-layers-20260922-observer-fits",
+  "execution": "complete:15 fits,30 predictions,2 corrected event score reports",
+  "scientific_status": "unqualified/inconclusive; NOT a scientific refutation; no promotion",
+  "scope": "Historical exposed DEV authored-video observer proxy; unknown cuts/mask nuisance included; not LIGHT quality or fresh generalization",
+  "reports": {
+    "selected": {
+      "path": "/mnt/lightsem-data/experiments/lightsem/lighting-cue-model-20260922t094347z/observer_selected_scores_roundoff_v2.json",
+      "sha256": "3268b61e9cc80745586077bd593f1f61ef8978d6665959c56f3d3487d3d77e10"
+    },
+    "final": {
+      "path": "/mnt/lightsem-data/experiments/lightsem/lighting-cue-model-20260922t094347z/observer_final_scores_roundoff_v2.json",
+      "sha256": "a82b4b09490b4a48658806a016d4bb4627cfc8cfc1d72a6edcf63a3f79519568"
+    }
+  },
+  "cohort": {
+    "train_groups": 91,
+    "dev_groups": 31,
+    "original_groups": 40,
+    "original_source_coverage": 0.775,
+    "original80percentgate": "FAILED_NOT_WAIVED",
+    "primary_common_qualified": 30,
+    "primary_event_bearing_accent": 14,
+    "primary_event_bearing_color": 17,
+    "paired_null_common_qualified": 29,
+    "required_paired_null_common": 30,
+    "paired_null_event_bearing_accent": 13,
+    "paired_null_event_bearing_color": 16
+  },
+  "primary_results": {
+    "models": [
+      {
+        "recipe": "S_none_P0",
+        "accent_AP": 0.34329405986014006,
+        "accent_FP_min": 44.886883957224725,
+        "color_AP": 0.3005846404632857,
+        "color_FP_min": 44.588899128115564
+      },
+      {
+        "recipe": "S_V6_P0",
+        "accent_AP": 0.34091695499379165,
+        "accent_FP_min": 44.64494847335376,
+        "color_AP": 0.31208485023241694,
+        "color_FP_min": 45.740647436096545
+      },
+      {
+        "recipe": "S_VR_P0",
+        "accent_AP": 0.3482180621749618,
+        "accent_FP_min": 44.63713054807853,
+        "color_AP": 0.29715491133956706,
+        "color_FP_min": 45.2350812432646
+      },
+      {
+        "recipe": "I_VR_P0",
+        "accent_AP": 0.36499575295942027,
+        "accent_FP_min": 38.85172960862331,
+        "color_AP": 0.2744373133413518,
+        "color_FP_min": 56.44147867659055
+      },
+      {
+        "recipe": "S_VR_P0_Ashuf",
+        "accent_AP": 0.3102377424962786,
+        "accent_FP_min": 45.08009492649081,
+        "color_AP": 0.22051734420714028,
+        "color_FP_min": 29.01585246539075
+      }
+    ],
+    "baselines_in_VR_cell": [
+      {
+        "method": "audio_novelty",
+        "accent_AP": 0.2425532275847402,
+        "accent_FP_min": 32.31848046080992,
+        "color_AP": 0.28054930392391686,
+        "color_FP_min": 25.51164571315899
+      },
+      {
+        "method": "audio_onset",
+        "accent_AP": 0.21153059896923226,
+        "accent_FP_min": 68.79761113412555,
+        "color_AP": 0.19753443815475166,
+        "color_FP_min": 41.19297717811679
+      },
+      {
+        "method": "donor",
+        "accent_AP": 0.38233623797385347,
+        "accent_FP_min": 44.3579495763107,
+        "color_AP": 0.2582550197316719,
+        "color_FP_min": 53.5413993255831
+      },
+      {
+        "method": "logistic",
+        "accent_AP": 0.29880611300668797,
+        "accent_FP_min": 129.5418345092694,
+        "color_AP": 0.32943896423089647,
+        "color_FP_min": 116.71203485065318
+      },
+      {
+        "method": "model",
+        "accent_AP": 0.3482180621749618,
+        "accent_FP_min": 44.63713054807853,
+        "color_AP": 0.29715491133956706,
+        "color_FP_min": 45.2350812432646
+      },
+      {
+        "method": "prevalence",
+        "accent_AP": 0.0,
+        "accent_FP_min": 0.0,
+        "color_AP": 0.0,
+        "color_FP_min": 0.0
+      }
+    ],
+    "contrasts": {
+      "S-I_accent": {
+        "difference": -0.016777690784458423,
+        "interval": [
+          -0.11490854750565622,
+          0.05475011517867529
+        ],
+        "holm8_p_value": 1.0
+      },
+      "S-I_color": {
+        "difference": 0.0227175979982153,
+        "interval": [
+          -0.026417713613085293,
+          0.08099960758147778
+        ],
+        "holm8_p_value": 1.0
+      },
+      "V6-none_accent": {
+        "difference": -0.0023771048663482858,
+        "interval": [
+          -0.009974381043567074,
+          0.0047570418471370056
+        ],
+        "holm8_p_value": 1.0
+      },
+      "V6-none_color": {
+        "difference": 0.011500209769131228,
+        "interval": [
+          -0.0034606336952247756,
+          0.036293062694546685
+        ],
+        "holm8_p_value": 1.0
+      },
+      "VR-V6_accent": {
+        "difference": 0.007301107181170193,
+        "interval": [
+          -0.0011984464583094767,
+          0.017503881376548985
+        ],
+        "holm8_p_value": 1.0
+      },
+      "VR-V6_color": {
+        "difference": -0.014929938892849865,
+        "interval": [
+          -0.040685324198163626,
+          0.0011946838304993765
+        ],
+        "holm8_p_value": 1.0
+      },
+      "real-Ashuf_accent": {
+        "difference": 0.03798031967868322,
+        "interval": [
+          -0.10493405441437023,
+          0.20751263242809093
+        ],
+        "holm8_p_value": 1.0
+      },
+      "real-Ashuf_color": {
+        "difference": 0.07663756713242681,
+        "interval": [
+          -0.02878292687006009,
+          0.20440724152888312
+        ],
+        "holm8_p_value": 1.0
+      }
+    }
+  },
+  "final_companion_results": {
+    "models": [
+      {
+        "recipe": "S_none_P0",
+        "accent_AP": 0.2603265261047366,
+        "accent_FP_min": 3.0126463921979387,
+        "color_AP": 0.24754083575910837,
+        "color_FP_min": 2.3978271631396635
+      },
+      {
+        "recipe": "S_V6_P0",
+        "accent_AP": 0.26816598486466486,
+        "accent_FP_min": 3.0045453680054783,
+        "color_AP": 0.32041653385551433,
+        "color_FP_min": 1.3798064920371744
+      },
+      {
+        "recipe": "S_VR_P0",
+        "accent_AP": 0.28193125203713754,
+        "accent_FP_min": 3.562264396588966,
+        "color_AP": 0.29043995011198137,
+        "color_FP_min": 2.0202123315639033
+      },
+      {
+        "recipe": "I_VR_P0",
+        "accent_AP": 0.3098252835111068,
+        "accent_FP_min": 2.903225806451613,
+        "color_AP": 0.28365573373456826,
+        "color_FP_min": 0.8881175990200082
+      },
+      {
+        "recipe": "S_VR_P0_Ashuf",
+        "accent_AP": 0.29799600593428793,
+        "accent_FP_min": 2.1784401796651696,
+        "color_AP": 0.23205712482095903,
+        "color_FP_min": 2.8542010195986602
+      }
+    ],
+    "baselines_in_VR_cell": [
+      {
+        "method": "audio_novelty",
+        "accent_AP": 0.2425532275847402,
+        "accent_FP_min": 32.31848046080992,
+        "color_AP": 0.28054930392391686,
+        "color_FP_min": 25.51164571315899
+      },
+      {
+        "method": "audio_onset",
+        "accent_AP": 0.21153059896923226,
+        "accent_FP_min": 68.79761113412555,
+        "color_AP": 0.19753443815475166,
+        "color_FP_min": 41.19297717811679
+      },
+      {
+        "method": "donor",
+        "accent_AP": 0.3212144000262498,
+        "accent_FP_min": 3.879908467137946,
+        "color_AP": 0.2301549164461202,
+        "color_FP_min": 2.6013195615538653
+      },
+      {
+        "method": "logistic",
+        "accent_AP": 0.29880611300668797,
+        "accent_FP_min": 129.5418345092694,
+        "color_AP": 0.32943896423089647,
+        "color_FP_min": 116.71203485065318
+      },
+      {
+        "method": "model",
+        "accent_AP": 0.28193125203713754,
+        "accent_FP_min": 3.562264396588966,
+        "color_AP": 0.29043995011198137,
+        "color_FP_min": 2.0202123315639033
+      },
+      {
+        "method": "prevalence",
+        "accent_AP": 0.0,
+        "accent_FP_min": 0.0,
+        "color_AP": 0.0,
+        "color_FP_min": 0.0
+      }
+    ],
+    "contrasts": {
+      "S-I_accent": {
+        "difference": -0.027894031473969263,
+        "interval": [
+          -0.07486413187865239,
+          0.01661226425006789
+        ],
+        "holm8_p_value": 1.0
+      },
+      "S-I_color": {
+        "difference": 0.006784216377413107,
+        "interval": [
+          -0.10104679945360483,
+          0.1176187556036914
+        ],
+        "holm8_p_value": 1.0
+      },
+      "V6-none_accent": {
+        "difference": 0.007839458759928291,
+        "interval": [
+          -0.016300838436661844,
+          0.030466730273397056
+        ],
+        "holm8_p_value": 1.0
+      },
+      "V6-none_color": {
+        "difference": 0.07287569809640601,
+        "interval": [
+          -0.011469985167529484,
+          0.16773947104455053
+        ],
+        "holm8_p_value": 0.9071092890710929
+      },
+      "VR-V6_accent": {
+        "difference": 0.013765267172472643,
+        "interval": [
+          -0.027580290759472676,
+          0.05921753414668413
+        ],
+        "holm8_p_value": 1.0
+      },
+      "VR-V6_color": {
+        "difference": -0.029976583743532986,
+        "interval": [
+          -0.11296593880565332,
+          0.047620841085838785
+        ],
+        "holm8_p_value": 1.0
+      },
+      "real-Ashuf_accent": {
+        "difference": -0.016064753897150407,
+        "interval": [
+          -0.18979267325733779,
+          0.13612031198345267
+        ],
+        "holm8_p_value": 1.0
+      },
+      "real-Ashuf_color": {
+        "difference": 0.05838282529102234,
+        "interval": [
+          -0.04200306994128093,
+          0.1528135539815061
+        ],
+        "holm8_p_value": 1.0
+      }
+    }
+  },
+  "all_role_specific_CIs_include_zero": true,
+  "formal_qualified_observer_effect": null,
+  "promotion": false,
+  "correction": {
+    "source": {
+      "path": "/root/lightsem/docs/research/2026-09-22-color-beat/run_observer_score_correction_v1.py",
+      "sha256": "f9a13986c872eef785e493e23eb0eb4834d1d436543c44b925cee4b83beb17dd"
+    },
+    "protocol": {
+      "path": "/root/lightsem/docs/research/2026-09-22-color-beat/OBSERVER_SCORING_NUMERICAL_CORRECTION_V1.json",
+      "sha256": "fecd9aa66a24f9647643f7010e1927fc90190d7f21b41dd46b03c6be69bd9037"
+    },
+    "test_receipt": {
+      "path": "/root/lightsem/docs/research/2026-09-22-color-beat/observer_score_correction_cpu_receipt_20260922t151226z.json",
+      "sha256": "2f863760d5cbcb7943377f1b8d2282c2710e2ab18fb4fd0075fe51795cfb1ace"
+    },
+    "selected_repairs": 803,
+    "final_repairs": 858,
+    "max_inward_seconds": 2.842170943040401e-14,
+    "max_inward_ulps": 1,
+    "original_sources_predictions_unchanged": true
+  },
+  "runtime": {
+    "fit_queue_wall_seconds": 3254.131177317002,
+    "parallel_prediction_wall_seconds": 39.64626998489257,
+    "max_prediction_processes": 3,
+    "selected_score_wall_seconds": 24.769202489987947,
+    "final_score_wall_seconds": 25.102830288000405,
+    "sustained100percent_GPU_achieved": false,
+    "reason": "Small GPU jobs, serial CPU overhead,256MiB training audio cache below396.58MiB source buses. No GPU busywork."
+  },
+  "review": {
+    "path": "/root/lightsem/docs/research/2026-09-22-color-beat/OBSERVER_SCORES_INDEPENDENT_READONLY_AUDIT_V1.md",
+    "sha256": "25cbb1a70a3f08b11d59d906973ffabaa3fc8399d7a168f7db6d598c82ace0fd"
+  },
+  "remaining_scope": [
+    "Original nine LIGHT-quality hypotheses and independent annotation gates remain unchanged/unmet",
+    "Pose and R1 not qualified/run",
+    "Secondary palette rollout/instrument outcome not executed in these event reports",
+    "No fresh TEST evaluation or shipping-default promotion"
+  ],
+  "vault_closure": "Withhold automatic close_experiment: current engine treats any opposite-sign primary delta as refutes before checking failed validity gates. This study has unqualified null support and CIs crossing zero. Record real descriptive diagnostics+gates+artifacts without fabricating zero or a refutation; file capability gap."
+}

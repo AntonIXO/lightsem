@@ -1,0 +1,29 @@
+{
+  "command": "TORCH_ENV=/root/lightsem/.venv/torch-access bash run_torch.sh -m pytest -q tests/test_light_layers_model.py tests/test_light_layers_targets.py tests/test_light_layers_overlay.py tests/test_light_layers_training.py tests/test_light_layers_campaign.py",
+  "completed_utc": "2026-09-22T12:00:13.350103+00:00",
+  "cuda_used": false,
+  "dataset_access": false,
+  "duration_s": 11.4,
+  "note": "Queue child launches mocked; one-update training fixture uses synthetic CPU tensors only. No real-data fit, source dataset arrays, GPU run or vault call.",
+  "schema_version": 1,
+  "scope": "synthetic_cpu_only",
+  "source_files": {
+    "/root/lightsem/lightsem/experiments/light_layers/model.py": "aa1d63f0cbf5cf270c3c7d676edf3eaf3debeb394220123493a400aa60835529",
+    "/root/lightsem/lightsem/experiments/light_layers/targets.py": "4f1e980ed9f62e2ae2a6d53e426cd44c0ed2381835bf4b1382a7fba1e566d6d1",
+    "/root/lightsem/lightsem/experiments/light_layers/training.py": "31e58e8c7a10cd80f0d3b5be0e87796e35548f2c2d03705856a0cafa1811802b",
+    "/root/lightsem/lightsem/model/light_trunk.py": "b515dcb960259f39f21a8d565b621364aafe0a87d3a6028f5a476659f662cf84",
+    "/root/lightsem/run_light_layers_campaign.py": "9f5925f109385c5578550770e5e5228ccc31d3006384a6b93eab5872a1780c9c",
+    "/root/lightsem/run_light_layers_train.py": "4e0bcdb668db630f0c5c16d316b170920138493a43a9af1e7622028826cd2c12",
+    "/root/lightsem/run_torch.sh": "fa8766599ce7741477aff2035e5e87566fa4ddacacdfbbe39d5bbcba947888f1",
+    "/root/lightsem/tests/test_light_layers_campaign.py": "1f20c6ab8c24f60f144e34b7e4fd74c43063abc81775377acd8b9dad56479ad3",
+    "/root/lightsem/tests/test_light_layers_model.py": "502f4aeaedc3de63d616ef6035e63a9384000ae80eb2a08d9c82f1fccbb4bb7d",
+    "/root/lightsem/tests/test_light_layers_overlay.py": "025a6529cd7d00e9246da2675e9ede79043d51297a934979716ffb599b3d80c8",
+    "/root/lightsem/tests/test_light_layers_targets.py": "98371bcf0023756742be3057123993b567c4b5bea5cb80b9f3640c8aaaa4c58c",
+    "/root/lightsem/tests/test_light_layers_training.py": "0a9662ea419e93e828d268fd91540667a60dfcb2e43b2dc33eb8d61c6c844b43"
+  },
+  "status": "passed",
+  "subtests_passed": 185,
+  "tests_failed": 0,
+  "tests_passed": 119,
+  "tests_skipped": 1
+}

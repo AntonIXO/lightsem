@@ -1,0 +1,8 @@
+{
+  "experiment_id": "exp-011-the-model-s-light-flashes-three-1de900",
+  "verdict": "directional_only",
+  "failure_mode": "recipe_conditional",
+  "lesson": "[2026-09-28 retrospective interpretation; no new experiment] On identical checkpoint outputs, fitted per-channel zero-phase smoothing reduced the LIGHT event-rate ratio relative to real-motion-mapped light from 2.84 unfiltered to 1.19 and lowered FID versus the unfiltered arm, with the rate, FID and across-clip diversity gates recorded as passed. The named 12 Hz arm still had a rate ratio of 2.12 against the required maximum 1.3 and worst high-frequency energy of 72.3 times the corpus against the maximum 2; the fitted arm also failed G-smooth-hf at 5.0 times the corpus. Across-seed diversity fell with fitted smoothing and eight channels reached the smoothing cap, so these gains neither confirm the named filter nor establish a unique flashing mechanism or human LIGHT quality.",
+  "transfers_to": [],
+  "hint": "recipe_conditional: when the recipe changes, reopen_hypothesis('the-model-s-light-flashes-three-times-too-often-73aafb', reason=...) makes the negative re-testable instead of terminal"
+}

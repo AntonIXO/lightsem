@@ -1,0 +1,39 @@
+{
+  "status": "discovered_before_any_palette_scoring_and_before_85_continued_predictions",
+  "experiment_id": "exp-layers-20260922-palette-secondary",
+  "cause": "update_problem requires id, not problem_id; Client.call returned validation-error strings; parent wrongly accepted subprocess exit0 as tool success",
+  "original_start_experiment_succeeded": true,
+  "scientific_definition_preregistered": {
+    "path": "/root/lightsem/outputs/shpongle_layers_demo_20260922T161917Z/palette_secondary_v1/vault_definition_receipt.json",
+    "sha256": "9f663205773a9d5eaff0925800e5d747d4c423e029f834dbd40edf899fee915e"
+  },
+  "pre_calibration_executable_source_vault_update_succeeded": false,
+  "pre_prediction_calibration_vault_update_succeeded": false,
+  "prior_amendment_vault_update_succeeded": false,
+  "local_source_and_calibration_frozen_before_101_predictions": true,
+  "late_recording_is_not_preregistration": true,
+  "affected_receipts": {
+    "vault_calibration_receipt.json": {
+      "path": "/root/lightsem/outputs/shpongle_layers_demo_20260922T161917Z/palette_secondary_v1/vault_calibration_receipt.json",
+      "sha256": "130ffd3c14c7f92ed7476c498f07165a83573f468abd0373b7af66f6861366a4"
+    },
+    "vault_prediction_failure_receipt.json": {
+      "path": "/root/lightsem/outputs/shpongle_layers_demo_20260922T161917Z/palette_secondary_v1/vault_prediction_failure_receipt.json",
+      "sha256": "fb955c9dd460dd16287a6e1c856fc289868e617a5234e164e1cc197b01779905"
+    },
+    "vault_definition_receipt.json": {
+      "path": "/root/lightsem/outputs/shpongle_layers_demo_20260922T161917Z/palette_secondary_v1/vault_definition_receipt.json",
+      "sha256": "9f663205773a9d5eaff0925800e5d747d4c423e029f834dbd40edf899fee915e"
+    },
+    "vault_replay_amendment_receipt.json": {
+      "path": "/root/lightsem/outputs/shpongle_layers_demo_20260922T161917Z/palette_secondary_v1/vault_replay_amendment_receipt.json",
+      "sha256": "19a9a9957dbe42b90c2626d0a1669d29ed2e525344294c090dee8a3378c5beb4"
+    },
+    "vault_execution_receipt.json": {
+      "path": "/root/lightsem/outputs/shpongle_layers_demo_20260922T161917Z/palette_secondary_v1/vault_execution_receipt.json",
+      "sha256": "6876e371938a26ea017fdeef8db5707dfc7ce542da7d2a12514aa63d265fd797"
+    }
+  },
+  "remedy": "Preserve failures; record late historical updates explicitly; successfully register continuation amendment/source prospectively before85/score; require native result schema and content, not shell exit0",
+  "interpretation": "Disclose V1 vault-order noncompliance. No claim of fully compliant execution; no outcome-based adaptation or score known. Scientific definition, original101 outputs and numeric evidence unchanged."
+}

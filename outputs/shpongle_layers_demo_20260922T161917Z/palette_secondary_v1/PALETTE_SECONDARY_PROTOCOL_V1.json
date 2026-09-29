@@ -1,0 +1,177 @@
+{
+  "protocol_id": "palette-history-observer-secondary-20260922-v1",
+  "status": "prospective_definition_no_new_results",
+  "study_scope": "historically_exposed_DEV_full64s_authored_video_observer_HS_distribution;not_LIGHTtruth_aesthetic_or_unseen_confirmation",
+  "prediction": {
+    "diagnostic": "layers-palette-temporal-error",
+    "direction": "down",
+    "expected_absolute_gain_min": 0.02,
+    "expected_relative_reduction_min": 0.15,
+    "basis": "Original prespecified engineering minimum; not empirical power or MDE estimate; no secondary outcomes inspected",
+    "measurement_before": "null_state temporal_mean_scaled",
+    "measurement_after": "own_state temporal_mean_scaled"
+  },
+  "inventory": {
+    "recipe": "S_VR_P0",
+    "seeds": [
+      0,
+      1,
+      2
+    ],
+    "draw_seeds": [
+      101,
+      102,
+      103,
+      104
+    ],
+    "roles": [
+      "selected",
+      "final"
+    ],
+    "primary_role": "selected",
+    "final": "separate_companion;no_best_role_selection_or_role_pooling",
+    "train_records": 91,
+    "dev_records": 31,
+    "no_fits": true,
+    "no_R1": true,
+    "no_TEST": true
+  },
+  "window": {
+    "seconds": 64,
+    "frames10": 640,
+    "audio40_shape": [
+      2560,
+      94
+    ],
+    "model_context": "single64s_feature_window;full_source_offline_features;full_window_edges_have_less_model_context;only_center8_was_supervised",
+    "reference_grid": "relative requested10Hz;observed HS attaches to corresponding requested slot without interpolation; sourcePTS retained for gap audit and emitted timing",
+    "gap_limit_s": 0.2,
+    "gap_rule": "if adjacent sourcePTS difference>.2+1e-8, BOTH bounding samples invalid; all four arms share mask; never bridge gap",
+    "validity": "color_valid AND frame_valid(if present) AND NOT known_cut;unknown_cuts remain observer nuisance;false validity has zero HS placeholder"
+  },
+  "cues": {
+    "dev": "index0 UNION existing corresponding real-audio model__generated_color_cues;hash saved prediction and exact inventory;same recipient cues for all conditions",
+    "initialization": "index0 display initialization not event",
+    "train_calibration": "existing frozen TRAIN-fitted logistic color baseline on same normalized94D bus;training._cue_indices(probabilities,threshold=.5) i.e.frozen chromatic_event_targets spacing.5s; union index0;no new fitting or gold cues",
+    "nms_s": 0.5,
+    "threshold": 0.5,
+    "prediction_replay": "regenerated recipient FP32 color logits must allclose saved(rtol1e-5,atol1e-5); recomputed cue inventory must match exactly or stop"
+  },
+  "reference": {
+    "raw_hs": "keep raw normalized observed72bin HS for marginal,intercue drift and8s lag;invalid rows exactlyzero",
+    "token_assignment": "one reference token per common cue interval: mean only valid rawHS frames in that interval, then nearest frozen prototype by squaredEuclidean;argmin earliest tie",
+    "empty_interval": "Canonical token0 only for wholly unsupported interval; wrapper replaces any placeholder with0 before all metric/calibration calls. Original support unchanged and HSzero. Changing an external placeholder cannot affect metrics/calibration or valid-frame tokens; expose unsupportedintervalcount separately.",
+    "prototypes": "existing TRAIN32x72 unchanged;metric normalized prototype hash is separate from original json-list vocab hash"
+  },
+  "rollout": {
+    "precision": "FP32;eval;noautocast;TF32off;CPUonly in v1",
+    "pairing": "evaluation.palette_rollouts inverseCDF uniform noise seeds101..104;no reference history;initial state32",
+    "conditions": [
+      "own_state",
+      "null_state",
+      "persistence",
+      "tempo_donor_own"
+    ],
+    "persistence": "hold recipient first sampled own token across640steps;same first draw asnull",
+    "tempo_donor_own": "existing frozen same-partition distinctcanonical nearesttempo many-to-one map;replace normalizedcolumns0:86 retain86:94;donorcontext on recipientcueindices,identicaluniforms;not shuffled-palette and not allrhythmfixed"
+  },
+  "controls": {
+    "self_floor": "reference compared with itself; separatelyreported,not subtracted",
+    "quantization_floor": "referencecue tokens heldasprototypes vs rawreference;separatelyreported,not subtracted",
+    "constant": "persistence is per-drawconstant control",
+    "independent_held": "null_state trainedstate-dropout branch",
+    "original_shuffled_palette": "MISSING;existingtempo-donor doesNOTsatisfy originalunspecifiedcontrol",
+    "random_flicker": "synthetic instrument negativecontrol only;no additional real-data condition"
+  },
+  "calibration": {
+    "function": "palette_metrics.fit_palette_scales",
+    "partition": "TRAIN",
+    "records": "exact91,oneperrecord;no seed/drawreplication;allrecords must haveall4definedcomponents",
+    "iqr": "frozen canonical-song/record/sample equalweights,inverseempiricalCDF;Q75-Q25;allfour andmarginalstrictlypositive",
+    "failure": "blocked receipt;no posthocdropping,noepsilon,nocomponentremoval,noDEVfit"
+  },
+  "metrics": {
+    "function": "palette_metrics.compare_palette_tracks",
+    "temporal": [
+      "log1p_residence_s",
+      "conditional_mark_change",
+      "mean_intercue_drift_per_s",
+      "eight_second_change"
+    ],
+    "mean": "all4 scaled errors equally; anyundefined meansaggregateundefined",
+    "marginal": "TRAIN-scaled slicedW1 of durationweightedmeanHS",
+    "occupancy": "numberofunique valid-frame activecue tokens;ratioown/reference perrecorddraw",
+    "diversity": "exp(-sum p logp) overvalid-frame activecue tokens;ratioown/reference perrecorddraw;no rawhist entropy substitution",
+    "censoring": "reportvalidtime,validduration,residencecensor counts,change/nochange,intercueand8slagpaircounts;invalidgaps splitresidence"
+  },
+  "support": {
+    "palette_min_valid_fraction_per_record": 0.8,
+    "palette_min_common_dev_groups": 30,
+    "enrolled_dev": 31,
+    "common": "identicalmask acrossarms;allfour temporalcomponents andmarginaldefined;allseeds/draws/conditions complete;retain unqualifiedrecords descriptively,paired inferenceonfixedqualificationrule",
+    "minimum_train_records": 91,
+    "no_records_replaced_or_dropped_to_repair_calibration": true,
+    "original_source_coverage": {
+      "qualified": false,
+      "usable": 31,
+      "original": 40,
+      "fraction": 0.775,
+      "threshold": 0.8
+    },
+    "event_shift_gate": "completed29/30 unchanged;not aprerequisiteofpaletteinstrument"
+  },
+  "statistics": {
+    "unit": "canonicalsong;equalmeanrecordings,drawsandpairedtrainingseeds within song;noindependentdrawclaim",
+    "bootstrap_replicates": 10000,
+    "bootstrap_seed": 0,
+    "contrast_family": [
+      "null_minus_own_temporal",
+      "tempo_donor_minus_own_temporal"
+    ],
+    "primary_intervals": "paired percentile97.5% percontrast;two-sidedBonferroni family95% over2contrasts",
+    "descriptive_intervals": "unadjusted95% also reported",
+    "p_values": "two-sided nullcenteredbootstrap p;Holm2 withinrole;no rolepooling",
+    "roles": "two distinct reports;selected primary,final companion"
+  },
+  "gates": {
+    "secondary_only": true,
+    "null_absolute_min": 0.02,
+    "null_relative_reduction_min": 0.15,
+    "null_family_ci_lower_strict_min": 0,
+    "donor_family_ci_lower_strict_min": 0,
+    "holm2_p_strict_max": 0.05,
+    "occupancy_ratio_min": 0.7,
+    "effective_diversity_ratio_min": 0.7,
+    "marginal_own_vs_null_max_ratio": 1.05,
+    "emitted_color_ap_own_minus_null_min": -0.01,
+    "qualification": "all support/calibration/completeness/no-collapse/marginal/timing gatesrequired for narrowlydefinedsecondarypass;missingmeansundefined notfalse/refuted",
+    "original_palette_hypothesis": "cannot pass:original31/40 gatefailed andoriginalshuffled-palette controlmissing;noautomaticvaultclosure/promotion",
+    "family_ci_confidence_per_contrast": 0.975
+  },
+  "timing": {
+    "instrument_name": "center8_emitted_differing_token_cue_AP_not_original_fullcandidate_head_AP",
+    "candidates": "cue index>0 where current generated token differsfrompreviousheldtoken AND both adjacentpalettevalidsamples;confidence=savedrecipientcolorprobability atcue;no extraNMS/redetection",
+    "reference": "unchangedfreeze_labels color nativeactualPTS,unchangedeligible_intervals center[28,36),tolerance.2s;restrictall emittedcandidates tocommonintervalsexactly",
+    "threshold": 0.5,
+    "noevent": "APundefined;retainFP/min,eventcounts,coverage",
+    "support_min_groups": 30,
+    "support_min_event_bearing_groups": 10,
+    "support_min_center_fraction": 0.8,
+    "comparison": "own-minus-null macroAP oncommoneventbearingqualifiedgroups,allseedsdraws;pointnoninferiority>=-.01 isasecondarypreservationcheck;report95%CI separately",
+    "raw_color_head": "identicalforown/null/persistence byconstruction,NOTproof ofemittedtiming",
+    "original_colorAP_gate": "this isdifferentdeploymentemitted-cueinstrument;doesNOTretroactivelyqualify originalAPgate"
+  },
+  "resources": {
+    "derived_root": "/mnt/lightsem-data/experiments/lightsem/palette-history-secondary-20260922-v1",
+    "derived_cap_bytes": 67108864,
+    "preflight_reserve_bytes": 33554432,
+    "free_floor_bytes": 1073741824,
+    "persistent": "uint8ids,uint16cues,uniforms,scalarperrecordmetrics andreceipts;no duplicatedHS,contexts,audio,weights",
+    "cpu_threads": 2,
+    "max_cpu_wall_seconds_per_phase": 3600,
+    "gpu": false,
+    "source_mutation": false,
+    "overwrite": false
+  },
+  "parent_authorization": "definition accepted prospectively in parent message;realcalibration,inferenceandscoring remainBLOCKED until parent vaultpreregistration/source-test bindings"
+}

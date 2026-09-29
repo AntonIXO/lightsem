@@ -1,0 +1,8 @@
+{
+  "experiment_id": "audio-predicts-lighting-events-when-the-scene-changes-even-though-it-does-not-pr-exp-2026-08-07t13-50-58",
+  "verdict": "supports",
+  "failure_mode": null,
+  "lesson": "2026-09-28 retrospective claim-scope clarification, not a new measurement: Audio is associated with the video-derived event proxy: rhythm+audio lift1.4151 versus rhythm1.3241, marginal+0.0909 against the circular-shift null\u22120.1568\u00b10.0876. The36-song rise/reversion measurements describe filtered novelty morphology only. Without validated shot-boundary labels they do not bound the proportion of editing contamination, identify lighting-only coupling, or establish useful cue anticipation.",
+  "transfers_to": [],
+  "hint": null
+}

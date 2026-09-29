@@ -1,0 +1,27 @@
+{
+  "scope": "CURRENT_PACKET_AND_CONSERVATIVE_GLOBAL_COMMITMENTS_NOT_FUTURE_SCIENTIFIC_ADMISSION",
+  "native_result_receipt_ref": {
+    "path": "/root/lightsem/outputs/legacy_struct_intensity_20260928_v1/vault_preparation_result_v6_receipt.json",
+    "size_bytes": 119655,
+    "sha256": "5ed9f93b349e2fcf58883cb4c8da343867f4c13ddd02fb3927eef05d94d80dc5"
+  },
+  "packet_cap_bytes": 12582912,
+  "source_bytes_excluding_this_ledger": 2812037,
+  "eight_protocol_bytes": 1122960,
+  "preparation_workspace_bytes": 202345,
+  "ledger_self_bytes": 1557,
+  "packet_used_including_ledger": 4138899,
+  "packet_remaining_bytes": 8444013,
+  "future_raw_all40_trace_estimate_bytes": 8542039,
+  "current_packet_plus_future_raw_trace_lower_bound_bytes": 12680938,
+  "raw_trace_lower_bound_over_packet_cap_bytes": 98026,
+  "future_archive_admitted": false,
+  "global_cap_bytes": 1020054732,
+  "global_committed_base_with_packet_and_comparison_reservations_bytes": 999113452,
+  "separate_row65_project_archive_addendum_reservation_bytes": 65536,
+  "global_committed_with_new_row65_reservation_bytes": 999178988,
+  "root_free_snapshot_bytes": 5318602752,
+  "mnt_free_snapshot_bytes": 1246846976,
+  "minimum_free_each_bytes": 1073741824,
+  "limits": "Raw trace estimate is the frozen prospective all40 payload only; excludes future code/controls/archive headers/section tables. No count reduction, deletion, overwrite or directory-based budget reset approved. Possible compression is unmeasured, not assumed. CPU preparation is complete, not model/GPU/scientific permission."
+}

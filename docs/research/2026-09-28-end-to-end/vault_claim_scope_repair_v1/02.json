@@ -1,0 +1,8 @@
+{
+  "experiment_id": "exp-023-a-factorised-audio-light-critic-e453c6",
+  "verdict": "directional_only",
+  "failure_mode": "recipe_conditional",
+  "lesson": "2026-09-28 retrospective claim-scope clarification, not a new measurement: The reranking proxies compare39 motion-model-validation clips: FID41.38 versus random43.82 and BAS-minus-shift-null0.1234 versus0.1237. The source does not establish that this set is held out from the independently split critic. Keep the separate critic-split pair-accuracy result and additive projection result; beyond-level understanding and best-of8 human preference remain unestablished.",
+  "transfers_to": [],
+  "hint": "recipe_conditional: when the recipe changes, reopen_hypothesis('a-factorised-audio-light-critic-trained-with-a97ada', reason=...) makes the negative re-testable instead of terminal"
+}

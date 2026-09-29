@@ -1,0 +1,8 @@
+{
+  "id": "exp-layers-20260922-rhythm-dev-features",
+  "hypothesis_id": "h-layers-20260922-rhythm",
+  "parent_experiment_id": "exp-layers-20260922-rhythm-features",
+  "git_ref": "01a14fea1fb9bf517f637d4fcebb7829667cb112",
+  "external_run": "/mnt/lightsem-data/experiments/lightsem/lighting-cue-model-20260922t094347z/rhythm_dev_features",
+  "config_note": "{\"scope\": \"Historical-VAL learned rhythm feature extraction only; no accuracy/scientific diagnostic, not fresh confirmation\", \"input_policy\": \"ALL52 eligible historicalVALrecordings from frozen originalsplit, independentoflaterposequalification; noTEST access\", \"manifest_path\": \"/mnt/lightsem-data/experiments/lightsem/lighting-cue-model-20260922t094347z/rhythm_dev_manifest.json\", \"manifest_sha256\": \"98e391b68a3148883ecbbcded3e30df6269b5bc87ea98e0e3cefccf652a7d40d\", \"runner_sha256\": \"d0558edd43302e53d2b65355e05501a456c5616bb7289bf43ecdf319d4c3646b\", \"checkpoint_sha256\": \"6074be2c4d490c5f6101fcc374a1ec72ae93456e23bb6019783b849f5dc7d47b\", \"runtime\": \"/root/lightsem/.venv/night-access\", \"records\": 52, \"split_sha256\": \"c5be79ab5ca3e134d3b4d3f7527679f8d9da95c15ffd4eb3141e392bf91007b3\", \"free_disk_floor_bytes\": 1073741824}"
+}

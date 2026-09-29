@@ -1,0 +1,18 @@
+{
+  "status": "passed",
+  "source": {
+    "path": "/root/lightsem/docs/research/2026-09-22-color-beat/run_observer_parallel_predictions_v1.py",
+    "sha256": "53d28236dd56e1f200d568e739fe3ab8e21f12e0eec5e9aaa59afcf151582456"
+  },
+  "log": {
+    "path": "/root/lightsem/docs/research/2026-09-22-color-beat/observer_parallel_prediction_self_test_v1.log",
+    "sha256": "552bc66efee30b46082f703c21b49e0f52e30fffe270f4e259c4413c5aa7e2ff"
+  },
+  "exit_code": 0,
+  "duration_s": 0.6399955860106274,
+  "synthetic_only": true,
+  "cuda_used": false,
+  "dataset_access": false,
+  "checks": 7,
+  "scope": "Orchestration safety only; no model-quality claim; real integration validation pending all15 fits."
+}

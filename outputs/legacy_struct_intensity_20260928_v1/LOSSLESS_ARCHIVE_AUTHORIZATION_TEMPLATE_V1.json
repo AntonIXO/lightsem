@@ -1,0 +1,88 @@
+{
+  "schema_version": 1,
+  "status": "TEMPLATE_NOT_AUTHORIZATION",
+  "scope": "METADATA_INTEGER_CODEC_ONLY_NO_SCIENCE",
+  "source_binding": {
+    "driver_sha256": "2c068d0062ae0b9dd24d88b848c80201dffd284221ae4e25d84a5da8d8febf39",
+    "tests_sha256": "79866d5de485812d3b6483a3f0073774fa139772a2d4667622a493358fd1eaa1",
+    "test_count": 67,
+    "root_verified_source_bytes": false
+  },
+  "native_test_attestation": {
+    "exit_code": null,
+    "tests_run": null,
+    "failures": null,
+    "errors": null,
+    "skipped": null,
+    "expected_failures": null,
+    "unexpected_successes": null,
+    "plain_OK": false,
+    "native_receipt_ref": {
+      "path": "/root/lightsem/outputs/legacy_struct_intensity_20260928_v1/NATIVE_LOSSLESS_ARCHIVE_TEST_RESULT_V1.json",
+      "sha256": null,
+      "size_bytes": null
+    }
+  },
+  "codec_versions": {
+    "python_major_minor": null,
+    "python_full": null,
+    "lzma_backend_path": null,
+    "numpy": null,
+    "zlib_runtime": null,
+    "zlib_compile": null,
+    "zip_candidates": [
+      {
+        "name": "deflate9",
+        "ZIP_method": 8,
+        "level": 9
+      },
+      {
+        "name": "lzma_default",
+        "ZIP_method": 14,
+        "level": "stdlib_default",
+        "LZMA1_lc_lp_pb": [
+          3,
+          0,
+          2
+        ],
+        "dict_bytes": 8388608
+      }
+    ],
+    "stdlib_lzma_available": null,
+    "NPY_version": "1.0",
+    "ZIP64": false,
+    "linked_liblzma_version": null
+  },
+  "plan_ref": {
+    "path": "/root/lightsem/docs/research/2026-09-28-end-to-end/PROSPECTIVE_STRUCT_INTENSITY_PROTOCOL_CANDIDATE_V6.json",
+    "sha256": "977241748163f747064cfc28e2998f707085431aee8189814c914707d7599267",
+    "size_bytes": 285563
+  },
+  "readiness_ref": {
+    "path": "/mnt/lightsem-data/experiments/lightsem/end_to_end_20260928_v1/legacy_struct_intensity_v6/preparation_readiness_v6.json",
+    "sha256": "54049eb742d6e796f3356cb278e1044320a6a7e56cf9c4af04cd33536520a878",
+    "size_bytes": 202345
+  },
+  "envelope_ref": {
+    "path": "/root/lightsem/outputs/legacy_struct_intensity_20260928_v1/LOSSLESS_ARCHIVE_EXTERNAL_ENVELOPE_V1.json",
+    "sha256": null,
+    "size_bytes": null
+  },
+  "resources": {
+    "write_pattern": "WRITE_ONCE_FLOAT_NPY_PLUS_SINGLE_INTEGER_NPZ",
+    "float_payload_copy_count": 1,
+    "future_unspent_code_control_metrics_bytes": 1048576,
+    "distinct_GPU_ledger_charge_bytes": 65536,
+    "header_reservation_bytes": 131072,
+    "table_manifest_reservation_bytes": 524288,
+    "retained_packet_bytes_excluding_distinct_GPU_ledger_charge": null,
+    "other_unwritten_control_reserve_bytes": null,
+    "global_existing_plus_other_reservations_excluding_row8_growth_and_GPU_ledger": null,
+    "free_root_bytes": null,
+    "free_mnt_bytes": null,
+    "all_retained_and_prototype_controls_counted": false,
+    "prior_failures_and_eight_protocols_preserved": false
+  },
+  "snapshot_epoch_s": null,
+  "root_attests_fresh_exact_command_accounting": false
+}

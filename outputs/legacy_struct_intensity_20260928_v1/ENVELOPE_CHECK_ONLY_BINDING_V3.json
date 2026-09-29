@@ -1,0 +1,22 @@
+{
+  "scope": "CPU_ENVELOPE_CHECK_ONLY_NO_PREPARATION",
+  "source": {
+    "path": "/root/lightsem/outputs/legacy_struct_intensity_20260928_v1/enforce_preparation_envelope_v3.py",
+    "size_bytes": 6384,
+    "sha256": "cd3dc533ce7a51b71c7d1dda736cbae5da63586f52541c1d4d355bb5085c44aa"
+  },
+  "wrapper": {
+    "path": "/root/lightsem/run.sh",
+    "size_bytes": 227,
+    "sha256": "232ca5a566ae3b22f0677b6b5879c6901abf9decb16dc66967a4895174289556"
+  },
+  "command": "systemd-run --unit=lightsem-struct-envelope-v3.service --wait --pipe --no-ask-password --working-directory=/root/lightsem -p MemoryMax=4294967296 -p MemorySwapMax=0 -p RuntimeMaxSec=890s -p KillMode=control-group -p KillSignal=SIGKILL -p PrivateDevices=yes -p ProtectControlGroups=yes -p NoNewPrivileges=yes --setenv=CUDA_VISIBLE_DEVICES= --setenv=PYTHONDONTWRITEBYTECODE=1 --setenv=TORCH_ENV=/root/lightsem/.venv/torch-access /usr/bin/bash /root/lightsem/run.sh -u /root/lightsem/outputs/legacy_struct_intensity_20260928_v1/enforce_preparation_envelope_v3.py --unit lightsem-struct-envelope-v3.service --check-only > /root/lightsem/outputs/legacy_struct_intensity_20260928_v1/envelope_check_only_v3.log 2>&1",
+  "expected": "exit0 and one ENVELOPE_CHECK_ONLY_NO_PREPARATION record; no auth/payload/model reads, no exec or proof-file write.",
+  "delta": "Actualbranch now targetsV5 and pre-exec hash-checks driver/plan/run_torch.sh. Actualbranch remainsUNRUN; check-only does not validate actualbranch or confer preparation authority.",
+  "previous_check": {
+    "path": "/root/lightsem/outputs/legacy_struct_intensity_20260928_v1/ENVELOPE_CHECK_ONLY_RESULT_V2.json",
+    "size_bytes": 2160,
+    "sha256": "ec4f585c3d3e4209475ef6b35ec08278cb13b9e4babc18c843efb328965465bc"
+  },
+  "watchdog": "890s configured within900s declaredceiling/10sslack; effective4GiB/no swap/privateGPUdeviceview; no hard-real-time/OOMstress claim."
+}

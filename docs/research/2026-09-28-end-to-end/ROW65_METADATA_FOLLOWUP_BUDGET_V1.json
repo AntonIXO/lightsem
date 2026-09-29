@@ -1,0 +1,13 @@
+{
+  "scope": "ROW65_RECORD_ONLY_PROVENANCE_AND_LATENCY_SCOPE_CLARIFICATION",
+  "cap_bytes": 262144,
+  "within_existing_global_scientific_cap": true,
+  "global_cap_bytes": 1020054732,
+  "base_global_commitments_with_comparison_and_preparation_reserves_bytes": 999113452,
+  "new_global_commitments_with_row65_metadata_reserve_bytes": 999375596,
+  "replaces_preliminary_row65_only_reservation_bytes": 65536,
+  "does_not_change_preparation_packet_cap_bytes": 12582912,
+  "included": "Both priorROW65_CAUSALITY_PROVENANCE_READINESS_V1reports, archiveaddendum pair, newlatencyinstrument pair, newfrontierdeltaV2pair, related rootbefore/payload/receipt/runner/control records andthisbudget. No raw scientific data or model output.",
+  "outside_scope": "No model/scientific/current-version experiment, checkpoint/audio/NPZ/rawmanifest/TESTaccess,fit,cleanup,cohortreduction orglobalcapincrease. TwelveMiBpreparationbudget staysunchanged; independentrow65 metadata notrelocatedpreparationdata.",
+  "publication_policy": "Newexclusiveversionedfiles; preserveold14repairs/V1reports/numbers/gates/verdicts/Notes. Nativeclarification usesappend-onlydatedlesson, notclosure/statuschange."
+}

@@ -1,0 +1,296 @@
+{
+  "id": "lightsem-existing-evidence-reconciliation-20260928-v1",
+  "scope": "Retrospective record-only reconciliation of existing results and artifact availability. No new measurements, predictions, or changes to historical verdicts.",
+  "frontier": {
+    "path": "/root/lightsem/docs/research/2026-09-28-end-to-end/FRONTIER_REVIEW_V1.json",
+    "sha256": "4857b0e7cf5136cfb42ce6af7c085b632933dfbb746322e7fcd54a77e46c923d"
+  },
+  "legacy_remainder": {
+    "path": "/root/lightsem/docs/research/2026-09-28-end-to-end/LEGACY_REMAINDER_READINESS_V1.json",
+    "sha256": "715e4240693e3ec68ce1ae33168ce98d621213f8c643f85af28457c21835c666"
+  },
+  "completed_or_superseded": [
+    {
+      "number": 10,
+      "hypothesis_id": "descriptors-extracted-from-ordinary-video-with-3fc5b9",
+      "native_status": "testing",
+      "statement": "Descriptors extracted from ordinary video with an off-the-shelf 2D pose model match mocap-derived descriptors well enough to use video as a data source (r > 0.8 on speed, laterality and spread).",
+      "experiments": [
+        {
+          "id": "exp-007-descriptors-extracted-from-936a48",
+          "closed": false,
+          "verdict": null,
+          "gate_results": [
+            {
+              "gate_id": "G3",
+              "passed": false
+            }
+          ],
+          "snapshot_path": "/root/lightsem-vault/experiments/exp-007-descriptors-extracted-from-936a48.md"
+        }
+      ],
+      "evidence": [
+        "VAULT_INVENTORY_V1.json#descriptors-extracted-from-ordinary-video-with-3fc5b9",
+        "outputs/stage0a/pose_validation.json",
+        "run_pose_validation.py",
+        "docs/research/2026-09-22-color-beat/lightsem_campaign_rhythm_read_notes.md"
+      ],
+      "classification": "completed_admin_open_with_provenance_limit",
+      "retained_evidence": "Saved10-clip2D-versus-AIST3D descriptor audit fails G3: mean five-channel r=.627 vs>.8. Good vertical/slow channels do not rescue broad gate.",
+      "remaining": "Reconcile plan12 versus executed10 and attach existing gate report; native experiment has no diagnostic measurement despite saved G3 outcome.",
+      "blockers": [
+        "Historical12-clip selection/invocation provenance not established; no missing clips may be downloaded."
+      ],
+      "next_runnable": "Read-only manifest/source provenance reconciliation and parent administrative record of10-clip failure; no inference rerun.",
+      "dependencies": [],
+      "closure_limit": "AIST++ is multiview reconstructed3D, not independent marker mocap. Current genre-unique selector tops out at10; do not assert all12 executed or retroactively alter gate.",
+      "priority": "P0_record_reconciliation",
+      "scientific_rerun_recommended": false,
+      "short_name": "2D pose versus AIST3D descriptors",
+      "triage_label": "Done10clips; admin/provenance debt"
+    },
+    {
+      "number": 27,
+      "hypothesis_id": "h-layers-20260922-observer-proxy",
+      "native_status": "testing",
+      "statement": "On source-qualified historical-development clips, an audio-only student with rich96 visual auxiliary supervision predicts frozen SAM2-filtered authored-video chromatic OBSERVER events better than the matched legacy6 auxiliary student. Unknown cuts and mask nuisance are included; this is not correct-lighting-cue accuracy.",
+      "experiments": [
+        {
+          "id": "exp-layers-20260922-observer-capture",
+          "closed": false,
+          "verdict": null,
+          "gate_results": [],
+          "snapshot_path": "/root/lightsem-vault/experiments/exp-layers-20260922-observer-capture.md"
+        },
+        {
+          "id": "exp-layers-20260922-observer-fits",
+          "closed": false,
+          "verdict": null,
+          "gate_results": [
+            {
+              "gate_id": "observer-scope",
+              "passed": true
+            },
+            {
+              "gate_id": "observer-prerun",
+              "passed": true
+            },
+            {
+              "gate_id": "observer-support",
+              "passed": true
+            },
+            {
+              "gate_id": "observer-complete",
+              "passed": true
+            },
+            {
+              "gate_id": "observer-effect",
+              "passed": false
+            }
+          ],
+          "snapshot_path": "/root/lightsem-vault/experiments/exp-layers-20260922-observer-fits.md"
+        }
+      ],
+      "evidence": [
+        "VAULT_INVENTORY_V1.json#h-layers-20260922-observer-proxy",
+        "docs/research/2026-09-22-color-beat/OBSERVER_RESULTS_V1.md",
+        "docs/research/2026-09-22-color-beat/observer_final_results_vault_receipt_v1.json"
+      ],
+      "classification": "execution_complete_admin_blocked",
+      "retained_evidence": "131 captures,15fits,30predictions and two930-record score reports complete. Rich minus legacy color\u2212.01493(selected) and\u2212.02998(final); all 16CI include0.",
+      "remaining": "Only validity-aware administrative disposition and evidence cross-links; zero remaining scientific execution in frozen study.",
+      "blockers": [
+        "Paired-null29<30 makes qualified outcome undefined.",
+        "Native close_experiment sign-only logic would falsely convert opposite-sign descriptive delta into broad refutes."
+      ],
+      "next_runnable": "Parent attach complete/unqualified disposition or resolve native capability gap without altering measured values/predictions. No reruns.",
+      "dependencies": [],
+      "closure_limit": "Failed engineering gain is not qualified refutation; original31/40 source failure and unknown cuts/masks retained.",
+      "priority": "P0_record_reconciliation",
+      "scientific_rerun_recommended": false,
+      "short_name": "Observer-proxy event study",
+      "triage_label": "Done; admin closure blocked"
+    },
+    {
+      "number": 28,
+      "hypothesis_id": "h-layers-20260922-palette",
+      "native_status": "testing",
+      "statement": "A generated-history palette-mark model improves palette residence and transition distributions over independent cue-held sampling, without collapse or timing damage.",
+      "experiments": [
+        {
+          "id": "exp-layers-20260922-palette-secondary",
+          "closed": false,
+          "verdict": null,
+          "gate_results": [
+            {
+              "gate_id": "prerun-provenance",
+              "passed": false
+            },
+            {
+              "gate_id": "valid-common-instrument",
+              "passed": false
+            },
+            {
+              "gate_id": "paired-complete",
+              "passed": false
+            },
+            {
+              "gate_id": "scope-and-output",
+              "passed": true
+            },
+            {
+              "gate_id": "palette-magnitude",
+              "passed": false
+            }
+          ],
+          "snapshot_path": "/root/lightsem-vault/experiments/exp-layers-20260922-palette-secondary.md"
+        }
+      ],
+      "evidence": [
+        "VAULT_INVENTORY_V1.json#h-layers-20260922-palette",
+        "docs/research/2026-09-22-color-beat/PALETTE_SECONDARY_RESULTS_V1.md",
+        "docs/research/2026-09-22-color-beat/PALETTE_FINAL_INTEGRITY_V1.json"
+      ],
+      "classification": "secondary_complete_original_unqualified_admin_blocked",
+      "retained_evidence": "All 186 cells/744 rows complete. Selected own-history error.859022 versus null.830589 and donor.850720 is worse; final gain.005577 misses.02/15% targets.",
+      "remaining": "Only admin disposition for completed secondary. Original shuffled-palette control/clean-label full conjunction remains unmeasured, not a request to rerun secondary.",
+      "blockers": [
+        "Original frozen cohort covers31/40=.775, below.80; no replacement or threshold relaxation.",
+        "Independent cut/mask/clean-light annotation qualification absent.",
+        "Historical DEV exposure prevents fresh confirmation; TEST remains sealed.",
+        "Original shuffled-palette comparator absent; secondary emitted-cue AP is not original head-AP guard.",
+        "First101 outputs lacked successful prospective native source/calibration logging; retrospective repair cannot erase chronology.",
+        "Sign-only native closure cannot safely express limited negative with original qualification undefined."
+      ],
+      "next_runnable": "Retain completed negative; parent attach explicit secondary-complete/original-unqualified disposition. Any missing original control would need separately preregistered extension, no refit/rerun.",
+      "dependencies": [
+        "annotation-source-qualification"
+      ],
+      "closure_limit": "Two producer lineages/six exact final replay exceptions disclosed. Four-draw secondary is not argmax demo; no palette/default promotion.",
+      "priority": "P0_record_reconciliation",
+      "scientific_rerun_recommended": false,
+      "short_name": "Generated-history palette",
+      "triage_label": "Secondary done; original unqualified"
+    },
+    {
+      "number": 33,
+      "hypothesis_id": "h-motion-audio-20260910",
+      "native_status": "proposed",
+      "statement": "Conditional temporal flow generates coherent motion that responds correctly to music beyond mismatched and shifted audio controls.",
+      "experiments": [],
+      "evidence": [
+        "VAULT_INVENTORY_V1.json#h-motion-audio-20260910",
+        "docs/research/2026-09-10-motion/RESULTS.md",
+        "docs/research/2026-09-10-motion/REVISION_NATIVE_REFERENCE.md"
+      ],
+      "classification": "duplicate_superseded_with_gated_original_branch",
+      "retained_evidence": "Original compressed-codec branch never qualified. Native139 revision already ran matched flow/regression with donor/shift6draw controls; conditioning and physical gates failed.",
+      "remaining": "Cross-link original proposal to h-motion-native-audio and completed codec failures; original compressed path cannot advance.",
+      "blockers": [
+        "Representation prerequisite failed for original codecs; seed1/TEST were conditional on qualification and remain blocked."
+      ],
+      "next_runnable": "Parent administrative supersession/cross-link only. No new dancer fitting to fix lighting.",
+      "dependencies": [
+        "h-motion-codec-20260910",
+        "h-motion-native-audio-20260910"
+      ],
+      "closure_limit": "Native revision is not identical compressed experiment; preserve original unexecuted branch as prerequisite-blocked/superseded, not independent refutation.",
+      "priority": "P0_record_reconciliation",
+      "scientific_rerun_recommended": false,
+      "short_name": "Original motion-audio proposal",
+      "triage_label": "Superseded; original branch gated"
+    },
+    {
+      "number": 51,
+      "hypothesis_id": "h-rhythm-companion-20260912t193657z",
+      "native_status": "testing",
+      "statement": "Separating slow motion-derived spatial style from direct musical timing yields more active emitted lighting than literal pose mapping without accelerating the diagnostic body.",
+      "experiments": [
+        {
+          "id": "exp-rhythm-companion-20260912t193657z",
+          "closed": false,
+          "verdict": null,
+          "gate_results": [
+            {
+              "gate_id": "mechanics",
+              "passed": true
+            },
+            {
+              "gate_id": "source",
+              "passed": true
+            },
+            {
+              "gate_id": "photometry",
+              "passed": true
+            },
+            {
+              "gate_id": "independence",
+              "passed": true
+            },
+            {
+              "gate_id": "quiet",
+              "passed": true
+            },
+            {
+              "gate_id": "timing",
+              "passed": true
+            },
+            {
+              "gate_id": "media",
+              "passed": true
+            }
+          ],
+          "snapshot_path": "/root/lightsem-vault/experiments/exp-rhythm-companion-20260912t193657z.md"
+        }
+      ],
+      "evidence": [
+        "VAULT_INVENTORY_V1.json#h-rhythm-companion-20260912t193657z",
+        "docs/research/2026-09-10-motion/RHYTHM_COMPANION.md"
+      ],
+      "classification": "execution_complete_admin_open_human_not_tested",
+      "retained_evidence": "All 4arms/synthetic controls and3full277.3s AV1/audio deliveries complete; seven engineering gates logged. Active ratio1.1431 misses committed1.25.",
+      "remaining": "Scoped outcome/admin disposition; continuous human AV music-fit acceptance remains a separate human decision, not an unfinished synthetic/media test.",
+      "blockers": [
+        "Native positive-direction verdict can misleadingly imply success despite missed magnitude; parent must preserve prediction miss.",
+        "No independent real-track beat labels or human AV music-fit acceptance."
+      ],
+      "next_runnable": "Parent record limited engineering outcome and explicit25%miss; user may review existing full demo. New major LIGHT change must produce a NEW full demo, even if worse.",
+      "dependencies": [],
+      "closure_limit": "OneShpongle engineering test, not learned movement/real-fixture/global music-fit success; no retiming/body edits.",
+      "priority": "P0_record_reconciliation",
+      "scientific_rerun_recommended": false,
+      "short_name": "Rhythm companion",
+      "triage_label": "Engineering done; magnitude missed"
+    }
+  ],
+  "legacy_missing_components": {
+    "rows": [
+      3,
+      4,
+      7,
+      8,
+      9,
+      11,
+      16,
+      55,
+      58,
+      59,
+      66
+    ],
+    "executable_saved_artifact_scientific_endpoints": 0,
+    "reason": "Required detailed outputs, comparator assets, independent labels or qualified human responses are absent from the located saved artifacts. This bounded search does not establish that no other archive exists.",
+    "scope_limit": "This audit forbade forwards and extraction. It does NOT establish that a newly preregistered evaluation on eligible local inputs is impossible or forbidden by the new user goal.",
+    "note": "Stored39 H-L pairs/responses and30 categoryMP4s do not meet the missing comparator protocols. CurrentTRAIN IDs retain historical TEST exposure; they are not fresh confirmation."
+  },
+  "no_run_rules": [
+    "No rerun of completed event or palette studies for bookkeeping",
+    "No rerun of measured10-clip poseG3 or fabricated missing2clips",
+    "No retiming/retraining accepted dancer",
+    "No invented paired CIs from means or operator-head CI substituted for decoder CI",
+    "No clip means substituted for section intensity",
+    "No30s noncausal chunks called L=0 or loudness tertiles called chorus/verse",
+    "No agent/proxy ratings called independent human ratings"
+  ],
+  "native_disposition": "Append dated limitations and crosslinks. Preserve historical statuses/measurements; no forced sign-only closure.",
+  "goal_status": "active; scientific components and external prerequisites remain unfinished"
+}

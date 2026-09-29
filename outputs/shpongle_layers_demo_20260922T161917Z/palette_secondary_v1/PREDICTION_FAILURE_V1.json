@@ -1,0 +1,27 @@
+{
+  "phase": "predict",
+  "exit_code": 1,
+  "duration_s": 6.739345004083589,
+  "message": "FP32 donor color replay differs from saved predictions",
+  "partial_npz_count": 101,
+  "complete_receipt_exists": false,
+  "outputs_preserved": true,
+  "source": {
+    "path": "/root/lightsem/outputs/shpongle_layers_demo_20260922T161917Z/palette_secondary_v1/run_palette_history_secondary_v1.py",
+    "sha256": "95d0f59160439ee153ef532235c25320870f113eda7a4d930438811d12ce5dbb"
+  },
+  "registration": {
+    "path": "/root/lightsem/outputs/shpongle_layers_demo_20260922T161917Z/palette_secondary_v1/REGISTRATION_AUTHORIZED_V1.json",
+    "sha256": "42f3a1faa773603ee5e55fb34c461264cbdc834c58c33d9deb7611f97ad8c153"
+  },
+  "calibration": {
+    "path": "/mnt/lightsem-data/experiments/lightsem/palette-history-secondary-20260922-v1/calibration_v1.json",
+    "sha256": "2675fc76b4e71d951b26d2e7eea9d98bd85870f744e12fb81b00fe4ac76216d7"
+  },
+  "log": {
+    "path": "/root/lightsem/outputs/shpongle_layers_demo_20260922T161917Z/palette_secondary_v1/predictions_v1.log",
+    "sha256": "3e654dd8c51aafff6b0939c76060ce85976e70ccef82494f2daa5a9c31f3ed78"
+  },
+  "scientific_score_run": false,
+  "cause": "under diagnosis; do not presume roundoff or change tolerance before evidence"
+}

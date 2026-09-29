@@ -1,0 +1,15 @@
+{
+  "scope": "Unpreregistered visual QA of three predetermined TRAIN audit frames; not segmentation accuracy",
+  "recording_id": "--74o20SmOs",
+  "audit_indices": [
+    0,
+    320,
+    639
+  ],
+  "paths": [
+    "/mnt/lightsem-data/experiments/lightsem/lighting-cue-model-20260922t094347z/visual_smoke_v3/--74o20SmOs/audit_0000.png",
+    "/mnt/lightsem-data/experiments/lightsem/lighting-cue-model-20260922t094347z/visual_smoke_v3/--74o20SmOs/audit_0320.png",
+    "/mnt/lightsem-data/experiments/lightsem/lighting-cue-model-20260922t094347z/visual_smoke_v3/--74o20SmOs/audit_0639.png"
+  ],
+  "observation": "SAM2 exclusion appears to follow the dancer silhouette more closely than rectangular boxes in these three views. UI exclusion is shared. No independent boundary annotations or IoU measured. Lyrics and source video editing remain potential nuisances."
+}

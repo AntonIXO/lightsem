@@ -1,0 +1,318 @@
+{
+  "schema_version": 1,
+  "status": "STATIC_REVIEW_HOLD_TESTS_AND_ACTUAL_PREPARATION_PENDING_PROSPECTIVE_REVISION",
+  "scope": "Source/protocol review only. Parent requested tests and actual preparation remain on hold. V3 is preserved. New exclusive review documents are the only writes in this follow-up.",
+  "reviewed_handoff": {
+    "path": "/root/lightsem/outputs/legacy_struct_intensity_20260928_v1/IMPLEMENTATION_HANDOFF_V3.json",
+    "sha256": "c194872940f3794e4f2ecb757dff544f3f5280360d63eb1231283ded36a30c85",
+    "bytes": 7983
+  },
+  "reviewed_driver": {
+    "path": "/root/lightsem/outputs/legacy_struct_intensity_20260928_v1/prepare_struct_intensity_v3.py",
+    "sha256": "82ddd7ea4296ece2d9f5c70c421756a4208c6ebc4bc6dd3fe3de3aace0cd0fc2",
+    "bytes": 36188
+  },
+  "reviewed_test_source": {
+    "path": "/root/lightsem/outputs/legacy_struct_intensity_20260928_v1/test_prepare_struct_intensity_v3.py",
+    "sha256": "5f801e85999f1ea6ef3b0d73b5f7babcbaf83bbd6a813ef2785ee0c604340b4e",
+    "bytes": 53250
+  },
+  "reviewed_protocol": {
+    "path": "/root/lightsem/docs/research/2026-09-28-end-to-end/PROSPECTIVE_STRUCT_INTENSITY_PROTOCOL_CANDIDATE_V3.json",
+    "sha256": "96e5017b5fdf90e21e31f1b24c44586812f0724c954515cfdc170b8d88a9d9af",
+    "bytes": 257231
+  },
+  "handoff_file_hashes_all_match": true,
+  "declared_source_hash_checks": [
+    {
+      "path": "/root/lightsem/build_justdance_structure.py",
+      "matches": true,
+      "size_matches": true
+    },
+    {
+      "path": "/root/lightsem/calibrate_events.py",
+      "matches": true,
+      "size_matches": true
+    },
+    {
+      "path": "/root/lightsem/calibrate_smoothing.py",
+      "matches": true,
+      "size_matches": true
+    },
+    {
+      "path": "/root/lightsem/lightsem/__init__.py",
+      "matches": true,
+      "size_matches": true
+    },
+    {
+      "path": "/root/lightsem/lightsem/audio/__init__.py",
+      "matches": true,
+      "size_matches": true
+    },
+    {
+      "path": "/root/lightsem/lightsem/audio/beatgrid.py",
+      "matches": true,
+      "size_matches": true
+    },
+    {
+      "path": "/root/lightsem/lightsem/audio/online.py",
+      "matches": true,
+      "size_matches": true
+    },
+    {
+      "path": "/root/lightsem/lightsem/conductor/__init__.py",
+      "matches": true,
+      "size_matches": true
+    },
+    {
+      "path": "/root/lightsem/lightsem/conductor/beat_trigger.py",
+      "matches": true,
+      "size_matches": true
+    },
+    {
+      "path": "/root/lightsem/lightsem/conductor/hybrid.py",
+      "matches": true,
+      "size_matches": true
+    },
+    {
+      "path": "/root/lightsem/lightsem/conductor/rig.py",
+      "matches": true,
+      "size_matches": true
+    },
+    {
+      "path": "/root/lightsem/lightsem/conductor/scalers.json",
+      "matches": true,
+      "size_matches": true
+    },
+    {
+      "path": "/root/lightsem/lightsem/conductor/scalers.py",
+      "matches": true,
+      "size_matches": true
+    },
+    {
+      "path": "/root/lightsem/lightsem/conductor/v0.py",
+      "matches": true,
+      "size_matches": true
+    },
+    {
+      "path": "/root/lightsem/lightsem/dmx/__init__.py",
+      "matches": true,
+      "size_matches": true
+    },
+    {
+      "path": "/root/lightsem/lightsem/dmx/decode.py",
+      "matches": true,
+      "size_matches": true
+    },
+    {
+      "path": "/root/lightsem/lightsem/dmx/encode.py",
+      "matches": true,
+      "size_matches": true
+    },
+    {
+      "path": "/root/lightsem/lightsem/dmx/fixtures.py",
+      "matches": true,
+      "size_matches": true
+    },
+    {
+      "path": "/root/lightsem/lightsem/dmx/universe.py",
+      "matches": true,
+      "size_matches": true
+    },
+    {
+      "path": "/root/lightsem/lightsem/eval/light_features.py",
+      "matches": true,
+      "size_matches": true
+    },
+    {
+      "path": "/root/lightsem/lightsem/model/__init__.py",
+      "matches": true,
+      "size_matches": true
+    },
+    {
+      "path": "/root/lightsem/lightsem/model/infer.py",
+      "matches": true,
+      "size_matches": true
+    },
+    {
+      "path": "/root/lightsem/lightsem/model/jd_data.py",
+      "matches": true,
+      "size_matches": true
+    },
+    {
+      "path": "/root/lightsem/lightsem/model/light_data.py",
+      "matches": true,
+      "size_matches": true
+    },
+    {
+      "path": "/root/lightsem/lightsem/motion/__init__.py",
+      "matches": true,
+      "size_matches": true
+    },
+    {
+      "path": "/root/lightsem/lightsem/motion/descriptors.py",
+      "matches": true,
+      "size_matches": true
+    },
+    {
+      "path": "/root/lightsem/lightsem/motion/io.py",
+      "matches": true,
+      "size_matches": true
+    },
+    {
+      "path": "/root/lightsem/lightsem/motion/skeleton.py",
+      "matches": true,
+      "size_matches": true
+    },
+    {
+      "path": "/root/lightsem/outputs/legacy_struct_intensity_20260928_v1/historical/light_trunk.py",
+      "matches": true,
+      "size_matches": true
+    },
+    {
+      "path": "/root/lightsem/run_stage1_eval.py",
+      "matches": true,
+      "size_matches": true
+    },
+    {
+      "path": "/root/lightsem/run_stage8_chain3.sh",
+      "matches": true,
+      "size_matches": true
+    },
+    {
+      "path": "/root/lightsem/run_torch.sh",
+      "matches": true,
+      "size_matches": true
+    },
+    {
+      "path": "/root/lightsem/train_light.py",
+      "matches": true,
+      "size_matches": true
+    }
+  ],
+  "additional_frozen_schema_evidence": [
+    {
+      "path": "/root/lightsem/lightsem/audio/features.py",
+      "sha256": "debdf74924404f58b9a53b0ab7fb512776091ad9b09a75d64d4e7c690165ef59",
+      "bytes": 5657
+    },
+    {
+      "path": "/root/lightsem/lightsem/audio/structure.py",
+      "sha256": "95c1a72dce073172bf93481f8a565cb52b9a60acd1790d459cee502aaf20c04e",
+      "bytes": 7895
+    }
+  ],
+  "findings": [
+    {
+      "id": "F1",
+      "classification": "BLOCKER_BEFORE_PREPARATION",
+      "title": "Frame-center extent is incorrectly treated as waveform/segment end",
+      "evidence_locations": [
+        "prepare_struct_intensity_v3.py:309-347, especially338",
+        "build_justdance_structure.py:35-44,48-54,69-71",
+        "lightsem/audio/features.py:103-113,145",
+        "lightsem/audio/structure.py:65-72,102-117"
+      ],
+      "source_facts": [
+        "features.extract stores waveform duration len(y)/sr separately from its STFT frame_times.",
+        "The structure producer writes metadata duration_s=feats.frame_times[-1] and N=round(duration_s*40). It assigns saved roles on t=k/40.",
+        "Its segment producer ends the final segment at feats.duration_s, not frame_times[-1]. For the normal centered HOP512/SR22050 grid the final center can precede waveform end by almost one hop, about23.22ms.",
+        "The preparer currently requires every segment end <= metadata duration_s+0.0001s. This can reject correctly produced terminal segments and records MATERIAL_QUALIFICATION_FAILED. No real record was opened to measure its frequency."
+      ],
+      "narrow_fix": [
+        "Publish a new prospective version; do not edit V3 or relax bounds after reading outputs.",
+        "Name three separate quantities: cached frame-center extent L from structure metadata, available sampled role support k=0..N-1 at k/40, and waveform/terminal-segment endpoint D. Keep N=round(L*40), the original arrays, target indices and donor offset0 unchanged. N/40 is a rounded grid stop, not proof of waveform duration.",
+        "Validate the producer-consistent terminal-end relationship separately. Prefer the matching already-approved AudioBus waveform duration when same-recording producer provenance is established; audio.online computes len(y)/sr. If that provenance is unavailable, state the weaker terminal-metadata consistency claim rather than inventing waveform truth.",
+        "Any exception for an end beyond L must be terminal-only and justified by the frozen producer clock relation, not a blanket enlargement for arbitrary segments. Keep internal segment ordering/nonoverlap/known roles and cache-role agreement checks. Reject endpoints beyond the derived producer bound or inconsistent with the qualified waveform endpoint.",
+        "Never clamp/rewrite saved segment bounds, extend the role cache to D, change T, resample, synthesize labels or count missing samples as valid. Missing/gapped role support remains invalid255 and recorded."
+      ],
+      "required_synthetic_cases": [
+        "Construct hypothetical sample counts with an exact hop-aligned endpoint and with a nonzero residual inside the final512-sample hop. Derive L,D,N and saved roles as the producer does; do not simply declare duration=end.",
+        "Cover both upward/downward round(L*40), including the half-frame convention, without changing valid sample indices.",
+        "Correct final segment end at D>L must be accepted under the new explicit schema; an internal segment overrun, overlap, wrong role assignment and an endpoint beyond the producer-consistent boundary must still fail.",
+        "Preserve missing/tail/gap support behavior and95%/80-frame prospective rules; do not infer any actual eligible count from these fixtures."
+      ]
+    },
+    {
+      "id": "F2",
+      "classification": "AUTHORIZATION_GAP_BEFORE_PREPARATION",
+      "title": "Native synthetic test command is present but not exactly bound",
+      "evidence_locations": [
+        "prepare_struct_intensity_v3.py:141-177, especially158",
+        "IMPLEMENTATION_HANDOFF_V3.json:commands_for_parent_only.native_synthetic_tests"
+      ],
+      "source_facts": [
+        "Preparation argv is compared exactly and plan/driver/test maps are compared. Native test exit/count/log are checked.",
+        "The native test command check only requires a nonempty string. A different nonempty command with otherwise copied source/count/log bindings is accepted by that guard."
+      ],
+      "narrow_fix": [
+        "In a new version, put the exact prospective native synthetic command in the bound protocol and require equality in native test evidence/authorization. Do not hardcode95 for a revised suite; bind its new complete method count.",
+        "Until that guard exists, root must separately reject any command/environment mismatch before issuing preparation authority. An exact passed source-bound log is not permission to silently change the recorded command."
+      ],
+      "required_synthetic_cases": [
+        "A wrong but nonempty command must fail; the exact prospective command passes. Retain failures for nonzero native exit, fewer or extra tests, skips, expected failures and unexpected successes."
+      ]
+    },
+    {
+      "id": "F3",
+      "classification": "SOURCE_BINDING_GAP_FOR_SCHEMA_EVIDENCE",
+      "title": "Endpoint-defining producer sources are absent from preparation source_refs",
+      "evidence_locations": [
+        "PROSPECTIVE_STRUCT_INTENSITY_PROTOCOL_CANDIDATE_V3.json:preparation_v3.source_refs",
+        "build_justdance_structure.py:35-36",
+        "lightsem/audio/features.py:111-113",
+        "lightsem/audio/structure.py:106,116"
+      ],
+      "source_facts": [
+        "V3 binds build_justdance_structure.py, online.py and motion/io.py, but not audio/features.py or audio/structure.py.",
+        "These two omitted files define the distinct duration and segment-end semantics used to judge compatibility. The preparer itself does not import them or any project model."
+      ],
+      "narrow_fix": [
+        "Add exact hashes of audio/features.py and audio/structure.py as frozen schema-evidence dependencies in the revised source binding. This adds no payload read, feature regeneration, project import or model authority."
+      ]
+    }
+  ],
+  "admission_constraints_and_claim_limits": [
+    {
+      "id": "C1",
+      "kind": "MANDATORY_EXTERNAL_ADMISSION_GATE_NOT_INTERNAL_GUARANTEE",
+      "detail": "validate_authorization161 requires root attestation of900s wall,4GiB host_RAM and GPU_access=false; main539 checks CUDA hidden and bytecode disabled. This is not an OS process-tree limiter. Parent must actually bind/enforce a900s external timeout/watchdog and4GiB process-tree memory cap before granting preparation. The internal monotonic checks are only between operations and start after control preflight; they do not interrupt a blocked read/import/deserialization. No empirical runtime or RAM claim is made."
+    },
+    {
+      "id": "C2",
+      "kind": "RESTRICTED_CHECKPOINT_READER_SCOPE_AND_COMPATIBILITY",
+      "detail": "train_light.py223-225 saves mu/sd as NumPy arrays; calibrators append Python threshold/smoothing dictionaries. CPU torch.load(weights_only=True) under a narrow ndarray/_reconstruct/dtype plus runtime Float32/Float64 dtype-class allowlist is a legitimate approach to that producer schema. No arbitrary project model class or weights_only=False fallback is present. Actual pickle-global/NumPy/Torch-version compatibility has not been tested; the95 tests explicitly deny torch and operational reads. Unsupported legacy pickle globals must stop, not trigger broader allowlisting or unsafe fallback. State keys/shapes/dtypes/devices are checked; state-value finiteness is intentionally not certified by metadata-only preparation."
+    },
+    {
+      "id": "C3",
+      "kind": "NATIVE_TEST_AND_RECEIPT_SCOPE",
+      "detail": "95 test methods are present in source, not run by this review. Tests use synthetic arrays and ShapeOnlyTensor objects and block payload/checkpoint/project access; operational helpers such as inventory, guard, CappedLog, NPZ reader and publication are mocked/AST-inspected rather than executed. A future native95 pass is not a compatibility test against actual checkpoints/caches, an enforced-budget measurement, numeric eligibility evidence or a later GPU grant. Source-level endpoint mismatch remains even if current synthetic cases pass."
+    }
+  ],
+  "static_passes": [
+    "Only prepare stage is reachable; no model construction, forward, scientific scoring, renderer, GPU smoke or automatic next-stage dispatch.",
+    "Current source implements exact declared62 audio/structure slots for31 TRAIN recipients/donors and frozen40 clip metadata rows; no raw manifest loader or new TEST access path.",
+    "Payload byte hashes and sizes are prospectively supplied by root; known currentTEST aliases reject, while historical/unknown cross-corpus identity limitations remain explicit.",
+    "Recipient i0=round(start_s*40) exactT slice is checked without clamp/truncate/pad; donor conditioning starts at0. Outcome roles use target cache, not donor.",
+    "Roles/sections use mathematical sample times, saved-role agreement and explicit invalid255 tails/gaps.95% coverage and80-frame retained intersections are prospective metadata rules, not measured eligibility here.",
+    "Malformed material remains in the all40 record with failure reasons; no replacement clips or scientific ratios are computed.",
+    "Native receipt checks exact planned test count and95 explicit plain passes in the current source-bound log, plus zero failures/errors/skips/nonstandard successes; root still verifies semantic registration/native exit.",
+    "Shared accounting includes original campaign, entire workspace, external source/protocol/control/log packet and remaining12MiB packet plus remaining32MiB comparison and other root reservations. No reset or root-location bypass in the guarded write paths.",
+    "Original inventory is stat-only path/size/mtime and prohibits symlinks/hardlinks/special files; preparation output/log are new/exclusive, and final receipt explicitly requires parent-verified native exit0."
+  ],
+  "review_operations": {
+    "source_and_protocol_reads": true,
+    "source_hashes": true,
+    "test_method_count_from_text": 95,
+    "project_or_preparer_imports": 0,
+    "source_compilation": 0,
+    "test_runs": 0,
+    "checkpoint_deserializations_or_byte_reads": 0,
+    "raw_manifest_reads": 0,
+    "array_payload_reads": 0,
+    "vault_calls": 0,
+    "source_or_protocol_edits": 0,
+    "empirical_runtime_or_eligibility_claims": false
+  },
+  "narrow_conclusion": "F1 is a real source-contract incompatibility, not measured corpus failure. F2/F3 are exact evidence-binding gaps. Resolve prospectively in a new version with producer-consistent fixtures and preserve V3; no blanket tolerance expansion, payload exploration, model execution or eligibility inference is authorized by this review."
+}

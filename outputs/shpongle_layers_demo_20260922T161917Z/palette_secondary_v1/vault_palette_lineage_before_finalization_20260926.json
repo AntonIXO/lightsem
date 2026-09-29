@@ -1,0 +1,48 @@
+{
+  "experiment_id": "exp-layers-20260922-palette-secondary",
+  "depth": 7,
+  "path": [
+    {
+      "experiment_id": "exp-rhythm-companion-20260912t193657z",
+      "hypothesis_id": "h-rhythm-companion-20260912t193657z",
+      "verdict": null,
+      "closed": false
+    },
+    {
+      "experiment_id": "exp-layers-20260922-mask-features",
+      "hypothesis_id": "h-layers-20260922-mask",
+      "verdict": null,
+      "closed": false
+    },
+    {
+      "experiment_id": "exp-layers-20260922-mask-features-v2",
+      "hypothesis_id": "h-layers-20260922-mask",
+      "verdict": null,
+      "closed": false
+    },
+    {
+      "experiment_id": "exp-layers-20260922-mask-features-v3",
+      "hypothesis_id": "h-layers-20260922-mask",
+      "verdict": null,
+      "closed": false
+    },
+    {
+      "experiment_id": "exp-layers-20260922-observer-capture",
+      "hypothesis_id": "h-layers-20260922-observer-proxy",
+      "verdict": null,
+      "closed": false
+    },
+    {
+      "experiment_id": "exp-layers-20260922-observer-fits",
+      "hypothesis_id": "h-layers-20260922-observer-proxy",
+      "verdict": null,
+      "closed": false
+    },
+    {
+      "experiment_id": "exp-layers-20260922-palette-secondary",
+      "hypothesis_id": "h-layers-20260922-palette",
+      "verdict": null,
+      "closed": false
+    }
+  ]
+}

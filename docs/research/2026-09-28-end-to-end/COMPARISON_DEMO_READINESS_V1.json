@@ -1,0 +1,669 @@
+{
+  "schema_version": 1,
+  "status": "feasible_after_versioned_driver_and_bound_preflight",
+  "no_execution_performed": true,
+  "fixed_order": [
+    "S_none_P0",
+    "S_V6_P0",
+    "I_VR_P0",
+    "S_VR_P0_Ashuf"
+  ],
+  "role": "selected",
+  "seed": 0,
+  "anchor": {
+    "recipe": "S_VR_P0",
+    "unchanged_video": "/root/lightsem/outputs/shpongle_layers_demo_20260922T161917Z/shpongle_experimental_full_1080p_av1.mp4",
+    "rerun_inference": false,
+    "rerender": false
+  },
+  "checkpoint_checks": {
+    "00_seed0_S_none_P0_selected": {
+      "path": "/mnt/lightsem-data/experiments/lightsem/lighting-cue-model-20260922t094347z/observer_fits_v1/01_seed0_S_none_P0/best.pt",
+      "expected": "ef32122167bbc2721a776af9a205fe5bcd5c774e20f588a83242803f2a09c5c9",
+      "actual": "ef32122167bbc2721a776af9a205fe5bcd5c774e20f588a83242803f2a09c5c9",
+      "matches": true,
+      "bytes": 4957562
+    },
+    "01_seed0_S_V6_P0_selected": {
+      "path": "/mnt/lightsem-data/experiments/lightsem/lighting-cue-model-20260922t094347z/observer_fits_v1/02_seed0_S_V6_P0/best.pt",
+      "expected": "0c44d937a9a7b57ad4bd10f62bec970cd6722616ffb12f351c0af764799ce79f",
+      "actual": "0c44d937a9a7b57ad4bd10f62bec970cd6722616ffb12f351c0af764799ce79f",
+      "matches": true,
+      "bytes": 4961269
+    },
+    "03_seed0_I_VR_P0_selected": {
+      "path": "/mnt/lightsem-data/experiments/lightsem/lighting-cue-model-20260922t094347z/observer_fits_v1/04_seed0_I_VR_P0/best.pt",
+      "expected": "8de865906cfabb49290971eccf6016ab38edebe885eec7e6369f020fb5544b8a",
+      "actual": "8de865906cfabb49290971eccf6016ab38edebe885eec7e6369f020fb5544b8a",
+      "matches": true,
+      "bytes": 5226325
+    },
+    "04_seed0_S_VR_P0_Ashuf_selected": {
+      "path": "/mnt/lightsem-data/experiments/lightsem/lighting-cue-model-20260922t094347z/observer_fits_v1/05_seed0_S_VR_P0_Ashuf/best.pt",
+      "expected": "9f447f04debb9df2dd985b6fb5f4c21f1698d664eb6b7d1d902b029428b8be74",
+      "actual": "9f447f04debb9df2dd985b6fb5f4c21f1698d664eb6b7d1d902b029428b8be74",
+      "matches": true,
+      "bytes": 5007733
+    }
+  },
+  "checkpoint_references": {
+    "00_seed0_S_none_P0_selected": {
+      "bindings": {
+        "config_sha256": "3bf059c7758b4db333156d1f44d1eb4f25ffed573f2e4e2c3db4d2880a4e0d0f",
+        "identity_exclusions_id": "observer-proxy-identity-exclusions-v1",
+        "identity_exclusions_path": "/root/lightsem/docs/research/2026-09-22-color-beat/OBSERVER_IDENTITY_EXCLUSIONS_V1.json",
+        "identity_exclusions_sha256": "602486f42ba4e090239d19aa7a2c1854796977d70f5b2e2fb0a45a9d1ec3fe74",
+        "manifest_sha256": "705ce8ec50ea1f9b7a8d7bb62e1aceee9a82e2eba541892ca02bc76a3254bb10",
+        "norm_sha256": "e964b95de95aa32ef861d9593449f860f6d163e53dc615aa6f05e28252df2def",
+        "observer_protocol_id": "observer-proxy-20260922-v1",
+        "observer_protocol_path": "/root/lightsem/docs/research/2026-09-22-color-beat/OBSERVER_PROXY_PROTOCOL_V1.json",
+        "observer_protocol_sha256": "7f77802b8bd66729227887b0051a2e8533fd0474e2842230c5c0894e828a4186",
+        "preregistration_sha256": "b2955795b330769328209467d26a02913f79d854ff780a0f2f6502397202cb83",
+        "scope_sha256": "18555d369262b3e4304ceefcf9c97bdba5e347fb128ff47711284cae147fafdc",
+        "source_files": {
+          "/root/lightsem/lightsem/experiments/light_layers/model.py": "aa1d63f0cbf5cf270c3c7d676edf3eaf3debeb394220123493a400aa60835529",
+          "/root/lightsem/lightsem/experiments/light_layers/targets.py": "4f1e980ed9f62e2ae2a6d53e426cd44c0ed2381835bf4b1382a7fba1e566d6d1",
+          "/root/lightsem/lightsem/experiments/light_layers/training.py": "31e58e8c7a10cd80f0d3b5be0e87796e35548f2c2d03705856a0cafa1811802b",
+          "/root/lightsem/lightsem/model/light_trunk.py": "b515dcb960259f39f21a8d565b621364aafe0a87d3a6028f5a476659f662cf84",
+          "/root/lightsem/run_light_layers_train.py": "4e0bcdb668db630f0c5c16d316b170920138493a43a9af1e7622028826cd2c12"
+        },
+        "source_sha256": "c9cbf9f43b11ad7089af1ad06ddc340814f27393e8ed788dbf5f9740f0c808c2",
+        "split_sha256": "c5be79ab5ca3e134d3b4d3f7527679f8d9da95c15ffd4eb3141e392bf91007b3",
+        "study_kind": "historical_observer_proxy_v1",
+        "transforms_sha256": "a4672acf0ff0b95fa3fad2b8a1f481810029f8bde4b30e10bfccfacc94740b39",
+        "unknown_cuts_policy": "included_in_observer_target",
+        "vocab_sha256": "ab368f2288098028cf49180c99348fd751f6a4928b5ba86e07b8bbdf16d72839"
+      },
+      "path": "/mnt/lightsem-data/experiments/lightsem/lighting-cue-model-20260922t094347z/observer_fits_v1/01_seed0_S_none_P0/best.pt",
+      "recipe": "S_none_P0",
+      "role": "selected",
+      "seed": 0,
+      "sha256": "ef32122167bbc2721a776af9a205fe5bcd5c774e20f588a83242803f2a09c5c9",
+      "training_run_receipt": {
+        "path": "/mnt/lightsem-data/experiments/lightsem/lighting-cue-model-20260922t094347z/observer_fits_v1/01_seed0_S_none_P0/complete.json",
+        "sha256": "c9c080fde8635d898a4547bb77217497a2c6c98f314129552fbe7b37d7579a12"
+      }
+    },
+    "01_seed0_S_V6_P0_selected": {
+      "bindings": {
+        "config_sha256": "699669e15592adb3f73f85d10070d1bf4153bc66baed1510b20ac0df7ac4ae51",
+        "identity_exclusions_id": "observer-proxy-identity-exclusions-v1",
+        "identity_exclusions_path": "/root/lightsem/docs/research/2026-09-22-color-beat/OBSERVER_IDENTITY_EXCLUSIONS_V1.json",
+        "identity_exclusions_sha256": "602486f42ba4e090239d19aa7a2c1854796977d70f5b2e2fb0a45a9d1ec3fe74",
+        "manifest_sha256": "705ce8ec50ea1f9b7a8d7bb62e1aceee9a82e2eba541892ca02bc76a3254bb10",
+        "norm_sha256": "e964b95de95aa32ef861d9593449f860f6d163e53dc615aa6f05e28252df2def",
+        "observer_protocol_id": "observer-proxy-20260922-v1",
+        "observer_protocol_path": "/root/lightsem/docs/research/2026-09-22-color-beat/OBSERVER_PROXY_PROTOCOL_V1.json",
+        "observer_protocol_sha256": "7f77802b8bd66729227887b0051a2e8533fd0474e2842230c5c0894e828a4186",
+        "preregistration_sha256": "b2955795b330769328209467d26a02913f79d854ff780a0f2f6502397202cb83",
+        "scope_sha256": "18555d369262b3e4304ceefcf9c97bdba5e347fb128ff47711284cae147fafdc",
+        "source_files": {
+          "/root/lightsem/lightsem/experiments/light_layers/model.py": "aa1d63f0cbf5cf270c3c7d676edf3eaf3debeb394220123493a400aa60835529",
+          "/root/lightsem/lightsem/experiments/light_layers/targets.py": "4f1e980ed9f62e2ae2a6d53e426cd44c0ed2381835bf4b1382a7fba1e566d6d1",
+          "/root/lightsem/lightsem/experiments/light_layers/training.py": "31e58e8c7a10cd80f0d3b5be0e87796e35548f2c2d03705856a0cafa1811802b",
+          "/root/lightsem/lightsem/model/light_trunk.py": "b515dcb960259f39f21a8d565b621364aafe0a87d3a6028f5a476659f662cf84",
+          "/root/lightsem/run_light_layers_train.py": "4e0bcdb668db630f0c5c16d316b170920138493a43a9af1e7622028826cd2c12"
+        },
+        "source_sha256": "c9cbf9f43b11ad7089af1ad06ddc340814f27393e8ed788dbf5f9740f0c808c2",
+        "split_sha256": "c5be79ab5ca3e134d3b4d3f7527679f8d9da95c15ffd4eb3141e392bf91007b3",
+        "study_kind": "historical_observer_proxy_v1",
+        "transforms_sha256": "a4672acf0ff0b95fa3fad2b8a1f481810029f8bde4b30e10bfccfacc94740b39",
+        "unknown_cuts_policy": "included_in_observer_target",
+        "vocab_sha256": "ab368f2288098028cf49180c99348fd751f6a4928b5ba86e07b8bbdf16d72839"
+      },
+      "path": "/mnt/lightsem-data/experiments/lightsem/lighting-cue-model-20260922t094347z/observer_fits_v1/02_seed0_S_V6_P0/best.pt",
+      "recipe": "S_V6_P0",
+      "role": "selected",
+      "seed": 0,
+      "sha256": "0c44d937a9a7b57ad4bd10f62bec970cd6722616ffb12f351c0af764799ce79f",
+      "training_run_receipt": {
+        "path": "/mnt/lightsem-data/experiments/lightsem/lighting-cue-model-20260922t094347z/observer_fits_v1/02_seed0_S_V6_P0/complete.json",
+        "sha256": "f7e0ccd43c15ac2971f7c69df5816fed1264ace0d793b054bf60487c06377cca"
+      }
+    },
+    "03_seed0_I_VR_P0_selected": {
+      "bindings": {
+        "config_sha256": "840d93ced99f33672d14b8aff1bfdada486e59f17ca785d2bae621dd78985d99",
+        "identity_exclusions_id": "observer-proxy-identity-exclusions-v1",
+        "identity_exclusions_path": "/root/lightsem/docs/research/2026-09-22-color-beat/OBSERVER_IDENTITY_EXCLUSIONS_V1.json",
+        "identity_exclusions_sha256": "602486f42ba4e090239d19aa7a2c1854796977d70f5b2e2fb0a45a9d1ec3fe74",
+        "manifest_sha256": "705ce8ec50ea1f9b7a8d7bb62e1aceee9a82e2eba541892ca02bc76a3254bb10",
+        "norm_sha256": "e964b95de95aa32ef861d9593449f860f6d163e53dc615aa6f05e28252df2def",
+        "observer_protocol_id": "observer-proxy-20260922-v1",
+        "observer_protocol_path": "/root/lightsem/docs/research/2026-09-22-color-beat/OBSERVER_PROXY_PROTOCOL_V1.json",
+        "observer_protocol_sha256": "7f77802b8bd66729227887b0051a2e8533fd0474e2842230c5c0894e828a4186",
+        "preregistration_sha256": "b2955795b330769328209467d26a02913f79d854ff780a0f2f6502397202cb83",
+        "scope_sha256": "18555d369262b3e4304ceefcf9c97bdba5e347fb128ff47711284cae147fafdc",
+        "source_files": {
+          "/root/lightsem/lightsem/experiments/light_layers/model.py": "aa1d63f0cbf5cf270c3c7d676edf3eaf3debeb394220123493a400aa60835529",
+          "/root/lightsem/lightsem/experiments/light_layers/targets.py": "4f1e980ed9f62e2ae2a6d53e426cd44c0ed2381835bf4b1382a7fba1e566d6d1",
+          "/root/lightsem/lightsem/experiments/light_layers/training.py": "31e58e8c7a10cd80f0d3b5be0e87796e35548f2c2d03705856a0cafa1811802b",
+          "/root/lightsem/lightsem/model/light_trunk.py": "b515dcb960259f39f21a8d565b621364aafe0a87d3a6028f5a476659f662cf84",
+          "/root/lightsem/run_light_layers_train.py": "4e0bcdb668db630f0c5c16d316b170920138493a43a9af1e7622028826cd2c12"
+        },
+        "source_sha256": "c9cbf9f43b11ad7089af1ad06ddc340814f27393e8ed788dbf5f9740f0c808c2",
+        "split_sha256": "c5be79ab5ca3e134d3b4d3f7527679f8d9da95c15ffd4eb3141e392bf91007b3",
+        "study_kind": "historical_observer_proxy_v1",
+        "transforms_sha256": "a4672acf0ff0b95fa3fad2b8a1f481810029f8bde4b30e10bfccfacc94740b39",
+        "unknown_cuts_policy": "included_in_observer_target",
+        "vocab_sha256": "ab368f2288098028cf49180c99348fd751f6a4928b5ba86e07b8bbdf16d72839"
+      },
+      "path": "/mnt/lightsem-data/experiments/lightsem/lighting-cue-model-20260922t094347z/observer_fits_v1/04_seed0_I_VR_P0/best.pt",
+      "recipe": "I_VR_P0",
+      "role": "selected",
+      "seed": 0,
+      "sha256": "8de865906cfabb49290971eccf6016ab38edebe885eec7e6369f020fb5544b8a",
+      "training_run_receipt": {
+        "path": "/mnt/lightsem-data/experiments/lightsem/lighting-cue-model-20260922t094347z/observer_fits_v1/04_seed0_I_VR_P0/complete.json",
+        "sha256": "dc428e1ed9976628deea30978779eef4bf51c606e631cea82affb8df1502d5af"
+      }
+    },
+    "04_seed0_S_VR_P0_Ashuf_selected": {
+      "bindings": {
+        "config_sha256": "107ffa00eac858b394718f83ebccf26a78bcd0a82b623936727921a1200d83d5",
+        "identity_exclusions_id": "observer-proxy-identity-exclusions-v1",
+        "identity_exclusions_path": "/root/lightsem/docs/research/2026-09-22-color-beat/OBSERVER_IDENTITY_EXCLUSIONS_V1.json",
+        "identity_exclusions_sha256": "602486f42ba4e090239d19aa7a2c1854796977d70f5b2e2fb0a45a9d1ec3fe74",
+        "manifest_sha256": "705ce8ec50ea1f9b7a8d7bb62e1aceee9a82e2eba541892ca02bc76a3254bb10",
+        "norm_sha256": "e964b95de95aa32ef861d9593449f860f6d163e53dc615aa6f05e28252df2def",
+        "observer_protocol_id": "observer-proxy-20260922-v1",
+        "observer_protocol_path": "/root/lightsem/docs/research/2026-09-22-color-beat/OBSERVER_PROXY_PROTOCOL_V1.json",
+        "observer_protocol_sha256": "7f77802b8bd66729227887b0051a2e8533fd0474e2842230c5c0894e828a4186",
+        "preregistration_sha256": "b2955795b330769328209467d26a02913f79d854ff780a0f2f6502397202cb83",
+        "scope_sha256": "18555d369262b3e4304ceefcf9c97bdba5e347fb128ff47711284cae147fafdc",
+        "source_files": {
+          "/root/lightsem/lightsem/experiments/light_layers/model.py": "aa1d63f0cbf5cf270c3c7d676edf3eaf3debeb394220123493a400aa60835529",
+          "/root/lightsem/lightsem/experiments/light_layers/targets.py": "4f1e980ed9f62e2ae2a6d53e426cd44c0ed2381835bf4b1382a7fba1e566d6d1",
+          "/root/lightsem/lightsem/experiments/light_layers/training.py": "31e58e8c7a10cd80f0d3b5be0e87796e35548f2c2d03705856a0cafa1811802b",
+          "/root/lightsem/lightsem/model/light_trunk.py": "b515dcb960259f39f21a8d565b621364aafe0a87d3a6028f5a476659f662cf84",
+          "/root/lightsem/run_light_layers_train.py": "4e0bcdb668db630f0c5c16d316b170920138493a43a9af1e7622028826cd2c12"
+        },
+        "source_sha256": "c9cbf9f43b11ad7089af1ad06ddc340814f27393e8ed788dbf5f9740f0c808c2",
+        "split_sha256": "c5be79ab5ca3e134d3b4d3f7527679f8d9da95c15ffd4eb3141e392bf91007b3",
+        "study_kind": "historical_observer_proxy_v1",
+        "transforms_sha256": "a4672acf0ff0b95fa3fad2b8a1f481810029f8bde4b30e10bfccfacc94740b39",
+        "unknown_cuts_policy": "included_in_observer_target",
+        "vocab_sha256": "ab368f2288098028cf49180c99348fd751f6a4928b5ba86e07b8bbdf16d72839"
+      },
+      "path": "/mnt/lightsem-data/experiments/lightsem/lighting-cue-model-20260922t094347z/observer_fits_v1/05_seed0_S_VR_P0_Ashuf/best.pt",
+      "recipe": "S_VR_P0_Ashuf",
+      "role": "selected",
+      "seed": 0,
+      "sha256": "9f447f04debb9df2dd985b6fb5f4c21f1698d664eb6b7d1d902b029428b8be74",
+      "training_run_receipt": {
+        "path": "/mnt/lightsem-data/experiments/lightsem/lighting-cue-model-20260922t094347z/observer_fits_v1/05_seed0_S_VR_P0_Ashuf/complete.json",
+        "sha256": "f0a0e6cfffb8e95924b9db665404a30f6bcb3aaf188908b0a157493873455162"
+      }
+    }
+  },
+  "reusable_inputs": {
+    "audio94.npz": {
+      "path": "/mnt/lightsem-data/experiments/lightsem/shpongle_layers_demo_20260922T161917Z/audio94.npz",
+      "sha256": "224db0481c77677de7159e7c6f88cc42d8d861221c57e20e2b2072760dab6a9f",
+      "bytes": 6616205,
+      "actual_sha256": "224db0481c77677de7159e7c6f88cc42d8d861221c57e20e2b2072760dab6a9f",
+      "matches": true
+    },
+    "model_outputs.npz": {
+      "path": "/mnt/lightsem-data/experiments/lightsem/shpongle_layers_demo_20260922T161917Z/model_outputs.npz",
+      "sha256": "3ffb151c7daa9facbf714c317cf68e0320413c4addfdd815b8ccc4ef8db55926",
+      "bytes": 2081105,
+      "actual_sha256": "3ffb151c7daa9facbf714c317cf68e0320413c4addfdd815b8ccc4ef8db55926",
+      "matches": true
+    },
+    "overlay_dmx.npz": {
+      "path": "/mnt/lightsem-data/experiments/lightsem/shpongle_layers_demo_20260922T161917Z/overlay_dmx.npz",
+      "sha256": "aecc8c7923361203ae89bcae08fd321bd71f5c21d21f0c67b314cb80a8ffec66",
+      "bytes": 837707,
+      "actual_sha256": "aecc8c7923361203ae89bcae08fd321bd71f5c21d21f0c67b314cb80a8ffec66",
+      "matches": true
+    }
+  },
+  "original_plan": "/root/lightsem/outputs/shpongle_layers_demo_20260922T161917Z/inference_mapping_plan.json",
+  "source_checks": [
+    {
+      "path": "/root/lightsem/lightsem/experiments/light_layers/model.py",
+      "sha256": "aa1d63f0cbf5cf270c3c7d676edf3eaf3debeb394220123493a400aa60835529",
+      "matches_original_plan": true
+    },
+    {
+      "path": "/root/lightsem/lightsem/experiments/light_layers/targets.py",
+      "sha256": "4f1e980ed9f62e2ae2a6d53e426cd44c0ed2381835bf4b1382a7fba1e566d6d1",
+      "matches_original_plan": true
+    },
+    {
+      "path": "/root/lightsem/lightsem/experiments/light_layers/training.py",
+      "sha256": "31e58e8c7a10cd80f0d3b5be0e87796e35548f2c2d03705856a0cafa1811802b",
+      "matches_original_plan": true
+    },
+    {
+      "path": "/root/lightsem/lightsem/model/light_trunk.py",
+      "sha256": "b515dcb960259f39f21a8d565b621364aafe0a87d3a6028f5a476659f662cf84",
+      "matches_original_plan": true
+    },
+    {
+      "path": "/root/lightsem/run_light_layers_train.py",
+      "sha256": "4e0bcdb668db630f0c5c16d316b170920138493a43a9af1e7622028826cd2c12",
+      "matches_original_plan": true
+    },
+    {
+      "path": "/root/lightsem/lightsem/experiments/light_layers/overlay.py",
+      "sha256": "fe41686d022d8f9fc5a347bf03c608da8f15dece76bf1aec6efabccfbe8ecc2f",
+      "matches_original_plan": true
+    },
+    {
+      "path": "/root/lightsem/lightsem/experiments/light_layers/evaluation.py",
+      "sha256": "401825add5d89f9920e2c946e36b2cdf85e07f625ab3230c5a3844655fcca004",
+      "matches_original_plan": true
+    },
+    {
+      "path": "/root/lightsem/lightsem/experiments/light_layers/palette_metrics.py",
+      "sha256": "80b1301d8ece0c75d8d5b0521c5b9299581dc8ec80eddfbeccade11f10939d07",
+      "matches_original_plan": true
+    },
+    {
+      "path": "/root/lightsem/lightsem/conductor/rig.py",
+      "sha256": "608a7eb9971c2bd583282e4a38f777be96b49e5c1a909baffd47bf76cf28b28a",
+      "matches_original_plan": true
+    },
+    {
+      "path": "/root/lightsem/lightsem/dmx/fixtures.py",
+      "sha256": "685e8b206d7e6b96288a3b88fb5c543368fbd8bd765d8a96873806e18d48c3d7",
+      "matches_original_plan": true
+    },
+    {
+      "path": "/root/lightsem/lightsem/audio/online.py",
+      "sha256": "c39a6597bb2146c226330488b7e88351723ff1038d6e0048705b38e29b1b0ec3",
+      "matches_original_plan": true
+    },
+    {
+      "path": "/root/lightsem/lightsem/audio/beatgrid.py",
+      "sha256": "0c230a2ff2081b6b92d7fc2d38283f715d7131fdcb93e1f62b0b955260d4f5c5",
+      "matches_original_plan": true
+    },
+    {
+      "path": "/root/lightsem/outputs/shpongle_layers_demo_20260922T161917Z/infer_overlay.py",
+      "sha256": "5e868792c94ccdea9519222f15ef8031fd2d4bc32abf650773dc208074d50c3b"
+    },
+    {
+      "path": "/root/lightsem/outputs/shpongle_layers_demo_20260922T161917Z/render_demo.py",
+      "sha256": "19dd57aec907696e7293587e4bfd49c72a47f884f852f16678748f415e4cba52"
+    },
+    {
+      "path": "/root/lightsem/outputs/shpongle_layers_demo_20260922T161917Z/verify_readback.py",
+      "sha256": "e7b34db37e9e73de2eb1b61d448bb5d2f4b5ff3b804e6e49a27017b52065c29c"
+    },
+    {
+      "path": "/root/lightsem/run_rhythm_companion.py",
+      "sha256": "eb21814d42a8e76c296193ebb67b5e965e20ff76602cc961ab695bdf7fccdd97"
+    },
+    {
+      "path": "/root/lightsem/lightsem/sim/renderer.py",
+      "sha256": "f27753b00028453456f58440d48c0ab35f318a72531ae4e9362d458ecf3e0abe"
+    },
+    {
+      "path": "/root/lightsem/run_torch.sh",
+      "sha256": "fa8766599ce7741477aff2035e5e87566fa4ddacacdfbbe39d5bbcba947888f1"
+    },
+    {
+      "path": "/root/lightsem/run.sh",
+      "sha256": "232ca5a566ae3b22f0677b6b5879c6901abf9decb16dc66967a4895174289556"
+    }
+  ],
+  "common_transforms_exact_across_recipes": true,
+  "factory": {
+    "loader": "lightsem.experiments.light_layers.training.load_checkpoint",
+    "reference_width": 128,
+    "independent_realized_width": 76,
+    "independent_context_width": 76,
+    "all_other_context_width": 128,
+    "input_dim": 94,
+    "palette_size": 32,
+    "length40": 11092,
+    "max_length40": 12000,
+    "visual_aux_dims": {
+      "S_none_P0": 0,
+      "S_V6_P0": 6,
+      "I_VR_P0": 96,
+      "S_VR_P0_Ashuf": 96
+    },
+    "do_not_double_narrow": true
+  },
+  "ashuf_route": "recipient_audio_delivery; NOT registered primary tempo-donor scientific route",
+  "resource": {
+    "current_campaign_bytes_supplied": 952976108,
+    "scientific_cap_bytes": 1020054732,
+    "aggregate_new_derived_reservation_bytes": 33554432,
+    "campaign_after_full_reservation": 986530540,
+    "campaign_unreserved_bytes_after": 33524192,
+    "required_free_bytes_each_filesystem": 1073741824,
+    "mnt_free_bytes_approx": 1254000000,
+    "root_free_bytes_approx": 6310000000,
+    "reuse_audio_bytes": 6616205,
+    "prior_non_audio_four_arm_estimate_bytes": 11842408,
+    "nonduplicating_schema_raw_four_arm_upper_bytes": 32069076,
+    "bounded_metadata_source_logs_bytes": 1048576,
+    "NPZ_overhead_reserve_bytes": 131072,
+    "total_conservative_derived_bound_bytes": 33248724,
+    "media_aggregate_reservation_bytes": 1610612736,
+    "old_full_video_bytes": 223607757,
+    "four_video_estimate_bytes": 894431028,
+    "render_old_seconds_per_arm": 193.52947639895137,
+    "four_render_nominal_seconds": 774.1179055958055
+  },
+  "array_headers": {
+    "original_audio": [
+      {
+        "key": "audio94.npy",
+        "shape": [
+          11092,
+          94
+        ],
+        "dtype": "<f4",
+        "raw_bytes_with_header": 4170720,
+        "compressed_bytes": 2915012
+      },
+      {
+        "key": "normalized_audio94.npy",
+        "shape": [
+          11092,
+          94
+        ],
+        "dtype": "<f4",
+        "raw_bytes_with_header": 4170720,
+        "compressed_bytes": 3660656
+      },
+      {
+        "key": "time40_s.npy",
+        "shape": [
+          11092
+        ],
+        "dtype": "<f8",
+        "raw_bytes_with_header": 88864,
+        "compressed_bytes": 21242
+      },
+      {
+        "key": "source_bus_time40_s.npy",
+        "shape": [
+          11092
+        ],
+        "dtype": "<f4",
+        "raw_bytes_with_header": 44496,
+        "compressed_bytes": 18753
+      }
+    ],
+    "original_model_outputs": [
+      {
+        "key": "accent_logit.npy",
+        "shape": [
+          11092
+        ],
+        "dtype": "<f4",
+        "raw_bytes_with_header": 44496,
+        "compressed_bytes": 39037
+      },
+      {
+        "key": "chromatic_change_logit.npy",
+        "shape": [
+          2773
+        ],
+        "dtype": "<f4",
+        "raw_bytes_with_header": 11220,
+        "compressed_bytes": 10038
+      },
+      {
+        "key": "context10.npy",
+        "shape": [
+          2773,
+          128
+        ],
+        "dtype": "<f4",
+        "raw_bytes_with_header": 1419904,
+        "compressed_bytes": 1313450
+      },
+      {
+        "key": "previous_ids.npy",
+        "shape": [
+          2773
+        ],
+        "dtype": "<i8",
+        "raw_bytes_with_header": 22312,
+        "compressed_bytes": 161
+      },
+      {
+        "key": "generated_palette_ids.npy",
+        "shape": [
+          2773
+        ],
+        "dtype": "<i8",
+        "raw_bytes_with_header": 22312,
+        "compressed_bytes": 154
+      },
+      {
+        "key": "color_cues.npy",
+        "shape": [
+          2773
+        ],
+        "dtype": "|b1",
+        "raw_bytes_with_header": 2901,
+        "compressed_bytes": 180
+      },
+      {
+        "key": "final_ids.npy",
+        "shape": [],
+        "dtype": "<i8",
+        "raw_bytes_with_header": 136,
+        "compressed_bytes": 70
+      },
+      {
+        "key": "accent_score.npy",
+        "shape": [
+          11092
+        ],
+        "dtype": "<f4",
+        "raw_bytes_with_header": 44496,
+        "compressed_bytes": 39239
+      },
+      {
+        "key": "color_score.npy",
+        "shape": [
+          2773
+        ],
+        "dtype": "<f4",
+        "raw_bytes_with_header": 11220,
+        "compressed_bytes": 9956
+      },
+      {
+        "key": "palette_logits.npy",
+        "shape": [
+          2773,
+          32
+        ],
+        "dtype": "<f4",
+        "raw_bytes_with_header": 355072,
+        "compressed_bytes": 326689
+      },
+      {
+        "key": "palette_probabilities.npy",
+        "shape": [
+          2773,
+          32
+        ],
+        "dtype": "<f4",
+        "raw_bytes_with_header": 355072,
+        "compressed_bytes": 313907
+      },
+      {
+        "key": "time40_s.npy",
+        "shape": [
+          11092
+        ],
+        "dtype": "<f8",
+        "raw_bytes_with_header": 88864,
+        "compressed_bytes": 21242
+      },
+      {
+        "key": "time10_s.npy",
+        "shape": [
+          2773
+        ],
+        "dtype": "<f8",
+        "raw_bytes_with_header": 22312,
+        "compressed_bytes": 5270
+      }
+    ],
+    "original_overlay": [
+      {
+        "key": "baseline.npy",
+        "shape": [
+          11092,
+          512
+        ],
+        "dtype": "|u1",
+        "raw_bytes_with_header": 5679232,
+        "compressed_bytes": 420725
+      },
+      {
+        "key": "overlay.npy",
+        "shape": [
+          11092,
+          512
+        ],
+        "dtype": "|u1",
+        "raw_bytes_with_header": 5679232,
+        "compressed_bytes": 391099
+      },
+      {
+        "key": "time.npy",
+        "shape": [
+          11092
+        ],
+        "dtype": "<f8",
+        "raw_bytes_with_header": 88864,
+        "compressed_bytes": 21242
+      },
+      {
+        "key": "allowed_slot_mask.npy",
+        "shape": [
+          512
+        ],
+        "dtype": "|b1",
+        "raw_bytes_with_header": 640,
+        "compressed_bytes": 93
+      },
+      {
+        "key": "color_active40.npy",
+        "shape": [
+          11092
+        ],
+        "dtype": "|b1",
+        "raw_bytes_with_header": 11220,
+        "compressed_bytes": 113
+      },
+      {
+        "key": "palette_ids40.npy",
+        "shape": [
+          11092
+        ],
+        "dtype": "<i8",
+        "raw_bytes_with_header": 88864,
+        "compressed_bytes": 247
+      },
+      {
+        "key": "accent_pulse40.npy",
+        "shape": [
+          11092
+        ],
+        "dtype": "<f4",
+        "raw_bytes_with_header": 44496,
+        "compressed_bytes": 191
+      },
+      {
+        "key": "accent_times_s.npy",
+        "shape": [
+          1
+        ],
+        "dtype": "<f8",
+        "raw_bytes_with_header": 136,
+        "compressed_bytes": 74
+      },
+      {
+        "key": "accent_confidences.npy",
+        "shape": [
+          1
+        ],
+        "dtype": "<f8",
+        "raw_bytes_with_header": 136,
+        "compressed_bytes": 76
+      },
+      {
+        "key": "color_cue_times_s.npy",
+        "shape": [
+          52
+        ],
+        "dtype": "<f8",
+        "raw_bytes_with_header": 544,
+        "compressed_bytes": 261
+      },
+      {
+        "key": "palette_rgb.npy",
+        "shape": [
+          32,
+          3
+        ],
+        "dtype": "<f8",
+        "raw_bytes_with_header": 896,
+        "compressed_bytes": 632
+      },
+      {
+        "key": "palette_hsv.npy",
+        "shape": [
+          32,
+          3
+        ],
+        "dtype": "<f8",
+        "raw_bytes_with_header": 896,
+        "compressed_bytes": 634
+      },
+      {
+        "key": "palette_complex_z.npy",
+        "shape": [
+          32
+        ],
+        "dtype": "<c16",
+        "raw_bytes_with_header": 640,
+        "compressed_bytes": 616
+      }
+    ]
+  },
+  "minimal_driver_requirements": [
+    "four exact binding keys, fixed order, exclusive dirs",
+    "saved audio94 reference; no feature extraction",
+    "frozen load_checkpoint; role/config/metadata/source validation",
+    "exact original mapping;469 protected slots",
+    "omit redundant probs/baselinecopy only",
+    "RAM serialization and exact-size aggregate guards",
+    "one full forward per arm; no repeat completed anchor",
+    "zero-model-call readback",
+    "unchanged render helper plus aggregate root media wrapper"
+  ],
+  "required_future_tests": [
+    "fourrecipe membership/order",
+    "factory128->76 and context dimensions",
+    "role/config/source mismatch rejects",
+    "Ashuf recipient route explicit",
+    "clock and normalization exact",
+    "zeroevent baseline mapping",
+    "469protectedbytes independent parity",
+    "storage combinedcap/freefloor/reservation failclosed",
+    "no-clobber and atomiccompletion"
+  ],
+  "implementation_followup_authorized_by_parent": {
+    "source_directory": "/root/lightsem/outputs/shpongle_model_comparisons_20260928_v1",
+    "implementation_only_no_test_import_or_model_execution": true
+  },
+  "report": {
+    "path": "/root/lightsem/docs/research/2026-09-28-end-to-end/COMPARISON_DEMO_READINESS_V1.md",
+    "sha256": "526b3563903511946b47efb82fa8a783aeb857445ef2b0ceca6fbc27f3502b84"
+  }
+}

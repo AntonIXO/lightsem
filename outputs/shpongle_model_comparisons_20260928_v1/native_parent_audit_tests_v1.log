@@ -1,0 +1,20 @@
+test_aggregate_order_scope_or_missing_last_arm_rejected (test_parent_audit_v1.Chain.test_aggregate_order_scope_or_missing_last_arm_rejected) ... ok
+test_canonical_all_four_chain_returns_readback_only (test_parent_audit_v1.Chain.test_canonical_all_four_chain_returns_readback_only) ... ok
+test_changed_bytes_and_wrong_completion_path_rejected (test_parent_audit_v1.Chain.test_changed_bytes_and_wrong_completion_path_rejected) ... ok
+test_coupled_plan_auth_input_source_checkpoint_recipe_route_rejected (test_parent_audit_v1.Chain.test_coupled_plan_auth_input_source_checkpoint_recipe_route_rejected) ... ok
+test_rehashed_wrong_proof_array_fingerprint_rejected (test_parent_audit_v1.Chain.test_rehashed_wrong_proof_array_fingerprint_rejected) ... ok
+test_same_hash_wrong_output_or_proof_path_rejected (test_parent_audit_v1.Chain.test_same_hash_wrong_output_or_proof_path_rejected) ... ok
+test_bad_log_or_source_command_plan_status_binding_rejected (test_parent_audit_v1.NativeReceipt.test_bad_log_or_source_command_plan_status_binding_rejected) ... ok
+test_native_twenty_two_pass_log_and_receipt (test_parent_audit_v1.NativeReceipt.test_native_twenty_two_pass_log_and_receipt) ... ok
+test_wrong_counts_skip_failure_error_exit_or_model_reads_rejected (test_parent_audit_v1.NativeReceipt.test_wrong_counts_skip_failure_error_exit_or_model_reads_rejected) ... ok
+test_fixed_eight_epsilon_bound_without_tolerance_override (test_parent_audit_v1.Probability.test_fixed_eight_epsilon_bound_without_tolerance_override) ... ok
+test_nonfinite_range_dtype_and_shape_rejected (test_parent_audit_v1.Probability.test_nonfinite_range_dtype_and_shape_rejected) ... ok
+test_stable_extreme_finite_logits (test_parent_audit_v1.Probability.test_stable_extreme_finite_logits) ... ok
+test_zero_logit_half_score_passes_without_mutation (test_parent_audit_v1.Probability.test_zero_logit_half_score_passes_without_mutation) ... ok
+test_zero_logit_zero_or_three_quarter_score_rejected (test_parent_audit_v1.Probability.test_zero_logit_zero_or_three_quarter_score_rejected) ... ok
+test_exclusive_receipt_and_retained_partial_block_overwrite (test_parent_audit_v1.Publication.test_exclusive_receipt_and_retained_partial_block_overwrite) ... ok
+
+----------------------------------------------------------------------
+Ran 15 tests in 1.645s
+
+OK

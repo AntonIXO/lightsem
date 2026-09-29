@@ -1,0 +1,57 @@
+{
+  "diagnostics": {
+    "experiment_id": "exp-layers-20260922-observer-fits",
+    "measurements": [
+      {
+        "diagnostic_id": "layers-observer-chromatic-event-ap",
+        "before": 0.31208485023241694,
+        "after": 0.29715491133956706
+      }
+    ]
+  },
+  "gates": {
+    "experiment_id": "exp-layers-20260922-observer-fits",
+    "results": [
+      {
+        "gate_id": "observer-scope",
+        "passed": true,
+        "evidence": "Historical DEV observer-only interpretation; no LIGHT truth/fresh generalization/default promotion. Original31/40 coverage failure retained."
+      },
+      {
+        "gate_id": "observer-prerun",
+        "passed": true,
+        "evidence": "Frozen source/cohort/config/TRAIN transforms/donors/targets/baselines before fits;9TRAIN identity exclusions; no TEST access. Separately disclosed and source/test-bound one-ULP scoring correction prospectively registered before rescore; original predictions unchanged."
+      },
+      {
+        "gate_id": "observer-support",
+        "passed": true,
+        "evidence": "PRIMARY common support30 groups;14accent and17color event-bearing. IMPORTANT separate paired-null support is29<30, so overall interpretation remains UNQUALIFIED. No source replacement/imputation."
+      },
+      {
+        "gate_id": "observer-complete",
+        "passed": true,
+        "evidence": "All15 fits,30 selected/final checkpoints, all controls present; eight contrasts with10000-song bootstrap andHolm8 in EACH separate role. No best-seed/role selection. Control presence does not mean null-support qualification."
+      },
+      {
+        "gate_id": "observer-effect",
+        "passed": false,
+        "evidence": "Acceptance NOT established. Selected rich-minus-V6 color delta-.01492994, CI[-.04068532,.00119468], Holm1; accent+.00730111. Final color-.02997658, CI[-.11296594,.04762084], Holm1. Null29<30 makes qualified_pass UNDEFINED, not refuted. All16 role-specific95%CIs include0."
+      }
+    ]
+  },
+  "update": {
+    "id": "dancing-light-generative-20260903",
+    "add_update": "2026-09-22 \u2014 OBSERVER EVENT STUDY EXECUTION COMPLETE; QUALIFIED EFFECT UNDEFINED/INCONCLUSIVE, NOT REFUTED. Audited result artifact /root/lightsem/docs/research/2026-09-22-color-beat/OBSERVER_RESULTS_SUMMARY_V1.json SHA256 3a92d9baa77f6d4150b959f41025744261b7c3759da3c6dfd0f7a3fcbe2b3e30. All15 fits and30 predictions complete; selected/final corrected reports each930 rows, all6 methods and20 null draws verified. Primary support30 groups,14/17 event-bearing passes; paired-null common support29<30 fails (13/16 event-bearing). Color AP selected Rich96=.2971549 versus Legacy6=.3120849 and logistic=.3294390 (constant0); delta-.01492994,95CI[-.04068532,.00119468], Holm1. Accent Rich96=.3482181 versus logistic=.2988061 but tempo-donor control=.3823362. Final color Rich96=.2904400 versus Legacy6=.3204165 and logistic=.3294390. All eight contrasts in both roles have CIs including0; no qualified benefit or promotion.803/858 one-ULP null endpoint repairs, maximum2.84217e-14s; original sources/predictions unchanged. No LIGHT-quality/generalization/pose/R1/palette-outcome claim. Full independent audit /root/lightsem/docs/research/2026-09-22-color-beat/OBSERVER_SCORES_INDEPENDENT_READONLY_AUDIT_V1.md. Descriptive primary diagnostic and actual gates recorded, but DO NOT auto-close: current vault compute_verdict returns refutes for ANY opposite-sign delta before considering validity gates/uncertainty. That would overclaim here. Execution is finished, administrative closure withheld pending an explicit unqualified-validity closure capability; no more GPU work scheduled."
+  },
+  "capability_gap": {
+    "id": "lightsem-vault-unqualified-closure-20260922",
+    "title": "Represent completed but validity-unqualified experiments without automatic sign-only refutation",
+    "description": "Observed on exp-layers-20260922-observer-fits: execution complete; primary descriptive VR\u2212V6 color delta\u2212.01493, CI crosses0; paired-null validity support29<30, qualified observer effect undefined. Current models.compute_verdict returns refutes immediately for opposite direction before failed gates; Measurement before/after require floats and close_experiment has no unqualified-validity status. Request explicit validity-gate typing and completed/unqualified closure with linked evidence, excluded from positive/refutation calibration. Keep acceptance failures distinct from invalid instruments. Do not fabricate zero/missing values or change predictions to force inconclusive. No server change performed; experiment retained open administratively with complete result artifacts and scope evidence.",
+    "topic_tags": [
+      "evaluation-metric"
+    ],
+    "problem_tags": [
+      "metric-gaming"
+    ]
+  }
+}

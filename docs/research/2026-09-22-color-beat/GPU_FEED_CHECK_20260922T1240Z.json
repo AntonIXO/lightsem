@@ -1,0 +1,14 @@
+{
+  "checked_at_utc": "2026-09-22T12:40:42Z",
+  "reason": "User reported GPU idle/stale; checked external telemetry and progress instead of trusting the job handle.",
+  "capture_pid": 543947,
+  "trace": "/mnt/lightsem-data/experiments/lightsem/lighting-cue-model-20260922t094347z/gpu_activity_20260922T1240Z.log",
+  "samples": 12,
+  "sm_utilization_min_percent": 39,
+  "sm_utilization_max_percent": 43,
+  "power_min_watts": 100,
+  "power_max_watts": 106,
+  "progress_observed": true,
+  "diagnosis_scope": "The run is alive and advancing. It is not saturating the GPU. Code has CPU-only frame-PTS scanning and decoding before each clip, plus serial per-frame CPU feature extraction and GPU inference. This check does not attribute all idle time to one bottleneck.",
+  "action": "Preserve the frozen live capture. Do not add a second GPU job or restart merely to raise utilization. The tested 15-fit queue remains ready after capture and data binding."
+}

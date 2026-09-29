@@ -1,0 +1,8 @@
+{
+  "experiment_id": "exp-dance-tracking-20260911",
+  "verdict": "directional_only",
+  "failure_mode": "recipe_conditional",
+  "lesson": "2026-09-28 retrospective interpretation, not a new experiment: On saved Shpongle, timing_revision_01 reduced requested-motion-to-emitted-DMX lag to 0.225 s versus surface_revision_02 at 0.450 s, but missed the 0.20 s gate. Its descriptive 1-2 Hz emitted/raw amplitude ratio was 0.301 versus 0.243 for that baseline and still missed 0.35; the sampled visual gate also failed despite mechanics, quiet, photometry and spatial passes. Completed sampled review is not continuous human audiovisual acceptance, and this offline controller result does not qualify audio synchronization, music generation, hardware or the LIGHT product.",
+  "transfers_to": [],
+  "hint": "recipe_conditional: when the recipe changes, reopen_hypothesis('h-dance-tracking-20260911', reason=...) makes the negative re-testable instead of terminal"
+}

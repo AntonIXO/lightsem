@@ -1,0 +1,720 @@
+{
+  "schema_version": 1,
+  "created_utc": "2026-09-28T18:36:49.079413+00:00",
+  "status": "read_only_readiness_audit_complete_no_scientific_execution",
+  "scope": {
+    "frontier_rows": [
+      55,
+      66
+    ],
+    "source_frontier": "/root/lightsem/docs/research/2026-09-28-end-to-end/FRONTIER_REVIEW_V1.json",
+    "not_in_scope": [
+      "rerun coach prediction",
+      "rerun event head",
+      "Sep22 palette186 continuation",
+      "new metric execution",
+      "model inference",
+      "training",
+      "downloads",
+      "scraping",
+      "source edits",
+      "vault calls"
+    ]
+  },
+  "read_boundary": {
+    "actions": [
+      "Read completed reports and source text",
+      "List cache filenames without opening NPZ containers",
+      "Read sidecar metadata; use identity, partition, paths and stored artifact hashes for cohort comparisons",
+      "Compute SHA256 of cited source/report/metadata files only",
+      "Create this notes file"
+    ],
+    "no_npz_npy_checkpoint_audio_video_or_prediction_payload_opened": true,
+    "no_sealed_TEST_feature_label_or_prediction_values_inspected": true,
+    "finedance_metadata_policy": "Only key/canonical_id/partition/source_id/motion_path/wav_path fields used. Embedded label values not inspected.",
+    "hash_policy": "Fresh SHA256 values below cover permitted source/report/metadata files. Histogram SHA256 examples are copied from existing sidecars, not recomputed from data payloads.",
+    "authority": "Saved FRONTIER_REVIEW_V1.json and completed artifacts, not a fresh vault status query. No status mutation."
+  },
+  "identity_and_exposure": {
+    "cohort_metadata": {
+      "stage11": "/mnt/lightsem-data/experiments/lightsem/stage11_20260908/data/split_manifest.json",
+      "finedance": "/mnt/lightsem-data/experiments/lightsem/motion_representation_20260910/data/split.json"
+    },
+    "comparison_method": "Join legacy cache filenames to JD song/motion sidecar IDs; map recording IDs through Stage11 split_manifest.recordings to canonical_id and partition. Compare exact recording and canonical IDs with Stage11 TEST; compare exact keys/source IDs/canonical IDs with FineDance TEST. Read no sealed payloads.",
+    "results": {
+      "jd_songs_sidecar": {
+        "recording_count": 338,
+        "stage11_partition_counts": {
+          "train": 332
+        },
+        "stage11_unmatched_recording_ids": [
+          "-G-6DNPGEfk",
+          "0TuY02X_j3o",
+          "8jn_f5tVhR8",
+          "R2XbWQPhuwA",
+          "eKBQrv_wZnQ",
+          "zWnvxM5cs8g"
+        ],
+        "stage11_test_recording_ids": [],
+        "stage11_test_canonical_ids": [],
+        "finedance_test_exact_id_or_canonical_intersection": []
+      },
+      "jd_motion_sidecar": {
+        "recording_count": 307,
+        "stage11_partition_counts": {
+          "train": 307
+        },
+        "stage11_unmatched_recording_ids": [],
+        "stage11_test_recording_ids": [],
+        "stage11_test_canonical_ids": [],
+        "finedance_test_exact_id_or_canonical_intersection": []
+      },
+      "justdance_structure_listing": {
+        "recording_count": 332,
+        "stage11_partition_counts": {
+          "train": 332
+        },
+        "stage11_unmatched_recording_ids": [],
+        "stage11_test_recording_ids": [],
+        "stage11_test_canonical_ids": [],
+        "finedance_test_exact_id_or_canonical_intersection": []
+      },
+      "justdance_visual_listing": {
+        "recording_count": 332,
+        "stage11_partition_counts": {
+          "train": 332
+        },
+        "stage11_unmatched_recording_ids": [],
+        "stage11_test_recording_ids": [],
+        "stage11_test_canonical_ids": [],
+        "finedance_test_exact_id_or_canonical_intersection": []
+      },
+      "justdance_motion_listing": {
+        "recording_count": 307,
+        "stage11_partition_counts": {
+          "train": 307
+        },
+        "stage11_unmatched_recording_ids": [],
+        "stage11_test_recording_ids": [],
+        "stage11_test_canonical_ids": [],
+        "finedance_test_exact_id_or_canonical_intersection": []
+      },
+      "justdance_audio_listing": {
+        "recording_count": 332,
+        "stage11_partition_counts": {
+          "train": 332
+        },
+        "stage11_unmatched_recording_ids": [],
+        "stage11_test_recording_ids": [],
+        "stage11_test_canonical_ids": [],
+        "finedance_test_exact_id_or_canonical_intersection": []
+      },
+      "stage11_visual_listing": {
+        "recording_count": 617,
+        "stage11_partition_counts": {
+          "train": 515,
+          "val": 52,
+          "test": 50
+        },
+        "stage11_unmatched_recording_ids": [],
+        "stage11_test_recording_ids": [
+          "05ETDFsvaR8",
+          "0Ec0VJCMJSc",
+          "1rRuysXMbWE",
+          "2ZWN-x8CwLA",
+          "39E8MnHArSs",
+          "4RmA7aIddtI",
+          "4eud5dIAXPw",
+          "6gcolR6Fa-c",
+          "7A-y5jGvvsA",
+          "9xwqW5ATRiU",
+          "AHL_h6zXtZI",
+          "BKf6AqiSejg",
+          "DkvQH4XcsTw",
+          "E4o9_V3wRP0",
+          "Evgl3nmmieg",
+          "FraQrF-K5gM",
+          "HbK4yFX9sc8",
+          "JUNexHTPOAk",
+          "Jz0guMrALKY",
+          "M3ZCn6D9ZIY",
+          "PZAoUnMIbgI",
+          "Pdo2eCGEEiU",
+          "RH52lE3n56Q",
+          "S-XoODEKngY",
+          "SrKUsNWXZ2Y",
+          "UFyBJhIcFnc",
+          "VyQ9uu9Ykdc",
+          "XPcGV8L3dR8",
+          "YMRpXlq8A9g",
+          "b4FyY8VEvmY",
+          "bI7QZHzva-E",
+          "d3YC4TifJVI",
+          "dqLQiYWNB9g",
+          "eOSjmhVADuU",
+          "fgv1klMnT3I",
+          "jmdIqYLflag",
+          "kQzKKB1E9ZA",
+          "kqnHjYTbOvM",
+          "l20vZ_8BkaY",
+          "m40Jct7lNrY",
+          "m8m186xDdyw",
+          "metx-r7M-7E",
+          "nrC-45DPtrA",
+          "ta9bchvLUB8",
+          "uza4I0AL9DQ",
+          "wVoBZEy06tQ",
+          "x4kdsqxS9nk",
+          "xuAO_omEJmw",
+          "y1fd7-XljXQ",
+          "zqegPPCkQ8U"
+        ],
+        "stage11_test_canonical_ids": [
+          "jd-04e58216e7d577429a48",
+          "jd-0daac09c25d6c4db488c",
+          "jd-10f78e88f8a1b29c5787",
+          "jd-19bc5420f87dc385a2aa",
+          "jd-1a10355ab2bfa66a3cd9",
+          "jd-284c100e0477c689a7e5",
+          "jd-339af6aa791caef025be",
+          "jd-34b078133f93eff6202f",
+          "jd-3540c95c29603648eaf1",
+          "jd-45fbc06d070efdfcdb99",
+          "jd-4603f55dc73c6847a7cf",
+          "jd-463b7b64478f5e70a451",
+          "jd-4c7d2df0ac2bc3b7c723",
+          "jd-56e23425bee6f3083203",
+          "jd-5de78b0bd35cd80a3521",
+          "jd-639db78f52e2b21326d5",
+          "jd-71a2a475a4d2809152a8",
+          "jd-79bca14cf099ee16cba0",
+          "jd-7a762e2a3786fce79bc1",
+          "jd-81a17753e9c5fbd13d9d",
+          "jd-82509f11c30f0b5ee84d",
+          "jd-849690f6f73e4d04cfa4",
+          "jd-8809e40dd9be697bff69",
+          "jd-89e778350083f319ce6d",
+          "jd-8c75d39b9431aea2ed36",
+          "jd-952e1079c7f0f0ee9422",
+          "jd-9a001e1b6f5bdca7789c",
+          "jd-a232959f49d170c18bba",
+          "jd-b9406497001e971c9330",
+          "jd-c6fea1e87bb89dc7023f",
+          "jd-c80fc8da85be618f1c24",
+          "jd-ca1ec369431d8613e86b",
+          "jd-cb70d0ceda7eefd1970b",
+          "jd-d491d1325cc1d807f298",
+          "jd-e40b7d35e74a294ef62f",
+          "jd-e57df69d89709646f0b7",
+          "jd-f64338e45df8a62000b7",
+          "jd-f654b7a091f664d694fb",
+          "jd-f982c75c79e249eb1fbf",
+          "jd-fbc288a7c9d4a30f0316"
+        ],
+        "finedance_test_exact_id_or_canonical_intersection": []
+      }
+    },
+    "cohort_sizes_metadata_only": {
+      "stage11_all_recordings_by_partition": {
+        "train": 564,
+        "test": 51,
+        "val": 54
+      },
+      "finedance_entries_by_partition": {
+        "train": 136,
+        "val": 39,
+        "test": 28
+      }
+    },
+    "legacy_sidecar_links": {
+      "all_332_visual_listing_ids_in_jd_songs_metadata": true,
+      "all_453_motion_file_names_in_motion_index": true,
+      "current_canonical_families_for_307_legacy_motion_recordings": 268,
+      "historical_audit_report_song_keys": 294
+    },
+    "critical_limits": [
+      "All332 listed legacy structure/visual IDs and all307 legacy motion recording IDs map to current Stage11 TRAIN, not TEST. This is metadata eligibility, not authorization or fresh validation.",
+      "Stage11 visual is mixed split:515 TRAIN/419 canonical,52 VAL/40 canonical,50 TEST/40 canonical. Never glob-load it for a secondary audit.",
+      "The six unmatched legacy song-sidecar IDs have no current Stage11 partition mapping and are not eligible for presumed reuse.",
+      "No exact FineDance TEST key/canonical intersection was found. JD and FineDance IDs use different namespaces; this does not prove absence of shared music or replace cross-corpus identity qualification.",
+      "Historical Stage8 song-key folds and historical event-head capture-key hashing are not the current canonical grouping. No new held-out-song claim can inherit them without an explicit identity/exposure audit."
+    ],
+    "reuse_authorized": false
+  },
+  "row55": {
+    "hypothesis_id": "just-dance-coach-motion-is-predictable-from-bcb46b",
+    "experiment_id": "exp-014-just-dance-coach-motion-is-f086d5",
+    "readiness": "blocked_missing_independent_labels_and_no_saved_label_endpoint",
+    "retained_scope": "Coach predictability core is complete and negative against R2=0 null and preregistered +0.20 gate. No retune or rerun is proposed.",
+    "original_contract": {
+      "G8.2-genre": "genre/effort-partialled audio-movement correlation not within +/-0.1 of zero",
+      "G8.2-contrast": "chorus/verse movement ratio with CI clear of 1",
+      "source": "/root/lightsem/queue_justdance_to_vault.py",
+      "lines": "101-107"
+    },
+    "saved_report": "/root/lightsem/outputs/stage8/audit_jd_full.json",
+    "saved_artifact_limit": "The report stores aggregate held_out_song summaries and aggregate loudness-tertile section_contrast. The writer does not save per-frame/out-of-fold predictions, independent labels, or per-section endpoint rows. Aggregate R2/CI cannot be partialled for genre/Effort.",
+    "label_inventory": {
+      "metadata_schemas": {
+        "jd_songs": {
+          "path": "/mnt/lightsem-data/cache/justdance_songs.json",
+          "fields": [
+            "duration_s",
+            "excluded",
+            "file",
+            "fps",
+            "song_key",
+            "title_norm",
+            "yt_id"
+          ]
+        },
+        "jd_manifest": {
+          "path": "/mnt/lightsem-data/cache/justdance_manifest.json",
+          "fields": [
+            "acodec",
+            "duration_s",
+            "file",
+            "fps",
+            "height",
+            "max_db",
+            "mean_db",
+            "n_audio",
+            "size_mb",
+            "vcodec",
+            "width",
+            "yt_id"
+          ]
+        },
+        "jd_motion_index": {
+          "path": "/mnt/lightsem-data/cache/justdance_motion_index.json",
+          "fields": [
+            "beat_offset_s",
+            "beat_phase_R",
+            "camera",
+            "choreo_id",
+            "coach_index",
+            "corpus",
+            "coverage",
+            "coverage_whole_file",
+            "dancer",
+            "duration_s",
+            "end_s",
+            "filled_frac",
+            "fps_eff",
+            "fps_src",
+            "genre",
+            "long_gap_frac",
+            "music_id",
+            "n_coaches",
+            "n_footfalls",
+            "n_jumps",
+            "name",
+            "pose_imgsz",
+            "pose_model",
+            "setting",
+            "song_key",
+            "start_s",
+            "tempo",
+            "view",
+            "view_provenance"
+          ]
+        }
+      },
+      "genre": "The motion index has a genre key, but build_justdance_motion.py:91 and jd_data.py:127 assign the corpus placeholder jd. This is not song genre.",
+      "effort": "No Effort/difficulty field in inspected JD sidecar schemas. log_stage8_to_vault.py:58-63 explicitly says wiki ratings were never scraped.",
+      "actual_sections": "No independent chorus/verse annotation sidecar found among inspected JD caches, sidecar schemas and repository annotation-like filenames. This is a scoped local inventory, not a claim that labels cannot exist elsewhere.",
+      "structure_cache": "/mnt/lightsem-data/cache/justdance_structure",
+      "structure_provenance": "build_justdance_structure.py uses audio Laplacian segmentation and heuristic EDM roles intro/breakdown/build-up/drop/outro, never validated against ground truth. It is not independently annotated chorus/verse truth.",
+      "contrast_mechanism": "run_justdance_audit.py:166-211 selects segment energies by 33rd/67th percentiles. Retain as loudest-third/quietest-third movement ratio, never as chorus/verse evidence.",
+      "contrast_existing_values_are_not_new_metrics": {
+        "report_field": "section_contrast",
+        "qom_ratio_to_quiet_third": 1.5709065362113364,
+        "qom_ci95": [
+          1.519985957070728,
+          1.6259716054353313
+        ],
+        "comparison": "quiet-third reference ratio=1; not a semantic-section baseline"
+      }
+    },
+    "smallest_saved_artifact_step": {
+      "now": "This source/metadata inventory is the last runnable saved-artifact-only step. Mark independent genre/Effort/actual-section labels unavailable for this inspected cohort. Do not reconstruct them from audio energy or the same motion outcomes.",
+      "if_independent_local_labels_are_later_identified": "Audit only their ID/provenance sidecar first against both sealed cohort metadata files. Then separately register the secondary label test on explicitly permitted non-TEST identities before inspecting label values or computing endpoints. No new annotation/scraping/download is authorized here."
+    },
+    "exact_unmet_registration_contract": [
+      "A frozen independent label artifact: exact path/hash, per-recording and current canonical identity, true song genre taxonomy, wiki Effort scale/version if used, missingness and label provenance. The corpus token jd is not admissible.",
+      "A frozen independent actual chorus/verse interval artifact: timestamps on the capture clock, version/covers/medleys mapped to the correct recording, boundary uncertainty, annotation QA and missing/ambiguous-section exclusions. Audio-derived high/low energy thirds or heuristic drop tags cannot satisfy it.",
+      "A prespecified authorized non-TEST cohort and canonical-song grouping with historical exposure disclosed. State which of the307 recordings/268 current canonical families are supported rather than silently inheriting294 historical song keys.",
+      "Exact partialling instrument: audio/motion variables and channel family, timescale, confound encoding, training-only residualization/calibration, fit/evaluation unit, uncertainty and multiplicity. Bind the original +/-0.1 exclusion criterion; do not choose variables after seeing results.",
+      "Exact semantic-section ratio instrument: descriptor channels, interval alignment, within-song/coach weighting, denominator handling, canonical-song uncertainty and CI decision against1. Preserve the completed loudness-tertile result separately.",
+      "An authorized endpoint input artifact is still missing: the aggregate historical report does not contain the out-of-fold predictions or section rows needed for either missing analysis. If a later recomputation/fit is required, it needs separate prospective permission and cannot be represented as saved-report rescoring.",
+      "Register only a labeled secondary analysis with known prior outcomes. Do not reopen the completed coach-prediction negative or retroactively claim the old semantic/confound gates were measured."
+    ],
+    "execution_allowed_now": false
+  },
+  "row66": {
+    "hypothesis_id": "the-just-dance-background-with-coach-and-ui-598f33",
+    "experiment_id": "exp-016-the-just-dance-background-with-ce364b",
+    "readiness": "blocked_missing_histogram_prediction_and_undefined_legacy_KL_baseline_contract",
+    "original_contract": {
+      "G8.4-hue": "hue KL to the true palette below the per-song mean baseline",
+      "source": "/root/lightsem/queue_justdance_to_vault.py",
+      "line": 135
+    },
+    "retained_event_evidence": {
+      "report": "/root/lightsem/outputs/stage2/operator_head_model_with_hazard_jdvis.json",
+      "comparison": "saved teacher-forced event lift3.171388626 versus rhythm1.481201768 and ridge1.897499681; not hue prediction",
+      "owncue_limit": {
+        "report": "/root/lightsem/outputs/stage9/head_own_cues_jdvis.json",
+        "comparison": "saved own-cue lift1.825113416 versus audio-only2.318595886; teacher-forced3.171388626 cannot be treated as generated feedback performance"
+      }
+    },
+    "legacy_histogram_cache": {
+      "path": "/mnt/lightsem-data/cache/justdance_visual",
+      "file_count": 332,
+      "histogram_payload_read": false,
+      "source_determination": "build_justdance_visual.py computes temporary HSV histograms, reduces them to the 6D scene vector, then saves x,y,names,bpm,meta only. Raw hue distributions are not saved by this legacy writer. Six summary channels cannot reconstruct the full180-bin histogram.",
+      "source_refs": [
+        "build_justdance_visual.py:60-67",
+        "build_justdance_visual.py:110-112",
+        "extract_rpmc.py:29-49"
+      ]
+    },
+    "stage11_saved_histogram_candidate": {
+      "directory": "/mnt/lightsem-data/experiments/lightsem/stage11_20260908/data/visual",
+      "source": "/mnt/lightsem-data/experiments/lightsem/stage11_20260908/source/lightsem/experiments/stage11_data.py",
+      "source_lines": "604-625",
+      "current_and_frozen_source_sha256_equal": true,
+      "source_declared_arrays": [
+        "hue_hist:180 bins",
+        "saturation_hist:256 bins",
+        "value_hist:256 bins",
+        "raw_y",
+        "x",
+        "y",
+        "times",
+        "offset_s",
+        "meta"
+      ],
+      "evidence_level": "Presence/schema inferred only from completed file listing, saved artifact hashes and frozen writer source. No NPZ member inventory or payload verification performed.",
+      "all_listed_files": 617,
+      "train_candidates": 515,
+      "train_canonical_families": 419,
+      "val_files_not_authorized_here": 52,
+      "test_files_prohibited": 50,
+      "sidecar_paths": [
+        "/mnt/lightsem-data/experiments/lightsem/stage11_20260908/data/manifest.json",
+        "/mnt/lightsem-data/experiments/lightsem/stage11_20260908/data/features_results.json"
+      ],
+      "all_515_train_manifest_hashes_equal_feature_results_hashes": true,
+      "legacy_visual_overlap_recordings": 307,
+      "legacy_visual_overlap_current_canonical_families": 268,
+      "legacy_visual_recording_ids_without_stage11_hist_file": [
+        "44zfbfDAsQM",
+        "AjR5kkPmJvE",
+        "HukAMrthvPU",
+        "Kb0ShstzS1s",
+        "M8jYofLVVCU",
+        "P5yQCdmz3ew",
+        "PUZSFZ5ReBA",
+        "QwYqMzg6LfQ",
+        "R9bMw6xpB50",
+        "Sb7LzoBAjyM",
+        "aSyRGVHMDRw",
+        "bZism1qKV4c",
+        "cE7vVJ9ffcE",
+        "eqwXK2TbuL0",
+        "kE7Kx0qUW7Q",
+        "ovQ9UBro3sI",
+        "pY0eyTakW7I",
+        "qryAuIqG8oo",
+        "rtC7Rukd2Bg",
+        "uoVQTvPdjQE",
+        "vPu3WGIoyD4",
+        "vYSr3hlJT5s",
+        "wf0txrUERco",
+        "xrGYmZxYVcg",
+        "zoi0FvFcr9A"
+      ],
+      "train_only_examples_not_execution_authorization": [
+        {
+          "recording_id": "--74o20SmOs",
+          "canonical_id": "jd-d471800e945d34009b49",
+          "partition": "train",
+          "path": "/mnt/lightsem-data/experiments/lightsem/stage11_20260908/data/visual/--74o20SmOs.npz",
+          "sha256_from_manifest": "d5b13e8e5e3a4a0a13c6fc5fb10b674ac88f53a39dcf52a0cd1f57b40f7a98a4",
+          "feature_results_hash_agrees": true,
+          "exists_from_listing": true
+        },
+        {
+          "recording_id": "-3ORYC-Y-Gs",
+          "canonical_id": "jd-294ec281f938d4c5d404",
+          "partition": "train",
+          "path": "/mnt/lightsem-data/experiments/lightsem/stage11_20260908/data/visual/-3ORYC-Y-Gs.npz",
+          "sha256_from_manifest": "07611cea71f390e6c04b0b7c26b6a339b7a97ce67aabcdcb06d62e50dffc7c9a",
+          "feature_results_hash_agrees": true,
+          "exists_from_listing": true
+        },
+        {
+          "recording_id": "-DYALBogmJo",
+          "canonical_id": "jd-639b5b11b978dc6b3747",
+          "partition": "train",
+          "path": "/mnt/lightsem-data/experiments/lightsem/stage11_20260908/data/visual/-DYALBogmJo.npz",
+          "sha256_from_manifest": "24c80748dfa28b2573d3e1c3e075ce3b56c5e820aa34267a36a71a7975136602",
+          "feature_results_hash_agrees": true,
+          "exists_from_listing": true
+        }
+      ],
+      "provenance_difference": "Stage11 uses its versioned active-span masking/clock and180-bin histograms at10Hz. It is not the originally proposed30fps extraction or a byte-identical legacy target. Bind this change in any secondary protocol."
+    },
+    "saved_prediction_inventory": "The legacy writer trains an event head and saves its checkpoint and aggregate event report only (train_operator_head.py:204-224). No180-bin predicted palette distributions or KL scores are provided by these artifacts; log_stage8_to_vault.py:148 explicitly records hue as not implemented. No hue-named prediction/report artifact was found in inspected legacy output paths. No checkpoint or prediction payload was opened.",
+    "smallest_saved_artifact_step": {
+      "now": "Record raw-hist target readiness from TRAIN sidecars only; retain event results and mark hue unmeasured. No hue metric is runnable from the aggregate event report.",
+      "next_if_authorized": "First freeze a metadata-only target/prediction manifest, exact KL definition and comparator contract on a non-TEST cohort. Require a saved eligible histogram-prediction artifact, or separately authorize a new predictor design/fit; an event checkpoint cannot supply palette probabilities. Only after registration may a non-TEST payload/schema check proceed. Do not re-extract video or train in this audit."
+    },
+    "exact_unmet_registration_contract": [
+      "Bind the180-bin hue target: exact non-TEST recording/canonical IDs, active intervals,10Hz timestamp alignment, raw-hist paths and hashes, extraction/source hashes, masked-pixel support and independent coach/UI/mask/cut qualification. Presence of histograms alone is not clean-lighting truth.",
+      "Bind a histogram-valued predictor and saved prediction artifact with producer source/checkpoint/config hashes, authorized training cohort and exact evaluation identity/timestamps. Legacy scalar event predictions and6D scene summaries are not a hue distribution. No compatible legacy saved prediction artifact was identified.",
+      "Resolve held-out-song versus per-song-mean baseline before scoring. A truly unseen song has no song-specific TRAIN mean. Declare an independent authorized calibration interval with disjoint scored support, or explicitly define a target-informed per-evaluation-song mean as an oracle descriptive comparator. Do not label an oracle held-out mean TRAIN-only; do not silently substitute the global TRAIN mean for the registered per-song mean.",
+      "Freeze KL direction (for example D_KL(reference||prediction), not assumed here), hue-bin convention, count-to-probability normalization, log base, epsilon/zero-bin policy, achromatic/low-saturation handling, zero-visible-pixel/missing-support treatment and temporal alignment. The original registration states none of these.",
+      "Freeze how per-frame and per-song values aggregate, equal canonical-song weighting, paired uncertainty, minimum eligible support, and multiplicity. Preserve the original directional gate below the per-song-mean baseline; any added effect-size/CI gate is a declared secondary protocol, not retroactive preregistration.",
+      "Fit all reusable transforms/thresholds on authorized TRAIN only, and name every target-derived evaluation quantity. Map historical capture IDs to current canonical groups and disclose observed DEV/results. Do not use Stage11 TEST or FineDance TEST for qualification, replacement samples or baseline estimation.",
+      "State dataset/measurement change from legacy compressed6D cache to Stage11 active-span raw histograms and distinguish historical event evidence, missing legacy hue gate and separate Sep22 palette observer metrics.",
+      "Register missing hue instrument as a secondary analysis only after data/prediction/identity/mask contracts are satisfied. Do not rerun event training or claim professional-LIGHT/human-quality support from an authored-video hue proxy."
+    ],
+    "execution_allowed_now": false
+  },
+  "sep22_palette186_not_a_substitute": {
+    "status": "COMPLETE_negative_observer_secondary; remaining_scientific_execution=0",
+    "summary": "/root/lightsem/docs/research/2026-09-22-color-beat/PALETTE_SECONDARY_RESULTS_SUMMARY_V1.json",
+    "final_integrity": "/root/lightsem/docs/research/2026-09-22-color-beat/PALETTE_FINAL_INTEGRITY_V1.json",
+    "floor_records": 186,
+    "rows": 744,
+    "scope": "historically exposed DEV full64s authored-video observer HS-distribution; not LIGHT truth, aesthetics or unseen confirmation",
+    "why_not_legacy_hue_KL": "Sep22 uses joint-HS sliced-Wasserstein/marginal and temporal residence/change/drift/8s components against learned null/own-history/donor/persistence controls. This is not180-bin hue KL against a per-song-mean baseline.",
+    "completion_note": "Existing administrative-experiment status does not imply remaining scientific execution. Do not reopen the completed186-record secondary as the row66 missing gate."
+  },
+  "file_listings": [
+    {
+      "directory": "/mnt/lightsem-data/cache/justdance_structure",
+      "files": 332,
+      "extension_counts": {
+        ".npz": 332
+      },
+      "sorted_filenames_json_sha256": "563085f7b7c1a04c901708043a8a67b153e23acf5c175a5ca4475ab8a15294bb",
+      "inspection": "filenames only; NPZ containers and payloads not opened"
+    },
+    {
+      "directory": "/mnt/lightsem-data/cache/justdance_visual",
+      "files": 332,
+      "extension_counts": {
+        ".npz": 332
+      },
+      "sorted_filenames_json_sha256": "563085f7b7c1a04c901708043a8a67b153e23acf5c175a5ca4475ab8a15294bb",
+      "inspection": "filenames only; NPZ containers and payloads not opened"
+    },
+    {
+      "directory": "/mnt/lightsem-data/cache/justdance_motion",
+      "files": 453,
+      "extension_counts": {
+        ".npz": 453
+      },
+      "sorted_filenames_json_sha256": "3befffedd8adfcf2d2455713203524c7de5619ea6577450181aeb6618e5d32b9",
+      "inspection": "filenames only; NPZ containers and payloads not opened"
+    },
+    {
+      "directory": "/mnt/lightsem-data/cache/justdance_audio",
+      "files": 332,
+      "extension_counts": {
+        ".npz": 332
+      },
+      "sorted_filenames_json_sha256": "563085f7b7c1a04c901708043a8a67b153e23acf5c175a5ca4475ab8a15294bb",
+      "inspection": "filenames only; NPZ containers and payloads not opened"
+    },
+    {
+      "directory": "/mnt/lightsem-data/experiments/lightsem/stage11_20260908/data/visual",
+      "files": 617,
+      "extension_counts": {
+        ".npz": 617
+      },
+      "sorted_filenames_json_sha256": "0022e9f38dc93d38c1ffebf6051591bc8531995d808c2b186076d201b188b0ca",
+      "inspection": "filenames only; NPZ containers and payloads not opened"
+    }
+  ],
+  "evidence_files_sha256": [
+    {
+      "path": "/root/lightsem/docs/research/2026-09-28-end-to-end/FRONTIER_REVIEW_V1.json",
+      "sha256": "4857b0e7cf5136cfb42ce6af7c085b632933dfbb746322e7fcd54a77e46c923d",
+      "bytes": 161989,
+      "kind": "completed_report_or_protocol"
+    },
+    {
+      "path": "/root/lightsem/docs/research/2026-09-28-end-to-end/IMPLEMENTATION_READINESS_V1.json",
+      "sha256": "ad3211f42fe51aa09052536d879739c8e87f0e70c2b789b751fa385654678d64",
+      "bytes": 19368,
+      "kind": "completed_report_or_protocol"
+    },
+    {
+      "path": "/mnt/lightsem-data/experiments/lightsem/stage11_20260908/data/split_manifest.json",
+      "sha256": "c5be79ab5ca3e134d3b4d3f7527679f8d9da95c15ffd4eb3141e392bf91007b3",
+      "bytes": 72012,
+      "kind": "metadata"
+    },
+    {
+      "path": "/mnt/lightsem-data/experiments/lightsem/motion_representation_20260910/data/split.json",
+      "sha256": "821a800a847c2ec337ee0c2a6eca007cfaa1e68f8f67ce2c0788e6dbce2dbe20",
+      "bytes": 146718,
+      "kind": "metadata"
+    },
+    {
+      "path": "/mnt/lightsem-data/cache/justdance_songs.json",
+      "sha256": "2285324f2d3174bf5d92ac8cb99144770b653ee94949c3e262644560b230e1a5",
+      "bytes": 91604,
+      "kind": "metadata"
+    },
+    {
+      "path": "/mnt/lightsem-data/cache/justdance_manifest.json",
+      "sha256": "980b1017cbd5349d29b401e80f54c88064c3f9259e3b20ab83fa7bedf080a674",
+      "bytes": 213762,
+      "kind": "metadata"
+    },
+    {
+      "path": "/mnt/lightsem-data/cache/justdance_motion_index.json",
+      "sha256": "0b374edd05fb18b46932a708b5bd762fd2b0ebc7b4e12b408d924bb2b0bd3266",
+      "bytes": 358959,
+      "kind": "metadata"
+    },
+    {
+      "path": "/mnt/lightsem-data/experiments/lightsem/stage11_20260908/data/manifest.json",
+      "sha256": "509db5a29d5190dd3a8b07559787d81c8c9725f82e8006f48a09b88dd1451f7a",
+      "bytes": 4239501,
+      "kind": "metadata"
+    },
+    {
+      "path": "/mnt/lightsem-data/experiments/lightsem/stage11_20260908/data/features_results.json",
+      "sha256": "62f78439151b8729f0cb9dc66fba37243377ce2b28f421cf937a6907379dcc51",
+      "bytes": 1571359,
+      "kind": "metadata"
+    },
+    {
+      "path": "/mnt/lightsem-data/experiments/lightsem/stage11_20260908/data/canonical_map.json",
+      "sha256": "5492bfe645d8c4367879b35f11bb38ac64b8450d6f18092c8bd0d30a0ef915fb",
+      "bytes": 932922,
+      "kind": "metadata"
+    },
+    {
+      "path": "/root/lightsem/outputs/stage8/audit_jd_full.json",
+      "sha256": "e6374142247b383382d908340edd5802d4a25ebfba8e992f8508de26472be855",
+      "bytes": 5870,
+      "kind": "completed_report_or_protocol"
+    },
+    {
+      "path": "/root/lightsem/outputs/stage2/operator_head_model_with_hazard_jdvis.json",
+      "sha256": "a472a501a0647acf387fc1d2d08f84309405949e5e81d2f96a82c891f11908d8",
+      "bytes": 842,
+      "kind": "completed_report_or_protocol"
+    },
+    {
+      "path": "/root/lightsem/outputs/stage9/head_own_cues_jdvis.json",
+      "sha256": "7900a40c2479c32e2c40c3cd3ecc09be910cbe5ca892f1e3eb72a32d43124d7f",
+      "bytes": 370,
+      "kind": "completed_report_or_protocol"
+    },
+    {
+      "path": "/root/lightsem/docs/research/2026-09-22-color-beat/PALETTE_SECONDARY_RESULTS_SUMMARY_V1.json",
+      "sha256": "f9f3a26d7aa10b15f2e0ae8ac2c4a9517efad4ccb604753fd52853e0d67bfa97",
+      "bytes": 16148,
+      "kind": "completed_report_or_protocol"
+    },
+    {
+      "path": "/root/lightsem/docs/research/2026-09-22-color-beat/PALETTE_METRIC_DEFINITION_V1.json",
+      "sha256": "bf7a2b2a4dbe53968c2736e242175e68b1dc0ce57b753295b95cf0ad32e0a4c5",
+      "bytes": 1596,
+      "kind": "completed_report_or_protocol"
+    },
+    {
+      "path": "/root/lightsem/docs/research/2026-09-22-color-beat/PALETTE_FINAL_INTEGRITY_V1.json",
+      "sha256": "38f8bbd625e34a217f978000cec9eddb2670c0fa76a6dddb43bebd004b081686",
+      "bytes": 4104,
+      "kind": "completed_report_or_protocol"
+    },
+    {
+      "path": "/root/lightsem/queue_justdance_to_vault.py",
+      "sha256": "f7a16242ef0c8486dbc03bab39278e84038c21472d985cc00bf4c33f2601f9ad",
+      "bytes": 10832,
+      "kind": "source"
+    },
+    {
+      "path": "/root/lightsem/log_stage8_to_vault.py",
+      "sha256": "821f6043c89d03007ec33fdc217a1c033ce15f284711c26dfed32c8275d370b6",
+      "bytes": 12342,
+      "kind": "source"
+    },
+    {
+      "path": "/root/lightsem/run_justdance_audit.py",
+      "sha256": "a2afc1030ad67e441ba0a417efcde34385b2b6a80ca2c3e148c1323fcfa42784",
+      "bytes": 10493,
+      "kind": "source"
+    },
+    {
+      "path": "/root/lightsem/build_justdance_visual.py",
+      "sha256": "3b1e13ce88ba544a7000af64fa56051a3c32df7bbf07b4d04916813780eb119c",
+      "bytes": 6347,
+      "kind": "source"
+    },
+    {
+      "path": "/root/lightsem/build_justdance_structure.py",
+      "sha256": "80df499f8d8b5443008f9f7448f5637df9ea635a3683313a0c1a57906ce031df",
+      "bytes": 4152,
+      "kind": "source"
+    },
+    {
+      "path": "/root/lightsem/build_justdance_motion.py",
+      "sha256": "00bdbf377f70cc076bfe97d7e2f86d393225eed4062f8d7ed69316bc88599d23",
+      "bytes": 5871,
+      "kind": "source"
+    },
+    {
+      "path": "/root/lightsem/lightsem/model/jd_data.py",
+      "sha256": "1ebde04a938bcaed22c973efb792170225d7572d70b5bbc36ac82d263f3c8c45",
+      "bytes": 7467,
+      "kind": "source"
+    },
+    {
+      "path": "/root/lightsem/lightsem/audio/structure.py",
+      "sha256": "95c1a72dce073172bf93481f8a565cb52b9a60acd1790d459cee502aaf20c04e",
+      "bytes": 7895,
+      "kind": "source"
+    },
+    {
+      "path": "/root/lightsem/train_operator_head.py",
+      "sha256": "9a9904814224bf5c1c46239c723f07338742fd4fd203e7949eabc00408188bef",
+      "bytes": 10763,
+      "kind": "source"
+    },
+    {
+      "path": "/root/lightsem/extract_rpmc.py",
+      "sha256": "96f4fba92c968950959f8fcf1e5c0949c5b014795875cc76615fed78d9ddc6ac",
+      "bytes": 3865,
+      "kind": "source"
+    },
+    {
+      "path": "/root/lightsem/lightsem/experiments/stage11_data.py",
+      "sha256": "ea277dbebdccc9a95611b39d397a3a420e5396e03efea666ba06b1558fe046cf",
+      "bytes": 43055,
+      "kind": "source"
+    },
+    {
+      "path": "/mnt/lightsem-data/experiments/lightsem/stage11_20260908/source/lightsem/experiments/stage11_data.py",
+      "sha256": "ea277dbebdccc9a95611b39d397a3a420e5396e03efea666ba06b1558fe046cf",
+      "bytes": 43055,
+      "kind": "source"
+    },
+    {
+      "path": "/root/lightsem/docs/STAGE11_CAMPAIGN.md",
+      "sha256": "bf69ea781de82c3a64eb278b56273beb90ed0046fb93427fd5c89d856009d970",
+      "bytes": 6357,
+      "kind": "completed_report_or_protocol"
+    }
+  ],
+  "final_scope_limit": "This note establishes artifact readiness and missing contracts only. It reports no new scientific metric, no new predictive result, no label quality estimate and no authorization to access current TEST."
+}

@@ -1,0 +1,80 @@
+{
+  "scope": "BEFORE_SNAPSHOT_ONLY_NO_NATIVE_MUTATION_YET",
+  "target_record": {
+    "path": "/root/lightsem-vault/experiments/exp-006-the-deployed-path-meets-its-eb0fc6.md",
+    "sha256": "b119661137a876e6d439827c3b8b7531aee033cb4ef2889d0539e5ee77deebc4",
+    "metadata": {
+      "artifacts": [],
+      "closed": true,
+      "config_note": "{\"stage\": \"4 (software half)\", \"runbook\": \"rb-ls2-04\", \"device\": \"cuda\", \"receptive_field_frames\": 1039, \"receptive_field_s\": 25.975, \"not_measured\": \"fixture response and Art-Net on real hardware; photodiode timing\"}",
+      "cost": null,
+      "crash_reason": "",
+      "created_at": "2026-09-04T00:04:43+00:00",
+      "diagnostics_measured": [
+        {
+          "after": 62.5,
+          "before": 65.0,
+          "diagnostic_id": "audio-to-dmx-latency-ms"
+        }
+      ],
+      "do_not_retry": [],
+      "external_run": "",
+      "former_ids": [],
+      "gate_results": [
+        {
+          "evidence": "10.8 ms on its own 5.8 ms hop (a 20 ms budget). Sharing the learned path's 23.2 ms analysis hop costs 28.2 ms and misses, which is the measurement that forces the two paths apart",
+          "gate_id": "G-lat-transient",
+          "passed": true
+        },
+        {
+          "evidence": "p50 61.9 ms, p99 62.5 ms, of a 65 ms budget (fixture 30 ms assumed, not measured)",
+          "gate_id": "G-lat-learned",
+          "passed": true
+        },
+        {
+          "evidence": "max |dy| over cuts at 50/100/200/300 frames = 0.0",
+          "gate_id": "G-causal-mech",
+          "passed": true
+        }
+      ],
+      "git_ref": "",
+      "hypothesis_id": "the-deployed-path-meets-its-latency-budget-and-b0aff5",
+      "id": "exp-006-the-deployed-path-meets-its-eb0fc6",
+      "interpretation": {
+        "at": "2026-09-28T20:18:45+00:00",
+        "failure_mode": null,
+        "lesson": "2026-09-28 retrospective claim-scope clarification, not a new measurement: Retain the historical software timing result and zero leakage under model-input perturbation. This experiment establishes conditional model causality only: its saved instrument perturbs synthetic model inputs, not audio through the feature builder. It does not establish whole deployed-pipeline future-audio independence or measured real-fixture latency. The later exp-009 is a separate, version-bounded example: that tested pipeline had upstream feature leakage and its repair still exempted five oracle beat-grid channels. Upstream source/version equivalence between the two historical runs is not established here; do not treat this cross-link as a new refutation of the exact earlier full path. Preserve historical gates and verdict; no rerun.",
+        "transfers_to": []
+      },
+      "key_numbers": {},
+      "observed_effects": [
+        {
+          "delta": -2.5,
+          "diagnostic_id": "audio-to-dmx-latency-ms",
+          "direction": "down"
+        }
+      ],
+      "parent_experiment_id": null,
+      "prediction_match": {
+        "overall": true,
+        "per_diagnostic": {
+          "audio-to-dmx-latency-ms": true
+        }
+      },
+      "provenance": {},
+      "recipe_fingerprint": {},
+      "verdict": "supports"
+    },
+    "body": "## Summary\nTests hypothesis [[the-deployed-path-meets-its-latency-budget-and-b0aff5]].\n\n## Measurements\n- [[audio-to-dmx-latency-ms]]: before 65.0 \u2192 after 62.5  (\u0394 -2.5, down \u2713 predicted down)\n\n## Gates\n- `G-lat-transient`: PASS \u2014 10.8 ms on its own 5.8 ms hop (a 20 ms budget). Sharing the learned path's 23.2 ms analysis hop costs 28.2 ms and misses, which is the measurement that forces the two paths apart\n- `G-lat-learned`: PASS \u2014 p50 61.9 ms, p99 62.5 ms, of a 65 ms budget (fixture 30 ms assumed, not measured)\n- `G-causal-mech`: PASS \u2014 max |dy| over cuts at 50/100/200/300 frames = 0.0\n\n**Verdict:** supports\n\n## Interpretation\n2026-09-28 retrospective claim-scope clarification, not a new measurement: Retain the historical software timing result and zero leakage under model-input perturbation. This experiment establishes conditional model causality only: its saved instrument perturbs synthetic model inputs, not audio through the feature builder. It does not establish whole deployed-pipeline future-audio independence or measured real-fixture latency. The later exp-009 is a separate, version-bounded example: that tested pipeline had upstream feature leakage and its repair still exempted five oracle beat-grid channels. Upstream source/version equivalence between the two historical runs is not established here; do not treat this cross-link as a new refutation of the exact earlier full path. Preserve historical gates and verdict; no rerun.\n\n## Notes\nAll three software gates pass, and one plan assumption is corrected on the way.\nThe plan specified a 3-4 s KV cache. That is the attention WINDOW, not the receptive field: windows compose across layers, so six blocks of a 160-frame window plus a 15-tap causal convolution look back 1039 frames, 26 s of audio. The error was not theoretical \u2014 chunked inference primed with one window gave block A differences of 0.79 between chunk sizes, meaning the same audio produced different light depending on how it was sliced. With the full context the model costs 3.7 ms p50 and 4.3 ms p99 per frame (against 1.7 ms when under-primed), and the learned path lands at 61.9 ms p50 / 62.5 ms p99 against its 65 ms budget.\nThe transient path cannot share the learned path's 23.2 ms analysis hop: that alone costs 28.2 ms and misses a 20 ms budget. On its own 5.8 ms hop, onset detection plus network is 10.8 ms. This is an independent, purely engineering argument for the same two-path split that Stage 0a reached from the data.\nNot measured here and not claimed: fixture response, Art-Net on a real node, and a photodiode against a click track. The 30 ms fixture term in the budget is an assumption.\n\n#real-time #audio-to-light #music-to-dance #motion-to-light #generative-modelling #evaluation-metric #cross-modal #pose #music-induced-movement #matched-baseline #conditional-mean-collapse #metric-gaming #ill-posed-ground-truth"
+  },
+  "untargeted_markdown_count": 407,
+  "untargeted_markdown_path_sha256_map_digest": "75fd6778f55a023ef42945d7abf5640d75f168e708731411b30df18e1a42c0be",
+  "digest_encoding": "SHA256(json.dumps(absolute_path_to_file_sha256_map,sort_keys=True,separators=(comma,colon)).encode())",
+  "target_excluded_from_protected_map": "/root/lightsem-vault/experiments/exp-006-the-deployed-path-meets-its-eb0fc6.md",
+  "expected_changes_only": [
+    "metadata.interpretation.lesson append existinglesson prefix plusdatedinstrumentclarification",
+    "metadata.interpretation.at native timestamp",
+    "body Interpretation section newlesson"
+  ],
+  "expected_unchanged": "Every otherexistingmetadata field andbodyoutsideInterpretation,originalNotes/numbers/gates/verdict,all407otherMarkdownfiles includingallhypotheses. Prior14repairs/receipts remainunchanged."
+}

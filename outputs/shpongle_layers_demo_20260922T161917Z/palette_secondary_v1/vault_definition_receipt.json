@@ -1,0 +1,28 @@
+{
+  "demo_complete": "2 validation errors for call[update_problem]\nid\n  Missing required argument [type=missing_argument, input_value={'problem_id': 'dancing-l...real new outcomes yet.'}, input_type=dict]\n    For further information visit https://errors.pydantic.dev/2.13/v/missing_argument\nproblem_id\n  Unexpected keyword argument [type=unexpected_keyword_argument, input_value='dancing-light-generative-20260903', input_type=str]\n    For further information visit https://errors.pydantic.dev/2.13/v/unexpected_keyword_argument",
+  "start": {
+    "id": "exp-layers-20260922-palette-secondary",
+    "hypothesis_id": "h-layers-20260922-palette",
+    "parent_experiment_id": "exp-layers-20260922-observer-fits",
+    "git_ref": "01a14fea1fb9bf517f637d4fcebb7829667cb112",
+    "external_run": "/mnt/lightsem-data/experiments/lightsem/palette-history-secondary-20260922-v1",
+    "config_note": "{\"checkpoint_roles\": [\"selected primary\", \"final companion\"], \"comparison\": \"own-generated mark history vs trained-null independent-held, persistence, fixed tempo-donor; self/quantization floors\", \"controls\": \"Holm2 and family95% Bonferroni intervals over two contrasts; all4 temporal components; support>=30/31; diversity/occupancy/marginal/emitted timing requirements\", \"draws\": [101, 102, 103, 104], \"fits\": 0, \"fixed_recipe\": \"S_VR_P0\", \"historical_mechanism\": \"Different from prior cue-hazard-history timing intervention: palette MARK transition/residence distributions, not audio event lift. Old results remain intact.\", \"original_unmet\": \"Original31/40<80% source gate unchanged; original shuffled-palette control absent; separate emitted-token AP not original head AP; no original hypothesis qualification or automatic sign-based closure\", \"phase\": \"Prospective palette-secondary DEFINITION only; no real calibration/inference/scoring authorization until exact tested sidecar and original input hashes bound\", \"primary_measurement\": \"layers-palette-temporal-error before=null_state error, after=own_state error; predict >=.02 and>=15% reduction\", \"protocol\": {\"path\": \"/root/lightsem/outputs/shpongle_layers_demo_20260922T161917Z/palette_secondary_v1/PALETTE_SECONDARY_PROTOCOL_V1.json\", \"sha256\": \"35ee9ba62d5c04fffb9ce5ddd364f1a82941c7025f9b213800858cca973d11e9\"}, \"resources\": {\"cpu_threads\": 2, \"derived_cap_bytes\": 67108864, \"derived_root\": \"/mnt/lightsem-data/experiments/lightsem/palette-history-secondary-20260922-v1\", \"free_floor_bytes\": 1073741824, \"gpu\": false, \"max_cpu_wall_seconds_per_phase\": 3600, \"overwrite\": false, \"persistent\": \"uint8ids,uint16cues,uniforms,scalarperrecordmetrics andreceipts;no duplicatedHS,contexts,audio,weights\", \"preflight_reserve_bytes\": 33554432, \"source_mutation\": false}, \"scope\": \"full64s observer HS distribution on exposed DEV including edge-context limitations; NOT independent LIGHT truth or fresh confirmation\", \"source_policy\": \"Frozen original model/training/evaluation/palette metrics untouched; new versioned driver only; no TEST, new fits, replacements or lost artifacts\", \"training_seeds\": [0, 1, 2]}",
+    "diagnostics_measured": [],
+    "observed_effects": [],
+    "gate_results": [],
+    "verdict": null,
+    "prediction_match": null,
+    "crash_reason": "",
+    "provenance": {},
+    "notes": "",
+    "artifacts": [],
+    "key_numbers": {},
+    "do_not_retry": [],
+    "interpretation": null,
+    "cost": null,
+    "recipe_fingerprint": {},
+    "former_ids": [],
+    "closed": false,
+    "created_at": "2026-09-22T16:37:39+00:00"
+  }
+}

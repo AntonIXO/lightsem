@@ -1,0 +1,22 @@
+{
+  "schema_version": 1,
+  "pid": 554979,
+  "process_group": 554977,
+  "manifest_path": "/mnt/lightsem-data/experiments/lightsem/lighting-cue-model-20260922t094347z/observer_parallel_shard_0_manifest_v1.json",
+  "manifest_sha256": "3c46f15f4f27d85ea7358b2b9136a8d0a5744ca058634de3e7dbd2a61936b315",
+  "reason": "User authorized two simultaneous video workers; preserve completed work.",
+  "started_at_utc": "2026-09-22T13:47:37.820623+00:00",
+  "status": "stopped_at_record_boundary",
+  "boundary_record": "3M9VrJLQDhU",
+  "completed_recording_ids": [
+    "Vf2s-fakSIo",
+    "ARQwK8P1hkg",
+    "2sYjdIN6rv0",
+    "FUDKBgik9uU",
+    "3M9VrJLQDhU"
+  ],
+  "preserved_incomplete_directories": [
+    "ZyE3xcxZHnw"
+  ],
+  "finished_at_utc": "2026-09-22T13:49:25.376370+00:00"
+}

@@ -1,0 +1,47 @@
+{
+  "rhythm": {
+    "rows": 516,
+    "elapsed_s": 75.22565692197531,
+    "accuracy_measured": false,
+    "path": "/mnt/lightsem-data/experiments/lightsem/lighting-cue-model-20260922t094347z/rhythm/features/complete.json"
+  },
+  "visual": {
+    "selected": 12,
+    "complete": 6,
+    "invalid": 6,
+    "complete_frames": 3840,
+    "full_result": "/mnt/lightsem-data/experiments/lightsem/lighting-cue-model-20260922t094347z/visual_smoke_v3/results.json",
+    "independent_mask_accuracy_measured": false
+  },
+  "student_smoke": {
+    "steps": 30,
+    "batch": 1,
+    "elapsed_s": 1.5454115599859506,
+    "scope": "functional_only_no_scientific_success",
+    "checkpoint_sha256": "49610d785d384066c0d8a17503d798560791fb547c5b8f1ca0505dc468657372",
+    "path": "/mnt/lightsem-data/experiments/lightsem/lighting-cue-model-20260922t094347z/student_smoke_v1/complete.json"
+  },
+  "primary_hypothesis_gates": "unmeasured; no quality success or refutation recorded",
+  "protected_motion": "No companion body, angle, or baseline DMX files modified by these runs.",
+  "production_batch_smokes": {
+    "runs": [
+      {
+        "recipe": "S_VR_P0",
+        "exit_code": 0,
+        "elapsed_s": 8.62837871001102,
+        "path": "/mnt/lightsem-data/experiments/lightsem/lighting-cue-model-20260922t094347z/student_batch4_shared_smoke",
+        "scope": "functional_only_not_scientific_comparison"
+      },
+      {
+        "recipe": "I_VR_P0",
+        "exit_code": 0,
+        "elapsed_s": 12.758731378009543,
+        "path": "/mnt/lightsem-data/experiments/lightsem/lighting-cue-model-20260922t094347z/student_batch4_independent_smoke",
+        "scope": "functional_only_not_scientific_comparison"
+      }
+    ],
+    "steps_each": 300,
+    "batch": 4,
+    "interpretation": "Finite-training/checkpoint functionality only; no comparison of scientific quality. Both runs use identical frozen TRAIN-only inputs and transformations."
+  }
+}

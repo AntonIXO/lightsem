@@ -1,0 +1,15 @@
+usage: render_demo.py [-h] --streams STREAMS [--key KEY] --output OUTPUT
+                      [--audio AUDIO] [--start START] [--duration DURATION]
+                      {render,audit}
+
+positional arguments:
+  {render,audit}
+
+options:
+  -h, --help           show this help message and exit
+  --streams STREAMS
+  --key KEY
+  --output OUTPUT
+  --audio AUDIO
+  --start START
+  --duration DURATION

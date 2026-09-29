@@ -1,0 +1,91 @@
+{
+  "schema_version": "lightsem_interpretation_debt_mode_delta_v2",
+  "date": "2026-09-28",
+  "kind": "proposal_only_minimal_mode_correction",
+  "base_file": "/root/lightsem/docs/research/2026-09-28-end-to-end/interpretation_debt_20260928_v1/MODEL_INTERPRETATION_PROPOSALS_V1.json",
+  "application": "Overlay only proposed_failure_mode and failure_mode_change_rationale by exact id onto MODEL_INTERPRETATION_PROPOSALS_V1.json; retain every V1 lesson, current verdict, evidence reference, uncertainty and empty transfer list unchanged. V1 is preserved.",
+  "api_correction_provenance": "Parent reports direct inspection of bound native-core interpret_experiment: negative=(refutes,inconclusive,directional_only,null,weak_signal), all requiring failure_mode; parent also reports test_invalid means the hypothesis was never actually evaluated. This child did not inspect additional source or invoke the API.",
+  "scope": "All ten modes are recipe_conditional, reflecting valid scoped comparisons with failed or unmeasured conjuncts, not global claim_false, mechanism_wrong, noise or whole-test invalidity. No scientific results or native fields are changed by this proposal.",
+  "proposals": [
+    {
+      "id": "exp-009-the-stage-1-audio-bus-was-not-d97aa0",
+      "current_verdict": "directional_only",
+      "proposed_failure_mode": "recipe_conditional",
+      "failure_mode_change_rationale": "The repaired feature test and rate gate are valid partial results, but the same-checkpoint calibration comparison failed G-bas-up; classify the failed calibration prediction conditionally on this tested recipe, without denying the repair or identifying a unique cause.",
+      "source_scope": "MODEL_INTERPRETATION_PROPOSALS_V1.json#proposals[id=exp-009-the-stage-1-audio-bus-was-not-d97aa0].evidence_refs",
+      "change_from_v1": "null -> recipe_conditional to meet parent-verified negative-verdict API requirement"
+    },
+    {
+      "id": "exp-011-the-model-s-light-flashes-three-1de900",
+      "current_verdict": "directional_only",
+      "proposed_failure_mode": "recipe_conditional",
+      "failure_mode_change_rationale": "Valid rate/FID/diversity improvements from fitted smoothing coexist with failure of G-smooth-hf and failure of the hypothesis-named 12 Hz arm to meet its targets; this is a filter-recipe limitation, not a universal mechanism refutation or invalid whole test.",
+      "source_scope": "MODEL_INTERPRETATION_PROPOSALS_V1.json#proposals[id=exp-011-the-model-s-light-flashes-three-1de900].evidence_refs",
+      "change_from_v1": "null -> recipe_conditional to meet parent-verified negative-verdict API requirement"
+    },
+    {
+      "id": "exp-013-the-operator-head-which-is-8594fa",
+      "current_verdict": "directional_only",
+      "proposed_failure_mode": "recipe_conditional",
+      "failure_mode_change_rationale": "The valid audio-only comparison failed the four-second anticipation gate despite a larger horizon-zero point estimate; recipe_conditional applies to that measured recipe, while only the separately discarded future-target-hazard arms are invalid.",
+      "source_scope": "MODEL_INTERPRETATION_PROPOSALS_V1.json#proposals[id=exp-013-the-operator-head-which-is-8594fa].evidence_refs",
+      "change_from_v1": "null -> recipe_conditional to meet parent-verified negative-verdict API requirement"
+    },
+    {
+      "id": "exp-014-just-dance-coach-motion-is-f086d5",
+      "current_verdict": "directional_only",
+      "proposed_failure_mode": "recipe_conditional",
+      "failure_mode_change_rationale": "The frozen ridge prediction comparison was valid and missed its R2 gate; genre/Effort and semantic-section endpoints were unmeasured, not negative measurements, so scope the limitation to this recipe and incomplete qualification rather than declare the whole test invalid or all coach motion unlearnable.",
+      "source_scope": "MODEL_INTERPRETATION_PROPOSALS_V1.json#proposals[id=exp-014-just-dance-coach-motion-is-f086d5].evidence_refs",
+      "change_from_v1": "null -> recipe_conditional to meet parent-verified negative-verdict API requirement"
+    },
+    {
+      "id": "exp-015-conditioning-on-whole-track-229262",
+      "current_verdict": "refutes",
+      "proposed_failure_mode": "recipe_conditional",
+      "failure_mode_change_rationale": "Keep the already proposed recipe_conditional: valid primary Light-BAS and shuffled-structure comparisons failed for this conditioning recipe; improved FID and unmeasured intensity do not invalidate those comparisons or justify a general ban on structure control.",
+      "source_scope": "MODEL_INTERPRETATION_PROPOSALS_V1.json#proposals[id=exp-015-conditioning-on-whole-track-229262].evidence_refs",
+      "change_from_v1": "none; existing proposal retained"
+    },
+    {
+      "id": "exp-016-the-just-dance-background-with-ce364b",
+      "current_verdict": "directional_only",
+      "proposed_failure_mode": "recipe_conditional",
+      "failure_mode_change_rationale": "The reference-history event proxy has valid positive results, but the conjunctive event-plus-palette claim remains incomplete because hue was never measured; recipe_conditional records this recipe's incomplete qualification, not a measured hue failure or invalidation of the event result.",
+      "source_scope": "MODEL_INTERPRETATION_PROPOSALS_V1.json#proposals[id=exp-016-the-just-dance-background-with-ce364b].evidence_refs",
+      "change_from_v1": "null -> recipe_conditional to meet parent-verified negative-verdict API requirement"
+    },
+    {
+      "id": "exp-017-authored-hobby-game-light-shows-e4a4d0",
+      "current_verdict": "directional_only",
+      "proposed_failure_mode": "recipe_conditional",
+      "failure_mode_change_rationale": "The tested Beat Saber conversion/ridge recipe failed its frozen admission margins despite positive partial hazard-conditioned results; xLights was unmeasured, so the negative classification is conditional on this tested component and does not propagate to every authored-light corpus.",
+      "source_scope": "MODEL_INTERPRETATION_PROPOSALS_V1.json#proposals[id=exp-017-authored-hobby-game-light-shows-e4a4d0].evidence_refs",
+      "change_from_v1": "null -> recipe_conditional to meet parent-verified negative-verdict API requirement"
+    },
+    {
+      "id": "exp-018-source-separated-stems-add-e2c503",
+      "current_verdict": "directional_only",
+      "proposed_failure_mode": "recipe_conditional",
+      "failure_mode_change_rationale": "The valid JD event comparison missed the required AP increment and valid head/hand results did not establish the proposed source split; the invalid footfall submetric does not erase those valid comparisons or the completed trailing-window comparison, so do not use whole-test test_invalid.",
+      "source_scope": "MODEL_INTERPRETATION_PROPOSALS_V1.json#proposals[id=exp-018-source-separated-stems-add-e2c503].evidence_refs",
+      "change_from_v1": "null -> recipe_conditional to meet parent-verified negative-verdict API requirement"
+    },
+    {
+      "id": "exp-019-one-frozen-music-foundation-d4f30f",
+      "current_verdict": "directional_only",
+      "proposed_failure_mode": "recipe_conditional",
+      "failure_mode_change_rationale": "The valid JD-only MERT comparison retained residual signal but missed the specified AP increment; the limited identity control and missing Oslo/L=0 components constrain qualification without making the complete JD comparison invalid or refuting every foundation embedding.",
+      "source_scope": "MODEL_INTERPRETATION_PROPOSALS_V1.json#proposals[id=exp-019-one-frozen-music-foundation-d4f30f].evidence_refs",
+      "change_from_v1": "null -> recipe_conditional to meet parent-verified negative-verdict API requirement"
+    },
+    {
+      "id": "exp-025-feeding-the-group-decoder-the-6ba213",
+      "current_verdict": "directional_only",
+      "proposed_failure_mode": "recipe_conditional",
+      "failure_mode_change_rationale": "The completed decoder sweep provides valid point means but lacks its required per-song uncertainty, and the separate operator own-cue comparison is negative; recipe_conditional scopes this tested recursion's unsupported superiority without inventing equivalence, rejecting all history methods, or treating every result as invalid.",
+      "source_scope": "MODEL_INTERPRETATION_PROPOSALS_V1.json#proposals[id=exp-025-feeding-the-group-decoder-the-6ba213].evidence_refs",
+      "change_from_v1": "null -> recipe_conditional to meet parent-verified negative-verdict API requirement"
+    }
+  ]
+}

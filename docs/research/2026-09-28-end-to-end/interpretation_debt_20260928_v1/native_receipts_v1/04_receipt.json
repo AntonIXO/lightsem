@@ -1,0 +1,8 @@
+{
+  "experiment_id": "exp-015-conditioning-on-whole-track-229262",
+  "verdict": "refutes",
+  "failure_mode": "recipe_conditional",
+  "lesson": "[2026-09-28 retrospective interpretation; no new experiment] In the recorded Just Dance conditioning recipe, Light-BAS minus the shift null was +0.1065 with real structure versus +0.1347 without structure (paired difference -0.0282, CI [-0.0417, -0.017]) and +0.1197 with shuffled structure, so G-struct-lift and G-struct-shuffle failed. Improved FID relative to no structure remains a valid partial result but does not rescue the primary failure. G-struct-contrast remains unmeasured at the light level, with independent semantic-label and rendered-intensity qualifications incomplete; the refutation is conditional on this frozen recipe, not a general rejection of section control or recurrence memory.",
+  "transfers_to": [],
+  "hint": "recipe_conditional: when the recipe changes, reopen_hypothesis('conditioning-on-whole-track-structure-section-4ccfa8', reason=...) makes the negative re-testable instead of terminal"
+}

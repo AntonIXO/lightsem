@@ -1,0 +1,53 @@
+{
+  "scope": "Parent file-hash check only; no raw metadata reopened",
+  "restored7": [
+    {
+      "path": "/root/lightsem/docs/research/2026-09-28-end-to-end/LEGACY_REMAINDER_READINESS_V1.json",
+      "sha256": "715e4240693e3ec68ce1ae33168ce98d621213f8c643f85af28457c21835c666",
+      "matches_published": true
+    },
+    {
+      "path": "/root/lightsem/docs/research/2026-09-28-end-to-end/LEGACY_REMAINDER_READINESS_V1.md",
+      "sha256": "9af79aa6ef0b8f7731eb53f2b2167a2d789ae5de8218bdae5b62d362c7245bab",
+      "matches_published": true
+    },
+    {
+      "path": "/root/lightsem/docs/research/2026-09-28-end-to-end/NEW_EVALUATION_READINESS_V1.json",
+      "sha256": "82560dc98d438eb9e58df75aba1bad685a89ef922b38e5222412a95c0d188272",
+      "matches_published": true
+    },
+    {
+      "path": "/root/lightsem/docs/research/2026-09-28-end-to-end/NEW_EVALUATION_READINESS_V1.md",
+      "sha256": "e10a5ef26ca28798f9544e2c7fb8c13ee0e4ac9d87ac9e3bc3080303830ff65f",
+      "matches_published": true
+    },
+    {
+      "path": "/root/lightsem/docs/research/2026-09-28-end-to-end/PROSPECTIVE_STRUCT_INTENSITY_PROTOCOL_CANDIDATE_V1.json",
+      "sha256": "aede9e52f7b934b510627189c5235e410e85a83fa4db4f9d29f802133de5c095",
+      "matches_published": true
+    },
+    {
+      "path": "/root/lightsem/docs/research/2026-09-28-end-to-end/PROSPECTIVE_STRUCT_INTENSITY_PROTOCOL_CANDIDATE_V1.md",
+      "sha256": "3902961ba52f202423272c8a2ffd84eabe28ba402952cbe611e9c9c17a78f356",
+      "matches_published": true
+    },
+    {
+      "path": "/root/lightsem/docs/research/2026-09-28-end-to-end/NEW_FROZEN_LEGACY_EVAL_NOTES_V1.json",
+      "sha256": "5ab17db74c436b076509f2b2bc418cbeabdd047a3c8eef191d84414083f6e3e0",
+      "matches_published": true
+    }
+  ],
+  "exposure": {
+    "path": "/root/lightsem/docs/research/2026-09-28-end-to-end/METADATA_FIELD_EXPOSURE_DISCLOSURE_V1.json",
+    "sha256": "6d55cd95d5ccddd2e6a89bc01f732c48cd0289c5fed42fdfd27d86158d1334a6"
+  },
+  "mutation_addendum": {
+    "path": "/root/lightsem/docs/research/2026-09-28-end-to-end/V1_MUTATION_DISCLOSURE_ADDENDUM_20260928.json",
+    "sha256": "0c736a6a65dcba637b02bbea2d12e7a36373da2a8d3f198a8b2a954cf19ee51e"
+  },
+  "restoration_receipt": {
+    "path": "/root/lightsem/docs/research/2026-09-28-end-to-end/V1_RESTORATION_RECEIPT_20260928.json",
+    "sha256": "e8a9c9ac7266afe8d3a8cb52abc3154ecb014ddaf19c1ee5b41157e6bfe17124"
+  },
+  "no_new_scientific_execution": true
+}

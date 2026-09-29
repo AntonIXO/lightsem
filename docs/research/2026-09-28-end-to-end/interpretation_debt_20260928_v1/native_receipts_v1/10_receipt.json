@@ -1,0 +1,8 @@
+{
+  "experiment_id": "exp-motion-exposure-roles-20260910",
+  "verdict": "supports",
+  "failure_mode": null,
+  "lesson": "2026-09-28 retrospective interpretation, not a new experiment: The registered fixed-role optical calibration passed the three-scene ramp controls, with whole-rig dimmer response 3.68561 versus 1.06714 for the recorded pre-role comparator at the frozen comparison settings. This supports only the fixed-rig/camera simulator calibration, not learned music conditioning, full-track LIGHT quality, human acceptance, physical photometry or default promotion; the separate native-music failure is unchanged.",
+  "transfers_to": [],
+  "hint": null
+}

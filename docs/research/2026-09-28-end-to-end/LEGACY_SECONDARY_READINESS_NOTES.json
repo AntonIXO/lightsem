@@ -1,0 +1,2074 @@
+{
+  "schema_version": 1,
+  "audit_date": "2026-09-28",
+  "written_at_utc": "2026-09-28T18:37:25.615264+00:00",
+  "scope_rows": [
+    4,
+    7,
+    9,
+    16,
+    59
+  ],
+  "audit_mode": "read_only_saved_source_reports_and_identity_metadata; only this requested note is written",
+  "status_authority": "Existing FRONTIER_REVIEW_V1.json and VAULT_INVENTORY_V1.json snapshots only. No live vault query/write; no status mutation.",
+  "safety": {
+    "new_metrics_computed": false,
+    "model_loaded": false,
+    "training_or_inference": false,
+    "downloads_or_network": false,
+    "source_edits": false,
+    "vault_calls": false,
+    "media_played_or_decoded": false,
+    "feature_label_prediction_array_payloads_read": false,
+    "sealed_test_payloads_read": false,
+    "split_metadata_only_for_TEST_exclusion": true,
+    "allowed_metadata_operations": "File existence/size, SHA256 of text source/report/metadata, identity joins and counts. Existing metric statements are quoted, not recomputed.",
+    "do_not_rerun": [
+      "poseG3",
+      "event15fits",
+      "palette186",
+      "decoder_v1/v2 completed numeric tests",
+      "Beat Saber completed corpus gate",
+      "planner numeric evaluation",
+      "physical-objective matched arms and all13 reviews"
+    ],
+    "other_limits": [
+      "No defaults, accepted body/dancer, renderer, split or historical artifact changed",
+      "No global corpus closure, preference acceptance or hardware qualification inferred"
+    ]
+  },
+  "executive_findings": [
+    "None of these five residual components is ready for scientific execution solely from qualified saved material. Metadata/accounting steps are available without reruns.",
+    "39 existing H-L pairs / 29 recording IDs all join to Stage11 TRAIN, but compare conductor knob settings. They cannot fill row4 decoder or row59 planner human gates.",
+    "Current H-L ratings.jsonl has 39 Anton rows and a v2 Bradley-Terry report. The September7 note saying no ratings is historical, not current. This audit does not refit or adjudicate the separate H-L hypothesis.",
+    "Row9 has 30 saved category media files but only one-rater/10-clip/8-music-ID pilot, no foil ratings, no EDM tracks, fixed arm-letter leakage and only combined brightness matching. AIST IDs are unresolved for non-TEST reuse under the two supplied maps.",
+    "Row16 has complete 13-movie/13-review coverage, all twelve FineDance identities VAL, and explicit missing incumbent3D lighting. Completed sampled AI review is not human music-fit acceptance.",
+    "No xLights sequence/access assets found locally under bounded filename scan. Historical 403, separate audio and rights blocks persist as unverified present-day access.",
+    "Row59 native G9.4-shuffle PASS is a numerical-only implementation of a composite gate whose human structured item is absent. Numeric BAS failure remains."
+  ],
+  "shared_evidence_refs": [
+    "/root/lightsem/docs/research/2026-09-28-end-to-end/FRONTIER_REVIEW_V1.json",
+    "/root/lightsem/docs/research/2026-09-28-end-to-end/VAULT_INVENTORY_V1.json",
+    "/root/lightsem/docs/CONTINUATION_AUDIT_2026-09-07.md",
+    "/root/lightsem/logs/continuation_audit_evidence.json",
+    "/mnt/lightsem-data/experiments/lightsem/stage11_20260908/data/split_manifest.json",
+    "/mnt/lightsem-data/experiments/lightsem/motion_representation_20260910/data/split.json",
+    "/root/lightsem/docs/STAGE11_CAMPAIGN.md"
+  ],
+  "historical_native_experiment_snapshot_refs": [
+    {
+      "row": 4,
+      "experiment_id": "exp-020-a-learned-group-effects-decoder-1eac54",
+      "snapshot_path": "/root/lightsem-vault/experiments/exp-020-a-learned-group-effects-decoder-1eac54.md",
+      "snapshot_sha256_recorded_in_inventory": "029d860f221c7bc104ccb71e36cc8de035f7d2237e13cd4f2f57ae7c62cfc76f",
+      "native_status": "refuted"
+    },
+    {
+      "row": 4,
+      "experiment_id": "exp-021-a-learned-group-effects-decoder-1eac54",
+      "snapshot_path": "/root/lightsem-vault/experiments/exp-021-a-learned-group-effects-decoder-1eac54.md",
+      "snapshot_sha256_recorded_in_inventory": "983799489279c06ea895bc5bc75cd2ea3a04b4b7ca82317873b24052d4525ddb",
+      "native_status": "refuted"
+    },
+    {
+      "row": 7,
+      "experiment_id": "exp-017-authored-hobby-game-light-shows-e4a4d0",
+      "snapshot_path": "/root/lightsem-vault/experiments/exp-017-authored-hobby-game-light-shows-e4a4d0.md",
+      "snapshot_sha256_recorded_in_inventory": "37437ba4553631938aba77d30f88f03d1b2f756b235a7739ade9a72ad350e8b7",
+      "native_status": "inconclusive"
+    },
+    {
+      "row": 9,
+      "experiment_id": "exp-010-dance-is-not-a-category-error-101dd9",
+      "snapshot_path": "/root/lightsem-vault/experiments/exp-010-dance-is-not-a-category-error-101dd9.md",
+      "snapshot_sha256_recorded_in_inventory": "68d889c33a2a635986fca3e23a32c5713616e4066cffb5004427a8659fdbcb0b",
+      "native_status": "inconclusive"
+    },
+    {
+      "row": 16,
+      "experiment_id": "exp-dance-physical-objective-20260911",
+      "snapshot_path": "/root/lightsem-vault/experiments/exp-dance-physical-objective-20260911.md",
+      "snapshot_sha256_recorded_in_inventory": "7362d1471b535504d51627e75436c6b1496dbf968316591f613baa1a8f8fe388",
+      "native_status": "inconclusive"
+    },
+    {
+      "row": 59,
+      "experiment_id": "exp-022-section-level-intent-belongs-on-47d660",
+      "snapshot_path": "/root/lightsem-vault/experiments/exp-022-section-level-intent-belongs-on-47d660.md",
+      "snapshot_sha256_recorded_in_inventory": "70e0ed68a163b5d4728321eb5bbfd22c38559acea5843e08180b487db3382db8",
+      "native_status": "inconclusive"
+    }
+  ],
+  "identity_audit": {
+    "stage11_split_metadata_ref": "/mnt/lightsem-data/experiments/lightsem/stage11_20260908/data/split_manifest.json",
+    "finedance_split_metadata_ref": "/mnt/lightsem-data/experiments/lightsem/motion_representation_20260910/data/split.json",
+    "method": "Exact metadata ID joins only; no feature, label or prediction arrays loaded. TEST identities used only to reject membership; no TEST outcomes read.",
+    "legacy_split_warning": "Stage11 membership and historical decoder train/val/test membership are distinct split versions. Current TRAIN does not imply every historical model held the material out.",
+    "hl_pairs": {
+      "metadata_ref": "/root/lightsem/outputs/stage9/hl_pairs/pairs.json",
+      "pair_count": 39,
+      "recording_count": 29,
+      "canonical_count": 29,
+      "stage11_partition_counts": {
+        "train": 39
+      },
+      "eligible_for_target_gates": false,
+      "reason": "Wrong comparator/question for rows4/59, even though not sealed TEST",
+      "pairs": [
+        {
+          "id": "pair000",
+          "recording_id": "RocuEwLM5fQ",
+          "clip": "RocuEwLM5fQ_c0",
+          "canonical_id": "jd-9a5a8d97366545499fec",
+          "partition": "train"
+        },
+        {
+          "id": "pair001",
+          "recording_id": "RIkexdTR6_M",
+          "clip": "RIkexdTR6_M_c0",
+          "canonical_id": "jd-454a731712371bf043ca",
+          "partition": "train"
+        },
+        {
+          "id": "pair002",
+          "recording_id": "4QyGK8HtgLc",
+          "clip": "4QyGK8HtgLc_c0",
+          "canonical_id": "jd-944a2a8b6b17250b46ec",
+          "partition": "train"
+        },
+        {
+          "id": "pair003",
+          "recording_id": "Cnjnj8QWo4M",
+          "clip": "Cnjnj8QWo4M_c0",
+          "canonical_id": "jd-32ca670f67a52ea8f3f5",
+          "partition": "train"
+        },
+        {
+          "id": "pair004",
+          "recording_id": "11qRVJWomH8",
+          "clip": "11qRVJWomH8_c0",
+          "canonical_id": "jd-abdfab692cea0324efcd",
+          "partition": "train"
+        },
+        {
+          "id": "pair005",
+          "recording_id": "2WzjnaFjHYY",
+          "clip": "2WzjnaFjHYY_c0",
+          "canonical_id": "jd-472c26d7febbca1adc33",
+          "partition": "train"
+        },
+        {
+          "id": "pair006",
+          "recording_id": "moryohPkTSY",
+          "clip": "moryohPkTSY_c2",
+          "canonical_id": "jd-1651ab74f358534cea79",
+          "partition": "train"
+        },
+        {
+          "id": "pair007",
+          "recording_id": "EH-Ig1Xv0vU",
+          "clip": "EH-Ig1Xv0vU_c0",
+          "canonical_id": "jd-2a2e5db62ec4774f5035",
+          "partition": "train"
+        },
+        {
+          "id": "pair008",
+          "recording_id": "u3S8T3jZA6A",
+          "clip": "u3S8T3jZA6A_c0",
+          "canonical_id": "jd-9d24e713b2076a339dba",
+          "partition": "train"
+        },
+        {
+          "id": "pair009",
+          "recording_id": "TPXoxjy-RKk",
+          "clip": "TPXoxjy-RKk_c0",
+          "canonical_id": "jd-afb0c599d08e0f2ff80f",
+          "partition": "train"
+        },
+        {
+          "id": "pair010",
+          "recording_id": "NI31AWYYuFI",
+          "clip": "NI31AWYYuFI_c2",
+          "canonical_id": "jd-b6cf43d102b9f0df0a19",
+          "partition": "train"
+        },
+        {
+          "id": "pair011",
+          "recording_id": "Tjbw_Yc48fs",
+          "clip": "Tjbw_Yc48fs_c0",
+          "canonical_id": "jd-b40db32a82168b73d32e",
+          "partition": "train"
+        },
+        {
+          "id": "pair012",
+          "recording_id": "UnbJ4AX6wTA",
+          "clip": "UnbJ4AX6wTA_c0",
+          "canonical_id": "jd-b1116248fd77b7695ed6",
+          "partition": "train"
+        },
+        {
+          "id": "pair013",
+          "recording_id": "ZoBKemKNjM4",
+          "clip": "ZoBKemKNjM4_c1",
+          "canonical_id": "jd-67bbf9a8d832985a6415",
+          "partition": "train"
+        },
+        {
+          "id": "pair014",
+          "recording_id": "bYjI048jg40",
+          "clip": "bYjI048jg40_c0",
+          "canonical_id": "jd-adb9707ac6efc06fa0fa",
+          "partition": "train"
+        },
+        {
+          "id": "pair015",
+          "recording_id": "0bZbusRBSvc",
+          "clip": "0bZbusRBSvc_c0",
+          "canonical_id": "jd-6def3b391d1f46287e57",
+          "partition": "train"
+        },
+        {
+          "id": "pair016",
+          "recording_id": "--74o20SmOs",
+          "clip": "--74o20SmOs_c0",
+          "canonical_id": "jd-d471800e945d34009b49",
+          "partition": "train"
+        },
+        {
+          "id": "pair017",
+          "recording_id": "OcYYKHVN0MQ",
+          "clip": "OcYYKHVN0MQ_c0",
+          "canonical_id": "jd-e2a85e0ad3e69e54bff0",
+          "partition": "train"
+        },
+        {
+          "id": "pair018",
+          "recording_id": "moryohPkTSY",
+          "clip": "moryohPkTSY_c0",
+          "canonical_id": "jd-1651ab74f358534cea79",
+          "partition": "train"
+        },
+        {
+          "id": "pair019",
+          "recording_id": "CdXP-aZLuOI",
+          "clip": "CdXP-aZLuOI_c0",
+          "canonical_id": "jd-7c97b126862e58f1d563",
+          "partition": "train"
+        },
+        {
+          "id": "pair020",
+          "recording_id": "981MHMgULkk",
+          "clip": "981MHMgULkk_c0",
+          "canonical_id": "jd-41b0865dfb066e41f49e",
+          "partition": "train"
+        },
+        {
+          "id": "pair021",
+          "recording_id": "gDGtf4yMW5I",
+          "clip": "gDGtf4yMW5I_c0",
+          "canonical_id": "jd-b972386be7a4d959d71e",
+          "partition": "train"
+        },
+        {
+          "id": "pair022",
+          "recording_id": "OcYYKHVN0MQ",
+          "clip": "OcYYKHVN0MQ_c1",
+          "canonical_id": "jd-e2a85e0ad3e69e54bff0",
+          "partition": "train"
+        },
+        {
+          "id": "pair023",
+          "recording_id": "ZoBKemKNjM4",
+          "clip": "ZoBKemKNjM4_c0",
+          "canonical_id": "jd-67bbf9a8d832985a6415",
+          "partition": "train"
+        },
+        {
+          "id": "pair024",
+          "recording_id": "981MHMgULkk",
+          "clip": "981MHMgULkk_c2",
+          "canonical_id": "jd-41b0865dfb066e41f49e",
+          "partition": "train"
+        },
+        {
+          "id": "pair025",
+          "recording_id": "NI31AWYYuFI",
+          "clip": "NI31AWYYuFI_c1",
+          "canonical_id": "jd-b6cf43d102b9f0df0a19",
+          "partition": "train"
+        },
+        {
+          "id": "pair026",
+          "recording_id": "moryohPkTSY",
+          "clip": "moryohPkTSY_c1",
+          "canonical_id": "jd-1651ab74f358534cea79",
+          "partition": "train"
+        },
+        {
+          "id": "pair027",
+          "recording_id": "HyiOce29uio",
+          "clip": "HyiOce29uio_c0",
+          "canonical_id": "jd-dc0016a599261e77f375",
+          "partition": "train"
+        },
+        {
+          "id": "pair028",
+          "recording_id": "gE8dDV-XCEs",
+          "clip": "gE8dDV-XCEs_c0",
+          "canonical_id": "jd-4e649d9d5c94bdbc7d7f",
+          "partition": "train"
+        },
+        {
+          "id": "pair029",
+          "recording_id": "KatqpM7-x9I",
+          "clip": "KatqpM7-x9I_c0",
+          "canonical_id": "jd-fed25d25737a6483babb",
+          "partition": "train"
+        },
+        {
+          "id": "pair030",
+          "recording_id": "981MHMgULkk",
+          "clip": "981MHMgULkk_c1",
+          "canonical_id": "jd-41b0865dfb066e41f49e",
+          "partition": "train"
+        },
+        {
+          "id": "pair031",
+          "recording_id": "l8WxpazGFug",
+          "clip": "l8WxpazGFug_c0",
+          "canonical_id": "jd-13137f2fbb381b505079",
+          "partition": "train"
+        },
+        {
+          "id": "pair032",
+          "recording_id": "xV3dqkP1RrY",
+          "clip": "xV3dqkP1RrY_c0",
+          "canonical_id": "jd-f396b09e25bec38321a3",
+          "partition": "train"
+        },
+        {
+          "id": "pair033",
+          "recording_id": "8B6VxbBLDEg",
+          "clip": "8B6VxbBLDEg_c0",
+          "canonical_id": "jd-b54ea4b2da6ef2a74943",
+          "partition": "train"
+        },
+        {
+          "id": "pair034",
+          "recording_id": "KatqpM7-x9I",
+          "clip": "KatqpM7-x9I_c1",
+          "canonical_id": "jd-fed25d25737a6483babb",
+          "partition": "train"
+        },
+        {
+          "id": "pair035",
+          "recording_id": "gDGtf4yMW5I",
+          "clip": "gDGtf4yMW5I_c1",
+          "canonical_id": "jd-b972386be7a4d959d71e",
+          "partition": "train"
+        },
+        {
+          "id": "pair036",
+          "recording_id": "lg-XapP0epM",
+          "clip": "lg-XapP0epM_c0",
+          "canonical_id": "jd-624c0dc4d798f7a8fd64",
+          "partition": "train"
+        },
+        {
+          "id": "pair037",
+          "recording_id": "NI31AWYYuFI",
+          "clip": "NI31AWYYuFI_c0",
+          "canonical_id": "jd-b6cf43d102b9f0df0a19",
+          "partition": "train"
+        },
+        {
+          "id": "pair038",
+          "recording_id": "kZGzpaJfkWc",
+          "clip": "kZGzpaJfkWc_c0",
+          "canonical_id": "jd-b31f4831b29fa3d4a9dc",
+          "partition": "train"
+        }
+      ]
+    },
+    "category_aist": {
+      "clip_count": 10,
+      "distinct_music_ids": 8,
+      "ids": [
+        {
+          "clip": "gLO_sBM_cAll_d14_mLO0_ch04",
+          "music_id": "mLO0",
+          "cohort": "AIST",
+          "stage11_partition": "not_in_this_corpus_map",
+          "finedance_partition": "not_in_this_corpus_map",
+          "non_test_reuse_qualified": false
+        },
+        {
+          "clip": "gLO_sBM_cAll_d14_mLO0_ch09",
+          "music_id": "mLO0",
+          "cohort": "AIST",
+          "stage11_partition": "not_in_this_corpus_map",
+          "finedance_partition": "not_in_this_corpus_map",
+          "non_test_reuse_qualified": false
+        },
+        {
+          "clip": "gJB_sFM_cAll_d07_mJB3_ch04",
+          "music_id": "mJB3",
+          "cohort": "AIST",
+          "stage11_partition": "not_in_this_corpus_map",
+          "finedance_partition": "not_in_this_corpus_map",
+          "non_test_reuse_qualified": false
+        },
+        {
+          "clip": "gJS_sBM_cAll_d02_mJS0_ch01",
+          "music_id": "mJS0",
+          "cohort": "AIST",
+          "stage11_partition": "not_in_this_corpus_map",
+          "finedance_partition": "not_in_this_corpus_map",
+          "non_test_reuse_qualified": false
+        },
+        {
+          "clip": "gBR_sFM_cAll_d05_mBR1_ch08",
+          "music_id": "mBR1",
+          "cohort": "AIST",
+          "stage11_partition": "not_in_this_corpus_map",
+          "finedance_partition": "not_in_this_corpus_map",
+          "non_test_reuse_qualified": false
+        },
+        {
+          "clip": "gKR_sBM_cAll_d28_mKR0_ch07",
+          "music_id": "mKR0",
+          "cohort": "AIST",
+          "stage11_partition": "not_in_this_corpus_map",
+          "finedance_partition": "not_in_this_corpus_map",
+          "non_test_reuse_qualified": false
+        },
+        {
+          "clip": "gWA_sBM_cAll_d27_mWA2_ch04",
+          "music_id": "mWA2",
+          "cohort": "AIST",
+          "stage11_partition": "not_in_this_corpus_map",
+          "finedance_partition": "not_in_this_corpus_map",
+          "non_test_reuse_qualified": false
+        },
+        {
+          "clip": "gJB_sBM_cAll_d07_mJB1_ch07",
+          "music_id": "mJB1",
+          "cohort": "AIST",
+          "stage11_partition": "not_in_this_corpus_map",
+          "finedance_partition": "not_in_this_corpus_map",
+          "non_test_reuse_qualified": false
+        },
+        {
+          "clip": "gJS_sFM_cAll_d02_mJS0_ch08",
+          "music_id": "mJS0",
+          "cohort": "AIST",
+          "stage11_partition": "not_in_this_corpus_map",
+          "finedance_partition": "not_in_this_corpus_map",
+          "non_test_reuse_qualified": false
+        },
+        {
+          "clip": "gMH_sBM_cAll_d23_mMH0_ch04",
+          "music_id": "mMH0",
+          "cohort": "AIST",
+          "stage11_partition": "not_in_this_corpus_map",
+          "finedance_partition": "not_in_this_corpus_map",
+          "non_test_reuse_qualified": false
+        }
+      ],
+      "decision": "Unresolved non-TEST reuse provenance; do not assert absence from another corpus map proves safe heldout use"
+    },
+    "physical_fixed12": {
+      "identities": [
+        {
+          "key": "083",
+          "canonical_id": "fd-9c60ff016521ee3f",
+          "partition": "val"
+        },
+        {
+          "key": "067",
+          "canonical_id": "fd-a7a8ddd54b83931a",
+          "partition": "val"
+        },
+        {
+          "key": "078",
+          "canonical_id": "fd-5e7f2276a9a8269f",
+          "partition": "val"
+        },
+        {
+          "key": "005",
+          "canonical_id": "fd-5a96acc64c72c5b2",
+          "partition": "val"
+        },
+        {
+          "key": "035",
+          "canonical_id": "fd-a5edb4ce2b366cb2",
+          "partition": "val"
+        },
+        {
+          "key": "135",
+          "canonical_id": "fd-58df14ea20572da4",
+          "partition": "val"
+        },
+        {
+          "key": "127",
+          "canonical_id": "fd-a39d9c40d97dc216",
+          "partition": "val"
+        },
+        {
+          "key": "027",
+          "canonical_id": "fd-79f918029276a994",
+          "partition": "val"
+        },
+        {
+          "key": "057",
+          "canonical_id": "fd-0230a7f0e3ccb489",
+          "partition": "val"
+        },
+        {
+          "key": "085",
+          "canonical_id": "fd-9e767c1df8684b3e",
+          "partition": "val"
+        },
+        {
+          "key": "076",
+          "canonical_id": "fd-36094ed4fbe8579b",
+          "partition": "val"
+        },
+        {
+          "key": "102",
+          "canonical_id": "fd-37834f2f25762f23",
+          "partition": "val"
+        }
+      ],
+      "partition_counts": {
+        "val": 12
+      }
+    },
+    "shpongle": {
+      "protocol_identity": "external diagnostic",
+      "audio_path_from_existing_protocol": "/root/shpongle.flac",
+      "source_motion_available": false,
+      "joined_stage11_or_finedance": false,
+      "decision": "Not an enrolled held-out song. No cross-corpus identity/rights inference from external filename."
+    }
+  },
+  "historical_human_material": {
+    "hl": {
+      "pairs_metadata": "/root/lightsem/outputs/stage9/hl_pairs/pairs.json",
+      "ratings_path": "/root/lightsem/outputs/stage9/hl_pairs/ratings.jsonl",
+      "fitted_report_path": "/root/lightsem/outputs/stage9/hl_pairs/bradley_terry.json",
+      "saved_ratings_count": 39,
+      "saved_raters": [
+        "anton"
+      ],
+      "target_gate_reusable": false,
+      "existing_pair_mp4_count": 78,
+      "missing_expected_pair_mp4s": [],
+      "foil_flags_in_metadata": 0,
+      "scope": "Conductor knob A/B; no new fit, metric or claim"
+    },
+    "category_existing_media": [
+      {
+        "path": "/root/lightsem/outputs/stage0c/category/gLO_sBM_cAll_d14_mLO0_ch04__A.mp4",
+        "exists": true,
+        "bytes": 929685,
+        "content_opened": false
+      },
+      {
+        "path": "/root/lightsem/outputs/stage0c/category/gLO_sBM_cAll_d14_mLO0_ch04__B.mp4",
+        "exists": true,
+        "bytes": 715976,
+        "content_opened": false
+      },
+      {
+        "path": "/root/lightsem/outputs/stage0c/category/gLO_sBM_cAll_d14_mLO0_ch04__FOIL.mp4",
+        "exists": true,
+        "bytes": 765353,
+        "content_opened": false
+      },
+      {
+        "path": "/root/lightsem/outputs/stage0c/category/gLO_sBM_cAll_d14_mLO0_ch09__A.mp4",
+        "exists": true,
+        "bytes": 958418,
+        "content_opened": false
+      },
+      {
+        "path": "/root/lightsem/outputs/stage0c/category/gLO_sBM_cAll_d14_mLO0_ch09__B.mp4",
+        "exists": true,
+        "bytes": 729612,
+        "content_opened": false
+      },
+      {
+        "path": "/root/lightsem/outputs/stage0c/category/gLO_sBM_cAll_d14_mLO0_ch09__FOIL.mp4",
+        "exists": true,
+        "bytes": 765353,
+        "content_opened": false
+      },
+      {
+        "path": "/root/lightsem/outputs/stage0c/category/gJB_sFM_cAll_d07_mJB3_ch04__A.mp4",
+        "exists": true,
+        "bytes": 996523,
+        "content_opened": false
+      },
+      {
+        "path": "/root/lightsem/outputs/stage0c/category/gJB_sFM_cAll_d07_mJB3_ch04__B.mp4",
+        "exists": true,
+        "bytes": 696002,
+        "content_opened": false
+      },
+      {
+        "path": "/root/lightsem/outputs/stage0c/category/gJB_sFM_cAll_d07_mJB3_ch04__FOIL.mp4",
+        "exists": true,
+        "bytes": 722109,
+        "content_opened": false
+      },
+      {
+        "path": "/root/lightsem/outputs/stage0c/category/gJS_sBM_cAll_d02_mJS0_ch01__A.mp4",
+        "exists": true,
+        "bytes": 867839,
+        "content_opened": false
+      },
+      {
+        "path": "/root/lightsem/outputs/stage0c/category/gJS_sBM_cAll_d02_mJS0_ch01__B.mp4",
+        "exists": true,
+        "bytes": 620578,
+        "content_opened": false
+      },
+      {
+        "path": "/root/lightsem/outputs/stage0c/category/gJS_sBM_cAll_d02_mJS0_ch01__FOIL.mp4",
+        "exists": true,
+        "bytes": 685435,
+        "content_opened": false
+      },
+      {
+        "path": "/root/lightsem/outputs/stage0c/category/gBR_sFM_cAll_d05_mBR1_ch08__A.mp4",
+        "exists": true,
+        "bytes": 1032265,
+        "content_opened": false
+      },
+      {
+        "path": "/root/lightsem/outputs/stage0c/category/gBR_sFM_cAll_d05_mBR1_ch08__B.mp4",
+        "exists": true,
+        "bytes": 719832,
+        "content_opened": false
+      },
+      {
+        "path": "/root/lightsem/outputs/stage0c/category/gBR_sFM_cAll_d05_mBR1_ch08__FOIL.mp4",
+        "exists": true,
+        "bytes": 751026,
+        "content_opened": false
+      },
+      {
+        "path": "/root/lightsem/outputs/stage0c/category/gKR_sBM_cAll_d28_mKR0_ch07__A.mp4",
+        "exists": true,
+        "bytes": 951165,
+        "content_opened": false
+      },
+      {
+        "path": "/root/lightsem/outputs/stage0c/category/gKR_sBM_cAll_d28_mKR0_ch07__B.mp4",
+        "exists": true,
+        "bytes": 625939,
+        "content_opened": false
+      },
+      {
+        "path": "/root/lightsem/outputs/stage0c/category/gKR_sBM_cAll_d28_mKR0_ch07__FOIL.mp4",
+        "exists": true,
+        "bytes": 660638,
+        "content_opened": false
+      },
+      {
+        "path": "/root/lightsem/outputs/stage0c/category/gWA_sBM_cAll_d27_mWA2_ch04__A.mp4",
+        "exists": true,
+        "bytes": 943396,
+        "content_opened": false
+      },
+      {
+        "path": "/root/lightsem/outputs/stage0c/category/gWA_sBM_cAll_d27_mWA2_ch04__B.mp4",
+        "exists": true,
+        "bytes": 657684,
+        "content_opened": false
+      },
+      {
+        "path": "/root/lightsem/outputs/stage0c/category/gWA_sBM_cAll_d27_mWA2_ch04__FOIL.mp4",
+        "exists": true,
+        "bytes": 709219,
+        "content_opened": false
+      },
+      {
+        "path": "/root/lightsem/outputs/stage0c/category/gJB_sBM_cAll_d07_mJB1_ch07__A.mp4",
+        "exists": true,
+        "bytes": 958375,
+        "content_opened": false
+      },
+      {
+        "path": "/root/lightsem/outputs/stage0c/category/gJB_sBM_cAll_d07_mJB1_ch07__B.mp4",
+        "exists": true,
+        "bytes": 690135,
+        "content_opened": false
+      },
+      {
+        "path": "/root/lightsem/outputs/stage0c/category/gJB_sBM_cAll_d07_mJB1_ch07__FOIL.mp4",
+        "exists": true,
+        "bytes": 704305,
+        "content_opened": false
+      },
+      {
+        "path": "/root/lightsem/outputs/stage0c/category/gJS_sFM_cAll_d02_mJS0_ch08__A.mp4",
+        "exists": true,
+        "bytes": 927985,
+        "content_opened": false
+      },
+      {
+        "path": "/root/lightsem/outputs/stage0c/category/gJS_sFM_cAll_d02_mJS0_ch08__B.mp4",
+        "exists": true,
+        "bytes": 651890,
+        "content_opened": false
+      },
+      {
+        "path": "/root/lightsem/outputs/stage0c/category/gJS_sFM_cAll_d02_mJS0_ch08__FOIL.mp4",
+        "exists": true,
+        "bytes": 685435,
+        "content_opened": false
+      },
+      {
+        "path": "/root/lightsem/outputs/stage0c/category/gMH_sBM_cAll_d23_mMH0_ch04__A.mp4",
+        "exists": true,
+        "bytes": 953253,
+        "content_opened": false
+      },
+      {
+        "path": "/root/lightsem/outputs/stage0c/category/gMH_sBM_cAll_d23_mMH0_ch04__B.mp4",
+        "exists": true,
+        "bytes": 724676,
+        "content_opened": false
+      },
+      {
+        "path": "/root/lightsem/outputs/stage0c/category/gMH_sBM_cAll_d23_mMH0_ch04__FOIL.mp4",
+        "exists": true,
+        "bytes": 775274,
+        "content_opened": false
+      }
+    ],
+    "stage9_relevant_demos": [
+      {
+        "path": "/root/lightsem/outputs/stage9/demo_songs/shpongle__conductor.mp4",
+        "exists": true,
+        "bytes": 26007759,
+        "content_opened": false
+      },
+      {
+        "path": "/root/lightsem/outputs/stage9/demo_songs/shpongle__decoder_v1.mp4",
+        "exists": true,
+        "bytes": 19730928,
+        "content_opened": false
+      },
+      {
+        "path": "/root/lightsem/outputs/stage9/demo_songs/shpongle__decoder_v2.mp4",
+        "exists": true,
+        "bytes": 20118863,
+        "content_opened": false
+      },
+      {
+        "path": "/root/lightsem/outputs/stage9/demo_songs/shpongle__decoder_v2_plan.mp4",
+        "exists": true,
+        "bytes": 19372762,
+        "content_opened": false
+      }
+    ],
+    "physical_existing_media": [
+      {
+        "id": "holds_083_1200",
+        "key": "083",
+        "movie": {
+          "path": "/mnt/lightsem-data/experiments/lightsem/dance_diagnosis_20260911/music_physical_revision_01/visual_review_support_revision_01/renders/holds_083_1200/matched.mp4",
+          "exists": true,
+          "bytes": 3082087,
+          "content_opened": false
+        },
+        "review_receipt": "/mnt/lightsem-data/experiments/lightsem/dance_diagnosis_20260911/music_physical_revision_01/visual_review_support_revision_01/reviews/holds_083_1200.json"
+      },
+      {
+        "id": "holds_067_0",
+        "key": "067",
+        "movie": {
+          "path": "/mnt/lightsem-data/experiments/lightsem/dance_diagnosis_20260911/music_physical_revision_01/visual_review_support_revision_01/renders/holds_067_0/matched.mp4",
+          "exists": true,
+          "bytes": 3882372,
+          "content_opened": false
+        },
+        "review_receipt": "/mnt/lightsem-data/experiments/lightsem/dance_diagnosis_20260911/music_physical_revision_01/visual_review_support_revision_01/reviews/holds_067_0.json"
+      },
+      {
+        "id": "holds_078_0",
+        "key": "078",
+        "movie": {
+          "path": "/mnt/lightsem-data/experiments/lightsem/dance_diagnosis_20260911/music_physical_revision_01/visual_review_support_revision_01/renders/holds_078_0/matched.mp4",
+          "exists": true,
+          "bytes": 3026747,
+          "content_opened": false
+        },
+        "review_receipt": "/mnt/lightsem-data/experiments/lightsem/dance_diagnosis_20260911/music_physical_revision_01/visual_review_support_revision_01/reviews/holds_078_0.json"
+      },
+      {
+        "id": "holds_005_0",
+        "key": "005",
+        "movie": {
+          "path": "/mnt/lightsem-data/experiments/lightsem/dance_diagnosis_20260911/music_physical_revision_01/visual_review_support_revision_01/renders/holds_005_0/matched.mp4",
+          "exists": true,
+          "bytes": 3359171,
+          "content_opened": false
+        },
+        "review_receipt": "/mnt/lightsem-data/experiments/lightsem/dance_diagnosis_20260911/music_physical_revision_01/visual_review_support_revision_01/reviews/holds_005_0.json"
+      },
+      {
+        "id": "travel_035_4800",
+        "key": "035",
+        "movie": {
+          "path": "/mnt/lightsem-data/experiments/lightsem/dance_diagnosis_20260911/music_physical_revision_01/visual_review_support_revision_01/renders/travel_035_4800/matched.mp4",
+          "exists": true,
+          "bytes": 5534029,
+          "content_opened": false
+        },
+        "review_receipt": "/mnt/lightsem-data/experiments/lightsem/dance_diagnosis_20260911/music_physical_revision_01/visual_review_support_revision_01/reviews/travel_035_4800.json"
+      },
+      {
+        "id": "travel_135_3600",
+        "key": "135",
+        "movie": {
+          "path": "/mnt/lightsem-data/experiments/lightsem/dance_diagnosis_20260911/music_physical_revision_01/visual_review_support_revision_01/renders/travel_135_3600/matched.mp4",
+          "exists": true,
+          "bytes": 4882570,
+          "content_opened": false
+        },
+        "review_receipt": "/mnt/lightsem-data/experiments/lightsem/dance_diagnosis_20260911/music_physical_revision_01/visual_review_support_revision_01/reviews/travel_135_3600.json"
+      },
+      {
+        "id": "travel_127_1200",
+        "key": "127",
+        "movie": {
+          "path": "/mnt/lightsem-data/experiments/lightsem/dance_diagnosis_20260911/music_physical_revision_01/visual_review_support_revision_01/renders/travel_127_1200/matched.mp4",
+          "exists": true,
+          "bytes": 5278911,
+          "content_opened": false
+        },
+        "review_receipt": "/mnt/lightsem-data/experiments/lightsem/dance_diagnosis_20260911/music_physical_revision_01/visual_review_support_revision_01/reviews/travel_127_1200.json"
+      },
+      {
+        "id": "travel_027_4200",
+        "key": "027",
+        "movie": {
+          "path": "/mnt/lightsem-data/experiments/lightsem/dance_diagnosis_20260911/music_physical_revision_01/visual_review_support_revision_01/renders/travel_027_4200/matched.mp4",
+          "exists": true,
+          "bytes": 5128603,
+          "content_opened": false
+        },
+        "review_receipt": "/mnt/lightsem-data/experiments/lightsem/dance_diagnosis_20260911/music_physical_revision_01/visual_review_support_revision_01/reviews/travel_027_4200.json"
+      },
+      {
+        "id": "coordination_057_1200",
+        "key": "057",
+        "movie": {
+          "path": "/mnt/lightsem-data/experiments/lightsem/dance_diagnosis_20260911/music_physical_revision_01/visual_review_support_revision_01/renders/coordination_057_1200/matched.mp4",
+          "exists": true,
+          "bytes": 5723164,
+          "content_opened": false
+        },
+        "review_receipt": "/mnt/lightsem-data/experiments/lightsem/dance_diagnosis_20260911/music_physical_revision_01/visual_review_support_revision_01/reviews/coordination_057_1200.json"
+      },
+      {
+        "id": "coordination_085_0",
+        "key": "085",
+        "movie": {
+          "path": "/mnt/lightsem-data/experiments/lightsem/dance_diagnosis_20260911/music_physical_revision_01/visual_review_support_revision_01/renders/coordination_085_0/matched.mp4",
+          "exists": true,
+          "bytes": 5170032,
+          "content_opened": false
+        },
+        "review_receipt": "/mnt/lightsem-data/experiments/lightsem/dance_diagnosis_20260911/music_physical_revision_01/visual_review_support_revision_01/reviews/coordination_085_0.json"
+      },
+      {
+        "id": "coordination_076_2400",
+        "key": "076",
+        "movie": {
+          "path": "/mnt/lightsem-data/experiments/lightsem/dance_diagnosis_20260911/music_physical_revision_01/visual_review_support_revision_01/renders/coordination_076_2400/matched.mp4",
+          "exists": true,
+          "bytes": 5573228,
+          "content_opened": false
+        },
+        "review_receipt": "/mnt/lightsem-data/experiments/lightsem/dance_diagnosis_20260911/music_physical_revision_01/visual_review_support_revision_01/reviews/coordination_076_2400.json"
+      },
+      {
+        "id": "coordination_102_600",
+        "key": "102",
+        "movie": {
+          "path": "/mnt/lightsem-data/experiments/lightsem/dance_diagnosis_20260911/music_physical_revision_01/visual_review_support_revision_01/renders/coordination_102_600/matched.mp4",
+          "exists": true,
+          "bytes": 5414542,
+          "content_opened": false
+        },
+        "review_receipt": "/mnt/lightsem-data/experiments/lightsem/dance_diagnosis_20260911/music_physical_revision_01/visual_review_support_revision_01/reviews/coordination_102_600.json"
+      },
+      {
+        "id": "full_shpongle_draw7001",
+        "key": "shpongle",
+        "movie": {
+          "path": "/mnt/lightsem-data/experiments/lightsem/dance_diagnosis_20260911/music_physical_revision_01/visual_review_support_revision_01/renders/full_shpongle_draw7001/matched.mp4",
+          "exists": true,
+          "bytes": 49275042,
+          "content_opened": false
+        },
+        "review_receipt": "/mnt/lightsem-data/experiments/lightsem/dance_diagnosis_20260911/music_physical_revision_01/visual_review_support_revision_01/reviews/full_shpongle_draw7001.json"
+      }
+    ],
+    "media_limit": "Paths and sizes checked only; media hashes from render receipts are recorded evidence, not reverified media contents or audiovisual acceptance."
+  },
+  "xlights_local_scan": {
+    "roots": [
+      "/root/lightsem",
+      "/mnt/lightsem-data"
+    ],
+    "excluded_directory_names": [
+      ".git",
+      "__pycache__",
+      "node_modules",
+      "uv-cache",
+      "venv-night-encoders",
+      "venv-torch"
+    ],
+    "match_extensions": [
+      ".xsq",
+      ".xsqz",
+      ".fseq",
+      ".lms",
+      ".lcs",
+      ".tim"
+    ],
+    "also_match_name_contains": "xlights",
+    "matching_files": [],
+    "scope_limit": "Filename-only bounded scan; no remote request and no global-disk absence claim"
+  },
+  "rows": [
+    {
+      "number": 4,
+      "hypothesis_id": "a-learned-group-effects-decoder-anton-s-mixture-2b4f62",
+      "short_name": "Group-effects decoder",
+      "native_status_at_snapshot": "refuted",
+      "native_experiments": [
+        {
+          "id": "exp-020-a-learned-group-effects-decoder-1eac54",
+          "closed": true,
+          "verdict": "refutes",
+          "gate_results": [
+            {
+              "gate_id": "G9.3-fid",
+              "passed": false
+            },
+            {
+              "gate_id": "G9.3-bas",
+              "passed": false
+            },
+            {
+              "gate_id": "G9.3-ab",
+              "passed": false
+            },
+            {
+              "gate_id": "G9.3-rig",
+              "passed": true
+            }
+          ],
+          "snapshot_path": "/root/lightsem-vault/experiments/exp-020-a-learned-group-effects-decoder-1eac54.md"
+        },
+        {
+          "id": "exp-021-a-learned-group-effects-decoder-1eac54",
+          "closed": true,
+          "verdict": "refutes",
+          "gate_results": [
+            {
+              "gate_id": "G9.3-fid",
+              "passed": false
+            },
+            {
+              "gate_id": "G9.3-bas",
+              "passed": false
+            },
+            {
+              "gate_id": "G9.3-ab",
+              "passed": false
+            },
+            {
+              "gate_id": "G9.3-rig",
+              "passed": false
+            }
+          ],
+          "snapshot_path": "/root/lightsem-vault/experiments/exp-021-a-learned-group-effects-decoder-1eac54.md"
+        }
+      ],
+      "source_report_metadata_refs": [
+        "/root/lightsem/outputs/stage9/decoder_eval_v1.json",
+        "/root/lightsem/outputs/stage9/decoder_eval_v2.json",
+        "/root/lightsem/run_stage9_decoder_eval.py",
+        "/root/lightsem/render_stage9_demo.py",
+        "/root/lightsem/outputs/stage9/demo_songs/shpongle__stage9_stats.json",
+        "/root/lightsem/build_hl_pairs.py",
+        "/root/lightsem/outputs/stage9/hl_pairs/pairs.json"
+      ],
+      "retained_evidence_from_frontier": "Both regression and look-then-assign decoder branches failed frozen FID/BAS gates versus ConductorHybrid; second branch also failed rig transfer.",
+      "scientific_rerun_recommended": false,
+      "closure_or_status_change_authorized": false,
+      "readiness": "blocked_human_material_not_gate_ready",
+      "retained_completed_outcome": "Both registered decoder branches remain refuted. v1 and v2 fail FID and BAS; v2 also fails rig transfer. G9.3-ab is unmeasured, not measured preference against decoder.",
+      "existing_reports": {
+        "v1": {
+          "G9.3-fid": {
+            "passed": false,
+            "evidence": "FID_light vs real: decoder 929.89, conductor 43.82, donor 927.41, engine-only 1404.90, beat trigger 5967.74; block-shuffle null 4142.66, split-half floor 6.93. Gain over the conductor -886.08 vs donor gain -883.59 (needs > 2x)."
+          },
+          "G9.3-bas": {
+            "passed": false,
+            "evidence": "Light-BAS minus null: decoder -0.1664 CI [-0.1943, -0.1396], conductor +0.1238, real coach +0.0804, beat trigger +0.0970, engine-only +0.5254; events per clip decoder 182.1 conductor 771.5 real 888.1."
+          },
+          "G9.3-ab": {
+            "passed": false,
+            "evidence": "Not measured: the brightness-matched human A/B needs raters (n >= 20 pairs)."
+          },
+          "G9.3-rig": {
+            "passed": true,
+            "evidence": "unseen rig (8 heads, 6 washes, 4 blinders, no strobe): HSV-histogram distance to the canonical render, decoder re-realised 0.302 vs channel-copy 0.306 (L1 per frame, hue + value histograms)."
+          }
+        },
+        "v2": {
+          "G9.3-fid": {
+            "passed": false,
+            "evidence": "FID_light vs real: decoder 6211.29, conductor 43.82, donor 5403.20, engine-only 1573.86, beat trigger 5967.74; block-shuffle null 4126.33, split-half floor 7.68. Gain over the conductor -6167.47 vs donor gain -5359.38 (needs > 2x)."
+          },
+          "G9.3-bas": {
+            "passed": false,
+            "evidence": "Light-BAS minus null: decoder -0.0549 CI [-0.0695, -0.0413], conductor +0.1239, real coach +0.0804, beat trigger +0.0963, engine-only +0.5285; events per clip decoder 1039.3 conductor 771.5 real 888.1."
+          },
+          "G9.3-ab": {
+            "passed": false,
+            "evidence": "Not measured: the brightness-matched human A/B needs raters (n >= 20 pairs)."
+          },
+          "G9.3-rig": {
+            "passed": false,
+            "evidence": "unseen rig (8 heads, 6 washes, 4 blinders, no strobe): HSV-histogram distance to the canonical render, decoder re-realised 0.345 vs channel-copy 0.305 (L1 per frame, hue + value histograms)."
+          }
+        }
+      },
+      "saved_material_findings": [
+        "One external-song diagnostic has conductor, decoder_v1 and decoder_v2 MP4s, but no >=20-pair qualified decoder-versus-conductor human batch was found in outputs/stage9.",
+        "39 H-L pairs and 39 Anton responses exist now, but build_hl_pairs.py compares two ConductorHybrid knob settings on one LightModel draw; neither arm is GroupDecoder. These responses cannot satisfy G9.3-ab.",
+        "run_stage9_decoder_eval.py:225 explicitly records human A/B not measured; :230 saves only aggregate report, not full per-clip pair manifest or DMX.",
+        "Shpongle demo source uses rpmc decoder embedding (render_stage9_demo.py:110,114), unlike the jd embedding in numeric decoder reports. Its labels are unblinded and current stats do not authenticate model/source/render hashes or independent encoded brightness matching."
+      ],
+      "non_test_provenance": "H-L metadata proves 39/39 Stage11 TRAIN, but only for the wrong human comparator. Numerical 39-clip report has no per-clip IDs; the 2026-09-07 audit records mixed legacy decoder memberships (30 train/5 val/4 legacy test clips). This audit does not read or reconstruct any mixed-split tensor payload and does not promote legacy val_track to universal holdout. Shpongle is outside both cohort maps; not evidence of held-out cohort eligibility.",
+      "missing_assets": [
+        "Immutable >=20-pair decoder-versus-conductor batch and correct ratings",
+        "Independent brightness qualification and neutral display key",
+        "Song-level membership/lineage for every compared checkpoint"
+      ],
+      "human_or_access_blocks": [
+        "Real human music-fit responses required after material qualification",
+        "External-song provenance/rights and experiment-specific reuse authorization not established by demo filename"
+      ],
+      "smallest_saved_artifact_step": {
+        "action": "Create a metadata-only rejection/eligibility manifest for existing Shpongle arms and explicitly exclude H-L knob pairs from G9.3-ab. This note supplies the first audit; a single song cannot satisfy the original >=20-pair gate.",
+        "needs_new_model": false,
+        "needs_new_metrics": false,
+        "satisfies_missing_gate": false,
+        "execution_block": "No gate-ready saved multi-song comparison; do not regenerate decoder outputs to fill this audit."
+      },
+      "unmet_registration": [
+        "A new human-component protocol and successful serialized parent-owned vault receipt must precede any new responses; do not backdate preregistration or reopen the historical closed experiment.",
+        "Pin comparator arms, canonical-song/recording IDs, non-TEST allowlist, media/source hashes, timestamps, audio, rig, model lineage, display randomization, brightness/foil policy, question wording, sample size and failure rules. No model fit, inference, or new render is authorized by this readiness note.",
+        "Preserve separate v1/v2 hypotheses or fixed arm declarations; do not select branch after seeing human outcomes."
+      ],
+      "closure_limit": "Human follow-up, if authorized, cannot erase either numerical refutation."
+    },
+    {
+      "number": 7,
+      "hypothesis_id": "authored-hobby-game-light-shows-are-lighting-202cb0",
+      "short_name": "Beat Saber / xLights corpus",
+      "native_status_at_snapshot": "inconclusive",
+      "native_experiments": [
+        {
+          "id": "exp-017-authored-hobby-game-light-shows-e4a4d0",
+          "closed": true,
+          "verdict": "directional_only",
+          "gate_results": [
+            {
+              "gate_id": "G9.2-shift",
+              "passed": false
+            },
+            {
+              "gate_id": "G9.2-bt",
+              "passed": false
+            },
+            {
+              "gate_id": "G9.2-L0",
+              "passed": true
+            }
+          ],
+          "snapshot_path": "/root/lightsem-vault/experiments/exp-017-authored-hobby-game-light-shows-e4a4d0.md"
+        }
+      ],
+      "source_report_metadata_refs": [
+        "/root/lightsem/outputs/stage9/hh_gate.json",
+        "/root/lightsem/run_stage9_gate.py",
+        "/root/lightsem/log_stage9_to_vault.py",
+        "/root/lightsem/queue_stage9b_to_vault.py",
+        "/root/lightsem/docs/research/stage9/02_datasets_non_game.md"
+      ],
+      "retained_evidence_from_frontier": "BeatSaber fails frozen bars: audio AP.170 versus shifted.131 and beat-trigger.150; offline.210 still misses shift bar.",
+      "scientific_rerun_recommended": false,
+      "closure_or_status_change_authorized": false,
+      "readiness": "blocked_xlights_access_audio_rights",
+      "retained_completed_outcome": "Beat Saber component stays excluded from lighting-target losses under the frozen bars. It does not refute xLights.",
+      "existing_report_gates": {
+        "G9.2-shift": {
+          "events_margin": 0.03929553219363094,
+          "envelope_margin": 0.03191313614156469,
+          "passed": false
+        },
+        "G9.2-bt": {
+          "events_margin": 0.020399667615435414,
+          "envelope_margin": 0.05715698399274586,
+          "passed": false
+        },
+        "G9.2-L0": {
+          "causal_ap": 0.17008583203957142,
+          "offline_ap": 0.21000413494623935,
+          "passed": true
+        }
+      },
+      "saved_comparator_result": "Saved 298-map/295-song report: causal event AP 0.170 versus shifted-target mean 0.131 and beat-trigger 0.150; offline 0.210 still misses the +0.15 shifted-null margin.",
+      "access_evidence": [
+        "log_stage9_to_vault.py:75,116 and queue_stage9b_to_vault.py:72 record xLights untested due to login/403. These are historical source/report statements; no current network access was attempted.",
+        "No .xsq, .xsqz, .fseq, .lms, .lcs, .tim or xlights-named assets were found by filename-only scan under /root/lightsem and /mnt/lightsem-data, excluding virtual environments, package cache, .git and __pycache__. This is a bounded local absence, not a global disk claim.",
+        "docs/research/stage9/02_datasets_non_game.md distinguishes software license, sequence-owner rights and music rights; public download availability would not establish training/reuse rights."
+      ],
+      "missing_assets": [
+        "Authorized local xLights sequence and model/fixture description",
+        "Corresponding legally held audio and timing/media-path correspondence",
+        "Source/audio/sequence rights and access record",
+        "Show/canonical-song split metadata and existing converter audit"
+      ],
+      "human_or_access_blocks": [
+        "User-authorized login/source acquisition and separate sequence/audio permissions are missing; no downloads or credential use authorized"
+      ],
+      "non_test_provenance": "No xLights IDs/assets to join to any split metadata. Beat Saber report used its own five-fold-by-song protocol, not Stage11/FineDance; no sealed payload opened.",
+      "smallest_saved_artifact_step": {
+        "action": "Keep an access/rights checklist linked to historical 403 evidence and the empty bounded local sequence inventory. Await supplied lawful sequence+audio metadata; do not run Beat Saber again.",
+        "runnable_now": "metadata documentation only",
+        "needs_new_metrics": false,
+        "satisfies_missing_gate": false
+      },
+      "unmet_registration": [
+        "Before any later authorized xLights audit, register source scope, sequence/audio rights, canonical-show split and leakage rules, exact converter, paired nulls/beat-trigger bars, and failed-corpus exclusion. No such local asset-specific protocol/receipt was established here."
+      ],
+      "closure_limit": "Retain inconclusive parent and completed negative Beat Saber component. No xLights or authored-corpus-wide refutation."
+    },
+    {
+      "number": 9,
+      "hypothesis_id": "dance-is-not-a-category-error-for-light-light-79702c",
+      "short_name": "Dance-vs-beat human category test",
+      "native_status_at_snapshot": "inconclusive",
+      "native_experiments": [
+        {
+          "id": "exp-010-dance-is-not-a-category-error-101dd9",
+          "closed": true,
+          "verdict": "directional_only",
+          "gate_results": [
+            {
+              "gate_id": "G2-engineer",
+              "passed": true
+            },
+            {
+              "gate_id": "G2-music",
+              "passed": false
+            },
+            {
+              "gate_id": "G-protocol",
+              "passed": false
+            }
+          ],
+          "snapshot_path": "/root/lightsem-vault/experiments/exp-010-dance-is-not-a-category-error-101dd9.md"
+        }
+      ],
+      "source_report_metadata_refs": [
+        "/root/lightsem/outputs/stage0c/category/score_result.json",
+        "/root/lightsem/outputs/stage0c/category/score_sheet.csv",
+        "/root/lightsem/outputs/stage0c/category/KEY.json",
+        "/root/lightsem/outputs/stage0c/category/INSTRUCTIONS.md",
+        "/root/lightsem/run_stage0c.py",
+        "/root/lightsem/lightsem/eval/ab.py"
+      ],
+      "retained_evidence_from_frontier": "One-rater reduced category test: engineer8/9decided versus chance; music5/9 inconclusive.",
+      "scientific_rerun_recommended": false,
+      "closure_or_status_change_authorized": false,
+      "readiness": "blocked_human_protocol_and_non_test_reuse_qualification",
+      "retained_completed_outcome": "One-rater pilot: engineer 8/9 decided for hybrid versus chance 50%, but music 5/9 decided versus chance 50% is inconclusive. G-protocol failed. Preserve this restricted evidence.",
+      "existing_protocol_report": {
+        "raters": 1,
+        "preregistered_raters": 5,
+        "tracks": 10,
+        "preregistered_tracks": 20,
+        "edm_tracks": 0,
+        "preregistered_edm_tracks": 10,
+        "foil_trials_rated": 0,
+        "foil_trials_offered": 10,
+        "brightness_matched": true,
+        "blinding_caveat": "answers were given by file letter; __A is the hybrid and __B the beat trigger in every trial, so the letter was a constant label across trials even though left/right was randomised in the key"
+      },
+      "saved_material_findings": [
+        "All 30 expected category MP4 paths exist: ten hybrid/beat pairs plus ten foils. No media was opened or decoded.",
+        "The ten clip IDs contain eight unique AIST music IDs, so ten rendered clip trials are not ten independent songs.",
+        "KEY randomizes left/right, but filenames always expose __A=hybrid and __B=beat_trigger; actual responses use file letters. Neutral filenames and a private display key are required.",
+        "match_brightness() uses sqrt(mean*p95) as the stopping criterion; matched:true does not mean independent mean and p95 equality. Saved experiment text reports mean ratios 1.03-1.17 and p95 ratios 0.84-0.96. No brightness metric was recomputed.",
+        "All 20 KEY rows carry kind=comparison; foil identity is instead visible in _FOIL clip names/system labels. Do not rely on kind alone to separate foils."
+      ],
+      "non_test_provenance": "The original category assets are AIST, not Stage11 Just Dance or FineDance. Neither provided split map can qualify these AIST music IDs as current non-TEST human-study material. Mark unresolved until a saved authorized AIST identity/split/reuse mapping is supplied; do not load motion/audio/prediction payloads to guess.",
+      "missing_assets": [
+        "Qualified independent-song cohort meeting >=20 tracks with >=10 club/EDM under the original protocol",
+        ">=5 real raters; existing pilot has one",
+        "Correct neutral display randomization",
+        "Foil responses (0/10 existing)",
+        "Separate brightness-policy acceptance and non-TEST AIST provenance"
+      ],
+      "human_or_access_blocks": [
+        "Human raters with audio playback",
+        "Permission and identity metadata for reuse of original clips; no new dancer or pose work"
+      ],
+      "smallest_saved_artifact_step": {
+        "action": "Freeze a candidate remapping manifest for the existing 30 files with foil flags derived explicitly from saved KEY. Stop at unresolved AIST provenance and independent brightness-policy mismatch. Only after a corrected preregistered protocol may the same saved clips be neutrally repackaged for a clearly limited pilot.",
+        "needs_new_model": false,
+        "needs_new_metrics": false,
+        "satisfies_original_protocol": false,
+        "execution_block": "Existing cohort cannot reach original song/rater/EDM counts; cannot declare acceptance from relabeling."
+      },
+      "unmet_registration": [
+        "A new human-component protocol and successful serialized parent-owned vault receipt must precede any new responses; do not backdate preregistration or reopen the historical closed experiment.",
+        "Pin comparator arms, canonical-song/recording IDs, non-TEST allowlist, media/source hashes, timestamps, audio, rig, model lineage, display randomization, brightness/foil policy, question wording, sample size and failure rules. No model fit, inference, or new render is authorized by this readiness note.",
+        "Resolve whether follow-up remains the original oracle-dance category question or a new LIGHT-only accepted-body study; do not change comparator to satisfy a different claim.",
+        "Define foil treatment and independently acceptable brightness tolerance before responses; original geometric-mean matching is not silently upgraded."
+      ],
+      "closure_limit": "No population preference or category/music-fit closure from one-rater pilot. Preserve user negative comments and do not retime/retrain dancer."
+    },
+    {
+      "number": 16,
+      "hypothesis_id": "h-dance-physical-objective-20260911",
+      "short_name": "Physical motion objective",
+      "native_status_at_snapshot": "inconclusive",
+      "native_experiments": [
+        {
+          "id": "exp-dance-physical-objective-20260911",
+          "closed": true,
+          "verdict": "directional_only",
+          "gate_results": [
+            {
+              "gate_id": "sliding",
+              "passed": false
+            },
+            {
+              "gate_id": "conditioning",
+              "passed": false
+            },
+            {
+              "gate_id": "energy",
+              "passed": true
+            },
+            {
+              "gate_id": "travel",
+              "passed": true
+            },
+            {
+              "gate_id": "contacts",
+              "passed": true
+            },
+            {
+              "gate_id": "floor",
+              "passed": true
+            },
+            {
+              "gate_id": "high_frequency",
+              "passed": true
+            },
+            {
+              "gate_id": "continuity",
+              "passed": true
+            },
+            {
+              "gate_id": "short_holds",
+              "passed": true
+            },
+            {
+              "gate_id": "finite",
+              "passed": true
+            },
+            {
+              "gate_id": "visual",
+              "passed": false
+            }
+          ],
+          "snapshot_path": "/root/lightsem-vault/experiments/exp-dance-physical-objective-20260911.md"
+        }
+      ],
+      "source_report_metadata_refs": [
+        "/root/lightsem/outputs/dance_physical_final_outcome.md",
+        "/root/lightsem/outputs/dance_physical_review_implementation.md",
+        "/mnt/lightsem-data/experiments/lightsem/dance_diagnosis_20260911/music_physical_revision_01/evaluation/numerical_report.json",
+        "/mnt/lightsem-data/experiments/lightsem/dance_diagnosis_20260911/music_physical_revision_01/evaluation/primary_analysis.json",
+        "/mnt/lightsem-data/experiments/lightsem/dance_diagnosis_20260911/music_physical_revision_01/evaluation/evaluation_protocol.json",
+        "/mnt/lightsem-data/experiments/lightsem/dance_diagnosis_20260911/music_physical_revision_01/visual_review_support_revision_01/protocol.json",
+        "/mnt/lightsem-data/experiments/lightsem/dance_diagnosis_20260911/music_physical_revision_01/visual_review_support_revision_01/review_report.json",
+        "/mnt/lightsem-data/experiments/lightsem/dance_diagnosis_20260911/music_physical_revision_01/visual_review_support_revision_01/reviewer.py",
+        "/mnt/lightsem-data/experiments/lightsem/motion_native_audio_20260910/music/review/incumbent/report.json"
+      ],
+      "retained_evidence_from_frontier": "Both matched30k arms/all13reviews complete. Sliding.389 versus masked.928 and reference.046 improves but excess.343>.20; donor/shift conditioning gates fail.",
+      "scientific_rerun_recommended": false,
+      "closure_or_status_change_authorized": false,
+      "readiness": "completed_recipe_negative_residual_comparator_unavailable",
+      "retained_completed_outcome": "Sliding 0.389104 m/s versus matched masked-native 0.927721 and source 0.045977 improves, but excess 0.343127 exceeds 0.20. Donor/shift conditioning gates fail. All scheduled 13 movies and reviews are complete; no training/evaluation/render rerun.",
+      "existing_review_report": {
+        "all13_observer_receipts": true,
+        "all13_rendered": true,
+        "default_promotion": false,
+        "human_music_fit_acceptance": null,
+        "limitations": [
+          "Incumbent only2D; no matched incumbent lighting",
+          "Shpongle source motion unavailable",
+          "No disabled-direct-audio rendered diagnostic",
+          "Fixed world cameras may clip large drift; off-panel anchors disclosed",
+          "Lighting carries shared direct audio dynamics; cannot establish music conditioning"
+        ],
+        "pipeline_qualified": false,
+        "scope": "Matched visual diagnostic only; no music-fit proof, selection, hardware safety or default promotion.",
+        "seed1_authorized": false,
+        "selection": null,
+        "test_access": false,
+        "visual_gate": null
+      },
+      "non_test_provenance": "All twelve fixed recording keys join exactly to FineDance VAL identity metadata. Full Shpongle is explicitly an external diagnostic in frozen protocol, not a source-motion or enrolled held-out comparator. No array was read.",
+      "incumbent_asset_refs_from_saved_metadata": {
+        "report_path": "/mnt/lightsem-data/experiments/lightsem/motion_native_audio_20260910/music/review/incumbent/report.json",
+        "report_sha256_recorded": "fdabf7456443f7e79413811bf902881a801d122e2168464ea7fcbb243b9486b4",
+        "arrays_metadata_only": [
+          {
+            "key": "083",
+            "path": "/mnt/lightsem-data/experiments/lightsem/motion_native_audio_20260910/music/review/incumbent/083.npz",
+            "sha256": "3d9073aa25155d5ae15211f5317ea3e5c55dea32eb7857208443fc41a978e34e"
+          },
+          {
+            "key": "067",
+            "path": "/mnt/lightsem-data/experiments/lightsem/motion_native_audio_20260910/music/review/incumbent/067.npz",
+            "sha256": "28bf89fd47253df686b3e99b98956337bd854216749bc229a8e3bfb91b0cab21"
+          },
+          {
+            "key": "078",
+            "path": "/mnt/lightsem-data/experiments/lightsem/motion_native_audio_20260910/music/review/incumbent/078.npz",
+            "sha256": "032e225763ed62c43f4a5234f943335674cf7da4d0b56af10c1a681b5a3e996e"
+          },
+          {
+            "key": "005",
+            "path": "/mnt/lightsem-data/experiments/lightsem/motion_native_audio_20260910/music/review/incumbent/005.npz",
+            "sha256": "18c41847658af9f17241229d149cd6fd7a8885bef78d8525a3b1718f680aef8a"
+          },
+          {
+            "key": "035",
+            "path": "/mnt/lightsem-data/experiments/lightsem/motion_native_audio_20260910/music/review/incumbent/035.npz",
+            "sha256": "c82d513a8f2818439880f13e3f906eb5367f1ff0a9b0bb3a4c1faefe7438f209"
+          },
+          {
+            "key": "135",
+            "path": "/mnt/lightsem-data/experiments/lightsem/motion_native_audio_20260910/music/review/incumbent/135.npz",
+            "sha256": "fa359194a06f0f23294255537d0806666afe50cc12a9bb52c3ab7ec57df2d5a8"
+          },
+          {
+            "key": "127",
+            "path": "/mnt/lightsem-data/experiments/lightsem/motion_native_audio_20260910/music/review/incumbent/127.npz",
+            "sha256": "9d2faa592543bfc2ed9a6ec197df239e27cc30d4282474d45ff1d8b35e131341"
+          },
+          {
+            "key": "027",
+            "path": "/mnt/lightsem-data/experiments/lightsem/motion_native_audio_20260910/music/review/incumbent/027.npz",
+            "sha256": "d598081d11395ea3a44bf22617a56f7162d46c806ee61a5e4e87957f0165fd39"
+          },
+          {
+            "key": "057",
+            "path": "/mnt/lightsem-data/experiments/lightsem/motion_native_audio_20260910/music/review/incumbent/057.npz",
+            "sha256": "ccdeed180f0eefbc861524dde5a95dbbb2a19181b5ece27fb844995534404c21"
+          },
+          {
+            "key": "085",
+            "path": "/mnt/lightsem-data/experiments/lightsem/motion_native_audio_20260910/music/review/incumbent/085.npz",
+            "sha256": "f768b952868da0b11fdd041898cb7d0a2a7a3ab197d63060754f96db2cd2b001"
+          },
+          {
+            "key": "076",
+            "path": "/mnt/lightsem-data/experiments/lightsem/motion_native_audio_20260910/music/review/incumbent/076.npz",
+            "sha256": "a82973aa7627c36d5ce5b9d977287e7e9293a4168ed9fde0a8e9dd5c9b59b363"
+          },
+          {
+            "key": "102",
+            "path": "/mnt/lightsem-data/experiments/lightsem/motion_native_audio_20260910/music/review/incumbent/102.npz",
+            "sha256": "0f67e5ac9eb5fc75f4ab9a03abe30366bde18f1635561a4b34cfe416329a4921"
+          }
+        ],
+        "schema_reported_by_completed_review": "Only times, pose8, pose32 at 40Hz; no canonical3D joints/native139. Uncalibrated 2D body panel only."
+      },
+      "missing_assets": [
+        "Faithful matched incumbent 3D lighting representation; no archived artifact in frozen comparator bundle",
+        "Reference motion for external Shpongle (explicitly absent)"
+      ],
+      "human_or_access_blocks": [
+        "All13 observer receipts are AI sampled-view diagnostics, not continuous human audiovisual acceptance",
+        "Human music-fit acceptance remains null; no independent pipeline qualification"
+      ],
+      "smallest_saved_artifact_step": {
+        "action": "Carry the explicit unavailable-incumbent-3D marker and null human acceptance forward with the already-complete saved report. Optional authorized human review can watch existing VAL movies only and must retain UNAVAILABLE panels.",
+        "needs_new_model": false,
+        "needs_new_metrics": false,
+        "needs_new_render": false,
+        "satisfies_missing_comparator": false,
+        "execution_block": "Cannot obtain faithful 3D incumbent by lifting/converting 2D or retraining; no fabricated closure."
+      },
+      "unmet_registration": [
+        "Nothing remains to register for rerunning this closed numerical recipe. If collecting new human AV acceptance, require a separate prospective saved-movie protocol, named human observers and native receipt; freeze known comparator absence and prohibit model/camera/body changes."
+      ],
+      "closure_limit": "Retain failed qualification and native inconclusive/directional-only status. Completed scheduled coverage is not complete comparator coverage or human LIGHT acceptance."
+    },
+    {
+      "number": 59,
+      "hypothesis_id": "section-level-intent-belongs-on-the-conductor-0f5c23",
+      "short_name": "Section-level conductor planner",
+      "native_status_at_snapshot": "inconclusive",
+      "native_experiments": [
+        {
+          "id": "exp-022-section-level-intent-belongs-on-47d660",
+          "closed": true,
+          "verdict": "directional_only",
+          "gate_results": [
+            {
+              "gate_id": "G9.4-shuffle",
+              "passed": true
+            },
+            {
+              "gate_id": "G9.4-bas",
+              "passed": false
+            },
+            {
+              "gate_id": "G9.4-causal",
+              "passed": true
+            }
+          ],
+          "snapshot_path": "/root/lightsem-vault/experiments/exp-022-section-level-intent-belongs-on-47d660.md"
+        }
+      ],
+      "source_report_metadata_refs": [
+        "/root/lightsem/outputs/stage9/planner_eval.json",
+        "/root/lightsem/run_stage9_planner_eval.py",
+        "/root/lightsem/queue_stage9_to_vault.py",
+        "/root/lightsem/render_stage9_demo.py",
+        "/root/lightsem/outputs/stage9/demo_songs/shpongle__stage9_stats.json"
+      ],
+      "retained_evidence_from_frontier": "PlannerFID597 versusno-planner6211/shuffled610/conductor44; BAS−.0613 versus−.0545 fails withnegativepaired CI.",
+      "scientific_rerun_recommended": false,
+      "closure_or_status_change_authorized": false,
+      "readiness": "blocked_missing_structure_controls_and_human_protocol",
+      "retained_completed_outcome": "Planner FID 597.34 versus no-planner 6211.29, shuffled plan 610.46 and conductor 43.82; BAS -0.0613 versus no-planner -0.0545 with paired difference CI [-0.0116,-0.0023] fails. No planner fit rerun.",
+      "existing_report_gates": {
+        "G9.4-shuffle": {
+          "passed": true,
+          "evidence": "FID_light vs real: plan 597.34, shuffled-section plan 610.46, no planner 6211.29, causal planner 589.83, conductor 43.82 (null 4157.92, floor 7.22). The human 'intentionally structured' question was not run (needs raters)."
+        },
+        "G9.4-bas": {
+          "passed": false,
+          "evidence": "paired Light-BAS minus null: plan -0.0613 vs no planner -0.0545 (paired diff -0.0067 CI [-0.0116, -0.0023]); shuffled -0.0598, causal -0.0576; events per clip plan 966.5 vs no planner 1039.3 vs real 888.1."
+        },
+        "G9.4-causal": {
+          "passed": true,
+          "evidence": "offline planner FID 597.34 / BAS -0.0613 next to the causal planner FID 589.83 / BAS -0.0576."
+        }
+      },
+      "composite_gate_limit": "queue_stage9_to_vault.py:297 requires FID AND human structured preference versus shuffled-plan. run_stage9_planner_eval.py:156-159 implements FID-only PASS and explicitly says human item not run. Retain native record but annotate unmet conjunct; do not claim full G9.4-shuffle satisfied.",
+      "saved_material_findings": [
+        "Only Shpongle plan and no-planner decoder videos found among Stage9 demo arms; no shuffled-section-plan MP4 or blinded structured-rating manifest found.",
+        "H-L pairs rate music fit and engineer appearance for conductor knob changes; no planner/shuffled plan arm and no structured question, so their 39 responses cannot be relabeled as G9.4 evidence.",
+        "run_stage9_planner_eval.py:176 saves aggregate JSON, not the full per-clip row/cohort/DMX manifest. Prior audit documents 39 mixed legacy decoder-split clips."
+      ],
+      "non_test_provenance": "Current Stage11 TRAIN qualification of H-L IDs does not establish the exact aggregate planner cohort or any compared checkpoint holdout. The one external demo lacks Stage11/FineDance cohort membership and a shuffled-plan control. Do not access mixed-split tensors to reconstruct.",
+      "missing_assets": [
+        "Qualified plan/no-planner/shuffled-plan saved media on a pinned non-TEST canonical-song cohort",
+        "Correct structure-question responses",
+        "Blinded arm key and independent brightness/onset qualification",
+        "Full per-clip provenance for historical aggregate evaluation"
+      ],
+      "human_or_access_blocks": [
+        "Real human structure judgments required only after matching materials exist",
+        "Explicit reuse rights/authorization for external demo and cohort selection"
+      ],
+      "smallest_saved_artifact_step": {
+        "action": "Attach a conjunct-level limitation to the existing report and inventory saved plan/no-plan demo paths. Stop before rating; absent shuffled control cannot be recreated from final MP4 without a new authorized experiment.",
+        "needs_new_model": false,
+        "needs_new_metrics": false,
+        "satisfies_missing_gate": false,
+        "execution_block": "No existing gate-ready three-arm saved human batch; no planner fit or array reconstruction authorized."
+      },
+      "unmet_registration": [
+        "A new human-component protocol and successful serialized parent-owned vault receipt must precede any new responses; do not backdate preregistration or reopen the historical closed experiment.",
+        "Pin comparator arms, canonical-song/recording IDs, non-TEST allowlist, media/source hashes, timestamps, audio, rig, model lineage, display randomization, brightness/foil policy, question wording, sample size and failure rules. No model fit, inference, or new render is authorized by this readiness note.",
+        "Register human structured comparison as separate missing conjunct with fixed no-planner and shuffled-plan controls, before any response. Do not retroactively turn numeric PASS into composite human PASS."
+      ],
+      "closure_limit": "Human component cannot reverse numerical BAS failure or justify planner promotion."
+    }
+  ],
+  "artifact_hashes": [
+    {
+      "path": "/root/lightsem/docs/research/2026-09-28-end-to-end/FRONTIER_REVIEW_V1.json",
+      "exists": true,
+      "kind": "frontier_snapshot",
+      "bytes": 161989,
+      "sha256": "4857b0e7cf5136cfb42ce6af7c085b632933dfbb746322e7fcd54a77e46c923d"
+    },
+    {
+      "path": "/root/lightsem/docs/research/2026-09-28-end-to-end/VAULT_INVENTORY_V1.json",
+      "exists": true,
+      "kind": "vault_snapshot_no_live_query",
+      "bytes": 2083092,
+      "sha256": "582d1c7a3fd1ca87d3c18eeb04711c5873a8cbd3577bcc9c8a42d4111f4be550"
+    },
+    {
+      "path": "/root/lightsem/docs/CONTINUATION_AUDIT_2026-09-07.md",
+      "exists": true,
+      "kind": "historical_report",
+      "bytes": 13237,
+      "sha256": "d21d23273bf463ecb1b924d8ff076c70949dc53b2e5be200ff5f21ec83ff39ee"
+    },
+    {
+      "path": "/root/lightsem/logs/continuation_audit_evidence.json",
+      "exists": true,
+      "kind": "historical_metadata_audit",
+      "bytes": 2104,
+      "sha256": "8eac0ebc75af69412a680f6c39a13fa7a08cb1150eee3317d06aae799b71dbdf"
+    },
+    {
+      "path": "/mnt/lightsem-data/experiments/lightsem/stage11_20260908/data/split_manifest.json",
+      "exists": true,
+      "kind": "identity_split_metadata",
+      "bytes": 72012,
+      "sha256": "c5be79ab5ca3e134d3b4d3f7527679f8d9da95c15ffd4eb3141e392bf91007b3"
+    },
+    {
+      "path": "/mnt/lightsem-data/experiments/lightsem/motion_representation_20260910/data/split.json",
+      "exists": true,
+      "kind": "identity_split_metadata",
+      "bytes": 146718,
+      "sha256": "821a800a847c2ec337ee0c2a6eca007cfaa1e68f8f67ce2c0788e6dbce2dbe20",
+      "note": "Only key/canonical_id/partition fields used; no embedded label fields inspected"
+    },
+    {
+      "path": "/root/lightsem/docs/STAGE11_CAMPAIGN.md",
+      "exists": true,
+      "kind": "protocol_report",
+      "bytes": 6357,
+      "sha256": "bf69ea781de82c3a64eb278b56273beb90ed0046fb93427fd5c89d856009d970"
+    },
+    {
+      "path": "/root/lightsem/run_stage9_decoder_eval.py",
+      "exists": true,
+      "kind": "source_inspected_or_hashed_not_executed",
+      "bytes": 15648,
+      "sha256": "679c966894345ecf41d503c2a200dad94b20bc74845750754142ffca161c2a73"
+    },
+    {
+      "path": "/root/lightsem/run_stage9_planner_eval.py",
+      "exists": true,
+      "kind": "source_inspected_or_hashed_not_executed",
+      "bytes": 12848,
+      "sha256": "203790bad7085f7d59fc54a8ed61b47c916fd2d6f6aa4ec3a8f8f561622085d0"
+    },
+    {
+      "path": "/root/lightsem/build_hl_pairs.py",
+      "exists": true,
+      "kind": "source_inspected_or_hashed_not_executed",
+      "bytes": 6404,
+      "sha256": "f7939304e2560336fe10736c08bd4fc2ce762e3b4620b33658aba44f821257db"
+    },
+    {
+      "path": "/root/lightsem/render_stage9_demo.py",
+      "exists": true,
+      "kind": "source_inspected_or_hashed_not_executed",
+      "bytes": 12934,
+      "sha256": "ccf5ab5757be32e6ebe1daeafac8f6709c80cece65f146dd3cdbba57346daffb"
+    },
+    {
+      "path": "/root/lightsem/run_stage0c.py",
+      "exists": true,
+      "kind": "source_inspected_or_hashed_not_executed",
+      "bytes": 5536,
+      "sha256": "387e65eb47d8c6853fe1b4670872fa284266ed0c8f5d30c347e43ec76f0597ef"
+    },
+    {
+      "path": "/root/lightsem/lightsem/eval/ab.py",
+      "exists": true,
+      "kind": "source_inspected_or_hashed_not_executed",
+      "bytes": 5448,
+      "sha256": "13964e997ec7e4bee48cd091c074c101487bdf8b361ca8829b923a7df9d30966"
+    },
+    {
+      "path": "/root/lightsem/run_stage9_gate.py",
+      "exists": true,
+      "kind": "source_inspected_or_hashed_not_executed",
+      "bytes": 19920,
+      "sha256": "9099da9ea810fd2ca75ab35b1597c1ae74fbef558e73125c77c9c4b10b6d3c85"
+    },
+    {
+      "path": "/root/lightsem/queue_stage9_to_vault.py",
+      "exists": true,
+      "kind": "source_inspected_or_hashed_not_executed",
+      "bytes": 33806,
+      "sha256": "c78e06707de04db1fc1051a76b780ccdd08eead50a59e8672a6498940710c821"
+    },
+    {
+      "path": "/root/lightsem/log_stage9_to_vault.py",
+      "exists": true,
+      "kind": "source_inspected_or_hashed_not_executed",
+      "bytes": 20100,
+      "sha256": "a9cb733acf15b5ae5bf13eaf3e6eda5b5a844080113da11107e5c6cc8895bdb3"
+    },
+    {
+      "path": "/root/lightsem/queue_stage9b_to_vault.py",
+      "exists": true,
+      "kind": "source_inspected_or_hashed_not_executed",
+      "bytes": 6697,
+      "sha256": "b5d1001cc4e92b84d149f273099563a9e5913ffd9fbad816c5bd2ecb3e17d79c"
+    },
+    {
+      "path": "/root/lightsem/lightsem/experiments/stage11_data.py",
+      "exists": true,
+      "kind": "source_inspected_or_hashed_not_executed",
+      "bytes": 43055,
+      "sha256": "ea277dbebdccc9a95611b39d397a3a420e5396e03efea666ba06b1558fe046cf"
+    },
+    {
+      "path": "/root/lightsem/lightsem/experiments/stage11_common.py",
+      "exists": true,
+      "kind": "source_inspected_or_hashed_not_executed",
+      "bytes": 6317,
+      "sha256": "1196cfda2e0a222d85ebd508f8c09636907611edd01a83d0624abef3465f64d3"
+    },
+    {
+      "path": "/root/lightsem/outputs/review_music_physical_revision.py",
+      "exists": true,
+      "kind": "source_inspected_or_hashed_not_executed",
+      "bytes": 28061,
+      "sha256": "eb8ef4dee19c7dacd40a01e39f4075e2f60e07de28e6483795d20643926568d8"
+    },
+    {
+      "path": "/root/lightsem/outputs/review_music_physical_support_revision.py",
+      "exists": true,
+      "kind": "source_inspected_or_hashed_not_executed",
+      "bytes": 25273,
+      "sha256": "49b42bbac02c3c0ff2e951dfc3a9a29520ab710aef821851d9943017671842d5"
+    },
+    {
+      "path": "/root/lightsem/outputs/eval_music_physical_revision.py",
+      "exists": true,
+      "kind": "source_inspected_or_hashed_not_executed",
+      "bytes": 40145,
+      "sha256": "b076f24e652ba7b718e769038403a3bdcbdc5d6596d8ed90a17a42cc496fcaab"
+    },
+    {
+      "path": "/root/lightsem/outputs/stage9/decoder_eval_v1.json",
+      "exists": true,
+      "kind": "completed_report",
+      "bytes": 2942,
+      "sha256": "110ba15580291872aacf148d584202b7b4457f1e618f5845fd5e5ea9be38493c"
+    },
+    {
+      "path": "/root/lightsem/outputs/stage9/decoder_eval_v2.json",
+      "exists": true,
+      "kind": "completed_report",
+      "bytes": 2948,
+      "sha256": "f4ef9a11d4890d84648e1837352dd3337de0b08c54911b80c4f9d98a6b825d4a"
+    },
+    {
+      "path": "/root/lightsem/outputs/stage9/planner_eval.json",
+      "exists": true,
+      "kind": "completed_report",
+      "bytes": 3193,
+      "sha256": "b461081e6ce48af8474e0c8efab7bc5af13dd7d18fa0776ab7d524e972205b55"
+    },
+    {
+      "path": "/root/lightsem/outputs/stage9/hh_gate.json",
+      "exists": true,
+      "kind": "completed_report",
+      "bytes": 8282,
+      "sha256": "6afa0f211ee6f373675dcc2e2fa181178b8bd9b616ea29b291ec67350e823305"
+    },
+    {
+      "path": "/root/lightsem/outputs/stage9/hl_pairs/pairs.json",
+      "exists": true,
+      "kind": "metadata",
+      "bytes": 35195,
+      "sha256": "35b5c3fdea90ed56129283e77ae1acfdd0a52a77c9b1947bbe8ddbf6a345d244"
+    },
+    {
+      "path": "/root/lightsem/outputs/stage0c/category/score_result.json",
+      "exists": true,
+      "kind": "completed_report",
+      "bytes": 6370,
+      "sha256": "ab2ffc753c992e2430841e26d44cbbe666ad8c20addf49e2a24acda971374f5d"
+    },
+    {
+      "path": "/root/lightsem/outputs/stage0c/category/KEY.json",
+      "exists": true,
+      "kind": "metadata",
+      "bytes": 11420,
+      "sha256": "356dd2e3da05c4efc016addf0d4ec1debd301d69a3f96ab58e3f9af90e3a0601"
+    },
+    {
+      "path": "/root/lightsem/outputs/stage9/hl_pairs/ratings.jsonl",
+      "exists": true,
+      "kind": "historical_report_or_protocol",
+      "bytes": 3770,
+      "sha256": "def1baf86ef8d0d924d88d532352994e5902a0f1204d4a90d3ee37e16894501e"
+    },
+    {
+      "path": "/root/lightsem/outputs/stage9/hl_pairs/bradley_terry.json",
+      "exists": true,
+      "kind": "historical_report_or_protocol",
+      "bytes": 34357,
+      "sha256": "6f544fe11570aff04fbe26cf4d3ac862eafd1a51726218960915b3729dbac783"
+    },
+    {
+      "path": "/root/lightsem/outputs/stage0c/category/INSTRUCTIONS.md",
+      "exists": true,
+      "kind": "historical_report_or_protocol",
+      "bytes": 441,
+      "sha256": "6f7d360c6ee4e097eda2b2d675b4ca6b739e597ba756f6ba50f9d80062dcf1bb"
+    },
+    {
+      "path": "/root/lightsem/outputs/stage0c/category/score_sheet.csv",
+      "exists": true,
+      "kind": "historical_report_or_protocol",
+      "bytes": 3206,
+      "sha256": "772d7b76f8de0ecd802d7bc2cc40a2e40c0c7e1f3ae7d16afe489a1dd076532e"
+    },
+    {
+      "path": "/root/lightsem/outputs/stage9/demo_songs/shpongle__stage9_stats.json",
+      "exists": true,
+      "kind": "historical_report_or_protocol",
+      "bytes": 1084,
+      "sha256": "061c4e9b6df8dd9d34b3437fc7dbdb92b5518d867a20551131dbe6987c07992d"
+    },
+    {
+      "path": "/root/lightsem/outputs/dance_physical_final_outcome.md",
+      "exists": true,
+      "kind": "historical_report_or_protocol",
+      "bytes": 4141,
+      "sha256": "c77531749d991cb6f712fc3ec6522cc45a73393f54d3c3eb88434d09ddc54297"
+    },
+    {
+      "path": "/root/lightsem/outputs/dance_physical_review_implementation.md",
+      "exists": true,
+      "kind": "historical_report_or_protocol",
+      "bytes": 9822,
+      "sha256": "1391e55fd0db23bf9770c30ea1fc4a027905d5cbee7a3677b65f78e191ebea10"
+    },
+    {
+      "path": "/root/lightsem/docs/research/stage9/02_datasets_non_game.md",
+      "exists": true,
+      "kind": "historical_report_or_protocol",
+      "bytes": 25669,
+      "sha256": "f57be6b2035b523f206459aec7fbc365de8cd759803ba82204733c555254693f"
+    },
+    {
+      "path": "/root/lightsem/PLAN.md",
+      "exists": true,
+      "kind": "historical_report_or_protocol",
+      "bytes": 124111,
+      "sha256": "fc938f27e6007000b64a6943a4618f6052009d520cfe537a51eba870ed4c0fa6"
+    },
+    {
+      "path": "/mnt/lightsem-data/experiments/lightsem/dance_diagnosis_20260911/music_physical_revision_01/evaluation/evaluation_protocol.json",
+      "exists": true,
+      "kind": "physical_report_or_metadata",
+      "bytes": 54635,
+      "sha256": "ab36a7ac3bfeed58c339c84d7cc3ba34a8f0c149a816208a46f6725e6d53f6e1"
+    },
+    {
+      "path": "/mnt/lightsem-data/experiments/lightsem/dance_diagnosis_20260911/music_physical_revision_01/evaluation/numerical_report.json",
+      "exists": true,
+      "kind": "physical_report_or_metadata",
+      "bytes": 141176,
+      "sha256": "e16ee6cb04d3c96f4dd9005b0e22ebf6481fa03878440fec306e7d9f8bb48db1"
+    },
+    {
+      "path": "/mnt/lightsem-data/experiments/lightsem/dance_diagnosis_20260911/music_physical_revision_01/evaluation/primary_analysis.json",
+      "exists": true,
+      "kind": "physical_report_or_metadata",
+      "bytes": 2284,
+      "sha256": "e098008eede04549a8eff05761a3c2d41ff524df2f66b5901c9e018c38d6179f"
+    },
+    {
+      "path": "/mnt/lightsem-data/experiments/lightsem/dance_diagnosis_20260911/music_physical_revision_01/visual_review_support_revision_01/review_report.json",
+      "exists": true,
+      "kind": "physical_report_or_metadata",
+      "bytes": 3261,
+      "sha256": "3fc4bdba2d959c142dab154bf4a15ca347dbdbe9b68e68a6e656b5103a79a1a8"
+    },
+    {
+      "path": "/mnt/lightsem-data/experiments/lightsem/dance_diagnosis_20260911/music_physical_revision_01/visual_review_support_revision_01/protocol.json",
+      "exists": true,
+      "kind": "physical_report_or_metadata",
+      "bytes": 81000,
+      "sha256": "07f3feaf67fc087878f16509f8f56f8e0fddc4ec42b4f48029d519562e07162e"
+    },
+    {
+      "path": "/mnt/lightsem-data/experiments/lightsem/dance_diagnosis_20260911/music_physical_revision_01/visual_review/protocol.json",
+      "exists": true,
+      "kind": "physical_report_or_metadata",
+      "bytes": 79951,
+      "sha256": "dfe9b478b57293c0dd35c8917fdd7cca8d80018dcb169bd131cf00e09e40e1d0"
+    },
+    {
+      "path": "/mnt/lightsem-data/experiments/lightsem/dance_diagnosis_20260911/music_physical_revision_01/protocol.json",
+      "exists": true,
+      "kind": "physical_report_or_metadata",
+      "bytes": 5912,
+      "sha256": "c5ea616d907510b92f06383abc7b4e7cb7d6862bc367b5769e838aebf0ed6405"
+    },
+    {
+      "path": "/mnt/lightsem-data/experiments/lightsem/dance_diagnosis_20260911/music_physical_revision_01/legacy_support_audit.json",
+      "exists": true,
+      "kind": "physical_report_or_metadata",
+      "bytes": 5256,
+      "sha256": "4ac2334d9ae52ec0f80293a94360d20cf7db5a26ca3663a559f727ada1ac5ba3"
+    },
+    {
+      "path": "/mnt/lightsem-data/experiments/lightsem/dance_diagnosis_20260911/music_physical_revision_01/evaluation/evaluator.py",
+      "exists": true,
+      "kind": "frozen_source",
+      "bytes": 40145,
+      "sha256": "b076f24e652ba7b718e769038403a3bdcbdc5d6596d8ed90a17a42cc496fcaab"
+    },
+    {
+      "path": "/mnt/lightsem-data/experiments/lightsem/dance_diagnosis_20260911/music_physical_revision_01/visual_review_support_revision_01/reviewer.py",
+      "exists": true,
+      "kind": "frozen_source",
+      "bytes": 25273,
+      "sha256": "49b42bbac02c3c0ff2e951dfc3a9a29520ab710aef821851d9943017671842d5"
+    },
+    {
+      "path": "/mnt/lightsem-data/experiments/lightsem/dance_diagnosis_20260911/music_physical_revision_01/visual_review/reviewer.py",
+      "exists": true,
+      "kind": "frozen_source",
+      "bytes": 28061,
+      "sha256": "eb8ef4dee19c7dacd40a01e39f4075e2f60e07de28e6483795d20643926568d8"
+    },
+    {
+      "path": "/mnt/lightsem-data/experiments/lightsem/dance_diagnosis_20260911/music_physical_revision_01/visual_review_support_revision_01/reviews/coordination_057_1200.json",
+      "exists": true,
+      "kind": "completed_AI_observer_receipt",
+      "bytes": 3413,
+      "sha256": "2de81903851f48f071e5a5f34508a7653b83eda11e83a5be8deeb58b173b6114"
+    },
+    {
+      "path": "/mnt/lightsem-data/experiments/lightsem/dance_diagnosis_20260911/music_physical_revision_01/visual_review_support_revision_01/reviews/coordination_076_2400.json",
+      "exists": true,
+      "kind": "completed_AI_observer_receipt",
+      "bytes": 3274,
+      "sha256": "04defae2822469616b338cbbcbd44c025a7833aa086bfce26fcb7c7e5aff1ef1"
+    },
+    {
+      "path": "/mnt/lightsem-data/experiments/lightsem/dance_diagnosis_20260911/music_physical_revision_01/visual_review_support_revision_01/reviews/coordination_085_0.json",
+      "exists": true,
+      "kind": "completed_AI_observer_receipt",
+      "bytes": 3371,
+      "sha256": "55ca285ec2a8c9e44acd729387e3464d6236739206d4daeea232b0e54482caf2"
+    },
+    {
+      "path": "/mnt/lightsem-data/experiments/lightsem/dance_diagnosis_20260911/music_physical_revision_01/visual_review_support_revision_01/reviews/coordination_102_600.json",
+      "exists": true,
+      "kind": "completed_AI_observer_receipt",
+      "bytes": 3255,
+      "sha256": "1e4609417b483129c0e1dab181811cbfe0cdd29e628b336a2cc56f200e3e09a4"
+    },
+    {
+      "path": "/mnt/lightsem-data/experiments/lightsem/dance_diagnosis_20260911/music_physical_revision_01/visual_review_support_revision_01/reviews/full_shpongle_draw7001.json",
+      "exists": true,
+      "kind": "completed_AI_observer_receipt",
+      "bytes": 9422,
+      "sha256": "17a6665893fc3d0516a1d1b4da6f2636805b5580b4471ec4fafec3fb802a8794"
+    },
+    {
+      "path": "/mnt/lightsem-data/experiments/lightsem/dance_diagnosis_20260911/music_physical_revision_01/visual_review_support_revision_01/reviews/holds_005_0.json",
+      "exists": true,
+      "kind": "completed_AI_observer_receipt",
+      "bytes": 3479,
+      "sha256": "3f3be677a1486cfb9456cf13e5e6cf8156a5dbb7db3ebba0fbfe4bd3010b1046"
+    },
+    {
+      "path": "/mnt/lightsem-data/experiments/lightsem/dance_diagnosis_20260911/music_physical_revision_01/visual_review_support_revision_01/reviews/holds_067_0.json",
+      "exists": true,
+      "kind": "completed_AI_observer_receipt",
+      "bytes": 3285,
+      "sha256": "84ce13db55d49e0257f9cbe8e0f0735d7739272bdce78cd2a0d427094ada2701"
+    },
+    {
+      "path": "/mnt/lightsem-data/experiments/lightsem/dance_diagnosis_20260911/music_physical_revision_01/visual_review_support_revision_01/reviews/holds_078_0.json",
+      "exists": true,
+      "kind": "completed_AI_observer_receipt",
+      "bytes": 3255,
+      "sha256": "ea3ad798c83a4a91d6138baa8017535389a54c65b569e8dc2fff4a38397c3002"
+    },
+    {
+      "path": "/mnt/lightsem-data/experiments/lightsem/dance_diagnosis_20260911/music_physical_revision_01/visual_review_support_revision_01/reviews/holds_083_1200.json",
+      "exists": true,
+      "kind": "completed_AI_observer_receipt",
+      "bytes": 3309,
+      "sha256": "9147130850095277ddd50d5f75bb5765bfa845d33cb7212bf375925ba2e15f15"
+    },
+    {
+      "path": "/mnt/lightsem-data/experiments/lightsem/dance_diagnosis_20260911/music_physical_revision_01/visual_review_support_revision_01/reviews/travel_027_4200.json",
+      "exists": true,
+      "kind": "completed_AI_observer_receipt",
+      "bytes": 3621,
+      "sha256": "c9c0fed280821ea964933d2a62347f3c0d69ceb6b4d3917ba7cebdc9b39522ed"
+    },
+    {
+      "path": "/mnt/lightsem-data/experiments/lightsem/dance_diagnosis_20260911/music_physical_revision_01/visual_review_support_revision_01/reviews/travel_035_4800.json",
+      "exists": true,
+      "kind": "completed_AI_observer_receipt",
+      "bytes": 3508,
+      "sha256": "14ba83b2afbd1f32fe9ce09e586380033985724a3cfc80cf238e5bfc125fe567"
+    },
+    {
+      "path": "/mnt/lightsem-data/experiments/lightsem/dance_diagnosis_20260911/music_physical_revision_01/visual_review_support_revision_01/reviews/travel_127_1200.json",
+      "exists": true,
+      "kind": "completed_AI_observer_receipt",
+      "bytes": 3526,
+      "sha256": "7beae05a0b916f2076ba1c74b2142da8b538ca82e76c695cc87b67a86d926f3d"
+    },
+    {
+      "path": "/mnt/lightsem-data/experiments/lightsem/dance_diagnosis_20260911/music_physical_revision_01/visual_review_support_revision_01/reviews/travel_135_3600.json",
+      "exists": true,
+      "kind": "completed_AI_observer_receipt",
+      "bytes": 3687,
+      "sha256": "fdea2e41f0646101dde2b58650ed6dca0f0f07375e3fbab197ecf840c0ed2238"
+    },
+    {
+      "path": "/mnt/lightsem-data/experiments/lightsem/dance_diagnosis_20260911/music_physical_revision_01/visual_review_support_revision_01/renders/holds_083_1200/render.json",
+      "exists": true,
+      "kind": "completed_render_receipt_no_video_payload_read",
+      "bytes": 6815,
+      "sha256": "9955cd022dfce86264656ff065d403297915819dcbc88a79a07e0a3b02d88ced"
+    },
+    {
+      "path": "/mnt/lightsem-data/experiments/lightsem/dance_diagnosis_20260911/music_physical_revision_01/visual_review_support_revision_01/renders/holds_067_0/render.json",
+      "exists": true,
+      "kind": "completed_render_receipt_no_video_payload_read",
+      "bytes": 6796,
+      "sha256": "99a48ab6926fb524b863e58009a7627517e66bab1310f85568f5cb0aabf01f47"
+    },
+    {
+      "path": "/mnt/lightsem-data/experiments/lightsem/dance_diagnosis_20260911/music_physical_revision_01/visual_review_support_revision_01/renders/holds_078_0/render.json",
+      "exists": true,
+      "kind": "completed_render_receipt_no_video_payload_read",
+      "bytes": 6796,
+      "sha256": "f24780d14d027d886844ee05cb67087ff8a8549dc420940faa8efe1606bb8bcd"
+    },
+    {
+      "path": "/mnt/lightsem-data/experiments/lightsem/dance_diagnosis_20260911/music_physical_revision_01/visual_review_support_revision_01/renders/holds_005_0/render.json",
+      "exists": true,
+      "kind": "completed_render_receipt_no_video_payload_read",
+      "bytes": 6796,
+      "sha256": "60df9f5228bb33f9043e09a1d7cb070d4eaab5d4c3d1a2d42ac5c265a0030523"
+    },
+    {
+      "path": "/mnt/lightsem-data/experiments/lightsem/dance_diagnosis_20260911/music_physical_revision_01/visual_review_support_revision_01/renders/travel_035_4800/render.json",
+      "exists": true,
+      "kind": "completed_render_receipt_no_video_payload_read",
+      "bytes": 6840,
+      "sha256": "4f1c953f8d45aa78de08a9810b443111826cd7c5ad1a3576ae995084ae68c61b"
+    },
+    {
+      "path": "/mnt/lightsem-data/experiments/lightsem/dance_diagnosis_20260911/music_physical_revision_01/visual_review_support_revision_01/renders/travel_135_3600/render.json",
+      "exists": true,
+      "kind": "completed_render_receipt_no_video_payload_read",
+      "bytes": 6840,
+      "sha256": "f4b426b979f75ae569bb1c81251a0338ecf9ff0c89e679e7c5680958a4c64377"
+    },
+    {
+      "path": "/mnt/lightsem-data/experiments/lightsem/dance_diagnosis_20260911/music_physical_revision_01/visual_review_support_revision_01/renders/travel_127_1200/render.json",
+      "exists": true,
+      "kind": "completed_render_receipt_no_video_payload_read",
+      "bytes": 6818,
+      "sha256": "a3ea77d0f255fb2eda80b002d35ab7c00eb8da9866c07364db35d1f65ca63a45"
+    },
+    {
+      "path": "/mnt/lightsem-data/experiments/lightsem/dance_diagnosis_20260911/music_physical_revision_01/visual_review_support_revision_01/renders/travel_027_4200/render.json",
+      "exists": true,
+      "kind": "completed_render_receipt_no_video_payload_read",
+      "bytes": 6840,
+      "sha256": "3ec0b0595c3743d4473542b6b9d58975b84313e0bd96c2a1af488f9a6aa28665"
+    },
+    {
+      "path": "/mnt/lightsem-data/experiments/lightsem/dance_diagnosis_20260911/music_physical_revision_01/visual_review_support_revision_01/renders/coordination_057_1200/render.json",
+      "exists": true,
+      "kind": "completed_render_receipt_no_video_payload_read",
+      "bytes": 6836,
+      "sha256": "01ee0ada5c2f676de8174785c364d14a8c3d1d667aa1d1fffe768813664a89e2"
+    },
+    {
+      "path": "/mnt/lightsem-data/experiments/lightsem/dance_diagnosis_20260911/music_physical_revision_01/visual_review_support_revision_01/renders/coordination_085_0/render.json",
+      "exists": true,
+      "kind": "completed_render_receipt_no_video_payload_read",
+      "bytes": 6817,
+      "sha256": "79aecc8580dc43c2101ea832e813a375388795997007098a3e5df5df6ec954d9"
+    },
+    {
+      "path": "/mnt/lightsem-data/experiments/lightsem/dance_diagnosis_20260911/music_physical_revision_01/visual_review_support_revision_01/renders/coordination_076_2400/render.json",
+      "exists": true,
+      "kind": "completed_render_receipt_no_video_payload_read",
+      "bytes": 6836,
+      "sha256": "8a7795e81325d9449a4a31f9ee4cfcba91c2ed40153f55a343ec7add0be2e19a"
+    },
+    {
+      "path": "/mnt/lightsem-data/experiments/lightsem/dance_diagnosis_20260911/music_physical_revision_01/visual_review_support_revision_01/renders/coordination_102_600/render.json",
+      "exists": true,
+      "kind": "completed_render_receipt_no_video_payload_read",
+      "bytes": 6833,
+      "sha256": "f6ef173100ebc021f989eb579855799149d341179c8222072f2aaf40d8b34bbf"
+    },
+    {
+      "path": "/mnt/lightsem-data/experiments/lightsem/dance_diagnosis_20260911/music_physical_revision_01/visual_review_support_revision_01/renders/full_shpongle_draw7001/render.json",
+      "exists": true,
+      "kind": "completed_render_receipt_no_video_payload_read",
+      "bytes": 42806,
+      "sha256": "8ea0c5440cef73a21809242e9b0e6b0df2d84fd35f47f583a4562be7426e33df"
+    },
+    {
+      "path": "/mnt/lightsem-data/experiments/lightsem/motion_native_audio_20260910/music/review/incumbent/report.json",
+      "exists": true,
+      "kind": "archived_incumbent_report",
+      "bytes": 8531,
+      "sha256": "fdabf7456443f7e79413811bf902881a801d122e2168464ea7fcbb243b9486b4"
+    },
+    {
+      "path": "/mnt/lightsem-data/experiments/lightsem/stage11_20260908/data/canonical_map.json",
+      "exists": true,
+      "kind": "identity_metadata",
+      "bytes": 932922,
+      "sha256": "5492bfe645d8c4367879b35f11bb38ac64b8450d6f18092c8bd0d30a0ef915fb",
+      "note": "Not used for split qualification; authoritative join uses split_manifest.json only"
+    }
+  ],
+  "hash_limits": "SHA256 values in artifact_hashes are computed from the named source/report/metadata bytes. Embedded old array and movie hashes are merely quoted provenance. No array/model/media payload was opened to hash it.",
+  "parent_actions_not_performed": [
+    "Attach these readiness limits to parent report",
+    "For any later human component, preregister corrected protocol via serialized parent-owned vault process and validate native receipt before data collection",
+    "Keep native negatives and incomplete components separate; do not force closures"
+  ]
+}

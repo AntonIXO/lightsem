@@ -1,0 +1,10 @@
+{
+  "scope": "unpreregistered_runtime_only",
+  "before_n": 398,
+  "after_n": 399,
+  "before_median_step_s": 0.030015187512617558,
+  "after_median_step_s": 0.030991973006166518,
+  "before_mean_step_s": 0.029933673648184736,
+  "after_mean_step_s": 0.030263862283176797,
+  "limitations": "Sequential before/after windows, not randomized; batch content/background activity can confound. DEV selection intervals excluded."
+}

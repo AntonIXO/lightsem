@@ -1,0 +1,39 @@
+{
+  "restored_utc": "2026-09-28T19:16:47.005998+00:00",
+  "reason": "Metadata correction edits happened before root preserve-V1 message was received. Amended content is retained asV2; V1 files restored against previously reported hashes.",
+  "file_hashes": [
+    {
+      "path": "/root/lightsem/docs/research/2026-09-28-end-to-end/LEGACY_REMAINDER_READINESS_V1.json",
+      "sha256": "715e4240693e3ec68ce1ae33168ce98d621213f8c643f85af28457c21835c666"
+    },
+    {
+      "path": "/root/lightsem/docs/research/2026-09-28-end-to-end/LEGACY_REMAINDER_READINESS_V1.md",
+      "sha256": "9af79aa6ef0b8f7731eb53f2b2167a2d789ae5de8218bdae5b62d362c7245bab"
+    },
+    {
+      "path": "/root/lightsem/docs/research/2026-09-28-end-to-end/NEW_EVALUATION_READINESS_V1.json",
+      "sha256": "82560dc98d438eb9e58df75aba1bad685a89ef922b38e5222412a95c0d188272"
+    },
+    {
+      "path": "/root/lightsem/docs/research/2026-09-28-end-to-end/NEW_EVALUATION_READINESS_V1.md",
+      "sha256": "e10a5ef26ca28798f9544e2c7fb8c13ee0e4ac9d87ac9e3bc3080303830ff65f"
+    },
+    {
+      "path": "/root/lightsem/docs/research/2026-09-28-end-to-end/PROSPECTIVE_STRUCT_INTENSITY_PROTOCOL_CANDIDATE_V1.json",
+      "sha256": "aede9e52f7b934b510627189c5235e410e85a83fa4db4f9d29f802133de5c095"
+    },
+    {
+      "path": "/root/lightsem/docs/research/2026-09-28-end-to-end/PROSPECTIVE_STRUCT_INTENSITY_PROTOCOL_CANDIDATE_V1.md",
+      "sha256": "3902961ba52f202423272c8a2ffd84eabe28ba402952cbe611e9c9c17a78f356"
+    },
+    {
+      "path": "/root/lightsem/docs/research/2026-09-28-end-to-end/NEW_FROZEN_LEGACY_EVAL_NOTES_V1.json",
+      "sha256": "5ab17db74c436b076509f2b2bc418cbeabdd047a3c8eef191d84414083f6e3e0"
+    }
+  ],
+  "known_prior_versions": {
+    "frozen_notes_initial_185827_sha256": "95ec297353b662259cad925b277a1bc77495124324a4b71b2a253bf4d92f5000",
+    "frozen_notes_final_185925_restored_sha256": "5ab17db74c436b076509f2b2bc418cbeabdd047a3c8eef191d84414083f6e3e0",
+    "main_JSON_embeds_initial_note_but_supports_final_file": "Preserved exactly as originally written, not silently fixed. V2 contains dated corrections."
+  }
+}

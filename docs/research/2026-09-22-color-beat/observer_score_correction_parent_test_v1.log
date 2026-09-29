@@ -1,0 +1,2 @@
+usage: test_observer_score_correction_v1.py [-h] --receipt RECEIPT
+test_observer_score_correction_v1.py: error: the following arguments are required: --receipt

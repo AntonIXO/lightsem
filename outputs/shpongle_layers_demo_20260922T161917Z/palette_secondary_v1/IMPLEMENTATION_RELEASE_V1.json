@@ -1,0 +1,40 @@
+{
+  "protocol": {
+    "path": "/root/lightsem/outputs/shpongle_layers_demo_20260922T161917Z/palette_secondary_v1/PALETTE_SECONDARY_PROTOCOL_V1.json",
+    "sha256": "35ee9ba62d5c04fffb9ce5ddd364f1a82941c7025f9b213800858cca973d11e9"
+  },
+  "clarification": {
+    "path": "/root/lightsem/outputs/shpongle_layers_demo_20260922T161917Z/palette_secondary_v1/PALETTE_SECONDARY_CLARIFICATION_V1.json",
+    "sha256": "7d9e5adfd567c9e13c7e7bcec01a1dd1878dacc704d53105ca09bcc36c4911b5"
+  },
+  "driver": {
+    "path": "/root/lightsem/outputs/shpongle_layers_demo_20260922T161917Z/palette_secondary_v1/run_palette_history_secondary_v1.py",
+    "sha256": "95d0f59160439ee153ef532235c25320870f113eda7a4d930438811d12ce5dbb"
+  },
+  "tests": {
+    "path": "/root/lightsem/outputs/shpongle_layers_demo_20260922T161917Z/palette_secondary_v1/test_palette_history_secondary_v1.py",
+    "sha256": "aa4f414aacafbbf307404ee1112203f0da0aabdeb3e68b47a004272054de53ad"
+  },
+  "cpu_receipt": {
+    "path": "/root/lightsem/outputs/shpongle_layers_demo_20260922T161917Z/palette_secondary_v1/PALETTE_SECONDARY_CPU_RECEIPT_V1.json",
+    "sha256": "bf25e7c7736c04639c20ee0e29c5eb90568bce260b98c45aff3c7b896d490480"
+  },
+  "vault_wrapper": {
+    "path": "/root/lightsem/outputs/shpongle_layers_demo_20260922T161917Z/palette_secondary_v1/VAULT_AUTHORIZATION_WRAPPER_V1.json",
+    "sha256": "d771ad87943a3c0c20d93284eafb1fa322a256126c788f6306324df00335b06b"
+  },
+  "registration_draft": {
+    "path": "/root/lightsem/outputs/shpongle_layers_demo_20260922T161917Z/palette_secondary_v1/REGISTRATION_FINAL_UNAUTHORIZED_DRAFT.json",
+    "sha256": "1f75228cd73366499fdc1c8f495cf96f418eb82934ac1b8bca2663430f476d9f"
+  },
+  "frozen_old_sources_unchanged": {
+    "/root/lightsem/lightsem/experiments/light_layers/evaluation.py": true,
+    "/root/lightsem/lightsem/experiments/light_layers/palette_metrics.py": true,
+    "/root/lightsem/lightsem/experiments/light_layers/model.py": true,
+    "/root/lightsem/lightsem/experiments/light_layers/training.py": true,
+    "/root/lightsem/lightsem/experiments/light_layers/targets.py": true
+  },
+  "real_phases_run": false,
+  "derived_root_created": false,
+  "independent_review": "palette-driver-review read-only review; all reported blockers corrected; latest requested seams tested"
+}

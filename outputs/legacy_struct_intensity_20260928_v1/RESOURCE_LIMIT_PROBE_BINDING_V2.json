@@ -1,0 +1,32 @@
+{
+  "status": "PROSPECTIVE_CPU_INFRASTRUCTURE_ONLY",
+  "source": {
+    "path": "/root/lightsem/outputs/legacy_struct_intensity_20260928_v1/probe_systemd_limits_v2.py",
+    "sha256": "82e0d0fcdcd927a0f0196272bf84a35f2d20dc5d74212daf2cf6b660cee5cc3d",
+    "bytes": 2338
+  },
+  "native_wrapper": {
+    "path": "/root/lightsem/run.sh",
+    "sha256": "232ca5a566ae3b22f0677b6b5879c6901abf9decb16dc66967a4895174289556",
+    "bytes": 227
+  },
+  "command": "systemd-run --unit=lightsem-struct-limit-probe-v2.service --wait --pipe --no-ask-password --working-directory=/root/lightsem -p MemoryMax=4294967296 -p MemorySwapMax=0 -p RuntimeMaxSec=2s -p KillMode=control-group -p KillSignal=SIGKILL -p PrivateDevices=yes -p ProtectControlGroups=yes -p NoNewPrivileges=yes --setenv=CUDA_VISIBLE_DEVICES= --setenv=PYTHONDONTWRITEBYTECODE=1 /usr/bin/bash /root/lightsem/run.sh -u /root/lightsem/outputs/legacy_struct_intensity_20260928_v1/probe_systemd_limits_v2.py --unit lightsem-struct-limit-probe-v2.service --expected-memory-bytes 4294967296 --expected-runtime-text 2s > /root/lightsem/outputs/legacy_struct_intensity_20260928_v1/resource_limit_probe_v2.log 2>&1",
+  "log": "/root/lightsem/outputs/legacy_struct_intensity_20260928_v1/resource_limit_probe_v2.log",
+  "scope": "Verify effective cgroup memory/swap and exact transient-unit settings, then await expected2s service termination. No data/checkpoints/project/model imports; no CPU stress, GPU, preparation, scientific inference or fits.",
+  "expected_result": "Nonzero signal-kill exit AFTER structured LIMITS_VERIFIED record; systemd Result=timeout and ExecMainStatus=9. Property/schema failure is a failed diagnostic, not a pass. No automatic retry or fallback.",
+  "limits": {
+    "memory_bytes": 4294967296,
+    "swap_bytes": 0,
+    "runtime_seconds": 2,
+    "whole_service_KillMode": "control-group",
+    "KillSignal": 9,
+    "GPU_devices": "PrivateDevices"
+  },
+  "storage": "Probe source/binding/log/native receipt count in preparation source packet, including any failure artifacts; preserve V3. Actual900s preparation is not authorized by this probe.",
+  "parent_reviewed_preceding_failure": {
+    "path": "/root/lightsem/outputs/legacy_struct_intensity_20260928_v1/RESOURCE_LIMIT_PROBE_FAILURE_V1.json",
+    "sha256": "e8c22e584817c1ca24a4a23c0917f0c234a2c6b5717dbe2e92548fec9e5f47cd",
+    "bytes": 1481
+  },
+  "only_change": "Accept systemd canonical KillSignal=KILL spelling in addition to9/SIGKILL. All effective caps, expected timeout, no-payload scope and failure rule unchanged."
+}

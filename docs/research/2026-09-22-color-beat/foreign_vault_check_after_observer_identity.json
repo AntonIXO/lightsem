@@ -1,0 +1,6 @@
+{
+  "unchanged": true,
+  "files": 756,
+  "manifest_sha256": "289623c8aeef9cfaadccd03184ef7312d4367c3ee013db77de6bde5d42703d82",
+  "scope": "After observer protocol, capture and identity-quarantine registration; no unrelated vault edits."
+}

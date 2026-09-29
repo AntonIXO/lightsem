@@ -1,0 +1,16 @@
+test_ambiguous_notes_and_interpretation_boundaries_rejected (test_restore_notes.NotesRecoveryTests.test_ambiguous_notes_and_interpretation_boundaries_rejected) ... ok
+test_changed_metadata_and_interpretation_are_rejected (test_restore_notes.NotesRecoveryTests.test_changed_metadata_and_interpretation_are_rejected) ... ok
+test_exact_recovery_of_both_real_document_copies (test_restore_notes.NotesRecoveryTests.test_exact_recovery_of_both_real_document_copies) ... ok
+test_failed_replace_preserves_live_and_temporary_bytes (test_restore_notes.NotesRecoveryTests.test_failed_replace_preserves_live_and_temporary_bytes) ... ok
+test_late_target_drift_is_not_overwritten (test_restore_notes.NotesRecoveryTests.test_late_target_drift_is_not_overwritten) ... ok
+test_mcp_protocol_only_exposes_recovery_tool (test_restore_notes.NotesRecoveryTests.test_mcp_protocol_only_exposes_recovery_tool) ... ok
+test_production_dispatch_rejects_nonexact_arguments_without_io (test_restore_notes.NotesRecoveryTests.test_production_dispatch_rejects_nonexact_arguments_without_io) ... ok
+test_repeated_recovery_is_no_write_including_mtime (test_restore_notes.NotesRecoveryTests.test_repeated_recovery_is_no_write_including_mtime) ... ok
+test_second_target_drift_prevents_first_write (test_restore_notes.NotesRecoveryTests.test_second_target_drift_prevents_first_write) ... ok
+test_snapshot_disagreement_and_footer_change_rejected (test_restore_notes.NotesRecoveryTests.test_snapshot_disagreement_and_footer_change_rejected) ... ok
+test_symlinks_and_hardlinks_rejected (test_restore_notes.NotesRecoveryTests.test_symlinks_and_hardlinks_rejected) ... ok
+
+----------------------------------------------------------------------
+Ran 11 tests in 1.701s
+
+OK

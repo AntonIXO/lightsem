@@ -1,0 +1,105 @@
+{
+  "schema_version": 1,
+  "id": "observer-proxy-identity-exclusions-v1",
+  "campaign_id": "lighting-cue-model-20260922t094347z",
+  "study_kind": "historical_observer_proxy_v1",
+  "capture_manifest_path": "/mnt/lightsem-data/experiments/lightsem/lighting-cue-model-20260922t094347z/observer_proxy_capture_manifest_v1.json",
+  "capture_manifest_sha256": "153cf78ff7f331c0b2c7c1bf64412c0d4dc264754982f341af9588eee392b0a8",
+  "observer_protocol_path": "/root/lightsem/docs/research/2026-09-22-color-beat/OBSERVER_PROXY_PROTOCOL_V1.json",
+  "observer_protocol_sha256": "7f77802b8bd66729227887b0051a2e8533fd0474e2842230c5c0894e828a4186",
+  "decision_timing": "Before any full observer-proxy student fit or model performance score; uses pre-existing identity metadata only",
+  "policy": "Quarantine every selectedTRAINfamily carrying unresolved_audio_similarity. No replacements. These are ambiguity flags, not proof of duplicates. Do not quarantine title-shortlist-only conservatism. Capture enrollment remains131; eligiblefit subset91TRAIN+31DEV.",
+  "exclusions": {
+    "-df0tTGxUUo": {
+      "canonical_id": "jd-e8ef33fb5313699d780d",
+      "partition": "train",
+      "reason": "pre-existing unresolved_audio_similarity; conservative family quarantine before fit",
+      "source_reasons": [
+        "unresolved_audio_similarity"
+      ]
+    },
+    "0bZbusRBSvc": {
+      "canonical_id": "jd-6def3b391d1f46287e57",
+      "partition": "train",
+      "reason": "pre-existing unresolved_audio_similarity; conservative family quarantine before fit",
+      "source_reasons": [
+        "unresolved_audio_similarity"
+      ]
+    },
+    "AITiEKLQeoY": {
+      "canonical_id": "jd-6ce8657c8925fbb0d556",
+      "partition": "train",
+      "reason": "pre-existing unresolved_audio_similarity; conservative family quarantine before fit",
+      "source_reasons": [
+        "unresolved_audio_similarity",
+        "identity_not_in_audited_title_shortlist"
+      ]
+    },
+    "GvfesBmYmxg": {
+      "canonical_id": "jd-306f0c61b278b514b42a",
+      "partition": "train",
+      "reason": "pre-existing unresolved_audio_similarity; conservative family quarantine before fit",
+      "source_reasons": [
+        "unresolved_audio_similarity",
+        "identity_not_in_audited_title_shortlist"
+      ]
+    },
+    "M07egCIUiGs": {
+      "canonical_id": "jd-4506ecfda32c2ec45af5",
+      "partition": "train",
+      "reason": "pre-existing unresolved_audio_similarity; conservative family quarantine before fit",
+      "source_reasons": [
+        "unresolved_audio_similarity"
+      ]
+    },
+    "YLRnUx-1kyQ": {
+      "canonical_id": "jd-5e69cf5bfb1d9ac43c6f",
+      "partition": "train",
+      "reason": "pre-existing unresolved_audio_similarity; conservative family quarantine before fit",
+      "source_reasons": [
+        "unresolved_audio_similarity"
+      ]
+    },
+    "kcStkv3SiUA": {
+      "canonical_id": "jd-7a8441d71794cd96a87c",
+      "partition": "train",
+      "reason": "pre-existing unresolved_audio_similarity; conservative family quarantine before fit",
+      "source_reasons": [
+        "unresolved_audio_similarity"
+      ]
+    },
+    "oI2IghC6gj0": {
+      "canonical_id": "jd-fbd5f11fa621af280be5",
+      "partition": "train",
+      "reason": "pre-existing unresolved_audio_similarity; conservative family quarantine before fit",
+      "source_reasons": [
+        "unresolved_audio_similarity",
+        "identity_not_in_audited_title_shortlist"
+      ]
+    },
+    "xcUO7v2OqxI": {
+      "canonical_id": "jd-8dd939ff95a04ca47a2c",
+      "partition": "train",
+      "reason": "pre-existing unresolved_audio_similarity; conservative family quarantine before fit",
+      "source_reasons": [
+        "unresolved_audio_similarity"
+      ]
+    }
+  },
+  "fit_counts_expected": {
+    "train": 91,
+    "val": 31
+  },
+  "immutable_enrollment": {
+    "train": 100,
+    "val": 31
+  },
+  "capture_continues_unchanged": true,
+  "original_dev_gate": "31/40=.775<.80 remainsFAILED",
+  "evidence": {
+    "exposure_ledger": "/root/lightsem/docs/research/2026-09-22-color-beat/OBSERVER_EXPOSURE_LEDGER.json",
+    "exposure_ledger_sha256": "a862cfad91e3101b02fad7243cbb4bd29b99b08e9b93c2c3eccc7e041b3e565e",
+    "canonical_map_sha256": "5492bfe645d8c4367879b35f11bb38ac64b8450d6f18092c8bd0d30a0ef915fb",
+    "links_scope": "33 ambiguouslinks touch9families; allendpointsTRAIN;4linksbetweenselectedTRAINrecords; no selectedVAL/originalVAL/TEST endpoints. One selectedrecord inheritsflagthrough canonical sibling."
+  }
+}

@@ -1,0 +1,160 @@
+{
+  "schema_version": 1,
+  "campaign_id": "lighting-cue-model-20260922t094347z",
+  "status": "design_frozen_pending_sources_and_storage",
+  "created_utc": "20260922T094347Z",
+  "problem_id": "dancing-light-generative-20260903",
+  "authorization": "2026-09-22 user requests paper reading, vault references/preregistration, GPU experiments covering agreed learned color/beat approaches including multihead and video feature extraction.",
+  "scope": "Offline MUSIC-ONLY lighting side layers. Freeze accepted companion body and all angle/zoom/gobo/strobe bytes. Only requested RGB and selected non-strobe dimmer channels can change. No dancer training or retiming. Proxy results do not establish human preference.",
+  "artifact_root": "/mnt/lightsem-data/experiments/lightsem/lighting-cue-model-20260922t094347z",
+  "source_status": "Restored read-only; exact campaign manifest and implementation hashes must be attached before any dataset evaluation/training. No final test membership asserted.",
+  "data": {
+    "primary": "Existing Stage11 canonical-song identity components and source recordings, verified against current source/audio/video/pose hashes. Preserve historical train/development membership; do not generate a new salt to erase exposure.",
+    "evaluation": "Historically exposed validation/test remain development/replication, not fresh confirmation. No new result access from historical TEST by this campaign until separate review/unlock. New untouched confirmation requires at least40 canonical songs outside exposure ledger; absent means no fresh confirmation claim.",
+    "minimum_development_groups": 30,
+    "minimum_training_groups": 80,
+    "grouping": "Canonical music family before windows/recordings/coaches/augmentations. Quarantine ambiguous duplicates; balance song->recording->coach. RPMC excluded from confirmatory arms unless original35-performance mapping is recovered.",
+    "rhythm": "Independent annotations required. Beat This final/small overlap with GuitarSet/Harmonix; AIO all-fold ensemble overlaps all Harmonix. Exclude known training overlap for unseen-song claim, otherwise explicitly descriptive tracker benchmark only. No detector self-evidence as truth.",
+    "targets": "Common color-only target and separate intensity/accent target; no six-stat joint novelty relabelled as color. Fine audio beat labels separate from10Hz visual targets. Frozen training-only transforms/thresholds/vocabulary. Game background is authored video, not console DMX truth."
+  },
+  "representation": {
+    "student_audio": "40Hz64mel+28current scalars+2provenance-tagged rhythm probabilities (94 dimensions); high-resolution acoustic skip retained; slow encoder at10Hz after4xpooling.",
+    "visual_rich": "96 dimensions: joint12x6HS histogram with achromatic/dark validity, plus4quadrants x6 chromatic/coverage features. Extract from source video with exact timestamps. Do not reconstruct joint/spatial features from saved marginal histograms.",
+    "visual_legacy": "Existing6scene statistics only as training auxiliary comparator; not lighting ground truth.",
+    "pose_aux": "4 validated2D-derived summaries: vertical bounce amplitude, hand spread, quantity of motion, head speed; masks for gaps/cuts/coach tracking. No absolute KE->dimmer or footfall->beat labels.",
+    "palette": "TRAIN-fitted32-entry palette vocabulary; discrete conditional mark distribution with explicit keep/state history and generated previous tokens. No framewise absoluteRGBMSE. Shared vocabulary and cue times for state ablations.",
+    "mask_comparison": "Existing box masks versus learned SAM2 human masks prompted by existing pose boxes. UI mask identical. Stream mask summaries; do not persist full masks. Independent annotated frame subset plus known-background compositing; moving-mask/frozen-background negative control; no self-scoring on extraction-defined truth."
+  },
+  "training_recipes": [
+    {
+      "id": "S_none_P0",
+      "sharing": "shared",
+      "visual_aux": 0,
+      "pose_aux": 0
+    },
+    {
+      "id": "S_V6_P0",
+      "sharing": "shared",
+      "visual_aux": 6,
+      "pose_aux": 0
+    },
+    {
+      "id": "S_V6_P1",
+      "sharing": "shared",
+      "visual_aux": 6,
+      "pose_aux": 4
+    },
+    {
+      "id": "S_VR_P0",
+      "sharing": "shared",
+      "visual_aux": 96,
+      "pose_aux": 0
+    },
+    {
+      "id": "S_VR_P1",
+      "sharing": "shared",
+      "visual_aux": 96,
+      "pose_aux": 4
+    },
+    {
+      "id": "I_VR_P0",
+      "sharing": "independent",
+      "visual_aux": 96,
+      "pose_aux": 0
+    },
+    {
+      "id": "S_VR_Pshuf",
+      "sharing": "shared",
+      "visual_aux": 96,
+      "pose_aux": 4,
+      "pose_assignment": "fixeddifferentcanonicalsong"
+    },
+    {
+      "id": "S_VR_P0_Ashuf",
+      "sharing": "shared",
+      "visual_aux": 96,
+      "pose_aux": 0,
+      "audio_assignment": "fixeddifferentcanonicalsongnonrhythmwithrecipientrhythmheld"
+    },
+    {
+      "id": "S_VR_P0_R1",
+      "sharing": "shared",
+      "visual_aux": 96,
+      "pose_aux": 0,
+      "recurrence": "audio-derivedrepeat-memoryhead;requiresprerunimplementationandlabelqualification"
+    }
+  ],
+  "training": {
+    "seeds": [
+      0,
+      1,
+      2
+    ],
+    "max_fits": 27,
+    "d_model_shared": 128,
+    "slow_blocks": 3,
+    "heads": 4,
+    "slow_attention_window": 160,
+    "conv_kernel": 15,
+    "pool_factor": 4,
+    "independent_match": "Deterministic width search before data access for total active trainable parameters within5%; same receptive field and effective task frames. Report FLOPs/walltime separately, never assert all compute equal.",
+    "crop_seconds": 64,
+    "supervised_center_seconds": 8,
+    "batch": 4,
+    "optimizer": "AdamW",
+    "lr": 0.0003,
+    "weight_decay": 0.01,
+    "warmup_updates": 300,
+    "updates": 6000,
+    "gradient_clip": 1.0,
+    "precision": "BF16 mixed withFP32 loss/metrics",
+    "compile": false,
+    "loss": "Separate calibrated BCE event heads, categorical palette mark crossentropy; TRAIN-standardized auxiliary losses. Exact coefficient/config/source hashes must be registered before fit. No architecture rescue or luckyseed selection after outcomes.",
+    "rollout": "Previous generated palette states and generated cue history at evaluation; reference histories forbidden. Training generated-history/state-dropout procedure must be frozen and tested before fit.",
+    "checkpoint_selection": "Same predeclared scalar taskloss ondevelopment for all arms, fixed check intervals300updates. Report final and selected checkpoints; no test selection.",
+    "confirmation": "Not automatic. Requires unexposed cohort and a separately frozen continuation; three developmentseeds do not become independent confirmatory experiments."
+  },
+  "product_replays": {
+    "factorial": [
+      "existing-versus-learned rhythm/accent timing",
+      "audio-novelty-versus-learned chromatic hazard",
+      "independent-held-versus-stateful palette marks"
+    ],
+    "cells": 8,
+    "extra_anchor": "untouchedacceptedcompanion",
+    "training_reuse": "same frozen prediction tensors, paired randomdraws, fixed accepted movement; not8additionaltrainingfits",
+    "scope": "No input of new rhythm clock tocompose_companion_world; anglebytesremainunchanged."
+  },
+  "statistics": {
+    "unit": "canonical song; recordings/coaches/draws averagedwithin song; pairedtrainingseeds",
+    "bootstrap_replicates": 10000,
+    "confidence": 0.95,
+    "multiplicity": "Holm over primary family contrasts, all estimates/CIs also reported without binary selection",
+    "no_event": "Keep nonevent songs in falsecue-rate/coverage; AP undefined cases explicitlyreported, never silentlydrop all-negative songs",
+    "minimum_eligible_fraction": 0.8,
+    "shift_control": "20fixed nontrivial circularshifts withdurations recorded; no wrappingacrosssongs",
+    "donor_control": "fixeddifferentcanonicalsong, samecontextlength/tempo matching, same noisefields and recipientrhythmicchannels INCLUDINGpulseclarity"
+  },
+  "resource_limits": {
+    "gpu": "oneRTX5070;onecomputejobata time",
+    "gpu_hours_ceiling": 36,
+    "per_fit_wall_minutes_ceiling": 60,
+    "initial_smoke": "12TRAIN-only records + synthetic source/target/gradient/nonangularparity controls; notqualificationscores",
+    "storage": "No creation on read-onlymount. Enforce >=1GiBfree AND <=0.95GiBnew persistent campaign artifacts initially. Reuse source audio/checkpoints; no full masks. Preflight estimatedbytes before eachphase. Exceedingcap blocksphase rather than deletingolddata. Fullvideo delivery needs separately sufficientspace.",
+    "blocked_run": "Missing inputs/labels/rights/runtime/space or budgettimeout is executionblocked, notrefutation; never record fabricatedzero metrics."
+  },
+  "release_gates": [
+    "unchangedbodyandallprotectedDMXbytes",
+    "finiteoutputsandexplicitflash/dimmercaps",
+    "native1920x1080AV1withsourceaudio/full decode",
+    "encodedbrightnessmatchedpairswithin3%",
+    "blindedhumanAVmusic-fitandcolor-fitwithsham/repeatpairs;noautomatedproxydefaultpromotion"
+  ],
+  "not_done": [
+    "NoGPUexperimentstarted",
+    "Noexactverifiednewdatamanifestyet",
+    "Noindependenthumanannotationcohortyet",
+    "Nofreshconfirmationcohortasserted",
+    "Read-writemountpermissionpending"
+  ]
+}

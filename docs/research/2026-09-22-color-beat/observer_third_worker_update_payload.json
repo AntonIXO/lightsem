@@ -1,0 +1,4 @@
+{
+  "id": "dancing-light-generative-20260903",
+  "add_update": "2026-09-22 \u2014 User authorized a third concurrent video worker. Transfer only pending recording ZyE3xcxZHnw from shard0 to shard2; shard0 stops at completed boundary 3M9VrJLQDhU so the transferred clip is not completed twice. Exact execution plan /root/lightsem/docs/research/2026-09-22-color-beat/OBSERVER_PARALLEL_CAPTURE_LAUNCH_V2.json SHA256 bd9e0f8b48a3ff3776fb6d11eaa7d807da57c4c9ce44018aaa4ca41a8a404d49. Observer code/checkpoint/config, global131 inventory, exclusions and all study gates remain unchanged. Existing completed outputs are preserved. This is a scheduling change only; no throughput gain is assumed before measurement."
+}

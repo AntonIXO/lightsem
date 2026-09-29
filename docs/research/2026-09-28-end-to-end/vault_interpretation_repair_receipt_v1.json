@@ -1,0 +1,18 @@
+[
+  {
+    "experiment_id": "the-audio-lighting-event-coupling-is-anticipatory-audio-predicts-an-event-severa-exp-2026-08-07t14-34-32",
+    "verdict": "supports",
+    "failure_mode": null,
+    "lesson": "2026-09-28 retrospective interpretation correction, not a new experiment: native supports must not be read as a usable 4\u20138 s anticipation result on this RPMC-L2 probe. The saved horizon sweep gives marginal lift +0.0031 at 4 s versus permutation null -0.0978 and -0.0056 at 8 s versus null -0.0654, while the short 0.2 s effect is +0.4824 versus null -0.0190; significance against a negative null does not establish useful absolute lead-time benefit. Preserve the measurements and historical closure, but retain only the bounded short-range-coupling interpretation; EDM anticipation and deployment causality are not established.",
+    "transfers_to": [],
+    "hint": null
+  },
+  {
+    "experiment_id": "the-audio-lighting-event-signal-is-carried-by-loudness-energy-if-true-the-indust-exp-2026-08-07t14-34-32",
+    "verdict": "supports",
+    "failure_mode": null,
+    "lesson": "2026-09-28 retrospective interpretation correction, not a new experiment: native supports does not establish the loudness-only ceiling asserted by this hypothesis. In the saved RPMC-L2 feature-family probe, energy lift 1.4704 versus its permutation null 1.4381 has p=.24, while spectral lift 1.7060 versus its null 1.4562 is positive evidence for non-energy information; the common rhythm baseline is 1.3241. Preserve the measurements and historical closure, but do not infer either a proven zero energy contribution or a unique MFCC-versus-spectral mechanism from these correlated-feature comparisons.",
+    "transfers_to": [],
+    "hint": null
+  }
+]

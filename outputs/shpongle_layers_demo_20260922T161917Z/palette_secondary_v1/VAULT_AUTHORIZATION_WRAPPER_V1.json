@@ -1,0 +1,12 @@
+{
+  "experiment_id": "exp-layers-20260922-palette-secondary",
+  "status": "registered",
+  "protocol_sha256": "35ee9ba62d5c04fffb9ce5ddd364f1a82941c7025f9b213800858cca973d11e9",
+  "clarification_sha256": "7d9e5adfd567c9e13c7e7bcec01a1dd1878dacc704d53105ca09bcc36c4911b5",
+  "native_vault_receipt": {
+    "path": "/root/lightsem/outputs/shpongle_layers_demo_20260922T161917Z/palette_secondary_v1/vault_definition_receipt.json",
+    "sha256": "9f663205773a9d5eaff0925800e5d747d4c423e029f834dbd40edf899fee915e"
+  },
+  "execution_authorized_by_this_file": false,
+  "note": "Wraps actual prospective vault definition receipt; real phase requires separate parent authorized registration binding tested driver and inputs."
+}

@@ -1,0 +1,33 @@
+{
+  "status": "passed",
+  "synthetic_only": true,
+  "real_data_access": false,
+  "gpu_used": false,
+  "tests_passed": 43,
+  "tests_failed": 0,
+  "wrapper_sha256": "b008682e47aeb3471f0570b898fad20068f7f246e9c4396ebaed1560801aa6a7",
+  "tests_sha256": "f4a66b09e0638b910d00eeeeb33f62e9198e621ae64d590987ae1068f381f2d4",
+  "protocol_sha256": "622cbfe13690bbd3a678eb0f9d14e58db98c71377c6c0a8617bc6743576d4b35",
+  "amendment_sha256": "9e329c257e894df4e0bdbbe8506e1a4566a16468f10a4c5d0f5c016dfb0a840b",
+  "base_driver_sha256": "95d0f59160439ee153ef532235c25320870f113eda7a4d930438811d12ce5dbb",
+  "command": "PYTHONDONTWRITEBYTECODE=1 CUDA_VISIBLE_DEVICES= TORCH_ENV=/root/lightsem/.venv/torch-access bash run_torch.sh -m pytest -q -p no:cacheprovider /root/lightsem/outputs/shpongle_layers_demo_20260922T161917Z/palette_secondary_v1/test_palette_history_continuation_v1.py --junitxml=/root/lightsem/outputs/shpongle_layers_demo_20260922T161917Z/palette_secondary_v1/continuation_synthetic_final.xml > /root/lightsem/outputs/shpongle_layers_demo_20260922T161917Z/palette_secondary_v1/continuation_synthetic_final.log 2>&1",
+  "exit_code": 0,
+  "duration_s": 1.0531833589775488,
+  "test_log": {
+    "path": "/root/lightsem/outputs/shpongle_layers_demo_20260922T161917Z/palette_secondary_v1/continuation_synthetic_final.log",
+    "sha256": "46608d6eae5c7f69c076ee037d3cecf2b9675a4359efd8e63579c6b97fed2c1c"
+  },
+  "junit": {
+    "path": "/root/lightsem/outputs/shpongle_layers_demo_20260922T161917Z/palette_secondary_v1/continuation_synthetic_final.xml",
+    "sha256": "974082efcb126189aebacd6496d3df52d418bd36bf3a9c9651ed8840cf9b717c"
+  },
+  "scope": "Synthetic CPU replay-guard, proof-head, array dtype/noise/held-state, disjoint186 lineage, native-vault-success, authorization-before-data and execution-deviation checks. No real model/data inference, palette rollouts or outcome scoring.",
+  "execution_deviation_artifact": {
+    "path": "/root/lightsem/outputs/shpongle_layers_demo_20260922T161917Z/palette_secondary_v1/VAULT_LOGGING_DEVIATION_V1.json",
+    "sha256": "df755a9bc9746e74f4270721f36df197dad1142793af70bf68346be241c56205"
+  },
+  "supersedes": {
+    "path": "/root/lightsem/outputs/shpongle_layers_demo_20260922T161917Z/palette_secondary_v1/PALETTE_CONTINUATION_CPU_RECEIPT_V1.json",
+    "sha256": "75ede522761c424dbb96f71db190d30f5a17e4fdffea2531d9b67379cb1205fa"
+  }
+}

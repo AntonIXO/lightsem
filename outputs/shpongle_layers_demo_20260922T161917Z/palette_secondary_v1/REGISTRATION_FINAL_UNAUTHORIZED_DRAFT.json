@@ -1,0 +1,82 @@
+{
+  "protocol_id": "palette-history-observer-secondary-20260922-v1",
+  "authorized": false,
+  "registered_before_palette_results": true,
+  "authorized_phases": [],
+  "vault_experiment_id": "exp-layers-20260922-palette-secondary",
+  "vault_receipt": {
+    "path": "/root/lightsem/outputs/shpongle_layers_demo_20260922T161917Z/palette_secondary_v1/VAULT_AUTHORIZATION_WRAPPER_V1.json",
+    "sha256": "d771ad87943a3c0c20d93284eafb1fa322a256126c788f6306324df00335b06b"
+  },
+  "protocol": {
+    "path": "/root/lightsem/outputs/shpongle_layers_demo_20260922T161917Z/palette_secondary_v1/PALETTE_SECONDARY_PROTOCOL_V1.json",
+    "sha256": "35ee9ba62d5c04fffb9ce5ddd364f1a82941c7025f9b213800858cca973d11e9"
+  },
+  "clarification": {
+    "path": "/root/lightsem/outputs/shpongle_layers_demo_20260922T161917Z/palette_secondary_v1/PALETTE_SECONDARY_CLARIFICATION_V1.json",
+    "sha256": "7d9e5adfd567c9e13c7e7bcec01a1dd1878dacc704d53105ca09bcc36c4911b5"
+  },
+  "driver": {
+    "path": "/root/lightsem/outputs/shpongle_layers_demo_20260922T161917Z/palette_secondary_v1/run_palette_history_secondary_v1.py",
+    "sha256": "95d0f59160439ee153ef532235c25320870f113eda7a4d930438811d12ce5dbb"
+  },
+  "cpu_test_receipt": {
+    "path": "/root/lightsem/outputs/shpongle_layers_demo_20260922T161917Z/palette_secondary_v1/PALETTE_SECONDARY_CPU_RECEIPT_V1.json",
+    "sha256": "bf25e7c7736c04639c20ee0e29c5eb90568bce260b98c45aff3c7b896d490480"
+  },
+  "frozen_sources": {
+    "/root/lightsem/lightsem/experiments/light_layers/evaluation.py": "401825add5d89f9920e2c946e36b2cdf85e07f625ab3230c5a3844655fcca004",
+    "/root/lightsem/lightsem/experiments/light_layers/palette_metrics.py": "80b1301d8ece0c75d8d5b0521c5b9299581dc8ec80eddfbeccade11f10939d07",
+    "/root/lightsem/lightsem/experiments/light_layers/metrics.py": "2df0707522bf2be0289164deeaf1cd4e8fdfe8f2bc20838ac0e331cceaaf77c3",
+    "/root/lightsem/lightsem/experiments/light_layers/model.py": "aa1d63f0cbf5cf270c3c7d676edf3eaf3debeb394220123493a400aa60835529",
+    "/root/lightsem/lightsem/experiments/light_layers/training.py": "31e58e8c7a10cd80f0d3b5be0e87796e35548f2c2d03705856a0cafa1811802b",
+    "/root/lightsem/lightsem/experiments/light_layers/targets.py": "4f1e980ed9f62e2ae2a6d53e426cd44c0ed2381835bf4b1382a7fba1e566d6d1",
+    "/root/lightsem/lightsem/model/light_trunk.py": "b515dcb960259f39f21a8d565b621364aafe0a87d3a6028f5a476659f662cf84"
+  },
+  "event_registration": {
+    "path": "/mnt/lightsem-data/experiments/lightsem/lighting-cue-model-20260922t094347z/observer_evaluation_binding_checkpoints_v1.json",
+    "sha256": "2334e2c9a8bafc1e5a7a0c0e42184c96d66113d3bfecc3e3b8288c03335aab53"
+  },
+  "manifest": {
+    "path": "/mnt/lightsem-data/experiments/lightsem/lighting-cue-model-20260922t094347z/observer_training_manifest_v1.json",
+    "sha256": "705ce8ec50ea1f9b7a8d7bb62e1aceee9a82e2eba541892ca02bc76a3254bb10"
+  },
+  "transforms": {
+    "path": "/mnt/lightsem-data/experiments/lightsem/lighting-cue-model-20260922t094347z/observer_train_transforms_v1.json",
+    "sha256": "a4672acf0ff0b95fa3fad2b8a1f481810029f8bde4b30e10bfccfacc94740b39"
+  },
+  "baselines": {
+    "path": "/mnt/lightsem-data/experiments/lightsem/lighting-cue-model-20260922t094347z/observer_train_baselines_v1.json",
+    "sha256": "8eaf806947d87cff0011cbb03f538613b8d13e2c114f15d58a9ec2892b0eea4b"
+  },
+  "event_predictions": [
+    {
+      "path": "/mnt/lightsem-data/experiments/lightsem/lighting-cue-model-20260922t094347z/observer_parallel_predictions_v1/selected/02_seed0_S_VR_P0_selected/complete.json",
+      "sha256": "f2ac61d5561dca3c2f30be70ee3bed090ab5749df9b0902c52ccc508a1cd45de"
+    },
+    {
+      "path": "/mnt/lightsem-data/experiments/lightsem/lighting-cue-model-20260922t094347z/observer_parallel_predictions_v1/selected/07_seed1_S_VR_P0_selected/complete.json",
+      "sha256": "082c00af91e1fe35a2b9e0b326a593439ef514ca1eb5ed4c69c14a4a95d9b6b8"
+    },
+    {
+      "path": "/mnt/lightsem-data/experiments/lightsem/lighting-cue-model-20260922t094347z/observer_parallel_predictions_v1/selected/12_seed2_S_VR_P0_selected/complete.json",
+      "sha256": "97393b58600bf4583869b127580cd507e01c2798c6dbedce5a12111e2cb558ee"
+    },
+    {
+      "path": "/mnt/lightsem-data/experiments/lightsem/lighting-cue-model-20260922t094347z/observer_parallel_predictions_v1/final/02_seed0_S_VR_P0_final/complete.json",
+      "sha256": "2ded22b7090b40286e7232f935f8f1d943555c2559befaafc2ffa0dde0e0ab10"
+    },
+    {
+      "path": "/mnt/lightsem-data/experiments/lightsem/lighting-cue-model-20260922t094347z/observer_parallel_predictions_v1/final/07_seed1_S_VR_P0_final/complete.json",
+      "sha256": "a6e8ed6db528e3f9e6cb1819b99b44ca571e13f164b09ce3ec79e0ebab936eb4"
+    },
+    {
+      "path": "/mnt/lightsem-data/experiments/lightsem/lighting-cue-model-20260922t094347z/observer_parallel_predictions_v1/final/12_seed2_S_VR_P0_final/complete.json",
+      "sha256": "5a7839f78773154ffa7563df1470144a9dd4d38185023625b148b58c8c4e3b1b"
+    }
+  ],
+  "tests": {
+    "path": "/root/lightsem/outputs/shpongle_layers_demo_20260922T161917Z/palette_secondary_v1/test_palette_history_secondary_v1.py",
+    "sha256": "aa4f414aacafbbf307404ee1112203f0da0aabdeb3e68b47a004272054de53ad"
+  }
+}

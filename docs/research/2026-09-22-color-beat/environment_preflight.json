@@ -1,0 +1,16 @@
+{
+  "campaign_id": "lighting-cue-model-20260922t094347z",
+  "timestamp": "20260922T094347Z",
+  "data_root": "/mnt/lightsem-data",
+  "data_root_exists": false,
+  "torch_runner_before": {
+    "executable": "/usr/bin/python",
+    "version": "3.14.7",
+    "torch_available": false
+  },
+  "guard_exit_code": 1,
+  "guard_output": "LightSem Torch environment is unavailable: /mnt/lightsem-data/venv-torch\nRestore the data mount or set TORCH_ENV to a dedicated LightSem environment.\n",
+  "gpu": "NVIDIA GeForce RTX 5070",
+  "experiments_started": false,
+  "status": "blocked_missing_data_mount"
+}

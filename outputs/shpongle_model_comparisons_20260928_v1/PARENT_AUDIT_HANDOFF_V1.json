@@ -1,0 +1,103 @@
+{
+  "status": "IMPLEMENTED_ONLY_NOT_IMPORTED_COMPILED_TESTED_OR_EXECUTED",
+  "auditor": {
+    "path": "/root/lightsem/outputs/shpongle_model_comparisons_20260928_v1/parent_audit_v1.py",
+    "sha256": "b166ba5d9f75451bb8fb7a24e3cfbf6f5c2d0795c67d44702ad5304314ea3672",
+    "bytes": 17122
+  },
+  "tests": {
+    "path": "/root/lightsem/outputs/shpongle_model_comparisons_20260928_v1/test_parent_audit_v1.py",
+    "sha256": "deac54a0f5caba16d6e32a6df7d14830a3ebc2449ead46fe730f43891f519805",
+    "bytes": 15722
+  },
+  "policy": {
+    "path": "/root/lightsem/outputs/shpongle_model_comparisons_20260928_v1/PARENT_AUDIT_POLICY_V1.json",
+    "sha256": "806f6d068f22aa26f01bac5c9adea9ceda796c3e2354e3008b3f380e3332b77a",
+    "bytes": 2344
+  },
+  "parent_postflight_policy": {
+    "path": "/root/lightsem/docs/research/2026-09-28-end-to-end/COMPARISON_POSTFLIGHT_POLICY_V1.json",
+    "sha256": "00f6fa55758c43dc79545d0e6ea33d1d82a28b8f087522efc27606b09973f8ee",
+    "bytes": 1570
+  },
+  "native_synthetic_test_methods": 15,
+  "commands_not_executed": {
+    "tests": "bash run.sh -m unittest discover -s /root/lightsem/outputs/shpongle_model_comparisons_20260928_v1 -p test_parent_audit_v1.py -v > /root/lightsem/outputs/shpongle_model_comparisons_20260928_v1/native_parent_audit_tests_v1.log 2>&1",
+    "audit": "bash run.sh /root/lightsem/outputs/shpongle_model_comparisons_20260928_v1/parent_audit_v1.py audit --policy /root/lightsem/outputs/shpongle_model_comparisons_20260928_v1/PARENT_AUDIT_POLICY_V1.json --authorization <PARENT_AUDITOR_AUTHORIZATION_JSON>"
+  },
+  "environment": "Use native bash run.sh from /root/lightsem. Parent may set CUDA_VISIBLE_DEVICES empty and PYTHONDONTWRITEBYTECODE=1 externally before the exact bound command. No torch/model imports occur.",
+  "authorization_schema": {
+    "status": "authorized_readback_audit",
+    "policy": {
+      "path": "/root/lightsem/outputs/shpongle_model_comparisons_20260928_v1/PARENT_AUDIT_POLICY_V1.json",
+      "sha256": "806f6d068f22aa26f01bac5c9adea9ceda796c3e2354e3008b3f380e3332b77a",
+      "bytes": 2344
+    },
+    "plan": {
+      "path": "/root/lightsem/outputs/shpongle_model_comparisons_20260928_v1/COMPARISON_PLAN_V2.json",
+      "sha256": "0e9286f7428346a2ff01d2f5cd45b75fd39ac1b564d663bb209a2e48f17cffd4",
+      "bytes": 25491
+    },
+    "delivery_authorization": {
+      "path": "absolute path of SAME V2 delivery authorization used by inference",
+      "sha256": "actual SHA256",
+      "bytes": "actual bytes; this complete reference must exactly equal V2 stored authorization refs"
+    },
+    "auditor_native_test_receipt": {
+      "path": "absolute parent-created successful new 15-test native receipt",
+      "sha256": "actual SHA256",
+      "bytes": "actual bytes"
+    },
+    "auditor_native_test_log": {
+      "path": "/root/lightsem/outputs/shpongle_model_comparisons_20260928_v1/native_parent_audit_tests_v1.log",
+      "sha256": "actual completed log SHA256",
+      "bytes": "actual completed log bytes"
+    },
+    "output": "/root/lightsem/outputs/shpongle_model_comparisons_20260928_v1/PARENT_AUDIT_READBACK_V1.json"
+  },
+  "auditor_native_receipt_schema": {
+    "status": "passed",
+    "exit_code": 0,
+    "tests_run": 15,
+    "tests_passed": 15,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "real_model_forward_calls": 0,
+    "real_checkpoint_loads": 0,
+    "sealed_TEST_reads": 0,
+    "plan_sha256": "0e9286f7428346a2ff01d2f5cd45b75fd39ac1b564d663bb209a2e48f17cffd4",
+    "source_files": {
+      "/root/lightsem/outputs/shpongle_model_comparisons_20260928_v1/parent_audit_v1.py": "b166ba5d9f75451bb8fb7a24e3cfbf6f5c2d0795c67d44702ad5304314ea3672",
+      "/root/lightsem/run.sh": "232ca5a566ae3b22f0677b6b5879c6901abf9decb16dc66967a4895174289556"
+    },
+    "test_sources": {
+      "/root/lightsem/outputs/shpongle_model_comparisons_20260928_v1/test_parent_audit_v1.py": "deac54a0f5caba16d6e32a6df7d14830a3ebc2449ead46fe730f43891f519805"
+    },
+    "command": "bash run.sh -m unittest discover -s /root/lightsem/outputs/shpongle_model_comparisons_20260928_v1 -p test_parent_audit_v1.py -v > /root/lightsem/outputs/shpongle_model_comparisons_20260928_v1/native_parent_audit_tests_v1.log 2>&1",
+    "log": "EXACT same path/sha256/bytes object as authorization.auditor_native_test_log"
+  },
+  "V2_native_receipt_policy": "Require22 tests_run/tests_passed, zero failures/errors/skipped/exit/model_forwards/checkpoint_loads/TESTreads, matching bound command/plan/source/test/log, actual log contains exactly22 explicit ok lines, one Ran22 summary and finalOK.",
+  "scope": {
+    "changes_generation_or_cues": false,
+    "palette_argmax_tolerance": false,
+    "sigmoid_bit_exact_claim": false,
+    "fixed_probability_atol": 9.5367431640625e-07,
+    "fixed_before_real_outputs": true,
+    "maps_recomputed_by_auditor": false,
+    "mapping_evidence": "Authenticate existing V2 proof, link its full/protected array fingerprints to bound baseline and canonical saved overlay; do not falsely call this a second independent mapper.",
+    "models_or_checkpoint_deserialization": false,
+    "audit_only_checkpoint_byte_hashes": true,
+    "audit_only_array_reads": "Canonical model event logits/scores plus accepted baseline and saved overlay/mask. Synthetic tests use only temporary synthetic files.",
+    "writes": "Exclusive root-side PARENT_AUDIT_READBACK_V1.json after all four pass; partial left on publication interruption, never overwrite/resume.",
+    "output_semantics": "INFERENCE_MAPPING_READBACK_ONLY; videos_completed=false; media_audits_completed=false"
+  },
+  "static_self_review": "Source reviewed as text only; no parser/compile/import/test execution. New sources need parent review and native tests before audit/inference. V1/V2 driver/test/plan sources preserved.",
+  "remaining_parent_gates": [
+    "Native source/test/vault binding before new tests",
+    "Accept actual15pass native receipt before real inference",
+    "Keep V2 exact source/plan/test bindings unchanged",
+    "Preserve original campaign tree and aggregate scientific/media caps",
+    "Four renders+media audits and final delivery receipt remain separate"
+  ]
+}

@@ -1,0 +1,10 @@
+{
+  "date": "2026-09-22T14:34:22.543250+00:00",
+  "user_request": "What's the state of experiments. Try to utilize GPU near to 100%",
+  "training": "Keep frozen15-fit sequential queue, all batch4/6000-step recipes, seeds, source hashes and completed outputs unchanged. No concurrent GPU evaluations until training ends.",
+  "cpu_trial": "Runtime-only reversible affinity on active already-initialized training main thread to CPU0-5; no parent affinity or thread-count change. Compare update times. No quality/calibration claim.",
+  "prediction_scheduling": "After all15 fits and GPU process exit, permit up to3 independent frozen prediction CLI processes; preserve exact30 selected/final checkpoint inventory, FP32, source/target/donor/baseline bindings and separate15-cell score indices.",
+  "integrity": "Scheduling change only; no new fit, batch-size change, precision change, mathematical method change, early outcome scoring, model selection, source replacement, or artifact deletion.",
+  "storage": "Parent-global sum of outstanding prediction reservations; per-child safeguards retained. Campaign cap0.95GiB and free floor1GiB unchanged.",
+  "goal": "Improve useful completed predictions per second;100% utilization is a target, not a promised result or reason for busywork."
+}

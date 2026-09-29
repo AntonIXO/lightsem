@@ -1,0 +1,159 @@
+test_ambiguous_notes_and_interpretation_boundaries_rejected (test_restore_notes.NotesRecoveryTests.test_ambiguous_notes_and_interpretation_boundaries_rejected) ... ERROR
+test_changed_metadata_and_interpretation_are_rejected (test_restore_notes.NotesRecoveryTests.test_changed_metadata_and_interpretation_are_rejected) ... ERROR
+test_exact_recovery_of_both_real_document_copies (test_restore_notes.NotesRecoveryTests.test_exact_recovery_of_both_real_document_copies) ... ERROR
+test_failed_replace_preserves_live_and_temporary_bytes (test_restore_notes.NotesRecoveryTests.test_failed_replace_preserves_live_and_temporary_bytes) ... ERROR
+test_late_target_drift_is_not_overwritten (test_restore_notes.NotesRecoveryTests.test_late_target_drift_is_not_overwritten) ... ERROR
+test_mcp_protocol_only_exposes_recovery_tool (test_restore_notes.NotesRecoveryTests.test_mcp_protocol_only_exposes_recovery_tool) ... ERROR
+test_production_dispatch_rejects_nonexact_arguments_without_io (test_restore_notes.NotesRecoveryTests.test_production_dispatch_rejects_nonexact_arguments_without_io) ... ERROR
+test_repeated_recovery_is_no_write_including_mtime (test_restore_notes.NotesRecoveryTests.test_repeated_recovery_is_no_write_including_mtime) ... ERROR
+test_second_target_drift_prevents_first_write (test_restore_notes.NotesRecoveryTests.test_second_target_drift_prevents_first_write) ... ERROR
+test_snapshot_disagreement_and_footer_change_rejected (test_restore_notes.NotesRecoveryTests.test_snapshot_disagreement_and_footer_change_rejected) ... ERROR
+test_symlinks_and_hardlinks_rejected (test_restore_notes.NotesRecoveryTests.test_symlinks_and_hardlinks_rejected) ... ERROR
+
+======================================================================
+ERROR: test_ambiguous_notes_and_interpretation_boundaries_rejected (test_restore_notes.NotesRecoveryTests.test_ambiguous_notes_and_interpretation_boundaries_rejected)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/root/lightsem/docs/research/2026-09-28-end-to-end/interpretation_debt_20260928_v1/repair_v1/test_restore_notes.py", line 25, in setUp
+    inserted = r.validate_insertion(damaged, candidate, self.snapshot['target_records'][eid]['body'])
+  File "/root/lightsem/docs/research/2026-09-28-end-to-end/interpretation_debt_20260928_v1/repair_v1/restore_notes_mcp.py", line 91, in validate_insertion
+    require(a <= old_footer.start(), 'insertion after footer')
+    ~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/lightsem/docs/research/2026-09-28-end-to-end/interpretation_debt_20260928_v1/repair_v1/restore_notes_mcp.py", line 25, in require
+    raise ValueError(message)
+ValueError: insertion after footer
+
+======================================================================
+ERROR: test_changed_metadata_and_interpretation_are_rejected (test_restore_notes.NotesRecoveryTests.test_changed_metadata_and_interpretation_are_rejected)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/root/lightsem/docs/research/2026-09-28-end-to-end/interpretation_debt_20260928_v1/repair_v1/test_restore_notes.py", line 25, in setUp
+    inserted = r.validate_insertion(damaged, candidate, self.snapshot['target_records'][eid]['body'])
+  File "/root/lightsem/docs/research/2026-09-28-end-to-end/interpretation_debt_20260928_v1/repair_v1/restore_notes_mcp.py", line 91, in validate_insertion
+    require(a <= old_footer.start(), 'insertion after footer')
+    ~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/lightsem/docs/research/2026-09-28-end-to-end/interpretation_debt_20260928_v1/repair_v1/restore_notes_mcp.py", line 25, in require
+    raise ValueError(message)
+ValueError: insertion after footer
+
+======================================================================
+ERROR: test_exact_recovery_of_both_real_document_copies (test_restore_notes.NotesRecoveryTests.test_exact_recovery_of_both_real_document_copies)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/root/lightsem/docs/research/2026-09-28-end-to-end/interpretation_debt_20260928_v1/repair_v1/test_restore_notes.py", line 25, in setUp
+    inserted = r.validate_insertion(damaged, candidate, self.snapshot['target_records'][eid]['body'])
+  File "/root/lightsem/docs/research/2026-09-28-end-to-end/interpretation_debt_20260928_v1/repair_v1/restore_notes_mcp.py", line 91, in validate_insertion
+    require(a <= old_footer.start(), 'insertion after footer')
+    ~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/lightsem/docs/research/2026-09-28-end-to-end/interpretation_debt_20260928_v1/repair_v1/restore_notes_mcp.py", line 25, in require
+    raise ValueError(message)
+ValueError: insertion after footer
+
+======================================================================
+ERROR: test_failed_replace_preserves_live_and_temporary_bytes (test_restore_notes.NotesRecoveryTests.test_failed_replace_preserves_live_and_temporary_bytes)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/root/lightsem/docs/research/2026-09-28-end-to-end/interpretation_debt_20260928_v1/repair_v1/test_restore_notes.py", line 25, in setUp
+    inserted = r.validate_insertion(damaged, candidate, self.snapshot['target_records'][eid]['body'])
+  File "/root/lightsem/docs/research/2026-09-28-end-to-end/interpretation_debt_20260928_v1/repair_v1/restore_notes_mcp.py", line 91, in validate_insertion
+    require(a <= old_footer.start(), 'insertion after footer')
+    ~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/lightsem/docs/research/2026-09-28-end-to-end/interpretation_debt_20260928_v1/repair_v1/restore_notes_mcp.py", line 25, in require
+    raise ValueError(message)
+ValueError: insertion after footer
+
+======================================================================
+ERROR: test_late_target_drift_is_not_overwritten (test_restore_notes.NotesRecoveryTests.test_late_target_drift_is_not_overwritten)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/root/lightsem/docs/research/2026-09-28-end-to-end/interpretation_debt_20260928_v1/repair_v1/test_restore_notes.py", line 25, in setUp
+    inserted = r.validate_insertion(damaged, candidate, self.snapshot['target_records'][eid]['body'])
+  File "/root/lightsem/docs/research/2026-09-28-end-to-end/interpretation_debt_20260928_v1/repair_v1/restore_notes_mcp.py", line 91, in validate_insertion
+    require(a <= old_footer.start(), 'insertion after footer')
+    ~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/lightsem/docs/research/2026-09-28-end-to-end/interpretation_debt_20260928_v1/repair_v1/restore_notes_mcp.py", line 25, in require
+    raise ValueError(message)
+ValueError: insertion after footer
+
+======================================================================
+ERROR: test_mcp_protocol_only_exposes_recovery_tool (test_restore_notes.NotesRecoveryTests.test_mcp_protocol_only_exposes_recovery_tool)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/root/lightsem/docs/research/2026-09-28-end-to-end/interpretation_debt_20260928_v1/repair_v1/test_restore_notes.py", line 25, in setUp
+    inserted = r.validate_insertion(damaged, candidate, self.snapshot['target_records'][eid]['body'])
+  File "/root/lightsem/docs/research/2026-09-28-end-to-end/interpretation_debt_20260928_v1/repair_v1/restore_notes_mcp.py", line 91, in validate_insertion
+    require(a <= old_footer.start(), 'insertion after footer')
+    ~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/lightsem/docs/research/2026-09-28-end-to-end/interpretation_debt_20260928_v1/repair_v1/restore_notes_mcp.py", line 25, in require
+    raise ValueError(message)
+ValueError: insertion after footer
+
+======================================================================
+ERROR: test_production_dispatch_rejects_nonexact_arguments_without_io (test_restore_notes.NotesRecoveryTests.test_production_dispatch_rejects_nonexact_arguments_without_io)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/root/lightsem/docs/research/2026-09-28-end-to-end/interpretation_debt_20260928_v1/repair_v1/test_restore_notes.py", line 25, in setUp
+    inserted = r.validate_insertion(damaged, candidate, self.snapshot['target_records'][eid]['body'])
+  File "/root/lightsem/docs/research/2026-09-28-end-to-end/interpretation_debt_20260928_v1/repair_v1/restore_notes_mcp.py", line 91, in validate_insertion
+    require(a <= old_footer.start(), 'insertion after footer')
+    ~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/lightsem/docs/research/2026-09-28-end-to-end/interpretation_debt_20260928_v1/repair_v1/restore_notes_mcp.py", line 25, in require
+    raise ValueError(message)
+ValueError: insertion after footer
+
+======================================================================
+ERROR: test_repeated_recovery_is_no_write_including_mtime (test_restore_notes.NotesRecoveryTests.test_repeated_recovery_is_no_write_including_mtime)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/root/lightsem/docs/research/2026-09-28-end-to-end/interpretation_debt_20260928_v1/repair_v1/test_restore_notes.py", line 25, in setUp
+    inserted = r.validate_insertion(damaged, candidate, self.snapshot['target_records'][eid]['body'])
+  File "/root/lightsem/docs/research/2026-09-28-end-to-end/interpretation_debt_20260928_v1/repair_v1/restore_notes_mcp.py", line 91, in validate_insertion
+    require(a <= old_footer.start(), 'insertion after footer')
+    ~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/lightsem/docs/research/2026-09-28-end-to-end/interpretation_debt_20260928_v1/repair_v1/restore_notes_mcp.py", line 25, in require
+    raise ValueError(message)
+ValueError: insertion after footer
+
+======================================================================
+ERROR: test_second_target_drift_prevents_first_write (test_restore_notes.NotesRecoveryTests.test_second_target_drift_prevents_first_write)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/root/lightsem/docs/research/2026-09-28-end-to-end/interpretation_debt_20260928_v1/repair_v1/test_restore_notes.py", line 25, in setUp
+    inserted = r.validate_insertion(damaged, candidate, self.snapshot['target_records'][eid]['body'])
+  File "/root/lightsem/docs/research/2026-09-28-end-to-end/interpretation_debt_20260928_v1/repair_v1/restore_notes_mcp.py", line 91, in validate_insertion
+    require(a <= old_footer.start(), 'insertion after footer')
+    ~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/lightsem/docs/research/2026-09-28-end-to-end/interpretation_debt_20260928_v1/repair_v1/restore_notes_mcp.py", line 25, in require
+    raise ValueError(message)
+ValueError: insertion after footer
+
+======================================================================
+ERROR: test_snapshot_disagreement_and_footer_change_rejected (test_restore_notes.NotesRecoveryTests.test_snapshot_disagreement_and_footer_change_rejected)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/root/lightsem/docs/research/2026-09-28-end-to-end/interpretation_debt_20260928_v1/repair_v1/test_restore_notes.py", line 25, in setUp
+    inserted = r.validate_insertion(damaged, candidate, self.snapshot['target_records'][eid]['body'])
+  File "/root/lightsem/docs/research/2026-09-28-end-to-end/interpretation_debt_20260928_v1/repair_v1/restore_notes_mcp.py", line 91, in validate_insertion
+    require(a <= old_footer.start(), 'insertion after footer')
+    ~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/lightsem/docs/research/2026-09-28-end-to-end/interpretation_debt_20260928_v1/repair_v1/restore_notes_mcp.py", line 25, in require
+    raise ValueError(message)
+ValueError: insertion after footer
+
+======================================================================
+ERROR: test_symlinks_and_hardlinks_rejected (test_restore_notes.NotesRecoveryTests.test_symlinks_and_hardlinks_rejected)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/root/lightsem/docs/research/2026-09-28-end-to-end/interpretation_debt_20260928_v1/repair_v1/test_restore_notes.py", line 25, in setUp
+    inserted = r.validate_insertion(damaged, candidate, self.snapshot['target_records'][eid]['body'])
+  File "/root/lightsem/docs/research/2026-09-28-end-to-end/interpretation_debt_20260928_v1/repair_v1/restore_notes_mcp.py", line 91, in validate_insertion
+    require(a <= old_footer.start(), 'insertion after footer')
+    ~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/lightsem/docs/research/2026-09-28-end-to-end/interpretation_debt_20260928_v1/repair_v1/restore_notes_mcp.py", line 25, in require
+    raise ValueError(message)
+ValueError: insertion after footer
+
+----------------------------------------------------------------------
+Ran 11 tests in 1.018s
+
+FAILED (errors=11)

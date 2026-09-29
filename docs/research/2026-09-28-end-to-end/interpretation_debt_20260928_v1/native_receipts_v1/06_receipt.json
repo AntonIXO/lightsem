@@ -1,0 +1,8 @@
+{
+  "experiment_id": "exp-017-authored-hobby-game-light-shows-e4a4d0",
+  "verdict": "directional_only",
+  "failure_mode": "recipe_conditional",
+  "lesson": "[2026-09-28 retrospective interpretation; no new experiment] For the audited Beat Saber conversion and ridge recipe, causal event AP was 0.170 versus shifted-target null 0.131 and beat-trigger scene novelty 0.150, missing both frozen margin gates (+0.039 versus required +0.15; +0.020 versus required +0.05); the reported offline arm still missed the shift margin. The hazard-conditioned neural head improved over its rhythm baseline, but the audio-only head did not show a positive margin, so that partial result does not replace the failed preregistered corpus-eligibility comparisons. xLights was not audited because access was blocked, and the tested Beat Saber component's Stage 9 loss exclusion neither refutes xLights or all authored-light corpora nor establishes human or physical LIGHT qualification.",
+  "transfers_to": [],
+  "hint": "recipe_conditional: when the recipe changes, reopen_hypothesis('authored-hobby-game-light-shows-are-lighting-202cb0', reason=...) makes the negative re-testable instead of terminal"
+}

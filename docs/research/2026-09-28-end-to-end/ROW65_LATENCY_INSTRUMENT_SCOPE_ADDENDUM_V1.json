@@ -1,0 +1,111 @@
+{
+  "schema_version": 1,
+  "created_at_utc": "2026-09-28T22:12:37.400209+00:00",
+  "status": "original_software_latency_qualification_unestablished_not_a_measured_failure",
+  "goal_status": "active",
+  "number": 65,
+  "hypothesis_id": "the-deployed-path-meets-its-latency-budget-and-b0aff5",
+  "experiment_id": "exp-006-the-deployed-path-meets-its-eb0fc6",
+  "conclusion": "The earlier repair limits future-audio causality and real-fixture evidence but does not disclose incomplete software latency accounting or unsupported aggregate-p99 composition. This is a second missing original row65 instrument/qualification, not a new target or a new study authorization. Preserve all numbers and formal labels; no latency overrun has been measured.",
+  "original_boundary": {
+    "statement": "The deployed path meets its latency budget and is causal by construction: transients under20ms,the learned path under65ms audio-in to DMX-out,and no dependence on future audio.",
+    "gate_id": "G-lat-learned",
+    "gate": "learned path p99 <=65ms",
+    "plan_quote": "Time each stage over many blocks on the RTX 5070 and report p50/p99: analysis hop, model forward with a fully primed streaming context, conductor, DMX packing.",
+    "nuance": "The Plan permits stagewise timing; a single monolithic end-to-end timer is not a new mandatory gate. But full-path qualification needs complete critical-path work coverage and a defensible tail/overlap composition. It cannot be established by omitted work plus model p99 and other terms’ medians."
+  },
+  "prior_repair_limit": {
+    "quote": "Retain the historical software timing result and zero leakage under model-input perturbation.",
+    "what_was_already_disclosed": "Conditional model-input causality, unestablished future-audio independence, unmeasured real-fixture latency and historical version uncertainty.",
+    "what_was_not_disclosed": "C sampling, feature computation and descriptor processing outside the measured forward; amortized/synthetic conductor percentile summaries; partial calculated budget misread as complete software-path p99."
+  },
+  "candidate_source_identity": {
+    "commit": "1656ffde47a26bbd9655b5ceef8ddaebd80e4895",
+    "source_objects": [
+      {
+        "path": "run_stage4.py",
+        "candidate_commit": "1656ffde47a26bbd9655b5ceef8ddaebd80e4895",
+        "git_blob_oid": "20ee2f4b3007601d702952d5cd68905846aebcff",
+        "sha256_of_read_source_text": "51113120e28d285d5ae5b7e761a5747465a5902506d6cb0f49380aa54039c86a",
+        "identity_limit": "Saved source snapshot, not authenticated executed source."
+      },
+      {
+        "path": "lightsem/model/light_trunk.py",
+        "candidate_commit": "1656ffde47a26bbd9655b5ceef8ddaebd80e4895",
+        "git_blob_oid": "e425117774fd8921baa8ec6b38124ee4dda2ddeb",
+        "sha256_of_read_source_text": "3f334a16520772ee4f7692bb05a45b15c8b8cf0fffe2bb57add37be9f8180845",
+        "identity_limit": "Saved source snapshot, not authenticated executed source."
+      },
+      {
+        "path": "lightsem/model/infer.py",
+        "candidate_commit": "1656ffde47a26bbd9655b5ceef8ddaebd80e4895",
+        "git_blob_oid": "72546ea3628b4504e3f92532b7bf27581f1ab107",
+        "sha256_of_read_source_text": "e1e6a227ed19b7389ae9d619e40772c654f1800bf434ea79c4c4df3e45589d6f",
+        "identity_limit": "Saved source snapshot, not authenticated executed source."
+      }
+    ],
+    "execution_pinned": false,
+    "constraint": "Earliest located snapshot was committed after native registration. Its source exclusions are definite for that candidate,not proof of which bytes actually executed. The prior archive search found no stronger run binding;do not substitute currentHEAD or infer an exact historical failure."
+  },
+  "evidence": [
+    {
+      "path": "run_stage4.py",
+      "lines": "65–79",
+      "fact": "Timer encloses lm.model(x) plus CUDA synchronization. Synthetic GPU x is created before the timer;60 forwards are sampled."
+    },
+    {
+      "path": "lightsem/model/light_trunk.py",
+      "lines": "221–223",
+      "fact": "LightTrunk.forward returns h,head_a(h),head_b(h). It does not call head_c.sample. The timed forward includes trunk+A/B, not C generation."
+    },
+    {
+      "path": "lightsem/model/infer.py",
+      "lines": "68,86–96,100–124",
+      "fact": "descriptors performs feature assembly, device transfer/normalization, sigmoid/CPU copies,C sampling,concatenation,unscaling and hazard-event processing outside the runner’s forward timer."
+    },
+    {
+      "path": "lightsem/model/light_trunk.py",
+      "lines": "137–143;185–200",
+      "fact": "FlowHead.sample and ARFlowHead.sample implement separate integration loops. Which head was actually loaded is not authenticated. No sampling cost is measured by this review."
+    },
+    {
+      "path": "run_stage4.py",
+      "lines": "85–89;119",
+      "fact": "extract_bus and descriptors finish before conductor/pack timing. audio_block_ms is1024/44100 converted to milliseconds, not a feature-compute duration. Appropriate live feature work is unaccounted; disk loading is not automatically part of an audio-in endpoint."
+    },
+    {
+      "path": "run_stage4.py",
+      "lines": "88–92",
+      "fact": "Historical candidate times each full-clip conductor/pack call once,divides by frame count,and repeats that same scalar100times before percentiles. This is not a per-frame p99 distribution."
+    },
+    {
+      "path": "run_stage4.py",
+      "lines": "119–129",
+      "fact": "learned_path_p99_ms = audio hop + model p99 + conductor/pack p50 + assumed5msnetwork + assumed30msfixture. This partial calculated sum is not measured end-to-end p99 or generally a valid p99 bound."
+    }
+  ],
+  "inference_limits": [
+    "Retain reported62.5ms calculation versus65ms budget and the separately recorded component timings. No additional cost,magnitude,overrun or failed gate was measured.",
+    "p99(X)+median(Y) is not generally p99(X+Y). A sum of labelled component quantiles is not itself a measured full-path quantile.",
+    "Untimed operations need accounting,not an assumption that every one adds serial delay. No measured/justified scheduling-overlap bound was supplied by this candidate instrument.",
+    "The stored budget includes assumed network/fixture terms. Do not silently redefine audio-in→DMX-out or optical endpoint to make a different claim.",
+    "The saved timing-report schema was accessed under the prior archive permission,not reread in this source-only follow-up;schema compatibility is not executed-source authentication."
+  ],
+  "recommended_disposition": {
+    "frontier": "Still only row65 has genuinely new original debt,but now two instruments:future-AUDIO causality and complete/defensibly composed software-latency qualification. Both remain provenance-blocked/unqualified;no status or verdict change.",
+    "proposed_dated_lesson": "Retain the reported62.5ms calculation versus the65ms budget and the separately recorded component timings. The available,execution-unpinned historical source times trunk+A/B forward but excludes feature extraction,C sampling and descriptor processing from that timer,and combines model p99 with amortized conductor/packing summaries and assumed network/fixture terms. The saved sum is a partial budget estimate,not an established full audio-in→DMX-out p99. No latency overrun is measured;preserve historical numbers,gates,verdict and Notes,and do not substitute a current-version test.",
+    "native_write_performed_by_child": false,
+    "implementation_or_rerun_authorized": false
+  },
+  "budget": {
+    "authority_path": "/root/lightsem/docs/research/2026-09-28-end-to-end/ROW65_METADATA_FOLLOWUP_BUDGET_V1.json",
+    "sha256": "6d60f8512c00bc6bee73e9cba5c41e3623c0161927858e3bca743298f920f15e",
+    "row65_metadata_total_cap_bytes": 262144,
+    "this_report_pair_cap_bytes": 16384,
+    "global_cap_bytes": 1020054732,
+    "global_commitments_after_reserved_metadata_bytes": 999375596,
+    "preparation_packet_cap_bytes_unchanged": 12582912,
+    "scope": "Independent metadata within existing limits;no reset,increase or reuse of the12MiBpreparation allowance."
+  },
+  "access": "Uses retained text from newly authorized targeted git-show of three source blobs and original/current native Markdown. This writing step reads administrative budget/prior report files only. No further payload,checkpoint,model,test,runtime or server work;no old report/source/native mutation."
+}

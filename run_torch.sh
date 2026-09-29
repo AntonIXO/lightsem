@@ -10,6 +10,11 @@
 set -e
 cd /root/lightsem
 TORCH_ENV="${TORCH_ENV:-/mnt/lightsem-data/venv-torch}"
+# A missing data mount must not silently select the system Python.
+if [[ ! -x "$TORCH_ENV/bin/python" ]]; then
+    printf 'LightSem Torch environment is unavailable: %s\nRestore the data mount or set TORCH_ENV to a dedicated LightSem environment.\n' "$TORCH_ENV" >&2
+    exit 1
+fi
 export PATH="$TORCH_ENV/bin:$PATH"
 export PYTHONPATH="/root/lightsem:$PYTHONPATH"
 export UV_CACHE_DIR=/mnt/lightsem-data/uv-cache

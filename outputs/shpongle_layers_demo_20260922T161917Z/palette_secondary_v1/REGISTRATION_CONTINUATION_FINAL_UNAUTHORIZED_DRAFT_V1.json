@@ -1,0 +1,103 @@
+{
+  "continuation_id": "palette-history-continuation-20260922-v1",
+  "authorized": false,
+  "registered_before_continuation": true,
+  "authorized_phases": [],
+  "vault_experiment_id": "exp-layers-20260922-palette-secondary",
+  "vault_receipt": null,
+  "protocol": {
+    "path": "/root/lightsem/outputs/shpongle_layers_demo_20260922T161917Z/palette_secondary_v1/PALETTE_CONTINUATION_PROTOCOL_V1.json",
+    "sha256": "622cbfe13690bbd3a678eb0f9d14e58db98c71377c6c0a8617bc6743576d4b35"
+  },
+  "wrapper": {
+    "path": "/root/lightsem/outputs/shpongle_layers_demo_20260922T161917Z/palette_secondary_v1/run_palette_history_continuation_v1.py",
+    "sha256": "b008682e47aeb3471f0570b898fad20068f7f246e9c4396ebaed1560801aa6a7"
+  },
+  "tests": {
+    "path": "/root/lightsem/outputs/shpongle_layers_demo_20260922T161917Z/palette_secondary_v1/test_palette_history_continuation_v1.py",
+    "sha256": "f4a66b09e0638b910d00eeeeb33f62e9198e621ae64d590987ae1068f381f2d4"
+  },
+  "cpu_test_receipt": {
+    "path": "/root/lightsem/outputs/shpongle_layers_demo_20260922T161917Z/palette_secondary_v1/PALETTE_CONTINUATION_CPU_RECEIPT_FINAL_V1.json",
+    "sha256": "abe06e0ffd18b67d8dbecbd67a27d877c914d901bd07faf0830e8ab04c9b65ec"
+  },
+  "amendment": {
+    "path": "/root/lightsem/outputs/shpongle_layers_demo_20260922T161917Z/palette_secondary_v1/PALETTE_REPLAY_EXECUTION_AMENDMENT_V1.json",
+    "sha256": "9e329c257e894df4e0bdbbe8506e1a4566a16468f10a4c5d0f5c016dfb0a840b"
+  },
+  "base_registration": {
+    "path": "/root/lightsem/outputs/shpongle_layers_demo_20260922T161917Z/palette_secondary_v1/REGISTRATION_AUTHORIZED_V1.json",
+    "sha256": "42f3a1faa773603ee5e55fb34c461264cbdc834c58c33d9deb7611f97ad8c153"
+  },
+  "base_driver": {
+    "path": "/root/lightsem/outputs/shpongle_layers_demo_20260922T161917Z/palette_secondary_v1/run_palette_history_secondary_v1.py",
+    "sha256": "95d0f59160439ee153ef532235c25320870f113eda7a4d930438811d12ce5dbb"
+  },
+  "calibration": {
+    "path": "/mnt/lightsem-data/experiments/lightsem/palette-history-secondary-20260922-v1/calibration_v1.json",
+    "sha256": "2675fc76b4e71d951b26d2e7eea9d98bd85870f744e12fb81b00fe4ac76216d7"
+  },
+  "partial_receipt": {
+    "path": "/mnt/lightsem-data/experiments/lightsem/palette-history-secondary-20260922-v1/PARTIAL_INTERRUPTED_RECEIPT_V1.json",
+    "sha256": "67e49eafa0331d06d553090d7e4559ebecba07e315ada2bb77825192ba6ccca3"
+  },
+  "exception_map": {
+    "path": "/mnt/lightsem-data/experiments/lightsem/palette-history-secondary-20260922-v1/diagnosis_remaining_head_preflight_v1/exception_map_proposal.json",
+    "sha256": "f761df59931d83ef432359dc340cc093abf72f22ba09a0162429a804bd65df03"
+  },
+  "exception_head_keys": [
+    [
+      "final",
+      0,
+      "jkGH7JIHDSk",
+      "donor"
+    ],
+    [
+      "final",
+      0,
+      "9_htm1JQxBg",
+      "model"
+    ],
+    [
+      "final",
+      0,
+      "vsW87yPjmSs",
+      "model"
+    ],
+    [
+      "final",
+      1,
+      "E3Af6_rVeSQ",
+      "model"
+    ],
+    [
+      "final",
+      2,
+      "WxPy_sHLpCM",
+      "donor"
+    ],
+    [
+      "final",
+      2,
+      "Ub3Cc9DLhK4",
+      "model"
+    ]
+  ],
+  "prediction_output": "/mnt/lightsem-data/experiments/lightsem/palette-history-secondary-20260922-v1/predictions_continuation_v1",
+  "score_output": "/mnt/lightsem-data/experiments/lightsem/palette-history-secondary-20260922-v1/palette_secondary_report_v1.json",
+  "execution_deviation": {
+    "disclosure_type": "RETROSPECTIVE V1 EXECUTION DEVIATION",
+    "v1_definition_start_experiment_succeeded": true,
+    "v1_source_test_binding_vault_registered_before_101": false,
+    "v1_calibration_hash_vault_registered_before_101": false,
+    "v1_source_test_and_calibration_locally_frozen_before_101": true,
+    "failed_vault_receipts_preserved": true,
+    "continuation_registration_must_succeed_before_85_and_scoring": true,
+    "fully_prospective_vault_compliance": false,
+    "note": "V1 update_problem calls used problem_id instead of id. Error strings were incorrectly treated as success through process exit0. Source/test binding and calibration hash were locally frozen, but their updates were not successfully logged before the101 outputs. No backdated prospective claim. New continuation registration must genuinely succeed before remaining85 and scoring.",
+    "artifact": {
+      "path": "/root/lightsem/outputs/shpongle_layers_demo_20260922T161917Z/palette_secondary_v1/VAULT_LOGGING_DEVIATION_V1.json",
+      "sha256": "df755a9bc9746e74f4270721f36df197dad1142793af70bf68346be241c56205"
+    }
+  }
+}

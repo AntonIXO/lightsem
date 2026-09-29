@@ -1,0 +1,353 @@
+{
+  "candidate_times_s": [
+    126.89999999999999,
+    127.1,
+    127.3,
+    127.6,
+    128.1,
+    128.4,
+    128.6,
+    128.79999999999998,
+    129.1,
+    129.29999999999998,
+    129.6,
+    129.79999999999998,
+    130.1,
+    130.29999999999998,
+    130.5,
+    130.8,
+    131.0,
+    131.3,
+    131.5,
+    131.7,
+    132.0,
+    132.2,
+    132.39999999999998,
+    132.7,
+    133.0,
+    133.2,
+    133.39999999999998,
+    133.7,
+    133.89999999999998,
+    134.2,
+    134.5
+  ],
+  "canonical_id": "jd-747150134cf9e99c3c3c",
+  "confidences": [
+    0.0001619565300643444,
+    3.298026967968326e-06,
+    0.00010924679372692481,
+    2.791616861941293e-05,
+    3.6243534395907773e-06,
+    2.2773157979827374e-05,
+    1.5085246332091629e-06,
+    2.724525984376669e-06,
+    2.0814250092371367e-05,
+    9.38598532229662e-06,
+    1.4725410437677056e-05,
+    0.00015693384921178222,
+    8.632581511847093e-07,
+    0.00018907505727838725,
+    5.154396149009699e-06,
+    0.00024770500021986663,
+    3.0808912470092764e-06,
+    0.0003505866334307939,
+    5.396981578087434e-06,
+    4.370888291305164e-06,
+    8.483846727358468e-07,
+    2.659670644789003e-05,
+    0.6379315853118896,
+    0.00015561807958874851,
+    4.238471319695236e-06,
+    3.9244127947313245e-06,
+    0.11686637997627258,
+    0.0005153300589881837,
+    1.151058040704811e-05,
+    9.065565973287448e-05,
+    0.00011688211816363037
+  ],
+  "expected_original_exception": "Circular shift escaped its valid segment",
+  "first_failure": {
+    "a": {
+      "decimal": "126.6",
+      "hex": "0x1.fa66666666666p+6"
+    },
+    "b": {
+      "decimal": "134.6",
+      "hex": "0x1.0d33333333333p+7"
+    },
+    "candidate_index_in_segment": 23,
+    "distance_from_largest_in_domain_float_s": 2.842170943040401e-14,
+    "distance_from_largest_in_domain_float_ulps": 1.0,
+    "distance_from_stop_s": 0.0,
+    "draw_one_based": 5,
+    "draw_zero_based": 4,
+    "duration": {
+      "decimal": "8.0",
+      "hex": "0x1.0000000000000p+3"
+    },
+    "endpoint_ulp_s": 2.842170943040401e-14,
+    "exact_real_distance_below_stop_s": 5.773159728050814e-15,
+    "exact_real_distance_below_stop_ulps": 0.203125,
+    "exact_real_result_denominator": 2251799813685248,
+    "exact_real_result_numerator": 303092254922034355,
+    "exact_real_result_rounded": {
+      "decimal": "134.6",
+      "hex": "0x1.0d33333333333p+7"
+    },
+    "local": {
+      "decimal": "7.999999999999995",
+      "hex": "0x1.ffffffffffffap+2"
+    },
+    "offset": {
+      "decimal": "1.9",
+      "hex": "0x1.e666666666666p+0"
+    },
+    "original": {
+      "decimal": "132.7",
+      "hex": "0x1.0966666666666p+7"
+    },
+    "residue": {
+      "decimal": "7.999999999999995",
+      "hex": "0x1.ffffffffffffap+2"
+    },
+    "row": {
+      "duration_s": 8.0,
+      "offsets_frames": [
+        5,
+        8,
+        12,
+        16,
+        19,
+        23,
+        27,
+        30,
+        34,
+        38,
+        41,
+        45,
+        49,
+        52,
+        56,
+        60,
+        63,
+        67,
+        71,
+        75
+      ],
+      "offsets_s": [
+        0.5,
+        0.8,
+        1.2,
+        1.6,
+        1.9,
+        2.3,
+        2.7,
+        3.0,
+        3.4,
+        3.8,
+        4.1,
+        4.5,
+        4.9,
+        5.2,
+        5.6,
+        6.0,
+        6.3,
+        6.7,
+        7.1,
+        7.5
+      ],
+      "requested_grid_samples": 80,
+      "start_s": 126.6,
+      "stop_s": 134.6,
+      "undefined_reason": null
+    },
+    "segment_zero_based": 0,
+    "shifted": {
+      "decimal": "134.6",
+      "hex": "0x1.0d33333333333p+7"
+    }
+  },
+  "head": "color",
+  "plan": {
+    "defined": true,
+    "eligible_intervals_s": [
+      [
+        126.6,
+        134.6
+      ]
+    ],
+    "excluded_intervals_s": [],
+    "primary_eligible_duration_s": 8.0,
+    "qualified": true,
+    "rate": 10,
+    "retained_fraction_of_primary": 1.0,
+    "schema": {
+      "allowed_integer_offsets": "positive_j/native_rate < actual_segment_duration; min(offset,duration-offset) > .4",
+      "count": 20,
+      "distinct_offsets_required": true,
+      "event_bearing_groups_per_head_minimum": 10,
+      "minimum_fraction_of_primary_eligible_duration": 0.8,
+      "minimum_wrapped_displacement_strict_s": 0.4,
+      "post_shift_NMS": false,
+      "qualified_groups_minimum": 30,
+      "segment": "each_contiguous_eligible_requested_grid_segment_in_center8",
+      "selection": "allowed[floor(linspace(0,len(allowed)-1,20))]",
+      "too_short": "exclude_only_from_shift_paired_null; real_rescored_on_identical_shift_support",
+      "transform": "fixed_postNMS_candidate_event_time modulo_actual_segment_duration; preserve_confidences_counts",
+      "wrap_limitation": "report_wrapped_candidates_and_close_pairs; no_independent_replicate_claim"
+    },
+    "segments": [
+      {
+        "duration_s": 8.0,
+        "offsets_frames": [
+          5,
+          8,
+          12,
+          16,
+          19,
+          23,
+          27,
+          30,
+          34,
+          38,
+          41,
+          45,
+          49,
+          52,
+          56,
+          60,
+          63,
+          67,
+          71,
+          75
+        ],
+        "offsets_s": [
+          0.5,
+          0.8,
+          1.2,
+          1.6,
+          1.9,
+          2.3,
+          2.7,
+          3.0,
+          3.4,
+          3.8,
+          4.1,
+          4.5,
+          4.9,
+          5.2,
+          5.6,
+          6.0,
+          6.3,
+          6.7,
+          7.1,
+          7.5
+        ],
+        "requested_grid_samples": 80,
+        "start_s": 126.6,
+        "stop_s": 134.6,
+        "undefined_reason": null
+      }
+    ],
+    "shift_eligible_duration_s": 8.0
+  },
+  "provenance": {
+    "checkpoint": {
+      "path": "/mnt/lightsem-data/experiments/lightsem/lighting-cue-model-20260922t094347z/observer_fits_v1/01_seed0_S_none_P0/final.pt",
+      "recipe": "S_none_P0",
+      "role": "final",
+      "seed": 0,
+      "sha256": "b9fdb159b1b4e27ecc8485051098cb2b795ce25785a820a6f439558b7209cd8d"
+    },
+    "manifest": {
+      "path": "/mnt/lightsem-data/experiments/lightsem/lighting-cue-model-20260922t094347z/observer_training_manifest_v1.json",
+      "sha256": "705ce8ec50ea1f9b7a8d7bb62e1aceee9a82e2eba541892ca02bc76a3254bb10"
+    },
+    "prediction_index": {
+      "path": "/mnt/lightsem-data/experiments/lightsem/lighting-cue-model-20260922t094347z/observer_parallel_predictions_v1/final_index.json",
+      "sha256": "514d47d04fe52f22e1abbb8f4115489a666a4f9d061428d144f6425a29783b9a"
+    },
+    "prediction_index_position": 0,
+    "prediction_receipt": {
+      "path": "/mnt/lightsem-data/experiments/lightsem/lighting-cue-model-20260922t094347z/observer_parallel_predictions_v1/final/00_seed0_S_none_P0_final/complete.json",
+      "sha256": "6a28c342d968a5f09a663f9b5ed151131fd9efec8cc9aeb69d8e3ff3454c9b8d"
+    },
+    "raw_prediction": {
+      "path": "/mnt/lightsem-data/experiments/lightsem/lighting-cue-model-20260922t094347z/observer_parallel_predictions_v1/final/00_seed0_S_none_P0_final/747150134cf9e99c3c3c9c75.npz",
+      "sha256": "4cb6ffac763c9cd9943357b85c863b462ec377ae31ebbfaedf5fc996f39a98bf"
+    },
+    "record_index_position": 0,
+    "registration": {
+      "path": "/mnt/lightsem-data/experiments/lightsem/lighting-cue-model-20260922t094347z/observer_final_score_binding_v1.json",
+      "sha256": "ea7180a2d24bf05f303c3c05d6f8aa0719b42583876eef8849e3a631a437e866"
+    },
+    "source_row": {
+      "audio": {
+        "path": "/mnt/lightsem-data/experiments/lightsem/stage11_20260908/data/audio/E3Af6_rVeSQ.npz",
+        "sha256": "1b309f60453f6ac2cc8501b5580a73c22eb23890c4d34f178c6c625ef7fc2d27"
+      },
+      "canonical_id": "jd-747150134cf9e99c3c3c",
+      "coaches": [
+        {
+          "motion": {
+            "path": "/mnt/lightsem-data/experiments/lightsem/stage11_20260908/data/motion/E3Af6_rVeSQ_c0.npz",
+            "sha256": "eb6ef34d092f005ffcb0396117da4a622a7f17c1ad1776758ce354dfc08fb3a9"
+          },
+          "start_s": 2.5
+        },
+        {
+          "motion": {
+            "path": "/mnt/lightsem-data/experiments/lightsem/stage11_20260908/data/motion/E3Af6_rVeSQ_c1.npz",
+            "sha256": "b397d2bc4759882b056c28c0880c94e7ab1595747628bace4a0310702e9d78dd"
+          },
+          "start_s": 2.5
+        },
+        {
+          "motion": {
+            "path": "/mnt/lightsem-data/experiments/lightsem/stage11_20260908/data/motion/E3Af6_rVeSQ_c2.npz",
+            "sha256": "3ff9ec07dd2c2b60af6cf6763cc0079153fc20f58fa05bb262aeb1c9e76e24d2"
+          },
+          "start_s": 2.5
+        }
+      ],
+      "cuts_status": "unannotated",
+      "enrollment_input_sha256": "2e524ed0d6652e4729a979b889ca9682b8bfbdbd0512fafbcac072356c578855",
+      "legacy_visual": {
+        "path": "/mnt/lightsem-data/experiments/lightsem/stage11_20260908/data/visual/E3Af6_rVeSQ.npz",
+        "sha256": "46ed8010ac6d838f261b2e20223936508c5593ae63af15bb72803149101edf8b"
+      },
+      "partition": "val",
+      "recording_id": "E3Af6_rVeSQ",
+      "rhythm": {
+        "path": "/mnt/lightsem-data/experiments/lightsem/lighting-cue-model-20260922t094347z/rhythm_dev_features/E3Af6_rVeSQ.npz",
+        "sha256": "a01da2ff6eb7e21203c010da11fee5fdbae4f33c4782776e801328b25c23def0"
+      },
+      "source_pose": {
+        "path": "/mnt/lightsem-data/cache/justdance_pose/E3Af6_rVeSQ.npz",
+        "sha256": "ca68afd27206f7e7d9b59c4367155c2eaae65ccbeaa0c958ee8fc93be7ee5e98"
+      },
+      "source_video": {
+        "path": "/mnt/lightsem-data/justdance/Just Dance 2022 - Jopping [E3Af6_rVeSQ].mkv",
+        "sha256": "b47e69952c25236186229f34e00d913fac80fdf6420af6dc289db4d5d0e3384b"
+      },
+      "visual": {
+        "path": "/mnt/lightsem-data/experiments/lightsem/lighting-cue-model-20260922t094347z/observer_proxy_features_v1/E3Af6_rVeSQ/sam2.npz",
+        "sha256": "962f88e17e94ff1343688f026ce95124c835b72f9901b913976185a91320ccd8"
+      },
+      "visual_complete": {
+        "path": "/mnt/lightsem-data/experiments/lightsem/lighting-cue-model-20260922t094347z/observer_proxy_features_v1/E3Af6_rVeSQ/complete.json",
+        "sha256": "39d5c0b1a68307513a91eff7ec4bcc9c8873df865a71484966883ffb9a3facdc"
+      },
+      "visual_schema": "extractor_v1"
+    },
+    "target_sha256": "008bbec08a53d2acaee24cdc6d59c1d5ec39d9e6688956338afea0002f80f1d4",
+    "transforms": {
+      "path": "/mnt/lightsem-data/experiments/lightsem/lighting-cue-model-20260922t094347z/observer_train_transforms_v1.json",
+      "sha256": "a4672acf0ff0b95fa3fad2b8a1f481810029f8bde4b30e10bfccfacc94740b39"
+    }
+  },
+  "recording_id": "E3Af6_rVeSQ",
+  "role": "final",
+  "schema": 1
+}

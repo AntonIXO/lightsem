@@ -1,0 +1,8 @@
+{
+  "experiment_id": "exp-008-a-causal-conformer-trained-on-68789d",
+  "verdict": "supports",
+  "failure_mode": null,
+  "lesson": "2026-09-28 retrospective claim-scope clarification, not a new measurement: On 86 RPMC test recordings, the head using audio and reference-event history improved AP/base-rate lift to1.805 versus rhythm1.250 (marginal+0.555,95%CI[+0.385,+0.739]); audio-only1.347 did not beat same-feature ridge1.500. This is reference-history event-proxy support, not demonstrated generated-history deployment. The separate JD own-cue test lost to its audio-only comparator; neither result establishes human LIGHT quality. The older99-show/openl3 ridge study is not a paired same-split comparator for this86-show result.",
+  "transfers_to": [],
+  "hint": null
+}

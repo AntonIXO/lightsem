@@ -1,0 +1,526 @@
+{
+  "schema_version": 1,
+  "retrieved_at_utc": "2026-09-22T09:50:15.567442+00:00",
+  "scope": "Literature/source review only. No GPU computation, model execution, training, dependency installation, dataset download, or vault calls. Full original arXiv HTML read, including AIST++ appendices; original PDFs retained as source checks. API/repository files inspected as source, not executed.",
+  "source_directory": "/tmp/lightsem_campaign_rhythm_sources",
+  "papers": [
+    {
+      "arxiv_id": "2407.21658v1",
+      "title": "Beat this! Accurate beat tracking without DBN postprocessing",
+      "authors": [
+        "Francesco Foscarin",
+        "Jan Schlüter",
+        "Gerhard Widmer"
+      ],
+      "publication": "ISMIR 2024; arXiv v1 2024-07-31 (only version shown)",
+      "urls": {
+        "abstract": "https://arxiv.org/abs/2407.21658v1",
+        "fulltext": "https://arxiv.org/html/2407.21658v1",
+        "pdf": "https://arxiv.org/pdf/2407.21658v1",
+        "code": "https://github.com/CPJKU/beat_this",
+        "weights": "https://cloud.cp.jku.at/index.php/s/7ik4RrBKTS273gp",
+        "annotations": "https://github.com/CPJKU/beat_this_annotations/releases/tag/v1.0",
+        "spectrograms": "https://zenodo.org/records/13922116"
+      },
+      "read_sections": [
+        "1 Introduction",
+        "2 Related work",
+        "3 Method (all 3.1-3.4)",
+        "4 Experiments (all 4.1-4.5, Tables 1-3)",
+        "5 Conclusions and Outlook",
+        "6 Acknowledgements",
+        "References"
+      ],
+      "method": [
+        "30 s mono input at 22050 Hz; 128-bin mel, 30 Hz-10 kHz, window 1024, hop 441 (=50 Hz), ln(1+1000x). About 20M parameters.",
+        "Frontend: convolution stem then 3 blocks of frequency-directed partial transformer, time-directed partial transformer, strided convolution. Frequency is reduced, channels grow; T x 4 x 256 flattens/projected to T x 512.",
+        "Main transformer: 6 full-context layers, hidden 512, 16 heads of width 32, rotary position embedding, sigmoid attention gates, FFN 2048. Offline/noncausal, not evidence of online operation.",
+        "Two linear heads. Downbeat logits are separate; beat logits=sum(beat-head + downbeat-head logits). This encourages, but does not guarantee, downbeats being beats. Independent binary targets allow beat-only annotated datasets.",
+        "Shift-tolerant weighted BCE: positive-class weight=negative/positive count; max pool predictions over 7 frames; ignore negative loss within 6 frames of a positive label (13-frame max pool on labels). The nominal +/-3-frame training allowance must not be interpreted as precise annotations.",
+        "Minimal postprocessor: local maximum over +/-3 frames, probability>0.5; plateau center; snap downbeats to nearest predicted beat. No DBN tempo/meter assumptions. Paper says nonoverlapping 30 s excerpts; current release instead pads/discards 6 border frames and overlaps chunks (record source version).",
+        "Augmentations: pitch -5..+6 semitones; tempo +/-4/8/12/16/20 percent, precomputed but not combined; 0-6 masks of 0.5-2 s using locally shuffled partitions rather than zero masking.",
+        "Training: 100 epochs, AdamW, max LR 0.0008 after 1000-step warmup, cosine decay, weight decay 0.01, effective batch 64 via 8x8 accumulation. Sample multiple 30-s excerpts per longer song. Select/report F1 rather than treating rising validation BCE as automatic failure."
+      ],
+      "data_and_labels": [
+        "4556 train/validation tracks over 18 dataset groupings; 993 GTZAN test tracks after annotation exclusions. Eight-fold cross-validation for Table 1; new approximately 15% per-dataset validation split for ablations.",
+        "Training datasets: Simac, SMC, Hainsworth, Ballroom, HJDB, Beatles, Harmonix, RWC classical/pop/royalty-free/jazz, TapCorrect, JAAH, Filosax backing tracks, ASAP excluding rubato-annotated tracks, Groove MIDI tracks >20s, GuitarSet comping (not solos), Candombe.",
+        "Beat/downbeat annotations can be imprecise, inconsistent or ambiguous; some passages do not support a unique beat. F1 evaluation uses mir_eval defaults, +/-70 ms matching, first 5 s discarded. CMLt/AMLt add continuity; AMLt also permits alternate metric levels. Output grid is 20 ms, not label accuracy.",
+        "Annotations v1.0 are required for exact published reproduction. Annotation repo warns some RWC conversions were incorrect and preserved for reproducibility; a corrected version changes the target definition."
+      ],
+      "published_comparisons": [
+        {
+          "source": "Table 2, GTZAN test; main model mean+SD of 3 seeds; percentages",
+          "model": "Beat This no DBN",
+          "comparator": "Hung et al., Modeling Beats and Downbeats with a Time-Frequency Transformer (ICASSP 2022, SpecTNT+TCN+DBN), numbers reported from its paper",
+          "beat_F1": {
+            "model": "89.1 +/- 0.3",
+            "comparator": "88.7"
+          },
+          "downbeat_F1": {
+            "model": "78.3 +/- 0.4",
+            "comparator": "75.6"
+          },
+          "beat_CMLt": {
+            "model": "79.8 +/- 0.6",
+            "comparator": "81.2"
+          },
+          "beat_AMLt": {
+            "model": "89.8 +/- 0.4",
+            "comparator": "92.0"
+          },
+          "downbeat_CMLt": {
+            "model": "67.3 +/- 0.8",
+            "comparator": "71.5"
+          },
+          "downbeat_AMLt": {
+            "model": "79.1 +/- 0.6",
+            "comparator": "88.1"
+          },
+          "caveat": "Higher F1 but lower continuity. No reproduced Hung model or significance test; training sizes differ."
+        },
+        {
+          "source": "Table 2, GTZAN, percentages",
+          "model": "Beat This trained only on Hung datasets",
+          "comparator": "Hung et al. 2022",
+          "beat_F1": {
+            "model": "88.9 +/- 0.1",
+            "comparator": "88.7"
+          },
+          "downbeat_F1": {
+            "model": "75.5 +/- 0.5",
+            "comparator": "75.6"
+          },
+          "caveat": "Do not repeat a broad claim that both F1 metrics improve under matched data: the reported downbeat mean does not."
+        },
+        {
+          "source": "Table 3, single validation split, percentages, 3 seeds",
+          "model": "full shift-tolerant weighted-BCE system",
+          "comparator": "same architecture with weighted BCE but no shift tolerance",
+          "beat_F1": {
+            "model": "92.6 +/- 0.1",
+            "comparator": "91.2 +/- 0.2"
+          },
+          "downbeat_F1": {
+            "model": "85.4 +/- 0.1",
+            "comparator": "82.2 +/- 0.4"
+          }
+        },
+        {
+          "source": "Sec 3.1.3, GTZAN",
+          "model": "sum head",
+          "comparator": "independent linear heads",
+          "downbeats_more_than_70ms_from_any_beat": {
+            "model": "0.62%",
+            "comparator": "1.1%"
+          },
+          "caveat": "Structural consistency diagnostic, not lighting quality."
+        }
+      ],
+      "limitations": [
+        "F1 gains do not imply continuity gains. Difficult/underrepresented pieces can get nonperiodic peaks, and weighted per-frame loss does not enforce periodicity.",
+        "Model deliberately makes overconfident predictions; sigmoid outputs are not proven calibrated confidence. Validation loss can rise while F1 improves.",
+        "Annotation quality/metrical ambiguity limits even GTZAN. CMLt/AMLt assumptions also fail in meter changes. Classical/SMC performance remains difficult. Not a solved timing task.",
+        "No published lighting-accent or emitted-light experiment."
+      ],
+      "pretrained_interface": {
+        "source_commit": "b95c8ab0c58c2d9fcfd40508ae8dffbc05ac4f5c",
+        "package_version_inspected": "beat-this 1.1.0",
+        "calls": [
+          "File2Beats(checkpoint_path=\"final0\", device=\"cpu\", dbn=False)(audio_path) -> beats_s, downbeats_s",
+          "Audio2Beats(...)(waveform, sr) -> beats_s, downbeats_s",
+          "Audio2Frames(...)(waveform, sr) -> beat_logits, downbeat_logits at 50 Hz",
+          "load_model(\"final0\", device=\"cpu\") -> vanilla PyTorch BeatThis"
+        ],
+        "weights": [
+          "final0/1/2: all training data except GTZAN, ~78 MB each",
+          "small0/1/2: same training data, ~8.1 MB each",
+          "fold0..7: paper 8-fold models",
+          "single_final0/1/2: fixed single-split models"
+        ],
+        "weight_url_template": "https://cloud.cp.jku.at/public.php/dav/files/7ik4RrBKTS273gp/{name}.ckpt",
+        "dependencies": "torch>=2, torchaudio, numpy>=1.20, einops, rotary-embedding-torch, soxr; audio backend/ffmpeg for non-WAV. Optional DBN needs current madmom; no Lightning needed for inference. No environment compatibility test performed.",
+        "implementation_notes": "Audio2Frames averages axis 1 for 2-D input: use [samples,channels], not [channels,samples]. Model automatically downloads through torch hub; place caches/checkpoints on data disk and pin checksum before campaign."
+      },
+      "licenses": {
+        "paper": "CC BY 4.0",
+        "code": "MIT",
+        "weights": "MIT explicitly stated in official README",
+        "annotations": "Annotation repo v1.0 has MIT LICENSE but aggregates original sources; retain source citations/terms",
+        "audio": "NOT granted by MIT code/weights. README explicitly warns some training files are copyrighted or restricted CC. Assess original audio rights independently."
+      }
+    },
+    {
+      "arxiv_id": "2307.16425v1",
+      "title": "All-In-One Metrical And Functional Structure Analysis With Neighborhood Attentions on Demixed Audio",
+      "authors": [
+        "Taejun Kim",
+        "Juhan Nam"
+      ],
+      "publication": "WASPAA 2023; arXiv v1 2023-07-31 (only version shown)",
+      "urls": {
+        "abstract": "https://arxiv.org/abs/2307.16425v1",
+        "fulltext": "https://arxiv.org/html/2307.16425v1",
+        "pdf": "https://arxiv.org/pdf/2307.16425v1",
+        "code": "https://github.com/mir-aidj/all-in-one",
+        "weights": "https://huggingface.co/taejunkim/allinone"
+      },
+      "read_sections": [
+        "1 Introduction",
+        "2 Method (2.1-2.3)",
+        "3 Experiments (3.1-3.3, Table1); original-PDF Figure3 labels/ablation values also read",
+        "4 Results and Discussion (4.1-4.2)",
+        "5 Conclusions",
+        "References"
+      ],
+      "method": [
+        "Joint shared representation with beat, downbeat, segment-boundary and functional-label heads. Tempo in the released API is postprocessed from beat intervals, not a fifth learned tempo head.",
+        "Hybrid Transformer Demucs produces 4 sources (bass, drums, other, vocals). Convolution/max-pool frontend feeds 11 transformer modules with C=24. About 300K task-network parameters, excluding the pretrained separator.",
+        "Each module pairs temporal 1-D dilated neighborhood attention and local 2-D instrumental/time neighborhood attention. Two temporal branches have dilation d and 2d; exponential depth schedule to 2^10 and 2^11. Paper reports approximately 41/82 s receptive fields for those branches, not a streaming latency guarantee.",
+        "Nearest-available-neighbor windows avoid large time-axis zero padding near boundaries. Actual 5x5 instrument attention still pads the instrument axis because NATTEN lacks nonsquare kernels.",
+        "Beat/downbeat outputs use DBN postprocessing; segment boundaries use sliding-average normalization/peak picking with 24-s window, without the earlier work's threshold step. Current metrical source uses a joint DBN constrained to 3/4 and 4/4.",
+        "Current source details beyond paper prose: 44100 Hz, 2048 window, 441 hop (=100 Hz), 81 log-frequency bins, 30-17000 Hz. Independent linear heads over concatenated stem embeddings: three BCE event heads, one 10-class cross-entropy function head. Default task weights beat/downbeat/section/function=1/3/15/0.1; losses use frame masks.",
+        "Current training code quantizes event times with librosa.time_to_frames; beat/downbeat labels widen +/-1 frame with 0.5 shoulders; section labels widen +/-2 frames with decaying shoulders. This is source behavior, not evidence labels are accurate to 10-20 ms.",
+        "Paper training: PyTorch 2.0, NATTEN, madmom, RAdam lr .005; SWA lr .15; plateau lr factor .3, weight decay .00025; batch 1, songs >5 min randomly cropped to 5 min, early stop after 30 unimproved epochs. No data augmentation or extra supervised datasets."
+      ],
+      "data_and_labels": [
+        "Only Harmonix Set used for supervised tasks; cleaned audio/annotation versions and merged functional labels according to Wang et al. 2022. Eight folds: 6 train, 1 validation, 1 test.",
+        "Beat/downbeat F1 matches within +/-70 ms; CMLt and AMLt measure continuity. Segment HR.5F uses +/-0.5 s. Functional labeling uses pairwise frame clustering F1 (PWF) and normalized entropy F1 (Sf), not ordinary 10-class accuracy.",
+        "Release functional labels: start, end, intro, outro, break, bridge, inst, solo, verse, chorus. These are section functions, not labeled drops, lighting accents, fixture programs, or calibrated event salience.",
+        "README warns different MP3 decoders can shift timing by roughly 20-40 ms; recommends canonical WAV via ffmpeg for all processing. This is an implementation warning, not a published timing benchmark."
+      ],
+      "published_comparisons": [
+        {
+          "source": "Table 1, Harmonix 8-fold; fractions",
+          "model": "All-In-One, 300K task parameters",
+          "comparator": "authors' TCN-Large reproduction, 301K parameters, demixed input",
+          "beat_F1": {
+            "model": 0.958,
+            "comparator": 0.953
+          },
+          "downbeat_F1": {
+            "model": 0.915,
+            "comparator": 0.901
+          },
+          "segment_HR_0_5s_F1": {
+            "model": 0.66,
+            "comparator": 0.626
+          },
+          "label_PWF": {
+            "model": 0.738,
+            "comparator": 0.717
+          },
+          "label_Sf": {
+            "model": 0.769,
+            "comparator": 0.746
+          },
+          "caveat": "No reported uncertainty/significance in this table; supervised corpus is Harmonix, not external music."
+        },
+        {
+          "source": "Table 1, Harmonix; fractions",
+          "model": "All-In-One",
+          "comparator": "SpecTNT-TCN (Hung et al. 2022), reported prior result with extra data and augmentation",
+          "beat_F1": {
+            "model": 0.958,
+            "comparator": 0.953
+          },
+          "downbeat_F1": {
+            "model": 0.915,
+            "comparator": 0.908
+          },
+          "beat_CMLt": {
+            "model": 0.913,
+            "comparator": 0.939
+          },
+          "caveat": "Paper's SOTA task claim is not a claim to lead every metric; beat CMLt is lower."
+        },
+        {
+          "source": "Table 1, Harmonix; fractions",
+          "model": "All-In-One",
+          "comparator": "SpecTNT functional-structure model (Wang et al. 2022), prior reported result with extra data and augmentation",
+          "segment_HR_0_5s_F1": {
+            "model": 0.66,
+            "comparator": 0.558
+          },
+          "label_PWF": {
+            "model": 0.738,
+            "comparator": 0.712
+          },
+          "label_Sf": {
+            "model": 0.769,
+            "comparator": 0.724
+          }
+        },
+        {
+          "source": "Figure3 (read in original PDF layout), Harmonix 8-fold averages; fractions",
+          "model": "full All-In-One",
+          "comparators": {
+            "no_functional_label_head": {
+              "downbeat_F1": 0.916,
+              "segment_HR_0_5s_F1": 0.624
+            },
+            "no_beat_or_downbeat_heads": {
+              "segment_HR_0_5s_F1": 0.653,
+              "label_PWF": 0.744
+            }
+          },
+          "full_model": {
+            "downbeat_F1": 0.915,
+            "segment_HR_0_5s_F1": 0.66,
+            "label_PWF": 0.738
+          },
+          "caveat": "Different task removals: removing labels slightly improves downbeats but harms segmentation; removing BOTH rhythm heads improves label PWF but slightly harms segmentation. Not proof all heads mutually improve."
+        }
+      ],
+      "limitations": [
+        "Ablation shows beat/downbeat/segmentation can benefit each other, but not uniform positive transfer: removing the functional-label head raises downbeat F1 slightly; removing BOTH beat and downbeat heads raises functional-label PWF. This does not isolate downbeat-only interference with labeling.",
+        "Evidence is Western-pop Harmonix cross-validation; genre/OOD generalization is not established. Longer contexts particularly help section tasks; one short beat window is not sufficient evidence for sections.",
+        "Model parameter count excludes Demucs. NATTEN, Demucs, madmom and full-song processing create dependency/runtime costs absent from the 300K headline.",
+        "DBN metrical constraints can fail for changing/odd meter and strong tempo changes. Four task probabilities are not validated light controls. No causal streaming claim."
+      ],
+      "pretrained_interface": {
+        "source_commit": "18e78903c0365147a2c5d4e5e57ebf88cb7d800e",
+        "package_version_inspected": "allin1 1.1.0",
+        "hf_revision": "379e5fd010b3fdd0ee8381ff8cbcfa51d70b5c19",
+        "calls": [
+          "allin1.analyze(path, model=\"harmonix-all\", device=\"cpu\", include_activations=True, include_embeddings=True) -> AnalysisResult",
+          "CLI allin1 PATH --model harmonix-foldN --activ --embed --demix-dir DATA_DIR --spec-dir DATA_DIR"
+        ],
+        "outputs": "bpm (mode of rounded 60/interbeat intervals), beats seconds, downbeats seconds, beat_positions, segments(start,end,label), optionally 100-Hz activations and embeddings.",
+        "activation_shapes": "beat/downbeat/segment: [T] after sigmoid; label: [10,T] after softmax; embeddings [4,T,24], or [4,T,24,8] for ensemble.",
+        "weights": "harmonix-all averages harmonix-fold0..7. load_pretrained_model uses hf_hub_download(repo_id=\"taejunkim/allinone\"). Example file harmonix-fold0-0vra4ys2.pth; pins needed because loader has no explicit HF revision.",
+        "dependencies": "PyTorch plus matching NATTEN (Linux/Windows install separately), demucs, current madmom, numpy, librosa, hydra-core/omegaconf, huggingface_hub, matplotlib, ffmpeg. Paper used torch 2.0; compatibility with repository torch2.14/cu130/RTX5070 is untested and must not be assumed. No imports or execution done.",
+        "security_and_disk": "Checkpoints load via torch.load, so trust and hash source; current torch defaults may require compatibility review. Automatic Hugging Face and Demucs caches plus stem/spec intermediates must be redirected to data disk. Do not run unbounded extraction on root."
+      },
+      "licenses": {
+        "paper": "CC BY 4.0",
+        "code": "MIT (Taejun Kim 2023)",
+        "weights": "Hugging Face model card explicitly license: mit at recorded revision",
+        "dependencies_and_audio": "Demucs, NATTEN, madmom and actual audio have independent licenses/rights; code/model MIT is not an audio redistribution grant. Source-separator pretraining overlap not audited."
+      }
+    },
+    {
+      "arxiv_id": "2101.08779v3",
+      "title": "AI Choreographer: Music Conditioned 3D Dance Generation with AIST++",
+      "authors": [
+        "Ruilong Li",
+        "Shan Yang",
+        "David A. Ross",
+        "Angjoo Kanazawa"
+      ],
+      "publication": "ICCV 2021; arXiv v3 2021-07-31; prior v1 2021-01-21 and v2 2021-02-02",
+      "urls": {
+        "abstract": "https://arxiv.org/abs/2101.08779v3",
+        "fulltext": "https://arxiv.org/html/2101.08779v3",
+        "pdf": "https://arxiv.org/pdf/2101.08779v3",
+        "project": "https://google.github.io/aichoreographer/",
+        "dataset": "https://google.github.io/aistplusplus_dataset/",
+        "data_formats": "https://google.github.io/aistplusplus_dataset/download.html",
+        "api": "https://github.com/google/aistplusplus_api",
+        "model": "https://github.com/google-research/mint",
+        "media_terms": "https://aistdancedb.ongaaccel.jp/terms_of_use/"
+      },
+      "read_sections": [
+        "1 Introduction",
+        "2 Related Work",
+        "3 AIST++ Dataset",
+        "4 Music Conditioned 3D Dance Generation (4.1)",
+        "5 Experiments (5.1, 5.2.1-5.2.4, Tables 1-4)",
+        "6 Conclusion and Discussion",
+        "7 Acknowledgement",
+        "References",
+        "Appendix A Dataset Details (Table 5, reconstruction, validation)",
+        "Appendix B User Study Details"
+      ],
+      "method": [
+        "FACT is a motion generator, not a beat tracker. Takes 120-frame/2-s seed motion and 240-frame/4-s audio features aligned at first frame. Full attention, two modality encoders, early concatenation, 12-layer cross-modal transformer.",
+        "Main configuration: 2 audio and 2 motion layers, 12 cross-modal layers; 800 hidden channels, 10 heads. Train on future 20 motion frames with L2 loss; autoregressive inference retains only the first new predicted frame per step at 60 Hz.",
+        "Audio representation=35 dimensions: onset envelope, 20 MFCC, 12 chroma, one-hot onset peaks and one-hot librosa beat estimates. Motion representation=219 dimensions (24x9 rotation matrices + xyz global translation). Learned positional encoding in modality encoders.",
+        "Full-attention plus multi-frame supervision improves long-rollout stability versus causal shift-by-1 and full-attention future-1 variants; early/deep cross-modal fusion reduces music ignoring versus late fusion. These results are about motion generation, not direct audio timing supervision.",
+        "Adam batch16; learning rate 1e-4 ->1e-5 at60k ->1e-6 at100k; 300k total steps, reported 3 days/4 TPUs. No replication or training done in this review.",
+        "Official preprocessing uses SR=60x512=30720, hop512, librosa beat_track(start_bpm parsed from AIST audio filename, tightness=100). This uses dataset BPM knowledge in feature construction and does not supply independent human beat ground truth."
+      ],
+      "data_and_labels": [
+        "1408 motion sequences, 5.2 h (18694.6 s), 60 songs, 30 dancers, 10 genres, nine camera views. Original AIST camera views are not 9 independent dances; the 10.1M images versus ~1.1M motion frames differ by view multiplicity.",
+        "Per frame: 17 COCO joints in 2D/3D and 24 SMPL rotations plus scale/translation. Reconstructed from 2D detections, bundle adjustment, triangulation with temporal/bone constraints, SMPL fitting; no measured 3D mocap truth.",
+        "Basic instructional choreography is repeated across all six songs/tempi in a genre; about 85% basic and 15% advanced. Paper separates both song and choreography: 40 test choreographies from ten songs and 329 training choreographies. Clip-level random splits leak repeated motions/music.",
+        "Annotation time grid is exact 60 FPS even when raw videos have slightly different FPS. Dataset download page requires conversion to exact60; inspect actual timestamps and alignment, not raw nominal FPS. Recommended ignore_list excludes poor reconstructions.",
+        "BeatAlign music reference=librosa-estimated beats, kinematic events=local minima of kinetic velocity. Score=mean over kinetic events exp(-nearest_audio_distance_in_frames^2/(2*3^2)) at60 FPS. sigma3 frames=50 ms Gaussian scale, not hard tolerance, not label precision.",
+        "BeatAlign is deliberately one-way because not every audio beat need be expressed in dance. It does not check recall/coverage of audio beats or distinguish correct downbeat/bar level. It is not ground-truth lighting accent alignment."
+      ],
+      "published_comparisons": [
+        {
+          "source": "Table 2 / Sec5.2.2; 40 generated 20-s motion sequences",
+          "model": "FACT",
+          "comparator": "Dancenet (Zhuang et al., Music2Dance) trained on the same split",
+          "kinetic_FID_lower_better": {
+            "model": 35.35,
+            "comparator": 69.18
+          },
+          "geometric_FID_lower_better": {
+            "model": 12.4,
+            "comparator": 17.76
+          },
+          "BeatAlign_higher_better": {
+            "model": 0.241,
+            "comparator": 0.232
+          },
+          "caveat": "FID uses handcrafted kinetic/geometric motion features, not lighting or an Inception image model."
+        },
+        {
+          "source": "Table2 BeatAlign reference calibration",
+          "model": "FACT",
+          "comparators": {
+            "random_paired_AIST_motion_music": 0.213,
+            "real_paired_AIST_motion_music": 0.292
+          },
+          "BeatAlign_model": 0.241,
+          "caveat": "The paper calls these lower/upper bounds; they are empirical comparators, not mathematical floor/ceiling, and use model-estimated audio beats."
+        },
+        {
+          "source": "Table4, same model family",
+          "model": "early cross-modal fusion",
+          "comparator": "late cross-modal fusion",
+          "BeatAlign": {
+            "model": 0.241,
+            "comparator": 0.234
+          },
+          "kinetic_FID": {
+            "model": 35.35,
+            "comparator": 45.76
+          },
+          "geometric_FID": {
+            "model": 12.39,
+            "comparator": 14.3
+          }
+        },
+        {
+          "source": "Table2, Sec5.2.4, AppendixB; 30 participants per baseline, 10 side-by-side 10s videos each, randomized left/right",
+          "model": "FACT",
+          "comparator": "random-paired real AIST++ motion/music",
+          "FACT_preference_rate": "25.4% (random-paired real motion preferred ~74.6%)",
+          "caveat": "Despite FACT BeatAlign0.241 versus random0.213, users preferred real unpaired motion. Authors attribute this to expressiveness bias; the direct evidence is metric/user preference divergence, not proof the users were wrong."
+        }
+      ],
+      "limitations": [
+        "No physical dancer-floor model; foot sliding/floating remains. Deterministic given seed/audio, although different seeds permit diversity. Not a lighting system.",
+        "Dataset reconstruction validates consistency with detected 2D joints, not actual 3D truth or beat truth. Main text PCKh98.7% differs from Appendix98.4%; do not quote either as verified mocap accuracy.",
+        "Repeated instructional choreography and genre/song pairing make correlation confounding possible. The paper's splits do not by themselves establish within-genre audio-specific learning for a new LightSem descriptor task.",
+        "BeatAlign can disagree with human motion-music preference. Velocity minima depend on reconstruction/filtering/movement type; static/frozen or dense-event pathologies need explicit controls in any reuse.",
+        "The official scores.py read here computes motion FIDs; it does not contain a BeatAlign implementation. Do not claim code-verified reproduction of the paper's BeatAlign extraction details beyond its equation/text."
+      ],
+      "pretrained_interface": {
+        "api_commit": "2dd7b3e946b794fd0081c98e2e2433545abf8b87",
+        "fact_commit": "b8f8bdfbbe3fbfa67831a2ef9bcf71a6a9e74552",
+        "dataset_calls": [
+          "AISTDataset.load_motion(motion_dir, seq_name) -> smpl_poses, smpl_scaling, smpl_trans",
+          "AISTDataset(annotation_dir), mapping_seq2env and split files; no beat annotation array in described motion format"
+        ],
+        "format": "motions/*.pkl: smpl_poses (N,24,3), smpl_scaling scalar, smpl_trans (N,3). keypoints2d (9,N,17,3) stores x,y,confidence; keypoints3d/keypoints3d_optim (N,17,3).",
+        "fact_checkpoint_link": "https://drive.google.com/drive/folders/17GHwKRZbQfyC9-7oEpzCG8pp_rAI0cOm?usp=sharing",
+        "fact_interface": "mint evaluator.py --config_path configs/fact_v5_deeper_t10_cm12.config --model_dir CHECKPOINT_DIR; TFRecords built by tools/preprocessing.py. Not a one-line audio-only beat interface; requires seed motion. Checkpoint not downloaded or executed.",
+        "dependencies": "FACT README: legacy Python3.7, TensorFlow, tf-datasets, tf-graphics, protobuf/protoc, orbit submodule, librosa, einops, OpenEXR, AIST++ API. AIST API: torch/torchvision, OpenCV, absl-py==0.9.0, custom aniposelib and smplx forks, imageio, ffmpeg-python. SMPL model files separately licensed. Modern environment compatibility untested.",
+        "implementation_divergence": "Paper and preprocessing use219 motion dimensions; released scores.py expects225 and slices translation at6:9. Do not silently treat this as a stable plug-in interface; inspect checkpoint/config/representation adapter if ever needed. No dancer work recommended for the present lighting campaign."
+      },
+      "licenses": {
+        "paper": "CC BY4.0",
+        "API_code": "Apache2.0",
+        "FACT_code": "Apache2.0",
+        "FACT_weights": "Official Drive link exists, but a distinct explicit weight license was not found in inspected README/Drive metadata; do not infer data rights from repo license.",
+        "AIST_original_video_music": "Academic research only; free for academic institutes/companies/individuals for that purpose. Commercial/non-research use requires written AIST consent. Unauthorized redistribution prohibited; application form and citation/name credit requested.",
+        "AISTplusplus_annotations": "Download page supplies annotations without a separate explicit annotation license in inspected text. Treat code Apache license separately; clarify derivative annotation/model use rights with owners for product deployment.",
+        "SMPL": "Separate SMPL model/license access needed for mesh/joint reconstruction; not included in API Apache grant."
+      }
+    }
+  ],
+  "campaign_implications": {
+    "lighting_policy_not_beat_tracker": "A beat/downbeat tracker estimates a latent musical clock; it does not decide which events merit lighting accents. A lighting policy chooses a subset/metrical level, suppression and silence, attack/hold/decay, anticipation or syncopation, intensity and spatial/color action. Neither beat labels nor dance velocity minima are lighting-accent targets. Evaluate the timing instrument separately from the emitted light policy; musical F1 cannot establish lighting quality.",
+    "approved_architecture_scope": "Use direct audio rhythm for LIGHT timing; internal motion may supply spatial style. These papers do not justify retiming or retraining a dancer to satisfy a lighting request.",
+    "label_precision": "Keep sample rate, detector-output grid, human annotation uncertainty, evaluation tolerance, and rendered/DMX update interval distinct. 50/100 Hz model output is not evidence for 20/10 ms human beat labels. Section boundary labels are coarser still. Do not optimize a sample-accurate loss against uncertain marks without an uncertainty model.",
+    "conditioning_design": "Beat This suggests shared audio features, distinct sparse beat/downbeat heads, soft hierarchical consistency, imbalance-aware shift-tolerant losses. All-In-One supports beat/downbeat/segment multi-task coupling, not a claim that every added task helps: functional labels and downbeats can compete. Treat transfer to lighting as a hypothesis, not a published result.",
+    "calibration": "Beat This deliberately learns overconfident peaks. Its sigmoid magnitude is not a validated confidence/abstention estimate. Calibrate confidence on independent annotations before using it as a safety or fallback gate.",
+    "timing_measurements": "Report beat/downbeat F1 together with named comparator, continuity, signed timing residuals and tempo/meter failures. F1 at 70 ms can hide fine timing offsets. Standardize source PCM, time origins, trim and resampling; report rendered-light timing separately with density- and brightness-matched controls.",
+    "heldout_protocol": "Prefer external, rights-cleared songs with expert beat/downbeat marks and adjudicated ambiguity, frozen before model selection. Hash exact audio, record sample offsets and annotation provenance. Audit exact recordings, compositions/arrangements, artists and training dataset IDs as relevant. For existing corpora use matched out-of-fold checkpoints and original split manifests, never all-fold ensembles. Mark unresolved overlap as descriptive evaluation only.",
+    "no_pose_ground_truth": "AIST++ kinetic-velocity minima are a motion-derived proxy, not ground-truth audio beats. Position/pose minima are not even the same proxy. Reconstruction noise, smoothing, freezing, feet versus torso motion, and beat-doubling can change the proxy without improved musical perception. BeatAlign rewards one-way proximity, not coverage, correct bar position, light output, or aesthetic acceptance.",
+    "metric_scope": "AIST++ authors call real-paired and random-paired scores an upper/lower calibration; neither is a mathematical ceiling/floor or a null calibrated to the LightSem cohort. Use cohort-specific metronome and shift/null controls, and do not transfer their absolute scores across feature definitions or corpora."
+  },
+  "pretraining_overlap": {
+    "BeatThis_final_small": {
+      "GuitarSet": "Confirmed: comping recordings included; solos discarded. Same-song/player versions still need grouping. final*/small* are not clean GuitarSet generalization baselines.",
+      "Harmonix": "Confirmed supervised training.",
+      "JustDance": "JD dataset not named in training list. Exact song/recording overlap unknown; cannot claim clean merely because dataset name differs.",
+      "GTZAN": "Test-only in paper/release, not training; already used for published evaluation and contains acknowledged annotation defects. External comparison still needs composition/recording overlap audit."
+    },
+    "AllInOne_harmonix_all": {
+      "Harmonix": "Confirmed: ensemble averages eight CV models; each song is training data for six component models. Not out-of-fold predictions.",
+      "GuitarSet": "Not in paper supervised training; source-separator training exposure and musical-content overlap not audited.",
+      "JustDance": "JD dataset not named, but Western-pop song overlap with Harmonix remains unknown.",
+      "OOF_warning": "Current source assigns folds by sorted available MP3 stems modulo 8; fold N=test, (N+1)%8=validation. Missing/extra/re-versioned audio changes all assignments. Recover original training file manifest/checkpoint config, not a local partial directory."
+    }
+  },
+  "source_versions": {
+    "beat_this": "b95c8ab0c58c2d9fcfd40508ae8dffbc05ac4f5c",
+    "all_in_one": "18e78903c0365147a2c5d4e5e57ebf88cb7d800e",
+    "aist_repo": "2dd7b3e946b794fd0081c98e2e2433545abf8b87",
+    "fact": "b8f8bdfbbe3fbfa67831a2ef9bcf71a6a9e74552",
+    "allinone_hf": "379e5fd010b3fdd0ee8381ff8cbcfa51d70b5c19",
+    "beat_this_annotations": "v1.0"
+  },
+  "source_checksums": {
+    "2307.16425.layout.txt": "56509219caf8d5b076a6dab7139244b4b1e70218edc0749809b630e487874625",
+    "fact_preprocessing.py": "31c5ef75a5e7fd4becbf90fa4fcc4d27eb30694639b29dca4f24cb8279aaf7d7",
+    "beat_this_annotations_README.md": "d61a328872b6ad601efe39b1d6428ce6acd9fab9c41a72dd9a405975e3a1e6d0",
+    "beat_this_annotations_LICENSE": "5476ec1e3de92a2ff96356452c324dc2a566e48d8c98a22503aab88763798aaa",
+    "aio_src_allin1_training_data_utils.py": "47d74cee67f1eab5b504cbf4f25d881dfd4c0b43abbfae863751d16f4873a466",
+    "aio_src_allin1_training_data_datasets_datasetbase.py": "e3a6a06628b6d5d80b65efbaac36bbafa0d14251d35eec544ea9417b73ea5bd8",
+    "aio_hf_model.json": "19e8ce1acc7518a7881f1e8403f9ebb8a3a7afecdc9cac7c8ec8ac496c5d68cb",
+    "aio_hf_README.md": "3e0e15fa0c5cc81675bd69af8eb469d128a725c1a7bfc71f03b7877b7b650567",
+    "fact_commit.json": "16855030451141afd6b7880d0351b880f887e2f6e0e69cb9609d8a3b35910bee",
+    "aist_home.html": "fa5d542a91fb663ec24c55051d61a75202170eb52afd12cf1fd6549ad48b69ae",
+    "fact_audiofeatures.py": "c88592a0c0af38cef3d80a7107cfccbeeef3674d209823b090e03c3b620dfd0a",
+    "fact_scores.py": "5753f210a9c3cc28ebe89bd472aa840a641f9fbdd1ca7093830b12e889cca0aa",
+    "aio_TRAINING.md": "cf26581d190ae55594759ef6cd0337ac3cb93f3b9a8e6bb0b8e147d0b3515f47",
+    "aio_src_allin1___about__.py": "2c6550c83b1689f7400a8eeacedc1bf115961ddb3513bb90f99a83f12023cb0e",
+    "aio_src_allin1_training_data_eventconverters_eventconverters.py": "5b3b837d73ade0c24ba4d7d68199fbe6823a63a8f3e194ed575b2102aa687bf4",
+    "aio_src_allin1_training_data_datasets_harmonix_dataset.py": "9f2a292f58e68e12a2a34193974a790d2529afcdf16f5c6e299701f989f7814b",
+    "aio_src_allin1_training_trainer.py": "bddd088150e2ac292bd248028598bfb7173dd8d3cd60de0eabae31f78005b7b9",
+    "aio_src_allin1_postprocessing_tempo.py": "37a8c4166d59e130b2859e97a4d90e295733d3aebb5d64ad7c38a496ad1b75a1",
+    "aio_src_allin1_training_data_datasets_harmonix_datamodule.py": "a2e937f9bf99d3893097345958d427e01f23f929651eb03e754b7a8e205dba46",
+    "aio_src_allin1_models_allinone.py": "d5515fc909b5e0ebb6715879741403d92a8000695ef2ccdaa03a45cda08166bb",
+    "aio_src_allin1_config.py": "caebb47c20cda6ca43df22f4a74481982620e3aeeb869f682cae51e7addb37e2",
+    "aio_src_allin1_postprocessing_metrical.py": "e3b656753763d3979b6dd7e668833c357898688a23785c245e78677c98a61d29",
+    "aio_src_allin1_models_loaders.py": "18970bf281bfbcf1580ee58780f5958f91b14092993e770a8e8943c0742332ba",
+    "aist_original_terms.html": "c1fef46f4ea19423d86997a6c09ce91b8ce1c0b2602d21a99b796e9aa052b168",
+    "fact_tree.json": "bcec342fd5f3f39291ac5a4ecde1f57e5baedb3c4392ddf6fd3fda9e80a9baf2",
+    "aist_requirements.txt": "9faee0f1b8ef2780cc136efb78d320c26b24e818f289439584e2c98d3a0dd710",
+    "fact_LICENSE": "cfc7749b96f63bd31c3c42b5c471bf756814053e847c10f3eb003417bc523d30",
+    "fact_README.md": "5ff265e798c713cf53ddd1348c556206bc1ba74a40457e2458783c244769c5b2",
+    "aist_download.html": "f0fec5e01f34689c8dc1bf96897bc2687e30aaafcfbfc3c8d6172b5aa3b9f558",
+    "all_in_one_tree.json": "4d7180f7aa5bc96a13c160ab3889a5f1b5a348039f48dfcc73a2219733ce3dd3",
+    "aist_repo_commit.json": "184fc30abed383f75738c1b395383ed0ea6c53ced1e66dc675e7e7072c9cc07c",
+    "all_in_one_commit.json": "0a685cd61c82b6230c842d94fb4abd21fef2752084d214262968a7da900f1b15",
+    "beat_this_commit.json": "2d4b34e7d5cf969931cd2305d9d4a0eb093acb345058f3e760de2dc41e89a16f",
+    "aist_original.html": "46845d69e987869e266a9f8b3207179ed4c8a923aa34d7ff0c681a9fd11b1231",
+    "aist_repo_LICENSE": "cfc7749b96f63bd31c3c42b5c471bf756814053e847c10f3eb003417bc523d30",
+    "aist_repo_README.md": "57613423b193ca0a147ce01b7634d5f6e346ce077fa077f81868feca278f4c49",
+    "aist_project.html": "25db534fff0750f8397100c84cf18075bf43ca65558b3e9086d3210ad0f38e13",
+    "all_in_one_pyproject.toml": "c3b916f5d79a3f1db26115870cef3c025fe5d9f47df38ecbd404f8e8e03c56d3",
+    "all_in_one_LICENSE": "f75e7cd094466fd9a06b31eff35068d07f120fcd0c04e2893df75384ae1c4abf",
+    "all_in_one_README.md": "d7a0e2926f26d33ee5f9e4a7fadd7bcfe69ee1b6f4ee191d6ed8d107c66cbdb5",
+    "beat_this_inference.py": "ccccff4665399b931ebf181b73d264a6ad64fc1fe8acb4d3b950df825c47ce2d",
+    "beat_this_README.md": "be7b51a9b6ff2041fdde81061d079c29451583f2c06c9733bece9282cc7afab0",
+    "beat_this_pyproject.toml": "70d80fb23b0cc24b80ead6a6eab385b078f0589cf336a6c613f3c479acab4578",
+    "beat_this_LICENSE": "909ab6549794a18e9bb243aacfadda4a5f308436fc2846f350755c53c4f06ae1",
+    "2101.08779.txt": "563b77cb8611ab63a5cf50a35178eb40b9d6f16a3978eaa1de123f927d56f3cd",
+    "2307.16425.txt": "6ad5e501e5b36871efa28e96d8c83637cf54205dfdc9b2e3b0acc2256238e9a7",
+    "2407.21658.txt": "105c3dad669a42e1b9ddd529617aafafab8d97ad6058a72bd86146dde013bb5a",
+    "2101.08779.pdf": "edab2ff56222b5c4fb2d803d0efc1fc48119f6d2065d4d03aca659a2ea83416b",
+    "2101.08779.html": "2baefd888a8828921e53ebd6c78025242a54f1e9b8257953791541ef65c68f45",
+    "2307.16425.pdf": "eec5398bb0dfe5375a91f040b2e634b64e19238b2c8cac909963ff3dac465291",
+    "2101.08779.abs.html": "a76c283b02e758831e5197e8c6c2bca01c37cccf8fe0dd8d1fcdc5f468cc6281",
+    "2307.16425.html": "620b070cfa7a4af50ffe0b6d8ee7901216119391344b4e878ee57963ec0c68d3",
+    "2307.16425.abs.html": "a0789891c121a073f6ddbda534f2e6423d0d79d4a018cd7bfe12f06a95f57c19",
+    "2407.21658.pdf": "cee6ea7b31165e6d722a34160e70d7bd35f5c8678b8e6a19bad7c09daa6a0407",
+    "2407.21658.html": "7089aebae520eef6aeee95a553d9895ce7532487ba3c1b6b2ccb404e38e32eeb",
+    "2407.21658.abs.html": "ecca3987ce1a6e04fccafc265fff487300678647843f463b9c9fe22b76623b42"
+  }
+}

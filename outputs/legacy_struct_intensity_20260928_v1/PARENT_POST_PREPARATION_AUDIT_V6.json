@@ -1,0 +1,57 @@
+{
+  "status": "PARENT_METADATA_PREPARATION_AUDIT_PASSED_NO_SCIENTIFIC_ADMISSION",
+  "native_execution_ref": {
+    "path": "/root/lightsem/outputs/legacy_struct_intensity_20260928_v1/NATIVE_PREPARATION_EXECUTION_RESULT_V6.json",
+    "size_bytes": 2935,
+    "sha256": "82fda383caecea3707f83f23d49308fbce749944e51ef19eb67e90aa58e2d8d8"
+  },
+  "readiness_ref": {
+    "path": "/mnt/lightsem-data/experiments/lightsem/end_to_end_20260928_v1/legacy_struct_intensity_v6/preparation_readiness_v6.json",
+    "size_bytes": 202345,
+    "sha256": "54049eb742d6e796f3356cb278e1044320a6a7e56cf9c4af04cd33536520a878"
+  },
+  "log_ref": {
+    "path": "/root/lightsem/outputs/legacy_struct_intensity_20260928_v1/preparation_v6.log",
+    "size_bytes": 12087,
+    "sha256": "3c022aefa388d2558c16de5f03d314e7cb65366f6bc2815d9bc4480b7b9dce0c"
+  },
+  "envelope_ref": {
+    "path": "/root/lightsem/outputs/legacy_struct_intensity_20260928_v1/preparation_resource_envelope_v6.json",
+    "size_bytes": 2628,
+    "sha256": "e0232a84eb81f5e57911e635ff2b4275b2d43345e447d27f30ae17c67c8f6de6"
+  },
+  "checks": {
+    "exact_bound_driver_plan_tests_sources_inputs_checkpoint_refs": true,
+    "all40_fixed_order_and_ids": true,
+    "three_checkpoint_metadata_and40_clip_progress_events_match": true,
+    "all_input_stat_identities_preserved": true,
+    "original_stat_inventory_preserved": true,
+    "all_preserved_V3_V4_V5_hashes_unchanged": true,
+    "native_exit0_and_observed_runtime_within900s": true,
+    "live_and_preexec_effective_OS_caps_verified": true,
+    "all_no_model_science_GPU_grant_flags_retained": true
+  },
+  "summary": {
+    "checkpoint_metadata_records": 3,
+    "all_clip_decisions": 40,
+    "input_qualified_clips": 33,
+    "input_qualified_recordings": 25,
+    "input_qualified_canonical_families": 24,
+    "support_ineligible_clips": 7,
+    "all7_reason": "BREAKDOWN_RETAINED_LT80_FRAMES",
+    "all7_have_zero_cached_breakdown_section_frames": true,
+    "meaning": "Cached heuristic role support, NOT human musical truth or model performance."
+  },
+  "unit_after_completion": "Transient unit was garbage-collected: LoadState=not-found and default infinite limits in laterquery are NOT the limits of executed work. Use retained liveeffectiveprops andactualsame-servicepreexecproof; exit0 comesfromfinishednativehandle.",
+  "exact_memory_peak_bytes_not_captured": true,
+  "resource_snapshot_before_this_audit": {
+    "packet_used_bytes": 4001768,
+    "packet_remaining_bytes": 8581144,
+    "global_committed_bytes": 999113452,
+    "global_cap_bytes": 1020054732,
+    "raw_future_all40_trace_estimate_bytes": 8542039,
+    "current_packet_plus_raw_future_trace_lower_bound_bytes": 12543807,
+    "future_archive_fit_admitted": false
+  },
+  "scope": "Actual restricted reader and cache metadata qualification completed. Not modelconstruction/forward compatibility, waveform-end verification, freshTEST, scientific result, original gate completion or defaultpromotion."
+}

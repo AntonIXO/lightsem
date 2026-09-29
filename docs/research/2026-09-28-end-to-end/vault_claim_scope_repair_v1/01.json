@@ -1,0 +1,8 @@
+{
+  "experiment_id": "exp-004-a-causal-conformer-with-three-70f12e",
+  "verdict": "refutes",
+  "failure_mode": "recipe_conditional",
+  "lesson": "2026-09-28 retrospective claim-scope clarification, not a new measurement: This frozen AIST++ three-head recipe failed BAS, FID and diversity gates while passing exact model causality. Near-median blockA output and independent-frame jitter are reported failure observations; these data do not isolate one cause of every failed gate or establish an architecture-independent corpus ceiling. Retain the scoped recipe failure and all null comparators.",
+  "transfers_to": [],
+  "hint": "recipe_conditional: when the recipe changes, reopen_hypothesis('a-causal-conformer-with-three-heads-b18294', reason=...) makes the negative re-testable instead of terminal"
+}

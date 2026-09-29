@@ -1,0 +1,15 @@
+{
+  "scope": "Read-only existing prediction masks/cues/counts/arithmetic;no rawsource inputs or inference/AP/W1/bootstrap/calibration rerun",
+  "status": "passed",
+  "report": {
+    "path": "/mnt/lightsem-data/experiments/lightsem/palette-history-secondary-20260922-v1/palette_secondary_report_v1.json",
+    "sha256": "d25c8edbf229869fd8b3b8a7e0428bba09326703216d5583c1554efafc0336f6"
+  },
+  "source": {
+    "path": "/root/lightsem/outputs/shpongle_layers_demo_20260922T161917Z/palette_secondary_v1/audit_saved_palette_support_v1.py",
+    "sha256": "4affb5c154b84954beb115d90bcc533bca51bfcbf81cb197ac2914998d958467"
+  },
+  "checked_cells": 186,
+  "checks": 154122,
+  "errors": []
+}

@@ -1,0 +1,37 @@
+{
+  "status": "passed",
+  "exit_code": 0,
+  "tests_run": 15,
+  "tests_passed": 15,
+  "failures": 0,
+  "errors": 0,
+  "skipped": 0,
+  "real_model_forward_calls": 0,
+  "real_checkpoint_loads": 0,
+  "sealed_TEST_reads": 0,
+  "plan_sha256": "0e9286f7428346a2ff01d2f5cd45b75fd39ac1b564d663bb209a2e48f17cffd4",
+  "source_files": {
+    "/root/lightsem/outputs/shpongle_model_comparisons_20260928_v1/parent_audit_v1.py": "b166ba5d9f75451bb8fb7a24e3cfbf6f5c2d0795c67d44702ad5304314ea3672",
+    "/root/lightsem/run.sh": "232ca5a566ae3b22f0677b6b5879c6901abf9decb16dc66967a4895174289556"
+  },
+  "test_sources": {
+    "/root/lightsem/outputs/shpongle_model_comparisons_20260928_v1/test_parent_audit_v1.py": "deac54a0f5caba16d6e32a6df7d14830a3ebc2449ead46fe730f43891f519805"
+  },
+  "command": "bash run.sh -m unittest discover -s /root/lightsem/outputs/shpongle_model_comparisons_20260928_v1 -p test_parent_audit_v1.py -v > /root/lightsem/outputs/shpongle_model_comparisons_20260928_v1/native_parent_audit_tests_v1.log 2>&1",
+  "log": {
+    "path": "/root/lightsem/outputs/shpongle_model_comparisons_20260928_v1/native_parent_audit_tests_v1.log",
+    "sha256": "0653d20696541392f6e28e5600eceabc9c36ae6cb1f680555a8840e2081ca42e",
+    "bytes": 2313
+  },
+  "prospective_binding": {
+    "path": "/root/lightsem/outputs/shpongle_model_comparisons_20260928_v1/PARENT_AUDIT_TEST_SOURCE_BINDING_V1.json",
+    "sha256": "38e7f11775cd842fe6bbe9dfcb8e49262da8fb4eda255f1fde3d344c8e71003d",
+    "bytes": 1524
+  },
+  "native_binding_receipt": {
+    "path": "/root/lightsem/outputs/shpongle_model_comparisons_20260928_v1/vault_parent_audit_test_binding_v1_receipt.json",
+    "sha256": "a090b83926674af82670e692b71e8f86f01cf580d1b533e02fb5ff45c3bf0e6f",
+    "bytes": 86766
+  },
+  "scope_of_zero_counts": "This synthetic command only; not earlier metadata audits."
+}

@@ -1,0 +1,554 @@
+{
+  "schema_version": 1,
+  "created_at_utc": "2026-09-28T20:50:59.088769+00:00",
+  "status": "blocked_exact_historical_version_not_authenticated",
+  "goal_status": "active",
+  "new_execution_authority": false,
+  "scope": "Source/record-only provenance readiness for original row65 future-AUDIO→output causality gate. No scientific rerun or new measurement. Only native records, saved Markdown/source text, read-only Git history/tree metadata and path/stat metadata inspected.",
+  "hypothesis_id": "the-deployed-path-meets-its-latency-budget-and-b0aff5",
+  "experiment_id": "exp-006-the-deployed-path-meets-its-eb0fc6",
+  "original_plan_quote": "Test causality by replacing all audio after a cut with noise and asserting the output before the cut is bit-identical.",
+  "bottom_line": "Exact executed source/checkpoint/upstream/runtime lineage is not authenticated by the reviewed evidence. Source snapshots are recoverable and candidate assets exist by stat, but no trustworthy run-to-bytes linkage identifies the original frozen path. Historical reconstruction is blocked, not shown impossible in every archive. A current-version controlled-synthetic test would be a separate version-bounded study, not completion of this old gate; it is not implemented or authorized here.",
+  "recorded_identity": {
+    "native_experiment_id": "exp-006-the-deployed-path-meets-its-eb0fc6",
+    "native_hypothesis_id": "the-deployed-path-meets-its-latency-budget-and-b0aff5",
+    "created_at_registration": "2026-09-04T00:04:43+00:00",
+    "git_ref": "",
+    "external_run": "",
+    "artifacts": [],
+    "provenance": {},
+    "recipe_fingerprint": {},
+    "config_note": "{\"stage\": \"4 (software half)\", \"runbook\": \"rb-ls2-04\", \"device\": \"cuda\", \"receptive_field_frames\": 1039, \"receptive_field_s\": 25.975, \"not_measured\": \"fixture response and Art-Net on real hardware; photodiode timing\"}",
+    "recorded_causality_cut_frames": [
+      50,
+      100,
+      200,
+      300
+    ],
+    "reported_max_model_probe_difference": 0.0,
+    "checkpoint_path_recorded_for_this_experiment": false,
+    "checkpoint_digest_recorded": false,
+    "source_tree_or_patch_digest_recorded": false,
+    "command_invocation_or_environment_digest_recorded": false
+  },
+  "native_record_hashes": [
+    {
+      "path": "/root/lightsem-vault/hypotheses/the-deployed-path-meets-its-latency-budget-and-b0aff5.md",
+      "sha256": "feb3ee3ceac79a181b93ea8c370ab96e7e9f196a83b03f0d82ecff4433e93de8"
+    },
+    {
+      "path": "/root/lightsem-vault/experiments/exp-006-the-deployed-path-meets-its-eb0fc6.md",
+      "sha256": "b119661137a876e6d439827c3b8b7531aee033cb4ef2889d0539e5ee77deebc4"
+    }
+  ],
+  "authentication_classes": {
+    "native_record_only": "Authenticated as the current native account:experiment/hypothesis IDs, registration date, recorded cuts/context/timing and absent provenance fields. Not independent verification of the numbers or execution bytes.",
+    "git_snapshot_only": "Git object IDs identify the saved source/calibration tree snapshot. They do not show that exp-006 executed that snapshot or had a clean working tree.",
+    "path_stat_only": "Current path existence,size,mtime and inode identify extant files, not original payload identity or use. Sensitive payloads were not opened or hashed.",
+    "unresolved_execution_identity": "Actual executed worktree, external checkpoint bytes/cfg, scalar calibration, beat/source modules, dependency state and invocation remain unbound."
+  },
+  "git_history": {
+    "current_HEAD_metadata_observed": "01a14fea1fb9bf517f637d4fcebb7829667cb112",
+    "current_HEAD_is_historical_execution_identity": false,
+    "earliest_located_reachable_stage4_commit": "1656ffde47a26bbd9655b5ceef8ddaebd80e4895",
+    "root_tree_at_candidate": "e84acd58ca2f01e25159cc92570caa1f6490e639",
+    "seconds_after_native_registration": 32787,
+    "registration_is_not_run_start_proof": true,
+    "candidate_commits": [
+      {
+        "commit": "1656ffde47a26bbd9655b5ceef8ddaebd80e4895",
+        "author_date": "2026-09-04T12:11:10+03:00",
+        "committer_date": "2026-09-04T12:11:10+03:00",
+        "subject": "LightSem v2: dance-trained sound->light pipeline, stages 0a-4",
+        "execution_attestation": false
+      },
+      {
+        "commit": "42794e84c91d8f6f10ebfaf239b7ab77c159d4a7",
+        "author_date": "2026-09-04T12:16:45+03:00",
+        "committer_date": "2026-09-04T12:16:45+03:00",
+        "subject": "LightSem v2 drivers: cache builders, stage runners, trainers, verification",
+        "execution_attestation": false
+      },
+      {
+        "commit": "90dcdfaa28806515227d93a51fea9fbfb3b7db4f",
+        "author_date": "2026-09-04T12:19:15+03:00",
+        "committer_date": "2026-09-04T12:19:30+03:00",
+        "subject": "LightSem v2 for review: library plus stage drivers and trainers",
+        "execution_attestation": false
+      },
+      {
+        "commit": "20322d60083000f04ec4c35390dc822f4ac9235e",
+        "author_date": "2026-09-04T13:00:26+03:00",
+        "committer_date": "2026-09-04T13:00:26+03:00",
+        "subject": "Fix the review findings, and the three causality leaks they led to",
+        "execution_attestation": false
+      },
+      {
+        "commit": "cab408a51f0a2ea6889a996f2e26f56ac19b00c9",
+        "author_date": "2026-09-04T13:13:33+03:00",
+        "committer_date": "2026-09-04T13:13:33+03:00",
+        "subject": "Calibrate block-B event thresholds to the corpus rate",
+        "execution_attestation": false
+      },
+      {
+        "commit": "ea51f6054fcf5dd0b3c95e7a20f5a57047558ad7",
+        "author_date": "2026-09-04T15:21:55+03:00",
+        "committer_date": "2026-09-04T15:21:55+03:00",
+        "subject": "H-C wiring: structure channels in the Just Dance tensor, at inference and in the evaluator",
+        "execution_attestation": false
+      }
+    ],
+    "candidate_tree_blobs": {
+      "run_stage4.py": "20ee2f4b3007601d702952d5cd68905846aebcff",
+      "lightsem/model/light_trunk.py": "e425117774fd8921baa8ec6b38124ee4dda2ddeb",
+      "lightsem/model/infer.py": "72546ea3628b4504e3f92532b7bf27581f1ab107",
+      "lightsem/audio/online.py": "959929f5bed79927aa76275dcca519edc792db84",
+      "lightsem/audio/beatgrid.py": "6350f0f4b623fd6d77e6bc792613d16a8dc97773",
+      "log_stage4_pose_to_vault.py": "a15cf1fb3438f02f2201583f9393849a4f5b0fc0",
+      "run_torch.sh": "ca81b91e1ededf51accac87532c2b71e5a8f10d9",
+      "lightsem/conductor/scalers.json": "aa0c949a40379cb01776d473854d6debfbd744d3",
+      "lightsem/conductor/hybrid.py": "385c9f3f70c6df3fef3543cc1df9ce3842c85d70",
+      "lightsem/conductor/rig.py": "1c1de717987bac0d93264f27167f03f233cf1956",
+      "lightsem/conductor/v0.py": "c1df0b184bab7b3dd115e9f382aded8d764be2d1",
+      "lightsem/dmx/encode.py": "e44fe9af71488a2c12b0c4f4e6e8b3576c2d0340",
+      "lightsem/model/light_data.py": "2051be9bd876e0399ad36751462918ffbb436a44"
+    },
+    "numeric_blob_contents_read": false,
+    "stage4_latency_json_in_candidate_tree": false,
+    "stage4_latency_json_in_current_index": false,
+    "calibration_blob_index_equals_candidate_reported_by_tree_metadata": true,
+    "later_deltas": [
+      {
+        "commit": "20322d60083000f04ec4c35390dc822f4ac9235e",
+        "runner_blob": "6dce1ab3b9a97fcc70dfd70be0a6a2731f689f31",
+        "online_blob": "7cb2c99ae5874d6f270cb3bfd619b596b3cfe4fa",
+        "scope": "Changes upstream feature causality and conductor/pack timing from one value duplicated100times to20actual amortised repeats. Does not change the synthetic A-head causality probe. These are source-history facts, not proof which upstream/timing version exp-006 ran."
+      },
+      {
+        "commit": "ea51f6054fcf5dd0b3c95e7a20f5a57047558ad7",
+        "scope": "Changes infer.DEFAULT_CKPT from light_trunk_v1.pt to light_trunk_v3causal_smooth.pt. Current default is later source lineage, not historical identity."
+      }
+    ]
+  },
+  "candidate_historical_instrument": {
+    "source_commit": "1656ffde47a26bbd9655b5ceef8ddaebd80e4895",
+    "runner_location": "run_stage4.py:49–52",
+    "helper_location": "lightsem/model/light_trunk.py:230–242",
+    "input": "torch.randn(4,400,lm.cfg.in_dim), synthetic model-feature tensor",
+    "cut_frames": [
+      50,
+      100,
+      200,
+      300
+    ],
+    "perturbation": "x2[:,t_cut:] = torch.randn_like(x2[:,t_cut:]) * 5.0",
+    "observed_output": "Only model(x)[\"a\"]: regression A-head values at frames strictly before t_cut.",
+    "excluded_from_observed_output": [
+      "Audio waveform/feature builder",
+      "B hazard head",
+      "C sampling",
+      "Descriptor postprocessing",
+      "Conductor parameters",
+      "Encoded DMX"
+    ],
+    "global_probe_rng_seed_in_runner": null,
+    "helper_text_equals_current_helper": true,
+    "scope_warning": "This is the exact available source-snapshot boundary, not authentication that the historical run used these exact bytes. It supplies no all-head or full audio-path result.",
+    "separate_latency_branch": "Historical runner:85–87 extracts20s from /root/lightsem/data/wav/wav/mBR0.wav, calls descriptors(seed=0), then conductor and DMX packing for timing. That branch is not under future-audio perturbation.",
+    "default_checkpoint_in_candidate_source": "/mnt/lightsem-data/ckpt/light_trunk_v1.pt",
+    "checkpoint_config_source": "LightModel loads cfg from checkpoint[\"cfg\"], plus model/mu/sd; dataclass/source defaults are not proof of the loaded config.",
+    "receptive_field_compatibility": "Native1039 is compatible with6blocks,160attention-window,15conv taps; it is not a unique checkpoint/config fingerprint."
+  },
+  "lineage_comparison": [
+    {
+      "record": "exp-004-a-causal-conformer-with-three-70f12e",
+      "native_registration": "2026-09-03T23:28:01+00:00",
+      "recorded_checkpoint": "/mnt/lightsem-data/ckpt/light_trunk_v1.pt",
+      "meaning": "A neighboring Stage1 record names v1; it does not identify exp-006’s loaded checkpoint."
+    },
+    {
+      "record": "exp-009-the-stage-1-audio-bus-was-not-d97aa0",
+      "native_registration": "2026-09-04T10:43:42+00:00",
+      "git_ref": "master@cab408a+dirty",
+      "recorded_checkpoint": "/mnt/lightsem-data/ckpt/light_trunk_v3causal.pt",
+      "meaning": "A later separate repair record; dirty suffix is not a worktree hash, and equivalence to exp-006 is not established."
+    },
+    {
+      "record": "exp-011-the-model-s-light-flashes-three-1de900",
+      "native_registration": "2026-09-04T12:19:22+00:00",
+      "git_ref": "HEAD",
+      "recorded_checkpoint": "light_trunk_v3causal.pt",
+      "meaning": "Later smoothing comparison; moving HEAD and related filename do not authenticate the original stage4 path."
+    }
+  ],
+  "logging_boundary": {
+    "source": "log_stage4_pose_to_vault.py at candidate commit",
+    "read_path": "/root/lightsem/outputs/stage4/latency.json",
+    "properties": [
+      "Reads fixed overwriteable numeric report path.",
+      "Records stage/runbook/device/receptive-field and hardware exclusions, but no source/checkpoint/report digest.",
+      "Copies evidence text while hardcoding three passed flags True.",
+      "Neither runner nor logger records exact invocation, worktree patch, environment digest or checkpoint bytes."
+    ],
+    "limitation": "Matching Notes and plausible report mtime support candidate provenance only. No claim is made here that the reported numbers are false."
+  },
+  "asset_metadata": [
+    {
+      "path": "/root/lightsem/outputs/stage4/latency.json",
+      "lexists": true,
+      "is_symlink": false,
+      "lstat_size_bytes": 2223,
+      "resolved_path": "/root/lightsem/outputs/stage4/latency.json",
+      "target_exists": true,
+      "is_regular_file": true,
+      "is_directory": false,
+      "size_bytes": 2223,
+      "mtime_utc": "2026-09-04T00:03:50.532572+00:00",
+      "inode": 2884322,
+      "sensitive_payload_read": false,
+      "source_text_read": false
+    },
+    {
+      "path": "/root/lightsem/data/wav/wav/mBR0.wav",
+      "lexists": true,
+      "is_symlink": false,
+      "lstat_size_bytes": 15552702,
+      "resolved_path": "/root/lightsem/data/wav/wav/mBR0.wav",
+      "target_exists": true,
+      "is_regular_file": true,
+      "is_directory": false,
+      "size_bytes": 15552702,
+      "mtime_utc": "2019-10-25T03:32:07+00:00",
+      "inode": 1357047,
+      "sensitive_payload_read": false,
+      "source_text_read": false
+    },
+    {
+      "path": "/mnt/lightsem-data/ckpt/light_trunk_v3causal_smooth.pt",
+      "lexists": true,
+      "is_symlink": false,
+      "lstat_size_bytes": 37420995,
+      "resolved_path": "/mnt/lightsem-data/ckpt/light_trunk_v3causal_smooth.pt",
+      "target_exists": true,
+      "is_regular_file": true,
+      "is_directory": false,
+      "size_bytes": 37420995,
+      "mtime_utc": "2026-09-04T12:14:01.293621+00:00",
+      "inode": 197343,
+      "sensitive_payload_read": false,
+      "source_text_read": false
+    },
+    {
+      "path": "/mnt/lightsem-data/ckpt/light_trunk_v1.pt",
+      "lexists": true,
+      "is_symlink": false,
+      "lstat_size_bytes": 37168055,
+      "resolved_path": "/mnt/lightsem-data/ckpt/light_trunk_v1.pt",
+      "target_exists": true,
+      "is_regular_file": true,
+      "is_directory": false,
+      "size_bytes": 37168055,
+      "mtime_utc": "2026-09-03T23:02:56.284382+00:00",
+      "inode": 143450,
+      "sensitive_payload_read": false,
+      "source_text_read": false
+    },
+    {
+      "path": "/mnt/lightsem-data/ckpt/light_trunk_v2.pt",
+      "lexists": true,
+      "is_symlink": false,
+      "lstat_size_bytes": 37419575,
+      "resolved_path": "/mnt/lightsem-data/ckpt/light_trunk_v2.pt",
+      "target_exists": true,
+      "is_regular_file": true,
+      "is_directory": false,
+      "size_bytes": 37419575,
+      "mtime_utc": "2026-09-03T23:42:04.394715+00:00",
+      "inode": 152243,
+      "sensitive_payload_read": false,
+      "source_text_read": false
+    },
+    {
+      "path": "/mnt/lightsem-data/ckpt/light_trunk_v2b.pt",
+      "lexists": true,
+      "is_symlink": false,
+      "lstat_size_bytes": 37419763,
+      "resolved_path": "/mnt/lightsem-data/ckpt/light_trunk_v2b.pt",
+      "target_exists": true,
+      "is_regular_file": true,
+      "is_directory": false,
+      "size_bytes": 37419763,
+      "mtime_utc": "2026-09-03T23:56:35.688872+00:00",
+      "inode": 156228,
+      "sensitive_payload_read": false,
+      "source_text_read": false
+    },
+    {
+      "path": "/mnt/lightsem-data/ckpt/light_trunk_v2smoke.pt",
+      "lexists": true,
+      "is_symlink": false,
+      "lstat_size_bytes": 37420515,
+      "resolved_path": "/mnt/lightsem-data/ckpt/light_trunk_v2smoke.pt",
+      "target_exists": true,
+      "is_regular_file": true,
+      "is_directory": false,
+      "size_bytes": 37420515,
+      "mtime_utc": "2026-09-03T23:29:48.577650+00:00",
+      "inode": 145281,
+      "sensitive_payload_read": false,
+      "source_text_read": false
+    },
+    {
+      "path": "/mnt/lightsem-data/ckpt/light_trunk_v3causal.pt",
+      "lexists": true,
+      "is_symlink": false,
+      "lstat_size_bytes": 37418847,
+      "resolved_path": "/mnt/lightsem-data/ckpt/light_trunk_v3causal.pt",
+      "target_exists": true,
+      "is_regular_file": true,
+      "is_directory": false,
+      "size_bytes": 37418847,
+      "mtime_utc": "2026-09-04T10:22:19.539174+00:00",
+      "inode": 81112,
+      "sensitive_payload_read": false,
+      "source_text_read": false
+    },
+    {
+      "path": "/mnt/lightsem-data/ckpt/light_trunk_v4offline.pt",
+      "lexists": true,
+      "is_symlink": false,
+      "lstat_size_bytes": 37419035,
+      "resolved_path": "/mnt/lightsem-data/ckpt/light_trunk_v4offline.pt",
+      "target_exists": true,
+      "is_regular_file": true,
+      "is_directory": false,
+      "size_bytes": 37419035,
+      "mtime_utc": "2026-09-04T12:28:47.567596+00:00",
+      "inode": 198514,
+      "sensitive_payload_read": false,
+      "source_text_read": false
+    },
+    {
+      "path": "/mnt/lightsem-data/ckpt/light_trunk_v4offline_smooth.pt",
+      "lexists": true,
+      "is_symlink": false,
+      "lstat_size_bytes": 37421183,
+      "resolved_path": "/mnt/lightsem-data/ckpt/light_trunk_v4offline_smooth.pt",
+      "target_exists": true,
+      "is_regular_file": true,
+      "is_directory": false,
+      "size_bytes": 37421183,
+      "mtime_utc": "2026-09-04T12:29:18.887583+00:00",
+      "inode": 198524,
+      "sensitive_payload_read": false,
+      "source_text_read": false
+    },
+    {
+      "path": "/root/lightsem/lightsem/conductor/scalers.json",
+      "lexists": true,
+      "is_symlink": false,
+      "lstat_size_bytes": 4170,
+      "resolved_path": "/root/lightsem/lightsem/conductor/scalers.json",
+      "target_exists": true,
+      "is_regular_file": true,
+      "is_directory": false,
+      "size_bytes": 4170,
+      "mtime_utc": "2026-09-04T09:19:15.000147+00:00",
+      "inode": 1311072,
+      "sensitive_payload_read": false,
+      "source_text_read": false
+    },
+    {
+      "path": "/mnt/lightsem-data/venv-torch",
+      "lexists": true,
+      "is_symlink": false,
+      "lstat_size_bytes": 4096,
+      "resolved_path": "/mnt/lightsem-data/venv-torch",
+      "target_exists": true,
+      "is_regular_file": false,
+      "is_directory": true,
+      "size_bytes": 4096,
+      "mtime_utc": "2026-09-03T21:51:05.071633+00:00",
+      "inode": 3175,
+      "sensitive_payload_read": false,
+      "source_text_read": false
+    },
+    {
+      "path": "/root/lightsem/run_stage4.py",
+      "lexists": true,
+      "is_symlink": false,
+      "lstat_size_bytes": 8059,
+      "resolved_path": "/root/lightsem/run_stage4.py",
+      "target_exists": true,
+      "is_regular_file": true,
+      "is_directory": false,
+      "size_bytes": 8059,
+      "mtime_utc": "2026-09-04T09:55:36.472868+00:00",
+      "inode": 1311175,
+      "sensitive_payload_read": false,
+      "source_text_read": true
+    },
+    {
+      "path": "/root/lightsem/log_stage4_pose_to_vault.py",
+      "lexists": true,
+      "is_symlink": false,
+      "lstat_size_bytes": 10146,
+      "resolved_path": "/root/lightsem/log_stage4_pose_to_vault.py",
+      "target_exists": true,
+      "is_regular_file": true,
+      "is_directory": false,
+      "size_bytes": 10146,
+      "mtime_utc": "2026-09-04T13:00:40.211375+00:00",
+      "inode": 1311284,
+      "sensitive_payload_read": false,
+      "source_text_read": true
+    },
+    {
+      "path": "/root/lightsem/lightsem/model/infer.py",
+      "lexists": true,
+      "is_symlink": false,
+      "lstat_size_bytes": 15163,
+      "resolved_path": "/root/lightsem/lightsem/model/infer.py",
+      "target_exists": true,
+      "is_regular_file": true,
+      "is_directory": false,
+      "size_bytes": 15163,
+      "mtime_utc": "2026-09-04T17:32:47.756269+00:00",
+      "inode": 1311117,
+      "sensitive_payload_read": false,
+      "source_text_read": true
+    }
+  ],
+  "asset_metadata_warning": "All numeric/audio/checkpoint files were stat/path-inspected only. No payload hashes or deserialization. A source text hash identifies current text only. The current working-copy calibration content was not compared to the Git index blob.",
+  "current_source_text_hashes": [
+    {
+      "path": "/root/lightsem/run_stage4.py",
+      "source_text_sha256": "a324e041b3fe0151562902ca2888b5ebf6540f2439b4f305282c19b0dd558ba1",
+      "scope": "current source snapshot only; no executed-version attestation"
+    },
+    {
+      "path": "/root/lightsem/lightsem/model/infer.py",
+      "source_text_sha256": "866233e115a7c9b1bca23f3209a49c5b0ddcf8817465efafd566a866811bc892",
+      "scope": "current source snapshot only; no executed-version attestation"
+    },
+    {
+      "path": "/root/lightsem/lightsem/model/light_trunk.py",
+      "source_text_sha256": "b515dcb960259f39f21a8d565b621364aafe0a87d3a6028f5a476659f662cf84",
+      "scope": "current source snapshot only; no executed-version attestation"
+    },
+    {
+      "path": "/root/lightsem/lightsem/audio/online.py",
+      "source_text_sha256": "c39a6597bb2146c226330488b7e88351723ff1038d6e0048705b38e29b1b0ec3",
+      "scope": "current source snapshot only; no executed-version attestation"
+    },
+    {
+      "path": "/root/lightsem/lightsem/conductor/hybrid.py",
+      "source_text_sha256": "2accca59f124e79b0c0cdff7f544c88093955fe44616d37af3783ee778ebf725",
+      "scope": "current source snapshot only; no executed-version attestation"
+    },
+    {
+      "path": "/root/lightsem/lightsem/conductor/rig.py",
+      "source_text_sha256": "608a7eb9971c2bd583282e4a38f777be96b49e5c1a909baffd47bf76cf28b28a",
+      "scope": "current source snapshot only; no executed-version attestation"
+    },
+    {
+      "path": "/root/lightsem/lightsem/dmx/encode.py",
+      "source_text_sha256": "f995fcf0b2f38dd49f05c37813e07faebfcdbbe21c92d084f36a2cea64b82891",
+      "scope": "current source snapshot only; no executed-version attestation"
+    },
+    {
+      "path": "/root/lightsem/lightsem/conductor/scalers.py",
+      "source_text_sha256": "af43e106d91f76f9cf555e1eb91dab671a354ece4a5dc1bf0eada13d9be28635",
+      "scope": "current source snapshot only; no executed-version attestation"
+    },
+    {
+      "path": "/root/lightsem/lightsem/model/light_data.py",
+      "source_text_sha256": "cb071e60fd1bf9123266870aa5a574e2e16735025f7d0a9e075321bf6ebbb7ba",
+      "scope": "current source snapshot only; no executed-version attestation"
+    },
+    {
+      "path": "/root/lightsem/lightsem/audio/beatgrid.py",
+      "source_text_sha256": "0c230a2ff2081b6b92d7fc2d38283f715d7131fdcb93e1f62b0b955260d4f5c5",
+      "scope": "current source snapshot only; no executed-version attestation"
+    },
+    {
+      "path": "/root/lightsem/run_torch.sh",
+      "source_text_sha256": "fa8766599ce7741477aff2035e5e87566fa4ddacacdfbbe39d5bbcba947888f1",
+      "scope": "current source snapshot only; no executed-version attestation"
+    },
+    {
+      "path": "/root/lightsem/log_stage4_pose_to_vault.py",
+      "source_text_sha256": "1f6ebbfa2e377e065c46e63d60e9a6f5a8657b782d5c5babf9537d8e2aea46af",
+      "scope": "current logging-source snapshot only; no execution attestation"
+    }
+  ],
+  "reconstruction_gaps": [
+    {
+      "id": "G-source",
+      "boundary": "Executed historical source tree",
+      "authenticated": "No source commit/tree/patch hash is recorded for exp-006. Native git_ref is empty.",
+      "candidate": "Reachable historical source snapshots and current source can be inspected as text.",
+      "gap": "No link from the executed working tree to any Git snapshot, including dirty/untracked state.",
+      "not_a_solution": "Choosing currentHEAD or the nearest commit by date does not authenticate executed code."
+    },
+    {
+      "id": "G-checkpoint",
+      "boundary": "Executed weight/config/normalization bytes",
+      "authenticated": "No checkpoint path or digest recorded for exp-006 itself.",
+      "candidate": "Historical source default is a candidate path; several light_trunk_v*.pt files currently exist.",
+      "gap": "Actual loaded checkpoint, cfg/model/mu/sd/block layout and any calibration/smoothing state are not run-pinned. Payloads were not read.",
+      "not_a_solution": "Filename, mtime, size, same receptive field, or a new hash of current bytes would not retroactively identify historical loaded bytes."
+    },
+    {
+      "id": "G-upstream",
+      "boundary": "Audio feature builder, beat clock and descriptor/conductor/DMX lineage",
+      "authenticated": "Original Plan requires future-audio perturbation; native record reports a software/model probe, not upstream snapshot hashes.",
+      "candidate": "Git source trees expose the relevant modules and scalar calibration path.",
+      "gap": "No run-linked source/calibration/beat-grid/timestamp/config boundary. Later exp-009 has a different named checkpoint and dirty-ref label, not proven source identity with exp-006.",
+      "not_a_solution": "Do not splice later repaired features into an older candidate and call it historical reconstruction."
+    },
+    {
+      "id": "G-state",
+      "boundary": "Environment, invocation, RNG and primed state",
+      "authenticated": "Native config records cuda and receptive field1039frames/25.975s; Notes discuss fully primed timing.",
+      "candidate": "Source runner shows constructor/defaults, contexts and synthetic tensor cut procedure.",
+      "gap": "No executed command, environment lock/container, GPU/driver/software versions, full RNG capture, exact checkpoint cfg, or end-to-end audio perturbation state was linked.",
+      "not_a_solution": "Current wrapper/env directory presence does not reconstruct historical runtime."
+    },
+    {
+      "id": "G-result-link",
+      "boundary": "Result file to executed asset linkage",
+      "authenticated": "Native gate text and logger source name a software latency result path.",
+      "candidate": "outputs/stage4/latency.json exists by stat; its mtime precedes native registration.",
+      "gap": "Neither source logger nor native record attaches result checksum, source hash, checkpoint hash, or invocation trace. Numeric report contents were not read in this task.",
+      "not_a_solution": "A plausible report mtime is not an execution attestation."
+    }
+  ],
+  "next_record_only_options": [
+    "Search only separately authorized existing execution logs/snapshots for a run-linked source tree or dirty patch, checkpoint/content digest, scalar calibration identity and environment/invocation. No such binding was found in this bounded review.",
+    "If no stronger attestation is available, retain exact historical component as provenance-blocked. Do not substitute nearest dated commit/currentHEAD/currentdefault.",
+    "A candidate emulation would require separate payload-inspection/runtime permissions and would remain a reconstruction candidate unless authenticated. Do not label it an exact rerun."
+  ],
+  "separate_current_version_study_boundary": {
+    "allowed_now": false,
+    "interpretation": "A newly pinned current-version controlled-synthetic audio→output test would answer a new version-bounded question only. It cannot retroactively satisfy old unrun gate or validate old latency.",
+    "prerequisites_if_authorized": [
+      "Preregister/freeze the complete source tree and external calibration/checkpoint bytes with exact output boundary.",
+      "Set audio timing, future perturbation, priming/state, stochastic seeds and all heads/postprocessing/DMX outputs explicitly.",
+      "Include future-sensitive beat-grid/oracle paths in a whole-path claim; excluding them narrows the tested claim.",
+      "Approve model/checkpoint inspection, CPU feature work and GPU inference/runtime budget separately. No model training or body retiming is implied."
+    ]
+  },
+  "access_compliance": {
+    "MCP_or_vault_calls": false,
+    "raw_manifest_reads": false,
+    "raw_audio_reads": false,
+    "numeric_report_or_calibration_payload_reads": false,
+    "checkpoint_payload_reads_or_hashes": false,
+    "model_deserialization_or_execution": false,
+    "tests_or_scientific_scripts_executed": false,
+    "git_mutations": false,
+    "existing_source_or_document_edits": false,
+    "new_exclusive_report_files_only": true
+  }
+}

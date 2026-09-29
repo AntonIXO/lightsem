@@ -1,0 +1,24 @@
+{
+  "status": "FAILED_SYNTHETIC_TESTS_PREPARATION_BLOCKED",
+  "binding": {
+    "path": "/root/lightsem/outputs/legacy_struct_intensity_20260928_v1/NATIVE_SYNTHETIC_TEST_BINDING_V4.json",
+    "size_bytes": 2288,
+    "sha256": "92230633b8f29dc0cca2bc71081a6a8373204bed9a8cd3ef9bdd3664143358f0"
+  },
+  "log_ref": {
+    "path": "/root/lightsem/outputs/legacy_struct_intensity_20260928_v1/native_synthetic_tests_v4.log",
+    "size_bytes": 26528,
+    "sha256": "8e0ed9216879d35af09c65f28f554f47236d21ee4f21c61e797847ee6d2cdaaf"
+  },
+  "exit_code": 1,
+  "tests_run": 104,
+  "plain_passes": 102,
+  "failures": 2,
+  "errors": 0,
+  "failed_test_names": [
+    "test_producer_near_one_hop_final_tail_is_valid_without_extension",
+    "test_structure_valid_segments"
+  ],
+  "cause": "numpy.testing is lazy-loaded inside guarded test bodies and imports installed-package direct_url.json via Path.read_text; the synthetic filesystem guard rejects it. This is a test-initialization issue, not measured cache ineligibility. No test or tolerance is waived.",
+  "root_decision": "Preserve V4/code/bindings/log; author separately bound V5 with explicit numpy.testing initialization before guards and a regression case. Keep all payload/model/operational guards and104 existing test names. No actual preparation until complete native pass."
+}

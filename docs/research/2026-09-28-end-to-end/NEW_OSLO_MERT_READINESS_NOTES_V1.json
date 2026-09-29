@@ -1,0 +1,367 @@
+{
+  "row": 58,
+  "status": "LOCAL_INPUTS_AND_FROZEN_MODEL_EXIST_CONDITIONAL_PROBE_NOT_YET_QUALIFIED",
+  "missing_outputs_recoverable": true,
+  "new_neural_training_required": false,
+  "completed_JD_sweep_will_not_be_repeated": true,
+  "inputs": [
+    {
+      "path": "/mnt/lightsem-data/cache/oslo_mix/mix1.wav",
+      "exists": true,
+      "size": 53904444
+    },
+    {
+      "path": "/mnt/lightsem-data/cache/oslo_mix/mix2.wav",
+      "exists": true,
+      "size": 54568060
+    },
+    {
+      "path": "/mnt/lightsem-data/cache/oslo_mix/mix1_bus.npz",
+      "exists": true,
+      "size": 4766770
+    },
+    {
+      "path": "/mnt/lightsem-data/cache/oslo_mix/mix2_bus.npz",
+      "exists": true,
+      "size": 4927003
+    },
+    {
+      "path": "/mnt/lightsem-data/oslo/Solberg2015_EDM/QTM/Group0001.tsv",
+      "exists": true,
+      "size": 29195964
+    },
+    {
+      "path": "/mnt/lightsem-data/oslo/Solberg2015_EDM/QTM/Group0002.tsv",
+      "exists": true,
+      "size": 33256554
+    },
+    {
+      "path": "/mnt/lightsem-data/oslo/Solberg2015_EDM/QTM/Group0003.tsv",
+      "exists": true,
+      "size": 32457066
+    },
+    {
+      "path": "/root/lightsem/outputs/oslo_audio/verify.json",
+      "exists": false,
+      "size": null
+    }
+  ],
+  "audio_sources": [
+    {
+      "path": "/mnt/lightsem-data/oslo/audio/sources/01. Rhode & Brown - Joyride.mp3",
+      "bytes": 7180645,
+      "payload_read": false
+    },
+    {
+      "path": "/mnt/lightsem-data/oslo/audio/sources/02. Vanilla Ace - Ladykiller (Original Mix).mp3",
+      "bytes": 12955629,
+      "payload_read": false
+    },
+    {
+      "path": "/mnt/lightsem-data/oslo/audio/sources/03. Nuage - Unlock Down.mp3",
+      "bytes": 13607238,
+      "payload_read": false
+    },
+    {
+      "path": "/mnt/lightsem-data/oslo/audio/sources/2_Icarus_Extended_Mix.flac",
+      "bytes": 34537041,
+      "payload_read": false
+    }
+  ],
+  "raw_target": {
+    "paths": [
+      "/mnt/lightsem-data/oslo/Solberg2015_EDM/QTM/Group0001.tsv",
+      "/mnt/lightsem-data/oslo/Solberg2015_EDM/QTM/Group0002.tsv",
+      "/mnt/lightsem-data/oslo/Solberg2015_EDM/QTM/Group0003.tsv"
+    ],
+    "source": "/root/lightsem/lightsem/data/oslo.py",
+    "groups": {
+      "A": "Group0001/mix1",
+      "B": "Group0002/mix2",
+      "C": "Group0003/mix1"
+    },
+    "contract": "200Hz head marker positions; bad zero triplets must remain missing, short-gap rule frozen; crowd speed target recomputed from fixed existing loader only after registration/eligibility. No raw target read here.",
+    "is_unavailable": false
+  },
+  "audio_clock": {
+    "mix_duration_s_from_saved_metadata": {
+      "mix1": 611.161,
+      "mix2": 618.685
+    },
+    "source_of_saved_mix": "run_oslo_transfer.mix_wav reconstructs from placements; not deposited original live DJ audio",
+    "stored_placements": [
+      {
+        "title": "Joyride",
+        "mix": 1,
+        "source_file": "/mnt/lightsem-data/oslo/audio/sources/01. Rhode & Brown - Joyride.mp3",
+        "ratio": 1.0175,
+        "offset_s": -105.30249433106576,
+        "corr": 0.262275305810576,
+        "null_corr": 0.27476577724929097,
+        "margin": -0.012490471438714956
+      },
+      {
+        "title": "Ladykiller",
+        "mix": 1,
+        "source_file": "/mnt/lightsem-data/oslo/audio/sources/02. Vanilla Ace - Ladykiller (Original Mix).mp3",
+        "ratio": 1.05925,
+        "offset_s": -23.18512471655329,
+        "corr": 0.32539311907678165,
+        "null_corr": 0.2746636345960077,
+        "margin": 0.05072948448077397
+      },
+      {
+        "title": "Unlock Down",
+        "mix": 1,
+        "source_file": "/mnt/lightsem-data/oslo/audio/sources/03. Nuage - Unlock Down.mp3",
+        "ratio": 1.0135,
+        "offset_s": 318.6242176870748,
+        "corr": 0.321120907525683,
+        "null_corr": 0.24886532643369347,
+        "margin": 0.07225558109198954
+      },
+      {
+        "title": "Icarus",
+        "mix": 1,
+        "source_file": "/mnt/lightsem-data/oslo/audio/sources/2_Icarus_Extended_Mix.flac",
+        "ratio": 1.008,
+        "offset_s": 409.92507936507934,
+        "corr": 0.38841545551444445,
+        "null_corr": 0.32886068692729825,
+        "margin": 0.0595547685871462
+      },
+      {
+        "title": "Joyride",
+        "mix": 2,
+        "source_file": "/mnt/lightsem-data/oslo/audio/sources/01. Rhode & Brown - Joyride.mp3",
+        "ratio": 1.0190000000000001,
+        "offset_s": -238.89850340136056,
+        "corr": 0.24715244537764444,
+        "null_corr": 0.4100123328708755,
+        "margin": -0.16285988749323108
+      },
+      {
+        "title": "Icarus",
+        "mix": 2,
+        "source_file": "/mnt/lightsem-data/oslo/audio/sources/2_Icarus_Extended_Mix.flac",
+        "ratio": 0.9962500000000001,
+        "offset_s": 42.840816326530614,
+        "corr": 0.38935641377281094,
+        "null_corr": 0.43180359920090333,
+        "margin": -0.04244718542809239
+      },
+      {
+        "title": "Unlock Down",
+        "mix": 2,
+        "source_file": "/mnt/lightsem-data/oslo/audio/sources/03. Nuage - Unlock Down.mp3",
+        "ratio": 1.01275,
+        "offset_s": 284.85079365079366,
+        "corr": 0.365340613918531,
+        "null_corr": 0.25994095075280305,
+        "margin": 0.10539966316572796
+      },
+      {
+        "title": "Ladykiller",
+        "mix": 2,
+        "source_file": "/mnt/lightsem-data/oslo/audio/sources/02. Vanilla Ace - Ladykiller (Original Mix).mp3",
+        "ratio": 1.0762500000000002,
+        "offset_s": 297.0528798185941,
+        "corr": 0.7061176780752163,
+        "null_corr": 0.6194721032050705,
+        "margin": 0.08664557487014579
+      }
+    ],
+    "verify_report_exists": false,
+    "known_flag": "run_oslo_audio.cmd_align marks a placement ok only when margin>0.10; only UnlockDown/mix2 clears this source flag. It is not a new preregistered exclusion rule.",
+    "block": "No completed mixture-to-published-clock verification report authenticates all current WAVs. Existing source placement uncertainty must be bound/tested before MERT vs crowd scoring; do not silently use every slot."
+  },
+  "rights": {
+    "data": "CC BY4.0 documented in local LICENSE/README",
+    "music": "Commercial copyrighted stimulus not distributed by dataset. Files exist; source code says user-held inputs. No purchase/acquisition/right-to-analyze receipt was located in inspected metadata. This is provenance unresolved, not an assertion of illegality.",
+    "required": "Parent must bind allowed internal research use of these exact local masters/reconstructions; no redistribution/download. Existing metadata resolve not an audio license."
+  },
+  "sealed_identity": {
+    "stage11_metadata_alias_matches": [],
+    "finedance_name_only_alias_matches": [],
+    "identity_table_path": "/root/lightsem/docs/research/2026-09-28-end-to-end/NEW_IDENTITY_EXCLUSION_METADATA_V1.json",
+    "identity_table_sha256": "54c12ef64517451c1744c824051ccce7a4d2da46adde9d0742ae52c192672c28",
+    "method": "ASCII NFKD lowercase; nonalphanumeric to spaces; conservative substring against declared Oslo title/artist alias list. No waveform fingerprint or metrics.",
+    "parent_permission": "label.name is song identity only. No style fields or other targets used.",
+    "conclusion": "No Oslo title/artist term matched either stored identity map. This is conservative metadata screening only; no authenticated audio deduplication. Any ambiguous/renamed/combined-title identity needs explicit conservative exclusion or authoritative source mapping before payload reads.",
+    "blocked_before_payload_read": "Pending canonical identity/rights/clock protocol and parent allowlist, not merely because legacy exposure exists."
+  },
+  "MERT_local": {
+    "tree_metadata": "/mnt/lightsem-data/models/hf/models--m-a-p--MERT-v1-330M/trees/5240c2708a5acaee1007f43fb9735c7dcd0b78c9.json",
+    "revision": "5240c2708a5acaee1007f43fb9735c7dcd0b78c9",
+    "weight_path": "/mnt/lightsem-data/models/hf/models--m-a-p--MERT-v1-330M/blobs/0c03774d821a6ad972cb48220b128a10ebea2c790116bd0fd35e5a013f8017f6",
+    "weight_size_bytes": 1261846489,
+    "weight_sha256_expected_from_tree": "0c03774d821a6ad972cb48220b128a10ebea2c790116bd0fd35e5a013f8017f6",
+    "weight_sha256_verification": {
+      "actual_sha256": "0c03774d821a6ad972cb48220b128a10ebea2c790116bd0fd35e5a013f8017f6",
+      "expected_match": true,
+      "method": "sha256sum bytes only, no deserialization",
+      "duration_s": 0.7808376299217343
+    },
+    "configs_and_remote_code": [
+      {
+        "path": "/mnt/lightsem-data/models/hf/models--m-a-p--MERT-v1-330M/blobs/14f770758c7fe5c5e8ead4fe0f8e5fa727eb6942",
+        "sha256": "a5b40f9db03c84f29e3114abe813a9226178d5437b517d45cd4c2924ac3d0ce0",
+        "bytes": 2032
+      },
+      {
+        "path": "/mnt/lightsem-data/models/hf/models--m-a-p--MERT-v1-330M/blobs/75af8362b0c5762394dcd9cc862aaaf856153f33",
+        "sha256": "c623b903eb1967474b27522975cfb81638e265df99aa640d2c0bd87a987ab538",
+        "bytes": 212
+      },
+      {
+        "path": "/mnt/lightsem-data/models/hf/models--m-a-p--MERT-v1-330M/blobs/91f6098a642bb1e6498beea92025e49fa619e49d",
+        "sha256": "ae0ec2bab8f59c724ba9878a7c20b67210189536ea62d34a56775968e9decb03",
+        "bytes": 5340
+      },
+      {
+        "path": "/mnt/lightsem-data/models/hf/models--m-a-p--MERT-v1-330M/blobs/e7ac06ba5bd4a8e633ce6a42e230e8935322c7ee",
+        "sha256": "6c3ee73cef6f0c30ef494f88d96f891fa6925ffe663fa391b512f4b57abecc6c",
+        "bytes": 18033
+      }
+    ],
+    "snapshot_paths": [
+      {
+        "path": "/mnt/lightsem-data/models/hf/models--m-a-p--MERT-v1-330M/snapshots/5240c2708a5acaee1007f43fb9735c7dcd0b78c9/config.json",
+        "size": null,
+        "stat_error": "[Errno 22] Invalid argument: '/mnt/lightsem-data/models/hf/models--m-a-p--MERT-v1-330M/snapshots/5240c2708a5acaee1007f43fb9735c7dcd0b78c9/config.json'",
+        "lstat_size": null,
+        "symlink_target": "error: [Errno 22] Invalid argument: '/mnt/lightsem-data/models/hf/models--m-a-p--MERT-v1-330M/snapshots/5240c2708a5acaee1007f43fb9735c7dcd0b78c9/config.json'"
+      },
+      {
+        "path": "/mnt/lightsem-data/models/hf/models--m-a-p--MERT-v1-330M/snapshots/5240c2708a5acaee1007f43fb9735c7dcd0b78c9/configuration_MERT.py",
+        "size": null,
+        "stat_error": "[Errno 22] Invalid argument: '/mnt/lightsem-data/models/hf/models--m-a-p--MERT-v1-330M/snapshots/5240c2708a5acaee1007f43fb9735c7dcd0b78c9/configuration_MERT.py'",
+        "lstat_size": null,
+        "symlink_target": "error: [Errno 22] Invalid argument: '/mnt/lightsem-data/models/hf/models--m-a-p--MERT-v1-330M/snapshots/5240c2708a5acaee1007f43fb9735c7dcd0b78c9/configuration_MERT.py'"
+      },
+      {
+        "path": "/mnt/lightsem-data/models/hf/models--m-a-p--MERT-v1-330M/snapshots/5240c2708a5acaee1007f43fb9735c7dcd0b78c9/modeling_MERT.py",
+        "size": null,
+        "stat_error": "[Errno 22] Invalid argument: '/mnt/lightsem-data/models/hf/models--m-a-p--MERT-v1-330M/snapshots/5240c2708a5acaee1007f43fb9735c7dcd0b78c9/modeling_MERT.py'",
+        "lstat_size": null,
+        "symlink_target": "error: [Errno 22] Invalid argument: '/mnt/lightsem-data/models/hf/models--m-a-p--MERT-v1-330M/snapshots/5240c2708a5acaee1007f43fb9735c7dcd0b78c9/modeling_MERT.py'"
+      },
+      {
+        "path": "/mnt/lightsem-data/models/hf/models--m-a-p--MERT-v1-330M/snapshots/5240c2708a5acaee1007f43fb9735c7dcd0b78c9/preprocessor_config.json",
+        "size": null,
+        "stat_error": "[Errno 22] Invalid argument: '/mnt/lightsem-data/models/hf/models--m-a-p--MERT-v1-330M/snapshots/5240c2708a5acaee1007f43fb9735c7dcd0b78c9/preprocessor_config.json'",
+        "lstat_size": null,
+        "symlink_target": "error: [Errno 22] Invalid argument: '/mnt/lightsem-data/models/hf/models--m-a-p--MERT-v1-330M/snapshots/5240c2708a5acaee1007f43fb9735c7dcd0b78c9/preprocessor_config.json'"
+      },
+      {
+        "path": "/mnt/lightsem-data/models/hf/models--m-a-p--MERT-v1-330M/snapshots/5240c2708a5acaee1007f43fb9735c7dcd0b78c9/pytorch_model.bin",
+        "size": null,
+        "stat_error": "[Errno 22] Invalid argument: '/mnt/lightsem-data/models/hf/models--m-a-p--MERT-v1-330M/snapshots/5240c2708a5acaee1007f43fb9735c7dcd0b78c9/pytorch_model.bin'",
+        "lstat_size": null,
+        "symlink_target": "error: [Errno 22] Invalid argument: '/mnt/lightsem-data/models/hf/models--m-a-p--MERT-v1-330M/snapshots/5240c2708a5acaee1007f43fb9735c7dcd0b78c9/pytorch_model.bin'"
+      }
+    ],
+    "architecture": {
+      "hidden_size": 1024,
+      "num_hidden_layers": 24,
+      "num_attention_heads": 16,
+      "intermediate_size": 4096,
+      "conv_stride": [
+        5,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2
+      ],
+      "torch_dtype": "float32",
+      "transformers_version": "4.27.1"
+    },
+    "runtime_source_copies_same_hash": {
+      "/mnt/lightsem-data/models/hf/models--m-a-p--MERT-v1-330M/blobs/e7ac06ba5bd4a8e633ce6a42e230e8935322c7ee": "6c3ee73cef6f0c30ef494f88d96f891fa6925ffe663fa391b512f4b57abecc6c",
+      "/root/.cache/huggingface/modules/transformers_modules/_5240c2708a5acaee1007f43fb9735c7dcd0b78c9/2a06f2a8cbf1d584/modeling_MERT.py": "6c3ee73cef6f0c30ef494f88d96f891fa6925ffe663fa391b512f4b57abecc6c",
+      "/root/.cache/huggingface/modules/transformers_modules/5240c2708a5acaee1007f43fb9735c7dcd0b78c9/modeling_MERT.py": "6c3ee73cef6f0c30ef494f88d96f891fa6925ffe663fa391b512f4b57abecc6c"
+    },
+    "runtime_state": "Local blob is present; old AutoModel path fails filesystem stat with EINVAL. Runtime compatibility not imported or tested.",
+    "repair_proposal": "After authorized source-binding only, stage tiny config+code and aliases to existing verified blob files in a counted runtime directory. No weight copy, download, deletion or hidden cap bypass. Alias target identity must be verified before load. Force HF_HUB_OFFLINE=1, TRANSFORMERS_OFFLINE=1, local_files_only=True; never fallback online. Set PYTHONDONTWRITEBYTECODE=1 and route any HF dynamic-module cache to the counted runtime root; record existing blob physical size and reused identity separately from new alias/config/module bytes. Never treat aliases as zero-cost justification for a new weight download or copy.",
+    "persistent_repair_limit_bytes": 131072,
+    "existing_weight_physical_bytes": 1261846489,
+    "additional_weight_bytes_allowed": 0,
+    "local_loader_dependencies": [
+      {
+        "path": "/mnt/lightsem-data/venv-torch/lib/python3.12/site-packages/torch-2.14.0+cu130.dist-info/METADATA",
+        "Name": "torch",
+        "Version": "2.14.0+cu130",
+        "Requires-Python": ">=3.10"
+      },
+      {
+        "path": "/mnt/lightsem-data/venv-torch/lib/python3.12/site-packages/transformers-5.16.1.dist-info/METADATA",
+        "Name": "transformers",
+        "Version": "5.16.1",
+        "Requires-Python": ">=3.10.0"
+      },
+      {
+        "path": "/mnt/lightsem-data/venv-torch/lib/python3.12/site-packages/julius-0.2.8.dist-info/METADATA",
+        "Name": "julius",
+        "Version": "0.2.8",
+        "Requires-Python": ">=3.9.0"
+      },
+      {
+        "path": "/mnt/lightsem-data/venv-torch/lib/python3.12/site-packages/soundfile-0.14.0.dist-info/METADATA",
+        "Name": "soundfile",
+        "Version": "0.14.0",
+        "Requires-Python": ">=3.10"
+      },
+      {
+        "path": "/mnt/lightsem-data/venv-torch/lib/python3.12/site-packages/numpy-2.5.2.dist-info/METADATA",
+        "Name": "numpy",
+        "Version": "2.5.2",
+        "Requires-Python": ">=3.12"
+      },
+      {
+        "path": "/mnt/lightsem-data/venv-torch/lib/python3.12/site-packages/scipy-1.18.1.dist-info/METADATA",
+        "Name": "scipy",
+        "Version": "1.18.1",
+        "Requires-Python": ">=3.12"
+      },
+      {
+        "path": "/mnt/lightsem-data/venv-torch/lib/python3.12/site-packages/huggingface_hub-1.30.0.dist-info/METADATA",
+        "Name": "huggingface_hub",
+        "Version": "1.30.0",
+        "Requires-Python": ">=3.10.0"
+      }
+    ],
+    "current_model_code_only_config_bytes": 25617
+  },
+  "L0_traps": [
+    "Existing30s non-overlap MERT chunks see future within each chunk; not L0.",
+    "Full-song mean subtraction is future-dependent. Causal arm needs running/past-only centering and train-only fixed transforms, or omit residualization with explicit secondary scope.",
+    "Existing causal=True Oslo bus still carries five offline oracle beat channels; exclude/freeze to zero in both matched arms, or implement a separately registered causal baseline. Do not call original92-channel bus fully L0.",
+    "Input resampling/filtering, pooling/EMA timestamps, padding, warm-up, MERT positional conv context, normalization/PCA, and track boundary cue clocks must be tested with future perturbations, not assumed causal from window shape.",
+    "Target may be an offline measurement, but future target values must never enter predictor normalization or cue selection. Whole-song grouping must keep repeated titles across both mixes on one fold."
+  ],
+  "smallest_prospective_probe": {
+    "P0_source_gate": "Zero neural or linear fits. Hash/bind local master/mix/metadata inputs after identity+rights clearance; implement a narrow read-only verification of existing reconstructed mix vs published clock, no alignment refit or replacement audio. Freeze null and failure rule first. If insufficient independently qualified titles remain, stop without crowd-prediction claim.",
+    "P1_runtime_smoke": "Only after P0 required bindings and serialized native receipt: exact local model load plus one12s eligible TRAIN/retrospective clip, one fixed layer group, FP32/eval/no-grad. Stop if offline load, dtype, finite shape or storage/runtime checks fail. Runtime path repair and smoke are not a model-training experiment.",
+    "P2_causal_instrument": "One frozen rhythm group layers15-16 (the already reported JD incumbent choice; disclose selection). Trailing8s context at2Hz output timestamps as a concrete proposed design, no hyperparameter sweep. Pool only representations available by output time; retain right-edge support and causal resampler delay. One suffix-perturbation test across several cut points validates complete predictor feature path; stop on any pre-cut change beyond frozen numerical tolerance. Full-trackmean centering prohibited in causal branch.",
+    "P3_missing_Oslo_endpoint": "If >=3 independently qualified canonical titles remain, grouped leave-title-out probe; pair repeated slots across both mixes. For the four-title complete cohort: max4 PCA32 decompositions fit on TRAIN titles only, one fixed random-projection matrix from recorded seed, and max12 ridge fits (3arms x4folds): bus-causal-spectral (64mel+23scalars), bus+random32, bus+MERT32. Fixed ridge lambda and one timescale2s; no search. Train once on fixed offline-feature TRAIN fold and report both offline and causal inference using the SAME fitted coefficients, explicitly naming the distribution-change estimand. If independently trained causal counterpart is wanted, separately declare max24 ridge fits; do not silently add them. Alternative design choices must be fixed before registration; do not execute both12-fit and24-fit paths adaptively.",
+    "scope_limits": "This is missing Oslo/L0 instrument development and a retrospective secondary evaluation, not a fresh DEV claim, a rerun of old JD feature sweep, or a claim that frozen MERT improves professional LIGHT. Choosing2Hz/8s/one group and beat-free87D bus changes the measurement contract and must be declared. Original correlation wording/threshold were not fully registered; parent must freeze correlation/MAE-vs-median/target spread, nulls, canonical-song uncertainty and success/stop criteria before endpoints."
+  },
+  "resource_estimate": {
+    "neural_updates": 0,
+    "fixed_linear_fit_bound": 12,
+    "optional_causal_refit_bound_if_separately_selected_before_run": 24,
+    "PCA_bound": 4,
+    "sweeps": 0,
+    "output_ceiling_proposal_bytes": 16777216,
+    "raw_cache_policy": "No new persistent1024D high-rate dump. Keep two-mix embeddings in RAM, write only fixed projected features/predictions and per-song summaries; all temporary output under counted run root.",
+    "RAM_estimate": "<1GiB host for embeddings/probe matrices at2Hz; QTM loader may use a few hundredMiB. Conservative4GiB host reserve.",
+    "VRAM_estimate": "Frozen330M float32 weights ~1.26GB; activation demand depends on attention runtime. Conservative8GiB budget, no training states; one12s smoke required.",
+    "runtime_estimate": "Historical completed JD extraction332songs took8.7min (saved log). For20.5min Oslo audio, offline pass should be short; trailing8s/0.5s overlap adds~16x encoder audio work. Budget15min GPU+10min CPU and hard60min per job, not a measured guarantee.",
+    "causality_probe_only_persistent_ceiling_bytes": 1048576,
+    "tiny_runtime_layout_ceiling_bytes": 131072,
+    "preflight": "Verify total campaign increment<=33524192bytes and /mntfree>=1GiB after worst-case outputs. No1.262GB weightcopy. Current statvfs snapshot only; refresh before any job.",
+    "disk_math": "One fixed1024D layer group, twoarms,2Hz,1229.846s,float16 would be about10074900bytes (~9.61MiB) if retained. Prefer RAM-only raw vectors; projected32D+per-song predictions+PCA/ridge metadata fit comfortably within16MiB hard output ceiling. At10Hz the analogous raw twoarm dump is~48MiB and is forbidden by33524192-byte science headroom."
+  }
+}

@@ -1,0 +1,41 @@
+{
+  "scope": "PURE_SYNTHETIC_CPU_TESTS_ONLY",
+  "plan_ref": {
+    "path": "/root/lightsem/docs/research/2026-09-28-end-to-end/PROSPECTIVE_STRUCT_INTENSITY_PROTOCOL_CANDIDATE_V4.json",
+    "size_bytes": 264086,
+    "sha256": "62e80c63b0bb213fa3080cdc9672e7c3c7db95fa97f25b24abe7fae1c1920f59"
+  },
+  "driver_ref": {
+    "path": "/root/lightsem/outputs/legacy_struct_intensity_20260928_v1/prepare_struct_intensity_v4.py",
+    "size_bytes": 38351,
+    "sha256": "bcb4a109e5d32203cf912a16fd957d224d009b98f90dbd30857339b8d753bd55"
+  },
+  "test_refs": [
+    {
+      "path": "/root/lightsem/outputs/legacy_struct_intensity_20260928_v1/test_prepare_struct_intensity_v4.py",
+      "size_bytes": 58904,
+      "sha256": "642859d68cb8ff350ae5e79220270bb294e1faa244ae4c2c892556414663bcba"
+    }
+  ],
+  "wrapper_ref": {
+    "path": "/root/lightsem/run_torch.sh",
+    "size_bytes": 920,
+    "sha256": "fa8766599ce7741477aff2035e5e87566fa4ddacacdfbbe39d5bbcba947888f1"
+  },
+  "command": "CUDA_VISIBLE_DEVICES='' PYTHONDONTWRITEBYTECODE=1 TORCH_ENV=/root/lightsem/.venv/torch-access bash run_torch.sh -u -m unittest discover -s /root/lightsem/outputs/legacy_struct_intensity_20260928_v1 -p test_prepare_struct_intensity_v4.py -v > /root/lightsem/outputs/legacy_struct_intensity_20260928_v1/native_synthetic_tests_v4.log 2>&1",
+  "expected_tests": 104,
+  "expected_result": "104 plain passes; exit0; no skips, expected failures or unexpected successes. Failure preserves log and blocks preparation.",
+  "forbidden": "No Torch/project model imports, real checkpoints, audio/role payloads, raw manifests, GPU, predictions or scoring. Tests guard payload/operational helpers; this is not actual pickle compatibility or preparation.",
+  "resource_snapshot": {
+    "original_bytes": 952976108,
+    "workspace_bytes": 7082491,
+    "entire_source_bytes": 588740,
+    "V3_V4_protocol_bytes": 553001,
+    "committed_including_32MiB_comparison_and_12MiB_preparation": 999113452,
+    "global_cap": 1020054732,
+    "free_root": 5333729280,
+    "free_mnt": 1247051776
+  },
+  "original_stat_inventory_sha256": "e8305329ebf57603f9cda51ca498826ae9e556e43ce83fcfb2a67bcb5752b359",
+  "static_review": "Parent read plus comparison-driver-review agreement; threeV3 findings resolved, V3 preserved; no real execution granted."
+}

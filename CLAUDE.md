@@ -2,7 +2,16 @@
 
 This file provides guidance to Claude Code (claude.ai/code) when working with code in this repository.
 
-Current authorization (September 10, 2026): follow
+Current authorization (September 12, 2026): the product is LIGHT. Dance is a
+visual diagnostic of the intermediate motion representation, not a separate
+product or an optimization target. Implement direct audio rhythm controls for
+lighting timing, using internal motion for spatial style rather than literal
+limb tracking. Do not retime or retrain the dancer to satisfy a lighting request.
+See `docs/research/2026-09-10-motion/RHYTHM_COMPANION_PLAN.md` and
+`RHYTHM_COMPANION.md`. The new offline entry point is `run_rhythm_companion.py`;
+existing mapper defaults remain unchanged. Deliver native 1080p AV1 with audio.
+
+Earlier authorization (September 10, 2026): follow
 `docs/research/2026-09-10-motion/PLAN.md`. Music-only playback may generate an internal
 motion sequence, and direct audio dynamics may control brightness/activity. This
 explicit user update supersedes the older inference restriction below.
@@ -89,6 +98,13 @@ over-bright foil. A bare number here will be challenged.
 
 ## Things that have already gone wrong
 
+- **Memory authorization (September 29, 2026).** The user explicitly states that
+  memory changes do not require separate permission. Proceed within the task's
+  scope and verify preservation. This supersedes earlier handoff approval blocks.
+  The installed experiment writer can drop custom `##` sections in Notes. The
+  physical-objective and optics-full records were restored using the isolated
+  recovery MCP; preserve their full note text on any subsequent write. See
+  `docs/research/2026-09-28-end-to-end/interpretation_debt_20260928_v1/repair_v1/REPAIR_AUDIT_V1.json`.
 - **Vault isolation.** Write only to `/root/lightsem-vault`. `/root/vibescience-vault` belongs to
   an unrelated project and must remain unchanged. Capture its file hashes before
   and after writes; historical count assertions may be stale (695 at this study).

@@ -1,0 +1,228 @@
+{
+  "id": "shpongle-four-existing-model-deliveries-20260928-v2",
+  "status": "definition frozen; execution blocked until V2 source review, native binding and synthetic tests",
+  "scope": "Four visual deliveries from existing models, not new fits or scientific comparisons. Historical results stay unchanged; no default promotion.",
+  "goal_id": "25e0b629-2cad-4b34-847b-47c7bba587b8",
+  "fixed_order": [
+    "S_none_P0",
+    "S_V6_P0",
+    "I_VR_P0",
+    "S_VR_P0_Ashuf"
+  ],
+  "seed": 0,
+  "checkpoint_role": "selected",
+  "checkpoint_references": {
+    "00_seed0_S_none_P0_selected": {
+      "bindings": {
+        "config_sha256": "3bf059c7758b4db333156d1f44d1eb4f25ffed573f2e4e2c3db4d2880a4e0d0f",
+        "identity_exclusions_id": "observer-proxy-identity-exclusions-v1",
+        "identity_exclusions_path": "/root/lightsem/docs/research/2026-09-22-color-beat/OBSERVER_IDENTITY_EXCLUSIONS_V1.json",
+        "identity_exclusions_sha256": "602486f42ba4e090239d19aa7a2c1854796977d70f5b2e2fb0a45a9d1ec3fe74",
+        "manifest_sha256": "705ce8ec50ea1f9b7a8d7bb62e1aceee9a82e2eba541892ca02bc76a3254bb10",
+        "norm_sha256": "e964b95de95aa32ef861d9593449f860f6d163e53dc615aa6f05e28252df2def",
+        "observer_protocol_id": "observer-proxy-20260922-v1",
+        "observer_protocol_path": "/root/lightsem/docs/research/2026-09-22-color-beat/OBSERVER_PROXY_PROTOCOL_V1.json",
+        "observer_protocol_sha256": "7f77802b8bd66729227887b0051a2e8533fd0474e2842230c5c0894e828a4186",
+        "preregistration_sha256": "b2955795b330769328209467d26a02913f79d854ff780a0f2f6502397202cb83",
+        "scope_sha256": "18555d369262b3e4304ceefcf9c97bdba5e347fb128ff47711284cae147fafdc",
+        "source_files": {
+          "/root/lightsem/lightsem/experiments/light_layers/model.py": "aa1d63f0cbf5cf270c3c7d676edf3eaf3debeb394220123493a400aa60835529",
+          "/root/lightsem/lightsem/experiments/light_layers/targets.py": "4f1e980ed9f62e2ae2a6d53e426cd44c0ed2381835bf4b1382a7fba1e566d6d1",
+          "/root/lightsem/lightsem/experiments/light_layers/training.py": "31e58e8c7a10cd80f0d3b5be0e87796e35548f2c2d03705856a0cafa1811802b",
+          "/root/lightsem/lightsem/model/light_trunk.py": "b515dcb960259f39f21a8d565b621364aafe0a87d3a6028f5a476659f662cf84",
+          "/root/lightsem/run_light_layers_train.py": "4e0bcdb668db630f0c5c16d316b170920138493a43a9af1e7622028826cd2c12"
+        },
+        "source_sha256": "c9cbf9f43b11ad7089af1ad06ddc340814f27393e8ed788dbf5f9740f0c808c2",
+        "split_sha256": "c5be79ab5ca3e134d3b4d3f7527679f8d9da95c15ffd4eb3141e392bf91007b3",
+        "study_kind": "historical_observer_proxy_v1",
+        "transforms_sha256": "a4672acf0ff0b95fa3fad2b8a1f481810029f8bde4b30e10bfccfacc94740b39",
+        "unknown_cuts_policy": "included_in_observer_target",
+        "vocab_sha256": "ab368f2288098028cf49180c99348fd751f6a4928b5ba86e07b8bbdf16d72839"
+      },
+      "path": "/mnt/lightsem-data/experiments/lightsem/lighting-cue-model-20260922t094347z/observer_fits_v1/01_seed0_S_none_P0/best.pt",
+      "recipe": "S_none_P0",
+      "role": "selected",
+      "seed": 0,
+      "sha256": "ef32122167bbc2721a776af9a205fe5bcd5c774e20f588a83242803f2a09c5c9",
+      "training_run_receipt": {
+        "path": "/mnt/lightsem-data/experiments/lightsem/lighting-cue-model-20260922t094347z/observer_fits_v1/01_seed0_S_none_P0/complete.json",
+        "sha256": "c9c080fde8635d898a4547bb77217497a2c6c98f314129552fbe7b37d7579a12"
+      }
+    },
+    "01_seed0_S_V6_P0_selected": {
+      "bindings": {
+        "config_sha256": "699669e15592adb3f73f85d10070d1bf4153bc66baed1510b20ac0df7ac4ae51",
+        "identity_exclusions_id": "observer-proxy-identity-exclusions-v1",
+        "identity_exclusions_path": "/root/lightsem/docs/research/2026-09-22-color-beat/OBSERVER_IDENTITY_EXCLUSIONS_V1.json",
+        "identity_exclusions_sha256": "602486f42ba4e090239d19aa7a2c1854796977d70f5b2e2fb0a45a9d1ec3fe74",
+        "manifest_sha256": "705ce8ec50ea1f9b7a8d7bb62e1aceee9a82e2eba541892ca02bc76a3254bb10",
+        "norm_sha256": "e964b95de95aa32ef861d9593449f860f6d163e53dc615aa6f05e28252df2def",
+        "observer_protocol_id": "observer-proxy-20260922-v1",
+        "observer_protocol_path": "/root/lightsem/docs/research/2026-09-22-color-beat/OBSERVER_PROXY_PROTOCOL_V1.json",
+        "observer_protocol_sha256": "7f77802b8bd66729227887b0051a2e8533fd0474e2842230c5c0894e828a4186",
+        "preregistration_sha256": "b2955795b330769328209467d26a02913f79d854ff780a0f2f6502397202cb83",
+        "scope_sha256": "18555d369262b3e4304ceefcf9c97bdba5e347fb128ff47711284cae147fafdc",
+        "source_files": {
+          "/root/lightsem/lightsem/experiments/light_layers/model.py": "aa1d63f0cbf5cf270c3c7d676edf3eaf3debeb394220123493a400aa60835529",
+          "/root/lightsem/lightsem/experiments/light_layers/targets.py": "4f1e980ed9f62e2ae2a6d53e426cd44c0ed2381835bf4b1382a7fba1e566d6d1",
+          "/root/lightsem/lightsem/experiments/light_layers/training.py": "31e58e8c7a10cd80f0d3b5be0e87796e35548f2c2d03705856a0cafa1811802b",
+          "/root/lightsem/lightsem/model/light_trunk.py": "b515dcb960259f39f21a8d565b621364aafe0a87d3a6028f5a476659f662cf84",
+          "/root/lightsem/run_light_layers_train.py": "4e0bcdb668db630f0c5c16d316b170920138493a43a9af1e7622028826cd2c12"
+        },
+        "source_sha256": "c9cbf9f43b11ad7089af1ad06ddc340814f27393e8ed788dbf5f9740f0c808c2",
+        "split_sha256": "c5be79ab5ca3e134d3b4d3f7527679f8d9da95c15ffd4eb3141e392bf91007b3",
+        "study_kind": "historical_observer_proxy_v1",
+        "transforms_sha256": "a4672acf0ff0b95fa3fad2b8a1f481810029f8bde4b30e10bfccfacc94740b39",
+        "unknown_cuts_policy": "included_in_observer_target",
+        "vocab_sha256": "ab368f2288098028cf49180c99348fd751f6a4928b5ba86e07b8bbdf16d72839"
+      },
+      "path": "/mnt/lightsem-data/experiments/lightsem/lighting-cue-model-20260922t094347z/observer_fits_v1/02_seed0_S_V6_P0/best.pt",
+      "recipe": "S_V6_P0",
+      "role": "selected",
+      "seed": 0,
+      "sha256": "0c44d937a9a7b57ad4bd10f62bec970cd6722616ffb12f351c0af764799ce79f",
+      "training_run_receipt": {
+        "path": "/mnt/lightsem-data/experiments/lightsem/lighting-cue-model-20260922t094347z/observer_fits_v1/02_seed0_S_V6_P0/complete.json",
+        "sha256": "f7e0ccd43c15ac2971f7c69df5816fed1264ace0d793b054bf60487c06377cca"
+      }
+    },
+    "03_seed0_I_VR_P0_selected": {
+      "bindings": {
+        "config_sha256": "840d93ced99f33672d14b8aff1bfdada486e59f17ca785d2bae621dd78985d99",
+        "identity_exclusions_id": "observer-proxy-identity-exclusions-v1",
+        "identity_exclusions_path": "/root/lightsem/docs/research/2026-09-22-color-beat/OBSERVER_IDENTITY_EXCLUSIONS_V1.json",
+        "identity_exclusions_sha256": "602486f42ba4e090239d19aa7a2c1854796977d70f5b2e2fb0a45a9d1ec3fe74",
+        "manifest_sha256": "705ce8ec50ea1f9b7a8d7bb62e1aceee9a82e2eba541892ca02bc76a3254bb10",
+        "norm_sha256": "e964b95de95aa32ef861d9593449f860f6d163e53dc615aa6f05e28252df2def",
+        "observer_protocol_id": "observer-proxy-20260922-v1",
+        "observer_protocol_path": "/root/lightsem/docs/research/2026-09-22-color-beat/OBSERVER_PROXY_PROTOCOL_V1.json",
+        "observer_protocol_sha256": "7f77802b8bd66729227887b0051a2e8533fd0474e2842230c5c0894e828a4186",
+        "preregistration_sha256": "b2955795b330769328209467d26a02913f79d854ff780a0f2f6502397202cb83",
+        "scope_sha256": "18555d369262b3e4304ceefcf9c97bdba5e347fb128ff47711284cae147fafdc",
+        "source_files": {
+          "/root/lightsem/lightsem/experiments/light_layers/model.py": "aa1d63f0cbf5cf270c3c7d676edf3eaf3debeb394220123493a400aa60835529",
+          "/root/lightsem/lightsem/experiments/light_layers/targets.py": "4f1e980ed9f62e2ae2a6d53e426cd44c0ed2381835bf4b1382a7fba1e566d6d1",
+          "/root/lightsem/lightsem/experiments/light_layers/training.py": "31e58e8c7a10cd80f0d3b5be0e87796e35548f2c2d03705856a0cafa1811802b",
+          "/root/lightsem/lightsem/model/light_trunk.py": "b515dcb960259f39f21a8d565b621364aafe0a87d3a6028f5a476659f662cf84",
+          "/root/lightsem/run_light_layers_train.py": "4e0bcdb668db630f0c5c16d316b170920138493a43a9af1e7622028826cd2c12"
+        },
+        "source_sha256": "c9cbf9f43b11ad7089af1ad06ddc340814f27393e8ed788dbf5f9740f0c808c2",
+        "split_sha256": "c5be79ab5ca3e134d3b4d3f7527679f8d9da95c15ffd4eb3141e392bf91007b3",
+        "study_kind": "historical_observer_proxy_v1",
+        "transforms_sha256": "a4672acf0ff0b95fa3fad2b8a1f481810029f8bde4b30e10bfccfacc94740b39",
+        "unknown_cuts_policy": "included_in_observer_target",
+        "vocab_sha256": "ab368f2288098028cf49180c99348fd751f6a4928b5ba86e07b8bbdf16d72839"
+      },
+      "path": "/mnt/lightsem-data/experiments/lightsem/lighting-cue-model-20260922t094347z/observer_fits_v1/04_seed0_I_VR_P0/best.pt",
+      "recipe": "I_VR_P0",
+      "role": "selected",
+      "seed": 0,
+      "sha256": "8de865906cfabb49290971eccf6016ab38edebe885eec7e6369f020fb5544b8a",
+      "training_run_receipt": {
+        "path": "/mnt/lightsem-data/experiments/lightsem/lighting-cue-model-20260922t094347z/observer_fits_v1/04_seed0_I_VR_P0/complete.json",
+        "sha256": "dc428e1ed9976628deea30978779eef4bf51c606e631cea82affb8df1502d5af"
+      }
+    },
+    "04_seed0_S_VR_P0_Ashuf_selected": {
+      "bindings": {
+        "config_sha256": "107ffa00eac858b394718f83ebccf26a78bcd0a82b623936727921a1200d83d5",
+        "identity_exclusions_id": "observer-proxy-identity-exclusions-v1",
+        "identity_exclusions_path": "/root/lightsem/docs/research/2026-09-22-color-beat/OBSERVER_IDENTITY_EXCLUSIONS_V1.json",
+        "identity_exclusions_sha256": "602486f42ba4e090239d19aa7a2c1854796977d70f5b2e2fb0a45a9d1ec3fe74",
+        "manifest_sha256": "705ce8ec50ea1f9b7a8d7bb62e1aceee9a82e2eba541892ca02bc76a3254bb10",
+        "norm_sha256": "e964b95de95aa32ef861d9593449f860f6d163e53dc615aa6f05e28252df2def",
+        "observer_protocol_id": "observer-proxy-20260922-v1",
+        "observer_protocol_path": "/root/lightsem/docs/research/2026-09-22-color-beat/OBSERVER_PROXY_PROTOCOL_V1.json",
+        "observer_protocol_sha256": "7f77802b8bd66729227887b0051a2e8533fd0474e2842230c5c0894e828a4186",
+        "preregistration_sha256": "b2955795b330769328209467d26a02913f79d854ff780a0f2f6502397202cb83",
+        "scope_sha256": "18555d369262b3e4304ceefcf9c97bdba5e347fb128ff47711284cae147fafdc",
+        "source_files": {
+          "/root/lightsem/lightsem/experiments/light_layers/model.py": "aa1d63f0cbf5cf270c3c7d676edf3eaf3debeb394220123493a400aa60835529",
+          "/root/lightsem/lightsem/experiments/light_layers/targets.py": "4f1e980ed9f62e2ae2a6d53e426cd44c0ed2381835bf4b1382a7fba1e566d6d1",
+          "/root/lightsem/lightsem/experiments/light_layers/training.py": "31e58e8c7a10cd80f0d3b5be0e87796e35548f2c2d03705856a0cafa1811802b",
+          "/root/lightsem/lightsem/model/light_trunk.py": "b515dcb960259f39f21a8d565b621364aafe0a87d3a6028f5a476659f662cf84",
+          "/root/lightsem/run_light_layers_train.py": "4e0bcdb668db630f0c5c16d316b170920138493a43a9af1e7622028826cd2c12"
+        },
+        "source_sha256": "c9cbf9f43b11ad7089af1ad06ddc340814f27393e8ed788dbf5f9740f0c808c2",
+        "split_sha256": "c5be79ab5ca3e134d3b4d3f7527679f8d9da95c15ffd4eb3141e392bf91007b3",
+        "study_kind": "historical_observer_proxy_v1",
+        "transforms_sha256": "a4672acf0ff0b95fa3fad2b8a1f481810029f8bde4b30e10bfccfacc94740b39",
+        "unknown_cuts_policy": "included_in_observer_target",
+        "vocab_sha256": "ab368f2288098028cf49180c99348fd751f6a4928b5ba86e07b8bbdf16d72839"
+      },
+      "path": "/mnt/lightsem-data/experiments/lightsem/lighting-cue-model-20260922t094347z/observer_fits_v1/05_seed0_S_VR_P0_Ashuf/best.pt",
+      "recipe": "S_VR_P0_Ashuf",
+      "role": "selected",
+      "seed": 0,
+      "sha256": "9f447f04debb9df2dd985b6fb5f4c21f1698d664eb6b7d1d902b029428b8be74",
+      "training_run_receipt": {
+        "path": "/mnt/lightsem-data/experiments/lightsem/lighting-cue-model-20260922t094347z/observer_fits_v1/05_seed0_S_VR_P0_Ashuf/complete.json",
+        "sha256": "f0a0e6cfffb8e95924b9db665404a30f6bcb3aaf188908b0a157493873455162"
+      }
+    }
+  },
+  "anchor": {
+    "recipe": "S_VR_P0",
+    "unchanged_video": "/root/lightsem/outputs/shpongle_layers_demo_20260922T161917Z/shpongle_experimental_full_1080p_av1.mp4",
+    "rerun_inference": false,
+    "rerender": false
+  },
+  "source_audio": {
+    "path": "/root/shpongle.flac",
+    "sha256": "95e4388424ef62950bdeae78e47b8e71839ed28c6e01189fe15f9ae6c902b6c0"
+  },
+  "cached_audio94": {
+    "path": "/mnt/lightsem-data/experiments/lightsem/shpongle_layers_demo_20260922T161917Z/audio94.npz",
+    "sha256": "224db0481c77677de7159e7c6f88cc42d8d861221c57e20e2b2072760dab6a9f",
+    "bytes": 6616205,
+    "actual_sha256": "224db0481c77677de7159e7c6f88cc42d8d861221c57e20e2b2072760dab6a9f",
+    "matches": true
+  },
+  "original_mapping_plan": {
+    "path": "/root/lightsem/outputs/shpongle_layers_demo_20260922T161917Z/inference_mapping_plan.json",
+    "sha256": "1cb2d07d73338c706e6f5e87142119b8938fbcde215b84148330eb7312b677c8"
+  },
+  "generation": "One full-song FP32 encoder call per new recipe, unchanged generated-history argmax policy and thresholds. No source feature extraction, model training, checkpoint/seed selection, threshold fitting or extra artistic cues.",
+  "mapping": "Exact Sep22 palette projection, cue/peak policies, +0.35 bounded dimmer accents and accepted companion. All469 protected DMX slots remain exact. No dancer retiming/regeneration.",
+  "ashuf_limit": "S_VR_P0_Ashuf receives actual recipient Shpongle audio for this delivery; not the primary scientific tempo-donor evaluation route. Disclose in each related receipt and README.",
+  "verification": [
+    "Validate bound sources/inputs/checkpoint factory before execution",
+    "Reference width128; independent realized width76, no second narrowing",
+    "Check every actual palette table for finite values BEFORE argmax, without changing finite outputs",
+    "Save actual generation evidence adequate for no-model cue/history/action-logit replay; do not conflate differently batched companion logits with the actual action table",
+    "Recompute events from saved scores and RGB from bound prototypes; validate history/final state, shapes, clocks and exact DMX reconstruction",
+    "Native synthetic receipt must prove successful bound command/log/source/plan identity before inference",
+    "Authenticate saved plan/authorization/input/source/recipe/role/route links on readback",
+    "An inference completion is not video delivery; full media receipts are separate"
+  ],
+  "failure_policy": "Never tune outputs or omit a weak/flat candidate because it looks worse. Stop on contract failure, nonfinite values, protected-byte changes, source drift or storage breach. Preserve failures and partials. Never repeat a completed encoder forward merely to repair mapping or paperwork.",
+  "science_storage": {
+    "original_root": "/mnt/lightsem-data/experiments/lightsem/lighting-cue-model-20260922t094347z",
+    "new_workspace": "/mnt/lightsem-data/experiments/lightsem/end_to_end_20260928_v1",
+    "derived_subdir": "comparison_demos_v1",
+    "combined_cap_bytes": 1020054732,
+    "all_four_reservation_bytes": 33554432,
+    "free_floor_bytes": 1073741824,
+    "accounting": "Original root plus the WHOLE new workspace share the same cap; other new studies count too. Original directory tree remains untouched. No duplicated weights/audio/baseline and no symlink accounting escape."
+  },
+  "media": {
+    "full_duration_s": 277.3,
+    "frames": 8319,
+    "fps": 30,
+    "width": 1920,
+    "height": 1080,
+    "video": "AV1",
+    "audio": "original soundtrack, AAC192kb/s",
+    "per_arm_cap_bytes": 536870912,
+    "all_media_cap_bytes": 2214592512,
+    "free_floor_bytes": 1073741824,
+    "reserve_explanation": "Four existing renderer512MiB caps plus64MiB for audits/source/logs. Supersedes unexecuted1.5GiB draft reservation before any run; no scientific cap change.",
+    "delivery": "Exclusive per-recipe media paths, same frozen renderer/camera/exposure, --key overlay. Complete software AV decode/timestamp audit. Preserve priorMP4s and ~/shpongle_light_demo.mp4.",
+    "not_claimed": "No brightness-matched formal A/B, independent human acceptance, palette accuracy, beat accuracy or generalization is established by these videos."
+  },
+  "v1_static_review": {
+    "path": "/root/lightsem/docs/research/2026-09-28-end-to-end/STATIC_DEMO_REVIEW_V1.json",
+    "sha256": "d1e0e14048d10c7ae5f22ece7dd079e445235be1689cf1c9a1f4af615bb2c071"
+  },
+  "v1_status": "Unexecuted drafts retained. Static review issues are repaired prospectively; no model results observed under either new driver."
+}

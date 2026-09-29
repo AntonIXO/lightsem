@@ -1,0 +1,135 @@
+{
+  "status": "implementation_only_not_executed_not_validated",
+  "source_directory": "/root/lightsem/outputs/shpongle_model_comparisons_20260928_v1",
+  "driver": {
+    "path": "/root/lightsem/outputs/shpongle_model_comparisons_20260928_v1/run_comparison_demo_v1.py",
+    "sha256": "1bebb4dcac2df882a07984056ec7a69e7d3379bd743699e9ea5119c9cf0c766c"
+  },
+  "tests": {
+    "path": "/root/lightsem/outputs/shpongle_model_comparisons_20260928_v1/test_comparison_demo_v1.py",
+    "sha256": "a5830102c3886aa20535301e208c82c9f4cd03c9daa3181684ecec0a61be7326",
+    "test_methods": 11,
+    "scope": "synthetic data/checkpoint metadata/fake forward only; no real checkpoint or dataset reads"
+  },
+  "plan": {
+    "path": "/root/lightsem/outputs/shpongle_model_comparisons_20260928_v1/COMPARISON_PLAN_V1.json",
+    "sha256": "6969fa75c3207a9a4dba344ce2d6611683b900241195e9413f920db6153ea60f",
+    "status": "draft; parent must bind unchanged file"
+  },
+  "execution_performed": {
+    "imports_of_new_driver": false,
+    "syntax_or_compile_checks": false,
+    "tests": false,
+    "checkpoint_loads": false,
+    "model_forwards": false,
+    "rendering": false,
+    "vault_calls": false
+  },
+  "derived_root": "/mnt/lightsem-data/experiments/lightsem/lighting-cue-model-20260922t094347z/comparison_demos_20260928_v1",
+  "scientific_reservation_bytes": 33554432,
+  "media_root": "/root/lightsem/outputs/shpongle_model_comparisons_20260928_v1/media",
+  "media_reservation_bytes": 1610612736,
+  "dependencies": {
+    "/root/lightsem/lightsem/experiments/light_layers/model.py": "aa1d63f0cbf5cf270c3c7d676edf3eaf3debeb394220123493a400aa60835529",
+    "/root/lightsem/lightsem/experiments/light_layers/targets.py": "4f1e980ed9f62e2ae2a6d53e426cd44c0ed2381835bf4b1382a7fba1e566d6d1",
+    "/root/lightsem/lightsem/experiments/light_layers/training.py": "31e58e8c7a10cd80f0d3b5be0e87796e35548f2c2d03705856a0cafa1811802b",
+    "/root/lightsem/lightsem/model/light_trunk.py": "b515dcb960259f39f21a8d565b621364aafe0a87d3a6028f5a476659f662cf84",
+    "/root/lightsem/run_light_layers_train.py": "4e0bcdb668db630f0c5c16d316b170920138493a43a9af1e7622028826cd2c12",
+    "/root/lightsem/lightsem/experiments/light_layers/overlay.py": "fe41686d022d8f9fc5a347bf03c608da8f15dece76bf1aec6efabccfbe8ecc2f",
+    "/root/lightsem/lightsem/experiments/light_layers/evaluation.py": "401825add5d89f9920e2c946e36b2cdf85e07f625ab3230c5a3844655fcca004",
+    "/root/lightsem/lightsem/experiments/light_layers/palette_metrics.py": "80b1301d8ece0c75d8d5b0521c5b9299581dc8ec80eddfbeccade11f10939d07",
+    "/root/lightsem/lightsem/conductor/rig.py": "608a7eb9971c2bd583282e4a38f777be96b49e5c1a909baffd47bf76cf28b28a",
+    "/root/lightsem/lightsem/dmx/fixtures.py": "685e8b206d7e6b96288a3b88fb5c543368fbd8bd765d8a96873806e18d48c3d7",
+    "/root/lightsem/lightsem/audio/online.py": "c39a6597bb2146c226330488b7e88351723ff1038d6e0048705b38e29b1b0ec3",
+    "/root/lightsem/lightsem/audio/beatgrid.py": "0c230a2ff2081b6b92d7fc2d38283f715d7131fdcb93e1f62b0b955260d4f5c5",
+    "/root/lightsem/outputs/shpongle_model_comparisons_20260928_v1/run_comparison_demo_v1.py": "1bebb4dcac2df882a07984056ec7a69e7d3379bd743699e9ea5119c9cf0c766c",
+    "/root/lightsem/outputs/shpongle_layers_demo_20260922T161917Z/infer_overlay.py": "5e868792c94ccdea9519222f15ef8031fd2d4bc32abf650773dc208074d50c3b",
+    "/root/lightsem/outputs/shpongle_layers_demo_20260922T161917Z/render_demo.py": "19dd57aec907696e7293587e4bfd49c72a47f884f852f16678748f415e4cba52",
+    "/root/lightsem/outputs/shpongle_layers_demo_20260922T161917Z/verify_readback.py": "e7b34db37e9e73de2eb1b61d448bb5d2f4b5ff3b804e6e49a27017b52065c29c",
+    "/root/lightsem/run_rhythm_companion.py": "eb21814d42a8e76c296193ebb67b5e965e20ff76602cc961ab695bdf7fccdd97",
+    "/root/lightsem/run_torch.sh": "fa8766599ce7741477aff2035e5e87566fa4ddacacdfbbe39d5bbcba947888f1",
+    "/root/lightsem/run.sh": "232ca5a566ae3b22f0677b6b5879c6901abf9decb16dc66967a4895174289556",
+    "/root/lightsem/lightsem/experiments/stage11_common.py": "1196cfda2e0a222d85ebd508f8c09636907611edd01a83d0624abef3465f64d3",
+    "/root/lightsem/lightsem/experiments/light_layers/metrics.py": "2df0707522bf2be0289164deeaf1cd4e8fdfe8f2bc20838ac0e331cceaaf77c3",
+    "/root/lightsem/lightsem/sim/renderer.py": "f27753b00028453456f58440d48c0ab35f318a72531ae4e9362d458ecf3e0abe",
+    "/root/lightsem/lightsem/sim/shaders.py": "1663a89c934e224969f1c1df4ee2cbe663f8a39ef8415e4b77c154672428677c",
+    "/root/lightsem/lightsem/__init__.py": "956df70e34d94a9ccd3a61de2fa9aebf14191f047d7885b5013ce2730f060ae1",
+    "/root/lightsem/lightsem/experiments/__init__.py": "cc25b1bd4ceacf23161344b27b927fbf626f94cae90e0fbf6754f47949d56636",
+    "/root/lightsem/lightsem/experiments/light_layers/__init__.py": "5816fcd5252e7b17979444e03ecbac0a91a48070e4e56053c89cde0b46a53be9",
+    "/root/lightsem/lightsem/model/__init__.py": "cbc7d53561372998c0ee0fcb78dfa68dd465145bdbd4feccd6be40699604c9ce",
+    "/root/lightsem/lightsem/conductor/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "/root/lightsem/lightsem/dmx/__init__.py": "c8f21d31257f967d2a7af26c15826039c2010bfd5266ef30799a6f8e18ef717f",
+    "/root/lightsem/lightsem/sim/__init__.py": "3b12c2db51fbaab853c5efaab8b20c117558caf79a347dff52d96fbc532d65b2"
+  },
+  "test_sources": {
+    "/root/lightsem/outputs/shpongle_model_comparisons_20260928_v1/test_comparison_demo_v1.py": "a5830102c3886aa20535301e208c82c9f4cd03c9daa3181684ecec0a61be7326"
+  },
+  "required_parent_authorization_schema": {
+    "status": "authorized_delivery",
+    "plan_sha256": "6969fa75c3207a9a4dba344ce2d6611683b900241195e9413f920db6153ea60f",
+    "phases": [
+      "preflight",
+      "infer",
+      "verify"
+    ],
+    "source_files": "EXACT object in COMPARISON_PLAN_V1.json",
+    "test_sources": "EXACT object in COMPARISON_PLAN_V1.json",
+    "native_test_receipt": {
+      "path": "absolute parent-created successful native CPU receipt",
+      "sha256": "exact receipt hash; required only for infer"
+    }
+  },
+  "required_native_receipt_schema": {
+    "status": "passed",
+    "source_files": "EXACT plan.source_files",
+    "test_sources": "EXACT plan.test_sources",
+    "real_model_forward_calls": 0,
+    "sealed_TEST_reads": 0,
+    "command": "actual native command",
+    "exit_code": 0,
+    "log_sha256": "actual log hash"
+  },
+  "commands_not_executed": {
+    "synthetic_tests": "TORCH_ENV=/root/lightsem/.venv/torch-access bash run_torch.sh -m unittest discover -s /root/lightsem/outputs/shpongle_model_comparisons_20260928_v1 -p test_comparison_demo_v1.py -v",
+    "preflight": "TORCH_ENV=/root/lightsem/.venv/torch-access bash run_torch.sh -u /root/lightsem/outputs/shpongle_model_comparisons_20260928_v1/run_comparison_demo_v1.py preflight --plan /root/lightsem/outputs/shpongle_model_comparisons_20260928_v1/COMPARISON_PLAN_V1.json --binding <PARENT_BOUND_AUTHORIZATION_JSON>",
+    "infer_all_four": "TORCH_ENV=/root/lightsem/.venv/torch-access bash run_torch.sh -u /root/lightsem/outputs/shpongle_model_comparisons_20260928_v1/run_comparison_demo_v1.py infer --plan /root/lightsem/outputs/shpongle_model_comparisons_20260928_v1/COMPARISON_PLAN_V1.json --binding <PARENT_BOUND_AUTHORIZATION_JSON>",
+    "readback": "TORCH_ENV=/root/lightsem/.venv/torch-access bash run_torch.sh -u /root/lightsem/outputs/shpongle_model_comparisons_20260928_v1/run_comparison_demo_v1.py verify --plan /root/lightsem/outputs/shpongle_model_comparisons_20260928_v1/COMPARISON_PLAN_V1.json --binding <PARENT_BOUND_AUTHORIZATION_JSON>"
+  },
+  "constraints": [
+    "No frozen original file edited",
+    "OneGPU lock plus native external-process check through stage11_common.gpu_lock",
+    "No direct venv executable calls",
+    "Original anchor neither inferred nor rendered",
+    "Ashuf recipient-audio delivery explicitly NOT primary donor-route evaluation",
+    "Four variants fixed regardless result",
+    "Incomplete arm directory blocks repeat forward",
+    "Parent must enforce1.5GiB aggregate root media cap before unchanged renderer calls; old helper has512MiB per-arm cap",
+    "No tests have passed yet; parent must review and run bound native tests"
+  ],
+  "render_commands_not_executed": [
+    {
+      "recipe": "S_none_P0",
+      "create_exclusive_media_directory": "/root/lightsem/outputs/shpongle_model_comparisons_20260928_v1/media/01_S_none_P0",
+      "render": "bash run.sh /root/lightsem/outputs/shpongle_layers_demo_20260922T161917Z/render_demo.py render --streams /mnt/lightsem-data/experiments/lightsem/lighting-cue-model-20260922t094347z/comparison_demos_20260928_v1/01_S_none_P0/overlay_dmx.npz --key overlay --output /root/lightsem/outputs/shpongle_model_comparisons_20260928_v1/media/01_S_none_P0/01_S_none_P0_full_1080p_av1.mp4 --audio /root/shpongle.flac --start 0 --duration 277.3",
+      "audit": "bash run.sh /root/lightsem/outputs/shpongle_layers_demo_20260922T161917Z/render_demo.py audit --streams /mnt/lightsem-data/experiments/lightsem/lighting-cue-model-20260922t094347z/comparison_demos_20260928_v1/01_S_none_P0/overlay_dmx.npz --key overlay --output /root/lightsem/outputs/shpongle_model_comparisons_20260928_v1/media/01_S_none_P0/01_S_none_P0_full_1080p_av1.mp4 --audio /root/shpongle.flac --start 0 --duration 277.3"
+    },
+    {
+      "recipe": "S_V6_P0",
+      "create_exclusive_media_directory": "/root/lightsem/outputs/shpongle_model_comparisons_20260928_v1/media/02_S_V6_P0",
+      "render": "bash run.sh /root/lightsem/outputs/shpongle_layers_demo_20260922T161917Z/render_demo.py render --streams /mnt/lightsem-data/experiments/lightsem/lighting-cue-model-20260922t094347z/comparison_demos_20260928_v1/02_S_V6_P0/overlay_dmx.npz --key overlay --output /root/lightsem/outputs/shpongle_model_comparisons_20260928_v1/media/02_S_V6_P0/02_S_V6_P0_full_1080p_av1.mp4 --audio /root/shpongle.flac --start 0 --duration 277.3",
+      "audit": "bash run.sh /root/lightsem/outputs/shpongle_layers_demo_20260922T161917Z/render_demo.py audit --streams /mnt/lightsem-data/experiments/lightsem/lighting-cue-model-20260922t094347z/comparison_demos_20260928_v1/02_S_V6_P0/overlay_dmx.npz --key overlay --output /root/lightsem/outputs/shpongle_model_comparisons_20260928_v1/media/02_S_V6_P0/02_S_V6_P0_full_1080p_av1.mp4 --audio /root/shpongle.flac --start 0 --duration 277.3"
+    },
+    {
+      "recipe": "I_VR_P0",
+      "create_exclusive_media_directory": "/root/lightsem/outputs/shpongle_model_comparisons_20260928_v1/media/03_I_VR_P0",
+      "render": "bash run.sh /root/lightsem/outputs/shpongle_layers_demo_20260922T161917Z/render_demo.py render --streams /mnt/lightsem-data/experiments/lightsem/lighting-cue-model-20260922t094347z/comparison_demos_20260928_v1/03_I_VR_P0/overlay_dmx.npz --key overlay --output /root/lightsem/outputs/shpongle_model_comparisons_20260928_v1/media/03_I_VR_P0/03_I_VR_P0_full_1080p_av1.mp4 --audio /root/shpongle.flac --start 0 --duration 277.3",
+      "audit": "bash run.sh /root/lightsem/outputs/shpongle_layers_demo_20260922T161917Z/render_demo.py audit --streams /mnt/lightsem-data/experiments/lightsem/lighting-cue-model-20260922t094347z/comparison_demos_20260928_v1/03_I_VR_P0/overlay_dmx.npz --key overlay --output /root/lightsem/outputs/shpongle_model_comparisons_20260928_v1/media/03_I_VR_P0/03_I_VR_P0_full_1080p_av1.mp4 --audio /root/shpongle.flac --start 0 --duration 277.3"
+    },
+    {
+      "recipe": "S_VR_P0_Ashuf",
+      "create_exclusive_media_directory": "/root/lightsem/outputs/shpongle_model_comparisons_20260928_v1/media/04_S_VR_P0_Ashuf",
+      "render": "bash run.sh /root/lightsem/outputs/shpongle_layers_demo_20260922T161917Z/render_demo.py render --streams /mnt/lightsem-data/experiments/lightsem/lighting-cue-model-20260922t094347z/comparison_demos_20260928_v1/04_S_VR_P0_Ashuf/overlay_dmx.npz --key overlay --output /root/lightsem/outputs/shpongle_model_comparisons_20260928_v1/media/04_S_VR_P0_Ashuf/04_S_VR_P0_Ashuf_full_1080p_av1.mp4 --audio /root/shpongle.flac --start 0 --duration 277.3",
+      "audit": "bash run.sh /root/lightsem/outputs/shpongle_layers_demo_20260922T161917Z/render_demo.py audit --streams /mnt/lightsem-data/experiments/lightsem/lighting-cue-model-20260922t094347z/comparison_demos_20260928_v1/04_S_VR_P0_Ashuf/overlay_dmx.npz --key overlay --output /root/lightsem/outputs/shpongle_model_comparisons_20260928_v1/media/04_S_VR_P0_Ashuf/04_S_VR_P0_Ashuf_full_1080p_av1.mp4 --audio /root/shpongle.flac --start 0 --duration 277.3"
+    }
+  ]
+}

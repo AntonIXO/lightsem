@@ -1,0 +1,81 @@
+{
+  "status": "STATIC_V2_ACCEPT_WITH_PROSPECTIVE_PARENT_GUARDS_PENDING_NATIVE_SIDECAR_TESTS",
+  "scope": "Static source review, not inference authorization, empirical model validation or video delivery.",
+  "reviewed": [
+    {
+      "path": "/root/lightsem/outputs/shpongle_model_comparisons_20260928_v1/run_comparison_demo_v2.py",
+      "sha256": "7c90394dabf46b2fb23f48f98211435a4d17f93b5d027f43ca2f911d31be25b5",
+      "bytes": 41153
+    },
+    {
+      "path": "/root/lightsem/outputs/shpongle_model_comparisons_20260928_v1/test_comparison_demo_v2.py",
+      "sha256": "810f4cd726f32ffd0d41172853b120df841a14230a069420f57be68583d4b919",
+      "bytes": 28823
+    },
+    {
+      "path": "/root/lightsem/outputs/shpongle_model_comparisons_20260928_v1/COMPARISON_PLAN_V2.json",
+      "sha256": "0e9286f7428346a2ff01d2f5cd45b75fd39ac1b564d663bb209a2e48f17cffd4",
+      "bytes": 25491
+    },
+    {
+      "path": "/root/lightsem/outputs/shpongle_model_comparisons_20260928_v1/IMPLEMENTATION_HANDOFF_V2.json",
+      "sha256": "72dc64feb8742b824c836ca9a98001e7de9909806256c91c37e0f9c03fb386a7",
+      "bytes": 16572
+    }
+  ],
+  "source_and_test_hashes_matched": true,
+  "V1_sources_preserved": true,
+  "core_result": "No static forward/mapping API bug found. Actual one-call all-state palette table is checked finite before original argmax, captured without numerical modification, indexed by actual previous states and replayed exactly. Width128->76 loader, array schema, cue/RGB policy and disjoint whole-workspace shared cap are correct by source review.",
+  "main_native_tests": {
+    "provenance": "Parent reported execution and provided this receipt; reviewer did not run tests.",
+    "receipt": {
+      "path": "/root/lightsem/outputs/shpongle_model_comparisons_20260928_v1/NATIVE_SYNTHETIC_TEST_RECEIPT_V2.json",
+      "sha256": "1579b97f23a86b65b9119900b4718d3ef03825e7f9fc5fd3ec2f54bdfed6a3d8",
+      "bytes": 6502
+    },
+    "tests_run": 22,
+    "reported_exit_code": 0
+  },
+  "qualification": "V2 readback exact cue authority is saved FP32 scores. It does not assert bit-exact cross-device CUDA sigmoid reproduction. Additional independent sidecar authenticates canonical chain and gross logits/scores sanity under a predeclared8*float32epsilon absolute bound. No palette argmax tolerance or output mutation.",
+  "prospective_policy": {
+    "path": "/root/lightsem/docs/research/2026-09-28-end-to-end/COMPARISON_POSTFLIGHT_POLICY_V1.json",
+    "sha256": "00f6fa55758c43dc79545d0e6ea33d1d82a28b8f087522efc27606b09973f8ee",
+    "bytes": 1570
+  },
+  "sidecar_policy": {
+    "path": "/root/lightsem/outputs/shpongle_model_comparisons_20260928_v1/PARENT_AUDIT_POLICY_V1.json",
+    "sha256": "806f6d068f22aa26f01bac5c9adea9ceda796c3e2354e3008b3f380e3332b77a",
+    "bytes": 2344
+  },
+  "sidecar_source": {
+    "path": "/root/lightsem/outputs/shpongle_model_comparisons_20260928_v1/parent_audit_v1.py",
+    "sha256": "b166ba5d9f75451bb8fb7a24e3cfbf6f5c2d0795c67d44702ad5304314ea3672",
+    "bytes": 17122
+  },
+  "sidecar_tests": {
+    "path": "/root/lightsem/outputs/shpongle_model_comparisons_20260928_v1/test_parent_audit_v1.py",
+    "sha256": "deac54a0f5caba16d6e32a6df7d14830a3ebc2449ead46fe730f43891f519805",
+    "bytes": 15722
+  },
+  "sidecar_handoff": {
+    "path": "/root/lightsem/outputs/shpongle_model_comparisons_20260928_v1/PARENT_AUDIT_HANDOFF_V1.json",
+    "sha256": "2e5dca1447aff0b4b0ab140b73f99b5f2f535a5382b1c95a6ed6857aef349c04",
+    "bytes": 6131
+  },
+  "remaining_gates": [
+    "Parent source/test binding and review of new independent sidecar before executing its15 native synthetic tests",
+    "Native15pass/zero fail/error/skip receipt plus existing22pass receipt accepted before inference",
+    "Same fixed four model/selectedseed0 order and same V2 source/plan/auth; no fits/promotions/anchor rerun",
+    "All-four independent parent readback before media delivery; scientific/media accounting and original tree preservation enforced by parent",
+    "Four full native1080p AV1/audio renders plus media audits; human audiovisual acceptance is separate"
+  ],
+  "reviewer_execution": {
+    "project_or_new_driver_imports": false,
+    "compilation_or_tests": false,
+    "model_or_checkpoint_loads": false,
+    "model_calls": false,
+    "observed_model_array_reads": false,
+    "vault_calls": false
+  },
+  "reviewer_source_edits": "Only newly requested independent auditor/test/policy/handoff files written. No V1/V2/original sources edited."
+}

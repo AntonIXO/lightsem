@@ -1,0 +1,68 @@
+{
+  "aggregate_scoring_performed": false,
+  "checks": [
+    "real_selected_and_final_geometry",
+    "synthetic_upper_endpoint",
+    "ordinary_exact_equality",
+    "gaps_nonfinite_bad_duration_fail",
+    "defaults_and_original_globals_preserved",
+    "missing_tampered_bindings_fail_before_scoring",
+    "disclosed_report_audit",
+    "score_only_cli"
+  ],
+  "checks_failed": 0,
+  "checks_passed": 8,
+  "claim_limit": "CPU geometry, isolated-clone, registration, and synthetic report tests; no aggregate scoring or GPU",
+  "cuda_used": false,
+  "fixture_endpoint_corrections": {
+    "final": 1,
+    "selected": 1
+  },
+  "fixtures": {
+    "final": {
+      "path": "/root/lightsem/docs/research/2026-09-22-color-beat/observer_shift_boundary_fixture_final_v1.json",
+      "sha256": "b8c8d4792ea806ac0a91fef32d65d2e08aa437179705ae7c3d87e3f171840fbd"
+    },
+    "selected": {
+      "path": "/root/lightsem/docs/research/2026-09-22-color-beat/observer_shift_boundary_fixture_selected_v1.json",
+      "sha256": "89b605634e326ee850980db93e11e51c7b169461f47177c5a5242e8cae1ca761"
+    }
+  },
+  "ordinary_exact_equality_cases": 202,
+  "original_implementation_hashes_after": {
+    "/root/lightsem/lightsem/experiments/light_layers/evaluation.py": "401825add5d89f9920e2c946e36b2cdf85e07f625ab3230c5a3844655fcca004",
+    "/root/lightsem/lightsem/experiments/light_layers/metrics.py": "2df0707522bf2be0289164deeaf1cd4e8fdfe8f2bc20838ac0e331cceaaf77c3",
+    "/root/lightsem/lightsem/experiments/light_layers/model.py": "aa1d63f0cbf5cf270c3c7d676edf3eaf3debeb394220123493a400aa60835529",
+    "/root/lightsem/lightsem/experiments/light_layers/palette_metrics.py": "80b1301d8ece0c75d8d5b0521c5b9299581dc8ec80eddfbeccade11f10939d07",
+    "/root/lightsem/lightsem/experiments/light_layers/targets.py": "4f1e980ed9f62e2ae2a6d53e426cd44c0ed2381835bf4b1382a7fba1e566d6d1",
+    "/root/lightsem/lightsem/experiments/light_layers/training.py": "31e58e8c7a10cd80f0d3b5be0e87796e35548f2c2d03705856a0cafa1811802b",
+    "/root/lightsem/lightsem/model/light_trunk.py": "b515dcb960259f39f21a8d565b621364aafe0a87d3a6028f5a476659f662cf84",
+    "/root/lightsem/run_light_layers_evaluate.py": "c29d17850d03c478cba7d8fe27a18847e500c5264d6e623c7691b885d7e368ca"
+  },
+  "original_implementation_hashes_before": {
+    "/root/lightsem/lightsem/experiments/light_layers/evaluation.py": "401825add5d89f9920e2c946e36b2cdf85e07f625ab3230c5a3844655fcca004",
+    "/root/lightsem/lightsem/experiments/light_layers/metrics.py": "2df0707522bf2be0289164deeaf1cd4e8fdfe8f2bc20838ac0e331cceaaf77c3",
+    "/root/lightsem/lightsem/experiments/light_layers/model.py": "aa1d63f0cbf5cf270c3c7d676edf3eaf3debeb394220123493a400aa60835529",
+    "/root/lightsem/lightsem/experiments/light_layers/palette_metrics.py": "80b1301d8ece0c75d8d5b0521c5b9299581dc8ec80eddfbeccade11f10939d07",
+    "/root/lightsem/lightsem/experiments/light_layers/targets.py": "4f1e980ed9f62e2ae2a6d53e426cd44c0ed2381835bf4b1382a7fba1e566d6d1",
+    "/root/lightsem/lightsem/experiments/light_layers/training.py": "31e58e8c7a10cd80f0d3b5be0e87796e35548f2c2d03705856a0cafa1811802b",
+    "/root/lightsem/lightsem/model/light_trunk.py": "b515dcb960259f39f21a8d565b621364aafe0a87d3a6028f5a476659f662cf84",
+    "/root/lightsem/run_light_layers_evaluate.py": "c29d17850d03c478cba7d8fe27a18847e500c5264d6e623c7691b885d7e368ca"
+  },
+  "original_shifted_function_sha256": "45f02973621c6c3934d377a2bccded8a42394292acfbb5efea2b98154731fa48",
+  "patched_shifted_function_sha256": "27b6a6dd5d25e6b667b30fea720107e2426a708ba5c7231e883efe39c988b33f",
+  "protocol": {
+    "path": "/root/lightsem/docs/research/2026-09-22-color-beat/OBSERVER_SCORING_NUMERICAL_CORRECTION_V1.json",
+    "sha256": "fecd9aa66a24f9647643f7010e1927fc90190d7f21b41dd46b03c6be69bd9037"
+  },
+  "scope": "scoring_correction_cpu_geometry_only",
+  "source": {
+    "path": "/root/lightsem/docs/research/2026-09-22-color-beat/run_observer_score_correction_v1.py",
+    "sha256": "f9a13986c872eef785e493e23eb0eb4834d1d436543c44b925cee4b83beb17dd"
+  },
+  "status": "passed",
+  "test_source": {
+    "path": "/root/lightsem/docs/research/2026-09-22-color-beat/test_observer_score_correction_v1.py",
+    "sha256": "d779852ff8536567e9da7082caa5b557704d67615d9005f6ea07acbfcb965c10"
+  }
+}

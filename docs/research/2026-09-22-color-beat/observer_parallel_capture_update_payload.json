@@ -1,0 +1,4 @@
+{
+  "id": "dancing-light-generative-20260903",
+  "add_update": "2026-09-22 \u2014 USER-AUTHORIZED CAPTURE SCHEDULING AMENDMENT, not a target/model change. User requested two videos simultaneously. Policy /root/lightsem/docs/research/2026-09-22-color-beat/OBSERVER_PARALLEL_CAPTURE_POLICY_V1.json SHA256 10631b3d2ab4827a46de166b96aa15cb5f5cd22cc3201c1030831615753c341b. Stop the original producer at a completed-record boundary, preserve all outputs, and split only remaining records into two disjoint alternating-order shards. Exact SAM2 checkpoint, extraction source, precision, clocks, mask/gap policy, and source rows remain unchanged. Original131-record inventory and identity quarantine remain unchanged. Two concurrent video workers are authorized; student fits stay sequential. Exact shard manifests and artifact-location ledger will be frozen before launch. No numerical model result, threshold adjustment, or original-gate waiver."
+}

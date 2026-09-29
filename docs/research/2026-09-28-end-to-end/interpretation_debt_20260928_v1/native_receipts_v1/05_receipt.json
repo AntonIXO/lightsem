@@ -1,0 +1,8 @@
+{
+  "experiment_id": "exp-016-the-just-dance-background-with-ce364b",
+  "verdict": "directional_only",
+  "failure_mode": "recipe_conditional",
+  "lesson": "[2026-09-28 retrospective interpretation; no new experiment] On the historical 38-song evaluation split, the audio-plus-reference-event-history head achieved event AP/base-rate lift 3.171 versus rhythm 1.481 and same-feature ridge 1.897, with margin over rhythm +1.6902, CI [1.1858, 2.2711], and the recorded aligned shift peak. G8.4-hue remains unmeasured: the palette test was not implemented, and the legacy hue-KL/per-song-mean contract is still undefined rather than supplied by a later palette study. This supports the measured event proxy with reference history, not generated-own-cue deployment, palette prediction or human LIGHT acceptance.",
+  "transfers_to": [],
+  "hint": "recipe_conditional: when the recipe changes, reopen_hypothesis('the-just-dance-background-with-coach-and-ui-598f33', reason=...) makes the negative re-testable instead of terminal"
+}

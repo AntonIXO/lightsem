@@ -1,0 +1,27 @@
+{
+  "status": "authorized_synthetic_cpu_tests_only",
+  "policy": {
+    "path": "/root/lightsem/outputs/shpongle_model_comparisons_20260928_v1/PARENT_AUDIT_POLICY_V1.json",
+    "sha256": "806f6d068f22aa26f01bac5c9adea9ceda796c3e2354e3008b3f380e3332b77a",
+    "bytes": 2344
+  },
+  "source_files": {
+    "/root/lightsem/outputs/shpongle_model_comparisons_20260928_v1/parent_audit_v1.py": "b166ba5d9f75451bb8fb7a24e3cfbf6f5c2d0795c67d44702ad5304314ea3672",
+    "/root/lightsem/run.sh": "232ca5a566ae3b22f0677b6b5879c6901abf9decb16dc66967a4895174289556"
+  },
+  "test_sources": {
+    "/root/lightsem/outputs/shpongle_model_comparisons_20260928_v1/test_parent_audit_v1.py": "deac54a0f5caba16d6e32a6df7d14830a3ebc2449ead46fe730f43891f519805"
+  },
+  "command": "bash run.sh -m unittest discover -s /root/lightsem/outputs/shpongle_model_comparisons_20260928_v1 -p test_parent_audit_v1.py -v > /root/lightsem/outputs/shpongle_model_comparisons_20260928_v1/native_parent_audit_tests_v1.log 2>&1",
+  "expected_tests": 15,
+  "log_path": "/root/lightsem/outputs/shpongle_model_comparisons_20260928_v1/native_parent_audit_tests_v1.log",
+  "environment": {
+    "PYTHONDONTWRITEBYTECODE": "1",
+    "CUDA_VISIBLE_DEVICES": ""
+  },
+  "real_checkpoint_loads": 0,
+  "real_model_forward_calls": 0,
+  "sealed_TEST_reads": 0,
+  "scope": "Synthetic fixtures only. Sidecar authenticates canonical completion and frozen score/logit sanity; it is not a second mapper or exact CUDA replay. V2 source is unchanged.",
+  "real_inference_authorized": false
+}

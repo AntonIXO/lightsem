@@ -1,0 +1,125 @@
+{
+  "count": 20,
+  "receipts": [
+    {
+      "experiment_id": "exp-009-the-stage-1-audio-bus-was-not-d97aa0",
+      "path": "/root/lightsem/docs/research/2026-09-28-end-to-end/interpretation_debt_20260928_v1/native_receipts_v1/00_receipt.json",
+      "bytes": 1126,
+      "sha256": "9e2954e8dcd67155aa278dd29cab79d2ccbb1922cab54cea27bbb0066b5e6758"
+    },
+    {
+      "experiment_id": "exp-011-the-model-s-light-flashes-three-1de900",
+      "path": "/root/lightsem/docs/research/2026-09-28-end-to-end/interpretation_debt_20260928_v1/native_receipts_v1/01_receipt.json",
+      "bytes": 1164,
+      "sha256": "d5c41eed99c8f1f696fb8f88c88185f2ab4f5a157b072a160277ca2cba898e5d"
+    },
+    {
+      "experiment_id": "exp-013-the-operator-head-which-is-8594fa",
+      "path": "/root/lightsem/docs/research/2026-09-28-end-to-end/interpretation_debt_20260928_v1/native_receipts_v1/02_receipt.json",
+      "bytes": 1082,
+      "sha256": "45de30848c9b9bb1694ef96af724b3c705bdf2e786ec464bfa0a86f43e3fdcac"
+    },
+    {
+      "experiment_id": "exp-014-just-dance-coach-motion-is-f086d5",
+      "path": "/root/lightsem/docs/research/2026-09-28-end-to-end/interpretation_debt_20260928_v1/native_receipts_v1/03_receipt.json",
+      "bytes": 1003,
+      "sha256": "bff01c8e1373cd0a67351b3561722e341eba1c6fe353c27b93adf52f479c6469"
+    },
+    {
+      "experiment_id": "exp-015-conditioning-on-whole-track-229262",
+      "path": "/root/lightsem/docs/research/2026-09-28-end-to-end/interpretation_debt_20260928_v1/native_receipts_v1/04_receipt.json",
+      "bytes": 1068,
+      "sha256": "5bc2846daf5e4b666ba3110818175d713a98d8f4970e6d0cdec6ca3a0d82e173"
+    },
+    {
+      "experiment_id": "exp-016-the-just-dance-background-with-ce364b",
+      "path": "/root/lightsem/docs/research/2026-09-28-end-to-end/interpretation_debt_20260928_v1/native_receipts_v1/05_receipt.json",
+      "bytes": 1023,
+      "sha256": "732799c2a091ea73b535569f63395f76d44c044078866eb6b47b8a0c0a2a733a"
+    },
+    {
+      "experiment_id": "exp-017-authored-hobby-game-light-shows-e4a4d0",
+      "path": "/root/lightsem/docs/research/2026-09-28-end-to-end/interpretation_debt_20260928_v1/native_receipts_v1/06_receipt.json",
+      "bytes": 1185,
+      "sha256": "a430fa71080e1add0770b7c7f1c56e1f7f306c4ad507a32f0fbd2406f89e3094"
+    },
+    {
+      "experiment_id": "exp-018-source-separated-stems-add-e2c503",
+      "path": "/root/lightsem/docs/research/2026-09-28-end-to-end/interpretation_debt_20260928_v1/native_receipts_v1/07_receipt.json",
+      "bytes": 1143,
+      "sha256": "43a279a6cef7461ae6e4deb5b94cbd408a4e45aa3f423a4931245d9a9779d7e1"
+    },
+    {
+      "experiment_id": "exp-019-one-frozen-music-foundation-d4f30f",
+      "path": "/root/lightsem/docs/research/2026-09-28-end-to-end/interpretation_debt_20260928_v1/native_receipts_v1/08_receipt.json",
+      "bytes": 1183,
+      "sha256": "bd9213142e326a66b9744e78ba88fd79e4326ffae7918d0586c6314a79a549a6"
+    },
+    {
+      "experiment_id": "exp-025-feeding-the-group-decoder-the-6ba213",
+      "path": "/root/lightsem/docs/research/2026-09-28-end-to-end/interpretation_debt_20260928_v1/native_receipts_v1/09_receipt.json",
+      "bytes": 1170,
+      "sha256": "603fa5ba12a5052e48f3576d098b482ab235ab0fff31e0d966af38c8c10277ff"
+    },
+    {
+      "experiment_id": "exp-motion-exposure-roles-20260910",
+      "path": "/root/lightsem/docs/research/2026-09-28-end-to-end/interpretation_debt_20260928_v1/native_receipts_v1/10_receipt.json",
+      "bytes": 663,
+      "sha256": "4441b436c6a319c32b27bc53dc249b6f6208ab84551be2f3178cb23ffe93756a"
+    },
+    {
+      "experiment_id": "exp-dance-tracking-20260911",
+      "path": "/root/lightsem/docs/research/2026-09-28-end-to-end/interpretation_debt_20260928_v1/native_receipts_v1/11_receipt.json",
+      "bytes": 958,
+      "sha256": "541b96d50aee676715e761ef1704d009f5ed9701e628d092845162339c7d773e"
+    },
+    {
+      "experiment_id": "exp-dance-projection-20260911",
+      "path": "/root/lightsem/docs/research/2026-09-28-end-to-end/interpretation_debt_20260928_v1/native_receipts_v1/12_receipt.json",
+      "bytes": 969,
+      "sha256": "07e971f4d973f66c61c8f37d878038f69d633809b4b09324a550608d2a8ac1b5"
+    },
+    {
+      "experiment_id": "exp-dance-actuator-budget-20260911",
+      "path": "/root/lightsem/docs/research/2026-09-28-end-to-end/interpretation_debt_20260928_v1/native_receipts_v1/13_receipt.json",
+      "bytes": 990,
+      "sha256": "5ee3712687ca6e388664ec5077a4f8e337f31072f2210e4cb4a996051609478a"
+    },
+    {
+      "experiment_id": "exp-dance-stage-geometry-20260911",
+      "path": "/root/lightsem/docs/research/2026-09-28-end-to-end/interpretation_debt_20260928_v1/native_receipts_v1/14_receipt.json",
+      "bytes": 940,
+      "sha256": "b58737280e72fed780175a83dd2c3bd41c884d382ee7b18fce87e5dc89e429de"
+    },
+    {
+      "experiment_id": "exp-dance-stage-anchors-20260911",
+      "path": "/root/lightsem/docs/research/2026-09-28-end-to-end/interpretation_debt_20260928_v1/native_receipts_v1/15_receipt.json",
+      "bytes": 832,
+      "sha256": "94da2700619d5376f1b78137cdfc1e1fd1efee1dbd49034d4a938659fe5c0d17"
+    },
+    {
+      "experiment_id": "exp-dance-physical-objective-20260911",
+      "path": "/root/lightsem/docs/research/2026-09-28-end-to-end/interpretation_debt_20260928_v1/native_receipts_v1/16_receipt.json",
+      "bytes": 1049,
+      "sha256": "7ba075aecde64a837c8655063aba159ab3f967cccca797fc1f0da4e1c58d0e34"
+    },
+    {
+      "experiment_id": "exp-dance-stage-lean-20260911",
+      "path": "/root/lightsem/docs/research/2026-09-28-end-to-end/interpretation_debt_20260928_v1/native_receipts_v1/17_receipt.json",
+      "bytes": 975,
+      "sha256": "bfad5ef6e11a6cf8f725059883eb11dfaceaf975f2dc8b0e4d373f4c3827e988"
+    },
+    {
+      "experiment_id": "exp-dance-optics-full-20260911",
+      "path": "/root/lightsem/docs/research/2026-09-28-end-to-end/interpretation_debt_20260928_v1/native_receipts_v1/18_receipt.json",
+      "bytes": 894,
+      "sha256": "37e6a06d7863748380e0298af4d767c6499703f5ef6f062dbdb20443f7bffee7"
+    },
+    {
+      "experiment_id": "exp-dance-pose-stage-20260911",
+      "path": "/root/lightsem/docs/research/2026-09-28-end-to-end/interpretation_debt_20260928_v1/native_receipts_v1/19_receipt.json",
+      "bytes": 1017,
+      "sha256": "94cbf1f943d08b9c711ac4682e8c7b17077035d0c89699da29eb83596bd0c8a5"
+    }
+  ]
+}

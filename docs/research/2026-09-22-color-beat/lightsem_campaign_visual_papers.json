@@ -1,0 +1,776 @@
+{
+  "created_at": "2026-09-22T09:52:53.735499+00:00",
+  "task_scope": "Read-only paper/source audit for LightSem H-V campaign. No training, project imports, production edits, data extraction, or vault calls. All vision is training-target construction/diagnostic only; deployed inference remains music-only.",
+  "paper_selection_note": "Required Skip-BART + official RPMC-L2 card and Palmer 2013. Initially fully read already-cited Glow with the Flow; parent then explicitly requested deployable mask paper, so SAM2 is the selected extraction primary and Glow is retained as supplementary context only.",
+  "papers": [
+    {
+      "id": "skip_bart",
+      "title": "Automatic Stage Lighting Control: Is it a Rule-Driven Process or Generative Task?",
+      "authors": [
+        "Zijian Zhao",
+        "Dian Jin",
+        "Zijing Zhou",
+        "Xiaoyu Zhang"
+      ],
+      "version": "arXiv:2506.01482v2, 2025-12-31; v1 2025-06-02 also fully read for version comparison",
+      "sources": [
+        "https://arxiv.org/html/2506.01482v2",
+        "https://arxiv.org/html/2506.01482v1",
+        "https://arxiv.org/abs/2506.01482",
+        "https://github.com/RS2002/Skip-BART/tree/88e56d1c07460276273fbbed777d248239262ced",
+        "https://huggingface.co/RS2002/Skip-BART"
+      ],
+      "read_scope": "Full v1 and v2 text, all appendices/tables, captions, official model/dataset cards and dataset.py/model.py/generate.py; targeted finetune.py inspection. No model executed.",
+      "problem_and_labels": {
+        "target": "One primary hue token H in 0..179 plus one intensity token V in 0..255 per frame. S fixed at255 for generation. Offline single principal colored light; no fixture, pose, mask, DMX, or spatial supervision.",
+        "video_extraction_paper": "Convert all frame pixels to OpenCV HSV. Form hue and value count histograms on pixels with V>=v_threshold (Eq11 v2). Hue=mode, V=rounded weighted mean (Eq12). Dataset supplies V-threshold variants {0,30,60,90,120,150,180,210,240}. No person/UI/geometric masking described.",
+        "paper_code_discrepancy": "Official dataset.py chooses hue histogram at threshold60, sets h[:,0]=(h[:,1]+h[:,179])//2 then argmax. V uses threshold0, zeros v[:,0], and computes sum(n*count_n)/sum(count_n) with zero-count fallback0. finetune.py rounds and converts to long. This differs from paper Eq11 common threshold and Eq12 printed (n+1) weighting; latter would permit256 and conflicts with stated vocabulary. Do not silently treat paper equation and code as identical.",
+        "hue_mask_limit": "Brightness threshold is not person segmentation and is not a saturation-validity mask. Hue of achromatic/near-black pixels is not reliable color. No ground-truth engineer console parameters are recorded; lighting is a camera-derived visual proxy.",
+        "multi_hue_appendix": "v2 C.5 proposes circular von Mises mixture, EM estimation, BIC component selection; illustrated on one frame. Not trained/evaluated multi-light output, no temporal component identity or spatial fixture assignment."
+      },
+      "architecture_and_objectives": {
+        "audio": "Frozen OpenL3 512-d vectors. v2 specifies 1s windows with0.1s hop. MLP adapts embeddings to BART. No motion inference.",
+        "temporal_memory": "Bidirectional audio encoder over max1024 tokens=102.4s at10Hz; causal autoregressive lighting decoder with prior generated lighting tokens and aligned audio skip input. Paper says whole audio; practical window cap means not arbitrary whole-song memory. Official generate.py truncates to first1024 embeddings. No tested cross-window recurrence/motif retrieval.",
+        "transfer": "PianoBART backbone plus DARE merge of symbolic-music task adaptations; LoRA tuning. Paper Table4:240M total/19M trainable,8layers,8heads,hidden2048,FF2048; official code/card use d_model/hidden1024. Pin actual checkpoint config instead of mixing claims.",
+        "pretraining": "Audio-only masked embedding reconstruction: all-token MSE + masked-token MSE + generator real/fake cross entropy; separate discriminator CE(real=1,reconstructed=0), shared backbone heads. Mask ratio uniform0.15..0.30 per epoch. Gaussian replacement token per embedding dimension from sequence mean/std. v2 AppendixA gives weights0.8,0.2,0.1 (names beta there despite alpha in Eq4). Shifted clean audio enters decoder.",
+        "fine_tuning": "Teacher-forced next-token hue CE and value CE; inverse previous validation accuracy sets normalized task weights.",
+        "inference": "Restricted stochastic temperature-controlled autoregressive sampling; circular hue and linear V inter-frame distance limits zero forbidden probabilities. These are smoothness restrictions, not beat locks or flicker safety certification."
+      },
+      "population_and_grouping": {
+        "data": "699 clips from35 live performances collected Dec2020–Jul2024;20s to~5min, rock/punk/metal/core;4capture devices. Released features ~40GB, not raw video.",
+        "paper_split": "8:1:1; paper C.4 claims all test shows excluded from train/validation. Audio pretraining includes training AND validation samples, excludes test.",
+        "release_limit": "Official HF card states no predefined splits, top-level file hashes. Public dataset.py splits files by list proportion/optional shuffle, not show identity. No show-group manifest is listed in inspected official repo/card. Paper grouping cannot be reproduced from hash keys alone; do not allege actual leakage without the original manifest.",
+        "transfer_limit": "New-show holdout is not proof of new-venue, new-artist, duplicate-song or camera-independent transfer. Just Dance graphics differ from reflected livehouse stage illumination."
+      },
+      "results_with_comparators": {
+        "v2_table1": "Skip-BART hue MAE28.72 vs rule43.43 (OpenCV hue bins, full circle180); V MAE51.27 vs rule86.55 (0..255). RMSE hue36.13 vs48.67; V60.74 vs93.39. Paper does not report target spread or constant/median/shift baselines; not priced against a trivial null.",
+        "v2_delta_correlations": "Table header corr(|Delta|) ×10^-2: Skip hue0.0088 vs rule0.0050 and w/o-skip0.0115; Skip V0.0294 vs rule0.0058 and w/o-skip0.0030. These are weak change-magnitude correlations, NOT0.88/2.94. Hue skip ablation exceeds Skip on this metric; prose claiming superiority on all metrics overreaches table.",
+        "human_in_domain": "38raters,3random20s test excerpts,4methods, animated single-color blocks with audio. Overall Skip4.35±0.87 vs GT4.51±0.88 and rule2.67±1.29 /7. GT-Skip corrected p=.724, Skip-rule p<.001; no equivalence/noninferiority design. Skip vs no-skip overall p=.152; rhythm4.50 vs4.54, corrected p1.0. GT surprise4.34 vs Skip3.83, corrected p=.014.",
+        "human_cross_domain_v2": "30users,3Suno-generated songs in folk/R&B/jazz, no GT lighting comparator. Overall Skip4.34±.92 vs no-skip4.10±.97 vs rule3.34±1.13. Skip-rule p<.001. This is not broad real-recording cross-genre evidence.",
+        "baseline_limit": "Rule comparator is a paper-specific DEAM bidirectional LSTM emotion predictor plus Nijdam hue/value mapping, inspired by Hsiao2017; not every rule engine and not LightSem beat_trigger/current conductor. Different classifier/mapping choices admitted by authors.",
+        "temporal_limit": "Authors explicitly report excessive local fluctuations and poor long-term rhythmic stability (v2 AppendixD). Quantitative reconstruction and single-color-block ratings do not establish multi-fixture light quality or stable long-form rhythms."
+      },
+      "licensing": {
+        "paper": "arXiv perpetual non-exclusive distribution license; not a CC software/data grant.",
+        "dataset": "Official RPMC-L2 HF card license cc-by-4.0. Attribution required; feature release does not clear third-party music/video rights for redistribution or grant rights to Just Dance footage.",
+        "weights": "Official Skip-BART HF model card declares apache-2.0.",
+        "github_code": "Inspected repo tree at88e56d1 has no LICENSE file. Do not infer a blanket software license from the separate model-card tag.",
+        "reproducibility": "HF card from_pretrained example imports Skip_BART, but official model.py defines ML_BART and ML_Classifier with state-dict loading in generate.py. Current generate.py also has likely [i,j]/[j,i] range-mask indexing errors and saves embeddings to *_gen.npy. Static observations only, not a tested failure. Pretrained inference is available in principle, not verified turnkey."
+      },
+      "lightsem_use": "Borrow independent hue distribution and relative intensity targets, explicit temporal lighting history, aligned audio conditioning. Do not copy single-mode labels as evidence that6D scene summaries recover lighting. Do not add dancer or video at inference."
+    },
+    {
+      "id": "rpmc_l2_card",
+      "type": "official dataset card",
+      "version": "HF revision1b6893810d18bde66c92aad2a6d2aef7c1012977 (lastModified2026-01-01)",
+      "source": "https://huggingface.co/datasets/RS2002/RPMC-L2/blob/1b6893810d18bde66c92aad2a6d2aef7c1012977/README.md",
+      "read_scope": "Entire official card and API metadata read.",
+      "features": "music/openl3 (512,L), mel/dB(128,L), cqt(84,L), stft(1025,L), mfcc(128,L), three chroma(12,L), centroid/bandwidth/rolloff/zcr(1,L), contrast(7,L). light/<V-threshold> stores(F,3,256), hue bins0..179.",
+      "labels": "Extracted video appearance histograms, not engineer cue or fixture annotations. No motion/person masks, semantic look labels, event boxes, DMX, or spatial positions in stated schema.",
+      "grouping_limit": "699 hash-keyed samples merged from multipart archive; no predefined split or stated key→show/song/venue identity manifest. Do not call random hashed samples an independent source split.",
+      "license": "CC-BY-4.0 on card; raw media not released for copyright reasons per paper. Authoritative license label for feature dataset, not general media rights."
+    },
+    {
+      "id": "palmer2013",
+      "title": "Music–color associations are mediated by emotion",
+      "authors": [
+        "Stephen E. Palmer",
+        "Karen B. Schloss",
+        "Zoe Xu",
+        "Lilia R. Prado-León"
+      ],
+      "version": "PNAS110(22):8836–8841; published online2013-05-13, issue2013-05-28; DOI10.1073/pnas.1212562110",
+      "sources": [
+        "https://pmc.ncbi.nlm.nih.gov/articles/PMC3670360/",
+        "https://doi.org/10.1073/pnas.1212562110",
+        "https://palmerlab.berkeley.edu/pdf/PalmerSchlossXuPrado-Leon(2013).pdf"
+      ],
+      "read_scope": "Entire main article including Materials/Methods, all3experiments, discussion, references and Eq1–3 images read; author6-page PDF retrieved as corroboration. Supplemental PDF linked at PMC/PNAS could not be retrieved (PNAS403, PMC download challenge, EuropePMC says not-open-access); do not claim its tables/figures read.",
+      "objective": "Psychophysical association experiment, not ML training or automatic lighting generation.",
+      "labels_and_design": {
+        "stimuli": "18classical orchestral excerpts,50s each, crossing3composers(Bach/Mozart/Brahms) ×3tempo categories ×2modes(major/minor). Not controlled synthesized manipulations: instrumentation/loudness/note-rate/etc vary.",
+        "colors": "37monitor colors:8hues(red,orange,yellow,chartreuse,green,cyan,blue,purple)×4saturation/lightness cuts(saturated/light/muted/dark), plus white/black/3grays. No video pixels/masking/extraction.",
+        "ratings": "Rank5most and5least consistent colors per excerpt. Separately rate color appearance(R/G,Y/B,L/D,S/U) and emotional associations(happy,sad,angry,calm,strong,weak,lively,dreary), normalized−100..100.",
+        "mca_exact": "C_d,m=(5c1+4c2+3c3+2c4+c5)/15; I_d,m=(5i1+4i2+3i3+2i4+i5)/15; MCA=C−I. Emotional MCA uses emotion ratings in place of appearance ratings.",
+        "participants": "Experiment1:48US and49Mexican. Experiment2:24US,14emotionally expressive faces (two people, neutral and50/100% happy/sad/angry). Experiment3:16US,13female faces adding25/75% intensity; select2most/least faces for each musical excerpt.",
+        "temporal_memory": "None;50s excerpt loops during ranked selection. Whole-excerpt associations, no frame timing, palette-transition targets, section model or rhythmic control."
+      },
+      "results_with_limits": {
+        "association": "Within sampled classical excerpts, faster/major generally selected lighter, more saturated, yellower colors vs slower/minor desaturated,darker,bluer colors. These are relative associations, not deterministic hue prescriptions.",
+        "correlation": "Across18stimulus means, emotional ratings of music vs selected-color MCA:US happy/sad r.97, lively/dreary.99, strong/weak.96, angry/calm.89; corresponding Mexico .97,.96,.96,.93. These are not held-out song prediction metrics; no always-predict-median MAE/target spread/null supplied. Do not price an audio→palette model from these correlations.",
+        "causality": "Authors explicitly state correlational evidence cannot establish causal mediation or direction and does not exclude direct/redundant associations.",
+        "population": "US+Mexico does not establish universal non-Western color/music mapping; authors explicitly ask about nonwestern music, other genres, experienced vs cognitive emotion, synesthetes.",
+        "grouping": "No train/test split.18musical works/composer conditions support stimulus-level inference;97participants do not create97independent music examples. Tempo/mode covary with instrumentation,timbre,loudness,etc.",
+        "lighting_limit": "Colored squares selected to go best/worst with classical clips are not stage lighting preferences, allowable palettes, color-diversity targets, or constraints to keep lights100%saturated. Cannot overrule learned authored palettes or user artistic request."
+      },
+      "licensing": "PMC access is free-to-read, not automatically an open-data/software license. No CC grant found in main PMC/author copy. EuropePMC explicitly reports this article not open access for supplementary retrieval. Music recordings and NimStim face images have separate rights; no pretrained model/checkpoint or ready-to-train lighting dataset is supplied.",
+      "lightsem_use": "Motivates separating hue, saturation and lightness, keeping perceptual emotion/style as optional slow controls, and testing diversity separately. Does not justify hard emotion→hue mapping or new mandatory emotion dataset."
+    },
+    {
+      "title": "SAM 2 / SAM 2.1: bounded LightSem training-target extraction dossier",
+      "status": "Literature and source-code review only. No inference, training, installation, dependency probes, or vault access.",
+      "reviewed_at_utc": "2026-09-22T09:52:58.557807+00:00",
+      "paper": {
+        "title": "SAM 2: Segment Anything in Images and Videos",
+        "authors": "Nikhila Ravi et al. (Meta FAIR)",
+        "arxiv": "2408.00714v2",
+        "version_date": "2024-10-28",
+        "latest_verified_from": "https://arxiv.org/abs/2408.00714",
+        "url": "https://arxiv.org/pdf/2408.00714v2",
+        "pdf_sha256": "664f5c4254db441569ecfe36a2a2fa91a1ecec5f4d31b3bcc5d451193efc2c0d",
+        "pages": 42,
+        "read_coverage": "All text on pages 1–42, including appendices A–H, model/data/annotation cards, tables, footnotes and references. All Figures 1–17 visually inspected from rendered pages. No paper parts unread.",
+        "important_version_note": "Footnote 1, page 2: all paper results are the improved model called SAM 2.1 in the repository; paper abbreviates it to SAM 2. Do not substitute July 2024 SAM 2 numbers."
+      },
+      "scope": {
+        "role": "Frozen offline visual-label extractor for Just Dance training data, not a deployed audio-to-light component.",
+        "proposal": "Use existing coach pose boxes as SAM 2.1 prompts. Propagate visible-coach pixel masks, union all coaches, retain the existing UI mask, and compute background HSV targets only from valid visible-background pixels.",
+        "inference_boundary": "Music-only LightSem inference stays audio-only. No video, SAM 2, pose detector, coach boxes, or mask prompts are required at music-only inference.",
+        "claim_supported": "SAM 2 is a plausible class-agnostic box-prompted video mask generator that could reduce excess background removal caused by moving rectangular exclusions.",
+        "claim_not_supported": "No SAM 2 evaluation here shows reliable Just Dance coach masks, cleaner lighting targets, improved audio-to-light learning, better emitted light, or improved dance. Those remain untested.",
+        "incumbent": "build_justdance_visual.py: scene_vector uses finite pose boxes, padded by 15% of width/height on each side, divided by 2 for half-resolution extraction; fixed UI regions are also excluded.",
+        "existing_target": "Six scene values from extract_rpmc.reduce_light: hue cos/sin, saturation, value, value p90, hue concentration. This is a designed-background visual proxy, not actual fixture/DMX labels.",
+        "constraints": "Parent reports /mnt/lightsem-data is unavailable and torch absent. No runs or installs attempted."
+      },
+      "task_labels_objective": {
+        "task": "Promptable Visual Segmentation (PVS): input image/video plus positive/negative points, box or mask on any frame; output target-object segmentation per frame, jointly a masklet; support further corrective prompts.",
+        "labels": "Category-free per-pixel object/part masks tracked over time. SA-V has no category names or text labels (H.2, p33); its annotations are at 6 FPS, with released videos resampled to 24 FPS (H.2, p34).",
+        "not_semantic_person_segmentation": "A pose detector or human selects the coach; SAM 2 does not predict the semantic class person. A valid segment can be a shirt, arm, whole body, or other object. A box reduces ambiguity but does not prove whole-person extent.",
+        "loss": "20 * focal(mask) + 1 * Dice(mask) + 1 * L1(predicted_IoU, actual_IoU) + 1 * cross_entropy(object_present). IoU logits have sigmoid; multimask segmentation loss applies only to the lowest-loss candidate; IoU predictions are supervised across all candidates. On frames with no ground-truth mask, mask outputs are not supervised, but the presence/occlusion head always is (D.2, pp17–19).",
+        "pretraining": "MAE-pretrained Hiera initialization; SA-1B image pretraining, approximately 90k steps, 1024-square input, bfloat16, AdamW, batch 256, up to 64 random masks/image, masks >90% image excluded, seven corrective points.",
+        "joint_training": "Approximately 150k steps alternating full image/video batches. Sample eight frames, up to three masklets, up to two prompted frames including the first, seven correction points. Initial prompts: ground-truth mask 50%, positive click 25%, box 25%. Random reverse order 50%; 10% corrective clicks sampled from GT regardless of current prediction. Spatial/color augmentations and 10% 2x2 mosaic of the same video.",
+        "long_video_finetune": "Additional 50k steps with 16-frame sequences, image encoder frozen, half learning rate. Top half of SA-V/Internal masklets by edited-frame count; full OSS datasets when included. This is original model training, not a proposed LightSem training run.",
+        "citations": [
+          "sections 3–5, pp3–7",
+          "D.2, pp17–19",
+          "H.2, pp33–34"
+        ]
+      },
+      "training_data": {
+        "released_checkpoints": "SA-1B pretraining, then 10% SA-1B + SA-V manual masklets + licensed Internal videos. D.2.2 explicitly distinguishes released models from expanded-data research models. Mixture approximately 15.2% SA-1B / 70% SA-V / 14.8% Internal.",
+        "research_full_mix": "Default paper Tables 4–6 and many appendix evaluations add DAVIS, MOSE, YouTubeVOS. Approximate mixture 1.3% DAVIS / 9.4% MOSE / 9.2% YouTubeVOS / 15.5% SA-1B / 49.5% SA-V / 15.1% Internal.",
+        "sa_v_release": "50.9k videos, 196 h, 642.6k masklets, 35.5M masks total: 190.9k manual masklets / 10.0M masks and 451.7k automatic masklets. Only manually annotated video masklets used in final training, not all 35.5M released masks.",
+        "internal": "62.9k licensed videos, 281.8 h, 69.6k masklets, 5.4M masks; not released as part of SA-V.",
+        "label_quality": "Manual means SAM-assisted and human corrected/verified, not fully independent hand rasterization. Auto masklets are model-generated and human verified; dataset card admits missed fixes and temporal inconsistencies.",
+        "sa_v_splits": "Author/geographic splitting to limit similar-object overlap. SA-V val: 155 videos / 293 masklets; test: 150 videos / 278 masklets. Challenging objects with fast motion, occlusion and reappearance; annotated with framewise SAM plus manual tools rather than propagated SAM 2.",
+        "training_domain_limit": "No Just Dance or stylized-coach-specific training set or benchmark is reported. Diverse natural video, some image art and synthetic driving evaluation do not establish this domain.",
+        "citations": [
+          "5.2 and Table 3, pp7–9",
+          "D.2.2, p18",
+          "Table 17 dagger rows, p31",
+          "H.2, pp33–35"
+        ]
+      },
+      "architecture": {
+        "encoder": "Framewise MAE-initialized Hiera (T/S/B+/L). FPN fuses stride-16/32 features; stride-4/8 features skip memory attention to mask-decoder upsampling.",
+        "attention": "Four transformer memory-attention layers by default: current-frame self-attention, cross-attention to stored spatial memories and object pointers, MLP. Sinusoidal absolute positional embeddings and 2D RoPE in memory attention; object pointers excluded from spatial RoPE.",
+        "decoder": "SAM-like prompt encoder and two-way-transformer mask decoder. Multiple mask candidates and predicted IoU; highest predicted-IoU mask is propagated when ambiguity remains. Extra presence/occlusion token and prediction head.",
+        "memory_encoder": "Downsample predicted mask with convolutions, add unconditioned frame embeddings, fuse with light convolutions; memory projected to 64 channels. A 256-D mask-decoder token gives an object pointer split into four 64-D tokens for attention.",
+        "memory_bank": "Paper describes recent-frame FIFO plus prompted-frame memory; default recent context is six past frames (A.2.1). Released small config has num_maskmem=7, conventionally one conditioning slot plus six recent slots; prompted-frame selection and object-pointer history are additional details, not a claim of only seven stored frames in the API. Recent memories encode temporal position. Prompted frames can be earlier or later than the current frame in offline refinement. Invisible frames receive a learned no-object/occlusion embedding.",
+        "multi_object": "Share image features; other components and object memory run independently per object. No learned inter-object communication. Current predictor permits adding objects after propagation begins (Dec 2024 update).",
+        "not_motion_model": "No explicit pose or optical-flow motion model; the paper suggests explicit motion modeling could improve crowded/similar-object failures.",
+        "streaming_caveat": "Streaming frame processing is an architectural statement. Official init_state loads video frames and retains predictions for interaction; by default frames/state remain on GPU. It is not a bounded-RAM unending-stream loader.",
+        "citations": [
+          "4, pp4–6",
+          "A.2, pp14–15",
+          "D.1, pp16–17",
+          "official small config",
+          "official predictor init_state and propagate_in_video"
+        ]
+      },
+      "benchmarks": [
+        {
+          "source": "Table 4, p10 / F.1, pp22–26",
+          "protocol": "First-frame box; average over 17 zero-shot video datasets. J&F except VOST uses J. Default Hiera-B+ at 1024 with expanded training mix, not released small model.",
+          "sam2": 74.4,
+          "comparator": "SAM + Cutie",
+          "comparator_score": 69.4,
+          "delta_points": 5.0,
+          "other_comparator": "SAM + XMem++",
+          "other_score": 67.6,
+          "interpretation": "Directly relevant prompt type; not detection AP, not Just Dance performance, and not an ablation versus moving boxes."
+        },
+        {
+          "source": "Table 4, p10",
+          "protocol": "First-frame ground-truth mask; same 17-dataset average.",
+          "sam2": 79.3,
+          "comparator": "Cutie with GT mask, no SAM needed",
+          "comparator_score": 74.1,
+          "delta_points": 5.2,
+          "other_comparator": "XMem++ with GT mask",
+          "other_score": 72.7
+        },
+        {
+          "source": "Figure 12b, p24",
+          "protocol": "Offline interactive; 9 datasets; average over budgets 1–8 prompted frames, three GT-error-selected clicks per prompted frame.",
+          "sam2": 80.3,
+          "comparator": "SAM + Cutie",
+          "comparator_score": 74.7,
+          "delta_points": 5.6,
+          "other_comparator": "SAM + XMem++",
+          "other_score": 71.7,
+          "interpretation": "Not score only at eight frames. Additional prompts use ground truth; automated extraction does not have this oracle."
+        },
+        {
+          "source": "Figure 13b, p25",
+          "protocol": "Online interactive; same averaging over budgets and 3 clicks/frame.",
+          "sam2": 79.8,
+          "comparator": "SAM + Cutie",
+          "comparator_score": 74.0,
+          "delta_points": 5.8,
+          "other_comparator": "SAM + XMem++",
+          "other_score": 72.8
+        },
+        {
+          "source": "Tables 5/15, pp11/28",
+          "protocol": "SA-23 images, 1-click mIoU, trained on SA-1B only; A100 image speed batch 10, PyTorch 2.3.1/CUDA 12.1, image encoder compiled.",
+          "sam2": 58.9,
+          "comparator": "SAM ViT-H",
+          "comparator_score": 58.1,
+          "delta_points": 0.8,
+          "sam2_fps": 130.1,
+          "comparator_fps": 21.7,
+          "interpretation": "This is the 6x speed comparison. It is not video throughput and not RTX 5070 throughput."
+        },
+        {
+          "source": "Table 1, p7",
+          "protocol": "Controlled human annotation study: 169 videos, 452 masklets; model-assisted correction and quality verification.",
+          "sam2_seconds_per_frame": 4.5,
+          "comparator": "Framewise SAM plus manual brush/eraser",
+          "comparator_seconds_per_frame": 37.8,
+          "ratio_speedup": 8.4,
+          "sam2_mask_alignment_over_0_75_iou_percent": 89.1,
+          "other_comparator": "SAM + SAM 2 Mask",
+          "other_seconds_per_frame": 7.4,
+          "other_mask_alignment_percent": 86.4,
+          "interpretation": "Efficiency for humans with correction; not an automatic mask-quality guarantee."
+        }
+      ],
+      "failure_modes": [
+        {
+          "kind": "Stylized coaches",
+          "paper_or_source_evidence": "Not directly evaluated. PVS requires visual boundaries; SAM 2 is class agnostic, and part/whole confusion appears in E.1.1, F.2, and official video notebook.",
+          "lightsem_inference": "White/neon skin, compositing glow, hair, costume, graphic outlines, motion blur and afterimages may create ambiguous boundaries. Bright scenic shapes can be picked up or the model may retain only a body part. This is a domain-risk hypothesis, not measured failure here."
+        },
+        {
+          "kind": "Occlusion / disappearance",
+          "paper_or_source_evidence": "Presence/occlusion head and invisible memory embedding; SA-V manual includes disappearance/reappearance in 42.5% of masklets versus 13.0% in YouTube-VOS (Table 3). Appendix C still reports loss/confusion after long occlusions.",
+          "lightsem_inference": "Allow genuinely empty masks when a coach disappears, but do not interpret every empty prediction as true absence. Check pose confidence and nearby frames; re-prompt or mark invalid when unresolved."
+        },
+        {
+          "kind": "Cuts / extended videos",
+          "paper_or_source_evidence": "Appendix C: failure across shot changes, extended videos, crowded scenes and long occlusions.",
+          "lightsem_inference": "Detect shot boundaries independently and reset/reseed per shot; do not carry identity/memory through unrelated cuts. Reappearance needs a new validated box, not guaranteed automatic re-identification."
+        },
+        {
+          "kind": "Thin fast parts and similar neighbors",
+          "paper_or_source_evidence": "Appendix C explicitly names thin/fine fast-moving details and similar-looking nearby objects.",
+          "lightsem_inference": "Audit wrists/fingers, ankles, loose clothes, fast limb edges and multi-coach crossings. Union all accepted coach masks, but protect against masks leaking into scenery."
+        },
+        {
+          "kind": "Not alpha matting / not hidden background",
+          "paper_or_source_evidence": "Task outputs masks for visible object extent, not alpha, illumination decomposition or reconstruction of occluded scenery.",
+          "lightsem_inference": "A small validated boundary margin may exclude glow/edge contamination, but do not replace a 15%-box expansion with another large arbitrary dilation. Hidden background remains unknown."
+        },
+        {
+          "kind": "Temporal target bias",
+          "paper_or_source_evidence": "Not a lighting result in SAM 2; engineering consequence of changing pixel support.",
+          "lightsem_inference": "Mask flicker, limb motion, recovery after occlusion and exclusion area changes can produce false brightness/color changes. Compare extracted targets to human-mask targets and invariant-background controls, not IoU alone."
+        }
+      ],
+      "pretrained_choice": {
+        "recommended_candidate": "sam2.1_hiera_small.pt with configs/sam2.1/sam2.1_hiera_s.yaml, frozen weights; tiny is the lower-cost comparison/fallback.",
+        "models": [
+          {
+            "name": "SAM 2.1 Hiera Tiny",
+            "params_millions": 38.9,
+            "a100_fps": 91.2,
+            "sa_v_test_jf": 76.5,
+            "mose_val_jf": 71.8,
+            "lvos_v2_jf": 77.3,
+            "checkpoint": "https://dl.fbaipublicfiles.com/segment_anything_2/092824/sam2.1_hiera_tiny.pt",
+            "config": "configs/sam2.1/sam2.1_hiera_t.yaml"
+          },
+          {
+            "name": "SAM 2.1 Hiera Small",
+            "params_millions": 46.0,
+            "a100_fps": 84.8,
+            "sa_v_test_jf": 76.6,
+            "mose_val_jf": 73.5,
+            "lvos_v2_jf": 78.3,
+            "checkpoint": "https://dl.fbaipublicfiles.com/segment_anything_2/092824/sam2.1_hiera_small.pt",
+            "config": "configs/sam2.1/sam2.1_hiera_s.yaml"
+          }
+        ],
+        "comparison": "Small versus Tiny: +0.1 SA-V test J&F, +1.7 MOSE val, +1.0 LVOSv2, at 84.8 versus 91.2 FPS and 46.0M versus 38.9M parameters. Prefer Small for offline extraction unless a later target-domain audit shows Tiny is equally good.",
+        "benchmark_conditions": "Official current README; A100, torch 2.5.1, CUDA 12.4; benchmark.py compiles all model components. These released-checkpoint rows use first-frame mask VOS; they are not box-prompt scores.",
+        "hardware_limit": "No measured VRAM requirement or RTX 5070 throughput from this review. Parameter count alone cannot establish memory fit. Use one GPU worker, short shot-sized chunks, CPU frame/state offload when needed; many coaches add per-object cost.",
+        "do_not_train": "No training is needed to test frozen SAM 2.1 as a target extractor. Do not retrain or retime the dancer."
+      },
+      "runtime": {
+        "official_minimum": "Linux, Python >=3.10, torch >=2.5.1, torchvision >=0.20.1 matching torch; Windows: WSL/Ubuntu recommended.",
+        "dependencies": "numpy>=1.24.4, tqdm>=4.66.1, hydra-core>=1.3.2, iopath>=0.1.10, pillow>=9.4.0. notebooks extra adds matplotlib>=3.9.1, jupyter>=1.0.0, opencv-python>=4.7.0, eva-decord>=0.6.1.",
+        "cuda_extension": "Optional CUDA connected-components postprocessing requires nvcc and toolkit matching PyTorch CUDA. SAM2_BUILD_CUDA=0 skips it; masks still work but small-hole/sprinkle cleanup is skipped. Do not confuse skipping this extension with eliminating the need for PyTorch.",
+        "local_install_advice_not_executed": "Use a dedicated project environment via uv, not kernel/system pip. Install a matched PyTorch/torchvision/CUDA build suitable for the actual RTX 5070; the generic 2.5.1 minimum is not a Blackwell compatibility guarantee. Then uv pip install -e . (or notebooks extra) within that environment. No commands were run.",
+        "predictor_usage": "build_sam2_video_predictor(config, checkpoint); torch.inference_mode plus CUDA bfloat16 autocast; init_state(video_path, offload_video_to_cpu=True, offload_state_to_cpu=True); add_new_points_or_box(state, frame_idx=..., obj_id=..., box=[xmin,ymin,xmax,ymax]); propagate_in_video. Returned values are mask logits at original video resolution; notebook binarizes >0.0.",
+        "prompt_coordinates": "Default normalize_coords=True expects coordinates in the original video pixel system and normalizes internally. Keep exact frame timestamps/stride and resolution mapping from pose cache. Current extractor halves image resolution for HSV; scale masks/boxes consistently and use discrete-mask resampling, not color-image interpolation for binary labels.",
+        "prompt_refinement": "With default clear_old_points=True, send original box plus all desired correction clicks on that frame. Positive labels 1, negative 0; boxes become internal point labels 2/3. Do not require every existing noisy box as a forced prompt.",
+        "video_io": "Official utility accepts an MP4/bytes via decord or numerically named JPEG directory. MP4 decode requires decord (provided by eva-decord in notebook extra). RGB input expected; existing OpenCV frames are BGR.",
+        "memory_warning": "Official loader stores normalized float32 frames at 1024x1024: 12 MiB/frame, about 21.1 GiB for one minute at 30 FPS before state, model or outputs (arithmetic from code, not measurement). Offloading moves load to host RAM; chunking and releasing state are still needed.",
+        "compilation": "Begin with uncompiled correctness checks. vos_optimized=True compiles the full model; official release notes warn of small numeric prediction changes and require torch>=2.5.1 for full support. Compilation and throughput claims must be benchmarked locally later."
+      },
+      "bounded_adoption_plan_not_executed": [
+        "Preserve the incumbent outputs and label this a separate target-extraction version; do not silently overwrite caches.",
+        "Use the same video decode timestamps/stride as pose caches; split by cuts; select a clear full-body finite box per coach, with pose keypoints only as optional corroborating positive prompts.",
+        "Run frozen small and tiny only after the data drive and correct runtime exist; no installation or run is authorized by this dossier itself.",
+        "Per shot, propagate each coach mask; correct drift using validated boxes or positive/negative clicks; union masks, retain UI regions. Empty/uncertain frames get explicit validity flags, not silent coach-free labels.",
+        "Compute existing six scene targets on visible valid background support, normalize by that support and report its area. Do not treat excluded pixels as black or inpaint hallucinated scenery as ground truth.",
+        "Later preregister a paired target-quality audit: current 15%-padded boxes versus per-frame box-prompt SAM2 versus temporal SAM2, all with identical decode, UI mask, HSV reducer and time grid; fixed-ROI or static-background controls expose support-induced motion.",
+        "Use manually checked held-out frames and temporal snippets covering solo/multiple coaches, crossings, glow/blur, thin extremities, occlusion, reappearance and cuts. Measure coach-pixel leakage, background over-exclusion, boundary quality and induced six-target error/jitter against manual-mask references. Report annotation effort and rejection rate.",
+        "Mask quality alone does not prove useful lighting learning. Any later training comparison must price targets against incumbent extraction and audio/simple-light baselines, use song-held-out splits, and judge emitted light with audio. No such experiment was run."
+      ],
+      "license": {
+        "code_and_weights": "Official README: SAM 2 checkpoints, training code and demo code under Apache-2.0; LICENSE text reviewed. Commercial use permitted subject to license obligations (preserve license/notices, mark changes, observe patent terms); not a research-only license.",
+        "other_components": "Demo Inter and Noto Color Emoji fonts: SIL OFL-1.1. Optional cc_torch-derived connected-components implementation: BSD-3-Clause (LICENSE_cctorch).",
+        "dataset": "SA-V: CC BY 4.0 plus its download terms, distinct from Apache model license. Licensed Internal training video is not public SA-V.",
+        "lightsem_media": "SAM 2 licensing does not grant rights to Just Dance music/game footage or authorize redistributing derived datasets. Preserve the project-specific rights/research-use constraints."
+      },
+      "source_cautions": [
+        "A guessed GitHub MODEL_CARD.md URL returns 404. The primary official model card is Appendix H.1, p32; additionally read the current facebook/sam2.1-hiera-small Hugging Face card in full. No missing paper model card.",
+        "Paper prose in sections 6.3/F.3.2 says 61.4 mixed-data SA-23 mIoU, while Tables 5/15 say 61.9. Use the table and flag disagreement rather than silently choose the favorable value; this dossier relies chiefly on the unambiguous box-prompt Table 4.",
+        "Paper prose F.3.2 says 29 datasets and up to 53.9 mIoU; Figure 15 displays a 41.1 largest delta. Do not quote that narrative headline as a validated exact result.",
+        "README current speed uses full compilation and newer torch/CUDA than paper; expanded-data paper results and released-checkpoint results are different comparisons. Do not pool their scores or FPS.",
+        "The arXiv MCP server failed to start because /root/.local/bin/uvx is missing. Direct arXiv PDF/abstract retrieval succeeded; full reading was not blocked."
+      ],
+      "sources": {
+        "abstract": {
+          "url": "https://arxiv.org/abs/2408.00714",
+          "status": 200,
+          "local_path": "/tmp/lightsem_sam2_sources/abstract.txt",
+          "sha256": "acd49f90f732994602cb3d6c6900a9d3d380ea67617f8bb0d5aeffd64ff95cd9"
+        },
+        "readme": {
+          "url": "https://raw.githubusercontent.com/facebookresearch/sam2/main/README.md",
+          "status": 200,
+          "local_path": "/tmp/lightsem_sam2_sources/readme.txt",
+          "sha256": "eea69ee1042fb30933c5ca5019fbf0f6f9366cec5e792109281b5023a4f1589c"
+        },
+        "license": {
+          "url": "https://raw.githubusercontent.com/facebookresearch/sam2/main/LICENSE",
+          "status": 200,
+          "local_path": "/tmp/lightsem_sam2_sources/license.txt",
+          "sha256": "c71d239df91726fc519c6eb72d318ec65820627232b2f796219e87dcf35d0ab4"
+        },
+        "model_card": {
+          "url": "https://raw.githubusercontent.com/facebookresearch/sam2/main/MODEL_CARD.md",
+          "status": 404,
+          "local_path": "/tmp/lightsem_sam2_sources/model_card.txt",
+          "sha256": "d5558cd419c8d46bdc958064cb97f963d1ea793866414c025906ec15033512ed"
+        },
+        "install": {
+          "url": "https://raw.githubusercontent.com/facebookresearch/sam2/main/INSTALL.md",
+          "status": 200,
+          "local_path": "/tmp/lightsem_sam2_sources/install.txt",
+          "sha256": "3295dc994038232f8e90b3123996d4bb087570ce7c10eb5da91a37cccada48aa"
+        },
+        "hf_model_card": {
+          "url": "https://huggingface.co/facebook/sam2.1-hiera-small/raw/main/README.md",
+          "status": 200,
+          "local_path": "/tmp/lightsem_sam2_sources/hf_model_card.txt",
+          "sha256": "6ec2d54879e41ad876d8cded0d641e8bc6ab74d5e095a73afc3f8406372ee6e9"
+        },
+        "release_notes": {
+          "url": "https://raw.githubusercontent.com/facebookresearch/sam2/main/RELEASE_NOTES.md",
+          "status": 200,
+          "local_path": "/tmp/lightsem_sam2_sources/release_notes.txt",
+          "sha256": "5684b9c0346f81ea1c106e5e9b661bd48cde8a3f8dd842e43c449630d4cfa2b2"
+        },
+        "predictor": {
+          "url": "https://raw.githubusercontent.com/facebookresearch/sam2/main/sam2/sam2_video_predictor.py",
+          "status": 200,
+          "local_path": "/tmp/lightsem_sam2_sources/predictor.txt",
+          "sha256": "912555920a77f72ded07839efa33fcceecc79f3523abbec783f0be46ee2c55c2"
+        },
+        "small_config": {
+          "url": "https://raw.githubusercontent.com/facebookresearch/sam2/main/sam2/configs/sam2.1/sam2.1_hiera_s.yaml",
+          "status": 200,
+          "local_path": "/tmp/lightsem_sam2_sources/small_config.txt",
+          "sha256": "0f36b91e86e58d06c87e42997166212468b88b98b60e4d816d5e4d4d088b6f55"
+        },
+        "pyproject": {
+          "url": "https://raw.githubusercontent.com/facebookresearch/sam2/main/pyproject.toml",
+          "status": 200,
+          "local_path": "/tmp/lightsem_sam2_sources/pyproject.txt",
+          "sha256": "c58230f78769620dcd11d15824d491b049be8f542eeb875d2e8091be797ec3f3"
+        },
+        "setup": {
+          "url": "https://raw.githubusercontent.com/facebookresearch/sam2/main/setup.py",
+          "status": 200,
+          "local_path": "/tmp/lightsem_sam2_sources/setup.txt",
+          "sha256": "9ca49a33def161d2cafa56ddef744178fa56d3219242bd8b69909904c2e63dff"
+        },
+        "cc_license": {
+          "url": "https://raw.githubusercontent.com/facebookresearch/sam2/main/LICENSE_cctorch",
+          "status": 200,
+          "local_path": "/tmp/lightsem_sam2_sources/cc_license.txt",
+          "sha256": "687d4f65ffe399358b170e22572564a16689e496f85a79dc5385fccf6bbc9558"
+        },
+        "video_utils": {
+          "url": "https://raw.githubusercontent.com/facebookresearch/sam2/main/sam2/utils/misc.py",
+          "status": 200,
+          "local_path": "/tmp/lightsem_sam2_sources/video_utils.txt",
+          "sha256": "01600c01c161cd079d7106fb1d4da845cf91aa31ab2bcecaf8cb151b6d6d20a2"
+        },
+        "video_notebook": {
+          "url": "https://raw.githubusercontent.com/facebookresearch/sam2/main/notebooks/video_predictor_example.ipynb",
+          "status": 200,
+          "local_path": "/tmp/lightsem_sam2_sources/video_notebook.txt",
+          "sha256": "a7956cb894af72ced537736d53a0ae82f58a0a9497bea06c1e3d06bc1cdd1fb3"
+        }
+      },
+      "github_main_commit_observed": "2b90b9f5ceec907a1c18123530e92e794ad901a4",
+      "local_source_directory": "/tmp/lightsem_sam2_sources",
+      "unread_parts": [],
+      "id": "sam2_selected_extraction_primary"
+    },
+    {
+      "id": "glow_supplementary",
+      "selected_primary": false,
+      "title": "Glow with the Flow: AI-Assisted Creation of Ambient Lightscapes for Music Videos",
+      "version": "arXiv2602.08838v1,2026-02-09",
+      "source": "https://arxiv.org/html/2602.08838v1",
+      "existing_citation": "/root/lightsem/docs/research/2026-09-08/report-source.md",
+      "read_scope": "Full paper, all sections/tables/references read. Supplementary video not retrieved.",
+      "objectives_and_labels": "No newly trained audio→light network. Frozen HTDemucs4stems, All-In-One functional/beat analysis, LarsNetkick/snare separation and peak picking; hand-designed rule mapping to editable light objects.",
+      "palette_extraction": "Find hottest audio segment (median-window RMS normalized across song, kmeans5levels); temporally subsample its video frames; unspecified clustering extracts primary,secondary,background colors; HSV S/V modifications create soft primary/secondary, total5colors. No person masks described, no specified clustering algorithm/color space/frame stride/softening coefficients. Not exactly reproducible from paper alone.",
+      "temporal_memory": "Global palette across song; event flashes kick/primary and snare/secondary with attack/hold/release. Section temperature activates sustained slow layers, spatial modulation, then pulsing; interpolate keyframes. Song/section/event rules, not learned recurrent memory or explicitA–B–A motif retrieval.",
+      "results": "32raters;15paired10s contexts drawn from3music videos; automotive visualization. AI/human mean emotion7.00/7.11, rhythm7.27/7.20, chromatic7.27/7.00 on10point scale. Primary per-context Wilcoxon Holm p=.5537/.5995/.0542, respectively. No equivalence test; no measured authoring time.",
+      "claim_limits": "Contexts still nested in3songs; participant-level sensitivity analysis nonindependent, acknowledged. High synchronization/congruence scores coexist with comments repetitive/predictable/too explicit and visibly narrower palette richness. No multi-concert product acceptance, broad cross-genre inference, or end-to-end learning established.",
+      "licensing_and_availability": "arXiv non-exclusive distribution license. No code/checkpoint/data release link located in inspected primary text. Named pretrained dependencies have independent licenses.",
+      "music_only_limit": "Palette comes from source video (or independently supplied album-art/design palette), so unchanged algorithm is not music-only palette inference. Borrow temporal separation/editable representation, not its video dependency."
+    }
+  ],
+  "source_snapshots_dir": "/tmp/lightsem_visual_sources",
+  "code_review": {
+    "review_type": "Static source review only; no project import, data-read experiment, or code execution.",
+    "files": {
+      "build_justdance_visual.py": "scene_vector line39: decode at pose-cache stride; half-resolution BGR frames; fixedUI masks; each finite coach box dilated15%eachside; masked3×256marginal HSV counts; reduce_light six-vector; interp to10Hz. K/C and stride_check arguments unused by scene_vector.",
+      "extract_rpmc.py": "reduce_light line29: normalize180-bin hue histogram; return Ecos(theta),Esin(theta),meanS/255,meanV/255,V90/255,1−H(p_h)/log180. main reads light/0. Comment un-rotated is inconsistent with official threshold schema.",
+      "lightsem/experiments/stage11_data.py": "normalize_scene132; resize_mask142; recording_mask_dilation164; reduce_histograms187; canonicalize257; _histogram_video484; _feature_job552. Stage11 repairs dimension scaling/timestamps, keeps10Hz, stores raw histograms and metadata; it retains historical six-vector representation.",
+      "lightsem/experiments/stage11_models.py": "OfflineConformer52→192,3blocks,4heads,attn_window80,conv15. Rectified flow scene_dim6; pointwise vs temporal denoiser. Gaussian noise/linear interpolation velocity-MSE objective, Euler8steps. Audio-only generation consumes no reference scenes.",
+      "lightsem/experiments/stage11_training.py": "Per-recording V/V90 normalized targets then training-only global centering/scaling. Scene flow loss; not Skip-BART categorical hue/V CE.",
+      "build_justdance_visual.py_sha256": "3b1e13ce88ba544a7000af64fa56051a3c32df7bbf07b4d04916813780eb119c",
+      "extract_rpmc.py_sha256": "96f4fba92c968950959f8fcf1e5c0949c5b014795875cc76615fed78d9ddc6ac",
+      "lightsem/experiments/stage11_data.py_sha256": "ea277dbebdccc9a95611b39d397a3a420e5396e03efea666ba06b1558fe046cf",
+      "lightsem/experiments/stage11_models.py_sha256": "87e6e209fc5976777e0802d41d96801c8cbe8e58c9491e86043458aae6d107e8",
+      "lightsem/experiments/stage11_training.py_sha256": "ddcc2709735ac38b2aa912669c1c995edf9d6b31973bdddb36e941b83359c02a"
+    },
+    "mismatches": [
+      {
+        "issue": "Not RPMC-L2 original labels",
+        "evidence": "Legacy docstring calls6D same6-d scene vector RPMC-L2 uses; official storage is histograms and Skip-BART target is modeH+meanV withSfixed.6D is a local reduction, not paper label. light/0 meansV-threshold0, not rotation.",
+        "scope": "Naming/provenance error; not evidence the chosen local representation cannot be useful."
+      },
+      {
+        "issue": "Circular moment is not dominant hue",
+        "evidence": "(Ecos,Esin) is firsttrigonometricmoment. Ared/cyan bimodal palette can cancel towardzero, despite two saturated colors. Multiple different hue distributions have same first moment and entropy. val_p90 has no pixel location.",
+        "scope": "Six-vector cannot identify palette modes/positions,beam trajectories,or number/identity offixtures. This is mathematical non-identifiability, not an empirical quality score."
+      },
+      {
+        "issue": "Invalid achromatic hue",
+        "evidence": "JD HSV hist counts everyunmaskedpixel, noV/S condition or saturationweight. OpenCV hue0 for black/achromatic pixels can inflate red direction and entropyconcentration. Skip officialcode explicitly usesVthreshold60 plus hue0replacement.",
+        "scope": "Potential target contamination fromcode; actual prevalence requires restoredsource audit. Saturation validity cannot be recovered from separate H/S/V marginals."
+      },
+      {
+        "issue": "Moving box masks change the observable population",
+        "evidence": "Dilated rectangles remove realbackground between/aroundlimbs. Missed nonfinite boxes remove nothing. Movingcoach positionchangeswhichbackground isobserved; HSV momentjumps can originate fromvisibility ratherthan authoredlights. UIrectangles omit fixedbands regardlessoflayout.",
+        "scope": "Even perfect SAMhumanmasks do not reconstruct occluded background,fixUI/cuts/cameraexposure,or guarantee valid light targets."
+      },
+      {
+        "issue": "Legacy empty-background acceptance",
+        "evidence": "Legacy hasno validpixelminimum. Allzero hist gives0huecos/sin,0S/V/V90 but entropyconcentration1. It can be counted asnormalframe. Stage11 explicitlyrequires≥100visiblepixels, recordingwide15%→0paddingfallback elsefails.",
+        "scope": "Static failurepath. Stage11 improves validity but100pixels alone does not establish representativebackground coverage."
+      },
+      {
+        "issue": "Stage11 normalization changes target meaning",
+        "evidence": "Onlycols3:5 (Vmean,V90) standardizedusingwholeactive recordingmean/std(min1/255) beforecrops. Hue,S,entropyunmodified until globaltrainingscales. SoVmean/V90 are relativeaudio-recording targets,notabsolutephotometricbrightness; theirindependentnormalization losesliteralp90−mean scale.",
+        "scope": "Reasonable gain normalization consistentwithprojectrules, but not equivalenttoSkip-BARTraw8bitvalue norrecoverableabsoluteappearance atmusic-only inference. Testpopulationnormalization is labeldefinition, notinputleakage ifnoheldoutstatsenterinference."
+      },
+      {
+        "issue": "Stage11 storage loses joint/spatial information",
+        "evidence": "Saveshue_hist,saturation_hist,value_hist separately plusraw6vector. Cannotrecover HconditionedonS/V orregionlayout fromthesemarginals. Needredecode sourcemediatoextract richer targets; no existingcache-only shortcut.",
+        "scope": "Useoriginalframes onlyfortrainingtargetprep,notruntimeinput; blockedwhile datadrivemissing."
+      },
+      {
+        "issue": "Temporalcapacity is not targetidentifiability",
+        "evidence": "Stage11encoder radius138frames=13.8seachside; temporalvelocityradius126=12.6seachside.8globalEulersteps propagatebeyondonevelocityhalo. Noexplicitsection-recurrencememory.6Dscene lossesignorepalette/spatialambiguity independentofmodelcontext.",
+        "scope": "Do not claim a faster/bigger temporalmodel repairs information already discarded. This is architectureinspection not a measured modelfailure."
+      }
+    ],
+    "stage11_improvements_to_preserve": [
+      "Original-imagewidth/height→histogramresolution boxscaling.",
+      "10Hzexplicitabsolutetimestamps, previousposeframe selection; active-spansoffset preserved.",
+      "Recordingwidemaskpaddingpolicyavoidsper-frame fallbackdiscontinuities.",
+      "Minimumvisiblepixelcheck,finite/nonempty targets,dependencyhashesandversionedartifacts.",
+      "Conservativecanonicalsong components via titlelinks+audiofingerprints before split; distinctcoaches/versions stayingroup.",
+      "Training-only input/globaltargetnormalizers; reference-freeglobalnoisefieldgeneration."
+    ],
+    "missing_instrumentation": [
+      "Pixelwisegold humanmaskspotcheck on stylizedcoachshots.",
+      "Per-framehuman/UI/validchromaticbackgroundfractions,regioncoverageandconfidence.",
+      "Mask-induced targetjumps quantified separately from true authoredcuts,exposure changes and motion.",
+      "Alternativecapture/choreography/game-style grouping beyond canonicalsong; source/styleconfounding remains possible.",
+      "Brightness matchedrenderjudgment with audio; histogram reconstruction alone cannot claimlightingacceptance."
+    ]
+  },
+  "pretrained_options": [
+    {
+      "name": "SAM2.1Hiera tiny/small",
+      "role": "Primary frozentraining-onlyhumanmaskextractor; prompt with existingposecoachboxes,assignobjectIDs,propagatevideo and refreshatcuts/re-entry. SAM2isgenericpromptsegmentation,notapersondetector. Neveruseautomaticall-objectmasksunfilteredasallhumans.",
+      "source": "https://github.com/facebookresearch/sam2/tree/2b90b9f5ceec907a1c18123530e92e794ad901a4",
+      "weights": [
+        "https://dl.fbaipublicfiles.com/segment_anything_2/092824/sam2.1_hiera_tiny.pt",
+        "https://dl.fbaipublicfiles.com/segment_anything_2/092824/sam2.1_hiera_small.pt"
+      ],
+      "practical": "Tiny38.9Mparameters /small46M. OfficialREADME tinySA-VtestJ&F76.5 vsoriginalSAM2tiny75.0; small76.6vsoriginalsmall74.9. Not JustDanceaccuracy. FPS91.2tiny/84.8smallisonA100torch2.5.1cuda12.4compiled,notRTX5070promise. python>=3.10,torch>=2.5.1,torchvision>=0.20.1; optionalCUDApostprocessingkernelcanfailwithoutdisablingcoremodel.",
+      "license": "OfficialREADME explicitlylicenses modelcheckpoints+training/demo codeApache2.0; inputvideo rights independent.",
+      "status": "Not downloaded, installed or run. Full arXiv2408.00714v2 paper and appendices reviewed by delegated mask-paper reader; detailed dossier embedded under papers.",
+      "runtime_caution": "Official video loader materializes RGB 1024x1024 float32 frames:12 MiB/frame≈21.1GiB/minuteat30FPS beforemodel/state. This is arithmeticfromsource,notmeasured. UseboundedshotchunksandCPUoffload; streamingmodel≠constantAPI memory. Smalldefaultnum_maskmem7doesnotcapfullinteractivevideo state."
+    },
+    {
+      "name": "TorchvisionMaskR-CNNResNet50FPNv2COCO_V1",
+      "role": "Alternative semanticpersonmask baseline if SAMboxprompts areunreliable. NativeCOCOclassperson gives binarymasksperframe withoutprompts; no builtin temporalconsistency. Compareonlyifneeded,notmandatorynewarm.",
+      "source": "https://docs.pytorch.org/vision/main/models/generated/torchvision.models.detection.maskrcnn_resnet50_fpn_v2.html",
+      "api": "torchvision.models.detection.maskrcnn_resnet50_fpn_v2(weights=MaskRCNN_ResNet50_FPN_V2_Weights.COCO_V1); labels==1 selects person; masks are probabilities.",
+      "practical": "46.36Mparameters,177.2MBweights per docs; .eval()/inference_mode,RGBfloat0..1. Common photo-trained model may miss stylized/neon/flat-coloredcoaches. ThresholdsandtemporalfiltersneedheldoutmaskQC.",
+      "license": "TorchvisioncodeBSD3-Clause verified LICENSE. Pretrainedweights/data mayhaveseparaterights; docs donotprovidecomplete thirdpartyimagecopyrightclearance.",
+      "status": "OfficialAPIdocumentationonly,notfulladditionalpaperread,notinstalled/run."
+    },
+    {
+      "name": "DINOv2ViT-S/14(frozen)",
+      "role": "Optionalbackgroundfeature diagnostic/teacher only if handcraftedpalette/regiontargetsproveinsufficient. Noimageatlightinginference.",
+      "source": "https://github.com/facebookresearch/dinov2/tree/7764ea0f912e53c92e82eb78a2a1631e92725fc8",
+      "weights": "https://dl.fbaipublicfiles.com/dinov2/dinov2_vits14/dinov2_vits14_pretrain.pth",
+      "api": "dinov2_vits14 via pinnedlocalrepo; forward_features givespatchtokens; pool onlybackgroundpatches orfixedspatialregionswithvalidcoverage.",
+      "practical": "21Mparameters. Genericsemanticfeaturesarenotguaranteedcolor/brightnessfaithful ortemporallystable. Globalattentioncanmixcoach/UIinformation into nominalbackgroundtokens; naivepost-hocmaskedpoolingdoesnotisolatebackground. Neutralfilloccludedpixelsandcontrolmaskshapes ifused; comparemaskboundaryartefacts. SeparateHSV/regionstatsarestillneededforinterpretablelighttargets.",
+      "license": "DINOv2basecodeandmodelweightsApache2.0perofficialREADME/LICENSE; do not confusewithnewXRay-DINOseparatenoncommerciallicense.",
+      "status": "OfficialREADME/licenseonly,notanadditionalfullpaperread; keepoutofinitialboundedH-Vunlessmask+representationauditjustifiesit."
+    },
+    {
+      "name": "Skip-BARTpretrainedcheckpoint",
+      "role": "Possiblemusic-onlyofflineprincipalhue/Vbaseline,notamulti-fixturecontrollerorpretrainedvisualextractor.",
+      "source": "https://huggingface.co/RS2002/Skip-BART/blob/main/trained.zip",
+      "practical": "OpenL3512features +officialML_BART/ML_Classifierstate dicts; dependsontorch,transformers,peft andOpenL3. Limit1024framesandunverifiedscriptsdescribedabove. Requiresisolatedcompatibilitysmokeafterenvironmentrecovery. No need toretrainoradoptittotestmaskquality.",
+      "license": "HFweightsApache2.0; GitHubcodegrantnotlocated. Resolvebeforeproductionreuse.",
+      "status": "No checkpointdownload/inference."
+    }
+  ],
+  "proposed_bounded_design": {
+    "status": "Proposalonly; notpreregistered,notrun,noresultclaims.",
+    "scope_guard": "No dancer retiming/retraining and no vision conditioning atdeployment. Pose isoptionaltrainingauxiliary; backgroundappearance isoptionaltrainingtarget. Entireinferenceinputis sameaudio plus permittedseed/designcontrols.",
+    "first_audit": "Onsame preselecteddevelopment songs/frames compare2×2: mask={currentStage11box+UI,SAM2human+sameUI} ×representation={existing6stats,richerpalette+fixedregionstats}. Freezeaudio,framegrid,canonicalgroups,normalization,cutsandvaliditypolicy. Changeonefactoratatime; do notattributechangesjointlytomaskandtarget.",
+    "mask_QC": "Manuallymarkablindstratifiedsubsetincludingmultiplecoaches,stylizedoutfits,fastmotion,occlusions,entry/exit,cuts,lowlightandbrightdesaturatedframes. ComparepersonIoUandboundaryrecall againstsamegoldmasks; moreimportantforlabelquality quantifycoachleakage,deletedbackgroundarea,validregioncoverageandresultingpalette/intensityerror. Checkconfidencecalibration andfail/abstainratherthan silentlyhallucinatebackground.",
+    "representation_candidate": "Maintainnonchromaticintensityseparately. Preserveacircularhuedistribution/palettewithS/Vvalidityorweightsandexplicitvalidmass, plusfixedscreenregiondistributionsandrelativeintensity/contrast. Storeenoughjointcolorandregioninformationtoavoidaveragingmulticolorpalettesintoonehue. IfusingVMMslots,tracktemporalcomponentidentityandaccountforpermutations. Exactbins/regions/thresholds tofreezeondevelopment data,notclaimasvalidatedhere.",
+    "identifiability": "Screenregionsmeasuregame/scenecomposition,notfixtureidentityorphysicalbeamposition. No trainingtargetcanrecoverunseenoccludedpixels. SAM2mayimprovelabelsbutnotcreate missingconsoletruth.",
+    "main_factorial": "Afterfreezingextractionviaoutcome-blindmaskQC/development only, cross poseaux={off,on} ×visualsupervision={off,on} ontheexactsameaudio/canonicalsongs/splits/exposure/seeds/trainingbudget. Retainnoauxaudio-onlybaseline. Do notgivevisionarm extrasongs; do notusecoach/framelevelsplit.",
+    "evaluation": "Reportmaskqualityvsboxesand6statinformationlossseparatelyfromhumanlightquality. Forlearnedlightingrequiretiming/intensitynulls(beat-trigger/currentincumbent,shiftedaudio),samepalettemass/brightnesswhenappropriatetothequestion,temporalhold/slew/return/diversitychecks,andblindrender+audioqualityrating. No claimhuman-equivalencefromnonsignificance.",
+    "blocked": "Parentreports /mnt/lightsem-data unavailable,root~9GBfree,andtorchabsent. NoGPUsmoke,installs,downloadsofweights/data,orextractionuntilmount/environmentrecovery. Do notpopulateempty/missingmountwithreplacementcaches."
+  },
+  "unresolved": [
+    "Palmer2013supplementaryPDFnotretrieved; mainarticlefulllengthread,butexactTableS1colorcoordinatesandTableS2pieceIDsnotclaimedverified.",
+    "RPMCshow/venue/songmanifestnotavailableininspectedofficialrelease; requestedfromauthors orrecoverbeforestrongsourcegeneralizationclaims.",
+    "Skip-BARTpaper/codeoff-by-oneVexpression,thresholdpolicy,hiddenwidthandHFexampleinconsistenciesmustberesolvedforfaithfulreplication; no replicationplannedhere.",
+    "Allinference/runtimeavailabilityisdocumentary,notvalidatedinmissingnativeenvironment.",
+    "SAM2 performance on stylized Just Dance human masks remains unknown. Full paper and benchmark results do not validate this domain."
+  ],
+  "source_snapshot_manifest": {
+    "palmerpdfindex.html": {
+      "bytes": 16055,
+      "sha256": "d9a05d47da8330fd6f9bdd994e599c1589620e3e1adccde84b57f724d922831a"
+    },
+    "palmer_author.txt": {
+      "bytes": 67607,
+      "sha256": "463f0482a67ef7fdbf89542798a2099f577567d525201136968dd6c27055960f"
+    },
+    "palmer_author.pdf": {
+      "bytes": 616499,
+      "sha256": "72c262ddfcf5dfcfdec95aa33c682d5625506e93879eeb2afec5101fbcf56282"
+    },
+    "palmerpubs.html": {
+      "bytes": 10321,
+      "sha256": "072d18d06db5fd84666c4f7066d9ce43dcbf838ef64dafe5c68bee6ac4fb9d26"
+    },
+    "palmerlabhome.html": {
+      "bytes": 1454,
+      "sha256": "8a873b0c7112a292d4f0deb04c1da3db0c014a83c3d3d52ba9eb6b3d3da392b0"
+    },
+    "palmerlab.html": {
+      "bytes": 236,
+      "sha256": "9448f8a1159c9b14e3e1b9d8eab1a6ddf88d26e1f888a34cef430c756e4e6e1e"
+    },
+    "palmer_si_epmcap.pdf": {
+      "bytes": 296,
+      "sha256": "3c9885465d33c7aa73ac2d79e0dea52cde3825d4227982ffe546eb3a952bfccd"
+    },
+    "palmer_siold.pdf": {
+      "bytes": 48716,
+      "sha256": "4ec73ad227cf5fae52994032111607f1b43f505a81ae4d6d3cfa6d39f4022166"
+    },
+    "sam2api.html": {
+      "bytes": 6709,
+      "sha256": "deb738be49569bda269fbcd47974b6b54f5213307d27f7cbd2113417a220ad7b"
+    },
+    "dinoapi.html": {
+      "bytes": 15483,
+      "sha256": "8d514590738b315c8e13a194e5e3527039f8ed13a81ae7a7263d5db97460aa95"
+    },
+    "tvlicense.html": {
+      "bytes": 1517,
+      "sha256": "6502f676851cfe25f8af75531dfb32375b7325b73c37e7b43741fa422893e71d"
+    },
+    "hfcardapi.html": {
+      "bytes": 1595,
+      "sha256": "16a6d1a57eee050d08491184d080ca240f05868865bd87e4fb8180004fb17df1"
+    },
+    "palmer_eq3.jpg": {
+      "bytes": 3614,
+      "sha256": "847a16eaae02c8e85b52a05352978b431776f27271077814f8f1d19e9967a0a6"
+    },
+    "palmer_eq2.jpg": {
+      "bytes": 8402,
+      "sha256": "652d636f2de7399fce48c3866cbb0cbaeb64035401b7ec6c32c6512f18bd2690"
+    },
+    "palmer_eq1.jpg": {
+      "bytes": 8593,
+      "sha256": "bb5313383584e7722f2ff2c358a481a7469fd0bc2b5a1322c8437b523e0dfbdc"
+    },
+    "palmeroa2.html": {
+      "bytes": 48716,
+      "sha256": "0b254a788b371c98d3b2d81a0cb0f4668d47bba4163a6a6371a113084eccf96b"
+    },
+    "palmer_sihtml.html": {
+      "bytes": 1817,
+      "sha256": "bea300f41225153cc8c01e4f405b01d37511ca5a38b46a6389877fe10b2ae0c9"
+    },
+    "palmerauthor.html": {
+      "bytes": 5563,
+      "sha256": "8f4c592fd6da6309a78acd130b3bc35cfebfbd932034954786a2c70607a9b4e8"
+    },
+    "palmerepmc.html": {
+      "bytes": 150,
+      "sha256": "68ec4431121834492a6e32accaf70efbaa35123fe0b89e41e78b6fd520da6d10"
+    },
+    "palmeroa.html": {
+      "bytes": 1584,
+      "sha256": "b9725a452a43be894390ccea94c3b545bdd32bec16513964e06be5a87082b1c2"
+    },
+    "palmer_si_europe.pdf": {
+      "bytes": 5621,
+      "sha256": "11b6ae450fa2b60ed3424704a2c125215d09f049062ac1e6bbb7915f31b9df03"
+    },
+    "palmer_si_pnas.pdf": {
+      "bytes": 5705,
+      "sha256": "6f8e52d9f796daba91100478bfbe3c6c8222066d12d38094685c0a1ab5af63db"
+    },
+    "skipv2.txt": {
+      "bytes": 83918,
+      "sha256": "104166b092550eb70a9c7b12f48408db6bd79924514f5320effc77f06cbdd3dc"
+    },
+    "palmer_si.pdf": {
+      "bytes": 1817,
+      "sha256": "daa30afab2110da946758d2a40c207c7f6da8e86a19956afb6f83bce282d8aaf"
+    },
+    "skipv2.html": {
+      "bytes": 446204,
+      "sha256": "068ae1750e2adae6583613addb67d482d43ae9f8ebfc31c12a988e27b3df4dd3"
+    },
+    "tvseg.html": {
+      "bytes": 45924,
+      "sha256": "465cb652afe1f8b138e98ebba0b09e4e5dcfa7d9129331c9c930f863ec538bd4"
+    },
+    "dinolicense.html": {
+      "bytes": 11359,
+      "sha256": "600cc67cc4cb2f5ea317dcfc687ad1c74dc4bec8782bbe9db0afd83513b935b7"
+    },
+    "dinov2.html": {
+      "bytes": 32799,
+      "sha256": "d1bc2e9686522bbd66ed6123dc81eb36b3a98e8ea9a2ca97778f54a1c641c9e1"
+    },
+    "sam2license.html": {
+      "bytes": 11357,
+      "sha256": "c71d239df91726fc519c6eb72d318ec65820627232b2f796219e87dcf35d0ab4"
+    },
+    "sam2.html": {
+      "bytes": 16249,
+      "sha256": "eea69ee1042fb30933c5ca5019fbf0f6f9366cec5e792109281b5023a4f1589c"
+    },
+    "glow.txt": {
+      "bytes": 38987,
+      "sha256": "73189faf5bc3424e4204cbb7895852d1a23b9e3521da895628285e2152546006"
+    },
+    "generate.html": {
+      "bytes": 9290,
+      "sha256": "c97d1ed5a0cb42ce23001e41c927fd7bc1fbe2d90e81ac2a45e4fd6d72e4f44f"
+    },
+    "model.html": {
+      "bytes": 5607,
+      "sha256": "fa20d6e4d1d8b7c9c37048ab6ddf407dd06f0134dd01acf50ef227df7e83b14e"
+    },
+    "finetune.html": {
+      "bytes": 9377,
+      "sha256": "8c1a1c729a2a86d009e9115e5530087683bfe938916996d317455cd3d6050477"
+    },
+    "dataset.html": {
+      "bytes": 5736,
+      "sha256": "87aefee47f8e03be26f89d8074943d7a29fe0a365766ab33bbb50f629820b7b8"
+    },
+    "hfmodelapi.html": {
+      "bytes": 958,
+      "sha256": "49b264f3578869718de7679f49aea7d4cf1db30d518abaa9c01dc129b3ee0b72"
+    },
+    "hfcard.html": {
+      "bytes": 5579,
+      "sha256": "8aed4d25a0fd5b8824da842f3c97a830e42356e0b06805112e46378b48285e9e"
+    },
+    "hfmodel.html": {
+      "bytes": 2648,
+      "sha256": "8aaf85a1909bfbda5a02be8f2163795c0fbcc506bb6539c19646ef5c1cbce2b1"
+    },
+    "glow.html": {
+      "bytes": 108812,
+      "sha256": "a13ad9e71665478e88999556080df16f9f49c8733cc9750be67c15b891e46ee4"
+    },
+    "repo_api.html": {
+      "bytes": 6398,
+      "sha256": "0d9b5b0eeef4056d93d3d01a9c9eedea2a78b32491157bdf632743c7b7717049"
+    },
+    "repo.html": {
+      "bytes": 2351,
+      "sha256": "2c6329d7155bfed599526cc088de47cb5adbe588645aa987ac3e8caddb4e6642"
+    },
+    "hfsearch.html": {
+      "bytes": 1113,
+      "sha256": "faa97c368d9bf30c72daa9bced845c5364189eb34a2f6c323bc1fb5adc97e9d7"
+    },
+    "palmer.txt": {
+      "bytes": 46743,
+      "sha256": "a5c07c35cfe83b5d97b273c659e4db7071c7fe59354d61628f3451efc384eefe"
+    },
+    "skip.txt": {
+      "bytes": 78624,
+      "sha256": "7afd87c7f28639b55c6401f268fa4f808404e8a19a4e30b148f8ce4b9c24e8e6"
+    },
+    "skip.html": {
+      "bytes": 289471,
+      "sha256": "72073e627cb537d1816c4ca6c90740261a6aed59deefcf0bd3724c87bc13b6c9"
+    },
+    "palmer.html": {
+      "bytes": 173793,
+      "sha256": "007f6d486d5875d3d0b8dd79ac39f2a877d359bc5a01c93e82a9630901d9c19f"
+    },
+    "skipabs.html": {
+      "bytes": 44126,
+      "sha256": "febc57c362b3dc1c0f80153892d2767e565585d6cea091d6b6c80b2ff801d3e9"
+    }
+  }
+}

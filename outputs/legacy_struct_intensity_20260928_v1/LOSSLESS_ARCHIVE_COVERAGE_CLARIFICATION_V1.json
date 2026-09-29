@@ -1,0 +1,18 @@
+{
+  "scope": "STATIC_SOURCE_WORDING_CLARIFICATION_NO_EXECUTION",
+  "handoff": {
+    "path": "/root/lightsem/outputs/legacy_struct_intensity_20260928_v1/LOSSLESS_ARCHIVE_IMPLEMENTATION_HANDOFF_V1.json",
+    "sha256": "c8c6529b81cd5b7c24146591aab47e9e1b3fe564618c1b7c649d84e0c44d979e",
+    "bytes": 15995
+  },
+  "test_source": {
+    "path": "/root/lightsem/outputs/legacy_struct_intensity_20260928_v1/test_measure_lossless_archive_v1.py",
+    "sha256": "79866d5de485812d3b6483a3f0073774fa139772a2d4667622a493358fd1eaa1",
+    "bytes": 67145
+  },
+  "clarification": "The frozen handoff overstates nonfinite float32 payload-pattern coverage. Authored test_27 contains finite signed zeros, signed subnormals and normal float32 bit patterns only. Its byte-preservation checks have NOT run. Other nonfinite scalar/JSON rejection tests are not nonfinite float32 payload-bit roundtrip tests.",
+  "no_new_test_or_source_change": true,
+  "no_runtime_or_format_fit_claim": true,
+  "effect_on_required_scope": "Future scientific scalar intensities must be finite; no NaN/Inf payload-bit guarantee is established or needed to claim coverage of those valid finite inputs. Nonfinite input handling must still follow the frozen failure rules.",
+  "preservation": "Original handoff/test source and all67authored test names preserved. This is an additive correction, not a replacement."
+}

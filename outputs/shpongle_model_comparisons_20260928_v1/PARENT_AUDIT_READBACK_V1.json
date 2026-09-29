@@ -1,0 +1,262 @@
+{
+  "status": "passed",
+  "completion_kind": "INFERENCE_MAPPING_READBACK_ONLY",
+  "videos_completed": false,
+  "media_audits_completed": false,
+  "model_calls": 0,
+  "plan": {
+    "path": "/root/lightsem/outputs/shpongle_model_comparisons_20260928_v1/COMPARISON_PLAN_V2.json",
+    "sha256": "0e9286f7428346a2ff01d2f5cd45b75fd39ac1b564d663bb209a2e48f17cffd4",
+    "bytes": 25491
+  },
+  "delivery_authorization": {
+    "path": "/root/lightsem/outputs/shpongle_model_comparisons_20260928_v1/EXECUTION_AUTHORIZATION_V2.json",
+    "sha256": "68d80a40f6d2cf98ff015a948f0338f1abd27be87dfdc8c9ee95aae385873a37",
+    "bytes": 7894
+  },
+  "aggregate": {
+    "path": "/mnt/lightsem-data/experiments/lightsem/end_to_end_20260928_v1/comparison_demos_v1/all_complete.json",
+    "sha256": "f4b843fbafc92663c67d3ab90e2009ac9006011f64bdf793cf3f95995e8bc4a1",
+    "bytes": 1774
+  },
+  "arms": [
+    {
+      "recipe": "S_none_P0",
+      "completion": {
+        "path": "/mnt/lightsem-data/experiments/lightsem/end_to_end_20260928_v1/comparison_demos_v1/01_S_none_P0/complete.json",
+        "sha256": "759c84dd8c55ea51c96e88e87a80047a538fb98069036b4e774002521610961a",
+        "bytes": 1294
+      },
+      "inference": {
+        "path": "/mnt/lightsem-data/experiments/lightsem/end_to_end_20260928_v1/comparison_demos_v1/01_S_none_P0/inference_saved.json",
+        "sha256": "1952cf2a4777a5b5076739b7ee6af12dd1809b1f5cdc4efa8bfcd93708332d75",
+        "bytes": 10890
+      },
+      "mapping_proof": {
+        "path": "/mnt/lightsem-data/experiments/lightsem/end_to_end_20260928_v1/comparison_demos_v1/01_S_none_P0/protected_byte_equality.json",
+        "sha256": "60f5ae9c1fc327abd7c1f342ddf6e2ee124cf25ec3091f507afcbd7a230437d6",
+        "bytes": 956
+      },
+      "model_outputs": {
+        "path": "/mnt/lightsem-data/experiments/lightsem/end_to_end_20260928_v1/comparison_demos_v1/01_S_none_P0/model_outputs.npz",
+        "sha256": "0ea9a0a5efa408a034500e70083b53c379811d9275fb88f29bed3b8e3b33d0c3",
+        "bytes": 1448117
+      },
+      "overlay": {
+        "path": "/mnt/lightsem-data/experiments/lightsem/end_to_end_20260928_v1/comparison_demos_v1/01_S_none_P0/overlay_dmx.npz",
+        "sha256": "ff00ed9ce96cf0dc9abc05bd7cc480e77bf720c08c26dd481f4838a03b6c458f",
+        "bytes": 416883
+      },
+      "probability_sanity": {
+        "accent": {
+          "status": "passed",
+          "values_checked": 11092,
+          "maximum_absolute_error": 4.855466717579304e-08,
+          "absolute_tolerance": 9.5367431640625e-07,
+          "reference": "stable_float64_sigmoid",
+          "exact_CUDA_sigmoid_claim": false,
+          "saved_scores_remain_cue_authority": true
+        },
+        "color": {
+          "status": "passed",
+          "values_checked": 2773,
+          "maximum_absolute_error": 6.436280453048226e-08,
+          "absolute_tolerance": 9.5367431640625e-07,
+          "reference": "stable_float64_sigmoid",
+          "exact_CUDA_sigmoid_claim": false,
+          "saved_scores_remain_cue_authority": true
+        }
+      },
+      "mapping_proof_array_hashes": {
+        "baseline_full_sha256": "e749af5063b4146ae452ff9c53d7eb231c38eec572f82d322bdd542e1637c713",
+        "overlay_full_sha256": "cef75b113fa5180d6bf9a3d2a8def2343e602891ba968f94d878252450bd1296",
+        "baseline_protected_sha256": "5e1173c12590c304fc6227db9806f03d3c72f2c777b40579c3fe2aa6e713298a",
+        "overlay_protected_sha256": "5e1173c12590c304fc6227db9806f03d3c72f2c777b40579c3fe2aa6e713298a"
+      }
+    },
+    {
+      "recipe": "S_V6_P0",
+      "completion": {
+        "path": "/mnt/lightsem-data/experiments/lightsem/end_to_end_20260928_v1/comparison_demos_v1/02_S_V6_P0/complete.json",
+        "sha256": "dec98454e2ee8306eb9ceab9feaa11935612b80756ed18fa44b4e9265b30a296",
+        "bytes": 1288
+      },
+      "inference": {
+        "path": "/mnt/lightsem-data/experiments/lightsem/end_to_end_20260928_v1/comparison_demos_v1/02_S_V6_P0/inference_saved.json",
+        "sha256": "136612096164808691c3db0ba59ffbe7e192b50f4cab643933c281ba7e81c730",
+        "bytes": 10878
+      },
+      "mapping_proof": {
+        "path": "/mnt/lightsem-data/experiments/lightsem/end_to_end_20260928_v1/comparison_demos_v1/02_S_V6_P0/protected_byte_equality.json",
+        "sha256": "dfb20d8dd3517671dc9d3c08f0aae60abdd0eccadac4a61ea0e999fcde6a6f4b",
+        "bytes": 956
+      },
+      "model_outputs": {
+        "path": "/mnt/lightsem-data/experiments/lightsem/end_to_end_20260928_v1/comparison_demos_v1/02_S_V6_P0/model_outputs.npz",
+        "sha256": "f024d41f6f4bcee8d80d58bc41ceb4775889c67b912d788e5fc1e02e7be2d953",
+        "bytes": 1447486
+      },
+      "overlay": {
+        "path": "/mnt/lightsem-data/experiments/lightsem/end_to_end_20260928_v1/comparison_demos_v1/02_S_V6_P0/overlay_dmx.npz",
+        "sha256": "9c87e7673fbd59d12e8c9c57ffc35a8d201ef287014eddf7c5f4486b1f8a8d1c",
+        "bytes": 416916
+      },
+      "probability_sanity": {
+        "accent": {
+          "status": "passed",
+          "values_checked": 11092,
+          "maximum_absolute_error": 3.8980214445150096e-08,
+          "absolute_tolerance": 9.5367431640625e-07,
+          "reference": "stable_float64_sigmoid",
+          "exact_CUDA_sigmoid_claim": false,
+          "saved_scores_remain_cue_authority": true
+        },
+        "color": {
+          "status": "passed",
+          "values_checked": 2773,
+          "maximum_absolute_error": 5.532145841424807e-08,
+          "absolute_tolerance": 9.5367431640625e-07,
+          "reference": "stable_float64_sigmoid",
+          "exact_CUDA_sigmoid_claim": false,
+          "saved_scores_remain_cue_authority": true
+        }
+      },
+      "mapping_proof_array_hashes": {
+        "baseline_full_sha256": "e749af5063b4146ae452ff9c53d7eb231c38eec572f82d322bdd542e1637c713",
+        "overlay_full_sha256": "6bc93dd14d7e860b6631adcba82f3e85e3efff2631bc9318949bc1ee93359555",
+        "baseline_protected_sha256": "5e1173c12590c304fc6227db9806f03d3c72f2c777b40579c3fe2aa6e713298a",
+        "overlay_protected_sha256": "5e1173c12590c304fc6227db9806f03d3c72f2c777b40579c3fe2aa6e713298a"
+      }
+    },
+    {
+      "recipe": "I_VR_P0",
+      "completion": {
+        "path": "/mnt/lightsem-data/experiments/lightsem/end_to_end_20260928_v1/comparison_demos_v1/03_I_VR_P0/complete.json",
+        "sha256": "af79d64d145df5e146317f0be7f85ca7070269cd21b18cabe030464b7e8fb3ee",
+        "bytes": 1288
+      },
+      "inference": {
+        "path": "/mnt/lightsem-data/experiments/lightsem/end_to_end_20260928_v1/comparison_demos_v1/03_I_VR_P0/inference_saved.json",
+        "sha256": "450e4c5edc65ca7fe59a907be4a4983fe6de3fd8746564f8aff37a1e05472cc7",
+        "bytes": 10879
+      },
+      "mapping_proof": {
+        "path": "/mnt/lightsem-data/experiments/lightsem/end_to_end_20260928_v1/comparison_demos_v1/03_I_VR_P0/protected_byte_equality.json",
+        "sha256": "fca1abbb20209f2a73e72eb3190bdb55ce8128ec5c33257fe8bf8cbb0e494bf5",
+        "bytes": 956
+      },
+      "model_outputs": {
+        "path": "/mnt/lightsem-data/experiments/lightsem/end_to_end_20260928_v1/comparison_demos_v1/03_I_VR_P0/model_outputs.npz",
+        "sha256": "135a02cef71b695cf0faa0370ab6bc602a741e303dee47f4f9ea822776f9fea6",
+        "bytes": 941987
+      },
+      "overlay": {
+        "path": "/mnt/lightsem-data/experiments/lightsem/end_to_end_20260928_v1/comparison_demos_v1/03_I_VR_P0/overlay_dmx.npz",
+        "sha256": "041c0a346a2655507a550a42bfc38b96114fa4232b9a0c68ac829d85ae9c2684",
+        "bytes": 417629
+      },
+      "probability_sanity": {
+        "accent": {
+          "status": "passed",
+          "values_checked": 11092,
+          "maximum_absolute_error": 5.974580119527673e-08,
+          "absolute_tolerance": 9.5367431640625e-07,
+          "reference": "stable_float64_sigmoid",
+          "exact_CUDA_sigmoid_claim": false,
+          "saved_scores_remain_cue_authority": true
+        },
+        "color": {
+          "status": "passed",
+          "values_checked": 2773,
+          "maximum_absolute_error": 7.317630423830934e-08,
+          "absolute_tolerance": 9.5367431640625e-07,
+          "reference": "stable_float64_sigmoid",
+          "exact_CUDA_sigmoid_claim": false,
+          "saved_scores_remain_cue_authority": true
+        }
+      },
+      "mapping_proof_array_hashes": {
+        "baseline_full_sha256": "e749af5063b4146ae452ff9c53d7eb231c38eec572f82d322bdd542e1637c713",
+        "overlay_full_sha256": "d2c411b0acb8975d49afb0af9b878a7670c5f5bff85b5df94e26196cd37b885e",
+        "baseline_protected_sha256": "5e1173c12590c304fc6227db9806f03d3c72f2c777b40579c3fe2aa6e713298a",
+        "overlay_protected_sha256": "5e1173c12590c304fc6227db9806f03d3c72f2c777b40579c3fe2aa6e713298a"
+      }
+    },
+    {
+      "recipe": "S_VR_P0_Ashuf",
+      "completion": {
+        "path": "/mnt/lightsem-data/experiments/lightsem/end_to_end_20260928_v1/comparison_demos_v1/04_S_VR_P0_Ashuf/complete.json",
+        "sha256": "68472a68f07de4ff1ed468f095712a8152fe5bb2fa32414e4ff6085b03d80a45",
+        "bytes": 1306
+      },
+      "inference": {
+        "path": "/mnt/lightsem-data/experiments/lightsem/end_to_end_20260928_v1/comparison_demos_v1/04_S_VR_P0_Ashuf/inference_saved.json",
+        "sha256": "add16caaa6ddf4bd672b7e41ceaf32e41099dac5cb0a0b98efee1a648cc47331",
+        "bytes": 10917
+      },
+      "mapping_proof": {
+        "path": "/mnt/lightsem-data/experiments/lightsem/end_to_end_20260928_v1/comparison_demos_v1/04_S_VR_P0_Ashuf/protected_byte_equality.json",
+        "sha256": "cd78872231b35d4f95dac2303cbead27ab7b26cd32c731012f4cc25c8c9b2121",
+        "bytes": 956
+      },
+      "model_outputs": {
+        "path": "/mnt/lightsem-data/experiments/lightsem/end_to_end_20260928_v1/comparison_demos_v1/04_S_VR_P0_Ashuf/model_outputs.npz",
+        "sha256": "27ab7e7622f37fbc4e1fc422158ff3f446193bbd6fcfa7f6f1e0a26e0f3caa51",
+        "bytes": 1458383
+      },
+      "overlay": {
+        "path": "/mnt/lightsem-data/experiments/lightsem/end_to_end_20260928_v1/comparison_demos_v1/04_S_VR_P0_Ashuf/overlay_dmx.npz",
+        "sha256": "4b39665d5b059e06ea7f9ea60257670fd31400c81c54c965f30efbff911adc16",
+        "bytes": 424945
+      },
+      "probability_sanity": {
+        "accent": {
+          "status": "passed",
+          "values_checked": 11092,
+          "maximum_absolute_error": 7.230397180979509e-08,
+          "absolute_tolerance": 9.5367431640625e-07,
+          "reference": "stable_float64_sigmoid",
+          "exact_CUDA_sigmoid_claim": false,
+          "saved_scores_remain_cue_authority": true
+        },
+        "color": {
+          "status": "passed",
+          "values_checked": 2773,
+          "maximum_absolute_error": 6.889832715462063e-08,
+          "absolute_tolerance": 9.5367431640625e-07,
+          "reference": "stable_float64_sigmoid",
+          "exact_CUDA_sigmoid_claim": false,
+          "saved_scores_remain_cue_authority": true
+        }
+      },
+      "mapping_proof_array_hashes": {
+        "baseline_full_sha256": "e749af5063b4146ae452ff9c53d7eb231c38eec572f82d322bdd542e1637c713",
+        "overlay_full_sha256": "c07c0c6fb8d0822d3cace6ef661863fb373dc63ab3ed36a717d47a9f639f2fce",
+        "baseline_protected_sha256": "5e1173c12590c304fc6227db9806f03d3c72f2c777b40579c3fe2aa6e713298a",
+        "overlay_protected_sha256": "5e1173c12590c304fc6227db9806f03d3c72f2c777b40579c3fe2aa6e713298a"
+      }
+    }
+  ],
+  "absolute_probability_tolerance": 9.5367431640625e-07,
+  "exact_CUDA_sigmoid_claim": false,
+  "saved_scores_remain_cue_authority": true,
+  "palette_argmax_tolerance_added": false,
+  "scope": "Authenticates V2 canonical completion/proof/output chain and checks gross event-score/logit consistency; mapping semantics are certified by the authenticated V2 proof, not independently recomputed here. No video delivery or human audiovisual acceptance claim.",
+  "policy": {
+    "path": "/root/lightsem/outputs/shpongle_model_comparisons_20260928_v1/PARENT_AUDIT_POLICY_V1.json",
+    "sha256": "806f6d068f22aa26f01bac5c9adea9ceda796c3e2354e3008b3f380e3332b77a",
+    "bytes": 2344
+  },
+  "auditor_authorization": {
+    "path": "/root/lightsem/outputs/shpongle_model_comparisons_20260928_v1/PARENT_AUDIT_AUTHORIZATION_V1.json",
+    "sha256": "2af1bdeae3164bdfe88b21065d3e5639d25afc424902dcec9a4e6b6b529ffacf",
+    "bytes": 1341
+  },
+  "auditor_source_files": {
+    "/root/lightsem/outputs/shpongle_model_comparisons_20260928_v1/parent_audit_v1.py": "b166ba5d9f75451bb8fb7a24e3cfbf6f5c2d0795c67d44702ad5304314ea3672",
+    "/root/lightsem/run.sh": "232ca5a566ae3b22f0677b6b5879c6901abf9decb16dc66967a4895174289556"
+  },
+  "auditor_test_sources": {
+    "/root/lightsem/outputs/shpongle_model_comparisons_20260928_v1/test_parent_audit_v1.py": "deac54a0f5caba16d6e32a6df7d14830a3ebc2449ead46fe730f43891f519805"
+  }
+}

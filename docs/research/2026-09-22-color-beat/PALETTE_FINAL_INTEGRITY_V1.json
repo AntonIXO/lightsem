@@ -1,0 +1,81 @@
+{
+  "checked_at_utc": "2026-09-26T15:42:54.337489+00:00",
+  "report": {
+    "path": "/mnt/lightsem-data/experiments/lightsem/palette-history-secondary-20260922-v1/palette_secondary_report_v1.json",
+    "sha256": "d25c8edbf229869fd8b3b8a7e0428bba09326703216d5583c1554efafc0336f6"
+  },
+  "summary": {
+    "path": "/root/lightsem/docs/research/2026-09-22-color-beat/PALETTE_SECONDARY_RESULTS_SUMMARY_V1.json",
+    "sha256": "f9f3a26d7aa10b15f2e0ae8ac2c4a9517efad4ccb604753fd52853e0d67bfa97"
+  },
+  "markdown": {
+    "path": "/root/lightsem/docs/research/2026-09-22-color-beat/PALETTE_SECONDARY_RESULTS_V1.md",
+    "sha256": "50314bef1ef1c26ff4eb3c762df078dfab759f17d9af6f5b805f8a3df44aa89a"
+  },
+  "audit": {
+    "path": "/root/lightsem/outputs/shpongle_layers_demo_20260922T161917Z/palette_secondary_v1/PALETTE_SECONDARY_INDEPENDENT_AUDIT_V1.json",
+    "sha256": "52e6212ef2b90867eb1156e4a22ceb61c49c014bc77072f4db5a90de008f9cd6"
+  },
+  "saved_support_audit": {
+    "path": "/root/lightsem/outputs/shpongle_layers_demo_20260922T161917Z/palette_secondary_v1/PALETTE_SAVED_SUPPORT_AUDIT_V1.json",
+    "sha256": "192f6703fb7444b2b3a39a4af4fbee7a35dbd77385b4e1e398b02f85bf07aff0"
+  },
+  "combined_predictions": {
+    "path": "/mnt/lightsem-data/experiments/lightsem/palette-history-secondary-20260922-v1/predictions_continuation_v1/combined_complete.json",
+    "sha256": "3d8f4941fb280d9eb6c6392d2783f00d9762615bda24aa1095c1c4ba554137a9"
+  },
+  "cells": 186,
+  "reused": 101,
+  "new": 85,
+  "all_output_hashes_match": true,
+  "original_interrupted_directory_has_complete_marker": false,
+  "both_producers_explicit": true,
+  "frozen_upstream_sources_match": {
+    "/root/lightsem/lightsem/experiments/light_layers/evaluation.py": true,
+    "/root/lightsem/lightsem/experiments/light_layers/palette_metrics.py": true,
+    "/root/lightsem/lightsem/experiments/light_layers/metrics.py": true,
+    "/root/lightsem/lightsem/experiments/light_layers/model.py": true,
+    "/root/lightsem/lightsem/experiments/light_layers/training.py": true,
+    "/root/lightsem/lightsem/experiments/light_layers/targets.py": true,
+    "/root/lightsem/lightsem/model/light_trunk.py": true
+  },
+  "native_final_receipts": {
+    "diagnostics": {
+      "path": "/root/lightsem/outputs/shpongle_layers_demo_20260922T161917Z/palette_secondary_v1/vault_final_diagnostics_receipt_20260926.json",
+      "sha256": "2325b4e14436917fae949fc376d8d4e791ca7baaed01cf9653dbdd1fb2567424"
+    },
+    "gates": {
+      "path": "/root/lightsem/outputs/shpongle_layers_demo_20260922T161917Z/palette_secondary_v1/vault_final_gates_receipt_20260926.json",
+      "sha256": "2757db5a49264a4570b9a3aada4175995708249a9aba0aabac88cd64cb514967"
+    },
+    "update": {
+      "path": "/root/lightsem/outputs/shpongle_layers_demo_20260922T161917Z/palette_secondary_v1/vault_final_update_receipt_20260926.json",
+      "sha256": "f606c96597773fcf6d959a76788196b6f895b9beddb64cdc589ad03f72b0971a"
+    }
+  },
+  "native_result_types_id_values_verified": true,
+  "native_control_warnings": [],
+  "foreign_vault_file_count": 756,
+  "foreign_vault_unchanged_across_final_writes": true,
+  "foreign_vault_matches_20260922_snapshot": true,
+  "original_campaign_bytes": 952976108,
+  "original_campaign_cap_bytes": 1020054732,
+  "palette_derived_bytes": 14703919,
+  "palette_cap_bytes": 67108864,
+  "free_bytes": 1254227968,
+  "free_floor_bytes": 1073741824,
+  "demo_home_hardlink": "/root/shpongle_light_demo.mp4",
+  "demo_same_inode_as_delivered_full": true,
+  "original_palette_qualified": null,
+  "secondary_selected_pass": false,
+  "secondary_final_pass": false,
+  "promotion": false,
+  "administrative_experiment_closed": false,
+  "administrative_reason": "Unqualified closure unavailable; no sign-only auto-closure invoked.",
+  "fully_prospective_vault_compliance": false,
+  "execution_deviation": {
+    "path": "/root/lightsem/outputs/shpongle_layers_demo_20260922T161917Z/palette_secondary_v1/VAULT_LOGGING_DEVIATION_V1.json",
+    "sha256": "df755a9bc9746e74f4270721f36df197dad1142793af70bf68346be241c56205"
+  },
+  "remaining_scientific_execution_for_this_secondary": 0
+}

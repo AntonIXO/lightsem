@@ -1,0 +1,43 @@
+{
+  "protocol_id": "observer-scoring-half-open-roundoff-20260922-v1",
+  "status": "prospective_amendment_before_rescoring",
+  "scope": "Scoring-only implementation correction; original estimand and mathematical controls unchanged.",
+  "failure": {
+    "original_error": "Circular shift escaped its valid segment",
+    "both_roles_failed": true,
+    "aggregate_reports_produced": false,
+    "aggregate_outcomes_inspected": false,
+    "failure_ledger": {
+      "path": "/root/lightsem/docs/research/2026-09-22-color-beat/OBSERVER_SCORING_FAILURE_V1.json",
+      "sha256": "932920b24b5ceb2c421f48fa218b807a5caa57f8bcd676e47f754530842a0db5"
+    }
+  },
+  "cause": "IEEE754 float64 addition a+mod(local,duration) can round to excluded upper endpoint b despite residue strictly smaller than duration.",
+  "allowed_correction": "Only a computed shifted value exactly equal to its own segment stop b may be replaced with nextafter(b,a), the greatest representable in-segment value. Require finite positive segment duration and residue in [0,duration). All other escaping/nonfinite values remain errors.",
+  "forbidden": [
+    "Do not wrap upper-end roundoff to segment start",
+    "Do not expand support/tolerance or shift offsets",
+    "Do not drop events, draws, records, nulls, or qualification gates",
+    "Do not redetect or re-NMS",
+    "Do not change confidence values/order, targets, baselines, comparisons, bootstrap/Holm, checkpoint selection or roles",
+    "Do not modify original source, predictions, training artifacts, old registrations or failed logs",
+    "Do not claim original unamended executable produced successful scores"
+  ],
+  "implementation": "Separate opt-in hash-bound score extension with isolated frozen function namespaces; one guarded expression replacement; original evaluator globals unchanged. Original bindings identify frozen pipeline; added scoring_correction identifies actual amended scorer and audit.",
+  "required_validation": [
+    "Both real failure geometry fixtures",
+    "Synthetic upper-boundary reproducer",
+    "Exact old/new equality wherever original succeeds",
+    "All20 draws/counts/confidences preserved inside unchanged half-open intervals",
+    "True escaping/nonfinite/bad-duration cases remain failures",
+    "Original module/source unchanged",
+    "Missing/tampered correction registration rejected before scoring"
+  ],
+  "audit": [
+    "Original/patched shifted-function source hashes",
+    "Extension/protocol/test-receipt hashes",
+    "Number of repairs and largest seconds/ULP displacement",
+    "Same amendment for both selected-primary and final-companion"
+  ],
+  "interpretation": "Disclosed software correction after failed score attempts, not an original preregistered binary result, new hypothesis, or post-result threshold choice. Original LIGHT-quality gates unchanged."
+}

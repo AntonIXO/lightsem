@@ -1,0 +1,557 @@
+{
+  "scope": "PREPARATION_ONLY_NO_MODEL_OR_SCORE",
+  "status": "PROPOSED_AWAIT_NATIVE_REGISTRATION_AND_EXACT_EXECUTION_BINDING",
+  "plan_ref": {
+    "path": "/root/lightsem/docs/research/2026-09-28-end-to-end/PROSPECTIVE_STRUCT_INTENSITY_PROTOCOL_CANDIDATE_V6.json",
+    "size_bytes": 285563,
+    "sha256": "977241748163f747064cfc28e2998f707085431aee8189814c914707d7599267"
+  },
+  "driver_ref": {
+    "path": "/root/lightsem/outputs/legacy_struct_intensity_20260928_v1/prepare_struct_intensity_v6.py",
+    "size_bytes": 40582,
+    "sha256": "14285f8279b385014e4635da9db7ba74fc48e9ae93ab404a7ef10e0d3109fb26"
+  },
+  "test_refs": [
+    {
+      "path": "/root/lightsem/outputs/legacy_struct_intensity_20260928_v1/test_prepare_struct_intensity_v6.py",
+      "size_bytes": 66295,
+      "sha256": "a1a39ecc6654d0ae2a562a9c36985e71d3571474cee69accd5f0ed86843bd9cd"
+    }
+  ],
+  "test_result_ref": {
+    "path": "/root/lightsem/outputs/legacy_struct_intensity_20260928_v1/NATIVE_SYNTHETIC_TEST_RESULT_V6.json",
+    "size_bytes": 2500,
+    "sha256": "73405d1d2986817b6f3bbd10a3db8ab9c02af79e075f068e743cda21d885c12d"
+  },
+  "independent_frozen_review_ref": {
+    "path": "/root/lightsem/outputs/legacy_struct_intensity_20260928_v1/STATIC_PREPARATION_REVIEW_V6.json",
+    "size_bytes": 23548,
+    "sha256": "b49e5f21f8062a9ed20b0261c8e4350d71070d81297cd42f74334a99c8861e8f"
+  },
+  "input_hash_receipt_ref": {
+    "path": "/root/lightsem/outputs/legacy_struct_intensity_20260928_v1/TRAIN_INPUT_HASH_ONLY_RESULT_V1.json",
+    "size_bytes": 71313,
+    "sha256": "88b45a5c572b31b6bde5312dcb35dfbc5cc97b3f6bddebe97e6aac15c113b692"
+  },
+  "input_binding_rule": "Reuse exact62 input_refs in bound hash receipt, unchanged stat identities below. No new hash-only stage required. Actual preparer still verifies hashes on its own bounded payload reads.",
+  "input_stat_rechecks": [
+    {
+      "path": "/mnt/lightsem-data/cache/justdance_audio/-naODqbb4B0.npz",
+      "size_bytes": 2177910,
+      "mtime_ns": 1788522544323267400,
+      "inode": 191228,
+      "device": 66307
+    },
+    {
+      "path": "/mnt/lightsem-data/cache/justdance_structure/-naODqbb4B0.npz",
+      "size_bytes": 85052,
+      "mtime_ns": 1788523919062238800,
+      "inode": 197161,
+      "device": 66307
+    },
+    {
+      "path": "/mnt/lightsem-data/cache/justdance_audio/2B1m9gH_jUc.npz",
+      "size_bytes": 1684142,
+      "mtime_ns": 1788522412794849000,
+      "inode": 190323,
+      "device": 66307
+    },
+    {
+      "path": "/mnt/lightsem-data/cache/justdance_structure/2B1m9gH_jUc.npz",
+      "size_bytes": 67505,
+      "mtime_ns": 1788523935955563500,
+      "inode": 197184,
+      "device": 66307
+    },
+    {
+      "path": "/mnt/lightsem-data/cache/justdance_audio/6-qHvsxgsRA.npz",
+      "size_bytes": 2150727,
+      "mtime_ns": 1788522497995656800,
+      "inode": 191069,
+      "device": 66307
+    },
+    {
+      "path": "/mnt/lightsem-data/cache/justdance_structure/6-qHvsxgsRA.npz",
+      "size_bytes": 83661,
+      "mtime_ns": 1788523959652405700,
+      "inode": 197223,
+      "device": 66307
+    },
+    {
+      "path": "/mnt/lightsem-data/cache/justdance_audio/6h1MUO-uEcU.npz",
+      "size_bytes": 1809742,
+      "mtime_ns": 1788522786787897200,
+      "inode": 194341,
+      "device": 66307
+    },
+    {
+      "path": "/mnt/lightsem-data/cache/justdance_structure/6h1MUO-uEcU.npz",
+      "size_bytes": 73130,
+      "mtime_ns": 1788523964438775600,
+      "inode": 197226,
+      "device": 66307
+    },
+    {
+      "path": "/mnt/lightsem-data/cache/justdance_audio/86zl8aljXbA.npz",
+      "size_bytes": 2156581,
+      "mtime_ns": 1788522135075098100,
+      "inode": 188578,
+      "device": 66307
+    },
+    {
+      "path": "/mnt/lightsem-data/cache/justdance_structure/86zl8aljXbA.npz",
+      "size_bytes": 89683,
+      "mtime_ns": 1788523973493473400,
+      "inode": 197243,
+      "device": 66307
+    },
+    {
+      "path": "/mnt/lightsem-data/cache/justdance_audio/8STzZEtqBNY.npz",
+      "size_bytes": 1798733,
+      "mtime_ns": 1788522847315292800,
+      "inode": 194423,
+      "device": 66307
+    },
+    {
+      "path": "/mnt/lightsem-data/cache/justdance_structure/8STzZEtqBNY.npz",
+      "size_bytes": 68569,
+      "mtime_ns": 1788523974361540200,
+      "inode": 197244,
+      "device": 66307
+    },
+    {
+      "path": "/mnt/lightsem-data/cache/justdance_audio/MCxmee3Isv4.npz",
+      "size_bytes": 1761091,
+      "mtime_ns": 1788522825001041200,
+      "inode": 194396,
+      "device": 66307
+    },
+    {
+      "path": "/mnt/lightsem-data/cache/justdance_structure/MCxmee3Isv4.npz",
+      "size_bytes": 68302,
+      "mtime_ns": 1788524058679919900,
+      "inode": 197364,
+      "device": 66307
+    },
+    {
+      "path": "/mnt/lightsem-data/cache/justdance_audio/MJTEt4aPhFQ.npz",
+      "size_bytes": 1804798,
+      "mtime_ns": 1788522711139649900,
+      "inode": 193790,
+      "device": 66307
+    },
+    {
+      "path": "/mnt/lightsem-data/cache/justdance_structure/MJTEt4aPhFQ.npz",
+      "size_bytes": 70544,
+      "mtime_ns": 1788524061299114900,
+      "inode": 197374,
+      "device": 66307
+    },
+    {
+      "path": "/mnt/lightsem-data/cache/justdance_audio/MUVg2uB8O2U.npz",
+      "size_bytes": 1794870,
+      "mtime_ns": 1788522394036789200,
+      "inode": 190012,
+      "device": 66307
+    },
+    {
+      "path": "/mnt/lightsem-data/cache/justdance_structure/MUVg2uB8O2U.npz",
+      "size_bytes": 71687,
+      "mtime_ns": 1788524062643214900,
+      "inode": 197375,
+      "device": 66307
+    },
+    {
+      "path": "/mnt/lightsem-data/cache/justdance_audio/McAbcL9UcrI.npz",
+      "size_bytes": 1995740,
+      "mtime_ns": 1788522274001994900,
+      "inode": 188781,
+      "device": 66307
+    },
+    {
+      "path": "/mnt/lightsem-data/cache/justdance_structure/McAbcL9UcrI.npz",
+      "size_bytes": 79210,
+      "mtime_ns": 1788524064169328400,
+      "inode": 197376,
+      "device": 66307
+    },
+    {
+      "path": "/mnt/lightsem-data/cache/justdance_audio/QqOZA2nA3lA.npz",
+      "size_bytes": 1545675,
+      "mtime_ns": 1788522504324013500,
+      "inode": 191115,
+      "device": 66307
+    },
+    {
+      "path": "/mnt/lightsem-data/cache/justdance_structure/QqOZA2nA3lA.npz",
+      "size_bytes": 60606,
+      "mtime_ns": 1788524090669289700,
+      "inode": 197429,
+      "device": 66307
+    },
+    {
+      "path": "/mnt/lightsem-data/cache/justdance_audio/S3rvtitHrgs.npz",
+      "size_bytes": 1585277,
+      "mtime_ns": 1788522392254688500,
+      "inode": 189993,
+      "device": 66307
+    },
+    {
+      "path": "/mnt/lightsem-data/cache/justdance_structure/S3rvtitHrgs.npz",
+      "size_bytes": 61856,
+      "mtime_ns": 1788524107395518700,
+      "inode": 197453,
+      "device": 66307
+    },
+    {
+      "path": "/mnt/lightsem-data/cache/justdance_audio/SOB351Unqsw.npz",
+      "size_bytes": 1928312,
+      "mtime_ns": 1788522623570727800,
+      "inode": 193122,
+      "device": 66307
+    },
+    {
+      "path": "/mnt/lightsem-data/cache/justdance_structure/SOB351Unqsw.npz",
+      "size_bytes": 76929,
+      "mtime_ns": 1788524112731909400,
+      "inode": 197457,
+      "device": 66307
+    },
+    {
+      "path": "/mnt/lightsem-data/cache/justdance_audio/UDQLbRicvic.npz",
+      "size_bytes": 1584826,
+      "mtime_ns": 1788522171952198200,
+      "inode": 188638,
+      "device": 66307
+    },
+    {
+      "path": "/mnt/lightsem-data/cache/justdance_structure/UDQLbRicvic.npz",
+      "size_bytes": 61971,
+      "mtime_ns": 1788524123565700500,
+      "inode": 197480,
+      "device": 66307
+    },
+    {
+      "path": "/mnt/lightsem-data/cache/justdance_audio/YLRnUx-1kyQ.npz",
+      "size_bytes": 2196624,
+      "mtime_ns": 1788522416634065900,
+      "inode": 190349,
+      "device": 66307
+    },
+    {
+      "path": "/mnt/lightsem-data/cache/justdance_structure/YLRnUx-1kyQ.npz",
+      "size_bytes": 87774,
+      "mtime_ns": 1788524145729310500,
+      "inode": 197559,
+      "device": 66307
+    },
+    {
+      "path": "/mnt/lightsem-data/cache/justdance_audio/Z9yFg55IVls.npz",
+      "size_bytes": 1947249,
+      "mtime_ns": 1788522858328910400,
+      "inode": 194498,
+      "device": 66307
+    },
+    {
+      "path": "/mnt/lightsem-data/cache/justdance_structure/Z9yFg55IVls.npz",
+      "size_bytes": 76954,
+      "mtime_ns": 1788524156007053400,
+      "inode": 197584,
+      "device": 66307
+    },
+    {
+      "path": "/mnt/lightsem-data/cache/justdance_audio/_8f3hZ23ZEs.npz",
+      "size_bytes": 1711074,
+      "mtime_ns": 1788522613916184700,
+      "inode": 193089,
+      "device": 66307
+    },
+    {
+      "path": "/mnt/lightsem-data/cache/justdance_structure/_8f3hZ23ZEs.npz",
+      "size_bytes": 69838,
+      "mtime_ns": 1788524161306435500,
+      "inode": 197599,
+      "device": 66307
+    },
+    {
+      "path": "/mnt/lightsem-data/cache/justdance_audio/by-QcR2GehQ.npz",
+      "size_bytes": 1967025,
+      "mtime_ns": 1788522457338363700,
+      "inode": 190521,
+      "device": 66307
+    },
+    {
+      "path": "/mnt/lightsem-data/cache/justdance_structure/by-QcR2GehQ.npz",
+      "size_bytes": 80125,
+      "mtime_ns": 1788524178655682400,
+      "inode": 197827,
+      "device": 66307
+    },
+    {
+      "path": "/mnt/lightsem-data/cache/justdance_audio/cNHRSZt_6t0.npz",
+      "size_bytes": 1859139,
+      "mtime_ns": 1788522105066386700,
+      "inode": 188522,
+      "device": 66307
+    },
+    {
+      "path": "/mnt/lightsem-data/cache/justdance_structure/cNHRSZt_6t0.npz",
+      "size_bytes": 76874,
+      "mtime_ns": 1788524183351018800,
+      "inode": 197833,
+      "device": 66307
+    },
+    {
+      "path": "/mnt/lightsem-data/cache/justdance_audio/j3CHXyWRcu0.npz",
+      "size_bytes": 1320918,
+      "mtime_ns": 1788522324810873700,
+      "inode": 189413,
+      "device": 66307
+    },
+    {
+      "path": "/mnt/lightsem-data/cache/justdance_structure/j3CHXyWRcu0.npz",
+      "size_bytes": 54627,
+      "mtime_ns": 1788524230584378000,
+      "inode": 198218,
+      "device": 66307
+    },
+    {
+      "path": "/mnt/lightsem-data/cache/justdance_audio/jtng7Rnn_TE.npz",
+      "size_bytes": 1611909,
+      "mtime_ns": 1788522868636488400,
+      "inode": 194568,
+      "device": 66307
+    },
+    {
+      "path": "/mnt/lightsem-data/cache/justdance_structure/jtng7Rnn_TE.npz",
+      "size_bytes": 64731,
+      "mtime_ns": 1788524235951757000,
+      "inode": 198222,
+      "device": 66307
+    },
+    {
+      "path": "/mnt/lightsem-data/cache/justdance_audio/kP7vUn33uGU.npz",
+      "size_bytes": 1690123,
+      "mtime_ns": 1788522588728767500,
+      "inode": 192286,
+      "device": 66307
+    },
+    {
+      "path": "/mnt/lightsem-data/cache/justdance_structure/kP7vUn33uGU.npz",
+      "size_bytes": 67763,
+      "mtime_ns": 1788524238356926700,
+      "inode": 198226,
+      "device": 66307
+    },
+    {
+      "path": "/mnt/lightsem-data/cache/justdance_audio/pElmR7GBYas.npz",
+      "size_bytes": 1884956,
+      "mtime_ns": 1788522649310175200,
+      "inode": 193466,
+      "device": 66307
+    },
+    {
+      "path": "/mnt/lightsem-data/cache/justdance_structure/pElmR7GBYas.npz",
+      "size_bytes": 74864,
+      "mtime_ns": 1788524271367244700,
+      "inode": 198256,
+      "device": 66307
+    },
+    {
+      "path": "/mnt/lightsem-data/cache/justdance_audio/sYFCc12rZTU.npz",
+      "size_bytes": 1662163,
+      "mtime_ns": 1788522701193091100,
+      "inode": 193706,
+      "device": 66307
+    },
+    {
+      "path": "/mnt/lightsem-data/cache/justdance_structure/sYFCc12rZTU.npz",
+      "size_bytes": 65015,
+      "mtime_ns": 1788524292497718500,
+      "inode": 198270,
+      "device": 66307
+    },
+    {
+      "path": "/mnt/lightsem-data/cache/justdance_audio/wDTjpfZMXak.npz",
+      "size_bytes": 1861123,
+      "mtime_ns": 1788522274076999100,
+      "inode": 188783,
+      "device": 66307
+    },
+    {
+      "path": "/mnt/lightsem-data/cache/justdance_structure/wDTjpfZMXak.npz",
+      "size_bytes": 74841,
+      "mtime_ns": 1788524327090115400,
+      "inode": 198299,
+      "device": 66307
+    },
+    {
+      "path": "/mnt/lightsem-data/cache/justdance_audio/wn2iikAmmJw.npz",
+      "size_bytes": 1808171,
+      "mtime_ns": 1788522694095692400,
+      "inode": 193640,
+      "device": 66307
+    },
+    {
+      "path": "/mnt/lightsem-data/cache/justdance_structure/wn2iikAmmJw.npz",
+      "size_bytes": 73199,
+      "mtime_ns": 1788524331718434600,
+      "inode": 198303,
+      "device": 66307
+    },
+    {
+      "path": "/mnt/lightsem-data/cache/justdance_audio/x372dV0owm8.npz",
+      "size_bytes": 1763941,
+      "mtime_ns": 1788522801874743800,
+      "inode": 194370,
+      "device": 66307
+    },
+    {
+      "path": "/mnt/lightsem-data/cache/justdance_structure/x372dV0owm8.npz",
+      "size_bytes": 70752,
+      "mtime_ns": 1788524332974521200,
+      "inode": 198308,
+      "device": 66307
+    },
+    {
+      "path": "/mnt/lightsem-data/cache/justdance_audio/y9WUm3QvHK0.npz",
+      "size_bytes": 2105822,
+      "mtime_ns": 1788522852229568400,
+      "inode": 194454,
+      "device": 66307
+    },
+    {
+      "path": "/mnt/lightsem-data/cache/justdance_structure/y9WUm3QvHK0.npz",
+      "size_bytes": 83487,
+      "mtime_ns": 1788524339668982300,
+      "inode": 198312,
+      "device": 66307
+    },
+    {
+      "path": "/mnt/lightsem-data/cache/justdance_audio/yAvEt3cZI2I.npz",
+      "size_bytes": 1892900,
+      "mtime_ns": 1788522666400135900,
+      "inode": 193537,
+      "device": 66307
+    },
+    {
+      "path": "/mnt/lightsem-data/cache/justdance_structure/yAvEt3cZI2I.npz",
+      "size_bytes": 74056,
+      "mtime_ns": 1788524340365030200,
+      "inode": 198313,
+      "device": 66307
+    },
+    {
+      "path": "/mnt/lightsem-data/cache/justdance_audio/zARI9hxqxRM.npz",
+      "size_bytes": 1964255,
+      "mtime_ns": 1788522649679196000,
+      "inode": 193486,
+      "device": 66307
+    },
+    {
+      "path": "/mnt/lightsem-data/cache/justdance_structure/zARI9hxqxRM.npz",
+      "size_bytes": 78782,
+      "mtime_ns": 1788524347531522900,
+      "inode": 198318,
+      "device": 66307
+    },
+    {
+      "path": "/mnt/lightsem-data/cache/justdance_audio/zBzdeWM3VvE.npz",
+      "size_bytes": 2029998,
+      "mtime_ns": 1788522300506497100,
+      "inode": 189146,
+      "device": 66307
+    },
+    {
+      "path": "/mnt/lightsem-data/cache/justdance_structure/zBzdeWM3VvE.npz",
+      "size_bytes": 80502,
+      "mtime_ns": 1788524352341853300,
+      "inode": 198322,
+      "device": 66307
+    }
+  ],
+  "source_and_checkpoint_binding_rule": "Exact preparation_v6.source_refs and .checkpoint_refs in hash-bound plan; all source refs currently verified. Exactly3none/struct/shuf legacy checkpoints.",
+  "identity_contract_unchanged_from_V5": true,
+  "cohort_contract_equal_to_V5": true,
+  "original_inventory_sha256": "e8305329ebf57603f9cda51ca498826ae9e556e43ce83fcfb2a67bcb5752b359",
+  "envelope_ref": {
+    "path": "/root/lightsem/outputs/legacy_struct_intensity_20260928_v1/enforce_preparation_envelope_v4.py",
+    "size_bytes": 6384,
+    "sha256": "972f6e30bf96dc59aa06597016bb804b7fd2274a234792daa5c1ecbc43c6e0b1"
+  },
+  "envelope_retarget_review_ref": {
+    "path": "/root/lightsem/outputs/legacy_struct_intensity_20260928_v1/ENVELOPE_RETARGET_STATIC_REVIEW_V4.json",
+    "size_bytes": 1823,
+    "sha256": "f8daee573816eeafc94f207858948c3352b9c7756055e8514d381566438bf929"
+  },
+  "entry_wrapper_ref": {
+    "path": "/root/lightsem/run.sh",
+    "size_bytes": 227,
+    "sha256": "232ca5a566ae3b22f0677b6b5879c6901abf9decb16dc66967a4895174289556"
+  },
+  "argv": [
+    "/root/lightsem/outputs/legacy_struct_intensity_20260928_v1/prepare_struct_intensity_v6.py",
+    "prepare",
+    "--plan",
+    "/root/lightsem/docs/research/2026-09-28-end-to-end/PROSPECTIVE_STRUCT_INTENSITY_PROTOCOL_CANDIDATE_V6.json",
+    "--authorization",
+    "/root/lightsem/outputs/legacy_struct_intensity_20260928_v1/PARENT_BOUND_PREPARATION_AUTHORIZATION_V6.json"
+  ],
+  "resource_policy": {
+    "host_RAM_bytes": 4294967296,
+    "swap_bytes": 0,
+    "configured_systemd_runtime_seconds": 890,
+    "declared_observed_wall_ceiling_seconds": 900,
+    "GPU_allocation_seconds_for_this_authorization": 0,
+    "historical_remaining_project_GPU_ledger": "UNRECONCILED_NO_LATER_GPU_ADMISSION",
+    "packet_total_bytes": 12582912,
+    "comparison_reservation_bytes": 33554432,
+    "shared_global_cap_bytes": 1020054732,
+    "free_floor_each_filesystem_bytes": 1073741824,
+    "other_reserved_bytes": 0,
+    "reserved_proof_write_bytes_within_packet": 16384
+  },
+  "gpu_budget": {
+    "scope": "THIS_AUTHORIZATION",
+    "credited_seconds": 0,
+    "project_ledger_status": "UNRECONCILED",
+    "measured_project_remaining_seconds": null,
+    "exhausted": null,
+    "future_GPU_admission": false,
+    "legacy_field_semantics": "remaining_project_GPU_seconds=0 is conservative authorization admission credit only, not measured full-project remaining time. Do not carry it into GPU admission."
+  },
+  "allowed": "Restricted CPU weights_only metadata/config/normalizer/calibration/state-shape checks of exactly3bound checkpoints, and schema/clock/rolesupport checks of all40frozen clips using62bound currentTRAIN files. No scientific ratios/results.",
+  "forbidden": [
+    "model_construction",
+    "model_forward",
+    "scoring",
+    "GPU",
+    "sealed_TEST_payload_access",
+    "raw_manifest_access",
+    "source_or_original_campaign_mutation",
+    "cache_repair",
+    "replacement_clips",
+    "unsafe_checkpoint_fallback",
+    "automatic_resume",
+    "scientific_or_smoke_dispatch"
+  ],
+  "identity_scope": "Historical descriptive currentTRAIN with no known currentcanonicalTESTalias; unknown cross-corpus aliases and priororiginalTEST preprocessing/evaluation exposure remain. FineDance-onlyprojectionisnotJDmembershipproof. No freshTEST/disjointness claim.",
+  "outputs": {
+    "new_packet": "/mnt/lightsem-data/experiments/lightsem/end_to_end_20260928_v1/legacy_struct_intensity_v6",
+    "readiness_filename": "preparation_readiness_v6.json",
+    "readiness_max_bytes": 2097152,
+    "internal_log": "/root/lightsem/outputs/legacy_struct_intensity_20260928_v1/preparation_v6.log",
+    "internal_log_max_bytes": 65536,
+    "progress_line_max_bytes": 2048,
+    "envelope_proof": "/root/lightsem/outputs/legacy_struct_intensity_20260928_v1/preparation_resource_envelope_v6.json",
+    "envelope_proof_max_bytes": 16384
+  },
+  "retained_failure_ref": {
+    "path": "/root/lightsem/outputs/legacy_struct_intensity_20260928_v1/PREPARATION_FAILURE_V5.json",
+    "size_bytes": 3849,
+    "sha256": "a0e4aa78eedce5b873201f224a364a8a33a0d2bfa549ce8585e1f8c9732e59c6"
+  },
+  "acceptance": "Nativeexit0,all40decisions,exactsource/input/proof/originalinventory/resourcechain. Unsupported checkpoint/global or fatalfailure preservespartials andstops. Perclipmaterial/support failures retained, no substitution/repair. Evencomplete preparation grants no GPU/science or original rendered/handmarked gate completion.",
+  "progress_limit": "Durable checkpoint/perclip prefix is not final readiness or scientific admission. Native exit0 plus complete bound40-row receipt and resource/original checks still required.",
+  "storage_limit": "All8V3-V6protocolfiles, entire sharedsource/control/native/failure/log/temp and old/newpackets count12MiB. No rawscientifictrace output or futuretracefit claim authorized."
+}

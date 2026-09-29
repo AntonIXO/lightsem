@@ -1,0 +1,200 @@
+{
+  "schema_version": "lightsem_interpretation_debt_proposals_v1",
+  "date": "2026-09-28",
+  "kind": "retrospective_record_update_proposals_only",
+  "status": "PARENT_REVIEW_REQUIRED",
+  "scope": "Ten assigned closed experiments with missing native interpretations; LIGHT is the product, motion is diagnostic only.",
+  "authority_and_limits": "Read only native experiment/hypothesis Markdown and existing allowed audit/frontier/readiness reports; no vault calls/writes, numerical recomputation, model/data/TEST access, old-file edits or new scientific experiments.",
+  "field_policy": "All ten current interpretation fields are null; none has an existing top-level failure_mode or transfers_to field. proposed_failure_mode:null means omit that field, not clear a prior value; proposed_transfers_to:[] means no automatic transfer or rule-out propagation. Parent must revalidate live fields before writing and preserve any pre-existing interpretation metadata that appears.",
+  "unchanged": "All statuses, verdicts, gates, measurements, historical Notes and stop rules remain unchanged; no retraining, rerun, instrument completion, deployment qualification or human acceptance is asserted.",
+  "report_sources": {
+    "scope_audit": "/root/lightsem/docs/research/2026-09-28-end-to-end/CLAIM_SCOPE_AUDIT_V1.json",
+    "frontier": "/root/lightsem/docs/research/2026-09-28-end-to-end/FRONTIER_REVIEW_V1.json",
+    "frontier_delta_v2": "/root/lightsem/docs/research/2026-09-28-end-to-end/FRONTIER_SCOPE_DELTA_V2.md",
+    "legacy_readiness_v2": "/root/lightsem/docs/research/2026-09-28-end-to-end/LEGACY_REMAINDER_READINESS_V2.md",
+    "new_readiness_v2": "/root/lightsem/docs/research/2026-09-28-end-to-end/NEW_EVALUATION_READINESS_V2.md"
+  },
+  "evidence_read_limit": "Report references to underlying outputs, raw manifests, checkpoints or payloads are citation trails only; those files were not read for these proposals. Audit and FRONTIER_SCOPE_DELTA_V2 limits constrain claims without adding new mandatory gates to unrelated rows.",
+  "proposals": [
+    {
+      "id": "exp-009-the-stage-1-audio-bus-was-not-d97aa0",
+      "current_verdict": "directional_only",
+      "current_interpretation": null,
+      "proposed_lesson": "[2026-09-28 retrospective interpretation; no new experiment] The repaired version passed the recorded future-audio feature test for 23 scalars and the mel bank, with five beat-grid channels still explicitly oracle; this is not whole-pipeline causality qualification or proof about an earlier checkout. On the same checkpoint and features, corpus-rate threshold calibration lowered Light-BAS minus the shift null from +0.0212 uncalibrated to +0.0179 calibrated, so G-bas-up failed despite the passed rate gate and improved FID/diversity relative to the uncalibrated arm. The nearly unchanged rendered event count shows that this threshold adjustment did not solve surplus flashing, without identifying a unique cause or establishing human LIGHT quality.",
+      "proposed_failure_mode": null,
+      "proposed_transfers_to": [],
+      "failure_mode_change_rationale": "No failure mode proposed: current verdict is directional_only; preserve the partial-result and missing-component distinctions in the lesson.",
+      "evidence_refs": [
+        "/root/lightsem-vault/experiments/exp-009-the-stage-1-audio-bus-was-not-d97aa0.md#Measurements,Gates,Notes",
+        "/root/lightsem-vault/hypotheses/the-stage-1-audio-bus-was-not-causal-and-the-f24efd.md#Statement,Plan,Gates",
+        "scope_audit#coverage.number=70",
+        "frontier#rows.number=70",
+        "frontier_delta_v2#Row65-version-boundary-only"
+      ],
+      "scope_rationale": "Separates feature-construction perturbation evidence from model/full-path causality, and isolates calibration using the matched checkpoint rather than the confounded leaky v2b comparator; no rule-out propagated to row65.",
+      "uncertainty": "No authenticated cross-version identity or complete critical-path/physical/human qualification follows from this recorded feature repair; later row65 scope debt is not newly imposed as a gate here."
+    },
+    {
+      "id": "exp-011-the-model-s-light-flashes-three-1de900",
+      "current_verdict": "directional_only",
+      "current_interpretation": null,
+      "proposed_lesson": "[2026-09-28 retrospective interpretation; no new experiment] On identical checkpoint outputs, fitted per-channel zero-phase smoothing reduced the LIGHT event-rate ratio relative to real-motion-mapped light from 2.84 unfiltered to 1.19 and lowered FID versus the unfiltered arm, with the rate, FID and across-clip diversity gates recorded as passed. The named 12 Hz arm still had a rate ratio of 2.12 against the required maximum 1.3 and worst high-frequency energy of 72.3 times the corpus against the maximum 2; the fitted arm also failed G-smooth-hf at 5.0 times the corpus. Across-seed diversity fell with fitted smoothing and eight channels reached the smoothing cap, so these gains neither confirm the named filter nor establish a unique flashing mechanism or human LIGHT quality.",
+      "proposed_failure_mode": null,
+      "proposed_transfers_to": [],
+      "failure_mode_change_rationale": "No failure mode proposed: current verdict is directional_only; preserve the partial-result and missing-component distinctions in the lesson.",
+      "evidence_refs": [
+        "/root/lightsem-vault/experiments/exp-011-the-model-s-light-flashes-three-1de900.md#Measurements,Gates,Notes",
+        "/root/lightsem-vault/hypotheses/the-model-s-light-flashes-three-times-too-often-73aafb.md#Statement,Plan,Gates",
+        "scope_audit#coverage.number=67",
+        "frontier#rows.number=67"
+      ],
+      "scope_rationale": "Keeps the hypothesis-named 12 Hz arm separate from fitted smoothing, preserves the failed HF gate and across-seed diversity loss, and treats motion-derived references as metric controls rather than a LIGHT acceptance standard.",
+      "uncertainty": "No human audiovisual preference test is supplied here; smoothing's metric effects do not isolate the sole source of poor LIGHT or establish adequate retained spatial/style variation."
+    },
+    {
+      "id": "exp-013-the-operator-head-which-is-8594fa",
+      "current_verdict": "directional_only",
+      "current_interpretation": null,
+      "proposed_lesson": "[2026-09-28 retrospective interpretation; no new experiment] For the audio-only RPMC heads, the offline horizon-zero margin over rhythm was a larger point estimate than the same-split causal margin (+0.1584 versus +0.0964), not a demonstrated significant advantage or a paired comparison with the older different-split ridge margin of +0.3145. At four seconds, the offline margin over rhythm was -0.0206 with CI [-0.1592, 0.1378], failing G-antic-4s despite the recorded shift-control pass. Offline target-derived-hazard arms were invalid because they exposed future target information and remain excluded; the valid audio-only result does not establish anticipation in this recipe or rule out anticipation generally.",
+      "proposed_failure_mode": null,
+      "proposed_transfers_to": [],
+      "failure_mode_change_rationale": "No failure mode proposed: current verdict is directional_only; preserve the partial-result and missing-component distinctions in the lesson.",
+      "evidence_refs": [
+        "/root/lightsem-vault/experiments/exp-013-the-operator-head-which-is-8594fa.md#Measurements,Gates,Notes",
+        "/root/lightsem-vault/hypotheses/the-operator-head-which-is-already-the-82dd8e.md#Statement,Plan,Gates",
+        "scope_audit#coverage.number=69",
+        "frontier#rows.number=69"
+      ],
+      "scope_rationale": "Preserves valid audio-only arms and failed anticipation gate while excluding only the future-target-leaking arms; the corrected same-split comparator is explicit and no causal/operator-intent mechanism is inferred.",
+      "uncertainty": "Both horizon-zero margins versus rhythm have intervals spanning zero in the native record; no uncertainty on their paired difference is supplied, and the historical gate labels are retained without rescoring."
+    },
+    {
+      "id": "exp-014-just-dance-coach-motion-is-f086d5",
+      "current_verdict": "directional_only",
+      "current_interpretation": null,
+      "proposed_lesson": "[2026-09-28 retrospective interpretation; no new experiment] The frozen gain-normalised ridge recipe missed G8.2-r2 on the historical song split: its best two-second channel R2 was +0.0045 versus the zero null and the required +0.20. The loudest-third versus quietest-third section QoM ratio of 1.57, CI [1.52, 1.63], versus equality at 1 supports that measured movement contrast, not the registered chorus/verse endpoint or LIGHT quality. Genre/Effort partialling and independently labelled chorus/verse response remain unmeasured, and inter-coach agreement does not establish audio learnability or a corpus-wide capability ceiling.",
+      "proposed_failure_mode": null,
+      "proposed_transfers_to": [],
+      "failure_mode_change_rationale": "No failure mode proposed: current verdict is directional_only; preserve the partial-result and missing-component distinctions in the lesson.",
+      "evidence_refs": [
+        "/root/lightsem-vault/experiments/exp-014-just-dance-coach-motion-is-f086d5.md#Measurements,Gates,Notes",
+        "/root/lightsem-vault/hypotheses/just-dance-coach-motion-is-predictable-from-bcb46b.md#Statement,Plan,Gates",
+        "scope_audit#coverage.number=55",
+        "frontier#rows.number=55",
+        "legacy_readiness_v2#Row55"
+      ],
+      "scope_rationale": "Keeps the failed predictability gate, measured loudness-tertile contrast and missing genre/Effort/semantic-section components distinct; the formal contrast PASS cannot supply an unmeasured chorus/verse endpoint.",
+      "uncertainty": "Independent genre, Effort and actual chorus/verse labels plus saved label-endpoint inputs remain unavailable in the bounded readiness inventory; this is not proof they cannot exist elsewhere."
+    },
+    {
+      "id": "exp-015-conditioning-on-whole-track-229262",
+      "current_verdict": "refutes",
+      "current_interpretation": null,
+      "proposed_lesson": "[2026-09-28 retrospective interpretation; no new experiment] In the recorded Just Dance conditioning recipe, Light-BAS minus the shift null was +0.1065 with real structure versus +0.1347 without structure (paired difference -0.0282, CI [-0.0417, -0.017]) and +0.1197 with shuffled structure, so G-struct-lift and G-struct-shuffle failed. Improved FID relative to no structure remains a valid partial result but does not rescue the primary failure. G-struct-contrast remains unmeasured at the light level, with independent semantic-label and rendered-intensity qualifications incomplete; the refutation is conditional on this frozen recipe, not a general rejection of section control or recurrence memory.",
+      "proposed_failure_mode": "recipe_conditional",
+      "proposed_transfers_to": [],
+      "failure_mode_change_rationale": "Add recipe_conditional to scope the existing negative verdict; no current failure mode is present, and the valid failed primary comparison is not test_invalid.",
+      "evidence_refs": [
+        "/root/lightsem-vault/experiments/exp-015-conditioning-on-whole-track-229262.md#Measurements,Gates,Notes",
+        "/root/lightsem-vault/hypotheses/conditioning-on-whole-track-structure-section-4ccfa8.md#Statement,Plan,Gates",
+        "scope_audit#coverage.number=8",
+        "frontier#rows.number=8",
+        "legacy_readiness_v2#Row8",
+        "new_readiness_v2#Row8"
+      ],
+      "scope_rationale": "The negative primary/shuffle comparisons justify recipe_conditional for the existing refutes verdict; the unmeasured intensity component and improved FID are retained, so test_invalid would wrongly erase a valid partial and negative result.",
+      "uncertainty": "Later readiness reports describe exposed historical identities and incomplete exact-runtime authentication; no fresh holdout or exact historical reconstruction is assumed, and a prospective emitted-DMX proxy candidate does not supply rendered photometry or validated semantic labels."
+    },
+    {
+      "id": "exp-016-the-just-dance-background-with-ce364b",
+      "current_verdict": "directional_only",
+      "current_interpretation": null,
+      "proposed_lesson": "[2026-09-28 retrospective interpretation; no new experiment] On the historical 38-song evaluation split, the audio-plus-reference-event-history head achieved event AP/base-rate lift 3.171 versus rhythm 1.481 and same-feature ridge 1.897, with margin over rhythm +1.6902, CI [1.1858, 2.2711], and the recorded aligned shift peak. G8.4-hue remains unmeasured: the palette test was not implemented, and the legacy hue-KL/per-song-mean contract is still undefined rather than supplied by a later palette study. This supports the measured event proxy with reference history, not generated-own-cue deployment, palette prediction or human LIGHT acceptance.",
+      "proposed_failure_mode": null,
+      "proposed_transfers_to": [],
+      "failure_mode_change_rationale": "No failure mode proposed: current verdict is directional_only; preserve the partial-result and missing-component distinctions in the lesson.",
+      "evidence_refs": [
+        "/root/lightsem-vault/experiments/exp-016-the-just-dance-background-with-ce364b.md#Measurements,Gates,Notes",
+        "/root/lightsem-vault/hypotheses/the-just-dance-background-with-coach-and-ui-598f33.md#Statement,Plan,Gates",
+        "scope_audit#coverage.number=66",
+        "frontier#rows.number=66",
+        "legacy_readiness_v2#Row66"
+      ],
+      "scope_rationale": "Event timing, reference-event history and palette prediction are different instruments; hue remains absent and later versioned palette work cannot retroactively complete this experiment.",
+      "uncertainty": "Compatible historical hue predictions and a valid per-song-mean KL instrument remain absent/undefined; later active-span histogram datasets have different target/clock versions and are not automatic replacements."
+    },
+    {
+      "id": "exp-017-authored-hobby-game-light-shows-e4a4d0",
+      "current_verdict": "directional_only",
+      "current_interpretation": null,
+      "proposed_lesson": "[2026-09-28 retrospective interpretation; no new experiment] For the audited Beat Saber conversion and ridge recipe, causal event AP was 0.170 versus shifted-target null 0.131 and beat-trigger scene novelty 0.150, missing both frozen margin gates (+0.039 versus required +0.15; +0.020 versus required +0.05); the reported offline arm still missed the shift margin. The hazard-conditioned neural head improved over its rhythm baseline, but the audio-only head did not show a positive margin, so that partial result does not replace the failed preregistered corpus-eligibility comparisons. xLights was not audited because access was blocked, and the tested Beat Saber component's Stage 9 loss exclusion neither refutes xLights or all authored-light corpora nor establishes human or physical LIGHT qualification.",
+      "proposed_failure_mode": null,
+      "proposed_transfers_to": [],
+      "failure_mode_change_rationale": "No failure mode proposed: current verdict is directional_only; preserve the partial-result and missing-component distinctions in the lesson.",
+      "evidence_refs": [
+        "/root/lightsem-vault/experiments/exp-017-authored-hobby-game-light-shows-e4a4d0.md#Measurements,Gates,Notes",
+        "/root/lightsem-vault/hypotheses/authored-hobby-game-light-shows-are-lighting-202cb0.md#Statement,Plan,Gates",
+        "scope_audit#coverage.number=7",
+        "frontier#rows.number=7",
+        "legacy_readiness_v2#Row7"
+      ],
+      "scope_rationale": "Both failed causal admission bars remain failures despite a positive hazard-conditioned arm; xLights and broader authored corpora were not measured, and exclusion is limited to the frozen Stage 9 decision.",
+      "uncertainty": "The xLights blocker is historical access/rights and bounded local-asset absence, not a current access test or a result on xLights; converter/corpus-wide or product-quality generalisation is not measured."
+    },
+    {
+      "id": "exp-018-source-separated-stems-add-e2c503",
+      "current_verdict": "directional_only",
+      "current_interpretation": null,
+      "proposed_lesson": "[2026-09-28 retrospective interpretation; no new experiment] On the JD visual-event ridge task, full stems added +0.0185 AP, CI [0.0150, 0.0219], over the mix bus AP of 0.1753 but missed the required +0.02; the neural stem arm's lift 2.99 versus the bus-only checkpoint's 3.17 and rhythm baseline's 1.48 also did not improve on what it replaced. G9.7-split failed: valid head/hand results did not establish the source-specific benefit, while the degenerate footfall R2 and its derived split aggregate are invalid submetrics, not physiological evidence. The recorded 90-song trailing-window/whole-track comparison completes the reporting component of G9.7-causal, not full live LIGHT qualification, and this scoped outcome is not a rejection of every stem method or corpus.",
+      "proposed_failure_mode": null,
+      "proposed_transfers_to": [],
+      "failure_mode_change_rationale": "No failure mode proposed: current verdict is directional_only; preserve the partial-result and missing-component distinctions in the lesson.",
+      "evidence_refs": [
+        "/root/lightsem-vault/experiments/exp-018-source-separated-stems-add-e2c503.md#Measurements,Gates,Notes",
+        "/root/lightsem-vault/hypotheses/source-separated-stems-add-lighting-relevant-1a9987.md#Statement,Plan,Gates",
+        "scope_audit#coverage.number=60",
+        "frontier#rows.number=60"
+      ],
+      "scope_rationale": "Preserves valid event/head/hand and trailing-window results while rejecting only the degenerate footfall submetric; neither a positive physiological split nor a whole-test invalidation is warranted.",
+      "uncertainty": "The recorded stem audit used the operator ridge's 52-dimensional bus representation although the hypothesis described the broader 92-channel bus; no feature-width equivalence is newly asserted, and the donor compact-stem control is not labelled a width-matched full-stem control."
+    },
+    {
+      "id": "exp-019-one-frozen-music-foundation-d4f30f",
+      "current_verdict": "directional_only",
+      "current_interpretation": null,
+      "proposed_lesson": "[2026-09-28 retrospective interpretation; no new experiment] In the frozen MERT JD-only ridge comparison, the song-mean-residualised gain of +0.0180 AP over the bus (bus AP 0.1751), versus approximately zero gain for the same-width random projection, missed G9.7-emb's required +0.02 despite the raw embedding's +0.0192 gain over the bus. Retaining gain after mean subtraction only excludes complete dependence on the removed song mean: raw song-ID accuracy of 83.4% versus bus 3.6% and chance 0.30% is not a residual-identity test, so the recorded G9.7-leak pass is not clearance of every catalogue-leakage mechanism. Oslo crowd-speed and causal L=0 embedding components remain unmeasured; this recipe-specific magnitude failure neither rules out foundation embeddings generally nor qualifies a live LIGHT path.",
+      "proposed_failure_mode": null,
+      "proposed_transfers_to": [],
+      "failure_mode_change_rationale": "No failure mode proposed: current verdict is directional_only; preserve the partial-result and missing-component distinctions in the lesson.",
+      "evidence_refs": [
+        "/root/lightsem-vault/experiments/exp-019-one-frozen-music-foundation-d4f30f.md#Measurements,Gates,Notes",
+        "/root/lightsem-vault/hypotheses/one-frozen-music-foundation-layer-group-muq-46be80.md#Statement,Plan,Gates",
+        "scope_audit#coverage.number=58",
+        "frontier#rows.number=58",
+        "legacy_readiness_v2#Row58",
+        "new_readiness_v2#Row58"
+      ],
+      "scope_rationale": "The failed AP magnitude gate is retained alongside positive residual signal; the identity-control PASS has limited scope, MuQ was an OR alternative, and Oslo/L=0 remain missing rather than refuted.",
+      "uncertainty": "The original record does not supply an Oslo threshold/qualification or a causal embedding comparison; full-context chunks and whole-song mean subtraction cannot be relabelled L=0, and raw identity probing does not resolve all duplicate/catalogue leakage."
+    },
+    {
+      "id": "exp-025-feeding-the-group-decoder-the-6ba213",
+      "current_verdict": "directional_only",
+      "current_interpretation": null,
+      "proposed_lesson": "[2026-09-28 retrospective interpretation; no new experiment] The completed causal decoder sweep reported own-cue lift 2.41 versus audio-only 2.41 on JD and 1.31 versus 1.33 on RPMC, but per-song decoder confidence intervals were not stored, leaving G10.2-self failed and its uncertainty requirement unqualified while G10.2-size is complete. In the separate JD operator-head test, own-cue lift 1.83 was below audio-only 2.32 (paired difference -0.49, CI [-0.94, -0.15]) and reference-history 3.17, showing that the privileged-history advantage did not carry over under this tested recursion. The operator-head interval cannot fill the decoder endpoint, absent decoder intervals do not establish equivalence, and these results do not reject all history methods or establish human LIGHT acceptance.",
+      "proposed_failure_mode": null,
+      "proposed_transfers_to": [],
+      "failure_mode_change_rationale": "No failure mode proposed: current verdict is directional_only; preserve the partial-result and missing-component distinctions in the lesson.",
+      "evidence_refs": [
+        "/root/lightsem-vault/experiments/exp-025-feeding-the-group-decoder-the-6ba213.md#Measurements,Gates,Notes",
+        "/root/lightsem-vault/hypotheses/feeding-the-group-decoder-the-hazard-features-d0f637.md#Statement,Plan,Gates",
+        "scope_audit#coverage.number=11",
+        "frontier#rows.number=11",
+        "legacy_readiness_v2#Row11",
+        "new_readiness_v2#Row11"
+      ],
+      "scope_rationale": "Reported point means are not a powered equivalence test; the completed operator-head paired CI is a separate instrument and cannot replace unsaved decoder per-song uncertainty or justify another sweep.",
+      "uncertainty": "Decoder song-level uncertainty and final per-song evaluation lineage are not supplied by aggregate means; later identity-readiness notes retain historical exposure, and the ad-hoc 0.05 reporting rule is not substituted for the registered CI criterion."
+    }
+  ]
+}

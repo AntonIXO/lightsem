@@ -1,0 +1,8 @@
+{
+  "experiment_id": "exp-019-one-frozen-music-foundation-d4f30f",
+  "verdict": "directional_only",
+  "failure_mode": "recipe_conditional",
+  "lesson": "[2026-09-28 retrospective interpretation; no new experiment] In the frozen MERT JD-only ridge comparison, the song-mean-residualised gain of +0.0180 AP over the bus (bus AP 0.1751), versus approximately zero gain for the same-width random projection, missed G9.7-emb's required +0.02 despite the raw embedding's +0.0192 gain over the bus. Retaining gain after mean subtraction only excludes complete dependence on the removed song mean: raw song-ID accuracy of 83.4% versus bus 3.6% and chance 0.30% is not a residual-identity test, so the recorded G9.7-leak pass is not clearance of every catalogue-leakage mechanism. Oslo crowd-speed and causal L=0 embedding components remain unmeasured; this recipe-specific magnitude failure neither rules out foundation embeddings generally nor qualifies a live LIGHT path.",
+  "transfers_to": [],
+  "hint": "recipe_conditional: when the recipe changes, reopen_hypothesis('one-frozen-music-foundation-layer-group-muq-46be80', reason=...) makes the negative re-testable instead of terminal"
+}

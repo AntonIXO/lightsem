@@ -1,0 +1,8 @@
+{
+  "experiment_id": "exp-012-most-of-the-gap-between-the-1f7d3b",
+  "verdict": "refutes",
+  "failure_mode": "recipe_conditional",
+  "lesson": "2026-09-28 retrospective claim-scope clarification, not a new measurement: For this AIST++ trunk, seed, split and 12k-step budget, removing the tested causality constraints did not earn the specified gain: R2 -0.0092 versus causal +0.0192 and BAS-minus-null +0.0185 versus +0.0179, below +0.105. This recipe did not close the gap; it does not identify the corpus as the sole bottleneck or exclude other architectures, context mechanisms or optimization. Preserve the completed negative without another seed or context sweep.",
+  "transfers_to": [],
+  "hint": "recipe_conditional: when the recipe changes, reopen_hypothesis('most-of-the-gap-between-the-model-s-light-0-018-8b5f6c', reason=...) makes the negative re-testable instead of terminal"
+}

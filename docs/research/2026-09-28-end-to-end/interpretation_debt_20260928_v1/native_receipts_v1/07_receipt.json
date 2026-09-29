@@ -1,0 +1,8 @@
+{
+  "experiment_id": "exp-018-source-separated-stems-add-e2c503",
+  "verdict": "directional_only",
+  "failure_mode": "recipe_conditional",
+  "lesson": "[2026-09-28 retrospective interpretation; no new experiment] On the JD visual-event ridge task, full stems added +0.0185 AP, CI [0.0150, 0.0219], over the mix bus AP of 0.1753 but missed the required +0.02; the neural stem arm's lift 2.99 versus the bus-only checkpoint's 3.17 and rhythm baseline's 1.48 also did not improve on what it replaced. G9.7-split failed: valid head/hand results did not establish the source-specific benefit, while the degenerate footfall R2 and its derived split aggregate are invalid submetrics, not physiological evidence. The recorded 90-song trailing-window/whole-track comparison completes the reporting component of G9.7-causal, not full live LIGHT qualification, and this scoped outcome is not a rejection of every stem method or corpus.",
+  "transfers_to": [],
+  "hint": "recipe_conditional: when the recipe changes, reopen_hypothesis('source-separated-stems-add-lighting-relevant-1a9987', reason=...) makes the negative re-testable instead of terminal"
+}

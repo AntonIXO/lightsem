@@ -1,0 +1,24 @@
+{
+  "scope": "CPU_ENVELOPE_CHECK_ONLY_NO_PREPARATION",
+  "source": {
+    "path": "/root/lightsem/outputs/legacy_struct_intensity_20260928_v1/enforce_preparation_envelope_v2.py",
+    "size_bytes": 5278,
+    "sha256": "65c66d70d240d48fdad739b0903b3dadfcfdc23ef6ea83cd03c9f7e5c41072a6"
+  },
+  "wrapper": {
+    "path": "/root/lightsem/run.sh",
+    "size_bytes": 227,
+    "sha256": "232ca5a566ae3b22f0677b6b5879c6901abf9decb16dc66967a4895174289556"
+  },
+  "command": "systemd-run --unit=lightsem-struct-envelope-v2.service --wait --pipe --no-ask-password --working-directory=/root/lightsem -p MemoryMax=4294967296 -p MemorySwapMax=0 -p RuntimeMaxSec=890s -p KillMode=control-group -p KillSignal=SIGKILL -p PrivateDevices=yes -p ProtectControlGroups=yes -p NoNewPrivileges=yes --setenv=CUDA_VISIBLE_DEVICES= --setenv=PYTHONDONTWRITEBYTECODE=1 --setenv=TORCH_ENV=/root/lightsem/.venv/torch-access /usr/bin/bash /root/lightsem/run.sh -u /root/lightsem/outputs/legacy_struct_intensity_20260928_v1/enforce_preparation_envelope_v2.py --unit lightsem-struct-envelope-v2.service --check-only > /root/lightsem/outputs/legacy_struct_intensity_20260928_v1/envelope_check_only_v2.log 2>&1",
+  "expected": "exit0 and exactly one ENVELOPE_CHECK_ONLY_NO_PREPARATION proof. No authorization file read or readiness proof file write, no exec/nativeTorch/model/data imports.",
+  "runtime_policy": "890s configured watchdog within900s declared ceiling with10s slack, not hard-real-time guarantee. Actual observed duration must remain<900s.",
+  "limits_probe": {
+    "path": "/root/lightsem/outputs/legacy_struct_intensity_20260928_v1/RESOURCE_LIMIT_PROBE_RESULT_V2.json",
+    "size_bytes": 2883,
+    "sha256": "b78841115cb760cbc568d29448b6fc861a6dd93794d8b9fbdf0642984b82d647"
+  },
+  "applicable_dropins_found": [],
+  "actual_preparation_not_authorized": true,
+  "actual_branch_still_requires": "Root immediate driver/plan/envelope/wrapper hash checks,16KiB exclusive-proof reservation under wholepacket/global/free floors, no unit/dropin overrides and separate native preparation authority."
+}

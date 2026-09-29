@@ -1,0 +1,311 @@
+{
+  "status": "passed_read_only_audit_with_one_parent_draft_scope_note",
+  "audited_at_utc": "2026-09-26T15:38:11.867519+00:00",
+  "scope": "Saved-report arithmetic, frozen code/protocol review and existing prediction support/cue/count audit only. No inference, metric/AP/W1/bootstrap reruns, calibration, raw source inputs, training, vault write or source edits.",
+  "artifacts": {
+    "raw_report": {
+      "path": "/mnt/lightsem-data/experiments/lightsem/palette-history-secondary-20260922-v1/palette_secondary_report_v1.json",
+      "sha256": "d25c8edbf229869fd8b3b8a7e0428bba09326703216d5583c1554efafc0336f6"
+    },
+    "combined_predictions": {
+      "path": "/mnt/lightsem-data/experiments/lightsem/palette-history-secondary-20260922-v1/predictions_continuation_v1/combined_complete.json",
+      "sha256": "3d8f4941fb280d9eb6c6392d2783f00d9762615bda24aa1095c1c4ba554137a9"
+    },
+    "saved_support_audit": {
+      "path": "/root/lightsem/outputs/shpongle_layers_demo_20260922T161917Z/palette_secondary_v1/PALETTE_SAVED_SUPPORT_AUDIT_V1.json",
+      "sha256": "192f6703fb7444b2b3a39a4af4fbee7a35dbd77385b4e1e398b02f85bf07aff0"
+    },
+    "reviewed_parent_draft": {
+      "path": "/root/lightsem/docs/research/2026-09-22-color-beat/PALETTE_SECONDARY_RESULTS_V1.md",
+      "sha256": "aad3ae23bb7fd720d2802aaba83f168eda42095de651f5abbe1e3af86351dfe2"
+    },
+    "reviewed_parent_compact": {
+      "path": "/root/lightsem/docs/research/2026-09-22-color-beat/PALETTE_SECONDARY_RESULTS_SUMMARY_V1.json",
+      "sha256": "c7c8de9af2e3df09a7616b8dcd67460fe1c4c82cc6f26d134258e984a62db556"
+    }
+  },
+  "hard_issues": [],
+  "arithmetic_errors": [],
+  "arithmetic_checks": 62486,
+  "maximum_absolute_arithmetic_difference": 3.552713678800501e-15,
+  "saved_support_checks": {
+    "status": "passed",
+    "cells": 186,
+    "checks": 154122,
+    "errors": []
+  },
+  "inventory": {
+    "checkpoint_roles": [
+      "selected_primary",
+      "final_companion"
+    ],
+    "seeds": [
+      0,
+      1,
+      2
+    ],
+    "draws": [
+      101,
+      102,
+      103,
+      104
+    ],
+    "historical_dev_recordings": 31,
+    "unique_cells": 186,
+    "reused_v1_cells": 101,
+    "continuation_cells": 85,
+    "draw_rows": 744,
+    "condition_scores": 2976,
+    "floor_pairs": 186,
+    "conditions": [
+      "own_state",
+      "null_state",
+      "persistence",
+      "tempo_donor_own"
+    ],
+    "calibration_training_records": 91
+  },
+  "reconstruction": {
+    "final": {
+      "condition_means": {
+        "own_state": {
+          "temporal_mean_scaled": 0.7501800540932488,
+          "marginal_scaled": 2.1382219624520618,
+          "occupancy_ratio": 1.3676785714285713,
+          "diversity_ratio": 1.2630857601976406
+        },
+        "null_state": {
+          "temporal_mean_scaled": 0.7557574295338255,
+          "marginal_scaled": 2.1447813714360207,
+          "occupancy_ratio": 1.379047619047619,
+          "diversity_ratio": 1.2804809232116166
+        },
+        "persistence": {
+          "temporal_mean_scaled": 0.9037434649814576,
+          "marginal_scaled": 2.3589900788871874,
+          "occupancy_ratio": 0.6215079365079366,
+          "diversity_ratio": 0.6813207572150743
+        },
+        "tempo_donor_own": {
+          "temporal_mean_scaled": 0.7541583935787199,
+          "marginal_scaled": 2.1878987578183486,
+          "occupancy_ratio": 1.3155621693121693,
+          "diversity_ratio": 1.2258757966501455
+        }
+      },
+      "support_count": 30,
+      "timing_count": 30,
+      "event_groups": 17,
+      "gates": {
+        "common_palette_support": true,
+        "emitted_timing_support": true,
+        "absolute_gain": false,
+        "relative_gain": false,
+        "family_positive": false,
+        "holm2_significant": false,
+        "occupancy": true,
+        "diversity": true,
+        "marginal": true,
+        "emitted_timing": true
+      },
+      "own_vs_persistence_error_reduction": 0.1535634108882088,
+      "own_vs_persistence_fractional_reduction": 0.16991924903308653,
+      "marginal_own_to_null": 0.9969416887561052
+    },
+    "selected": {
+      "condition_means": {
+        "own_state": {
+          "temporal_mean_scaled": 0.8590224721821798,
+          "marginal_scaled": 1.7405767982062064,
+          "occupancy_ratio": 4.583036816578484,
+          "diversity_ratio": 4.521395150359319
+        },
+        "null_state": {
+          "temporal_mean_scaled": 0.830589472798534,
+          "marginal_scaled": 1.7447976303064334,
+          "occupancy_ratio": 4.161464947089947,
+          "diversity_ratio": 3.943790107467275
+        },
+        "persistence": {
+          "temporal_mean_scaled": 1.1197507056888603,
+          "marginal_scaled": 2.5450026856986843,
+          "occupancy_ratio": 0.28780864197530864,
+          "diversity_ratio": 0.38649043059815164
+        },
+        "tempo_donor_own": {
+          "temporal_mean_scaled": 0.850719997427062,
+          "marginal_scaled": 1.7892941046790347,
+          "occupancy_ratio": 4.4446042768959435,
+          "diversity_ratio": 4.376880837875087
+        }
+      },
+      "support_count": 30,
+      "timing_count": 30,
+      "event_groups": 17,
+      "gates": {
+        "common_palette_support": true,
+        "emitted_timing_support": true,
+        "absolute_gain": false,
+        "relative_gain": false,
+        "family_positive": false,
+        "holm2_significant": true,
+        "occupancy": true,
+        "diversity": true,
+        "marginal": true,
+        "emitted_timing": true
+      },
+      "own_vs_persistence_error_reduction": 0.2607282335066805,
+      "own_vs_persistence_fractional_reduction": 0.23284489322673207,
+      "marginal_own_to_null": 0.9975809044975114
+    }
+  },
+  "scaled_components": {
+    "final": {
+      "own_state": {
+        "log1p_residence_s": 0.18686755148273143,
+        "conditional_mark_change": 0.6222905179275673,
+        "mean_intercue_drift_per_s": 1.4191259832257272,
+        "eight_second_change": 0.7724361637369693
+      },
+      "null_state": {
+        "log1p_residence_s": 0.18164005042836878,
+        "conditional_mark_change": 0.6508044625203714,
+        "mean_intercue_drift_per_s": 1.4191259832257272,
+        "eight_second_change": 0.7714592219608344
+      },
+      "persistence": {
+        "log1p_residence_s": 0.3149412908379798,
+        "conditional_mark_change": 0.9538113515280904,
+        "mean_intercue_drift_per_s": 1.4191259832257272,
+        "eight_second_change": 0.9270952343340331
+      },
+      "tempo_donor_own": {
+        "log1p_residence_s": 0.18631250085757525,
+        "conditional_mark_change": 0.6343412222837617,
+        "mean_intercue_drift_per_s": 1.4191259832257272,
+        "eight_second_change": 0.7768538679478157
+      }
+    },
+    "selected": {
+      "own_state": {
+        "log1p_residence_s": 0.44898974528294444,
+        "conditional_mark_change": 0.7957413942492224,
+        "mean_intercue_drift_per_s": 1.4094501894648626,
+        "eight_second_change": 0.78190855973169
+      },
+      "null_state": {
+        "log1p_residence_s": 0.44623805519997767,
+        "conditional_mark_change": 0.7300530408041063,
+        "mean_intercue_drift_per_s": 1.4094501894648626,
+        "eight_second_change": 0.7366166057251895
+      },
+      "persistence": {
+        "log1p_residence_s": 0.8695907988107546,
+        "conditional_mark_change": 1.2728666001457907,
+        "mean_intercue_drift_per_s": 1.4094501894648626,
+        "eight_second_change": 0.9270952343340331
+      },
+      "tempo_donor_own": {
+        "log1p_residence_s": 0.44589684158550774,
+        "conditional_mark_change": 0.768895693179258,
+        "mean_intercue_drift_per_s": 1.4094501894648626,
+        "eight_second_change": 0.7786372654786197
+      }
+    }
+  },
+  "raw_diversity_descriptives": {
+    "final": {
+      "own_state": {
+        "occupancy": 2.836111111111111,
+        "effective_diversity": 2.2138523580794858
+      },
+      "null_state": {
+        "occupancy": 2.8694444444444445,
+        "effective_diversity": 2.242331098706306
+      },
+      "persistence": {
+        "occupancy": 1.0,
+        "effective_diversity": 1.0
+      },
+      "tempo_donor_own": {
+        "occupancy": 2.7277777777777774,
+        "effective_diversity": 2.153165740684729
+      },
+      "reference": {
+        "occupancy": 2.155555555555556,
+        "effective_diversity": 1.8029454218921317
+      }
+    },
+    "selected": {
+      "own_state": {
+        "occupancy": 18.863888888888887,
+        "effective_diversity": 13.475493054283424
+      },
+      "null_state": {
+        "occupancy": 16.930555555555557,
+        "effective_diversity": 11.545996470247363
+      },
+      "persistence": {
+        "occupancy": 1.0,
+        "effective_diversity": 1.0
+      },
+      "tempo_donor_own": {
+        "occupancy": 18.25277777777778,
+        "effective_diversity": 13.00074181468873
+      },
+      "reference": {
+        "occupancy": 4.833333333333333,
+        "effective_diversity": 3.331247705517295
+      }
+    }
+  },
+  "eligible_common_support_floor_means": {
+    "final": {
+      "self_floor": {
+        "temporal_mean_scaled": 0.0,
+        "marginal_scaled": 0.0
+      },
+      "quantization_floor": {
+        "temporal_mean_scaled": 0.5383442236883902,
+        "marginal_scaled": 0.9282235986214921
+      }
+    },
+    "selected": {
+      "self_floor": {
+        "temporal_mean_scaled": 0.0,
+        "marginal_scaled": 0.0
+      },
+      "quantization_floor": {
+        "temporal_mean_scaled": 0.4655174195091347,
+        "marginal_scaled": 0.7252335117576224
+      }
+    }
+  },
+  "audit_findings": [
+    "Exactly all31 historical DEV records, both fixed checkpoint roles, three seeds and four paired draws are retained; no rerun, selection or silent dropping of undefined rows.",
+    "All four component raw/IQR transformations, unweighted four-component means, undefined propagation, marginal scaling, hierarchical condition means, pairwise song differences, relative gains and gate booleans agree with saved values.",
+    "Saved 95% and 97.5% CI metadata match10,000 replicates/seed0; song-difference inputs, nesting and Holm2 adjustment verified. Bootstrap percentile endpoints and p-values were not regenerated.",
+    "Existing prediction archives authenticate to combined receipt; exact original cue inventories, paired draw uniforms, cue-held outputs, persistence state, common masks, support counts and emitted candidate counts agree. No AP or W1 scores were rerun.",
+    "Both roles have30 common palette groups and30 timing-supported groups. AP has17 event-bearing groups. False-cues/min includes all30 timing-supported groups, including13 zero-event groups.",
+    "Excluded8UTvmHbgc5w has0.9265625 full-window valid fraction but zero fully valid8s pairs. Its8s component and temporal aggregate remain undefined; the other three components are not averaged to hide this.",
+    "Self error is zero where defined. Quantization floor is reported separately, not subtracted. Residence observations remain gap/clip-edge-censored lower-bound runs, not uncensored true palette persistence.",
+    "Primary selected own history is worse than trained-null and limited tempo-donor history. Both saved97.5% benefit intervals are entirely negative. Its Holm2 significance is evidence of the opposite sign, not a benefit gate.",
+    "Final companion has only0.005577 absolute and0.007380 relative null-minus-own gain, below0.02 and0.15; both contrast intervals crosszero. It must not replace the primary selected role after inspection.",
+    "Selected own occupancy18.8639 versus null16.9306 and reference4.8333; effective diversity13.4755 versus11.5460 and3.3312. Lower-only0.70 anti-collapse gates do not constrain excess diversity or establish matching quality.",
+    "Held outputs have zero intercue drift by construction. The common nonzero intercue drift error measures missed raw observer drift and contributes no own-versus-control benefit.",
+    "Checkpoint cue inventories and adapted reference tokens differ. Across-role absolute errors and floor values are not a controlled checkpoint-selection result.",
+    "Actual emitted timing is not rawhead equality or full-candidate AP. Passing point noninferiority does not establish timing improvement, beat accuracy or LIGHT quality.",
+    "The original shuffled-palette control is still absent. Limited tempo donor is not its replacement. Original31/40 source failure and event-study29/30 paired-null failure remain; event failure is not a palette prerequisite.",
+    "Retrospective V1 vault-order execution deviation is explicit.101 original outputs predate successful required binding/calibration vault updates. The authorized continuation and101/85 producer lineage do not make the entire run fully prospective.",
+    "Historical DEV exposure, unknown observer/pretraining nuisances, unannotated cuts, full64s edge-context limitations and four fixed stochastic draws limit interpretation. No argmax-demo equivalence, unseen confirmation, human preference, promotion or original-hypothesis qualification follows."
+  ],
+  "parent_draft_note": {
+    "severity": "minor_prose_scope",
+    "status": "sent_to_parent_for_correction",
+    "text": "Split timing-denominator sentence: AP uses17 event-bearing groups; false-cues/min uses all30 timing-supported groups. Draft said these timing metrics were on17 groups, which could imply the wrong false-cue denominator. No numerical change is needed."
+  },
+  "conclusion": "No hard arithmetic or saved-support defect found. Both frozen observer-secondary benefit conjunctions fail. Primary selected history is worse than both relevant controls in this instrument. Original palette qualification remains undefined and promotion false. Do not auto-close the broad original hypothesis.",
+  "fully_prospective_vault_compliance": false,
+  "original_palette_qualified": null,
+  "promotion": false
+}

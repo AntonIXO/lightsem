@@ -1,0 +1,375 @@
+{
+  "schema_version": 1,
+  "created_at_utc": "2026-09-28T20:32:25.169329+00:00",
+  "scope": "Read-only delta between the claim-scope repairs and existing71-hypothesis FRONTIER_REVIEW_V1. Original plans/gates govern; unsupported broad prose is not automatically a new experiment.",
+  "goal_status": "active",
+  "sources": [
+    {
+      "path": "/root/lightsem/docs/research/2026-09-28-end-to-end/FRONTIER_REVIEW_V1.json",
+      "sha256": "4857b0e7cf5136cfb42ce6af7c085b632933dfbb746322e7fcd54a77e46c923d"
+    },
+    {
+      "path": "/root/lightsem/docs/research/2026-09-28-end-to-end/VAULT_INVENTORY_V1.json",
+      "sha256": "582d1c7a3fd1ca87d3c18eeb04711c5873a8cbd3577bcc9c8a42d4111f4be550"
+    },
+    {
+      "path": "/root/lightsem/docs/research/2026-09-28-end-to-end/CLAIM_SCOPE_AUDIT_V1.json",
+      "sha256": "83ed200e4c560ac52491533074a0bae3c7d41d280ee23995b195ec1244fc2ea6"
+    },
+    {
+      "path": "/root/lightsem/docs/research/2026-09-28-end-to-end/CLAIM_SCOPE_NATIVE_REPAIR_DEFINITION_V1.json",
+      "sha256": "53788029112ac1d7f988f3f88b64cbbe4a958f81764c52170092e6d72eacc72c"
+    }
+  ],
+  "summary": {
+    "affected_hypotheses_reviewed": 13,
+    "genuinely_new_missing_original_instruments": 1,
+    "new_missing_instrument_rows": [
+      65
+    ],
+    "newly_propagated_original_cohort_qualification_rows": [
+      4
+    ],
+    "existing_debt_with_specific_new_material_blocker_rows": [
+      3
+    ],
+    "other_rows_without_new_component": [
+      1,
+      2,
+      5,
+      6,
+      9,
+      56,
+      57,
+      59,
+      62,
+      68
+    ],
+    "newly_authorized_runs": 0,
+    "new_hypotheses_or_predictions_created": 0,
+    "vault_writes": 0
+  },
+  "answer": "Only row65 adds a genuinely new missing original instrument: the planned future-audio→output causality test was not the saved model-input perturbation. Row4 needs the already-known shared split failure propagated into its own original held-out-claim qualification; this is not a new global dataset task or automatic replacement run. Row3 adds a specific split-eligibility blocker to its already-open human/material component. Other findings repair scope/comparator language or restate existing debt.",
+  "distinctions": [
+    "Missing original instrument: a plan/gate required a specific measurement and saved evidence did not perform it. Row65 qualifies.",
+    "Original-protocol qualification failure: a completed measurement used an ineligible cohort for an original claim. Row4 qualifies; observed negative remains evidence, but not a qualified held-out test. The same split issue was already known elsewhere in frontier.",
+    "Existing debt with a more specific blocker: row3 human testing/reporting was already absent; current39clip material eligibility is now specifically uncertain.",
+    "Untested stronger possibility: generated-history RPMC deployment, a paired matched-history ridge superiority study, precise camera-edit prevalence, universal model ceilings, phase-learnability studies, equivalence ratings. These are not retroactive gates or mandatory reruns."
+  ],
+  "rows": [
+    {
+      "number": 1,
+      "hypothesis_id": "a-causal-conformer-trained-on-the-product-s-own-3b2bac",
+      "experiment_ids": [
+        "exp-008-a-causal-conformer-trained-on-68789d"
+      ],
+      "classification": "already_bounded_reference_history_and_comparator_qualification",
+      "original_claim_or_gate_boundary": "G-head-b requires marginal lift over rhythm with CI excluding0 and beating the ridge probe. Plan names rhythm and same-causal-audio-feature ridge baselines. No generated-history arm, joint-history ridge or paired neural-minus-ridge CI is specified.",
+      "what_frontier_V1_already_said": "Frontier explicitly says reference/teacher history differs from generated deployment history and declares no frozen-test rerun.",
+      "what_changes_now": "Tighten “outperforms ... ridge”:86-show joint neural1.805 vsrhythm1.250 (margin+.555,CI[+.385,+.739]); audio-only neural1.347 vs same52feature audio-only ridge1.500. Older99-show/openl3+.3145 is not a paired same-split comparator. This does not establish a missing original generated-history test or a retroactive paired-CI gate.",
+      "recommended_frontier_disposition": "Keep frozen reference-history test complete. Name comparator/input differences and leave deployment as unestablished extrapolation. A generated-history or joint-history-ridge study is a separately chosen extension, not new mandatory debt.",
+      "new_execution_authorized": false,
+      "runtime_required_now": false,
+      "permissions_only_if_separately_selected": [
+        "For a separately selected extension: authorized feature/target/split access and frozen checkpoint; freeze history initialization, threshold/refractory policy, named comparator, exposure policy and estimand first. GPU inference/CPU scoring need separate runtime approval; any refit needs separate authorization."
+      ],
+      "unknowns": [
+        "Exact eligible historical assets, per-song outputs and exposure provenance are not established by this review. Runtime/storage unknown. JD own-cue evidence is different corpus/version, not an executed RPMC closed-loop test."
+      ]
+    },
+    {
+      "number": 2,
+      "hypothesis_id": "a-causal-conformer-with-three-heads-b18294",
+      "experiment_ids": [
+        "exp-004-a-causal-conformer-with-three-70f12e"
+      ],
+      "classification": "interpretation_only_completed_bounded_negative",
+      "original_claim_or_gate_boundary": "Four frozen recipe gates: model-input causality, BAS>=.9real, FID<.5null, diversity>=.7real with MSE collapse comparator.",
+      "what_frontier_V1_already_said": "Frontier already limits failure to AIST recipe/corpus, not all generative lighting.",
+      "what_changes_now": "Remove universal corpus ceiling and uniquely isolated mechanism. No gate asked for every possible architecture or a full causal-mechanism decomposition.",
+      "recommended_frontier_disposition": "Keep completed negative and stopping rule. No additional seed, architecture, causal ablation or data comparison follows from the wording repair.",
+      "new_execution_authorized": false,
+      "runtime_required_now": false,
+      "permissions_only_if_separately_selected": [],
+      "unknowns": []
+    },
+    {
+      "number": 3,
+      "hypothesis_id": "a-factorised-audio-light-critic-trained-with-a97ada",
+      "experiment_ids": [
+        "exp-023-a-factorised-audio-light-critic-e453c6"
+      ],
+      "classification": "existing_human_debt_with_specific_split_qualification_blocker",
+      "original_claim_or_gate_boundary": "G9.5-bt is critic-split held-out discrimination; additive order change is separate. Plan asks human best-of8 versus random-of8 on held-out songs and separate RPMC/JD reporting.",
+      "what_frontier_V1_already_said": "Frontier already lists unrun human BoN8/random8 and missing per-corpus reporting, with human/material qualification blockers.",
+      "what_changes_now": "The39motion-val proxy/reranking cohort is not authenticated as held out from the independently split critic. This is a specific qualification blocker for existing materials, not a newly invented numeric endpoint. Separate critic-split pair accuracy and additive projection are not invalidated. Decoder30/5/4 counts are not critic exposure counts.",
+      "recommended_frontier_disposition": "Attach common-holdout uncertainty to the already-open human/material/reporting component; do not rerun critic scoring/training merely to change the old proxy wording.",
+      "new_execution_authorized": false,
+      "runtime_required_now": false,
+      "permissions_only_if_separately_selected": [
+        "If the existing human component is selected: authorize historical split/output/pair-material provenance inspection and canonical exposure qualification; then independent raters and matched blind materials under a registered plan. Rendering/inference only if separately approved and needed after readiness review."
+      ],
+      "unknowns": [
+        "Exact critic exposure of these39clips is unknown; it cannot be inferred from decoder membership. Qualified held-out material and per-corpus outputs are not established here."
+      ]
+    },
+    {
+      "number": 4,
+      "hypothesis_id": "a-learned-group-effects-decoder-anton-s-mixture-2b4f62",
+      "experiment_ids": [
+        "exp-020-a-learned-group-effects-decoder-1eac54",
+        "exp-021-a-learned-group-effects-decoder-1eac54"
+      ],
+      "classification": "new_to_row_original_cohort_nonqualification_not_new_global_study",
+      "original_claim_or_gate_boundary": "Original Statement and Plan expressly require Value/onset-matched held-out songs for decoder-versus-conductor FID/BAS and human comparison. Both decoder recipes were the bounded frozen arms.",
+      "what_frontier_V1_already_said": "Row4 previously listed only unmeasured human A/B after completed numerical negatives. The same39clip split mismatch was already recorded elsewhere in Frontier rows5/59.",
+      "what_changes_now": "Propagate the known split issue to row4:39motion-val renders comprise30decoderTRAIN,5VAL,4TEST clips. The recorded FID/BAS failures are observed negative recipe results, not a qualified decoder-held-out generalization test. This is a newly identified row-specific original-protocol qualification failure, not a new dataset discovery or permission to retry the recipes.",
+      "recommended_frontier_disposition": "Keep both completed observed negatives and immutable verdicts. Add “original held-out numerical generalization unqualified” beside existing human debt. Do not describe the full held-out conjunction as executed; do not automatically commission a replacement evaluation.",
+      "new_execution_authorized": false,
+      "runtime_required_now": false,
+      "permissions_only_if_separately_selected": [
+        "Only if a parent separately selects completion of the original held-out component: first authorize provenance/split/canonical-exposure and saved-output eligibility inspection. A defined eligible non-TEST cohort and frozen comparator protocol are required before any GPU inference/DMX render/CPU metric scoring. No training or sealed-TEST release is authorized. Existing human component still needs qualified materials and independent raters."
+      ],
+      "unknowns": [
+        "Availability of detailed saved outputs sufficient for a qualified common-holdout subset is not established; aggregate FID/BAS cannot reconstruct it. Eligible historical assets, common-cohort size and runtime/storage are unknown. Separate authored-corpus MSE/AP results are not assigned these39clip exposure counts."
+      ]
+    },
+    {
+      "number": 5,
+      "hypothesis_id": "a-look-sampler-that-holds-its-sampled-look-2b8adb",
+      "experiment_ids": [
+        "exp-024-a-look-sampler-that-holds-its-c32dbb"
+      ],
+      "classification": "already_known_split_limit_completed_negative",
+      "original_claim_or_gate_boundary": "G10.1-cue requires improvement over per-frame and shuffled donor; G10.1-bas asks BAS/onset preservation.",
+      "what_frontier_V1_already_said": "Frontier already names historical39clip split mismatch and beat-fraction versus100ms timing mismatch and forbids repeating until pass.",
+      "what_changes_now": "Native lesson now matches that limit. Transition error6.86 vs per-frame8.87 still loses to donor5.66; the BAS render comparison is descriptive, not held-out decoder generalization.",
+      "recommended_frontier_disposition": "No new component. Retain bounded negative and existing protocol qualifications.",
+      "new_execution_authorized": false,
+      "runtime_required_now": false,
+      "permissions_only_if_separately_selected": [],
+      "unknowns": []
+    },
+    {
+      "number": 6,
+      "hypothesis_id": "audio-predicts-lighting-events-when-the-scene-changes-even-though-it-does-not-pr",
+      "experiment_ids": [
+        "audio-predicts-lighting-events-when-the-scene-changes-even-though-it-does-not-pr-exp-2026-08-07t13-50-58"
+      ],
+      "classification": "already_known_video_proxy_limit_new_labels_are_new_question_only",
+      "original_claim_or_gate_boundary": "The sole registered gate is marginal association of video-derived event proxy with audio against circular-shift null (z>2,p<.05). Plan does not require edit-prevalence labels or lighting-only attribution.",
+      "what_frontier_V1_already_said": "Frontier already says unlabelled camera cuts remain possible and no anticipation claim.",
+      "what_changes_now": "Remove “minority of edits” bound:filtered morphology is not calibrated cut prevalence. Rhythm+audio1.4151 vsrhythm1.3241, marginal+.0909 vsnull−.1568±.0876 remains scoped proxy association. No original gate was left unrun by absence of shot labels.",
+      "recommended_frontier_disposition": "Keep proxy test complete. A cut-prevalence/lighting-only study is a new question or shared annotation-source prerequisite, not mandatory completion debt for this probe.",
+      "new_execution_authorized": false,
+      "runtime_required_now": false,
+      "permissions_only_if_separately_selected": [
+        "Only for a separately selected lighting-only/contamination study: rights/access for eligible original video, validated independent shot-boundary and lighting-event references or validated detector/annotation scheme, prespecified attribution/prevalence estimand, annotation/reliability budget and authorized video/CPU scoring. Coordinate with existing source/annotation qualification work, not a duplicate queue."
+      ],
+      "unknowns": [
+        "Rights, exact source eligibility, reliable labels/detector error, sample size, annotation time, runtime and storage remain unknown. No labels were inspected."
+      ]
+    },
+    {
+      "number": 9,
+      "hypothesis_id": "dance-is-not-a-category-error-for-light-light-79702c",
+      "experiment_ids": [
+        "exp-010-dance-is-not-a-category-error-101dd9"
+      ],
+      "classification": "already_open_reduced_human_protocol_no_new_equivalence_study",
+      "original_claim_or_gate_boundary": "G2-engineer and G2-music ask preference with CI excluding.5; G-protocol requires>=5raters,20tracks with10club/EDM and rated foil.",
+      "what_frontier_V1_already_said": "Frontier already marks one-rater pilot partial, missing original protocol and corrected blinding/human materials.",
+      "what_changes_now": "Music5/9CI[.212,.863] is inconclusive, not equivalence; shared phase does not make the rating question incapable of distinguishing outputs. This adds no equivalence gate.",
+      "recommended_frontier_disposition": "Keep existing incomplete human protocol debt. Do not create an equivalence study or infer aesthetic acceptance from the repair.",
+      "new_execution_authorized": false,
+      "runtime_required_now": false,
+      "permissions_only_if_separately_selected": [],
+      "unknowns": []
+    },
+    {
+      "number": 56,
+      "hypothesis_id": "light-derived-from-real-dance-motion-by-a-fixed-a3ac3d",
+      "experiment_ids": [
+        "exp-001-light-derived-from-real-dance-39fd73"
+      ],
+      "classification": "interpretation_only_completed_mapping_test",
+      "original_claim_or_gate_boundary": "G1/G1b test motion-only light beat alignment versus metronome/own shift null; G2 tests delta-feature distribution separation. No gate tests universal phase recoverability from audio.",
+      "what_frontier_V1_already_said": "Frontier already retains scoped motion-only timing failure, changed/null limitations and no ban on dance style.",
+      "what_changes_now": "Failure to establish alignment does not prove phase absent from audio or unlearnable. This corrects a mechanism extrapolation, not a missing original model-training component.",
+      "recommended_frontier_disposition": "No new debt and no dancer/model refit. Keep completed mapping test and its null qualification.",
+      "new_execution_authorized": false,
+      "runtime_required_now": false,
+      "permissions_only_if_separately_selected": [],
+      "unknowns": []
+    },
+    {
+      "number": 57,
+      "hypothesis_id": "most-of-the-gap-between-the-model-s-light-0-018-8b5f6c",
+      "experiment_ids": [
+        "exp-012-most-of-the-gap-between-the-1f7d3b"
+      ],
+      "classification": "interpretation_only_completed_causal_offline_recipe",
+      "original_claim_or_gate_boundary": "Specified same-trunk/seed/split/budget offline arm must reach R2>=.04 and BAS>=.105, beside its causal comparator. Follow-up L sweep was conditional on endpoint difference.",
+      "what_frontier_V1_already_said": "Frontier says completed scoped negative and no general offline-model refutation.",
+      "what_changes_now": "The tested offline intervention did not reach its gates; that does not establish corpus as sole cause or rule out all context/model changes. No universal architecture sweep was required.",
+      "recommended_frontier_disposition": "Keep bounded completed negative and conditional stop. Tighten frontier phrasing to “tested causality removal did not achieve the gain,” not exclusive cause. No new seed/context sweep.",
+      "new_execution_authorized": false,
+      "runtime_required_now": false,
+      "permissions_only_if_separately_selected": [],
+      "unknowns": [
+        "This review did not re-establish actual historical context span/runtime identity. It neither asserts that entire-track execution was absent nor creates a new debt from that unverified possibility."
+      ]
+    },
+    {
+      "number": 59,
+      "hypothesis_id": "section-level-intent-belongs-on-the-conductor-0f5c23",
+      "experiment_ids": [
+        "exp-022-section-level-intent-belongs-on-47d660"
+      ],
+      "classification": "already_known_mixed_split_and_human_conjunct",
+      "original_claim_or_gate_boundary": "Plan says held-out songs and requires planner FID/human structure versus shuffled control, BAS non-degradation and causal comparison.",
+      "what_frontier_V1_already_said": "Frontier already lists unmeasured human conjunct and historical mixed-split39clip provenance.",
+      "what_changes_now": "Current lesson propagates exact30/5/4decoder membership to its shared39clip selector; numerical negatives remain, human conjunction remains unmeasured.",
+      "recommended_frontier_disposition": "No new component beyond frontier. Keep existing human/material qualification debt and observed BAS failure; no planner fit or numeric rerun for bookkeeping.",
+      "new_execution_authorized": false,
+      "runtime_required_now": false,
+      "permissions_only_if_separately_selected": [],
+      "unknowns": []
+    },
+    {
+      "number": 62,
+      "hypothesis_id": "the-audio-lighting-event-signal-is-carried-by-loudness-energy-if-true-the-indust",
+      "experiment_ids": [
+        "the-audio-lighting-event-signal-is-carried-by-loudness-energy-if-true-the-indust-exp-2026-08-07t14-34-32"
+      ],
+      "classification": "completed_factual_addendum_only",
+      "original_claim_or_gate_boundary": "Original feature-family comparisons; no registered new gate for harmonic correction.",
+      "what_frontier_V1_already_said": "Frontier already identified native-label/interpretation conflict, energy nonsignificance and correlated-family attribution limits.",
+      "what_changes_now": "The parent preserved/refined the earlier repair and corrected retained “energy ONLY” sentence: harmonic also fails its null (p=.960).",
+      "recommended_frontier_disposition": "This administrative/factual debt is now repaired. Keep historical supports label and Notes. No scientific endpoint or model run is created.",
+      "new_execution_authorized": false,
+      "runtime_required_now": false,
+      "permissions_only_if_separately_selected": [],
+      "unknowns": []
+    },
+    {
+      "number": 65,
+      "hypothesis_id": "the-deployed-path-meets-its-latency-budget-and-b0aff5",
+      "experiment_ids": [
+        "exp-006-the-deployed-path-meets-its-eb0fc6"
+      ],
+      "classification": "genuinely_new_original_audio_path_instrument_missing",
+      "original_claim_or_gate_boundary": "Original Plan: “replacing all audio after a cut with noise and asserting the output before the cut is bit-identical.” G-causal-mech belongs to a no-future-AUDIO-dependence statement.",
+      "what_frontier_V1_already_said": "Frontier65 said no remaining work and described future leak0; it limited hardware/current-offline timing only. Frontier70 separately warned feature repair is not whole-pipeline causality.",
+      "what_changes_now": "Saved instrument perturbs synthetic model-input tensors, not future audio through the feature builder and output path. Thus the original audio-path causality component is unmeasured/unauthenticated; model-input causality and software timing remain measured. Row70 does not retrospectively supply the exact earlier test or prove its upstream version leaked.",
+      "recommended_frontier_disposition": "Add one bounded original-protocol missing instrument: version-pinned audio-in→output future perturbation. Mark it blocked/unqualified, not failed or automatically scheduled. Keep software timing and conditional model causality complete; no historical gate/verdict mutation.",
+      "new_execution_authorized": false,
+      "runtime_required_now": false,
+      "permissions_only_if_separately_selected": [
+        "First authorize provenance/asset inspection to identify the exact frozen upstream/model/conductor/DMX version. Before any run, define deterministic audio future perturbations, output boundary, timestamps, full primed state, beat-grid/oracle policy and stochastic seeds. Controlled synthetic audio may suffice, but checkpoint/model/runtime access and CPU features/GPU inference/DMX-generation budget need separate approval. No training or hardware is inherently needed to measure this gate; any subsequent repair is a separate intervention."
+      ],
+      "unknowns": [
+        "Historical version/checkpoint/feature-builder recoverability and equivalence are unknown. Full-path oracle beat behavior is unresolved. Runtime and bytes are unknown. If historical path cannot be reconstructed, a current-path test is a new version-bounded study, not retrospective completion. Hardware/Art-Net/photodiode gaps were already known and are not new debt."
+      ]
+    },
+    {
+      "number": 68,
+      "hypothesis_id": "the-music-induced-movement-literature-s-shared-c6aab2",
+      "experiment_ids": [
+        "exp-002-the-music-induced-movement-46c7b4"
+      ],
+      "classification": "interpretation_only_completed_feature_ridge_audit",
+      "original_claim_or_gate_boundary": "G-audit requires tested audio R2>.3 on four named descriptors at2–8s versus identity; no requirement to establish the best achievable score of all models.",
+      "what_frontier_V1_already_said": "Frontier already limits negative to choreographed AIST recipe/corpus and retains Oslo contrast.",
+      "what_changes_now": "Attained ridge R2 and genre association are not a universal corpus ceiling or causal exclusion of methods. Operational corpus caution remains supported by the measured recipe failures.",
+      "recommended_frontier_disposition": "Keep completed bounded audit; no exhaustive model/features/data study becomes mandatory from narrowing the ceiling claim.",
+      "new_execution_authorized": false,
+      "runtime_required_now": false,
+      "permissions_only_if_separately_selected": [],
+      "unknowns": []
+    }
+  ],
+  "unchanged_other_frontier_numbers": [
+    7,
+    8,
+    10,
+    11,
+    12,
+    13,
+    14,
+    15,
+    16,
+    17,
+    18,
+    19,
+    20,
+    21,
+    22,
+    23,
+    24,
+    25,
+    26,
+    27,
+    28,
+    29,
+    30,
+    31,
+    32,
+    33,
+    34,
+    35,
+    36,
+    37,
+    38,
+    39,
+    40,
+    41,
+    42,
+    43,
+    44,
+    45,
+    46,
+    47,
+    48,
+    49,
+    50,
+    51,
+    52,
+    53,
+    54,
+    55,
+    58,
+    60,
+    61,
+    63,
+    64,
+    66,
+    67,
+    69,
+    70,
+    71
+  ],
+  "true_new_debt": {
+    "number": 65,
+    "exact_original_plan_quote": "Test causality by replacing all audio after a cut with noise and asserting the output before the cut is bit-identical.",
+    "source_hypothesis_id": "the-deployed-path-meets-its-latency-budget-and-b0aff5",
+    "source_experiment_id": "exp-006-the-deployed-path-meets-its-eb0fc6",
+    "observed_instrument_source": "run_stage4.py, synthetic model-input X passed to causality_probe",
+    "status": "original_audio_path_component_unmeasured_or_unauthenticated; blocked pending version/asset/protocol qualification",
+    "not_claimed": [
+      "Exact old upstream pipeline refuted",
+      "Later exp-009 identical to exp-006",
+      "Real hardware newly missing",
+      "Runtime/model access authorized",
+      "A new version can retroactively complete historical protocol"
+    ]
+  },
+  "no_run_policy": [
+    "Do not reopen bounded negative recipes or failed-prerequisite conditional seed/TEST studies to improve bookkeeping.",
+    "No raw data, model/checkpoint access, inference, rendering, training, tests or scientific scoring were performed or authorized by this review.",
+    "Future asset/provenance inspection and any runtime need separate authorization. Freeze comparator, cohort, source version, estimand, budget and valid-label/TEST policies before any selected new execution.",
+    "New model/lighting changes still need the existing new full-demo requirement. This administrative review is not such a change.",
+    "Human preference requires real qualified human responses. No metric or model-generated rating supplies missing acceptance."
+  ],
+  "uncertainty": "No claim is made that eligible historical assets, detailed outputs or exact old versions are recoverable. Scope omissions are recorded, not filled with newly invented protocols or proxy endpoints."
+}

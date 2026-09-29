@@ -1,0 +1,16 @@
+{
+  "status": "PARENT_MUST_REPLACE_WITH_registered_AFTER_NATIVE_SUCCESS",
+  "continuation_id": "palette-history-continuation-20260922-v1",
+  "experiment_id": "exp-layers-20260922-palette-secondary",
+  "protocol_sha256": "622cbfe13690bbd3a678eb0f9d14e58db98c71377c6c0a8617bc6743576d4b35",
+  "wrapper_sha256": "b008682e47aeb3471f0570b898fad20068f7f246e9c4396ebaed1560801aa6a7",
+  "base_registration_sha256": "42f3a1faa773603ee5e55fb34c461264cbdc834c58c33d9deb7611f97ad8c153",
+  "calibration_sha256": "2675fc76b4e71d951b26d2e7eea9d98bd85870f744e12fb81b00fe4ac76216d7",
+  "partial_receipt_sha256": "67e49eafa0331d06d553090d7e4559ebecba07e315ada2bb77825192ba6ccca3",
+  "exception_map_sha256": "f761df59931d83ef432359dc340cc093abf72f22ba09a0162429a804bd65df03",
+  "amendment_sha256": "9e329c257e894df4e0bdbbe8506e1a4566a16468f10a4c5d0f5c016dfb0a840b",
+  "native_vault_receipt": {
+    "path": "<new successful native update_problem result JSON>",
+    "sha256": "<its sha256>"
+  }
+}

@@ -1,0 +1,1244 @@
+{
+  "schema_version": 1,
+  "scope": "Parent-authorized song-identity-only exclusion metadata. label.name used solely for conservative cross-corpus alias screening. No style1/style2, waveform/pose/features or other TESTtarget fields inspected/exported. Not permission for TESTevaluation.",
+  "source_path": "/mnt/lightsem-data/experiments/lightsem/motion_representation_20260910/data/split.json",
+  "source_sha256": "821a800a847c2ec337ee0c2a6eca007cfaa1e68f8f67ce2c0788e6dbce2dbe20",
+  "extraction_contract": "[{key,canonical_id,partition,song_identity_name=entry.get('label',{}).get('name','')} for entry in split['entries']]",
+  "matching_contract": "ASCII NFKD lowercase; nonalphanumeric to spaces; conservative substring against declared Oslo title/artist alias list. No waveform fingerprint or metrics.",
+  "oslo_alias_terms": [
+    "icarus",
+    "joyride",
+    "lady killer",
+    "ladykiller",
+    "madeon",
+    "nuage",
+    "rhode and brown",
+    "rhode brown",
+    "unlock down",
+    "unlockdown",
+    "vanilla ace"
+  ],
+  "rows": [
+    {
+      "key": "001",
+      "canonical_id": "fd-7a3e6b16cb75f48f",
+      "partition": "train",
+      "song_identity_name": "feedback"
+    },
+    {
+      "key": "002",
+      "canonical_id": "fd-a1dd6837f284625b",
+      "partition": "train",
+      "song_identity_name": "handclap"
+    },
+    {
+      "key": "003",
+      "canonical_id": "fd-88c0413bfef1d057",
+      "partition": "train",
+      "song_identity_name": "hush"
+    },
+    {
+      "key": "004",
+      "canonical_id": "fd-9c1850fcaa632f21",
+      "partition": "val",
+      "song_identity_name": "lllusion"
+    },
+    {
+      "key": "005",
+      "canonical_id": "fd-5a96acc64c72c5b2",
+      "partition": "val",
+      "song_identity_name": "juelian"
+    },
+    {
+      "key": "006",
+      "canonical_id": "fd-473acd54bc818781",
+      "partition": "train",
+      "song_identity_name": "killthislove"
+    },
+    {
+      "key": "007",
+      "canonical_id": "fd-629f4cf9337b0d0c",
+      "partition": "train",
+      "song_identity_name": "leyouji"
+    },
+    {
+      "key": "008",
+      "canonical_id": "fd-cc1af790b8e0c746",
+      "partition": "train",
+      "song_identity_name": "MerryCH"
+    },
+    {
+      "key": "009",
+      "canonical_id": "fd-5371e1a064f3cfff",
+      "partition": "train",
+      "song_identity_name": "PhoneYaTikTok"
+    },
+    {
+      "key": "010",
+      "canonical_id": "fd-40c897769f55da9b",
+      "partition": "test",
+      "song_identity_name": "pink Venom"
+    },
+    {
+      "key": "011",
+      "canonical_id": "fd-8a080cea809d1b9d",
+      "partition": "train",
+      "song_identity_name": "wildfire"
+    },
+    {
+      "key": "012",
+      "canonical_id": "fd-bf6aaaab7c143ca1",
+      "partition": "test",
+      "song_identity_name": "zaijianmonika"
+    },
+    {
+      "key": "013",
+      "canonical_id": "fd-b16d9e2bb44a4b72",
+      "partition": "train",
+      "song_identity_name": "PROBLEMA"
+    },
+    {
+      "key": "014",
+      "canonical_id": "fd-72abdfcd75400cfe",
+      "partition": "val",
+      "song_identity_name": "let'splayball "
+    },
+    {
+      "key": "015",
+      "canonical_id": "fd-2d54ab36581c7e90",
+      "partition": "train",
+      "song_identity_name": "mohewuting"
+    },
+    {
+      "key": "016",
+      "canonical_id": "fd-8449c20ed663992d",
+      "partition": "train",
+      "song_identity_name": "qianye"
+    },
+    {
+      "key": "017",
+      "canonical_id": "fd-9309f67fd6480663",
+      "partition": "train",
+      "song_identity_name": "qinghuida1998"
+    },
+    {
+      "key": "018",
+      "canonical_id": "fd-45dd9586f26a3cf4",
+      "partition": "train",
+      "song_identity_name": "tebiederen"
+    },
+    {
+      "key": "019",
+      "canonical_id": "fd-8eba3ded9f5f3cbb",
+      "partition": "train",
+      "song_identity_name": "buxiangku"
+    },
+    {
+      "key": "020",
+      "canonical_id": "fd-c75f53bdcc638b0f",
+      "partition": "train",
+      "song_identity_name": "ineedyou"
+    },
+    {
+      "key": "021",
+      "canonical_id": "fd-cad02af28a101dfc",
+      "partition": "train",
+      "song_identity_name": "dunhuang1"
+    },
+    {
+      "key": "022",
+      "canonical_id": "fd-36c5174571b12630",
+      "partition": "train",
+      "song_identity_name": "gudian1"
+    },
+    {
+      "key": "023",
+      "canonical_id": "fd-2defdd685aed2571",
+      "partition": "train",
+      "song_identity_name": "gudian2"
+    },
+    {
+      "key": "024",
+      "canonical_id": "fd-32309dffc465aaa6",
+      "partition": "train",
+      "song_identity_name": "gudian3"
+    },
+    {
+      "key": "025",
+      "canonical_id": "fd-a5edb4ce2b366cb2",
+      "partition": "val",
+      "song_identity_name": "hantang1"
+    },
+    {
+      "key": "026",
+      "canonical_id": "fd-206d094ed507453a",
+      "partition": "test",
+      "song_identity_name": "hantang2"
+    },
+    {
+      "key": "027",
+      "canonical_id": "fd-79f918029276a994",
+      "partition": "val",
+      "song_identity_name": "hantang3"
+    },
+    {
+      "key": "028",
+      "canonical_id": "fd-76a00ed73f38046e",
+      "partition": "train",
+      "song_identity_name": "kunwu1"
+    },
+    {
+      "key": "029",
+      "canonical_id": "fd-495b7a9119e3773d",
+      "partition": "test",
+      "song_identity_name": "shenyun1"
+    },
+    {
+      "key": "030",
+      "canonical_id": "fd-2e44d70de2137070",
+      "partition": "val",
+      "song_identity_name": "shenyun2"
+    },
+    {
+      "key": "031",
+      "canonical_id": "fd-ed6725972be0fa57",
+      "partition": "train",
+      "song_identity_name": "shenyun3"
+    },
+    {
+      "key": "032",
+      "canonical_id": "fd-36c5174571b12630",
+      "partition": "train",
+      "song_identity_name": "gudian1"
+    },
+    {
+      "key": "033",
+      "canonical_id": "fd-2defdd685aed2571",
+      "partition": "train",
+      "song_identity_name": "gudian2"
+    },
+    {
+      "key": "034",
+      "canonical_id": "fd-32309dffc465aaa6",
+      "partition": "train",
+      "song_identity_name": "gudian3"
+    },
+    {
+      "key": "035",
+      "canonical_id": "fd-a5edb4ce2b366cb2",
+      "partition": "val",
+      "song_identity_name": "hantang1"
+    },
+    {
+      "key": "036",
+      "canonical_id": "fd-206d094ed507453a",
+      "partition": "test",
+      "song_identity_name": "hantang2"
+    },
+    {
+      "key": "037",
+      "canonical_id": "fd-495b7a9119e3773d",
+      "partition": "test",
+      "song_identity_name": "shenyun1"
+    },
+    {
+      "key": "038",
+      "canonical_id": "fd-2e44d70de2137070",
+      "partition": "val",
+      "song_identity_name": "shenyun2"
+    },
+    {
+      "key": "039",
+      "canonical_id": "fd-ed6725972be0fa57",
+      "partition": "train",
+      "song_identity_name": "shenyun3"
+    },
+    {
+      "key": "040",
+      "canonical_id": "fd-3500318f75ad20f0",
+      "partition": "train",
+      "song_identity_name": "shenyun4"
+    },
+    {
+      "key": "041",
+      "canonical_id": "fd-879ce2257ab3468f",
+      "partition": "train",
+      "song_identity_name": "lirenwu"
+    },
+    {
+      "key": "042",
+      "canonical_id": "fd-07802b8bf3b0bd3f",
+      "partition": "train",
+      "song_identity_name": "diexiang"
+    },
+    {
+      "key": "043",
+      "canonical_id": "fd-82ad92612238288c",
+      "partition": "train",
+      "song_identity_name": "helishu"
+    },
+    {
+      "key": "044",
+      "canonical_id": "fd-2ba3f4781ce765d0",
+      "partition": "train",
+      "song_identity_name": "xiaoyuewu"
+    },
+    {
+      "key": "045",
+      "canonical_id": "fd-2bf64fd8ac1f696d",
+      "partition": "train",
+      "song_identity_name": "yuzhulin"
+    },
+    {
+      "key": "046",
+      "canonical_id": "fd-b2d084ae2bd0f4b3",
+      "partition": "train",
+      "song_identity_name": "baiwujinhong"
+    },
+    {
+      "key": "047",
+      "canonical_id": "fd-e6489353932b602d",
+      "partition": "train",
+      "song_identity_name": "huaer"
+    },
+    {
+      "key": "048",
+      "canonical_id": "fd-a585004ef456dd04",
+      "partition": "train",
+      "song_identity_name": "lirenxing"
+    },
+    {
+      "key": "049",
+      "canonical_id": "fd-3c241d2674142a5f",
+      "partition": "train",
+      "song_identity_name": "shengshi"
+    },
+    {
+      "key": "050",
+      "canonical_id": "fd-1dd68a2d273df991",
+      "partition": "train",
+      "song_identity_name": "wangxian"
+    },
+    {
+      "key": "051",
+      "canonical_id": "fd-d2f4eb77ffb11b01",
+      "partition": "train",
+      "song_identity_name": "xuangupiao"
+    },
+    {
+      "key": "052",
+      "canonical_id": "fd-cfbca725ff83b01a",
+      "partition": "val",
+      "song_identity_name": "AlphaTeam"
+    },
+    {
+      "key": "053",
+      "canonical_id": "fd-9b23c0760f95b2c9",
+      "partition": "train",
+      "song_identity_name": "BANGBANGBANG"
+    },
+    {
+      "key": "054",
+      "canonical_id": "fd-d86c993d110ef800",
+      "partition": "train",
+      "song_identity_name": "Banger"
+    },
+    {
+      "key": "055",
+      "canonical_id": "fd-6d4d381fad546406",
+      "partition": "train",
+      "song_identity_name": "BeatBox"
+    },
+    {
+      "key": "056",
+      "canonical_id": "fd-b86e34f45be0f49c",
+      "partition": "train",
+      "song_identity_name": "BigTrouble"
+    },
+    {
+      "key": "057",
+      "canonical_id": "fd-0230a7f0e3ccb489",
+      "partition": "val",
+      "song_identity_name": "Breakers_Revenge"
+    },
+    {
+      "key": "058",
+      "canonical_id": "fd-18873905ac1540b7",
+      "partition": "val",
+      "song_identity_name": "CantBuyClass"
+    },
+    {
+      "key": "059",
+      "canonical_id": "fd-33de253288ec0ae8",
+      "partition": "train",
+      "song_identity_name": "DjPablo"
+    },
+    {
+      "key": "060",
+      "canonical_id": "fd-b301d8e98abdfad6",
+      "partition": "train",
+      "song_identity_name": "FreakshowOnTheDanceFloor"
+    },
+    {
+      "key": "061",
+      "canonical_id": "fd-f135e1799003db61",
+      "partition": "train",
+      "song_identity_name": "GoodTimesEsone"
+    },
+    {
+      "key": "062",
+      "canonical_id": "fd-ffdb47b70fde8d22",
+      "partition": "train",
+      "song_identity_name": "Its_Jay-Roc"
+    },
+    {
+      "key": "063",
+      "canonical_id": "fd-060823f51b592344",
+      "partition": "test",
+      "song_identity_name": "Just_Begun"
+    },
+    {
+      "key": "064",
+      "canonical_id": "fd-5e18d34a87ed6c9b",
+      "partition": "train",
+      "song_identity_name": "LaLaLatch"
+    },
+    {
+      "key": "065",
+      "canonical_id": "fd-b64706e7a27319da",
+      "partition": "test",
+      "song_identity_name": "Obstruction"
+    },
+    {
+      "key": "066",
+      "canonical_id": "fd-dcfc099d43f38697",
+      "partition": "train",
+      "song_identity_name": "One"
+    },
+    {
+      "key": "067",
+      "canonical_id": "fd-a7a8ddd54b83931a",
+      "partition": "val",
+      "song_identity_name": "PromNite"
+    },
+    {
+      "key": "068",
+      "canonical_id": "fd-28a14b90b4cb23b9",
+      "partition": "train",
+      "song_identity_name": "RunawayBaby"
+    },
+    {
+      "key": "069",
+      "canonical_id": "fd-e650739e99af18e1",
+      "partition": "train",
+      "song_identity_name": "Shizihou"
+    },
+    {
+      "key": "070",
+      "canonical_id": "fd-15a798d20e8a2a60",
+      "partition": "train",
+      "song_identity_name": "Swoop"
+    },
+    {
+      "key": "071",
+      "canonical_id": "fd-15a798d20e8a2a60",
+      "partition": "train",
+      "song_identity_name": "Swoop_Locking"
+    },
+    {
+      "key": "072",
+      "canonical_id": "fd-bc7d001b725557c7",
+      "partition": "train",
+      "song_identity_name": "ameame"
+    },
+    {
+      "key": "073",
+      "canonical_id": "fd-37ff4d2021d1bb2d",
+      "partition": "train",
+      "song_identity_name": "miaolingqingchen"
+    },
+    {
+      "key": "074",
+      "canonical_id": "fd-6a353c281b4b65e4",
+      "partition": "train",
+      "song_identity_name": "miaonv"
+    },
+    {
+      "key": "075",
+      "canonical_id": "fd-32cd1acb86cd1ab3",
+      "partition": "train",
+      "song_identity_name": "miaozufengcai"
+    },
+    {
+      "key": "076",
+      "canonical_id": "fd-36094ed4fbe8579b",
+      "partition": "val",
+      "song_identity_name": "miaozuhun"
+    },
+    {
+      "key": "077",
+      "canonical_id": "fd-aca8d347d8c11954",
+      "partition": "train",
+      "song_identity_name": "shanguhuiyang"
+    },
+    {
+      "key": "078",
+      "canonical_id": "fd-5e7f2276a9a8269f",
+      "partition": "val",
+      "song_identity_name": "daizuzuhe"
+    },
+    {
+      "key": "079",
+      "canonical_id": "fd-9c8a49e5cd96b622",
+      "partition": "train",
+      "song_identity_name": "miqing"
+    },
+    {
+      "key": "080",
+      "canonical_id": "fd-6138545581201372",
+      "partition": "train",
+      "song_identity_name": "shuiyueliang"
+    },
+    {
+      "key": "081",
+      "canonical_id": "fd-8daea4d2b044cd2b",
+      "partition": "train",
+      "song_identity_name": "yueliang"
+    },
+    {
+      "key": "082",
+      "canonical_id": "fd-ffc3fb0bddd8a607",
+      "partition": "train",
+      "song_identity_name": "taozuile_1"
+    },
+    {
+      "key": "083",
+      "canonical_id": "fd-9c60ff016521ee3f",
+      "partition": "val",
+      "song_identity_name": "taozuile_2"
+    },
+    {
+      "key": "084",
+      "canonical_id": "fd-26d9f77aa7b5e821",
+      "partition": "train",
+      "song_identity_name": "breaking208"
+    },
+    {
+      "key": "085",
+      "canonical_id": "fd-9e767c1df8684b3e",
+      "partition": "val",
+      "song_identity_name": "breaking209"
+    },
+    {
+      "key": "086",
+      "canonical_id": "fd-1977d36003629a9a",
+      "partition": "train",
+      "song_identity_name": "delhiciousLove"
+    },
+    {
+      "key": "087",
+      "canonical_id": "fd-8ebced264174028f",
+      "partition": "train",
+      "song_identity_name": "douwuzhiwang"
+    },
+    {
+      "key": "088",
+      "canonical_id": "fd-7a874734355315df",
+      "partition": "train",
+      "song_identity_name": "gangsta"
+    },
+    {
+      "key": "089",
+      "canonical_id": "fd-0c08340630224ed1",
+      "partition": "train",
+      "song_identity_name": "JustFriends"
+    },
+    {
+      "key": "090",
+      "canonical_id": "fd-81aac7f5ae2e7fdd",
+      "partition": "train",
+      "song_identity_name": "KeepBboy"
+    },
+    {
+      "key": "091",
+      "canonical_id": "fd-eb95621b209ad8b0",
+      "partition": "train",
+      "song_identity_name": "popping"
+    },
+    {
+      "key": "092",
+      "canonical_id": "fd-16e5cb32123fe4bf",
+      "partition": "test",
+      "song_identity_name": "WeAreOne2017"
+    },
+    {
+      "key": "093",
+      "canonical_id": "fd-891a3e6bc9f5be4c",
+      "partition": "train",
+      "song_identity_name": "whoispoppingking"
+    },
+    {
+      "key": "094",
+      "canonical_id": "fd-5261a1516ce818f8",
+      "partition": "train",
+      "song_identity_name": "chiefRocka"
+    },
+    {
+      "key": "095",
+      "canonical_id": "fd-115c85c54ec48b81",
+      "partition": "train",
+      "song_identity_name": "GetIntoIt"
+    },
+    {
+      "key": "096",
+      "canonical_id": "fd-2005c5502886d0b1",
+      "partition": "train",
+      "song_identity_name": "GoCrazy"
+    },
+    {
+      "key": "097",
+      "canonical_id": "fd-23f9194bae2863c6",
+      "partition": "train",
+      "song_identity_name": "Ikarus"
+    },
+    {
+      "key": "098",
+      "canonical_id": "fd-35e1d1aeed3f7179",
+      "partition": "test",
+      "song_identity_name": "sevenFloul"
+    },
+    {
+      "key": "099",
+      "canonical_id": "fd-495e31529a5c65b6",
+      "partition": "train",
+      "song_identity_name": "Top"
+    },
+    {
+      "key": "100",
+      "canonical_id": "fd-a730bcbaff95349c",
+      "partition": "train",
+      "song_identity_name": "workit_Explicit"
+    },
+    {
+      "key": "101",
+      "canonical_id": "fd-16dc368a89b428b2",
+      "partition": "train",
+      "song_identity_name": "YeahUsherLilJon"
+    },
+    {
+      "key": "102",
+      "canonical_id": "fd-37834f2f25762f23",
+      "partition": "val",
+      "song_identity_name": "34_35"
+    },
+    {
+      "key": "103",
+      "canonical_id": "fd-a730bcbaff95349c",
+      "partition": "train",
+      "song_identity_name": "workit"
+    },
+    {
+      "key": "104",
+      "canonical_id": "fd-3863acb03b696eba",
+      "partition": "train",
+      "song_identity_name": "shuangren1_chenmeiying"
+    },
+    {
+      "key": "105",
+      "canonical_id": "fd-3863acb03b696eba",
+      "partition": "train",
+      "song_identity_name": "shuangren1_tanglanting"
+    },
+    {
+      "key": "106",
+      "canonical_id": "fd-07802b8bf3b0bd3f",
+      "partition": "train",
+      "song_identity_name": "shuangren2_chenmeiying"
+    },
+    {
+      "key": "107",
+      "canonical_id": "fd-07802b8bf3b0bd3f",
+      "partition": "train",
+      "song_identity_name": "shuangren2_tanglanting"
+    },
+    {
+      "key": "108",
+      "canonical_id": "fd-9d7da6efdb4f6764",
+      "partition": "test",
+      "song_identity_name": "shuangren3_chenmeiying"
+    },
+    {
+      "key": "109",
+      "canonical_id": "fd-9d7da6efdb4f6764",
+      "partition": "test",
+      "song_identity_name": "shuangren3_tanglanting"
+    },
+    {
+      "key": "110",
+      "canonical_id": "fd-93e8c2a731fbbda4",
+      "partition": "train",
+      "song_identity_name": "shuangren4_chenmeiying"
+    },
+    {
+      "key": "111",
+      "canonical_id": "fd-93e8c2a731fbbda4",
+      "partition": "train",
+      "song_identity_name": "shuangren4_tanglanting"
+    },
+    {
+      "key": "112",
+      "canonical_id": "fd-5504be320edb3ac1",
+      "partition": "train",
+      "song_identity_name": "shuangren5_chenmeiying"
+    },
+    {
+      "key": "113",
+      "canonical_id": "fd-5504be320edb3ac1",
+      "partition": "train",
+      "song_identity_name": "shuangren5_tanglanting"
+    },
+    {
+      "key": "114",
+      "canonical_id": "fd-580a1cd60cb88c18",
+      "partition": "train",
+      "song_identity_name": "hantang_part1_luozhiyuan"
+    },
+    {
+      "key": "115",
+      "canonical_id": "fd-580a1cd60cb88c18",
+      "partition": "train",
+      "song_identity_name": "hantang_part1_zhoushennan"
+    },
+    {
+      "key": "124",
+      "canonical_id": "fd-b552a9696abf9a86",
+      "partition": "train",
+      "song_identity_name": "aini_47"
+    },
+    {
+      "key": "125",
+      "canonical_id": "fd-b552a9696abf9a86",
+      "partition": "train",
+      "song_identity_name": "aini_maiding"
+    },
+    {
+      "key": "126",
+      "canonical_id": "fd-a39d9c40d97dc216",
+      "partition": "val",
+      "song_identity_name": "guiqulaixi"
+    },
+    {
+      "key": "127",
+      "canonical_id": "fd-a39d9c40d97dc216",
+      "partition": "val",
+      "song_identity_name": "guiqulaixi"
+    },
+    {
+      "key": "128",
+      "canonical_id": "fd-9f9866997bb79809",
+      "partition": "train",
+      "song_identity_name": "qinghuaci"
+    },
+    {
+      "key": "129",
+      "canonical_id": "fd-9f9866997bb79809",
+      "partition": "train",
+      "song_identity_name": "qinghuaci"
+    },
+    {
+      "key": "130",
+      "canonical_id": "fd-7cd46e3ae159d83d",
+      "partition": "test",
+      "song_identity_name": "senorita_47"
+    },
+    {
+      "key": "131",
+      "canonical_id": "fd-7cd46e3ae159d83d",
+      "partition": "test",
+      "song_identity_name": "senorita_maiding"
+    },
+    {
+      "key": "132",
+      "canonical_id": "fd-e97f414942b489c9",
+      "partition": "test",
+      "song_identity_name": "shuixingji"
+    },
+    {
+      "key": "133",
+      "canonical_id": "fd-e97f414942b489c9",
+      "partition": "test",
+      "song_identity_name": "shuixingji"
+    },
+    {
+      "key": "134",
+      "canonical_id": "fd-58df14ea20572da4",
+      "partition": "val",
+      "song_identity_name": "duogaduoye"
+    },
+    {
+      "key": "135",
+      "canonical_id": "fd-58df14ea20572da4",
+      "partition": "val",
+      "song_identity_name": "duogaduoye"
+    },
+    {
+      "key": "136",
+      "canonical_id": "fd-3f4dae2fdcf43d36",
+      "partition": "test",
+      "song_identity_name": "miaozudonglv"
+    },
+    {
+      "key": "137",
+      "canonical_id": "fd-3f4dae2fdcf43d36",
+      "partition": "test",
+      "song_identity_name": "miaozudonglv"
+    },
+    {
+      "key": "138",
+      "canonical_id": "fd-cf88906661a9e48f",
+      "partition": "train",
+      "song_identity_name": "shiguangzhongdePaMiEr"
+    },
+    {
+      "key": "139",
+      "canonical_id": "fd-cf88906661a9e48f",
+      "partition": "train",
+      "song_identity_name": "shiguangzhongdePaMiEr"
+    },
+    {
+      "key": "140",
+      "canonical_id": "fd-5a6539388f3e77ae",
+      "partition": "train",
+      "song_identity_name": "xuanyue01"
+    },
+    {
+      "key": "141",
+      "canonical_id": "fd-5a6539388f3e77ae",
+      "partition": "train",
+      "song_identity_name": "xuanyue01"
+    },
+    {
+      "key": "142",
+      "canonical_id": "fd-abfad174ab0f74a5",
+      "partition": "test",
+      "song_identity_name": "xuanyue02"
+    },
+    {
+      "key": "143",
+      "canonical_id": "fd-abfad174ab0f74a5",
+      "partition": "test",
+      "song_identity_name": "xuanyue02"
+    },
+    {
+      "key": "144",
+      "canonical_id": "fd-ec8bf18af9226078",
+      "partition": "test",
+      "song_identity_name": "ying"
+    },
+    {
+      "key": "145",
+      "canonical_id": "fd-ec8bf18af9226078",
+      "partition": "test",
+      "song_identity_name": "ying"
+    },
+    {
+      "key": "146",
+      "canonical_id": "fd-5dea3b16faec423a",
+      "partition": "train",
+      "song_identity_name": "zhaiputao"
+    },
+    {
+      "key": "147",
+      "canonical_id": "fd-5dea3b16faec423a",
+      "partition": "train",
+      "song_identity_name": "zhaiputao"
+    },
+    {
+      "key": "148",
+      "canonical_id": "fd-ec2e990b934dde55",
+      "partition": "train",
+      "song_identity_name": "kongquedongnanfei"
+    },
+    {
+      "key": "149",
+      "canonical_id": "fd-05ada863a4cf9660",
+      "partition": "train",
+      "song_identity_name": "MeGuestatTu"
+    },
+    {
+      "key": "150",
+      "canonical_id": "fd-9ae2bdd7beedc2e7",
+      "partition": "train",
+      "song_identity_name": "play"
+    },
+    {
+      "key": "151",
+      "canonical_id": "fd-8e612bd1f5d132a3",
+      "partition": "val",
+      "song_identity_name": "xiao"
+    },
+    {
+      "key": "152",
+      "canonical_id": "fd-043066daf2109523",
+      "partition": "val",
+      "song_identity_name": "yanyuxingzhou"
+    },
+    {
+      "key": "153",
+      "canonical_id": "fd-620c9c332101a5ba",
+      "partition": "train",
+      "song_identity_name": "yihunyisu"
+    },
+    {
+      "key": "154",
+      "canonical_id": "fd-1d0ebea552eb43d0",
+      "partition": "train",
+      "song_identity_name": "zentan"
+    },
+    {
+      "key": "155",
+      "canonical_id": "fd-210e3b160c355818",
+      "partition": "train",
+      "song_identity_name": "zuoshouzhiyue"
+    },
+    {
+      "key": "156",
+      "canonical_id": "fd-0fecf9247f3ddc84",
+      "partition": "train",
+      "song_identity_name": "A"
+    },
+    {
+      "key": "157",
+      "canonical_id": "fd-c75de23d89df36ba",
+      "partition": "val",
+      "song_identity_name": "H"
+    },
+    {
+      "key": "158",
+      "canonical_id": "fd-7ed8f0f3b707956d",
+      "partition": "train",
+      "song_identity_name": "I"
+    },
+    {
+      "key": "159",
+      "canonical_id": "fd-ff2ccb6ba423d356",
+      "partition": "val",
+      "song_identity_name": "K"
+    },
+    {
+      "key": "160",
+      "canonical_id": "fd-a512db2741cd2069",
+      "partition": "train",
+      "song_identity_name": "M"
+    },
+    {
+      "key": "161",
+      "canonical_id": "fd-bb668ca955632160",
+      "partition": "test",
+      "song_identity_name": "N"
+    },
+    {
+      "key": "162",
+      "canonical_id": "fd-79d6eaa2676189eb",
+      "partition": "val",
+      "song_identity_name": "O"
+    },
+    {
+      "key": "163",
+      "canonical_id": "fd-3d3286f7cd19074f",
+      "partition": "train",
+      "song_identity_name": "WhatImHere4"
+    },
+    {
+      "key": "164",
+      "canonical_id": "fd-3f9807cb9ae9fb6c",
+      "partition": "train",
+      "song_identity_name": "CocoElvaTia"
+    },
+    {
+      "key": "165",
+      "canonical_id": "fd-2005c5502886d0b1",
+      "partition": "train",
+      "song_identity_name": "GoCrazy"
+    },
+    {
+      "key": "166",
+      "canonical_id": "fd-e0f05da93a0f5a86",
+      "partition": "train",
+      "song_identity_name": "Peaches"
+    },
+    {
+      "key": "167",
+      "canonical_id": "fd-73d3f1ba062585bc",
+      "partition": "train",
+      "song_identity_name": "PlainJaneRemix"
+    },
+    {
+      "key": "168",
+      "canonical_id": "fd-80c3cd40fa35f908",
+      "partition": "train",
+      "song_identity_name": "PraiseTheLord"
+    },
+    {
+      "key": "169",
+      "canonical_id": "fd-f57e5cb1f4532c00",
+      "partition": "train",
+      "song_identity_name": "TheMotto"
+    },
+    {
+      "key": "170",
+      "canonical_id": "fd-734d0759cdb4e0d0",
+      "partition": "train",
+      "song_identity_name": "meilideshenhua"
+    },
+    {
+      "key": "171",
+      "canonical_id": "fd-284de502c9847342",
+      "partition": "val",
+      "song_identity_name": "antifragile"
+    },
+    {
+      "key": "172",
+      "canonical_id": "fd-68519a9eca55c68c",
+      "partition": "val",
+      "song_identity_name": "BitchBetterHaveMyMoney"
+    },
+    {
+      "key": "173",
+      "canonical_id": "fd-f36ea82d3fa4950f",
+      "partition": "val",
+      "song_identity_name": "bloodline"
+    },
+    {
+      "key": "174",
+      "canonical_id": "fd-cc05ee95a7a8460e",
+      "partition": "val",
+      "song_identity_name": "ILLELLA"
+    },
+    {
+      "key": "175",
+      "canonical_id": "fd-dac53c17c250fd4d",
+      "partition": "train",
+      "song_identity_name": "kickit"
+    },
+    {
+      "key": "176",
+      "canonical_id": "fd-cba28b89eb859497",
+      "partition": "val",
+      "song_identity_name": "LOCO"
+    },
+    {
+      "key": "177",
+      "canonical_id": "fd-8cd2510271575d84",
+      "partition": "train",
+      "song_identity_name": "miansha"
+    },
+    {
+      "key": "178",
+      "canonical_id": "fd-01d54579da446ae1",
+      "partition": "train",
+      "song_identity_name": "nxde"
+    },
+    {
+      "key": "179",
+      "canonical_id": "fd-40c897769f55da9b",
+      "partition": "test",
+      "song_identity_name": "pinkvenom"
+    },
+    {
+      "key": "180",
+      "canonical_id": "fd-f36ea82d3fa4950f",
+      "partition": "val",
+      "song_identity_name": "bloodline"
+    },
+    {
+      "key": "181",
+      "canonical_id": "fd-580811fa95269f3e",
+      "partition": "val",
+      "song_identity_name": "Donatella"
+    },
+    {
+      "key": "182",
+      "canonical_id": "fd-bfa7634640c53da7",
+      "partition": "train",
+      "song_identity_name": "fiesta"
+    },
+    {
+      "key": "183",
+      "canonical_id": "fd-b8aed072d29403ec",
+      "partition": "train",
+      "song_identity_name": "panorama"
+    },
+    {
+      "key": "184",
+      "canonical_id": "fd-52f11620e397f867",
+      "partition": "train",
+      "song_identity_name": "Takemedown"
+    },
+    {
+      "key": "185",
+      "canonical_id": "fd-61a229bae1e90331",
+      "partition": "train",
+      "song_identity_name": "TakiTaki"
+    },
+    {
+      "key": "186",
+      "canonical_id": "fd-2811745d7b8d8874",
+      "partition": "train",
+      "song_identity_name": "world"
+    },
+    {
+      "key": "187",
+      "canonical_id": "fd-38b2d03f3256502b",
+      "partition": "train",
+      "song_identity_name": 711
+    },
+    {
+      "key": "188",
+      "canonical_id": "fd-d6061bbee6cf13bd",
+      "partition": "train",
+      "song_identity_name": "BolaRebola"
+    },
+    {
+      "key": "189",
+      "canonical_id": "fd-7045d16ae7f043ec",
+      "partition": "train",
+      "song_identity_name": "breakupwithyourgf"
+    },
+    {
+      "key": "190",
+      "canonical_id": "fd-2397346b45823e07",
+      "partition": "val",
+      "song_identity_name": "BTBT"
+    },
+    {
+      "key": "191",
+      "canonical_id": "fd-70260742c2952154",
+      "partition": "train",
+      "song_identity_name": "cheers"
+    },
+    {
+      "key": "192",
+      "canonical_id": "fd-eb3be230bbd2844b",
+      "partition": "val",
+      "song_identity_name": "cheers_part2"
+    },
+    {
+      "key": "193",
+      "canonical_id": "fd-684fe39f03758de6",
+      "partition": "test",
+      "song_identity_name": "dreamscometrue"
+    },
+    {
+      "key": "194",
+      "canonical_id": "fd-7559ca4a957c8c82",
+      "partition": "train",
+      "song_identity_name": "dumbdumb"
+    },
+    {
+      "key": "195",
+      "canonical_id": "fd-1dfacb2ea5a03e0a",
+      "partition": "train",
+      "song_identity_name": "G4L"
+    },
+    {
+      "key": "196",
+      "canonical_id": "fd-b4bbe448fde336bb",
+      "partition": "val",
+      "song_identity_name": "gunshot"
+    },
+    {
+      "key": "197",
+      "canonical_id": "fd-8bcbb4c131df56f7",
+      "partition": "train",
+      "song_identity_name": "hot"
+    },
+    {
+      "key": "198",
+      "canonical_id": "fd-a4e00d7e6aa82111",
+      "partition": "test",
+      "song_identity_name": "idoit4"
+    },
+    {
+      "key": "199",
+      "canonical_id": "fd-cc05ee95a7a8460e",
+      "partition": "val",
+      "song_identity_name": "ILLELLA"
+    },
+    {
+      "key": "200",
+      "canonical_id": "fd-473acd54bc818781",
+      "partition": "train",
+      "song_identity_name": "killthislove"
+    },
+    {
+      "key": "201",
+      "canonical_id": "fd-43974ed74066b207",
+      "partition": "train",
+      "song_identity_name": "monster"
+    },
+    {
+      "key": "202",
+      "canonical_id": "fd-c17edaae86e4016a",
+      "partition": "val",
+      "song_identity_name": "nextlevel"
+    },
+    {
+      "key": "203",
+      "canonical_id": "fd-4621c1d55fa4e86c",
+      "partition": "val",
+      "song_identity_name": "positions"
+    },
+    {
+      "key": "204",
+      "canonical_id": "fd-fc56dbc6d4652b31",
+      "partition": "test",
+      "song_identity_name": "redeye"
+    },
+    {
+      "key": "205",
+      "canonical_id": "fd-f8809aff4d69bece",
+      "partition": "train",
+      "song_identity_name": "RingTheAlarm"
+    },
+    {
+      "key": "206",
+      "canonical_id": "fd-5cf4e26bd3d87da5",
+      "partition": "train",
+      "song_identity_name": "Run2U"
+    },
+    {
+      "key": "207",
+      "canonical_id": "fd-968076be2e38cf89",
+      "partition": "train",
+      "song_identity_name": "suffer"
+    },
+    {
+      "key": "208",
+      "canonical_id": "fd-8df66f64b5742439",
+      "partition": "train",
+      "song_identity_name": "Tomboy"
+    },
+    {
+      "key": "209",
+      "canonical_id": "fd-83f814f7a92e365c",
+      "partition": "train",
+      "song_identity_name": "UhOH"
+    },
+    {
+      "key": "210",
+      "canonical_id": "fd-d29d53701d3c859e",
+      "partition": "train",
+      "song_identity_name": "wadada"
+    },
+    {
+      "key": "211",
+      "canonical_id": "fd-093434a3ee9e0a01",
+      "partition": "test",
+      "song_identity_name": "wuluodehuaban"
+    }
+  ],
+  "oslo_matches": [],
+  "stage11_oslo_matches": [],
+  "limitations": "No title match cannot authenticate audio dedup. Aliases, remixes, covers, truncated/generic names and untitled/combined songs may still overlap; no such unresolved case may be silently admitted."
+}

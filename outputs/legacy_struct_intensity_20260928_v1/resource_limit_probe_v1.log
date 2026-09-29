@@ -1,0 +1,11 @@
+Running as unit: lightsem-struct-limit-probe-v1.service; invocation ID: 914d0f83b0b842f3b08e502e2b322938
+Traceback (most recent call last):
+  File "/root/lightsem/outputs/legacy_struct_intensity_20260928_v1/probe_systemd_limits_v1.py", line 33, in <module>
+    assert properties.get('KillSignal') in ('9', 'SIGKILL'), properties
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: {'Description': '[systemd-run] /usr/bin/bash /root/lightsem/run.sh -u /root/lightsem/outputs/legacy_struct_intensity_20260928_v1/probe_systemd_limits_v1.py --unit lightsem-struct-limit-probe-v1.service --expected-memory-bytes 4294967296 --expected-runtime-text 2s', 'MemoryMax': '4294967296', 'MemorySwapMax': '0', 'RuntimeMaxSec': '2s', 'KillMode': 'control-group', 'KillSignal': 'KILL', 'PrivateDevices': 'yes', 'ProtectControlGroups': 'yes', 'NoNewPrivileges': 'yes', 'WorkingDirectory': '/root/lightsem', 'Environment': '"CUDA_VISIBLE_DEVICES=" "PYTHONDONTWRITEBYTECODE=1"', 'ExecStart': '"/usr/bin/bash" "/root/lightsem/run.sh" "-u" "/root/lightsem/outputs/legacy_struct_intensity_20260928_v1/probe_systemd_limits_v1.py" "--unit" "lightsem-struct-limit-probe-v1.service" "--expected-memory-bytes" "4294967296" "--expected-runtime-text" "2s"'}
+          Finished with result: exit-code
+Main processes terminated with: code=exited, status=1/FAILURE
+               Service runtime: 31ms
+             CPU time consumed: 25ms
+                   Memory peak: 6.1M (swap: 0B)

@@ -1,0 +1,44 @@
+{
+  "checks": [
+    "success_exact_inventory_max3_and_global_sum_reservation",
+    "no_overwrite_or_retry",
+    "first_error_no_refill_partials_preserved",
+    "timeout_terminates_child_process_groups_including_descendants",
+    "global_storage_error_stops_active_children",
+    "changed_input_refuses_before_child_launch",
+    "incomplete_training_queue_refused_before_project_or_gpu_access"
+  ],
+  "checks_failed": 0,
+  "checks_passed": 7,
+  "claim_limit": "Synthetic scheduler lifecycle checks only; real scientific binding dry-run is pending original15-fit completion and30-checkpoint registration.",
+  "commands": {
+    "self_test": "TORCH_ENV=/root/lightsem/.venv/torch-access bash run_torch.sh /root/lightsem/docs/research/2026-09-22-color-beat/run_observer_parallel_predictions_v1.py --self-test",
+    "syntax": "from pathlib import Path; p=Path('/root/lightsem/docs/research/2026-09-22-color-beat/run_observer_parallel_predictions_v1.py'); compile(p.read_text(),str(p),\"exec\"); print(\"syntax OK; no project imports or CUDA\")"
+  },
+  "cuda_used": false,
+  "dataset_access": false,
+  "exit_codes": {
+    "self_test": 0,
+    "syntax": 0
+  },
+  "logs": {
+    "self_test": {
+      "path": "/root/lightsem/docs/research/2026-09-22-color-beat/observer_parallel_predictions_cpu_test_20260922t144518z.log",
+      "sha256": "8b6ba093fc4f6dd7654bf64f05cb992324907626d5f516f33a585ee4434d870a"
+    },
+    "syntax": {
+      "path": "/root/lightsem/docs/research/2026-09-22-color-beat/observer_parallel_predictions_syntax_20260922t144518z.log",
+      "sha256": "7aeccb309e401e900d7721164ad1f62fc30c6698dcde67b85ccc252bb1907cb9"
+    }
+  },
+  "native_environment": "/root/lightsem/.venv/torch-access via bash run_torch.sh",
+  "schema_version": 1,
+  "scope": "synthetic_cpu_only",
+  "source": {
+    "path": "/root/lightsem/docs/research/2026-09-22-color-beat/run_observer_parallel_predictions_v1.py",
+    "sha256": "53d28236dd56e1f200d568e739fe3ab8e21f12e0eec5e9aaa59afcf151582456"
+  },
+  "status": "passed",
+  "syntax_check_passed": true,
+  "timestamp": "2026-09-22T14:45:57.633266+00:00"
+}

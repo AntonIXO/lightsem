@@ -1,0 +1,23 @@
+{
+  "status": "disclosed_native_schema_default_additions",
+  "experiment_id": "audio-predicts-lighting-events-when-the-scene-changes-even-though-it-does-not-pr-exp-2026-08-07t13-50-58",
+  "strict_all_noninterpretation_metadata_equality": "FAILED:4 previously absent empty-default fields were inserted by native serializer",
+  "added_defaults": {
+    "former_ids": [],
+    "recipe_fingerprint": {},
+    "do_not_retry": [],
+    "key_numbers": {}
+  },
+  "all_preexisting_noninterpretation_fields_unchanged": true,
+  "all_body_except_interpretation_unchanged": true,
+  "all_hypothesis_files_unchanged": true,
+  "scientific_values_verdicts_gates_notes_predictions_changed": false,
+  "reason": "Native interpret_experiment rewrites the experiment with current model schema defaults. No manual record rewrite or removal is performed. This is an administrative schema normalization, not scientific tolerance expansion.",
+  "before_sha256": "2ee2817382bca3257aa60af0a8b681148ca41cb70b811d158dbf9c56851fb22d",
+  "after_sha256": "797f2f413b00c2e23be59e5beedc04d0e3c50abf1d77397fa2692965e01151c5",
+  "definition": {
+    "path": "/root/lightsem/docs/research/2026-09-28-end-to-end/CLAIM_SCOPE_NATIVE_REPAIR_DEFINITION_V1.json",
+    "sha256": "53788029112ac1d7f988f3f88b64cbbe4a958f81764c52170092e6d72eacc72c",
+    "bytes": 108506
+  }
+}

@@ -1,0 +1,8 @@
+{
+  "experiment_id": "exp-025-feeding-the-group-decoder-the-6ba213",
+  "verdict": "directional_only",
+  "failure_mode": "recipe_conditional",
+  "lesson": "[2026-09-28 retrospective interpretation; no new experiment] The completed causal decoder sweep reported own-cue lift 2.41 versus audio-only 2.41 on JD and 1.31 versus 1.33 on RPMC, but per-song decoder confidence intervals were not stored, leaving G10.2-self failed and its uncertainty requirement unqualified while G10.2-size is complete. In the separate JD operator-head test, own-cue lift 1.83 was below audio-only 2.32 (paired difference -0.49, CI [-0.94, -0.15]) and reference-history 3.17, showing that the privileged-history advantage did not carry over under this tested recursion. The operator-head interval cannot fill the decoder endpoint, absent decoder intervals do not establish equivalence, and these results do not reject all history methods or establish human LIGHT acceptance.",
+  "transfers_to": [],
+  "hint": "recipe_conditional: when the recipe changes, reopen_hypothesis('feeding-the-group-decoder-the-hazard-features-d0f637', reason=...) makes the negative re-testable instead of terminal"
+}

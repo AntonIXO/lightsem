@@ -1,0 +1,461 @@
+{
+  "schema_version": 1,
+  "created_at_utc": "2026-09-28T22:03:33.462070+00:00",
+  "status": "bounded_project_archive_search_complete_no_stronger_run_binding_found",
+  "goal_status": "active",
+  "new_execution_authority": false,
+  "original_gate_completed": false,
+  "hypothesis_id": "the-deployed-path-meets-its-latency-budget-and-b0aff5",
+  "experiment_id": "exp-006-the-deployed-path-meets-its-eb0fc6",
+  "prior_report_preserved": {
+    "path": "/root/lightsem/docs/research/2026-09-28-end-to-end/ROW65_CAUSALITY_PROVENANCE_READINESS_V1.json",
+    "sha256": "306a5c439547cb09ae7683515914b628301720af083a1c7c53023d16a5de06c9",
+    "status": "blocked_exact_historical_version_not_authenticated",
+    "repeated_Git_vault_source_review": false
+  },
+  "answer": "Within the permitted project-artifact scope, no executed command/source or dirty-patch digest/checkpoint hash/calibration/environment pin was found. The explicitly allowed old latency report supplies numeric software summaries and partial structural metadata, but no stronger run-to-bytes binding. Exact historical reconstruction remains provenance-blocked. This is not a claim that every possible archive lacks such evidence.",
+  "searched_scope": {
+    "roots": [
+      "/root/lightsem/docs",
+      "/root/lightsem/logs",
+      "/root/lightsem/outputs"
+    ],
+    "discovery_mode": "Recursive filename/path discovery with directory symlink following disabled; file symlinks skipped before candidate stat/content access. Other output files remained filename-only. Project log/top-level doc names also inspected for eligibility.",
+    "observed_file_entry_counts": {
+      "docs": {
+        "exists": true,
+        "files_seen": 323,
+        "dirs_seen": 11
+      },
+      "logs": {
+        "exists": true,
+        "files_seen": 97,
+        "dirs_seen": 1
+      },
+      "outputs": {
+        "exists": true,
+        "files_seen": 1013,
+        "dirs_seen": 42
+      }
+    },
+    "entry_count_note": "File entries seen includes skipped file symlinks; counts are the discovery snapshot, not content reads.",
+    "primary_case_insensitive_pattern": "(stage[-_ ]?4|latency|row65|provenance|execution|run[-_]?log)",
+    "additional_case_insensitive_alias_pattern": "(exp-006|the-deployed-path-meets-its|causality)",
+    "additional_alias_matches": 0,
+    "stage4_file_inventory": [
+      "outputs/stage4/latency.json"
+    ],
+    "candidate_name_matches": 22,
+    "walk_errors": [],
+    "skipped_symlink_paths": [
+      "/root/lightsem/logs/jd_pose_new.txt",
+      "/root/lightsem/outputs/rhythm_companion_20260912_comparison_1080p_av1.mp4",
+      "/root/lightsem/outputs/rhythm_companion_20260912_light_1080p_av1.mp4",
+      "/root/lightsem/outputs/surface_correction/report.md",
+      "/root/lightsem/outputs/surface_correction/shpongle_revised.mp4",
+      "/root/lightsem/outputs/surface_correction/shpongle_before_after.mp4"
+    ],
+    "no_symlink_traversal_outside_repo": true,
+    "internal_link_metadata_note": {
+      "path": "/root/lightsem/logs/jd_pose_new.txt",
+      "link_text": "/root/lightsem/logs/jd_pose_resume.txt",
+      "detail": "Supplementary top-level filename listing evaluated is_file before symlink guard, so it may have statted this internal target. Neither log was opened. Recursive discovery skipped the link. No outside-repo target traversal occurred."
+    }
+  },
+  "content_reads": [
+    {
+      "path": "/root/lightsem/docs/research/2026-09-28-end-to-end/ROW65_CAUSALITY_PROVENANCE_READINESS_V1.json",
+      "category": "instructed prior readiness report",
+      "sha256": "306a5c439547cb09ae7683515914b628301720af083a1c7c53023d16a5de06c9",
+      "bytes": 27116
+    },
+    {
+      "path": "/root/lightsem/outputs/stage4/latency.json",
+      "category": "existing published numeric software timing report; entire report read, not metadata-only access",
+      "sha256_at_review": "c9b7947d903a79931e6280926cfb63038d1c0763e20bc530389b5ed663b09f5e",
+      "bytes": 2223,
+      "current_hash_authenticates_historical_execution": false
+    }
+  ],
+  "explicit_exclusions": [
+    "No other agents/session transcripts or handoff contents; conversation/handoff-named project log files were excluded by filename.",
+    "No home shell history, credentials or out-of-project paths.",
+    "No raw manifests/audio/NPZ/checkpoint arrays, checkpoint hashing, models/imports/tests/replay, sealedTEST payloads or server calls.",
+    "No unrelated candidate outputs or generic execution-plan payloads.",
+    "No new Git/vault/source review; the prior readiness report was used for its existing source-history findings."
+  ],
+  "old_report_observations": {
+    "path": "/root/lightsem/outputs/stage4/latency.json",
+    "top_level_keys": [
+      "device",
+      "params_m",
+      "causality",
+      "receptive_field_frames",
+      "receptive_field_s",
+      "model_chunk_1f",
+      "model_chunk_4f",
+      "model_chunk_8f",
+      "model_chunk_20f",
+      "conductor_per_frame",
+      "dmx_pack_per_frame",
+      "transient_dsp_stage",
+      "transient_path_fast_ms",
+      "budget",
+      "gates"
+    ],
+    "all_observed_keys": [
+      "device",
+      "params_m",
+      "causality",
+      "causality.max_leak",
+      "causality.per_cut",
+      "causality.bit_identical",
+      "receptive_field_frames",
+      "receptive_field_s",
+      "model_chunk_1f",
+      "model_chunk_1f.p50_ms",
+      "model_chunk_1f.p99_ms",
+      "model_chunk_1f.mean_ms",
+      "model_chunk_1f.n",
+      "model_chunk_4f",
+      "model_chunk_4f.p50_ms",
+      "model_chunk_4f.p99_ms",
+      "model_chunk_4f.mean_ms",
+      "model_chunk_4f.n",
+      "model_chunk_8f",
+      "model_chunk_8f.p50_ms",
+      "model_chunk_8f.p99_ms",
+      "model_chunk_8f.mean_ms",
+      "model_chunk_8f.n",
+      "model_chunk_20f",
+      "model_chunk_20f.p50_ms",
+      "model_chunk_20f.p99_ms",
+      "model_chunk_20f.mean_ms",
+      "model_chunk_20f.n",
+      "conductor_per_frame",
+      "conductor_per_frame.p50_ms",
+      "conductor_per_frame.p99_ms",
+      "conductor_per_frame.mean_ms",
+      "conductor_per_frame.n",
+      "dmx_pack_per_frame",
+      "dmx_pack_per_frame.p50_ms",
+      "dmx_pack_per_frame.p99_ms",
+      "dmx_pack_per_frame.mean_ms",
+      "dmx_pack_per_frame.n",
+      "transient_dsp_stage",
+      "transient_dsp_stage.p50_ms",
+      "transient_dsp_stage.p99_ms",
+      "transient_dsp_stage.mean_ms",
+      "transient_dsp_stage.n",
+      "transient_path_fast_ms",
+      "budget",
+      "budget.audio_block_ms",
+      "budget.model_p50_ms",
+      "budget.model_p99_ms",
+      "budget.conductor_ms",
+      "budget.network_ms_assumed",
+      "budget.fixture_ms_assumed",
+      "budget.learned_path_p50_ms",
+      "budget.learned_path_p99_ms",
+      "budget.transient_path_ms",
+      "budget.transient_path_fast_ms",
+      "budget.budget_learned_ms",
+      "budget.budget_transient_ms",
+      "gates",
+      "gates.transient_path_le_20ms",
+      "gates.transient_path_le_20ms.passed",
+      "gates.transient_path_le_20ms.evidence",
+      "gates.learned_path_le_65ms",
+      "gates.learned_path_le_65ms.passed",
+      "gates.learned_path_le_65ms.evidence",
+      "gates.causality_bit_identical",
+      "gates.causality_bit_identical.passed",
+      "gates.causality_bit_identical.evidence"
+    ],
+    "strong_binding_fields_present": [],
+    "device": "cuda",
+    "params_m": 9.27509,
+    "receptive_field_frames": 1039,
+    "receptive_field_s": 25.975,
+    "causality": {
+      "max_leak": 0.0,
+      "per_cut": [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "bit_identical": true
+    },
+    "timing_summary": {
+      "transient_path_fast_ms": 10.82354774018445,
+      "transient_budget_ms": 20.0,
+      "learned_path_p99_ms": 62.534401727972,
+      "learned_budget_ms": 65.0,
+      "assumed_network_ms": 5.0,
+      "assumed_fixture_ms": 30.0
+    },
+    "conductor_pack_schema": {
+      "conductor_n": 100,
+      "pack_n": 100,
+      "each_reports_identical_p50_p99_mean": true,
+      "amortised_field_present": false
+    },
+    "limited_inference": "The n100 identical conductor/packing summaries are compatible with the older candidate timing schema described in V1 rather than its later20-repeat amendment. Compatibility and parameter count do not authenticate executed commit, dirty tree, checkpoint payload or environment. No numerical rerun or recalculation of model performance was made.",
+    "absent_bindings": [
+      "Executed command/invocation/run ID",
+      "Executed source commit/tree or dirty-patch digest",
+      "Loaded checkpoint path/content hash/full configuration",
+      "Calibration/scaler identity/hash",
+      "Environment/package/interpreter/driver or RNG pins",
+      "Report-to-source/checkpoint execution attestation"
+    ],
+    "scope_limit": "Published numeric latency and four zero causality summary entries cannot establish the missing future-AUDIO→output perturbation. The original instrument boundary stays as recorded in V1; no stronger test is claimed."
+  },
+  "candidate_dispositions": [
+    {
+      "path": "/root/lightsem/docs/research/2026-09-28-end-to-end/ROW65_CAUSALITY_PROVENANCE_READINESS_V1.json",
+      "relative_path": "docs/research/2026-09-28-end-to-end/ROW65_CAUSALITY_PROVENANCE_READINESS_V1.json",
+      "size_bytes": 27116,
+      "scope_root": "docs",
+      "candidate_name_only": true,
+      "content_read": true,
+      "disposition": "Read as instructed prerequisite; prior readiness report, not a new historical binding."
+    },
+    {
+      "path": "/root/lightsem/docs/research/2026-09-28-end-to-end/EXECUTION_PLAN_V1.json",
+      "relative_path": "docs/research/2026-09-28-end-to-end/EXECUTION_PLAN_V1.json",
+      "size_bytes": 4288,
+      "scope_root": "docs",
+      "candidate_name_only": true,
+      "content_read": false,
+      "disposition": "Filename/path does not demonstrate a historical row65/stage4 execution log or binding snapshot; no content read."
+    },
+    {
+      "path": "/root/lightsem/docs/research/2026-09-28-end-to-end/ROW65_CAUSALITY_PROVENANCE_READINESS_V1.md",
+      "relative_path": "docs/research/2026-09-28-end-to-end/ROW65_CAUSALITY_PROVENANCE_READINESS_V1.md",
+      "size_bytes": 7061,
+      "scope_root": "docs",
+      "candidate_name_only": true,
+      "content_read": false,
+      "disposition": "Prior report already represented by instructed V1JSON; content not reread."
+    },
+    {
+      "path": "/root/lightsem/outputs/pose_stage_sheet_provenance.md",
+      "relative_path": "outputs/pose_stage_sheet_provenance.md",
+      "size_bytes": 732,
+      "scope_root": "outputs",
+      "candidate_name_only": true,
+      "content_read": false,
+      "disposition": "Filename/path does not demonstrate a historical row65/stage4 execution log or binding snapshot; no content read."
+    },
+    {
+      "path": "/root/lightsem/outputs/legacy_struct_intensity_20260928_v1/PREPARATION_EXECUTION_BINDING_V6.json",
+      "relative_path": "outputs/legacy_struct_intensity_20260928_v1/PREPARATION_EXECUTION_BINDING_V6.json",
+      "size_bytes": 2517,
+      "scope_root": "outputs",
+      "candidate_name_only": true,
+      "content_read": false,
+      "disposition": "Filename/path does not demonstrate a historical row65/stage4 execution log or binding snapshot; no content read."
+    },
+    {
+      "path": "/root/lightsem/outputs/legacy_struct_intensity_20260928_v1/PREPARATION_EXECUTION_BINDING_V5.json",
+      "relative_path": "outputs/legacy_struct_intensity_20260928_v1/PREPARATION_EXECUTION_BINDING_V5.json",
+      "size_bytes": 2494,
+      "scope_root": "outputs",
+      "candidate_name_only": true,
+      "content_read": false,
+      "disposition": "Filename/path does not demonstrate a historical row65/stage4 execution log or binding snapshot; no content read."
+    },
+    {
+      "path": "/root/lightsem/outputs/legacy_struct_intensity_20260928_v1/vault_preparation_execution_v5_payload.json",
+      "relative_path": "outputs/legacy_struct_intensity_20260928_v1/vault_preparation_execution_v5_payload.json",
+      "size_bytes": 1977,
+      "scope_root": "outputs",
+      "candidate_name_only": true,
+      "content_read": false,
+      "disposition": "Filename/path does not demonstrate a historical row65/stage4 execution log or binding snapshot; no content read."
+    },
+    {
+      "path": "/root/lightsem/outputs/legacy_struct_intensity_20260928_v1/NATIVE_PREPARATION_EXECUTION_RESULT_V6.json",
+      "relative_path": "outputs/legacy_struct_intensity_20260928_v1/NATIVE_PREPARATION_EXECUTION_RESULT_V6.json",
+      "size_bytes": 2935,
+      "scope_root": "outputs",
+      "candidate_name_only": true,
+      "content_read": false,
+      "disposition": "Filename/path does not demonstrate a historical row65/stage4 execution log or binding snapshot; no content read."
+    },
+    {
+      "path": "/root/lightsem/outputs/legacy_struct_intensity_20260928_v1/vault_preparation_execution_v6_receipt.json",
+      "relative_path": "outputs/legacy_struct_intensity_20260928_v1/vault_preparation_execution_v6_receipt.json",
+      "size_bytes": 116212,
+      "scope_root": "outputs",
+      "candidate_name_only": true,
+      "content_read": false,
+      "disposition": "Filename/path does not demonstrate a historical row65/stage4 execution log or binding snapshot; no content read."
+    },
+    {
+      "path": "/root/lightsem/outputs/legacy_struct_intensity_20260928_v1/vault_preparation_execution_v6_payload.json",
+      "relative_path": "outputs/legacy_struct_intensity_20260928_v1/vault_preparation_execution_v6_payload.json",
+      "size_bytes": 1858,
+      "scope_root": "outputs",
+      "candidate_name_only": true,
+      "content_read": false,
+      "disposition": "Filename/path does not demonstrate a historical row65/stage4 execution log or binding snapshot; no content read."
+    },
+    {
+      "path": "/root/lightsem/outputs/legacy_struct_intensity_20260928_v1/vault_preparation_execution_v5_receipt.json",
+      "relative_path": "outputs/legacy_struct_intensity_20260928_v1/vault_preparation_execution_v5_receipt.json",
+      "size_bytes": 108439,
+      "scope_root": "outputs",
+      "candidate_name_only": true,
+      "content_read": false,
+      "disposition": "Filename/path does not demonstrate a historical row65/stage4 execution log or binding snapshot; no content read."
+    },
+    {
+      "path": "/root/lightsem/outputs/shpongle_model_comparisons_20260928_v1/vault_comparison_execution_v2_receipt.json",
+      "relative_path": "outputs/shpongle_model_comparisons_20260928_v1/vault_comparison_execution_v2_receipt.json",
+      "size_bytes": 88876,
+      "scope_root": "outputs",
+      "candidate_name_only": true,
+      "content_read": false,
+      "disposition": "Filename/path does not demonstrate a historical row65/stage4 execution log or binding snapshot; no content read."
+    },
+    {
+      "path": "/root/lightsem/outputs/shpongle_model_comparisons_20260928_v1/vault_comparison_execution_v2_payload.json",
+      "relative_path": "outputs/shpongle_model_comparisons_20260928_v1/vault_comparison_execution_v2_payload.json",
+      "size_bytes": 2106,
+      "scope_root": "outputs",
+      "candidate_name_only": true,
+      "content_read": false,
+      "disposition": "Filename/path does not demonstrate a historical row65/stage4 execution log or binding snapshot; no content read."
+    },
+    {
+      "path": "/root/lightsem/outputs/shpongle_model_comparisons_20260928_v1/EXECUTION_AUTHORIZATION_V2.json",
+      "relative_path": "outputs/shpongle_model_comparisons_20260928_v1/EXECUTION_AUTHORIZATION_V2.json",
+      "size_bytes": 7894,
+      "scope_root": "outputs",
+      "candidate_name_only": true,
+      "content_read": false,
+      "disposition": "Filename/path does not demonstrate a historical row65/stage4 execution log or binding snapshot; no content read."
+    },
+    {
+      "path": "/root/lightsem/outputs/shpongle_model_comparisons_20260928_v1/EXECUTION_COMMANDS_V2.json",
+      "relative_path": "outputs/shpongle_model_comparisons_20260928_v1/EXECUTION_COMMANDS_V2.json",
+      "size_bytes": 7287,
+      "scope_root": "outputs",
+      "candidate_name_only": true,
+      "content_read": false,
+      "disposition": "Filename/path does not demonstrate a historical row65/stage4 execution log or binding snapshot; no content read."
+    },
+    {
+      "path": "/root/lightsem/outputs/stage4/latency.json",
+      "relative_path": "outputs/stage4/latency.json",
+      "size_bytes": 2223,
+      "scope_root": "outputs",
+      "candidate_name_only": true,
+      "content_read": true,
+      "disposition": "Read in full under explicit permission for existing row65/stage4 numeric timing report."
+    },
+    {
+      "path": "/root/lightsem/outputs/shpongle_layers_demo_20260922T161917Z/palette_secondary_v1/PARTIAL_VALIDATOR_EXECUTION_RECEIPT_V1.json",
+      "relative_path": "outputs/shpongle_layers_demo_20260922T161917Z/palette_secondary_v1/PARTIAL_VALIDATOR_EXECUTION_RECEIPT_V1.json",
+      "size_bytes": 1418,
+      "scope_root": "outputs",
+      "candidate_name_only": true,
+      "content_read": false,
+      "disposition": "Filename/path does not demonstrate a historical row65/stage4 execution log or binding snapshot; no content read."
+    },
+    {
+      "path": "/root/lightsem/outputs/shpongle_layers_demo_20260922T161917Z/palette_secondary_v1/PALETTE_REPLAY_EXECUTION_AMENDMENT_V1.json",
+      "relative_path": "outputs/shpongle_layers_demo_20260922T161917Z/palette_secondary_v1/PALETTE_REPLAY_EXECUTION_AMENDMENT_V1.json",
+      "size_bytes": 4195,
+      "scope_root": "outputs",
+      "candidate_name_only": true,
+      "content_read": false,
+      "disposition": "Filename/path does not demonstrate a historical row65/stage4 execution log or binding snapshot; no content read."
+    },
+    {
+      "path": "/root/lightsem/outputs/shpongle_layers_demo_20260922T161917Z/palette_secondary_v1/vault_execution_payloads.json",
+      "relative_path": "outputs/shpongle_layers_demo_20260922T161917Z/palette_secondary_v1/vault_execution_payloads.json",
+      "size_bytes": 2970,
+      "scope_root": "outputs",
+      "candidate_name_only": true,
+      "content_read": false,
+      "disposition": "Filename/path does not demonstrate a historical row65/stage4 execution log or binding snapshot; no content read."
+    },
+    {
+      "path": "/root/lightsem/outputs/shpongle_layers_demo_20260922T161917Z/palette_secondary_v1/EXECUTION_HANDOFF.md",
+      "relative_path": "outputs/shpongle_layers_demo_20260922T161917Z/palette_secondary_v1/EXECUTION_HANDOFF.md",
+      "size_bytes": 5176,
+      "scope_root": "outputs",
+      "candidate_name_only": true,
+      "content_read": false,
+      "disposition": "Filename/path does not demonstrate a historical row65/stage4 execution log or binding snapshot; no content read."
+    },
+    {
+      "path": "/root/lightsem/outputs/shpongle_layers_demo_20260922T161917Z/palette_secondary_v1/vault_execution_receipt.json",
+      "relative_path": "outputs/shpongle_layers_demo_20260922T161917Z/palette_secondary_v1/vault_execution_receipt.json",
+      "size_bytes": 1069,
+      "scope_root": "outputs",
+      "candidate_name_only": true,
+      "content_read": false,
+      "disposition": "Filename/path does not demonstrate a historical row65/stage4 execution log or binding snapshot; no content read."
+    },
+    {
+      "path": "/root/lightsem/outputs/shpongle_layers_demo_20260922T161917Z/palette_secondary_v1/CONTINUATION_EXECUTION_HANDOFF_V1.md",
+      "relative_path": "outputs/shpongle_layers_demo_20260922T161917Z/palette_secondary_v1/CONTINUATION_EXECUTION_HANDOFF_V1.md",
+      "size_bytes": 4609,
+      "scope_root": "outputs",
+      "candidate_name_only": true,
+      "content_read": false,
+      "disposition": "Filename/path does not demonstrate a historical row65/stage4 execution log or binding snapshot; no content read."
+    }
+  ],
+  "remaining_gaps": [
+    {
+      "id": "G-source",
+      "boundary": "Executed historical source tree",
+      "status": "unresolved",
+      "change_from_V1": "No authenticated run binding found in permitted project archive."
+    },
+    {
+      "id": "G-checkpoint",
+      "boundary": "Executed weight/config/normalization bytes",
+      "status": "unresolved",
+      "change_from_V1": "No authenticated run binding found in permitted project archive."
+    },
+    {
+      "id": "G-upstream",
+      "boundary": "Audio feature builder, beat clock and descriptor/conductor/DMX lineage",
+      "status": "unresolved",
+      "change_from_V1": "No authenticated run binding found in permitted project archive."
+    },
+    {
+      "id": "G-state",
+      "boundary": "Environment, invocation, RNG and primed state",
+      "status": "unresolved",
+      "change_from_V1": "No authenticated run binding found in permitted project archive."
+    },
+    {
+      "id": "G-result-link",
+      "boundary": "Result file to executed asset linkage",
+      "status": "unresolved",
+      "change_from_V1": "Old report now read and post-hoc fingerprinted; no historical run-binding pin added."
+    }
+  ],
+  "disposition": "Retain row65 exact-version reconstruction as provenance-blocked and its original audio-path component unmeasured/unauthenticated. Preserve V1. Do not substitute currentHEAD, candidate defaults, plausible mtimes or this current report digest. No current-version substitution study is proposed or authorized by this addendum.",
+  "access_compliance": {
+    "numeric_report_access_performed": true,
+    "numeric_report_exact_path": "/root/lightsem/outputs/stage4/latency.json",
+    "numeric_report_access_explicitly_authorized": true,
+    "other_numeric_or_sensitive_payload_access": false,
+    "checkpoint_payload_or_hash_access": false,
+    "agent_transcript_content_access": false,
+    "Git_commands": false,
+    "vault_or_server_calls": false,
+    "model_test_script_execution": false,
+    "existing_file_mutations": false,
+    "new_exclusive_report_pair_only": true
+  }
+}

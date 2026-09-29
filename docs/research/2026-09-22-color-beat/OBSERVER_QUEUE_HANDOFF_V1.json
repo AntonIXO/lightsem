@@ -1,0 +1,83 @@
+{
+  "cpu_test_receipt_path": "/tmp/light_layers_campaign_cpu_receipt_082b9dcfc364.json",
+  "cpu_test_receipt_sha256": "3d624408bfa3063486f8d192cb8f77988c994bc81f442fec663737b9dda6f446",
+  "dry_run": "Add --dry-run; validates withoutcreating outputdir/launching.",
+  "files_owned": [
+    "/root/lightsem/lightsem/experiments/light_layers/training.py",
+    "/root/lightsem/run_light_layers_train.py",
+    "/root/lightsem/tests/test_light_layers_training.py",
+    "/root/lightsem/run_light_layers_campaign.py",
+    "/root/lightsem/tests/test_light_layers_campaign.py"
+  ],
+  "launch": "TORCH_ENV=/root/lightsem/.venv/torch-access bash run_torch.sh -u run_light_layers_campaign.py --manifest M --transforms T --preregistration P --protocol /root/lightsem/docs/research/2026-09-22-color-beat/OBSERVER_PROXY_PROTOCOL_V1.json --cpu-test-receipt RECEIPT --output-root CAMPAIGN/observer_fits_v1 --torch-env /root/lightsem/.venv/torch-access --residual-gpu-hours H --gpu-authorized",
+  "new_prereg_bindings": {
+    "campaign_queue_source_sha256": "082b9dcfc364733180ad7c6efd05d9ad4a2a88c9d3e8ffba7b931111a991d58b",
+    "cpu_test_receipt_sha256": "3d624408bfa3063486f8d192cb8f77988c994bc81f442fec663737b9dda6f446"
+  },
+  "resume": "--resume-exact verifiescompletedjob bindings+weights, never retriesincompletefailedjobs.",
+  "runtime": "Exactly15fits oneaggregateexperiment; seedouterthenprotocolorder; perjob6000batch4,60m or residualbudget; directfilelog<=16MiB; stopfirsterror; nooverwrites/deletes/optimizerresumes.",
+  "scope_notes": [
+    "No real-data fit, GPU launch, or vault write by worker.",
+    "Identity9TRAIN quarantine ledger required; immutable131 inventory is usable plus explicit excluded IDs.",
+    "Additional exclusions need source-only pre-fit reason and hashed receipt. >=80TRAIN/>=30DEV.",
+    "Fullsource usableTRAIN audio normalization retained; visual fits selectedTRAIN64s, supervisioncenter8s.",
+    "Conditional tempo-nearest donor unchanged, reportunique/reuse; NOTbijective permutation.",
+    "Default originalquality gates remain strict; originalDEV31/40=.775failure stays reported."
+  ],
+  "source_freeze": {
+    "configs": {
+      "I_VR_P0": [
+        "840d93ced99f33672d14b8aff1bfdada486e59f17ca785d2bae621dd78985d99",
+        "f0b3ac683d58d29a0e7ac5e3788922c13320871815b5d05f76cdcf850ec6d591",
+        "525e7ce2873d94b0bdecb68e3965e1f12f704a636a5765c8c3462e3a591c4b62"
+      ],
+      "S_V6_P0": [
+        "699669e15592adb3f73f85d10070d1bf4153bc66baed1510b20ac0df7ac4ae51",
+        "7f418056b5b6f62e0ec669e3c6ccaa596876d3beb950ca9746194d11d4aee4f7",
+        "4522fc91f4f8d77fba1775bf4a4516d3002caaaf03faca233174dee73a5836af"
+      ],
+      "S_VR_P0": [
+        "8184d0b8e73515865649ebfe7863fccfa8bf07dcc549456097749f01e0558372",
+        "caf93ea8653a32b2579cf219836828619322020295d61974f1fe02ea9ed816df",
+        "fc84a7e787c10e97b81d481460fc5706c5bea8bcf87033dac0afd2c5bd455033"
+      ],
+      "S_VR_P0_Ashuf": [
+        "107ffa00eac858b394718f83ebccf26a78bcd0a82b623936727921a1200d83d5",
+        "13b4769a9fa03da111da15893540fda4b4fd72d12a1248f5a5c58ab3343b0c4f",
+        "ebe8f845fc9c020f6cef169e0a83e5b459f59cdf60d9751d3bd7652eae576b2d"
+      ],
+      "S_none_P0": [
+        "3bf059c7758b4db333156d1f44d1eb4f25ffed573f2e4e2c3db4d2880a4e0d0f",
+        "c83e5d29f7c9e1f57449592f965fbb169f0ae2c26469bc27cf3597581ed72680",
+        "ed3191c34a47e5a7b9c1f74a4058517a221daf0dd96030877d36d3a4aa51a3b0"
+      ]
+    },
+    "queue_source_files": {
+      "/root/lightsem/run_light_layers_campaign.py": "9f5925f109385c5578550770e5e5228ccc31d3006384a6b93eab5872a1780c9c",
+      "/root/lightsem/tests/test_light_layers_campaign.py": "1f20c6ab8c24f60f144e34b7e4fd74c43063abc81775377acd8b9dad56479ad3"
+    },
+    "queue_source_sha256": "082b9dcfc364733180ad7c6efd05d9ad4a2a88c9d3e8ffba7b931111a991d58b",
+    "required_test_sources": {
+      "/root/lightsem/lightsem/experiments/light_layers/model.py": "aa1d63f0cbf5cf270c3c7d676edf3eaf3debeb394220123493a400aa60835529",
+      "/root/lightsem/lightsem/experiments/light_layers/targets.py": "4f1e980ed9f62e2ae2a6d53e426cd44c0ed2381835bf4b1382a7fba1e566d6d1",
+      "/root/lightsem/lightsem/experiments/light_layers/training.py": "31e58e8c7a10cd80f0d3b5be0e87796e35548f2c2d03705856a0cafa1811802b",
+      "/root/lightsem/lightsem/model/light_trunk.py": "b515dcb960259f39f21a8d565b621364aafe0a87d3a6028f5a476659f662cf84",
+      "/root/lightsem/run_light_layers_campaign.py": "9f5925f109385c5578550770e5e5228ccc31d3006384a6b93eab5872a1780c9c",
+      "/root/lightsem/run_light_layers_train.py": "4e0bcdb668db630f0c5c16d316b170920138493a43a9af1e7622028826cd2c12",
+      "/root/lightsem/run_torch.sh": "fa8766599ce7741477aff2035e5e87566fa4ddacacdfbbe39d5bbcba947888f1",
+      "/root/lightsem/tests/test_light_layers_campaign.py": "1f20c6ab8c24f60f144e34b7e4fd74c43063abc81775377acd8b9dad56479ad3",
+      "/root/lightsem/tests/test_light_layers_model.py": "502f4aeaedc3de63d616ef6035e63a9384000ae80eb2a08d9c82f1fccbb4bb7d",
+      "/root/lightsem/tests/test_light_layers_overlay.py": "025a6529cd7d00e9246da2675e9ede79043d51297a934979716ffb599b3d80c8",
+      "/root/lightsem/tests/test_light_layers_targets.py": "98371bcf0023756742be3057123993b567c4b5bea5cb80b9f3640c8aaaa4c58c",
+      "/root/lightsem/tests/test_light_layers_training.py": "0a9662ea419e93e828d268fd91540667a60dfcb2e43b2dc33eb8d61c6c844b43"
+    },
+    "trainer_source_sha256": "c9cbf9f43b11ad7089af1ad06ddc340814f27393e8ed788dbf5f9740f0c808c2"
+  },
+  "status": "ready_parent_launch_only",
+  "tests": {
+    "passed": 119,
+    "skipped": 1,
+    "subtests_passed": 185,
+    "training_queue_tests_passed": 51
+  }
+}

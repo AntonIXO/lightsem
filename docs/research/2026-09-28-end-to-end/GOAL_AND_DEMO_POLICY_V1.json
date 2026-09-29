@@ -1,0 +1,43 @@
+{
+  "id": "lightsem-end-to-end-hypotheses-20260928-v1",
+  "authorization_utc": "2026-09-28T18:18:11.685350+00:00",
+  "user_request": "Continue and the goal is end to end complete all hypothesis in vault, after each major change generate another shpongle demo (even if numbers is worse)",
+  "goal_id": "25e0b629-2cad-4b34-847b-47c7bba587b8",
+  "scope": "All LightSem-vault hypotheses, not only Sep22nine; retain completed scoped outcomes without unnecessary reruns. Resolve unfinished experimental requirements and interpret completed evidence honestly. Blocked/unmeasured is not tested.",
+  "inventory": {
+    "path": "/root/lightsem/docs/research/2026-09-28-end-to-end/VAULT_INVENTORY_V1.json",
+    "sha256": "582d1c7a3fd1ca87d3c18eeb04711c5873a8cbd3577bcc9c8a42d4111f4be550"
+  },
+  "current_counts": {
+    "all_hypotheses": 71,
+    "all_experiments": 71,
+    "formal_testing": 7,
+    "formal_proposed": 7,
+    "confirmed": 15,
+    "refuted": 10,
+    "inconclusive": 32
+  },
+  "completion_rule": "Every hypothesis has a reviewed evidence/disposition entry and every still-authorized unfinished test is actually executed/audited or a concrete external blocker is surfaced. External blockers remain unfinished; no false goal completion or forced scientific verdict.",
+  "demo_policy": {
+    "required_after": "each major new lighting model/recipe or behavior-changing timing/palette/dimmer/spatial/renderer change",
+    "even_if_metrics_worse": true,
+    "source_audio": "/root/shpongle.flac",
+    "delivery": "full277.3s native1920x1080 AV1 with sourceaudio; native existing playback pipeline",
+    "versioning": "new exclusive named directory/file for every variant; preserve old videos; do not silently overwrite ~/shpongle_light_demo.mp4",
+    "comparison": "retain untouched accepted companion anchor and previous experimental version; fixed demo seed/checkpoint-selection rule before outcomes; disclose numerical and visible failures",
+    "not_major": "administrative docs/audits and numerical/provenance fixes with unchanged lighting outputs do not require duplicating identical video",
+    "acceptance": "rendering is delivery, not aesthetic acceptance or permission to promote defaults"
+  },
+  "nonnegotiable": [
+    "Music-only playback; pose is training supervision/diagnostic only",
+    "Do not retime/retrain accepted dancer to satisfylighting request",
+    "Preserve existing studies/artifacts and protectedDMX",
+    "Preregister new predictions and exacttestedsource/input bindings before new scientificruns",
+    "Verify nativevault success semantically; serialize pinnedClient access",
+    "TESTsealed; no newdownloads/rights/exposure assumptions",
+    "Existing storage/freefloor/GPU ceilings remain until explicitrevision; no bypasswithnewdirname",
+    "No sign-only falseclosure of unqualified results",
+    "Human truth/ratings cannot be fabricated byautomaticproxies"
+  ],
+  "current_phase": "inventory and dependency/readiness audit; no new scientificrun or majoroutput change yet"
+}

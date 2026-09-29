@@ -1,0 +1,8 @@
+{
+  "experiment_id": "exp-dance-stage-geometry-20260911",
+  "verdict": "directional_only",
+  "failure_mode": "recipe_conditional",
+  "lesson": "2026-09-28 retrospective interpretation, not a new experiment: On the fixed saved body and unchanged faster simulator profile, stage_geometry_01 increased the 194-201 s median first-hit span to 10.610 m versus actuator_budget_01 at 3.770 m. The active wall fraction 0.00958 still missed the 0.10 requirement and the sampled visual gate failed despite the other geometry, dynamics, validity, quiet, mechanics and photometry passes. This bounded geometry improvement is not human music-fit, hardware or product qualification, and later stage02 anchor results do not retroactively pass this revision.",
+  "transfers_to": [],
+  "hint": "recipe_conditional: when the recipe changes, reopen_hypothesis('h-dance-stage-geometry-20260911', reason=...) makes the negative re-testable instead of terminal"
+}

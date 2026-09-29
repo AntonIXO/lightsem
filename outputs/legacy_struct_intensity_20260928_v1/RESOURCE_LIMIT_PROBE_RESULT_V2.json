@@ -1,0 +1,48 @@
+{
+  "status": "EXPECTED_TIMEOUT_DIAGNOSTIC_PASSED",
+  "binding": {
+    "path": "/root/lightsem/outputs/legacy_struct_intensity_20260928_v1/RESOURCE_LIMIT_PROBE_BINDING_V2.json",
+    "sha256": "33bf66e958ed2c3b18194ffd7e4ba64c889c254bc726f7a0c55f95ba0dfae9f8",
+    "bytes": 2545
+  },
+  "log": {
+    "path": "/root/lightsem/outputs/legacy_struct_intensity_20260928_v1/resource_limit_probe_v2.log",
+    "sha256": "bb09789ee29c091b20e0483fed80e00244cf675e71984ed31867afa536054799",
+    "bytes": 1587
+  },
+  "configured_runtime_seconds": 2,
+  "reported_service_runtime_seconds": 2.1,
+  "wrapper_elapsed_seconds": 2.118371426127851,
+  "exit_code": 1,
+  "effective_before_wait": {
+    "CUDA_VISIBLE_DEVICES": "",
+    "GPU_devices_visible": false,
+    "cgroup": "/system.slice/lightsem-struct-limit-probe-v2.service",
+    "memory_max": "4294967296",
+    "memory_swap_max": "0",
+    "model_imports": 0,
+    "payload_reads": 0,
+    "schema_version": 1,
+    "status": "LIMITS_VERIFIED_AWAIT_EXPECTED_RUNTIME_KILL",
+    "unit": "lightsem-struct-limit-probe-v2.service",
+    "unit_configuration": "# This is a transient unit file, created programmatically via the systemd API. Do not edit.\n[Unit]\nDescription=[systemd-run] /usr/bin/bash /root/lightsem/run.sh -u /root/lightsem/outputs/legacy_struct_intensity_20260928_v1/probe_systemd_limits_v2.py --unit lightsem-struct-limit-probe-v2.service --expected-memory-bytes 4294967296 --expected-runtime-text 2s\n\n[Service]\nMemoryMax=4294967296\nMemorySwapMax=0\nRuntimeMaxSec=2s\nKillMode=control-group\nKillSignal=KILL\nPrivateDevices=yes\nProtectControlGroups=yes\nNoNewPrivileges=yes\nWorkingDirectory=/root/lightsem\nEnvironment=\"CUDA_VISIBLE_DEVICES=\" \"PYTHONDONTWRITEBYTECODE=1\"\nExecStart=\nExecStart=\"/usr/bin/bash\" \"/root/lightsem/run.sh\" \"-u\" \"/root/lightsem/outputs/legacy_struct_intensity_20260928_v1/probe_systemd_limits_v2.py\" \"--unit\" \"lightsem-struct-limit-probe-v2.service\" \"--expected-memory-bytes\" \"4294967296\" \"--expected-runtime-text\" \"2s\"\n"
+  },
+  "systemd_after": {
+    "Id": "lightsem-struct-limit-probe-v2.service",
+    "ActiveState": "failed",
+    "RuntimeMaxUSec": "2s",
+    "Result": "timeout",
+    "ExecMainCode": "2",
+    "ExecMainStatus": "9",
+    "ControlGroup": "",
+    "MemoryMax": "4294967296",
+    "MemorySwapMax": "0",
+    "PrivateDevices": "yes",
+    "ProtectControlGroups": "yes",
+    "NoNewPrivileges": "yes",
+    "KillMode": "control-group",
+    "KillSignal": "9"
+  },
+  "limits": "MemoryMax4GiB/no swap verified in effective kernel cgroup; service timeout/SIGKILL verified. Not a memory-exhaustion stress test; no claim of exact hard-realtime2s termination.",
+  "root_decision": "Use stricter890s service timeout within900s preparation ceiling, leaving10s dispatch/startup slack; actual service/property check still required before payload access. No preparation authority yet."
+}

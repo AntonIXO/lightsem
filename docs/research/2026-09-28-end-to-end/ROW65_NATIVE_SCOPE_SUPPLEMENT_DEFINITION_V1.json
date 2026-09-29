@@ -1,0 +1,40 @@
+{
+  "scope": "DATED_INTERPRETATION_APPEND_ONLY_NO_NEW_MEASUREMENT_OR_VERDICT_CHANGE",
+  "before_snapshot_ref": {
+    "path": "/root/lightsem/docs/research/2026-09-28-end-to-end/ROW65_NATIVE_SCOPE_SUPPLEMENT_BEFORE_V1.json",
+    "size_bytes": 6994,
+    "sha256": "095cf787c44f8fab31705f694b4eee6544fbd157ed52486827318f7939a5c5f0"
+  },
+  "evidence_refs": [
+    {
+      "path": "/root/lightsem/docs/research/2026-09-28-end-to-end/ROW65_PROJECT_ARCHIVE_PROVENANCE_ADDENDUM_V1.json",
+      "size_bytes": 21849,
+      "sha256": "f1e6cae92a70680eb920cc58e0f005130737e70b45ed3dc8b22b7882368cd4fa"
+    },
+    {
+      "path": "/root/lightsem/docs/research/2026-09-28-end-to-end/ROW65_LATENCY_INSTRUMENT_SCOPE_ADDENDUM_V1.json",
+      "size_bytes": 8459,
+      "sha256": "4023fdc7606be4f846da19950759574158464f1c409cce934176d064b1ff0be4"
+    },
+    {
+      "path": "/root/lightsem/docs/research/2026-09-28-end-to-end/FRONTIER_SCOPE_DELTA_V2.json",
+      "size_bytes": 7459,
+      "sha256": "bc0afeb4f7915fd4dd56e1460fb12166d58986c460aed9624e4b34a37393cbf2"
+    }
+  ],
+  "metadata_budget_ref": {
+    "path": "/root/lightsem/docs/research/2026-09-28-end-to-end/ROW65_METADATA_FOLLOWUP_BUDGET_V1.json",
+    "size_bytes": 1176,
+    "sha256": "6d60f8512c00bc6bee73e9cba5c41e3623c0161927858e3bca743298f920f15e"
+  },
+  "payload": {
+    "experiment_id": "exp-006-the-deployed-path-meets-its-eb0fc6",
+    "lesson": "2026-09-28 retrospective claim-scope clarification, not a new measurement: Retain the historical software timing result and zero leakage under model-input perturbation. This experiment establishes conditional model causality only: its saved instrument perturbs synthetic model inputs, not audio through the feature builder. It does not establish whole deployed-pipeline future-audio independence or measured real-fixture latency. The later exp-009 is a separate, version-bounded example: that tested pipeline had upstream feature leakage and its repair still exempted five oracle beat-grid channels. Upstream source/version equivalence between the two historical runs is not established here; do not treat this cross-link as a new refutation of the exact earlier full path. Preserve historical gates and verdict; no rerun.\n\n2026-09-28 additional retrospective instrument-scope clarification, not a new measurement: Retain the reported 62.5 ms calculation versus the 65 ms target and the separately measured component timings, but the available evidence does not establish the full learned audio-in-to-DMX-out p99. In execution-unpinned candidate source 1656ffde47a26bbd9655b5ceef8ddaebd80e4895, the timed synthetic trunk/A/B forward excludes audio-feature compute, C sampling and descriptor processing; the budget combines model p99 with amortized conductor/packing medians and assumed network/fixture costs, while the candidate conductor/packing percentiles repeat single clip-amortized measurements 100 times. Stagewise timing is allowed by the original Plan, but complete stage coverage and defensible composition or overlap bounds are missing; a p99-plus-medians sum is not generally total p99, no latency overrun is measured, and the available future-input probe observes A only rather than all heads or full audio/DMX, so preserve historical numbers, Notes, gates and verdict while retaining both original full-software-latency qualification and future-AUDIO qualification as unestablished without substituting a current-version test.",
+    "failure_mode": null,
+    "transfers_to": []
+  },
+  "expected_verdict": "supports",
+  "old_lesson_preserved_as_exact_prefix": true,
+  "new_original_components": "Onlyrow65:futureAUDIOcausality pluscomplete/defensiblycomposedlearnedsoftware-latencyqualification. No newtarget,no measuredlatencyoverrun, no currentversion substitution.",
+  "unchanged": "Every oldnumber/Notes/gate/verdict/status andall407otherMarkdownfiles. Additional native interpretation timestamp only. Prior14payloads/receipts/reports remain unchanged."
+}

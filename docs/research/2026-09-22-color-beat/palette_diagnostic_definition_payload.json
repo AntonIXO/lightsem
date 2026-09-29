@@ -1,0 +1,24 @@
+[
+  {
+    "id": "layers-palette-temporal-error",
+    "name": "Palette state temporal distribution error",
+    "unit": "train-scaled distance",
+    "direction": "lower_better",
+    "description": "Mean1D Wasserstein across fixed palette-state transition summaries: log residence durations, conditional mark-change distance, inter-transition drift, long-lag change. Component scales fit onTRAINonly; components and diversity separatelyreported. Same vocabulary, cue times, draws and output intensity for independent-held vs persistent comparison. Constant palette must fail diversity gate. GAME-proxy distribution fidelity, not aestheticquality. Exact implementation definition BEFORE any diagnostic use: /root/lightsem/docs/research/2026-09-22-color-beat/PALETTE_METRIC_DEFINITION_V1.json SHA256 bf7a2b2a4dbe53968c2736e242175e68b1dc0ce57b753295b95cf0ad32e0a4c5. Source /root/lightsem/lightsem/experiments/light_layers/palette_metrics.py SHA256 80b1301d8ece0c75d8d5b0521c5b9299581dc8ec80eddfbeccade11f10939d07. 21synthetic tests passed; no empiricaldiagnostic/gate yet. TRAIN-only canonical-song-equal IQR and strictly undefined degeneratecomponents; zeroepsilonfloors forbidden. See fixed jointHS slicedW1 geometry, four summaries and censoring convention in definition.",
+    "topic_tags": [
+      "audio-to-light",
+      "evaluation-metric"
+    ]
+  },
+  {
+    "id": "layers-palette-marginal-error",
+    "name": "Palette marginal distribution error",
+    "unit": "distance",
+    "direction": "lower_better",
+    "description": "TRAIN-scaled jointHS palette distribution discrepancy to common heldout chromatic target. Same prototypes/observer acrossarms; report quantizationfloor, persistence andshuffleddonor references. Not pixelRGBregression. Exact implementation definition BEFORE any diagnostic use: /root/lightsem/docs/research/2026-09-22-color-beat/PALETTE_METRIC_DEFINITION_V1.json SHA256 bf7a2b2a4dbe53968c2736e242175e68b1dc0ce57b753295b95cf0ad32e0a4c5. Source /root/lightsem/lightsem/experiments/light_layers/palette_metrics.py SHA256 80b1301d8ece0c75d8d5b0521c5b9299581dc8ec80eddfbeccade11f10939d07. 21synthetic tests passed; no empiricaldiagnostic/gate yet. TRAIN-only canonical-song-equal IQR and strictly undefined degeneratecomponents; zeroepsilonfloors forbidden. See fixed jointHS slicedW1 geometry, four summaries and censoring convention in definition.",
+    "topic_tags": [
+      "audio-to-light",
+      "evaluation-metric"
+    ]
+  }
+]

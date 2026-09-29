@@ -1,0 +1,104 @@
+{
+  "scope": "ROW65_METADATA_ONLY_FINAL_ACCOUNTING_AFTER_CONSOLIDATED_NATIVE_UPDATE",
+  "reservation_bytes": 262144,
+  "other_row65_files": [
+    {
+      "path": "/root/lightsem/docs/research/2026-09-28-end-to-end/FRONTIER_SCOPE_DELTA_V2.json",
+      "sha256": "bc0afeb4f7915fd4dd56e1460fb12166d58986c460aed9624e4b34a37393cbf2",
+      "bytes": 7459
+    },
+    {
+      "path": "/root/lightsem/docs/research/2026-09-28-end-to-end/FRONTIER_SCOPE_DELTA_V2.md",
+      "sha256": "445a6892be7bc765c325afc7b5558488573dd2c76da6c35fb32404834c64b309",
+      "bytes": 3330
+    },
+    {
+      "path": "/root/lightsem/docs/research/2026-09-28-end-to-end/ROW65_CAUSALITY_PROVENANCE_READINESS_V1.json",
+      "sha256": "306a5c439547cb09ae7683515914b628301720af083a1c7c53023d16a5de06c9",
+      "bytes": 27116
+    },
+    {
+      "path": "/root/lightsem/docs/research/2026-09-28-end-to-end/ROW65_CAUSALITY_PROVENANCE_READINESS_V1.md",
+      "sha256": "f27203f545fe897e1026ff67fabd1a659a76466e5f8be531412180b1197f7a75",
+      "bytes": 7061
+    },
+    {
+      "path": "/root/lightsem/docs/research/2026-09-28-end-to-end/ROW65_LATENCY_INSTRUMENT_SCOPE_ADDENDUM_V1.json",
+      "sha256": "4023fdc7606be4f846da19950759574158464f1c409cce934176d064b1ff0be4",
+      "bytes": 8459
+    },
+    {
+      "path": "/root/lightsem/docs/research/2026-09-28-end-to-end/ROW65_LATENCY_INSTRUMENT_SCOPE_ADDENDUM_V1.md",
+      "sha256": "0c6ae0571241d453ea35529ab8cd702ec84c184c72f6b4d913e5c49c89dfb35a",
+      "bytes": 4226
+    },
+    {
+      "path": "/root/lightsem/docs/research/2026-09-28-end-to-end/ROW65_METADATA_FOLLOWUP_BUDGET_V1.json",
+      "sha256": "6d60f8512c00bc6bee73e9cba5c41e3623c0161927858e3bca743298f920f15e",
+      "bytes": 1176
+    },
+    {
+      "path": "/root/lightsem/docs/research/2026-09-28-end-to-end/ROW65_NATIVE_SCOPE_SUPPLEMENT_BEFORE_V1.json",
+      "sha256": "095cf787c44f8fab31705f694b4eee6544fbd157ed52486827318f7939a5c5f0",
+      "bytes": 6994
+    },
+    {
+      "path": "/root/lightsem/docs/research/2026-09-28-end-to-end/ROW65_NATIVE_SCOPE_SUPPLEMENT_DEFINITION_V1.json",
+      "sha256": "cd1095173d2b07b316f32737f61d87ec6771c8611b02d750a8a1bad25aee84e6",
+      "bytes": 3970
+    },
+    {
+      "path": "/root/lightsem/docs/research/2026-09-28-end-to-end/ROW65_NATIVE_SCOPE_SUPPLEMENT_INDEPENDENT_REVIEW_V1.json",
+      "sha256": "e8931369e791b847ceece54894fd0ac32d8606fc31c574a31876534d31f4f789",
+      "bytes": 4878
+    },
+    {
+      "path": "/root/lightsem/docs/research/2026-09-28-end-to-end/ROW65_NATIVE_SCOPE_SUPPLEMENT_INDEPENDENT_REVIEW_V1.md",
+      "sha256": "cb1c373e0e40a112edcbbbb40e65c5d75256dbdbb6cf43ab43fc23776edb8415",
+      "bytes": 1149
+    },
+    {
+      "path": "/root/lightsem/docs/research/2026-09-28-end-to-end/ROW65_NATIVE_SCOPE_SUPPLEMENT_INTEGRITY_V1.json",
+      "sha256": "df31fba15fd38ebd20f97d1eda789644cc69f0bd78a88ac9f1c1ebbed5663de8",
+      "bytes": 1775
+    },
+    {
+      "path": "/root/lightsem/docs/research/2026-09-28-end-to-end/ROW65_NATIVE_SCOPE_SUPPLEMENT_RECEIPT_V1.json",
+      "sha256": "827dea6324a07fd0a12352f92d13b9fb9a3d3f44dc235bb792b75b1252de480f",
+      "bytes": 2212
+    },
+    {
+      "path": "/root/lightsem/docs/research/2026-09-28-end-to-end/ROW65_PROJECT_ARCHIVE_PROVENANCE_ADDENDUM_V1.json",
+      "sha256": "f1e6cae92a70680eb920cc58e0f005130737e70b45ed3dc8b22b7882368cd4fa",
+      "bytes": 21849
+    },
+    {
+      "path": "/root/lightsem/docs/research/2026-09-28-end-to-end/ROW65_PROJECT_ARCHIVE_PROVENANCE_ADDENDUM_V1.md",
+      "sha256": "c7a31c5309ebfaad3a1c477b57c2d98d14470560e07a138a5a2780cd85e173db",
+      "bytes": 4002
+    },
+    {
+      "path": "/root/lightsem/docs/research/2026-09-28-end-to-end/row65_native_scope_supplement_v1.py",
+      "sha256": "c778f2e4173abf5645690468db427f79ad959bff8ed2adc1d06e313812022297",
+      "bytes": 874
+    },
+    {
+      "path": "/root/lightsem/docs/research/2026-09-28-end-to-end/vault_row65_scope_and_resource_followup_v1_payload.json",
+      "sha256": "a8726fee3dc6a588be8fc7e3860ab1f1716051588811af29257ed4dd51c20680",
+      "bytes": 3756
+    },
+    {
+      "path": "/root/lightsem/docs/research/2026-09-28-end-to-end/vault_row65_scope_and_resource_followup_v1_receipt.json",
+      "sha256": "ec4c8cb0215d1319524bf7a2be1dd40934a1ad24621f2f61737aa591878ddbe0",
+      "bytes": 123415
+    }
+  ],
+  "bytes_before_this_ledger": 233701,
+  "total_including_this_ledger_bytes": 238448,
+  "remaining_reserved_bytes": 23696,
+  "native_consolidated_update_semantic_and_foreign_vault_integrity_passed": true,
+  "global_conservative_commitments_with_20_interpretation_reserve_bytes": 999965420,
+  "global_cap_unchanged_bytes": 1020054732,
+  "preparation_packet_cap_unchanged_bytes": 12582912,
+  "no_new_scientific_measurement_or_status_change": true
+}

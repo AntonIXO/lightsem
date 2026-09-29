@@ -1,0 +1,33 @@
+{
+  "status": "CHECK_ONLY_PASSED_NO_PREPARATION",
+  "binding": {
+    "path": "/root/lightsem/outputs/legacy_struct_intensity_20260928_v1/ENVELOPE_CHECK_ONLY_BINDING_V3.json",
+    "size_bytes": 1890,
+    "sha256": "fd912218f6e0a5b93a29738687a3363f1e43831fe7ad8311323092dedc7545b0"
+  },
+  "log": {
+    "path": "/root/lightsem/outputs/legacy_struct_intensity_20260928_v1/envelope_check_only_v3.log",
+    "size_bytes": 1669,
+    "sha256": "40378e769ad99878df9ff0001d965e82f9367183181bc686aa5567921d0906ae"
+  },
+  "proof": {
+    "GPU_devices_visible": false,
+    "cgroup": "/system.slice/lightsem-struct-envelope-v3.service",
+    "declared_wall_ceiling_seconds": 900,
+    "dispatch_slack_seconds": 10,
+    "guard_sha256": "cd3dc533ce7a51b71c7d1dda736cbae5da63586f52541c1d4d355bb5085c44aa",
+    "memory_max_bytes": 4294967296,
+    "memory_swap_max_bytes": 0,
+    "model_imports": 0,
+    "payload_reads": 0,
+    "runtime_max_seconds": 890,
+    "status": "ENVELOPE_CHECK_ONLY_NO_PREPARATION",
+    "transient_configuration": "# This is a transient unit file, created programmatically via the systemd API. Do not edit.\n[Unit]\nDescription=[systemd-run] /usr/bin/bash /root/lightsem/run.sh -u /root/lightsem/outputs/legacy_struct_intensity_20260928_v1/enforce_preparation_envelope_v3.py --unit lightsem-struct-envelope-v3.service --check-only\n\n[Service]\nMemoryMax=4294967296\nMemorySwapMax=0\nRuntimeMaxSec=14min 50s\nKillMode=control-group\nKillSignal=KILL\nPrivateDevices=yes\nProtectControlGroups=yes\nNoNewPrivileges=yes\nWorkingDirectory=/root/lightsem\nEnvironment=\"CUDA_VISIBLE_DEVICES=\" \"PYTHONDONTWRITEBYTECODE=1\" \"TORCH_ENV=/root/lightsem/.venv/torch-access\"\nExecStart=\nExecStart=\"/usr/bin/bash\" \"/root/lightsem/run.sh\" \"-u\" \"/root/lightsem/outputs/legacy_struct_intensity_20260928_v1/enforce_preparation_envelope_v3.py\" \"--unit\" \"lightsem-struct-envelope-v3.service\" \"--check-only\"\n",
+    "unit": "lightsem-struct-envelope-v3.service"
+  },
+  "exit_code": 0,
+  "service_seconds": 0.032,
+  "wrapper_seconds": 0.045098210917785764,
+  "actual_exec_branch_unrun": true,
+  "no_preparation_authority": true
+}

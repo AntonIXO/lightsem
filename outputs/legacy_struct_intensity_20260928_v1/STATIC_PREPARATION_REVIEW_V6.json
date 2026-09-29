@@ -1,0 +1,565 @@
+{
+  "schema_version": 1,
+  "review_status": "STATIC_AGREEMENT_FOR_SEPARATELY_BOUND_NATIVE_112_SYNTHETIC_TESTS_ONLY",
+  "scope": "Frozen V6 source/test/protocol/hash/accounting delta review. No project imports, compilation, tests, preparation, checkpoint loads, cache/array/raw-manifest reads or source edits. These two exclusive review reports are the only writes in this follow-up.",
+  "reviewed_handoff": {
+    "path": "/root/lightsem/outputs/legacy_struct_intensity_20260928_v1/IMPLEMENTATION_HANDOFF_V6.json",
+    "sha256": "b99964f4b951c00df3357fb852982443944a3e336773f80be925b32670f24833",
+    "bytes": 23733
+  },
+  "reviewed_driver": {
+    "path": "/root/lightsem/outputs/legacy_struct_intensity_20260928_v1/prepare_struct_intensity_v6.py",
+    "sha256": "14285f8279b385014e4635da9db7ba74fc48e9ae93ab404a7ef10e0d3109fb26",
+    "bytes": 40582
+  },
+  "reviewed_tests": {
+    "path": "/root/lightsem/outputs/legacy_struct_intensity_20260928_v1/test_prepare_struct_intensity_v6.py",
+    "sha256": "a1a39ecc6654d0ae2a562a9c36985e71d3571474cee69accd5f0ed86843bd9cd",
+    "bytes": 66295
+  },
+  "reviewed_protocol": {
+    "path": "/root/lightsem/docs/research/2026-09-28-end-to-end/PROSPECTIVE_STRUCT_INTENSITY_PROTOCOL_CANDIDATE_V6.json",
+    "sha256": "977241748163f747064cfc28e2998f707085431aee8189814c914707d7599267",
+    "bytes": 285563
+  },
+  "handoff_file_hash_checks": [
+    {
+      "path": "/root/lightsem/outputs/legacy_struct_intensity_20260928_v1/prepare_struct_intensity_v6.py",
+      "hash_ok": true,
+      "size_ok": true
+    },
+    {
+      "path": "/root/lightsem/outputs/legacy_struct_intensity_20260928_v1/test_prepare_struct_intensity_v6.py",
+      "hash_ok": true,
+      "size_ok": true
+    },
+    {
+      "path": "/root/lightsem/docs/research/2026-09-28-end-to-end/PROSPECTIVE_STRUCT_INTENSITY_PROTOCOL_CANDIDATE_V6.json",
+      "hash_ok": true,
+      "size_ok": true
+    },
+    {
+      "path": "/root/lightsem/docs/research/2026-09-28-end-to-end/PROSPECTIVE_STRUCT_INTENSITY_PROTOCOL_CANDIDATE_V6.md",
+      "hash_ok": true,
+      "size_ok": true
+    },
+    {
+      "path": "/root/lightsem/outputs/legacy_struct_intensity_20260928_v1/historical/light_trunk.py",
+      "hash_ok": true,
+      "size_ok": true
+    }
+  ],
+  "source_dependency_hash_checks": [
+    {
+      "path": "/root/lightsem/build_justdance_structure.py",
+      "hash_ok": true,
+      "size_ok": true
+    },
+    {
+      "path": "/root/lightsem/calibrate_events.py",
+      "hash_ok": true,
+      "size_ok": true
+    },
+    {
+      "path": "/root/lightsem/calibrate_smoothing.py",
+      "hash_ok": true,
+      "size_ok": true
+    },
+    {
+      "path": "/root/lightsem/docs/research/2026-09-28-end-to-end/PROSPECTIVE_STRUCT_INTENSITY_PROTOCOL_CANDIDATE_V3.json",
+      "hash_ok": true,
+      "size_ok": true
+    },
+    {
+      "path": "/root/lightsem/docs/research/2026-09-28-end-to-end/PROSPECTIVE_STRUCT_INTENSITY_PROTOCOL_CANDIDATE_V3.md",
+      "hash_ok": true,
+      "size_ok": true
+    },
+    {
+      "path": "/root/lightsem/docs/research/2026-09-28-end-to-end/PROSPECTIVE_STRUCT_INTENSITY_PROTOCOL_CANDIDATE_V4.json",
+      "hash_ok": true,
+      "size_ok": true
+    },
+    {
+      "path": "/root/lightsem/docs/research/2026-09-28-end-to-end/PROSPECTIVE_STRUCT_INTENSITY_PROTOCOL_CANDIDATE_V4.md",
+      "hash_ok": true,
+      "size_ok": true
+    },
+    {
+      "path": "/root/lightsem/docs/research/2026-09-28-end-to-end/PROSPECTIVE_STRUCT_INTENSITY_PROTOCOL_CANDIDATE_V5.json",
+      "hash_ok": true,
+      "size_ok": true
+    },
+    {
+      "path": "/root/lightsem/docs/research/2026-09-28-end-to-end/PROSPECTIVE_STRUCT_INTENSITY_PROTOCOL_CANDIDATE_V5.md",
+      "hash_ok": true,
+      "size_ok": true
+    },
+    {
+      "path": "/root/lightsem/lightsem/__init__.py",
+      "hash_ok": true,
+      "size_ok": true
+    },
+    {
+      "path": "/root/lightsem/lightsem/audio/__init__.py",
+      "hash_ok": true,
+      "size_ok": true
+    },
+    {
+      "path": "/root/lightsem/lightsem/audio/beatgrid.py",
+      "hash_ok": true,
+      "size_ok": true
+    },
+    {
+      "path": "/root/lightsem/lightsem/audio/features.py",
+      "hash_ok": true,
+      "size_ok": true
+    },
+    {
+      "path": "/root/lightsem/lightsem/audio/online.py",
+      "hash_ok": true,
+      "size_ok": true
+    },
+    {
+      "path": "/root/lightsem/lightsem/audio/structure.py",
+      "hash_ok": true,
+      "size_ok": true
+    },
+    {
+      "path": "/root/lightsem/lightsem/conductor/__init__.py",
+      "hash_ok": true,
+      "size_ok": true
+    },
+    {
+      "path": "/root/lightsem/lightsem/conductor/beat_trigger.py",
+      "hash_ok": true,
+      "size_ok": true
+    },
+    {
+      "path": "/root/lightsem/lightsem/conductor/hybrid.py",
+      "hash_ok": true,
+      "size_ok": true
+    },
+    {
+      "path": "/root/lightsem/lightsem/conductor/rig.py",
+      "hash_ok": true,
+      "size_ok": true
+    },
+    {
+      "path": "/root/lightsem/lightsem/conductor/scalers.json",
+      "hash_ok": true,
+      "size_ok": true
+    },
+    {
+      "path": "/root/lightsem/lightsem/conductor/scalers.py",
+      "hash_ok": true,
+      "size_ok": true
+    },
+    {
+      "path": "/root/lightsem/lightsem/conductor/v0.py",
+      "hash_ok": true,
+      "size_ok": true
+    },
+    {
+      "path": "/root/lightsem/lightsem/dmx/__init__.py",
+      "hash_ok": true,
+      "size_ok": true
+    },
+    {
+      "path": "/root/lightsem/lightsem/dmx/decode.py",
+      "hash_ok": true,
+      "size_ok": true
+    },
+    {
+      "path": "/root/lightsem/lightsem/dmx/encode.py",
+      "hash_ok": true,
+      "size_ok": true
+    },
+    {
+      "path": "/root/lightsem/lightsem/dmx/fixtures.py",
+      "hash_ok": true,
+      "size_ok": true
+    },
+    {
+      "path": "/root/lightsem/lightsem/dmx/universe.py",
+      "hash_ok": true,
+      "size_ok": true
+    },
+    {
+      "path": "/root/lightsem/lightsem/eval/light_features.py",
+      "hash_ok": true,
+      "size_ok": true
+    },
+    {
+      "path": "/root/lightsem/lightsem/model/__init__.py",
+      "hash_ok": true,
+      "size_ok": true
+    },
+    {
+      "path": "/root/lightsem/lightsem/model/infer.py",
+      "hash_ok": true,
+      "size_ok": true
+    },
+    {
+      "path": "/root/lightsem/lightsem/model/jd_data.py",
+      "hash_ok": true,
+      "size_ok": true
+    },
+    {
+      "path": "/root/lightsem/lightsem/model/light_data.py",
+      "hash_ok": true,
+      "size_ok": true
+    },
+    {
+      "path": "/root/lightsem/lightsem/motion/__init__.py",
+      "hash_ok": true,
+      "size_ok": true
+    },
+    {
+      "path": "/root/lightsem/lightsem/motion/descriptors.py",
+      "hash_ok": true,
+      "size_ok": true
+    },
+    {
+      "path": "/root/lightsem/lightsem/motion/io.py",
+      "hash_ok": true,
+      "size_ok": true
+    },
+    {
+      "path": "/root/lightsem/lightsem/motion/skeleton.py",
+      "hash_ok": true,
+      "size_ok": true
+    },
+    {
+      "path": "/root/lightsem/outputs/legacy_struct_intensity_20260928_v1/historical/light_trunk.py",
+      "hash_ok": true,
+      "size_ok": true
+    },
+    {
+      "path": "/root/lightsem/run_stage1_eval.py",
+      "hash_ok": true,
+      "size_ok": true
+    },
+    {
+      "path": "/root/lightsem/run_stage8_chain3.sh",
+      "hash_ok": true,
+      "size_ok": true
+    },
+    {
+      "path": "/root/lightsem/run_torch.sh",
+      "hash_ok": true,
+      "size_ok": true
+    },
+    {
+      "path": "/root/lightsem/train_light.py",
+      "hash_ok": true,
+      "size_ok": true
+    }
+  ],
+  "preserved_file_hash_checks": [
+    {
+      "path": "/root/lightsem/docs/research/2026-09-28-end-to-end/PROSPECTIVE_STRUCT_INTENSITY_PROTOCOL_CANDIDATE_V3.json",
+      "hash_ok": true
+    },
+    {
+      "path": "/root/lightsem/docs/research/2026-09-28-end-to-end/PROSPECTIVE_STRUCT_INTENSITY_PROTOCOL_CANDIDATE_V3.md",
+      "hash_ok": true
+    },
+    {
+      "path": "/root/lightsem/docs/research/2026-09-28-end-to-end/PROSPECTIVE_STRUCT_INTENSITY_PROTOCOL_CANDIDATE_V4.json",
+      "hash_ok": true
+    },
+    {
+      "path": "/root/lightsem/docs/research/2026-09-28-end-to-end/PROSPECTIVE_STRUCT_INTENSITY_PROTOCOL_CANDIDATE_V4.md",
+      "hash_ok": true
+    },
+    {
+      "path": "/root/lightsem/docs/research/2026-09-28-end-to-end/PROSPECTIVE_STRUCT_INTENSITY_PROTOCOL_CANDIDATE_V5.json",
+      "hash_ok": true
+    },
+    {
+      "path": "/root/lightsem/docs/research/2026-09-28-end-to-end/PROSPECTIVE_STRUCT_INTENSITY_PROTOCOL_CANDIDATE_V5.md",
+      "hash_ok": true
+    },
+    {
+      "path": "/root/lightsem/outputs/legacy_struct_intensity_20260928_v1/AUTHORIZATION_SCHEMA_TEMPLATE_V3.json",
+      "hash_ok": true
+    },
+    {
+      "path": "/root/lightsem/outputs/legacy_struct_intensity_20260928_v1/AUTHORIZATION_SCHEMA_TEMPLATE_V4.json",
+      "hash_ok": true
+    },
+    {
+      "path": "/root/lightsem/outputs/legacy_struct_intensity_20260928_v1/AUTHORIZATION_SCHEMA_TEMPLATE_V5.json",
+      "hash_ok": true
+    },
+    {
+      "path": "/root/lightsem/outputs/legacy_struct_intensity_20260928_v1/ENVELOPE_CHECK_ONLY_BINDING_V3.json",
+      "hash_ok": true
+    },
+    {
+      "path": "/root/lightsem/outputs/legacy_struct_intensity_20260928_v1/ENVELOPE_CHECK_ONLY_RESULT_V3.json",
+      "hash_ok": true
+    },
+    {
+      "path": "/root/lightsem/outputs/legacy_struct_intensity_20260928_v1/IMPLEMENTATION_HANDOFF_V3.json",
+      "hash_ok": true
+    },
+    {
+      "path": "/root/lightsem/outputs/legacy_struct_intensity_20260928_v1/IMPLEMENTATION_HANDOFF_V3.md",
+      "hash_ok": true
+    },
+    {
+      "path": "/root/lightsem/outputs/legacy_struct_intensity_20260928_v1/IMPLEMENTATION_HANDOFF_V4.json",
+      "hash_ok": true
+    },
+    {
+      "path": "/root/lightsem/outputs/legacy_struct_intensity_20260928_v1/IMPLEMENTATION_HANDOFF_V4.md",
+      "hash_ok": true
+    },
+    {
+      "path": "/root/lightsem/outputs/legacy_struct_intensity_20260928_v1/IMPLEMENTATION_HANDOFF_V5.json",
+      "hash_ok": true
+    },
+    {
+      "path": "/root/lightsem/outputs/legacy_struct_intensity_20260928_v1/IMPLEMENTATION_HANDOFF_V5.md",
+      "hash_ok": true
+    },
+    {
+      "path": "/root/lightsem/outputs/legacy_struct_intensity_20260928_v1/NATIVE_SYNTHETIC_TEST_BINDING_V4.json",
+      "hash_ok": true
+    },
+    {
+      "path": "/root/lightsem/outputs/legacy_struct_intensity_20260928_v1/NATIVE_SYNTHETIC_TEST_BINDING_V5.json",
+      "hash_ok": true
+    },
+    {
+      "path": "/root/lightsem/outputs/legacy_struct_intensity_20260928_v1/NATIVE_SYNTHETIC_TEST_FAILURE_V4.json",
+      "hash_ok": true
+    },
+    {
+      "path": "/root/lightsem/outputs/legacy_struct_intensity_20260928_v1/NATIVE_SYNTHETIC_TEST_RESULT_V5.json",
+      "hash_ok": true
+    },
+    {
+      "path": "/root/lightsem/outputs/legacy_struct_intensity_20260928_v1/PARENT_BOUND_PREPARATION_AUTHORIZATION_V5.json",
+      "hash_ok": true
+    },
+    {
+      "path": "/root/lightsem/outputs/legacy_struct_intensity_20260928_v1/PARENT_PREPARATION_PREFLIGHT_V5.json",
+      "hash_ok": true
+    },
+    {
+      "path": "/root/lightsem/outputs/legacy_struct_intensity_20260928_v1/PREPARATION_ADMISSION_DEFINITION_V5.json",
+      "hash_ok": true
+    },
+    {
+      "path": "/root/lightsem/outputs/legacy_struct_intensity_20260928_v1/PREPARATION_EXECUTION_BINDING_V5.json",
+      "hash_ok": true
+    },
+    {
+      "path": "/root/lightsem/outputs/legacy_struct_intensity_20260928_v1/PREPARATION_FAILURE_V5.json",
+      "hash_ok": true
+    },
+    {
+      "path": "/root/lightsem/outputs/legacy_struct_intensity_20260928_v1/STATIC_PREPARATION_REVIEW_V3.json",
+      "hash_ok": true
+    },
+    {
+      "path": "/root/lightsem/outputs/legacy_struct_intensity_20260928_v1/STATIC_PREPARATION_REVIEW_V3.md",
+      "hash_ok": true
+    },
+    {
+      "path": "/root/lightsem/outputs/legacy_struct_intensity_20260928_v1/TEST_PREPARE_STRUCT_INTENSITY_V3_STATIC_HANDOFF.md",
+      "hash_ok": true
+    },
+    {
+      "path": "/root/lightsem/outputs/legacy_struct_intensity_20260928_v1/enforce_preparation_envelope_v3.py",
+      "hash_ok": true
+    },
+    {
+      "path": "/root/lightsem/outputs/legacy_struct_intensity_20260928_v1/envelope_check_only_v3.log",
+      "hash_ok": true
+    },
+    {
+      "path": "/root/lightsem/outputs/legacy_struct_intensity_20260928_v1/native_synthetic_tests_v4.log",
+      "hash_ok": true
+    },
+    {
+      "path": "/root/lightsem/outputs/legacy_struct_intensity_20260928_v1/native_synthetic_tests_v5.log",
+      "hash_ok": true
+    },
+    {
+      "path": "/root/lightsem/outputs/legacy_struct_intensity_20260928_v1/preparation_resource_envelope_v5.json",
+      "hash_ok": true
+    },
+    {
+      "path": "/root/lightsem/outputs/legacy_struct_intensity_20260928_v1/preparation_v5.log",
+      "hash_ok": true
+    },
+    {
+      "path": "/root/lightsem/outputs/legacy_struct_intensity_20260928_v1/prepare_struct_intensity_v3.py",
+      "hash_ok": true
+    },
+    {
+      "path": "/root/lightsem/outputs/legacy_struct_intensity_20260928_v1/prepare_struct_intensity_v4.py",
+      "hash_ok": true
+    },
+    {
+      "path": "/root/lightsem/outputs/legacy_struct_intensity_20260928_v1/prepare_struct_intensity_v5.py",
+      "hash_ok": true
+    },
+    {
+      "path": "/root/lightsem/outputs/legacy_struct_intensity_20260928_v1/test_prepare_struct_intensity_v3.py",
+      "hash_ok": true
+    },
+    {
+      "path": "/root/lightsem/outputs/legacy_struct_intensity_20260928_v1/test_prepare_struct_intensity_v4.py",
+      "hash_ok": true
+    },
+    {
+      "path": "/root/lightsem/outputs/legacy_struct_intensity_20260928_v1/test_prepare_struct_intensity_v5.py",
+      "hash_ok": true
+    },
+    {
+      "path": "/root/lightsem/outputs/legacy_struct_intensity_20260928_v1/vault_preparation_execution_v5_payload.json",
+      "hash_ok": true
+    },
+    {
+      "path": "/root/lightsem/outputs/legacy_struct_intensity_20260928_v1/vault_preparation_execution_v5_receipt.json",
+      "hash_ok": true
+    },
+    {
+      "path": "/root/lightsem/outputs/legacy_struct_intensity_20260928_v1/vault_preparation_failure_v5_payload.json",
+      "hash_ok": true
+    },
+    {
+      "path": "/root/lightsem/outputs/legacy_struct_intensity_20260928_v1/vault_preparation_failure_v5_receipt.json",
+      "hash_ok": true
+    },
+    {
+      "path": "/root/lightsem/outputs/legacy_struct_intensity_20260928_v1/vault_preparation_scope_v5_payload.json",
+      "hash_ok": true
+    },
+    {
+      "path": "/root/lightsem/outputs/legacy_struct_intensity_20260928_v1/vault_preparation_scope_v5_receipt.json",
+      "hash_ok": true
+    },
+    {
+      "path": "/root/lightsem/outputs/legacy_struct_intensity_20260928_v1/vault_v4_native_failure_and_envelope_result_payload.json",
+      "hash_ok": true
+    },
+    {
+      "path": "/root/lightsem/outputs/legacy_struct_intensity_20260928_v1/vault_v4_native_failure_and_envelope_result_receipt.json",
+      "hash_ok": true
+    },
+    {
+      "path": "/root/lightsem/outputs/legacy_struct_intensity_20260928_v1/vault_v4_synthetic_and_envelope_checks_payload.json",
+      "hash_ok": true
+    },
+    {
+      "path": "/root/lightsem/outputs/legacy_struct_intensity_20260928_v1/vault_v4_synthetic_and_envelope_checks_receipt.json",
+      "hash_ok": true
+    },
+    {
+      "path": "/root/lightsem/outputs/legacy_struct_intensity_20260928_v1/vault_v5_results_and_train_hash_only_payload.json",
+      "hash_ok": true
+    },
+    {
+      "path": "/root/lightsem/outputs/legacy_struct_intensity_20260928_v1/vault_v5_results_and_train_hash_only_receipt.json",
+      "hash_ok": true
+    },
+    {
+      "path": "/root/lightsem/outputs/legacy_struct_intensity_20260928_v1/vault_v5_synthetic_and_envelope_checks_payload.json",
+      "hash_ok": true
+    },
+    {
+      "path": "/root/lightsem/outputs/legacy_struct_intensity_20260928_v1/vault_v5_synthetic_and_envelope_checks_receipt.json",
+      "hash_ok": true
+    }
+  ],
+  "frozen_delta_checks": {
+    "draft_source_equal_frozen": true,
+    "draft_tests_equal_frozen": true,
+    "cohorts_equal_V5": true,
+    "safe_access_contract_equal_V5": true,
+    "clock_contract_equal_V5": true,
+    "input_slots_equal_V5": true,
+    "checkpoint_refs_equal_V5": true,
+    "all105_names_retained": true,
+    "112_unique_test_methods": true,
+    "command_equal_handoff": true,
+    "shared_caps_equal_V5": true,
+    "eight_protocol_paths_unique": true
+  },
+  "concrete_blockers_found_for_native_pure_tests": [],
+  "dtype_fix_review": {
+    "prior_instrument": "Root PREPARATION_FAILURE_V5.json records fatal exit2 / int8 sentinel overflow after authorized CPU payload access began. No final readiness or durable per-checkpoint/per-clip success receipt exists. This review did not reproduce the failure or open real payloads.",
+    "source_mechanism": "Frozen build_justdance_structure.py45 allocates role int8 and69 saves it; V5 qualifier used np.where(valid,int8_slice,255) before assignment to uint8. Existing V5 fixture used int16. This supports the observed error but is not independent corpus/runtime qualification.",
+    "V6_change": "Prefill uint8 roles with255 and uint16 section IDs with65535; assign only validated observed positions through destination views. Source arrays remain unchanged, labels stay0..4, and missing gaps/tails remain sentinels.",
+    "unchanged": "No label repair, input cast/mutation, source-file rewrite, fallback, broader exception catch, resampling, frame extension, threshold or endpoint tolerance change.",
+    "synthetic_scope": "112 unique methods retain all105 names. Default fixture is producer int8. Added cases capture destination buffers for all-valid int8, gaps/tails, source immutability, uint8 compatibility and invalid-label rejection. NumPy testing eager initialization and all payload/model/filesystem guards remain."
+  },
+  "progress_logging_review": {
+    "ordering": "CHECKPOINT_METADATA_VERIFIED occurs after validate_checkpoint_metadata returns; CLIP_QUALIFICATION_RECORDED occurs after the result is appended, including rejected material/support outcomes.",
+    "bounds": "Each JSON line is <=2048 UTF8 bytes and marked progress_only_not_readiness. It uses the authenticated CappedLog; all writes still obey its65536-byte total cap plus packet/global/free guards.",
+    "durability_code": "flush_durable performs stream flush before os.fsync; no operational fsync/durability test was executed by this review or by the AST-only synthetic progress cases.",
+    "claim_scope": "A surviving progress prefix can report completed metadata-stage events. It cannot replace all40 readiness outcomes, native exit0, parent acceptance, full-run resource evidence or scientific/GPU authorization."
+  },
+  "prior_contracts_retained": [
+    "Separate last STFT center L, cached samples k/40 and terminal metadata endpoint; terminal-only512/22050+1ns rule and metadata-only/no-waveform-truth claim retained.",
+    "Exact published native command, bound test count, plain success log and zero skipped/nonstandard-test status requirements retained.",
+    "Pinned features.py/structure.py producer evidence retained.",
+    "Fixed40 cohort/donors, all453 declared JD identities,62 declared input slots, currentTRAIN/knownTEST policy and unresolved cross-corpus identity are unchanged.",
+    "Restricted weights_only CPU checkpoint loader with narrow NumPy reconstruction globals retained; no unsafe fallback, project model construction, forward, scoring, rendering or GPU stage."
+  ],
+  "accounting_review": {
+    "total_packet_cap_bytes": 12582912,
+    "shared_global_cap_bytes": 1020054732,
+    "comparison_reservation_bytes": 33554432,
+    "free_floor_bytes": 1073741824,
+    "source_rule": "Entire source_dir is counted recursively, including all versions, failed logs, authorizations, envelopes and reviews. CurrentV6 JSON/MD plus preservedV3/V4/V5 pairs are eight unique protocol paths and counted once each.",
+    "workspace_rule": "Original plus entire shared workspace remain in global accounting. Old failedV5 directory must stay untouched and remains in whole-workspace accounting; no resume, deletion or storage-location bypass is approved.",
+    "reservation_rule": "Remaining12MiB packet and unused32MiB comparison allocation plus other root reservations remain reserved;1GiB free plus remaining packet peak writes is required on both filesystems.",
+    "prepublication_source_control_stat_bytes": 2134479,
+    "prepublication_source_control_file_count": 78,
+    "eight_protocol_stat_bytes": 1122960,
+    "current_external_control_lower_bound_bytes": 3257439,
+    "prospective_raw_trace_bytes_from_protocol_not_generated": 8542039,
+    "current_controls_plus_prospective_raw_trace_lower_bound_bytes": 11799478,
+    "remaining_to_packet_cap_for_all_further_metadata_headers_tables_and_writes_before_this_review_publication_bytes": 783434,
+    "limits": "This source/control-only stat snapshot is not a fresh original+wholeworkspace/free-space admission check. The raw trace quantity is a prospective payload estimate, not generated data. Roughly0.75MiB remains above that lower bound before these review reports/new controls/archive headers; later scientific archive feasibility must be reconciled without raising or resetting caps. No future trace/scientific run is admitted."
+  },
+  "envelope_V4_retarget_review": {
+    "file_present": true,
+    "not_executed_by_reviewer": true,
+    "ref": {
+      "path": "/root/lightsem/outputs/legacy_struct_intensity_20260928_v1/enforce_preparation_envelope_v4.py",
+      "sha256": "972f6e30bf96dc59aa06597016bb804b7fd2274a234792daa5c1ecbc43c6e0b1",
+      "bytes": 6384
+    },
+    "v3_to_v4_only_V5_to_V6_retarget": true
+  },
+  "envelope_scope": "V4 is exactly the reviewed envelopeV3 text with V5 paths/unit retargeted toV6. No resource/function change found. Prior V3 check-only/actual-branch mechanism evidence can be cited as prior evidence, not as a new V4 run. New root binding, prelaunch hashes/unit-override checks,16KiB proof reservation and actual V6 same-service proof remain required.890s watchdog with10s slack is not hard-real-time900s assurance; reject observed over-ceiling completion.",
+  "remaining_admission_requirements": [
+    "New exact-command/source/plan/test-bound native112 full pass, no failure/skip waiver. This report is not a test result.",
+    "New semantic root preparation registration and CPU-only authorization with62 hash-bound TRAIN inputs, known-alias exclusions, historical exposure and unresolved identity limitations.",
+    "Fresh original inventory, total packet/global reservations and both free floors, including newly published review files and all failed-run artifacts.",
+    "Separately bound V6-target envelope with fresh actual pre-exec proof and root source/wrapper/hash/unit checks; no implicit reuse of old preparation authority.",
+    "Actual restricted CPU metadata qualification of all40 outcomes, completed readiness, native exit0 and parent audit. Unexpected implementation failures stop; do not recast them as corpus ineligibility.",
+    "GPU credit0 can mean only no GPU allowance for this CPU authorization while project ledger stays explicitly UNRECONCILED; it cannot assert measured remaining/exhausted GPU budget.",
+    "No model, scores, scientific ratios, GPU smoke or original scientific gate-completion claim follows from this preparation review."
+  ],
+  "reviewer_operations": {
+    "project_imports": 0,
+    "source_compilation_or_AST_execution": 0,
+    "test_runs": 0,
+    "preparation_runs": 0,
+    "scientific_payload_reads_or_hashes": 0,
+    "checkpoint_loads": 0,
+    "raw_manifest_reads": 0,
+    "vault_calls": 0,
+    "source_protocol_edits": 0,
+    "source_control_text_reads_hashes_and_stats": true
+  }
+}

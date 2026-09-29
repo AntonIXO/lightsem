@@ -1,0 +1,54 @@
+[
+  {
+    "recipe": "S_none_P0",
+    "color_cue_opportunities": 54,
+    "subsequent_palette_id_changes": 5,
+    "unique_palette_ids": [
+      1,
+      2,
+      8,
+      19,
+      25
+    ],
+    "accent_events": 1
+  },
+  {
+    "recipe": "S_V6_P0",
+    "color_cue_opportunities": 49,
+    "subsequent_palette_id_changes": 7,
+    "unique_palette_ids": [
+      1,
+      2,
+      8,
+      25,
+      26
+    ],
+    "accent_events": 1
+  },
+  {
+    "recipe": "I_VR_P0",
+    "color_cue_opportunities": 262,
+    "subsequent_palette_id_changes": 49,
+    "unique_palette_ids": [
+      2,
+      7,
+      8,
+      12,
+      15,
+      23,
+      25,
+      26
+    ],
+    "accent_events": 30
+  },
+  {
+    "recipe": "S_VR_P0_Ashuf",
+    "color_cue_opportunities": 112,
+    "subsequent_palette_id_changes": 2,
+    "unique_palette_ids": [
+      8,
+      25
+    ],
+    "accent_events": 247
+  }
+]

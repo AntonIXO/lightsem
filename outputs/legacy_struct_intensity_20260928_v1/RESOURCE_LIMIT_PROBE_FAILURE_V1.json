@@ -1,0 +1,25 @@
+{
+  "status": "FAILED_DIAGNOSTIC_PARSER_ASSERTION_NO_PREPARATION",
+  "source": {
+    "path": "/root/lightsem/outputs/legacy_struct_intensity_20260928_v1/probe_systemd_limits_v1.py",
+    "sha256": "83018661353c85896187215166cd1fd10bfda297a631216e0a53f63b297a0122",
+    "bytes": 2330
+  },
+  "binding": {
+    "path": "/root/lightsem/outputs/legacy_struct_intensity_20260928_v1/RESOURCE_LIMIT_PROBE_BINDING_V1.json",
+    "sha256": "c731c94a04c887045172d9089219394cbba77827e6dd0a0d6c1eeecdd4fd71a0",
+    "bytes": 2110
+  },
+  "log": {
+    "path": "/root/lightsem/outputs/legacy_struct_intensity_20260928_v1/resource_limit_probe_v1.log",
+    "sha256": "809581aa2f2ee655d1652e26b4e5ae998a8cc8bd98fe9dcfee4a4b97177a718a",
+    "bytes": 1479
+  },
+  "exit_code": 1,
+  "elapsed_seconds": 0.044163449900224805,
+  "systemd_state": "Id=lightsem-struct-limit-probe-v1.service\nLoadState=loaded\nActiveState=failed\nSubState=failed\nRuntimeMaxUSec=2s\nResult=exit-code\nExecMainCode=1\nExecMainStatus=1\nControlGroup=\nMemoryMax=4294967296\nMemorySwapMax=0\nPrivateDevices=yes\nProtectControlGroups=yes\nNoNewPrivileges=yes\nKillMode=control-group\nKillSignal=9\n",
+  "cause": "Transient unit serializes KillSignal=KILL, while V1 accepted only9 or SIGKILL. No timed wait reached; runtime kill remains untested. Root reviewed actual systemd state and will bind a separate V2 accepting the canonical KILL spelling. V1 is preserved.",
+  "models": 0,
+  "data_payload_reads": 0,
+  "preparation_runs": 0
+}

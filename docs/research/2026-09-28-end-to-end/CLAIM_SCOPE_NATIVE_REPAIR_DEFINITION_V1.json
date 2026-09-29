@@ -1,0 +1,1137 @@
+{
+  "status": "parent_reviewed_retrospective_interpretation_only",
+  "audit": {
+    "path": "/root/lightsem/docs/research/2026-09-28-end-to-end/CLAIM_SCOPE_AUDIT_V1.json",
+    "sha256": "83ed200e4c560ac52491533074a0bae3c7d41d280ee23995b195ec1244fc2ea6",
+    "bytes": 186414
+  },
+  "affected_hypotheses": 13,
+  "affected_experiments": 14,
+  "new_measurements": false,
+  "hypothesis_status_or_verdict_changes": false,
+  "old_notes_observations_gates_predictions_preserved": true,
+  "policy": "Interpretation changes only. Existing negative recipes remain completed; no reruns/conditional TEST unlocks. Original unsupported prose is retained in Notes as history and explicitly corrected by dated lessons. Mode test_invalid on row9 describes incomplete broad qualification, not erasure of its measured pilot. Row56 mode narrowed from mechanism_wrong to recipe_conditional. Current energy correction retained and refined to avoid unique causal feature attribution.",
+  "payloads": [
+    {
+      "experiment_id": "exp-008-a-causal-conformer-trained-on-68789d",
+      "lesson": "2026-09-28 retrospective claim-scope clarification, not a new measurement: On 86 RPMC test recordings, the head using audio and reference-event history improved AP/base-rate lift to1.805 versus rhythm1.250 (marginal+0.555,95%CI[+0.385,+0.739]); audio-only1.347 did not beat same-feature ridge1.500. This is reference-history event-proxy support, not demonstrated generated-history deployment. The separate JD own-cue test lost to its audio-only comparator; neither result establishes human LIGHT quality. The older99-show/openl3 ridge study is not a paired same-split comparator for this86-show result.",
+      "failure_mode": null,
+      "transfers_to": []
+    },
+    {
+      "experiment_id": "exp-004-a-causal-conformer-with-three-70f12e",
+      "lesson": "2026-09-28 retrospective claim-scope clarification, not a new measurement: This frozen AIST++ three-head recipe failed BAS, FID and diversity gates while passing exact model causality. Near-median blockA output and independent-frame jitter are reported failure observations; these data do not isolate one cause of every failed gate or establish an architecture-independent corpus ceiling. Retain the scoped recipe failure and all null comparators.",
+      "failure_mode": "recipe_conditional",
+      "transfers_to": []
+    },
+    {
+      "experiment_id": "exp-023-a-factorised-audio-light-critic-e453c6",
+      "lesson": "2026-09-28 retrospective claim-scope clarification, not a new measurement: The reranking proxies compare39 motion-model-validation clips: FID41.38 versus random43.82 and BAS-minus-shift-null0.1234 versus0.1237. The source does not establish that this set is held out from the independently split critic. Keep the separate critic-split pair-accuracy result and additive projection result; beyond-level understanding and best-of8 human preference remain unestablished.",
+      "failure_mode": "recipe_conditional",
+      "transfers_to": []
+    },
+    {
+      "experiment_id": "exp-020-a-learned-group-effects-decoder-1eac54",
+      "lesson": "2026-09-28 retrospective claim-scope clarification, not a new measurement: Both decoder recipes failed their recorded FID/BAS gates on the39-clip motion-validation render set, which was not held out from the decoder (30train/5validation/4test clips). v1 rig transfer passed; v2 failed. Preserve the separately reported authored-corpus metrics without relabelling them from these39-clip counts. Human A/B was not measured; no new run or preference conclusion follows.",
+      "failure_mode": "recipe_conditional",
+      "transfers_to": []
+    },
+    {
+      "experiment_id": "exp-021-a-learned-group-effects-decoder-1eac54",
+      "lesson": "2026-09-28 retrospective claim-scope clarification, not a new measurement: Both decoder recipes failed their recorded FID/BAS gates on the39-clip motion-validation render set, which was not held out from the decoder (30train/5validation/4test clips). v1 rig transfer passed; v2 failed. Preserve the separately reported authored-corpus metrics without relabelling them from these39-clip counts. Human A/B was not measured; no new run or preference conclusion follows.",
+      "failure_mode": "recipe_conditional",
+      "transfers_to": []
+    },
+    {
+      "experiment_id": "exp-024-a-look-sampler-that-holds-its-c32dbb",
+      "lesson": "2026-09-28 retrospective claim-scope clarification, not a new measurement: Cue-held transition distance6.86 improves over per-frame8.87 but loses to donor5.66 (floor2.56), so the conjunction remains failed. BAS-minus-shift-null0.5133 versus conductor0.1248 with419 versus771 events/clip is a descriptive zero-phase engine comparison on39 motion-validation clips, not demonstrated decoder-held-out song generalization. Preserve the historical split and beat-fraction timing qualifications; no aesthetic preference is measured.",
+      "failure_mode": "recipe_conditional",
+      "transfers_to": []
+    },
+    {
+      "experiment_id": "exp-022-section-level-intent-belongs-on-47d660",
+      "lesson": "2026-09-28 retrospective claim-scope clarification, not a new measurement: This historical 39-clip comparison is held out under the motion selector, not fully held out from the evaluated decoder: the existing audit reports 30 decoder-TRAIN clips, 5 VAL and 4 TEST. Planner FID 597.34 versus no-planner6211.29/shuffled610.46 does not establish held-out decoder generalization; paired BAS worsened by -0.0067, CI [-0.0116,-0.0023]. Human structure judgment remains explicitly unmeasured. Preserve the completed numeric negative; no new execution follows.",
+      "failure_mode": "recipe_conditional",
+      "transfers_to": []
+    },
+    {
+      "experiment_id": "audio-predicts-lighting-events-when-the-scene-changes-even-though-it-does-not-pr-exp-2026-08-07t13-50-58",
+      "lesson": "2026-09-28 retrospective claim-scope clarification, not a new measurement: Audio is associated with the video-derived event proxy: rhythm+audio lift1.4151 versus rhythm1.3241, marginal+0.0909 against the circular-shift null\u22120.1568\u00b10.0876. The36-song rise/reversion measurements describe filtered novelty morphology only. Without validated shot-boundary labels they do not bound the proportion of editing contamination, identify lighting-only coupling, or establish useful cue anticipation.",
+      "failure_mode": null,
+      "transfers_to": []
+    },
+    {
+      "experiment_id": "exp-010-dance-is-not-a-category-error-101dd9",
+      "lesson": "2026-09-28 retrospective claim-scope clarification, not a new measurement: The reduced one-rater pilot recorded a hybrid-appearance preference in8/9decided trials versus chance.5 (reported exact95%CI[.518,.997]). Music-fit5/9 (CI[.212,.863]) is inconclusive, not equivalence. Shared transient phase does not prove the rating question cannot distinguish the outputs. The incomplete/blinding-limited protocol leaves the broad category claim unestablished; retain only the pilot appearance direction.",
+      "failure_mode": "test_invalid",
+      "transfers_to": []
+    },
+    {
+      "experiment_id": "exp-001-light-derived-from-real-dance-39fd73",
+      "lesson": "2026-09-28 retrospective claim-scope clarification, not a new measurement: On the evaluated AIST++ clips, this fixed motion-only conductor did not establish beat-phase alignment above its circular-shift null (+0.0082, CI [-0.0101,+0.0259]). The audio-phased hybrid scored +0.1242 versus +0.0942 for the beat trigger under the same metric. This supports that hybrid timing choice for this recipe; it does not show that choreography phase is absent from audio or unlearnable. Keep the disclosed metronome-gate and FID-null limitations; no aesthetic claim or rerun follows.",
+      "failure_mode": "recipe_conditional",
+      "transfers_to": []
+    },
+    {
+      "experiment_id": "exp-012-most-of-the-gap-between-the-1f7d3b",
+      "lesson": "2026-09-28 retrospective claim-scope clarification, not a new measurement: For this AIST++ trunk, seed, split and 12k-step budget, removing the tested causality constraints did not earn the specified gain: R2 -0.0092 versus causal +0.0192 and BAS-minus-null +0.0185 versus +0.0179, below +0.105. This recipe did not close the gap; it does not identify the corpus as the sole bottleneck or exclude other architectures, context mechanisms or optimization. Preserve the completed negative without another seed or context sweep.",
+      "failure_mode": "recipe_conditional",
+      "transfers_to": []
+    },
+    {
+      "experiment_id": "the-audio-lighting-event-signal-is-carried-by-loudness-energy-if-true-the-indust-exp-2026-08-07t14-34-32",
+      "lesson": "2026-09-28 retrospective scope and factual correction, not a new experiment: historical supports does not establish the proposed loudness-only ceiling; the named energy-family lift1.4704 versus its permutation null1.4381 has p=.240, while the spectral family scored1.7060 versus its null1.4562, with common rhythm baseline1.3241. The retained historical statement that energy was the ONLY family to fail its own null is incorrect: harmonic lift1.3832 versus its null1.4609 (p=.960) also failed. These are comparisons of tested, correlated feature families, not proof of zero energy contribution, a uniquely identified physical cause, or an independent MFCC-versus-spectral mechanism; preserve the measured table, historical closure and earlier scope correction.",
+      "failure_mode": null,
+      "transfers_to": []
+    },
+    {
+      "experiment_id": "exp-006-the-deployed-path-meets-its-eb0fc6",
+      "lesson": "2026-09-28 retrospective claim-scope clarification, not a new measurement: Retain the historical software timing result and zero leakage under model-input perturbation. This experiment establishes conditional model causality only: its saved instrument perturbs synthetic model inputs, not audio through the feature builder. It does not establish whole deployed-pipeline future-audio independence or measured real-fixture latency. The later exp-009 is a separate, version-bounded example: that tested pipeline had upstream feature leakage and its repair still exempted five oracle beat-grid channels. Upstream source/version equivalence between the two historical runs is not established here; do not treat this cross-link as a new refutation of the exact earlier full path. Preserve historical gates and verdict; no rerun.",
+      "failure_mode": null,
+      "transfers_to": []
+    },
+    {
+      "experiment_id": "exp-002-the-music-induced-movement-46c7b4",
+      "lesson": "2026-09-28 retrospective claim-scope clarification, not a new measurement: the registered AIST++ shared-skeleton gate failed for this causal-feature ridge recipe and track-held-out splits; dancer identity outperformed audio on23/29channels, including footfall R2 audio.035 versus identity.403 and vertical amplitude audio-.018 versus identity+.241. Retain that measured negative and the reported genre association, but attained ridge scores do not bound all audio models or isolate corpus design rather than method/features as the sole cause. The reported split-half statistic is a separate reproducibility estimate, not proof that this audio ridge attained the best possible prediction; preserve the completed study and do not reopen it.",
+      "failure_mode": "recipe_conditional",
+      "transfers_to": []
+    }
+  ],
+  "before": {
+    "exp-008-a-causal-conformer-trained-on-68789d": {
+      "path": "/root/lightsem-vault/experiments/exp-008-a-causal-conformer-trained-on-68789d.md",
+      "sha256": "bb4f84fc9924061f04469c6bc88cda6f96b8cb1f157281582310d4f751269638",
+      "metadata": {
+        "artifacts": [],
+        "closed": true,
+        "config_note": "{\"stage\": \"2B head\", \"n_songs\": 598, \"n_test\": 86, \"params_m\": 3.55, \"features\": 52, \"variants\": [\"audio only\", \"audio + rhythm features\"]}",
+        "cost": null,
+        "crash_reason": "",
+        "created_at": "2026-09-04T00:18:43+00:00",
+        "diagnostics_measured": [
+          {
+            "after": 0.5553,
+            "before": 0.3145,
+            "diagnostic_id": "event-ap-lift-audio-marginal"
+          }
+        ],
+        "do_not_retry": [],
+        "external_run": "",
+        "former_ids": [],
+        "gate_results": [
+          {
+            "evidence": "With rhythm and audio together the head reaches a lift of 1.805x against the rhythm baseline's 1.250x \u2014 a margin of +0.555 (CI [+0.385, +0.739]), against the ridge probe's +0.3145 and a gate of +0.09. Causality leak 0.0. Audio ALONE is a different story: the Conformer reaches 1.347x, below the ridge on the same 52 features (1.500x), with a margin of +0.096 whose CI [-0.053, +0.258] includes zero.",
+            "gate_id": "G-head-b",
+            "passed": true
+          }
+        ],
+        "git_ref": "",
+        "hypothesis_id": "a-causal-conformer-trained-on-the-product-s-own-3b2bac",
+        "id": "exp-008-a-causal-conformer-trained-on-68789d",
+        "interpretation": {
+          "at": "2026-09-04T00:18:44+00:00",
+          "failure_mode": null,
+          "lesson": "Build the product around this head. It predicts WHEN to cut, from audio plus the show's own recent rhythm, on professional operator data, with an effect several times anything the dance corpora yield. The dance-trained head shapes what happens between cuts and the beat grid phases the transients. Also worth carrying forward: on a corpus of this size a linear model on good causal features is a serious competitor, so every neural claim here needs the ridge next to it.",
+          "transfers_to": []
+        },
+        "key_numbers": {},
+        "observed_effects": [
+          {
+            "delta": 0.2408,
+            "diagnostic_id": "event-ap-lift-audio-marginal",
+            "direction": "up"
+          }
+        ],
+        "parent_experiment_id": null,
+        "prediction_match": {
+          "overall": true,
+          "per_diagnostic": {
+            "event-ap-lift-audio-marginal": true
+          }
+        },
+        "provenance": {},
+        "recipe_fingerprint": {},
+        "verdict": "supports"
+      },
+      "body": "## Summary\nTests hypothesis [[a-causal-conformer-trained-on-the-product-s-own-3b2bac]].\n\n## Measurements\n- [[event-ap-lift-audio-marginal]]: before 0.3145 \u2192 after 0.5553  (\u0394 +0.2408, up \u2713 predicted up)\n\n## Gates\n- `G-head-b`: PASS \u2014 With rhythm and audio together the head reaches a lift of 1.805x against the rhythm baseline's 1.250x \u2014 a margin of +0.555 (CI [+0.385, +0.739]), against the ridge probe's +0.3145 and a gate of +0.09. Causality leak 0.0. Audio ALONE is a different story: the Conformer reaches 1.347x, below the ridge on the same 52 features (1.500x), with a margin of +0.096 whose CI [-0.053, +0.258] includes zero.\n\n**Verdict:** supports\n\n## Interpretation\nBuild the product around this head. It predicts WHEN to cut, from audio plus the show's own recent rhythm, on professional operator data, with an effect several times anything the dance corpora yield. The dance-trained head shapes what happens between cuts and the beat grid phases the transients. Also worth carrying forward: on a corpus of this size a linear model on good causal features is a serious competitor, so every neural claim here needs the ridge next to it.\n\n## Notes\nHEAD B is deployable and the strongest component measured in this project. The head that gets both the audio and the operator's own recent rhythm predicts the next scene change at 1.805x the base rate against 1.250x for rhythm alone, a margin of +0.555 (CI [+0.385, +0.739]) on 86 held-out shows \u2014 nearly double the ridge probe's +0.315 and six times the plan's +0.09 gate.\nTwo cautions that belong next to that number. First, a 3.6 M-parameter Conformer given audio alone (1.347x) does WORSE than a linear ridge on the same 52 features (1.500x); with roughly 500 training shows the capacity is not free, and the gain comes from combining audio with rhythm rather than from depth. Second, an earlier version of this evaluation fitted the rhythm baseline on the test song itself, which inflated it from 1.25 to 2.79 and would have reported the model as far worse than the baseline; the baselines here are fitted on training songs only.\n\n#audio-to-light #real-time #music-to-dance #motion-to-light #generative-modelling #evaluation-metric #cross-modal #pose #music-induced-movement #matched-baseline #conditional-mean-collapse #metric-gaming #ill-posed-ground-truth"
+    },
+    "exp-004-a-causal-conformer-with-three-70f12e": {
+      "path": "/root/lightsem-vault/experiments/exp-004-a-causal-conformer-with-three-70f12e.md",
+      "sha256": "39f48687ca93cbf92dfbd70c3832e94b376a4ff52b6ed55817eb679275757cc2",
+      "metadata": {
+        "artifacts": [],
+        "closed": true,
+        "config_note": "{\"stage\": \"1\", \"runbook\": \"rb-ls2-01\", \"params_m\": 9.27509, \"steps\": 12000, \"train_s\": 527, \"splits\": {\"train\": 784, \"val_track\": 154, \"test_genre\": 282, \"test_dancer\": 188}, \"device\": \"RTX 5070\", \"ckpt\": \"/mnt/lightsem-data/ckpt/light_trunk_v1.pt\", \"conductor\": \"hybrid (dance envelopes + audio-phased transients)\"}",
+        "cost": null,
+        "crash_reason": "",
+        "created_at": "2026-09-03T23:28:01+00:00",
+        "diagnostics_measured": [
+          {
+            "after": 0.0009,
+            "before": 0.1464,
+            "diagnostic_id": "light-bas-minus-shift-null"
+          },
+          {
+            "after": 114.0,
+            "before": 700.4,
+            "diagnostic_id": "fid-light-kinetic"
+          },
+          {
+            "after": 4.075,
+            "before": 6.306,
+            "diagnostic_id": "light-diversity-kinetic"
+          }
+        ],
+        "do_not_retry": [],
+        "external_run": "",
+        "former_ids": [],
+        "gate_results": [
+          {
+            "evidence": "future-perturbation leak 0.0 at cuts of 50/100/200/300 frames; attention is masked to the past and windowed, the depthwise convolution is left-padded",
+            "gate_id": "G-causal",
+            "passed": true
+          },
+          {
+            "evidence": "model +0.0009, CI [-0.0024, 0.004] (includes zero) against real-mapped +0.1464 and beat trigger +0.0959. Mechanism found: the model's block A outputs are over-smoothed toward the corpus median, so its light flashes 6.5 times a second instead of the real 4.3 and does so uniformly. A dense uniform event train has a HIGH circular-shift null by construction, so even correctly beat-phased transients cannot show above it.",
+            "gate_id": "G-bas",
+            "passed": false
+          },
+          {
+            "evidence": "FID(model, real) 114.0 against half the null 68.1; the beat trigger scores 700, so the model is 6x closer to dance-derived light than the baseline is, and still not close enough",
+            "gate_id": "G-fid",
+            "passed": false
+          },
+          {
+            "evidence": "model 4.07 against real 6.31, a ratio of 0.65 versus the 0.7 required. The collapse control behaves exactly as predicted: the MSE head's diversity across style samples is 0.000 against the flow head's 2.03, at equal block A accuracy (val-track R2 0.057 vs 0.035), so the generative head buys variety for free \u2014 there is simply not enough of it",
+            "gate_id": "G-div",
+            "passed": false
+          }
+        ],
+        "git_ref": "",
+        "hypothesis_id": "a-causal-conformer-with-three-heads-b18294",
+        "id": "exp-004-a-causal-conformer-with-three-70f12e",
+        "interpretation": {
+          "at": "2026-09-03T23:28:01+00:00",
+          "failure_mode": "recipe_conditional",
+          "lesson": "Two fixes follow from the mechanism, and neither is 'train longer'. First, the block A / block C boundary was drawn from the literature and should be redrawn from the Stage 0b audit: on this corpus almost nothing clears the identity baseline, so almost everything belongs in the SAMPLED block, not the regressed one. Regressing an unpredictable channel does not produce a cautious estimate, it produces a flat line, and a flat line makes bad light. Second, the flow head samples each frame independently given the trunk state, so its variety is high-frequency jitter rather than the burst-and-rest structure real dance has; it needs to condition on its own previous output. Both are v2 work. Meanwhile the diagnostic to keep is the one that caught this: report the event RATE and the circular-shift null next to every Light-BAS, because a model can raise alignment and lose the comparison by flashing more.",
+          "transfers_to": []
+        },
+        "key_numbers": {},
+        "observed_effects": [
+          {
+            "delta": -0.1455,
+            "diagnostic_id": "light-bas-minus-shift-null",
+            "direction": "down"
+          },
+          {
+            "delta": -586.4,
+            "diagnostic_id": "fid-light-kinetic",
+            "direction": "down"
+          },
+          {
+            "delta": -2.231,
+            "diagnostic_id": "light-diversity-kinetic",
+            "direction": "down"
+          }
+        ],
+        "parent_experiment_id": null,
+        "prediction_match": {
+          "overall": false,
+          "per_diagnostic": {
+            "fid-light-kinetic": true,
+            "light-bas-minus-shift-null": false,
+            "light-diversity-kinetic": false
+          }
+        },
+        "provenance": {},
+        "recipe_fingerprint": {},
+        "verdict": "refutes"
+      },
+      "body": "## Summary\nTests hypothesis [[a-causal-conformer-with-three-heads-b18294]].\n\n## Measurements\n- [[light-bas-minus-shift-null]]: before 0.1464 \u2192 after 0.0009  (\u0394 -0.1455, down \u2717 predicted up)\n- [[fid-light-kinetic]]: before 700.4 \u2192 after 114.0  (\u0394 -586.4, down \u2713 predicted down)\n- [[light-diversity-kinetic]]: before 6.306 \u2192 after 4.075  (\u0394 -2.231, down \u2717 predicted up)\n\n## Gates\n- `G-causal`: PASS \u2014 future-perturbation leak 0.0 at cuts of 50/100/200/300 frames; attention is masked to the past and windowed, the depthwise convolution is left-padded\n- `G-bas`: **FAIL** \u2014 model +0.0009, CI [-0.0024, 0.004] (includes zero) against real-mapped +0.1464 and beat trigger +0.0959. Mechanism found: the model's block A outputs are over-smoothed toward the corpus median, so its light flashes 6.5 times a second instead of the real 4.3 and does so uniformly. A dense uniform event train has a HIGH circular-shift null by construction, so even correctly beat-phased transients cannot show above it.\n- `G-fid`: **FAIL** \u2014 FID(model, real) 114.0 against half the null 68.1; the beat trigger scores 700, so the model is 6x closer to dance-derived light than the baseline is, and still not close enough\n- `G-div`: **FAIL** \u2014 model 4.07 against real 6.31, a ratio of 0.65 versus the 0.7 required. The collapse control behaves exactly as predicted: the MSE head's diversity across style samples is 0.000 against the flow head's 2.03, at equal block A accuracy (val-track R2 0.057 vs 0.035), so the generative head buys variety for free \u2014 there is simply not enough of it\n\n**Verdict:** refutes\n\n## Interpretation\n**Failure mode:** `recipe_conditional`\n\nTwo fixes follow from the mechanism, and neither is 'train longer'. First, the block A / block C boundary was drawn from the literature and should be redrawn from the Stage 0b audit: on this corpus almost nothing clears the identity baseline, so almost everything belongs in the SAMPLED block, not the regressed one. Regressing an unpredictable channel does not produce a cautious estimate, it produces a flat line, and a flat line makes bad light. Second, the flow head samples each frame independently given the trunk state, so its variety is high-frequency jitter rather than the burst-and-rest structure real dance has; it needs to condition on its own previous output. Both are v2 work. Meanwhile the diagnostic to keep is the one that caught this: report the event RATE and the circular-shift null next to every Light-BAS, because a model can raise alignment and lose the comparison by flashing more.\n\n## Notes\nThe machinery works and the corpus is the ceiling, as Stage 0b predicted.\nWhat passed: causality is exact (leak 0.0), the model trains in 9 minutes on one RTX 5070, and the generative head does what the literature says it should \u2014 the MSE control collapses to 0.000 diversity while the flow head gives 2.03 at the same block A accuracy.\nBlock A on unseen tracks: mean R2 +0.035, best channels footfall rate 0.220, metrical level 0.082, vertical bounce amplitude 0.038. On unseen DANCERS +0.069. On unseen GENRES -0.183 \u2014 negative, meaning worse than predicting the mean, which is exactly what Stage 0b's finding predicts: what the model can learn from this corpus is genre-conditioned style, so removing the genre removes the skill.\nBlock B events: footfall AP 0.392 against a 0.347 base rate on unseen tracks, 0.655 against 0.572 on unseen dancers; hits show no lift at all. Consistent with Stage 0a \u2014 event phase belongs to the choreography.\nThe light-level gates fail for one identifiable reason rather than three. Predicting near the conditional median makes every channel smooth; a smooth descriptor stream drives a light that flashes constantly and evenly; and an even event train sits at its own circular-shift null however well each flash is phased. The metric is not being unfair \u2014 it is naming the failure the plan was built to catch.\n\n#audio-to-light #generative-modelling #real-time #music-to-dance #motion-to-light #evaluation-metric #cross-modal #pose #music-induced-movement #conditional-mean-collapse #matched-baseline #metric-gaming #ill-posed-ground-truth"
+    },
+    "exp-023-a-factorised-audio-light-critic-e453c6": {
+      "path": "/root/lightsem-vault/experiments/exp-023-a-factorised-audio-light-critic-e453c6.md",
+      "sha256": "f914ea0cc3877e8c2c22773ca98df22929fd291b7d462cd2d0bf51b05d8fb64f",
+      "metadata": {
+        "artifacts": [],
+        "closed": true,
+        "config_note": "{\"runbook\": \"rb-ls2-09-designed-light\", \"critic\": \"train_critic.py: two dual encoders (2-layer Transformer d128 each side) on 16-bar windows; audio = bar-pooled 52-d features, light = bar-pooled scene vector + value std + look-change count; InfoNCE with shift / other-song / beat-trigger negatives; C_R on rms/onset/beat vs value channels only; score = C_U - 0.5 C_R; best-of-8 over the shipped model's flow seeds through the hybrid conductor\", \"train_corpora\": \"rpmc,jd\", \"n_songs\": 843}",
+        "cost": null,
+        "crash_reason": "",
+        "created_at": "2026-09-04T23:06:42+00:00",
+        "diagnostics_measured": [
+          {
+            "after": 0.893,
+            "before": 0.5,
+            "diagnostic_id": "critic-pair-accuracy"
+          },
+          {
+            "after": 0.1234,
+            "before": 0.1237,
+            "diagnostic_id": "light-bas-minus-shift-null"
+          }
+        ],
+        "do_not_retry": [],
+        "external_run": "",
+        "former_ids": [],
+        "gate_results": [
+          {
+            "evidence": "held-out pair accuracy (16-bar windows, 2560 pairs): real vs beat-trigger light on the same audio 0.893 (C_U alone 0.979, C_R alone 0.985), real vs 2+-bar shift 0.563, real vs other song 0.730; chance 0.5.",
+            "gate_id": "G9.5-bt",
+            "passed": true
+          },
+          {
+            "evidence": "an additive model f(audio) + g(light) fitted to the critic's scores over 312 candidates explains R2 0.896; the best-of-8 argmax changes on 41% of clips (gate >= 30%).",
+            "gate_id": "G9.5-additive",
+            "passed": true
+          },
+          {
+            "evidence": "human 'fits the music' not run (needs raters). Proxies on 39 held-out JD clips: FID_light best-of-8 41.38 vs random-of-8 43.82 (null 4119.78, floor 7.87); BAS minus null best +0.1234 vs random +0.1237 vs real coach +0.0813.",
+            "gate_id": "G9.5-bon",
+            "passed": false
+          }
+        ],
+        "git_ref": "c7d6728",
+        "hypothesis_id": "a-factorised-audio-light-critic-trained-with-a97ada",
+        "id": "exp-023-a-factorised-audio-light-critic-e453c6",
+        "interpretation": null,
+        "key_numbers": {},
+        "observed_effects": [
+          {
+            "delta": 0.393,
+            "diagnostic_id": "critic-pair-accuracy",
+            "direction": "up"
+          },
+          {
+            "delta": -0.0003,
+            "diagnostic_id": "light-bas-minus-shift-null",
+            "direction": "down"
+          }
+        ],
+        "parent_experiment_id": null,
+        "prediction_match": {
+          "overall": true,
+          "per_diagnostic": {
+            "critic-pair-accuracy": true,
+            "human-preference-winrate": false,
+            "light-bas-minus-shift-null": false
+          }
+        },
+        "provenance": {},
+        "recipe_fingerprint": {
+          "git_ref": "c7d6728"
+        },
+        "verdict": "directional_only"
+      },
+      "body": "## Summary\nTests hypothesis [[a-factorised-audio-light-critic-trained-with-a97ada]].\nAt commit `c7d6728`.\n\n## Measurements\n- [[critic-pair-accuracy]]: before 0.5 \u2192 after 0.893  (\u0394 +0.393, up \u2713 predicted up)\n- [[light-bas-minus-shift-null]]: before 0.1237 \u2192 after 0.1234  (\u0394 -0.0003, down \u2717 predicted none)\n\n## Gates\n- `G9.5-bt`: PASS \u2014 held-out pair accuracy (16-bar windows, 2560 pairs): real vs beat-trigger light on the same audio 0.893 (C_U alone 0.979, C_R alone 0.985), real vs 2+-bar shift 0.563, real vs other song 0.730; chance 0.5.\n- `G9.5-additive`: PASS \u2014 an additive model f(audio) + g(light) fitted to the critic's scores over 312 candidates explains R2 0.896; the best-of-8 argmax changes on 41% of clips (gate >= 30%).\n- `G9.5-bon`: **FAIL** \u2014 human 'fits the music' not run (needs raters). Proxies on 39 held-out JD clips: FID_light best-of-8 41.38 vs random-of-8 43.82 (null 4119.78, floor 7.87); BAS minus null best +0.1234 vs random +0.1237 vs real coach +0.0813.\n\n**Verdict:** directional_only\n\n> Direction matched, but a preregistered blocking gate did NOT pass. This does not establish the claim.\n\n## Notes\nH-K critic. held-out pair accuracy (16-bar windows, 2560 pairs): real vs beat-trigger light on the same audio 0.893 (C_U alone 0.979, C_R alone 0.985), real vs 2+-bar shift 0.563, real vs other song 0.730; chance 0.5. an additive model f(audio) + g(light) fitted to the critic's scores over 312 candidates explains R2 0.896; the best-of-8 argmax changes on 41% of clips (gate >= 30%). human 'fits the music' not run (needs raters). Proxies on 39 held-out JD clips: FID_light best-of-8 41.38 vs random-of-8 43.82 (null 4119.78, floor 7.87); BAS minus null best +0.1234 vs random +0.1237 vs real coach +0.0813.\n\n#cross-modal #evaluation-metric #audio-to-light #generative-modelling #music-to-dance #motion-to-light #real-time #pose #music-induced-movement #metric-gaming #matched-baseline #conditional-mean-collapse #ill-posed-ground-truth"
+    },
+    "exp-020-a-learned-group-effects-decoder-1eac54": {
+      "path": "/root/lightsem-vault/experiments/exp-020-a-learned-group-effects-decoder-1eac54.md",
+      "sha256": "029d860f221c7bc104ccb71e36cc8de035f7d2237e13cd4f2f57ae7c62cfc76f",
+      "metadata": {
+        "artifacts": [],
+        "closed": true,
+        "config_note": "{\"stage\": \"9.3 / H-I\", \"runbook\": \"rb-ls2-09-designed-light\", \"decoder\": \"lightsem/model/group_decoder.py: 3-block causal Conformer d192 on the 52-d operator features + frozen audio-only operator-head state, corpus embedding, 5 roles x (intensity, hue, sat, effect id, rate, spread, density) + look-change logit, type masks; differentiable scene-vector renderer under random rigs; deterministic effects engine at 40 fps\", \"variant\": \"v1: group parameters regressed through the differentiable renderer (collapsed to per-song constants: intensity sd 0.002 within a clip)\", \"params_m\": 2.62577, \"train_corpora\": \"rpmc,jd\", \"n_train_songs\": 930, \"held_out\": {\"rpmc\": {\"scene_mse\": 0.07319756956814333, \"scene_mse_shuffled_donor\": 0.07541528179548508, \"look_ap_lift\": 1.3582103252410889, \"look_ap_lift_hazard_ridge\": 1.250106930732727, \"value_r\": 0.06382440295457278, \"n_test\": 86}, \"jd\": {\"scene_mse\": 0.07815649487862461, \"scene_mse_shuffled_donor\": 0.08322831743249767, \"look_ap_lift\": 2.3864705562591553, \"look_ap_lift_hazard_ridge\": 1.4812017679214478, \"value_r\": 0.17521931804331245, \"n_test\": 38}}, \"eval\": \"run_stage9_decoder_eval.py on 39 held-out Just Dance clips (val_track), brightness-matched to the real-coach reference, arms: conductor (shipped model), beat trigger, decoder, shuffled donor, engine-only\", \"beat_saber_in_loss\": false}",
+        "cost": null,
+        "crash_reason": "",
+        "created_at": "2026-09-04T23:01:54+00:00",
+        "diagnostics_measured": [
+          {
+            "after": 929.894,
+            "before": 43.815,
+            "diagnostic_id": "fid-light-kinetic"
+          },
+          {
+            "after": -0.1664,
+            "before": 0.1238,
+            "diagnostic_id": "light-bas-minus-shift-null"
+          },
+          {
+            "after": 0.302,
+            "before": 0.3062,
+            "diagnostic_id": "rig-transfer-hist-distance"
+          }
+        ],
+        "do_not_retry": [],
+        "external_run": "",
+        "former_ids": [],
+        "gate_results": [
+          {
+            "evidence": "FID_light vs real: decoder 929.89, conductor 43.82, donor 927.41, engine-only 1404.90, beat trigger 5967.74; block-shuffle null 4142.66, split-half floor 6.93. Gain over the conductor -886.08 vs donor gain -883.59 (needs > 2x).",
+            "gate_id": "G9.3-fid",
+            "passed": false
+          },
+          {
+            "evidence": "Light-BAS minus null: decoder -0.1664 CI [-0.1943, -0.1396], conductor +0.1238, real coach +0.0804, beat trigger +0.0970, engine-only +0.5254; events per clip decoder 182.1 conductor 771.5 real 888.1.",
+            "gate_id": "G9.3-bas",
+            "passed": false
+          },
+          {
+            "evidence": "Not measured: the brightness-matched human A/B needs raters (n >= 20 pairs).",
+            "gate_id": "G9.3-ab",
+            "passed": false
+          },
+          {
+            "evidence": "unseen rig (8 heads, 6 washes, 4 blinders, no strobe): HSV-histogram distance to the canonical render, decoder re-realised 0.302 vs channel-copy 0.306 (L1 per frame, hue + value histograms).",
+            "gate_id": "G9.3-rig",
+            "passed": true
+          }
+        ],
+        "git_ref": "16e366d",
+        "hypothesis_id": "a-learned-group-effects-decoder-anton-s-mixture-2b4f62",
+        "id": "exp-020-a-learned-group-effects-decoder-1eac54",
+        "interpretation": null,
+        "key_numbers": {},
+        "observed_effects": [
+          {
+            "delta": 886.079,
+            "diagnostic_id": "fid-light-kinetic",
+            "direction": "up"
+          },
+          {
+            "delta": -0.2902,
+            "diagnostic_id": "light-bas-minus-shift-null",
+            "direction": "down"
+          },
+          {
+            "delta": -0.0042,
+            "diagnostic_id": "rig-transfer-hist-distance",
+            "direction": "down"
+          }
+        ],
+        "parent_experiment_id": null,
+        "prediction_match": {
+          "overall": false,
+          "per_diagnostic": {
+            "fid-light-kinetic": false,
+            "human-preference-winrate": false,
+            "light-bas-minus-shift-null": false,
+            "rig-transfer-hist-distance": true
+          }
+        },
+        "provenance": {},
+        "recipe_fingerprint": {
+          "git_ref": "16e366d"
+        },
+        "verdict": "refutes"
+      },
+      "body": "## Summary\nTests hypothesis [[a-learned-group-effects-decoder-anton-s-mixture-2b4f62]].\nAt commit `16e366d`.\n\n## Measurements\n- [[fid-light-kinetic]]: before 43.815 \u2192 after 929.894  (\u0394 +886.079, up \u2717 predicted down)\n- [[light-bas-minus-shift-null]]: before 0.1238 \u2192 after -0.1664  (\u0394 -0.2902, down \u2717 predicted none)\n- [[rig-transfer-hist-distance]]: before 0.3062 \u2192 after 0.302  (\u0394 -0.0042, down \u2713 predicted down)\n\n## Gates\n- `G9.3-fid`: **FAIL** \u2014 FID_light vs real: decoder 929.89, conductor 43.82, donor 927.41, engine-only 1404.90, beat trigger 5967.74; block-shuffle null 4142.66, split-half floor 6.93. Gain over the conductor -886.08 vs donor gain -883.59 (needs > 2x).\n- `G9.3-bas`: **FAIL** \u2014 Light-BAS minus null: decoder -0.1664 CI [-0.1943, -0.1396], conductor +0.1238, real coach +0.0804, beat trigger +0.0970, engine-only +0.5254; events per clip decoder 182.1 conductor 771.5 real 888.1.\n- `G9.3-ab`: **FAIL** \u2014 Not measured: the brightness-matched human A/B needs raters (n >= 20 pairs).\n- `G9.3-rig`: PASS \u2014 unseen rig (8 heads, 6 washes, 4 blinders, no strobe): HSV-histogram distance to the canonical render, decoder re-realised 0.302 vs channel-copy 0.306 (L1 per frame, hue + value histograms).\n\n**Verdict:** refutes\n\n## Notes\nH-I decoder v1: group parameters regressed through the differentiable renderer (collapsed to per-song constants: intensity sd 0.002 within a clip). FID_light vs real: decoder 929.89, conductor 43.82, donor 927.41, engine-only 1404.90, beat trigger 5967.74 (null 4142.66, floor 6.93). Light-BAS minus null: decoder -0.1664, conductor +0.1238, real +0.0804; events per clip decoder 182.1 vs conductor 771.5 vs real 888.1. Rig transfer: decoder 0.302 vs channel-copy 0.306. Held-out authored corpora: rpmc: scene MSE 0.073 (donor 0.075), look-change lift 1.36 vs rhythm 1.25; jd: scene MSE 0.078 (donor 0.083), look-change lift 2.39 vs rhythm 1.48. Human A/B not run (needs raters).\n\n#learned-conductor #motion-to-light #audio-to-light #generative-modelling #evaluation-metric #music-to-dance #real-time #cross-modal #pose #music-induced-movement #matched-baseline #metric-gaming #conditional-mean-collapse #ill-posed-ground-truth"
+    },
+    "exp-021-a-learned-group-effects-decoder-1eac54": {
+      "path": "/root/lightsem-vault/experiments/exp-021-a-learned-group-effects-decoder-1eac54.md",
+      "sha256": "983799489279c06ea895bc5bc75cd2ea3a04b4b7ca82317873b24052d4525ddb",
+      "metadata": {
+        "artifacts": [],
+        "closed": true,
+        "config_note": "{\"stage\": \"9.3 / H-I\", \"runbook\": \"rb-ls2-09-designed-light\", \"decoder\": \"lightsem/model/group_decoder.py: 3-block causal Conformer d192 on the 52-d operator features + frozen audio-only operator-head state, corpus embedding, 5 roles x (intensity, hue, sat, effect id, rate, spread, density) + look-change logit, type masks; differentiable scene-vector renderer under random rigs; deterministic effects engine at 40 fps\", \"variant\": \"v2: the LOOK (6-d scene vector) sampled by a rectified flow on the trunk state and assigned to the roles (look-then-assign, PLAN 9.9's pre-registered branch for conditional-mean collapse)\", \"params_m\": 2.744304, \"train_corpora\": \"rpmc,jd\", \"n_train_songs\": 930, \"held_out\": {\"rpmc\": {\"scene_mse\": 1.0803298873956813, \"scene_mse_shuffled_donor\": 0.08484788308309954, \"look_ap_lift\": 1.350101351737976, \"look_ap_lift_hazard_ridge\": 1.250106930732727, \"value_r\": 0.030577752336635355, \"sample_scene_mse\": 0.10481080962994764, \"sample_value_std_ratio\": 0.7166363943454831, \"sample_value_r\": 0.00908661805495407, \"n_test\": 86}, \"jd\": {\"scene_mse\": 0.9307649151275033, \"scene_mse_shuffled_donor\": 0.0833806018099973, \"look_ap_lift\": 2.3504936695098877, \"look_ap_lift_hazard_ridge\": 1.4812017679214478, \"value_r\": 0.18263069592783138, \"sample_scene_mse\": 0.10630795006689273, \"sample_value_std_ratio\": 0.6884192259688127, \"sample_value_r\": 0.04404135828128666, \"n_test\": 38}}, \"eval\": \"run_stage9_decoder_eval.py on 39 held-out Just Dance clips (val_track), brightness-matched to the real-coach reference, arms: conductor (shipped model), beat trigger, decoder, shuffled donor, engine-only\", \"beat_saber_in_loss\": false}",
+        "cost": null,
+        "crash_reason": "",
+        "created_at": "2026-09-04T23:01:55+00:00",
+        "diagnostics_measured": [
+          {
+            "after": 6211.285,
+            "before": 43.815,
+            "diagnostic_id": "fid-light-kinetic"
+          },
+          {
+            "after": -0.0549,
+            "before": 0.1239,
+            "diagnostic_id": "light-bas-minus-shift-null"
+          },
+          {
+            "after": 0.3448,
+            "before": 0.3054,
+            "diagnostic_id": "rig-transfer-hist-distance"
+          }
+        ],
+        "do_not_retry": [],
+        "external_run": "",
+        "former_ids": [],
+        "gate_results": [
+          {
+            "evidence": "FID_light vs real: decoder 6211.29, conductor 43.82, donor 5403.20, engine-only 1573.86, beat trigger 5967.74; block-shuffle null 4126.33, split-half floor 7.68. Gain over the conductor -6167.47 vs donor gain -5359.38 (needs > 2x).",
+            "gate_id": "G9.3-fid",
+            "passed": false
+          },
+          {
+            "evidence": "Light-BAS minus null: decoder -0.0549 CI [-0.0695, -0.0413], conductor +0.1239, real coach +0.0804, beat trigger +0.0963, engine-only +0.5285; events per clip decoder 1039.3 conductor 771.5 real 888.1.",
+            "gate_id": "G9.3-bas",
+            "passed": false
+          },
+          {
+            "evidence": "Not measured: the brightness-matched human A/B needs raters (n >= 20 pairs).",
+            "gate_id": "G9.3-ab",
+            "passed": false
+          },
+          {
+            "evidence": "unseen rig (8 heads, 6 washes, 4 blinders, no strobe): HSV-histogram distance to the canonical render, decoder re-realised 0.345 vs channel-copy 0.305 (L1 per frame, hue + value histograms).",
+            "gate_id": "G9.3-rig",
+            "passed": false
+          }
+        ],
+        "git_ref": "16e366d",
+        "hypothesis_id": "a-learned-group-effects-decoder-anton-s-mixture-2b4f62",
+        "id": "exp-021-a-learned-group-effects-decoder-1eac54",
+        "interpretation": null,
+        "key_numbers": {},
+        "observed_effects": [
+          {
+            "delta": 6167.47,
+            "diagnostic_id": "fid-light-kinetic",
+            "direction": "up"
+          },
+          {
+            "delta": -0.1788,
+            "diagnostic_id": "light-bas-minus-shift-null",
+            "direction": "down"
+          },
+          {
+            "delta": 0.0394,
+            "diagnostic_id": "rig-transfer-hist-distance",
+            "direction": "up"
+          }
+        ],
+        "parent_experiment_id": null,
+        "prediction_match": {
+          "overall": false,
+          "per_diagnostic": {
+            "fid-light-kinetic": false,
+            "human-preference-winrate": false,
+            "light-bas-minus-shift-null": false,
+            "rig-transfer-hist-distance": false
+          }
+        },
+        "provenance": {},
+        "recipe_fingerprint": {
+          "git_ref": "16e366d"
+        },
+        "verdict": "refutes"
+      },
+      "body": "## Summary\nTests hypothesis [[a-learned-group-effects-decoder-anton-s-mixture-2b4f62]].\nAt commit `16e366d`.\n\n## Measurements\n- [[fid-light-kinetic]]: before 43.815 \u2192 after 6211.285  (\u0394 +6167.47, up \u2717 predicted down)\n- [[light-bas-minus-shift-null]]: before 0.1239 \u2192 after -0.0549  (\u0394 -0.1788, down \u2717 predicted none)\n- [[rig-transfer-hist-distance]]: before 0.3054 \u2192 after 0.3448  (\u0394 +0.0394, up \u2717 predicted down)\n\n## Gates\n- `G9.3-fid`: **FAIL** \u2014 FID_light vs real: decoder 6211.29, conductor 43.82, donor 5403.20, engine-only 1573.86, beat trigger 5967.74; block-shuffle null 4126.33, split-half floor 7.68. Gain over the conductor -6167.47 vs donor gain -5359.38 (needs > 2x).\n- `G9.3-bas`: **FAIL** \u2014 Light-BAS minus null: decoder -0.0549 CI [-0.0695, -0.0413], conductor +0.1239, real coach +0.0804, beat trigger +0.0963, engine-only +0.5285; events per clip decoder 1039.3 conductor 771.5 real 888.1.\n- `G9.3-ab`: **FAIL** \u2014 Not measured: the brightness-matched human A/B needs raters (n >= 20 pairs).\n- `G9.3-rig`: **FAIL** \u2014 unseen rig (8 heads, 6 washes, 4 blinders, no strobe): HSV-histogram distance to the canonical render, decoder re-realised 0.345 vs channel-copy 0.305 (L1 per frame, hue + value histograms).\n\n**Verdict:** refutes\n\n## Notes\nH-I decoder v2: the LOOK (6-d scene vector) sampled by a rectified flow on the trunk state and assigned to the roles (look-then-assign, PLAN 9.9's pre-registered branch for conditional-mean collapse). FID_light vs real: decoder 6211.29, conductor 43.82, donor 5403.20, engine-only 1573.86, beat trigger 5967.74 (null 4126.33, floor 7.68). Light-BAS minus null: decoder -0.0549, conductor +0.1239, real +0.0804; events per clip decoder 1039.3 vs conductor 771.5 vs real 888.1. Rig transfer: decoder 0.345 vs channel-copy 0.305. Held-out authored corpora: rpmc: scene MSE 1.080 (donor 0.085), look-change lift 1.35 vs rhythm 1.25; jd: scene MSE 0.931 (donor 0.083), look-change lift 2.35 vs rhythm 1.48. Human A/B not run (needs raters).\n\n#learned-conductor #motion-to-light #audio-to-light #generative-modelling #evaluation-metric #music-to-dance #real-time #cross-modal #pose #music-induced-movement #matched-baseline #metric-gaming #conditional-mean-collapse #ill-posed-ground-truth"
+    },
+    "exp-024-a-look-sampler-that-holds-its-c32dbb": {
+      "path": "/root/lightsem-vault/experiments/exp-024-a-look-sampler-that-holds-its-c32dbb.md",
+      "sha256": "26ff599fc48b6dfbf45f4ad50184aec57af0c49e7aa56860ac14b3ad8998f79d",
+      "metadata": {
+        "artifacts": [],
+        "closed": true,
+        "config_note": "{\"runbook\": \"rb-ls2-09-designed-light\", \"arm\": \"run_stage10_cue_eval.py: v2 flow head sampled once per cue and held (0.5 s crossfade), cues from the decoder's look-change hazard with the threshold calibrated on training songs to the corpus rate (5.23/min, thr 0.600), refractory 2 s; engine with zero phase spread\", \"ckpt\": \"/mnt/lightsem-data/ckpt/group_decoder_v2.pt\"}",
+        "cost": null,
+        "crash_reason": "",
+        "created_at": "2026-09-05T05:16:55+00:00",
+        "diagnostics_measured": [
+          {
+            "after": 6.855,
+            "before": 8.867,
+            "diagnostic_id": "cue-transition-distance"
+          },
+          {
+            "after": 0.5133,
+            "before": 0.1248,
+            "diagnostic_id": "light-bas-minus-shift-null"
+          }
+        ],
+        "do_not_retry": [],
+        "external_run": "",
+        "former_ids": [],
+        "gate_results": [
+          {
+            "evidence": "cue-transition distance to the authored JD set (38 held-out songs): cue-held 6.86, per-frame 8.87, cue-held on beat-trigger cues 133.85, shuffled donor 5.66, split-half floor 2.56. Cue lift: hazard 2.35x vs beat-trigger novelty 1.14x. Means: {\"authored\": {\"cues_per_min\": 5.232, \"iei_median_s\": 5.897, \"iei_cv\": 1.034, \"hue_jump_at_cue\": 0.924, \"value_change_at_cue\": 1.411, \"frac_on_beat\": 0.192, \"hue_drift_between_cues\": 0.397}, \"per_frame\": {\"cues_per_min\": 7.64, \"iei_median_s\": 5.993, \"iei_cv\": 0.774, \"hue_jump_at_cue\": 0.492, \"value_change_at_cue\": 1.738, \"frac_on_beat\": 0.219, \"hue_drift_between_cues\": 0.445}, \"cue_held\": {\"cues_per_min\": 6.103, \"iei_median_s\": 4.48, \"iei_cv\": 1.357, \"hue_jump_at_cue\": 0.753, \"value_change_at_cue\": 1.0, \"frac_on_beat\": 0.197, \"hue_drift_between_cues\": 0.27}, \"cue_held_bt\": {\"cues_per_min\": 1.442, \"iei_median_s\": 25.396, \"iei_cv\": 0.717, \"hue_jump_at_cue\": 0.959, \"value_change_at_cue\": 1.204, \"frac_on_beat\": 0.172, \"hue_drift_between_cues\": 0.329}, \"donor\": {\"cues_per_min\": 5.656, \"iei_median_s\": 5.241, \"iei_cv\": 1.293, \"hue_jump_at_cue\": 0.76, \"value_change_at_cue\": 1.024, \"frac_on_beat\": 0.188, \"hue_drift_between_cues\": 0.276}}",
+            "gate_id": "G10.1-cue",
+            "passed": false
+          },
+          {
+            "evidence": "Light-BAS minus null on 39 held-out coach clips (engine with zero phase spread): cue-held +0.5133, per-frame +0.3990, conductor +0.1248, real coach +0.0808; paired cue-held minus conductor +0.3884 CI [+0.3671, +0.4106]; events per clip cue-held 419, per-frame 509, conductor 771, real 888.",
+            "gate_id": "G10.1-bas",
+            "passed": true
+          }
+        ],
+        "git_ref": "00e77fc",
+        "hypothesis_id": "a-look-sampler-that-holds-its-sampled-look-2b8adb",
+        "id": "exp-024-a-look-sampler-that-holds-its-c32dbb",
+        "interpretation": null,
+        "key_numbers": {},
+        "observed_effects": [
+          {
+            "delta": -2.012,
+            "diagnostic_id": "cue-transition-distance",
+            "direction": "down"
+          },
+          {
+            "delta": 0.3885,
+            "diagnostic_id": "light-bas-minus-shift-null",
+            "direction": "up"
+          }
+        ],
+        "parent_experiment_id": null,
+        "prediction_match": {
+          "overall": true,
+          "per_diagnostic": {
+            "cue-transition-distance": true,
+            "light-bas-minus-shift-null": true
+          }
+        },
+        "provenance": {},
+        "recipe_fingerprint": {
+          "git_ref": "00e77fc"
+        },
+        "verdict": "directional_only"
+      },
+      "body": "## Summary\nTests hypothesis [[a-look-sampler-that-holds-its-sampled-look-2b8adb]].\nAt commit `00e77fc`.\n\n## Measurements\n- [[cue-transition-distance]]: before 8.867 \u2192 after 6.855  (\u0394 -2.012, down \u2713 predicted down)\n- [[light-bas-minus-shift-null]]: before 0.1248 \u2192 after 0.5133  (\u0394 +0.3885, up \u2713 predicted up)\n\n## Gates\n- `G10.1-cue`: **FAIL** \u2014 cue-transition distance to the authored JD set (38 held-out songs): cue-held 6.86, per-frame 8.87, cue-held on beat-trigger cues 133.85, shuffled donor 5.66, split-half floor 2.56. Cue lift: hazard 2.35x vs beat-trigger novelty 1.14x. Means: {\"authored\": {\"cues_per_min\": 5.232, \"iei_median_s\": 5.897, \"iei_cv\": 1.034, \"hue_jump_at_cue\": 0.924, \"value_change_at_cue\": 1.411, \"frac_on_beat\": 0.192, \"hue_drift_between_cues\": 0.397}, \"per_frame\": {\"cues_per_min\": 7.64, \"iei_median_s\": 5.993, \"iei_cv\": 0.774, \"hue_jump_at_cue\": 0.492, \"value_change_at_cue\": 1.738, \"frac_on_beat\": 0.219, \"hue_drift_between_cues\": 0.445}, \"cue_held\": {\"cues_per_min\": 6.103, \"iei_median_s\": 4.48, \"iei_cv\": 1.357, \"hue_jump_at_cue\": 0.753, \"value_change_at_cue\": 1.0, \"frac_on_beat\": 0.197, \"hue_drift_between_cues\": 0.27}, \"cue_held_bt\": {\"cues_per_min\": 1.442, \"iei_median_s\": 25.396, \"iei_cv\": 0.717, \"hue_jump_at_cue\": 0.959, \"value_change_at_cue\": 1.204, \"frac_on_beat\": 0.172, \"hue_drift_between_cues\": 0.329}, \"donor\": {\"cues_per_min\": 5.656, \"iei_median_s\": 5.241, \"iei_cv\": 1.293, \"hue_jump_at_cue\": 0.76, \"value_change_at_cue\": 1.024, \"frac_on_beat\": 0.188, \"hue_drift_between_cues\": 0.276}}\n- `G10.1-bas`: PASS \u2014 Light-BAS minus null on 39 held-out coach clips (engine with zero phase spread): cue-held +0.5133, per-frame +0.3990, conductor +0.1248, real coach +0.0808; paired cue-held minus conductor +0.3884 CI [+0.3671, +0.4106]; events per clip cue-held 419, per-frame 509, conductor 771, real 888.\n\n**Verdict:** directional_only\n\n> Direction matched, but a preregistered blocking gate did NOT pass. This does not establish the claim.\n\n## Notes\nH-N cue-held sampler (v2). cue-transition distance to the authored JD set (38 held-out songs): cue-held 6.86, per-frame 8.87, cue-held on beat-trigger cues 133.85, shuffled donor 5.66, split-half floor 2.56. Cue lift: hazard 2.35x vs beat-trigger novelty 1.14x. Means: {\"authored\": {\"cues_per_min\": 5.232, \"iei_median_s\": 5.897, \"iei_cv\": 1.034, \"hue_jump_at_cue\": 0.924, \"value_change_at_cue\": 1.411, \"frac_on_beat\": 0.192, \"hue_drift_between_cues\": 0.397}, \"per_frame\": {\"cues_per_min\": 7.64, \"iei_median_s\": 5.993, \"iei_cv\": 0.774, \"hue_jump_at_cue\": 0.492, \"value_change_at_cue\": 1.738, \"frac_on_beat\": 0.219, \"hue_drift_between_cues\": 0.445}, \"cue_held\": {\"cues_per_min\": 6.103, \"iei_median_s\": 4.48, \"iei_cv\": 1.357, \"hue_jump_at_cue\": 0.753, \"value_change_at_cue\": 1.0, \"frac_on_beat\": 0.197, \"hue_drift_between_cues\": 0.27}, \"cue_held_bt\": {\"cues_per_min\": 1.442, \"iei_median_s\": 25.396, \"iei_cv\": 0.717, \"hue_jump_at_cue\": 0.959, \"value_change_at_cue\": 1.204, \"frac_on_beat\": 0.172, \"hue_drift_between_cues\": 0.329}, \"donor\": {\"cues_per_min\": 5.656, \"iei_median_s\": 5.241, \"iei_cv\": 1.293, \"hue_jump_at_cue\": 0.76, \"value_change_at_cue\": 1.024, \"frac_on_beat\": 0.188, \"hue_drift_between_cues\": 0.276}} Light-BAS minus null on 39 held-out coach clips (engine with zero phase spread): cue-held +0.5133, per-frame +0.3990, conductor +0.1248, real coach +0.0808; paired cue-held minus conductor +0.3884 CI [+0.3671, +0.4106]; events per clip cue-held 419, per-frame 509, conductor 771, real 888.\n\n#audio-to-light #generative-modelling #learned-conductor #evaluation-metric #music-to-dance #motion-to-light #real-time #cross-modal #pose #music-induced-movement #conditional-mean-collapse #matched-baseline #metric-gaming #ill-posed-ground-truth"
+    },
+    "exp-022-section-level-intent-belongs-on-47d660": {
+      "path": "/root/lightsem-vault/experiments/exp-022-section-level-intent-belongs-on-47d660.md",
+      "sha256": "70e0ed68a163b5d4728321eb5bbfd22c38559acea5843e08180b487db3382db8",
+      "metadata": {
+        "artifacts": [],
+        "closed": true,
+        "config_note": "{\"stage\": \"9.4 / H-J\", \"runbook\": \"rb-ls2-09-designed-light\", \"planner\": \"train_planner.py: 4-layer Transformer d256, one token per bar (bar-pooled mean/std/max of the 52-d features), trained on RPMC-L2 + Just Dance visual to predict 8 per-bar knobs; applied on the decoder's parameters by run_stage9_planner_eval.apply_plan (palette, saturation, level class, activity -> density); control = the same knobs with 8-bar blocks permuted; causal arm = causal attention\", \"n_clips\": 39, \"split\": \"val_track\"}",
+        "cost": null,
+        "crash_reason": "",
+        "created_at": "2026-09-04T23:01:58+00:00",
+        "diagnostics_measured": [
+          {
+            "after": 597.34,
+            "before": 6211.285,
+            "diagnostic_id": "fid-light-kinetic"
+          },
+          {
+            "after": -0.0613,
+            "before": -0.0545,
+            "diagnostic_id": "light-bas-minus-shift-null"
+          }
+        ],
+        "do_not_retry": [],
+        "external_run": "",
+        "former_ids": [],
+        "gate_results": [
+          {
+            "evidence": "FID_light vs real: plan 597.34, shuffled-section plan 610.46, no planner 6211.29, causal planner 589.83, conductor 43.82 (null 4157.92, floor 7.22). The human 'intentionally structured' question was not run (needs raters).",
+            "gate_id": "G9.4-shuffle",
+            "passed": true
+          },
+          {
+            "evidence": "paired Light-BAS minus null: plan -0.0613 vs no planner -0.0545 (paired diff -0.0067 CI [-0.0116, -0.0023]); shuffled -0.0598, causal -0.0576; events per clip plan 966.5 vs no planner 1039.3 vs real 888.1.",
+            "gate_id": "G9.4-bas",
+            "passed": false
+          },
+          {
+            "evidence": "offline planner FID 597.34 / BAS -0.0613 next to the causal planner FID 589.83 / BAS -0.0576.",
+            "gate_id": "G9.4-causal",
+            "passed": true
+          }
+        ],
+        "git_ref": "16e366d",
+        "hypothesis_id": "section-level-intent-belongs-on-the-conductor-0f5c23",
+        "id": "exp-022-section-level-intent-belongs-on-47d660",
+        "interpretation": null,
+        "key_numbers": {},
+        "observed_effects": [
+          {
+            "delta": -5613.945,
+            "diagnostic_id": "fid-light-kinetic",
+            "direction": "down"
+          },
+          {
+            "delta": -0.0068,
+            "diagnostic_id": "light-bas-minus-shift-null",
+            "direction": "down"
+          }
+        ],
+        "parent_experiment_id": null,
+        "prediction_match": {
+          "overall": true,
+          "per_diagnostic": {
+            "fid-light-kinetic": true,
+            "human-preference-winrate": false,
+            "light-bas-minus-shift-null": false
+          }
+        },
+        "provenance": {},
+        "recipe_fingerprint": {
+          "git_ref": "16e366d"
+        },
+        "verdict": "directional_only"
+      },
+      "body": "## Summary\nTests hypothesis [[section-level-intent-belongs-on-the-conductor-0f5c23]].\nAt commit `16e366d`.\n\n## Measurements\n- [[fid-light-kinetic]]: before 6211.285 \u2192 after 597.34  (\u0394 -5613.94, down \u2713 predicted down)\n- [[light-bas-minus-shift-null]]: before -0.0545 \u2192 after -0.0613  (\u0394 -0.0068, down \u2717 predicted none)\n\n## Gates\n- `G9.4-shuffle`: PASS \u2014 FID_light vs real: plan 597.34, shuffled-section plan 610.46, no planner 6211.29, causal planner 589.83, conductor 43.82 (null 4157.92, floor 7.22). The human 'intentionally structured' question was not run (needs raters).\n- `G9.4-bas`: **FAIL** \u2014 paired Light-BAS minus null: plan -0.0613 vs no planner -0.0545 (paired diff -0.0067 CI [-0.0116, -0.0023]); shuffled -0.0598, causal -0.0576; events per clip plan 966.5 vs no planner 1039.3 vs real 888.1.\n- `G9.4-causal`: PASS \u2014 offline planner FID 597.34 / BAS -0.0613 next to the causal planner FID 589.83 / BAS -0.0576.\n\n**Verdict:** directional_only\n\n> Direction matched, but a preregistered blocking gate did NOT pass. This does not establish the claim.\n\n## Notes\nH-J planner on the decoder's knobs, 39 held-out JD clips. FID_light: no planner 6211.29, plan 597.34, shuffled-section plan 610.46, causal plan 589.83, conductor 43.82. BAS minus null: no planner -0.0545, plan -0.0613, shuffled -0.0598, causal -0.0576. Human question not run.\n\n#audio-to-light #learned-conductor #offline-vs-online #generative-modelling #music-to-dance #motion-to-light #real-time #evaluation-metric #cross-modal #pose #music-induced-movement #leaked-future #matched-baseline #conditional-mean-collapse #metric-gaming #ill-posed-ground-truth"
+    },
+    "audio-predicts-lighting-events-when-the-scene-changes-even-though-it-does-not-pr-exp-2026-08-07t13-50-58": {
+      "path": "/root/lightsem-vault/experiments/audio-predicts-lighting-events-when-the-scene-changes-even-though-it-does-not-pr-exp-2026-08-07t13-50-58.md",
+      "sha256": "2ee2817382bca3257aa60af0a8b681148ca41cb70b811d158dbf9c56851fb22d",
+      "metadata": {
+        "artifacts": [],
+        "closed": true,
+        "config_note": "probe_event_cv.py: 140 songs, 1376 events, horizon 1.0s, 5-fold CV by song, ridge lam=30, 40 permutation reps (circular shift within song). Confound check: probe_cut_vs_light.py, 36 songs at native 30fps.",
+        "crash_reason": "",
+        "created_at": "2026-08-07T13:50:58+00:00",
+        "diagnostics_measured": [
+          {
+            "after": 0.0909034013748169,
+            "before": -0.156836599111557,
+            "diagnostic_id": "event-ap-lift-audio-marginal"
+          },
+          {
+            "after": 1.2974029779434204,
+            "before": 1.1938177347183228,
+            "diagnostic_id": "event-ap-lift-audio-only"
+          }
+        ],
+        "external_run": "",
+        "gate_results": [
+          {
+            "evidence": "observed marginal lift +0.0909x vs circular-shift null -0.1568 +- 0.0876 over 40 reps -> z +2.83, p 0.000. Required z>2.0 and p<0.05.",
+            "gate_id": "beats-circular-shift-null",
+            "passed": true
+          }
+        ],
+        "git_ref": "",
+        "hypothesis_id": "audio-predicts-lighting-events-when-the-scene-changes-even-though-it-does-not-pr",
+        "id": "audio-predicts-lighting-events-when-the-scene-changes-even-though-it-does-not-pr-exp-2026-08-07t13-50-58",
+        "observed_effects": [
+          {
+            "delta": 0.247740000486,
+            "diagnostic_id": "event-ap-lift-audio-marginal",
+            "direction": "up"
+          },
+          {
+            "delta": 0.103585243225,
+            "diagnostic_id": "event-ap-lift-audio-only",
+            "direction": "up"
+          }
+        ],
+        "parent_experiment_id": null,
+        "prediction_match": {
+          "overall": true,
+          "per_diagnostic": {
+            "event-ap-lift-audio-marginal": true
+          }
+        },
+        "provenance": {},
+        "verdict": "supports"
+      },
+      "body": "## Summary\nTests hypothesis [[audio-predicts-lighting-events-when-the-scene-changes-even-though-it-does-not-pr]].\n\n## Measurements\n- [[event-ap-lift-audio-marginal]]: before -0.156836599111557 \u2192 after 0.0909034013748169  (\u0394 +0.24774, up \u2713 predicted up)\n- [[event-ap-lift-audio-only]]: before 1.1938177347183228 \u2192 after 1.2974029779434204  (\u0394 +0.103585, up)\n\n## Gates\n- `beats-circular-shift-null`: PASS \u2014 observed marginal lift +0.0909x vs circular-shift null -0.1568 +- 0.0876 over 40 reps -> z +2.83, p 0.000. Required z>2.0 and p<0.05.\n\n**Verdict:** supports\n\n## Notes\nPOSITIVE -- the first non-null result in this project.\n\n140 songs, 1376 events, 5-fold CV by song, horizon 1.0 s.\n\n  rhythm-only baseline (no audio)   1.3241x lift over base rate\n  audio only                        1.2974x\n  rhythm + audio                    1.4151x\n  audio's MARGINAL lift             +0.0909x\n\nCircular-shift permutation null (40 reps; event count and rhythm preserved,\nonly audio alignment destroyed):\n  marginal null    -0.1568 +- 0.0876  ->  observed z +2.83, p 0.000\n  audio-only null  +1.1938 +- 0.0519  ->  z +2.00\n\nGATE MET (preregistered z > 2.0, p < 0.05).\n\nThe null mean is NEGATIVE (-0.1568): under shift, adding audio features HURTS\nthe rhythm baseline via added variance. So the observed positive marginal is\nnot an artifact of extra parameters -- extra parameters cost you here, and\naudio still wins.\n\nWHY THIS WORKED WHERE LEVELS FAILED: on the level target persistence scored\n+0.708 and audio's marginal was -0.005. That comparison was structurally\nrigged. Moving to events removes the edge, and the SAME audio features that\nwere worthless become significant. The failure was the target formulation,\nnot the features and not the model.\n\nCONFOUND, MEASURED NOT ASSUMED (probe_cut_vs_light.py, 36 songs, native 30fps,\n968 events): the target derives from stage VIDEO, so a camera cut looks like a\nlighting change, and concert video is edited on the music. If cuts dominated,\nthis would be audio->editing, not audio->lighting.\n  median rise time 18 frames = 0.60 s   (a cut is ~1 frame)\n  only 13.5% rise in <=2 frames\n  only 8.4% revert to the pre-event state within 4.5 s\n  57.6% move to a NEW state and stay there\nGradual and persistent = lighting-like, not cut-like. This does NOT prove the\nabsence of edit contamination -- that needs shot-boundary labels the dataset\ndoes not ship -- but it bounds it as a minority of events.\n\nSCOPE, stated plainly: z=+2.83 establishes the coupling EXISTS. It does not\nestablish it is large enough to build a rig on (+0.0909x lift is modest), and it\ndoes not say WHICH audio property carries it. That attribution is the next\nprobe and it is project-defining: if plain ENERGY carries all of it, the\nindustry's L2 threshold triggers are already at the ceiling and 'semantic'\nbuys nothing.\n\n#audio-to-light #pose #cross-modal #baseline #ill-posed-ground-truth #matched-baseline"
+    },
+    "exp-010-dance-is-not-a-category-error-101dd9": {
+      "path": "/root/lightsem-vault/experiments/exp-010-dance-is-not-a-category-error-101dd9.md",
+      "sha256": "68d889c33a2a635986fca3e23a32c5713616e4066cffb5004427a8659fdbcb0b",
+      "metadata": {
+        "artifacts": [],
+        "closed": true,
+        "config_note": "{\"stage\": \"0c-ii\", \"runbook\": \"rb-ls2-00c\", \"rater\": \"Anton\", \"date\": \"2026-09-04\", \"sheet\": \"outputs/stage0c/category/score_sheet.csv\", \"systems\": {\"A\": \"dance_derived_hybrid\", \"B\": \"beat_trigger\"}, \"protocol\": {\"raters\": 1, \"preregistered_raters\": 5, \"tracks\": 10, \"preregistered_tracks\": 20, \"edm_tracks\": 0, \"preregistered_edm_tracks\": 10, \"foil_trials_rated\": 0, \"foil_trials_offered\": 10, \"brightness_matched\": true, \"blinding_caveat\": \"answers were given by file letter; __A is the hybrid and __B the beat trigger in every trial, so the letter was a constant label across trials even though left/right was randomised in the key\"}, \"trials\": [{\"t\": \"T01\", \"clip\": \"gLO_sBM_cAll_d14_mLO0_ch04\", \"q\": \"on_music\", \"winner\": \"dance_derived_hybrid\", \"conf\": 3, \"notes\": \"\"}, {\"t\": \"T01\", \"clip\": \"gLO_sBM_cAll_d14_mLO0_ch04\", \"q\": \"engineer\", \"winner\": \"dance_derived_hybrid\", \"conf\": 3, \"notes\": \"\"}, {\"t\": \"T03\", \"clip\": \"gLO_sBM_cAll_d14_mLO0_ch09\", \"q\": \"on_music\", \"winner\": \"equal\", \"conf\": 4, \"notes\": \"both bad\"}, {\"t\": \"T03\", \"clip\": \"gLO_sBM_cAll_d14_mLO0_ch09\", \"q\": \"engineer\", \"winner\": \"equal\", \"conf\": 5, \"notes\": \"both bad\"}, {\"t\": \"T05\", \"clip\": \"gJB_sFM_cAll_d07_mJB3_ch04\", \"q\": \"on_music\", \"winner\": \"beat_trigger\", \"conf\": 3, \"notes\": \"but too fast changes for light, but on the music actually\"}, {\"t\": \"T05\", \"clip\": \"gJB_sFM_cAll_d07_mJB3_ch04\", \"q\": \"engineer\", \"winner\": \"dance_derived_hybrid\", \"conf\": 3, \"notes\": \"\"}, {\"t\": \"T07\", \"clip\": \"gJS_sBM_cAll_d02_mJS0_ch01\", \"q\": \"on_music\", \"winner\": \"beat_trigger\", \"conf\": 4, \"notes\": \"both bad, A does not moving, B is moving boring\"}, {\"t\": \"T07\", \"clip\": \"gJS_sBM_cAll_d02_mJS0_ch01\", \"q\": \"engineer\", \"winner\": \"beat_trigger\", \"conf\": 4, \"notes\": \"\"}, {\"t\": \"T09\", \"clip\": \"gBR_sFM_cAll_d05_mBR1_ch08\", \"q\": \"on_music\", \"winner\": \"beat_trigger\", \"conf\": 3, \"notes\": \"\"}, {\"t\": \"T09\", \"clip\": \"gBR_sFM_cAll_d05_mBR1_ch08\", \"q\": \"engineer\", \"winner\": \"dance_derived_hybrid\", \"conf\": 3, \"notes\": \"\"}, {\"t\": \"T11\", \"clip\": \"gKR_sBM_cAll_d28_mKR0_ch07\", \"q\": \"on_music\", \"winner\": \"dance_derived_hybrid\", \"conf\": null, \"notes\": \"\"}, {\"t\": \"T11\", \"clip\": \"gKR_sBM_cAll_d28_mKR0_ch07\", \"q\": \"engineer\", \"winner\": \"dance_derived_hybrid\", \"conf\": null, \"notes\": \"\"}, {\"t\": \"T13\", \"clip\": \"gWA_sBM_cAll_d27_mWA2_ch04\", \"q\": \"on_music\", \"winner\": \"dance_derived_hybrid\", \"conf\": null, \"notes\": \"\"}, {\"t\": \"T13\", \"clip\": \"gWA_sBM_cAll_d27_mWA2_ch04\", \"q\": \"engineer\", \"winner\": \"dance_derived_hybrid\", \"conf\": null, \"notes\": \"\"}, {\"t\": \"T15\", \"clip\": \"gJB_sBM_cAll_d07_mJB1_ch07\", \"q\": \"on_music\", \"winner\": \"beat_trigger\", \"conf\": null, \"notes\": \"\"}, {\"t\": \"T15\", \"clip\": \"gJB_sBM_cAll_d07_mJB1_ch07\", \"q\": \"engineer\", \"winner\": \"dance_derived_hybrid\", \"conf\": null, \"notes\": \"\"}, {\"t\": \"T17\", \"clip\": \"gJS_sFM_cAll_d02_mJS0_ch08\", \"q\": \"on_music\", \"winner\": \"dance_derived_hybrid\", \"conf\": null, \"notes\": \"\"}, {\"t\": \"T17\", \"clip\": \"gJS_sFM_cAll_d02_mJS0_ch08\", \"q\": \"engineer\", \"winner\": \"dance_derived_hybrid\", \"conf\": null, \"notes\": \"\"}, {\"t\": \"T19\", \"clip\": \"gMH_sBM_cAll_d23_mMH0_ch04\", \"q\": \"on_music\", \"winner\": \"dance_derived_hybrid\", \"conf\": null, \"notes\": \"\"}, {\"t\": \"T19\", \"clip\": \"gMH_sBM_cAll_d23_mMH0_ch04\", \"q\": \"engineer\", \"winner\": \"dance_derived_hybrid\", \"conf\": null, \"notes\": \"\"}]}",
+        "cost": null,
+        "crash_reason": "",
+        "created_at": "2026-09-04T11:06:17+00:00",
+        "diagnostics_measured": [
+          {
+            "after": 0.85,
+            "before": 0.5,
+            "diagnostic_id": "human-preference-winrate"
+          }
+        ],
+        "do_not_retry": [],
+        "external_run": "",
+        "former_ids": [],
+        "gate_results": [
+          {
+            "evidence": "hybrid 8, beat trigger 1, equal 1 of 10 trials. Decided-only win rate 0.889, exact binomial CI [0.518, 0.997], two-sided sign test p = 0.0391. 'equal' counted as half a win each: 0.85, Wilson CI [0.541, 0.965]. Both intervals exclude 0.5, the lower one by 0.018 and 0.041. One rater, so this is one person's threshold, not a population's.",
+            "gate_id": "G2-engineer",
+            "passed": true
+          },
+          {
+            "evidence": "hybrid 5, beat trigger 4, equal 1. Win rate 0.556, CI [0.212, 0.863], p = 1.0. Chance, and expected by construction: after exp-001 the hybrid takes its transient phase from the same audio beat grid the beat trigger uses, so the two arms are phased identically and this question cannot separate them. The rater's note on T05 says it directly: the beat trigger is 'on the music actually' but has 'too fast changes for light'.",
+            "gate_id": "G2-music",
+            "passed": false
+          },
+          {
+            "evidence": "1 rater of 5; 10 tracks of 20; 0 club/EDM tracks of 10; 0 of 10 FOIL trials rated (Anton: not needed); brightness matched by construction on every pair (mean ratio 1.03-1.17, p95 ratio 0.84-0.96). Blinding caveat: answers were given by file letter; __A is the hybrid and __B the beat trigger in every trial, so the letter was a constant label across trials even though left/right was randomised in the key.",
+            "gate_id": "G-protocol",
+            "passed": false
+          }
+        ],
+        "git_ref": "25e1f4a",
+        "hypothesis_id": "dance-is-not-a-category-error-for-light-light-79702c",
+        "id": "exp-010-dance-is-not-a-category-error-101dd9",
+        "interpretation": null,
+        "key_numbers": {},
+        "observed_effects": [
+          {
+            "delta": 0.35,
+            "diagnostic_id": "human-preference-winrate",
+            "direction": "up"
+          }
+        ],
+        "parent_experiment_id": null,
+        "prediction_match": {
+          "overall": true,
+          "per_diagnostic": {
+            "human-preference-winrate": true
+          }
+        },
+        "provenance": {},
+        "recipe_fingerprint": {
+          "git_ref": "25e1f4a"
+        },
+        "verdict": "directional_only"
+      },
+      "body": "## Summary\nTests hypothesis [[dance-is-not-a-category-error-for-light-light-79702c]].\nAt commit `25e1f4a`.\n\n## Measurements\n- [[human-preference-winrate]]: before 0.5 \u2192 after 0.85  (\u0394 +0.35, up \u2713 predicted up)\n\n## Gates\n- `G2-engineer`: PASS \u2014 hybrid 8, beat trigger 1, equal 1 of 10 trials. Decided-only win rate 0.889, exact binomial CI [0.518, 0.997], two-sided sign test p = 0.0391. 'equal' counted as half a win each: 0.85, Wilson CI [0.541, 0.965]. Both intervals exclude 0.5, the lower one by 0.018 and 0.041. One rater, so this is one person's threshold, not a population's.\n- `G2-music`: **FAIL** \u2014 hybrid 5, beat trigger 4, equal 1. Win rate 0.556, CI [0.212, 0.863], p = 1.0. Chance, and expected by construction: after exp-001 the hybrid takes its transient phase from the same audio beat grid the beat trigger uses, so the two arms are phased identically and this question cannot separate them. The rater's note on T05 says it directly: the beat trigger is 'on the music actually' but has 'too fast changes for light'.\n- `G-protocol`: **FAIL** \u2014 1 rater of 5; 10 tracks of 20; 0 club/EDM tracks of 10; 0 of 10 FOIL trials rated (Anton: not needed); brightness matched by construction on every pair (mean ratio 1.03-1.17, p95 ratio 0.84-0.96). Blinding caveat: answers were given by file letter; __A is the hybrid and __B the beat trigger in every trial, so the letter was a constant label across trials even though left/right was randomised in the key.\n\n**Verdict:** directional_only\n\n> Direction matched, but a preregistered blocking gate did NOT pass. This does not establish the claim.\n\n## Notes\nThe category error did not happen. On 'which looks like a lighting engineer did it' the dance-derived hybrid won 8 of 9 decided trials against the beat trigger on brightness-matched pairs; on 'which is on the music' it was 5-4, a tie, which is what the design predicts because both arms carry the same audio-phased transients.\nWhat the rater's notes add, and this is the useful part: the discriminating cue was dynamics, not timing. T05 (beat trigger): 'too fast changes for light, but on the music actually'. T07 (both bad): 'A does not moving, B is moving boring' -- the hybrid was static on gJS_sBM ch01 and lost both questions. T03 (both bad): equal on both. So the hybrid loses when its envelopes are flat, and the beat trigger loses when it flashes on every beat. That is the same failure exp-009 measured in the model's light (85.8 events per clip against 30.1 real-mapped) seen through a human: a light that changes on every beat is 'on the music' and is not 'a lighting engineer'.\nStatus: block C stays in the product, provisionally. The protocol was reduced (one rater, ten AIST++ tracks, no EDM half, no FOIL), so this is a directional result and the preregistered bar is still open for the Stage 3 A/B with >= 20 raters.\n\n#audio-to-light #motion-to-light #music-induced-movement #evaluation-metric #music-to-dance #generative-modelling #real-time #cross-modal #pose #matched-baseline #conditional-mean-collapse #metric-gaming #ill-posed-ground-truth"
+    },
+    "exp-001-light-derived-from-real-dance-39fd73": {
+      "path": "/root/lightsem-vault/experiments/exp-001-light-derived-from-real-dance-39fd73.md",
+      "sha256": "5d5b28a2a7e96bb24eb70c93d642929f2cf9cd06c021002b5c141bc7772348a8",
+      "metadata": {
+        "artifacts": [],
+        "closed": true,
+        "config_note": "{\"stage\": \"0a\", \"runbook\": \"rb-ls2-00\", \"n_clips\": 150, \"rig\": \"canonical club rig, 14 fixtures\", \"descriptor_fps\": 40, \"corpus\": \"AIST++ keypoints3d_optim, 1408 clips\", \"beat_grid\": \"constant-tempo comb, period on broadband onset, phase on 40-120 Hz kick flux at hop 256 (5.8 ms)\", \"light_event\": \"absolute threshold 0.30 summed positive delta of emitted intensity, 0.10 s refractory\", \"systems\": [\"conductor v0 (motion only)\", \"conductor hybrid (dance envelopes + audio-phased transients)\", \"beat trigger\"]}",
+        "cost": null,
+        "crash_reason": "",
+        "created_at": "2026-09-03T22:29:14+00:00",
+        "diagnostics_measured": [
+          {
+            "after": 0.0082,
+            "before": 0.0942,
+            "diagnostic_id": "light-bas-minus-shift-null"
+          },
+          {
+            "after": 109.66,
+            "before": 1.82,
+            "diagnostic_id": "fid-light-kinetic"
+          },
+          {
+            "after": 6.32,
+            "before": 12.342,
+            "diagnostic_id": "light-diversity-kinetic"
+          }
+        ],
+        "do_not_retry": [],
+        "external_run": "",
+        "former_ids": [],
+        "gate_results": [
+          {
+            "evidence": "oracle Light-BAS / metronome = 0.444 (needed 0.9). The gate is unreachable by design: the metronome reference is 1.0 by construction, so 0.9 x metronome demands metronome behaviour, which section 7 of the plan names as the trap this metric exists to expose. Restated as G1b.",
+            "gate_id": "G1",
+            "passed": false
+          },
+          {
+            "evidence": "conductor v0 (motion only): BAS - own shift null = +0.0082, CI [-0.0101, 0.0259] \u2014 includes 0. Audio beat trigger on the same clips: +0.0942, CI [0.0828, 0.1063]. Hybrid (dance envelopes, audio-phased transients): +0.1242, CI [0.1141, 0.1353] \u2014 beats both.",
+            "gate_id": "G1b",
+            "passed": false
+          },
+          {
+            "evidence": "FID_light split-half floor 1.82 (sd 0.37), x3 = 5.45, versus 109.7 against the 1 s block-shuffled null and 922 against the beat trigger. The null was changed from the preregistered circular shift because every delta feature is shift-invariant by construction, so a circular shift would have passed a gate that tests nothing.",
+            "gate_id": "G2",
+            "passed": true
+          }
+        ],
+        "git_ref": "",
+        "hypothesis_id": "light-derived-from-real-dance-motion-by-a-fixed-a3ac3d",
+        "id": "exp-001-light-derived-from-real-dance-39fd73",
+        "interpretation": {
+          "at": "2026-09-03T22:29:38+00:00",
+          "failure_mode": "mechanism_wrong",
+          "lesson": "The idea survives, the assumed mechanism does not. The hypothesis assumed a dancing body carries the musics timing into the light. It carries the PERIOD (footfall Rayleigh R 0.55, median z 5.2 per clip) but not the PHASE, which belongs to the choreography and is therefore not in the audio and not learnable from it. Dance supplies WHAT the light does (how much, how wide, which side, how deep the bounce, when the look changes); audio supplies WHEN the transients land. Evidence that this is a fix and not a retreat: the hybrid conductor built on that split scores +0.124 (CI [+0.114,+0.135]) against +0.094 (CI [+0.083,+0.106]) for the audio-only beat trigger, while staying close to the dance-derived look (FID 43 to the oracle vs 794 to the beat trigger). Stage 1 trains block A as regression on dance-derived envelopes and block B as a hazard conditioned on audio beat phase, never an absolute event phase copied from the dancer. Stage 0c must compare the HYBRID against the beat trigger, brightness-matched; comparing the motion-only oracle would test a straw man this experiment already shows is mistimed.",
+          "transfers_to": []
+        },
+        "key_numbers": {},
+        "observed_effects": [
+          {
+            "delta": -0.086,
+            "diagnostic_id": "light-bas-minus-shift-null",
+            "direction": "down"
+          },
+          {
+            "delta": 107.84,
+            "diagnostic_id": "fid-light-kinetic",
+            "direction": "up"
+          },
+          {
+            "delta": -6.022,
+            "diagnostic_id": "light-diversity-kinetic",
+            "direction": "down"
+          }
+        ],
+        "parent_experiment_id": null,
+        "prediction_match": {
+          "overall": false,
+          "per_diagnostic": {
+            "fid-light-kinetic": true,
+            "light-bas-minus-shift-null": false
+          }
+        },
+        "provenance": {},
+        "recipe_fingerprint": {},
+        "verdict": "refutes"
+      },
+      "body": "## Summary\nTests hypothesis [[light-derived-from-real-dance-motion-by-a-fixed-a3ac3d]].\n\n## Measurements\n- [[light-bas-minus-shift-null]]: before 0.0942 \u2192 after 0.0082  (\u0394 -0.086, down \u2717 predicted up)\n- [[fid-light-kinetic]]: before 1.82 \u2192 after 109.66  (\u0394 +107.84, up \u2713 predicted up)\n- [[light-diversity-kinetic]]: before 12.342 \u2192 after 6.32  (\u0394 -6.022, down)\n\n## Gates\n- `G1`: **FAIL** \u2014 oracle Light-BAS / metronome = 0.444 (needed 0.9). The gate is unreachable by design: the metronome reference is 1.0 by construction, so 0.9 x metronome demands metronome behaviour, which section 7 of the plan names as the trap this metric exists to expose. Restated as G1b.\n- `G1b`: **FAIL** \u2014 conductor v0 (motion only): BAS - own shift null = +0.0082, CI [-0.0101, 0.0259] \u2014 includes 0. Audio beat trigger on the same clips: +0.0942, CI [0.0828, 0.1063]. Hybrid (dance envelopes, audio-phased transients): +0.1242, CI [0.1141, 0.1353] \u2014 beats both.\n- `G2`: PASS \u2014 FID_light split-half floor 1.82 (sd 0.37), x3 = 5.45, versus 109.7 against the 1 s block-shuffled null and 922 against the beat trigger. The null was changed from the preregistered circular shift because every delta feature is shift-invariant by construction, so a circular shift would have passed a gate that tests nothing.\n\n**Verdict:** refutes\n\n## Interpretation\n**Failure mode:** `mechanism_wrong`\n\nThe idea survives, the assumed mechanism does not. The hypothesis assumed a dancing body carries the musics timing into the light. It carries the PERIOD (footfall Rayleigh R 0.55, median z 5.2 per clip) but not the PHASE, which belongs to the choreography and is therefore not in the audio and not learnable from it. Dance supplies WHAT the light does (how much, how wide, which side, how deep the bounce, when the look changes); audio supplies WHEN the transients land. Evidence that this is a fix and not a retreat: the hybrid conductor built on that split scores +0.124 (CI [+0.114,+0.135]) against +0.094 (CI [+0.083,+0.106]) for the audio-only beat trigger, while staying close to the dance-derived look (FID 43 to the oracle vs 794 to the beat trigger). Stage 1 trains block A as regression on dance-derived envelopes and block B as a hazard conditioned on audio beat phase, never an absolute event phase copied from the dancer. Stage 0c must compare the HYBRID against the beat trigger, brightness-matched; comparing the motion-only oracle would test a straw man this experiment already shows is mistimed.\n\n## Notes\nStage 0a built and measured. What it establishes:\n(1) The pipeline is real: 1408 clips -> descriptors (30 channels, 3 blocks) -> canonical-rig DMX -> renders, 9 ms per clip; DMX encode/decode round-trips to quantisation error.\n(2) FID_light on delta features discriminates (G2 passes by a factor of 20).\n(3) Dance-derived light is NOT musically phased on this corpus (G1b fails), and that is a fact about where musical timing lives, not a bug: the dance is period-locked (footfall Rayleigh R = 0.55, median z = 5.2 per clip) with a phase that belongs to the choreography.\n(4) The architectural consequence, measured rather than assumed: envelopes and amplitudes come from the dancer, transient PHASE comes from the audio. The hybrid conductor built on that split scores +0.124 (CI [+0.114, +0.135]) against +0.094 (CI [+0.083, +0.106]) for the audio-only beat trigger, while staying close to the dance-derived look (FID 43 to the oracle versus 794 to the beat trigger). This is the same two-path architecture PLAN.md section 4 derives from latency limits \u2014 two independent arguments, one design.\nTwo corpus bugs were found and fixed first, both of which would have silently sunk Stage 1: librosa's beat tracker returned octave-wrong tempi (161.5 BPM for an 80 BPM track) and the phase locked to the off-beat when snare/hat flux exceeded the kick's; the replacement is a constant-tempo comb with a log-normal prior, period from broadband onset and phase from 40-120 Hz kick flux at 5.8 ms resolution, which recovers the corpus's true 80/90/100/110/120/130 BPM design on 58 of 60 tracks. And the first footfall detector fired 2.1 times per beat on planted-foot marker jitter; hysteresis (lift above 0.12 torso lengths, then contact below 0.05) brought it to 0.69 per beat and moved footfall locking from z = 1.4 to z = 5.2.\n\n#audio-to-light #motion-to-light #evaluation-metric #music-to-dance #generative-modelling #real-time #cross-modal #pose #music-induced-movement #matched-baseline #metric-gaming #conditional-mean-collapse #ill-posed-ground-truth"
+    },
+    "exp-012-most-of-the-gap-between-the-1f7d3b": {
+      "path": "/root/lightsem-vault/experiments/exp-012-most-of-the-gap-between-the-1f7d3b.md",
+      "sha256": "56cede71baa9b6b9325944af07047a2ecb706b0079baedb5daa66a319c6b621a",
+      "metadata": {
+        "artifacts": [],
+        "closed": true,
+        "config_note": "{\"stage\": \"7 H-A\", \"runbook\": \"rb-ls2-07-offline-prerendered\", \"trunk\": \"same 9.3 M Conformer, offline=True (symmetric attention window, symmetric conv padding)\", \"features\": \"extract_bus(causal=False) -> cache/audio_offline, tensor train_tensor_offline.npz\", \"frames\": 749173, \"steps\": 12000, \"splits\": {\"train\": 784, \"val_track\": 154, \"test_genre\": 282, \"test_dancer\": 188}, \"causal_counterpart\": \"v3causal (same frames, splits, steps)\", \"leak_offline\": 0.29412490129470825, \"leak_causal\": 0.0}",
+        "cost": null,
+        "crash_reason": "",
+        "created_at": "2026-09-04T12:30:16+00:00",
+        "diagnostics_measured": [
+          {
+            "after": -0.0092,
+            "before": 0.0192,
+            "diagnostic_id": "descriptor-audio-r2-over-identity"
+          },
+          {
+            "after": 0.0185,
+            "before": 0.0179,
+            "diagnostic_id": "light-bas-minus-shift-null"
+          },
+          {
+            "after": 66.44,
+            "before": 67.29,
+            "diagnostic_id": "fid-light-kinetic"
+          },
+          {
+            "after": 3.064,
+            "before": 2.731,
+            "diagnostic_id": "light-diversity-kinetic"
+          }
+        ],
+        "do_not_retry": [],
+        "external_run": "",
+        "former_ids": [],
+        "gate_results": [
+          {
+            "evidence": "offline held-out (val_track) block A R2 -0.0092 against the causal +0.0192 on the same 749k frames, splits and 12k steps; test_genre -0.2182 vs -0.2700, test_dancer +0.0020 vs +0.0539. Gate: >= +0.04.",
+            "gate_id": "G-ceiling-r2",
+            "passed": false
+          },
+          {
+            "evidence": "offline Light-BAS minus shift null +0.0185 CI [0.015, 0.0217] against the causal +0.0179 CI [0.0147, 0.0213]; real-mapped +0.2084, beat trigger +0.0344. Gate: >= +0.105.",
+            "gate_id": "G-ceiling-bas",
+            "passed": false
+          },
+          {
+            "evidence": "Both numbers above are quoted next to their L=0 counterparts on identical splits; the offline model's own causality probe leaks 0.2941 (expected non-zero) against 0 for the causal one.",
+            "gate_id": "G-tax-reported",
+            "passed": true
+          }
+        ],
+        "git_ref": "HEAD",
+        "hypothesis_id": "most-of-the-gap-between-the-model-s-light-0-018-8b5f6c",
+        "id": "exp-012-most-of-the-gap-between-the-1f7d3b",
+        "interpretation": {
+          "at": "2026-09-04T12:30:17+00:00",
+          "failure_mode": "recipe_conditional",
+          "lesson": "The ceiling test did its job in one run: with the entire track visible, symmetric context and the offline bus, held-out block A R2 does not move and the light gates do not move, on AIST++. So the gap between model light and real-mapped light is not a causality tax and not a context-length problem; it is the corpus (Stage 0b: AIST++ movement is explained by genre, not audio). Three architecture experiments would have confirmed this slowly. Consequence: H-C (structure conditioning) is tested on Just Dance, where songs have structure, not on AIST++; and the pre-rendered path's honest advantages are H-B's lag removal and H-C/H-D anticipation, not accuracy.",
+          "transfers_to": []
+        },
+        "key_numbers": {},
+        "observed_effects": [
+          {
+            "delta": -0.0284,
+            "diagnostic_id": "descriptor-audio-r2-over-identity",
+            "direction": "down"
+          },
+          {
+            "delta": 0.0006,
+            "diagnostic_id": "light-bas-minus-shift-null",
+            "direction": "up"
+          },
+          {
+            "delta": -0.85,
+            "diagnostic_id": "fid-light-kinetic",
+            "direction": "down"
+          },
+          {
+            "delta": 0.333,
+            "diagnostic_id": "light-diversity-kinetic",
+            "direction": "up"
+          }
+        ],
+        "parent_experiment_id": null,
+        "prediction_match": {
+          "overall": false,
+          "per_diagnostic": {
+            "descriptor-audio-r2-over-identity": false,
+            "light-bas-minus-shift-null": true
+          }
+        },
+        "provenance": {},
+        "recipe_fingerprint": {
+          "git_ref": "HEAD"
+        },
+        "verdict": "refutes"
+      },
+      "body": "## Summary\nTests hypothesis [[most-of-the-gap-between-the-model-s-light-0-018-8b5f6c]].\nAt commit `HEAD`.\n\n## Measurements\n- [[descriptor-audio-r2-over-identity]]: before 0.0192 \u2192 after -0.0092  (\u0394 -0.0284, down \u2717 predicted up)\n- [[light-bas-minus-shift-null]]: before 0.0179 \u2192 after 0.0185  (\u0394 +0.0006, up \u2713 predicted up)\n- [[fid-light-kinetic]]: before 67.29 \u2192 after 66.44  (\u0394 -0.85, down)\n- [[light-diversity-kinetic]]: before 2.731 \u2192 after 3.064  (\u0394 +0.333, up)\n\n## Gates\n- `G-ceiling-r2`: **FAIL** \u2014 offline held-out (val_track) block A R2 -0.0092 against the causal +0.0192 on the same 749k frames, splits and 12k steps; test_genre -0.2182 vs -0.2700, test_dancer +0.0020 vs +0.0539. Gate: >= +0.04.\n- `G-ceiling-bas`: **FAIL** \u2014 offline Light-BAS minus shift null +0.0185 CI [0.015, 0.0217] against the causal +0.0179 CI [0.0147, 0.0213]; real-mapped +0.2084, beat trigger +0.0344. Gate: >= +0.105.\n- `G-tax-reported`: PASS \u2014 Both numbers above are quoted next to their L=0 counterparts on identical splits; the offline model's own causality probe leaks 0.2941 (expected non-zero) against 0 for the causal one.\n\n**Verdict:** refutes\n\n## Interpretation\n**Failure mode:** `recipe_conditional`\n\nThe ceiling test did its job in one run: with the entire track visible, symmetric context and the offline bus, held-out block A R2 does not move and the light gates do not move, on AIST++. So the gap between model light and real-mapped light is not a causality tax and not a context-length problem; it is the corpus (Stage 0b: AIST++ movement is explained by genre, not audio). Three architecture experiments would have confirmed this slowly. Consequence: H-C (structure conditioning) is tested on Just Dance, where songs have structure, not on AIST++; and the pre-rendered path's honest advantages are H-B's lag removal and H-C/H-D anticipation, not accuracy.\n\n## Notes\nH-A, the look-ahead ceiling. Same trunk, same data, whole-track features and symmetric context. Held-out block A R2 +0.0192 -> -0.0092; Light-BAS +0.0179 -> +0.0185; FID 67.29 -> 66.44; diversity 2.73 -> 3.06; light events per clip nan -> 85.2 against real 30.3. Reading: the corpus binds. PLAN.md 6.7 said that if an offline model with the entire track cannot clear +0.105 the binding constraint is data, and the next move is Stage 8 (Just Dance), which is running. With H-B's per-channel smoothing fitted on each model: offline Light-BAS +0.2756 CI [0.2415, 0.3099] against causal +0.2932 CI [0.2574, 0.3279]; FID 18.18 vs 19.82; diversity 3.06 vs 2.90. The look-ahead buys nothing at either level of smoothing.\n\n#audio-to-light #offline-vs-online #generative-modelling #music-to-dance #motion-to-light #real-time #evaluation-metric #cross-modal #pose #music-induced-movement #matched-baseline #conditional-mean-collapse #metric-gaming #ill-posed-ground-truth"
+    },
+    "the-audio-lighting-event-signal-is-carried-by-loudness-energy-if-true-the-indust-exp-2026-08-07t14-34-32": {
+      "path": "/root/lightsem-vault/experiments/the-audio-lighting-event-signal-is-carried-by-loudness-energy-if-true-the-indust-exp-2026-08-07t14-34-32.md",
+      "sha256": "3fcc64206c76a15a4523fd993554886046a51ba993fdb4e019c951436c768aa5",
+      "metadata": {
+        "artifacts": [],
+        "closed": true,
+        "config_note": "probe_feature_families.py on 140 songs, 5-fold CV by song, 25 permutation reps per family, horizon 1.0 s. Features via fetch_interp_feats.py (HTTP range reads, 2366 MB, nothing downloaded).",
+        "cost": null,
+        "crash_reason": "",
+        "created_at": "2026-08-07T14:34:32+00:00",
+        "diagnostics_measured": [
+          {
+            "after": 1.4704288244247437,
+            "before": 1.4381231880187988,
+            "diagnostic_id": "event-ap-lift-by-feature-family"
+          }
+        ],
+        "do_not_retry": [],
+        "external_run": "",
+        "former_ids": [],
+        "gate_results": [],
+        "git_ref": "",
+        "hypothesis_id": "the-audio-lighting-event-signal-is-carried-by-loudness-energy-if-true-the-indust",
+        "id": "the-audio-lighting-event-signal-is-carried-by-loudness-energy-if-true-the-indust-exp-2026-08-07t14-34-32",
+        "interpretation": {
+          "at": "2026-09-28T18:31:50+00:00",
+          "failure_mode": null,
+          "lesson": "2026-09-28 retrospective interpretation correction, not a new experiment: native supports does not establish the loudness-only ceiling asserted by this hypothesis. In the saved RPMC-L2 feature-family probe, energy lift 1.4704 versus its permutation null 1.4381 has p=.24, while spectral lift 1.7060 versus its null 1.4562 is positive evidence for non-energy information; the common rhythm baseline is 1.3241. Preserve the measurements and historical closure, but do not infer either a proven zero energy contribution or a unique MFCC-versus-spectral mechanism from these correlated-feature comparisons.",
+          "transfers_to": []
+        },
+        "key_numbers": {},
+        "observed_effects": [
+          {
+            "delta": 0.032305636406,
+            "diagnostic_id": "event-ap-lift-by-feature-family",
+            "direction": "up"
+          }
+        ],
+        "parent_experiment_id": null,
+        "prediction_match": {
+          "overall": true,
+          "per_diagnostic": {
+            "event-ap-lift-by-feature-family": true
+          }
+        },
+        "provenance": {},
+        "recipe_fingerprint": {},
+        "verdict": "supports"
+      },
+      "body": "## Summary\nTests hypothesis [[the-audio-lighting-event-signal-is-carried-by-loudness-energy-if-true-the-indust]].\n\n## Measurements\n- [[event-ap-lift-by-feature-family]]: before 1.4381231880187988 \u2192 after 1.4704288244247437  (\u0394 +0.0323056, up \u2713 predicted up)\n\n**Verdict:** supports\n\n## Interpretation\n2026-09-28 retrospective interpretation correction, not a new experiment: native supports does not establish the loudness-only ceiling asserted by this hypothesis. In the saved RPMC-L2 feature-family probe, energy lift 1.4704 versus its permutation null 1.4381 has p=.24, while spectral lift 1.7060 versus its null 1.4562 is positive evidence for non-energy information; the common rhythm baseline is 1.3241. Preserve the measurements and historical closure, but do not infer either a proven zero energy contribution or a unique MFCC-versus-spectral mechanism from these correlated-feature comparisons.\n\n## Notes\nREFUTED, and the refutation is GOOD NEWS for the project.\n\nEnergy is the ONLY family that fails to beat its own null. Marginal lift over\nthe rhythm baseline (1.3241x), 140 songs, horizon 1.0 s:\n\n  family      dim     lift      marg        null            z       p\n  energy        2   1.4704   +0.1463   1.4381+-0.0488   +0.66   0.240\n  harmonic      2   1.3832   +0.0590   1.4609+-0.0550   -1.41   0.960\n  openl3      512   1.4151   +0.0909   1.2794+-0.0539   +2.52   0.000\n  spectral     10   1.7060   +0.3818   1.4562+-0.0593   +4.21   0.000\n  timbre      128   1.6203   +0.2962   1.3302+-0.0582   +4.98   0.000\n\nTHREE FINDINGS:\n\n1. ENERGY IS NOT SIGNIFICANT (z=+0.66, p=0.240). Loudness does NOT\n   explain when a lighting operator changes the scene. This directly contradicts\n   the assumption behind FFT-threshold rigs. The industry's L2 approach is not\n   at the ceiling here -- it is keying on the wrong feature.\n\n2. TIMBRE (MFCC, z=+4.98) AND SPECTRAL (z=+4.21) CARRY THE SIGNAL.\n   Operators respond to a change in the CHARACTER of the sound -- distortion\n   coming in, a section changing texture -- not to it getting louder. On\n   Rock/Punk/Metal livehouse material that is musically sensible: these genres\n   are loud throughout, so loudness is uninformative while timbre is not.\n   This is the specific, defensible claim that an L3 semantic model has\n   headroom, and it NAMES the features that model must encode.\n\n3. openl3 (z=+2.52) is BEATEN by 10 hand-picked spectral descriptors\n   (z=+4.21) despite having 512 dimensions. The learned general-purpose\n   embedding is not the right representation for this task. A bespoke encoder\n   over spectral/timbral descriptors is better motivated than fine-tuning\n   openl3 -- and it is far cheaper.\n\nCAVEAT: 'timbre' here is MFCC. RPMC-L2 ships no zero-crossing-rate despite an\nearlier schema note claiming it, so no separate percussive family was testable.\nMFCC and the spectral descriptors are correlated; this probe establishes that\nNON-ENERGY spectral character carries the signal, not which of the two is\nprimary.\n\n#audio-to-light #pose #cross-modal #baseline #ill-posed-ground-truth #matched-baseline"
+    },
+    "exp-006-the-deployed-path-meets-its-eb0fc6": {
+      "path": "/root/lightsem-vault/experiments/exp-006-the-deployed-path-meets-its-eb0fc6.md",
+      "sha256": "c973fee49f4d5ce913c8e64c9c3953b7ae0b2884437a18a7be19e5286f241f92",
+      "metadata": {
+        "artifacts": [],
+        "closed": true,
+        "config_note": "{\"stage\": \"4 (software half)\", \"runbook\": \"rb-ls2-04\", \"device\": \"cuda\", \"receptive_field_frames\": 1039, \"receptive_field_s\": 25.975, \"not_measured\": \"fixture response and Art-Net on real hardware; photodiode timing\"}",
+        "cost": null,
+        "crash_reason": "",
+        "created_at": "2026-09-04T00:04:43+00:00",
+        "diagnostics_measured": [
+          {
+            "after": 62.5,
+            "before": 65.0,
+            "diagnostic_id": "audio-to-dmx-latency-ms"
+          }
+        ],
+        "do_not_retry": [],
+        "external_run": "",
+        "former_ids": [],
+        "gate_results": [
+          {
+            "evidence": "10.8 ms on its own 5.8 ms hop (a 20 ms budget). Sharing the learned path's 23.2 ms analysis hop costs 28.2 ms and misses, which is the measurement that forces the two paths apart",
+            "gate_id": "G-lat-transient",
+            "passed": true
+          },
+          {
+            "evidence": "p50 61.9 ms, p99 62.5 ms, of a 65 ms budget (fixture 30 ms assumed, not measured)",
+            "gate_id": "G-lat-learned",
+            "passed": true
+          },
+          {
+            "evidence": "max |dy| over cuts at 50/100/200/300 frames = 0.0",
+            "gate_id": "G-causal-mech",
+            "passed": true
+          }
+        ],
+        "git_ref": "",
+        "hypothesis_id": "the-deployed-path-meets-its-latency-budget-and-b0aff5",
+        "id": "exp-006-the-deployed-path-meets-its-eb0fc6",
+        "interpretation": null,
+        "key_numbers": {},
+        "observed_effects": [
+          {
+            "delta": -2.5,
+            "diagnostic_id": "audio-to-dmx-latency-ms",
+            "direction": "down"
+          }
+        ],
+        "parent_experiment_id": null,
+        "prediction_match": {
+          "overall": true,
+          "per_diagnostic": {
+            "audio-to-dmx-latency-ms": true
+          }
+        },
+        "provenance": {},
+        "recipe_fingerprint": {},
+        "verdict": "supports"
+      },
+      "body": "## Summary\nTests hypothesis [[the-deployed-path-meets-its-latency-budget-and-b0aff5]].\n\n## Measurements\n- [[audio-to-dmx-latency-ms]]: before 65.0 \u2192 after 62.5  (\u0394 -2.5, down \u2713 predicted down)\n\n## Gates\n- `G-lat-transient`: PASS \u2014 10.8 ms on its own 5.8 ms hop (a 20 ms budget). Sharing the learned path's 23.2 ms analysis hop costs 28.2 ms and misses, which is the measurement that forces the two paths apart\n- `G-lat-learned`: PASS \u2014 p50 61.9 ms, p99 62.5 ms, of a 65 ms budget (fixture 30 ms assumed, not measured)\n- `G-causal-mech`: PASS \u2014 max |dy| over cuts at 50/100/200/300 frames = 0.0\n\n**Verdict:** supports\n\n## Notes\nAll three software gates pass, and one plan assumption is corrected on the way.\nThe plan specified a 3-4 s KV cache. That is the attention WINDOW, not the receptive field: windows compose across layers, so six blocks of a 160-frame window plus a 15-tap causal convolution look back 1039 frames, 26 s of audio. The error was not theoretical \u2014 chunked inference primed with one window gave block A differences of 0.79 between chunk sizes, meaning the same audio produced different light depending on how it was sliced. With the full context the model costs 3.7 ms p50 and 4.3 ms p99 per frame (against 1.7 ms when under-primed), and the learned path lands at 61.9 ms p50 / 62.5 ms p99 against its 65 ms budget.\nThe transient path cannot share the learned path's 23.2 ms analysis hop: that alone costs 28.2 ms and misses a 20 ms budget. On its own 5.8 ms hop, onset detection plus network is 10.8 ms. This is an independent, purely engineering argument for the same two-path split that Stage 0a reached from the data.\nNot measured here and not claimed: fixture response, Art-Net on a real node, and a photodiode against a click track. The 30 ms fixture term in the budget is an assumption.\n\n#real-time #audio-to-light #music-to-dance #motion-to-light #generative-modelling #evaluation-metric #cross-modal #pose #music-induced-movement #matched-baseline #conditional-mean-collapse #metric-gaming #ill-posed-ground-truth"
+    },
+    "exp-002-the-music-induced-movement-46c7b4": {
+      "path": "/root/lightsem-vault/experiments/exp-002-the-music-induced-movement-46c7b4.md",
+      "sha256": "344eba1ca47b443ecca68b3e6296555712e4fb08053bfff4c37e4218b878ee2b",
+      "metadata": {
+        "artifacts": [],
+        "closed": true,
+        "config_note": "{\"stage\": \"0b\", \"runbook\": \"rb-ls2-00b\", \"n_frames\": 749173, \"n_tracks\": 60, \"n_clips\": 1408, \"timescales_s\": [0.1, 0.5, 2.0, 8.0], \"model\": \"multi-output ridge, alphas 1e1..1e7 chosen on held-out inner tracks\", \"splits\": \"GroupKFold by music id (5 folds per-clip, 6 folds shared)\", \"baselines\": [\"dancer identity (per-dancer train mean)\", \"genre mean\", \"split-half reliability ceiling\"], \"causality\": \"trailing EMA features and targets; no future audio\"}",
+        "cost": null,
+        "crash_reason": "",
+        "created_at": "2026-09-03T22:43:13+00:00",
+        "diagnostics_measured": [
+          {
+            "after": 0.192,
+            "before": 0.3,
+            "diagnostic_id": "descriptor-audio-r2-over-identity"
+          }
+        ],
+        "do_not_retry": [],
+        "external_run": "",
+        "former_ids": [],
+        "gate_results": [
+          {
+            "evidence": "No channel comes close. Per-clip audit: audio's held-out R2 is <= 0.15 everywhere and dancer identity wins on 23 of 29 channels (footfall rate identity R2 0.403 vs audio 0.035; vertical bounce amplitude 0.241 vs -0.018). Shared-component audit (across-dancer mean, the only target an audio-only model can reach): best between-track R2 is hand_spread 0.211, CI [-0.075, +0.464], and metric_level 0.150, CI [-0.026, +0.361] \u2014 every CI includes zero. Within-track dynamics are small but real: laterality 0.192, CI [+0.064, +0.325]; hand_speed 0.183, CI [-0.004, +0.337]; com_speed 0.128; hip_yaw_speed 0.117; vertical bounce 0.092. The gate asked for > 0.3 on QoM, vertical bounce, head speed and metrical level; all four are below 0.05 within-track.",
+            "gate_id": "G-audit",
+            "passed": false
+          }
+        ],
+        "git_ref": "",
+        "hypothesis_id": "the-music-induced-movement-literature-s-shared-c6aab2",
+        "id": "exp-002-the-music-induced-movement-46c7b4",
+        "interpretation": {
+          "at": "2026-09-03T22:43:13+00:00",
+          "failure_mode": "recipe_conditional",
+          "lesson": "The recipe is conditional on the corpus. Dance-derived supervision only carries audio information when the music is the only thing that varies; in a choreographed corpus the choreography carries it instead. Practically: (a) keep AIST++ for what it is good for \u2014 style priors per genre, motion realism as an FID reference, and validating the video-to-pose path against mocap; (b) get free-dancing data for block A (Oslo EDM club mocap, CC-BY-4.0, 16 and 29 dancers to DJ-mixed EDM with drop/break annotations), which is also the concert domain the product actually ships into; (c) in the meantime train Stage 1 with the honest ceiling in mind \u2014 within-track shared dynamics at R2 0.1-0.2, timing from audio, style from a genre token \u2014 and never report a block A number without the reliability ceiling next to it.",
+          "transfers_to": []
+        },
+        "key_numbers": {},
+        "observed_effects": [
+          {
+            "delta": -0.108,
+            "diagnostic_id": "descriptor-audio-r2-over-identity",
+            "direction": "down"
+          }
+        ],
+        "parent_experiment_id": null,
+        "prediction_match": {
+          "overall": false,
+          "per_diagnostic": {
+            "descriptor-audio-r2-over-identity": false
+          }
+        },
+        "provenance": {},
+        "recipe_fingerprint": {},
+        "verdict": "refutes"
+      },
+      "body": "## Summary\nTests hypothesis [[the-music-induced-movement-literature-s-shared-c6aab2]].\n\n## Measurements\n- [[descriptor-audio-r2-over-identity]]: before 0.3 \u2192 after 0.192  (\u0394 -0.108, down \u2717 predicted up)\n\n## Gates\n- `G-audit`: **FAIL** \u2014 No channel comes close. Per-clip audit: audio's held-out R2 is <= 0.15 everywhere and dancer identity wins on 23 of 29 channels (footfall rate identity R2 0.403 vs audio 0.035; vertical bounce amplitude 0.241 vs -0.018). Shared-component audit (across-dancer mean, the only target an audio-only model can reach): best between-track R2 is hand_spread 0.211, CI [-0.075, +0.464], and metric_level 0.150, CI [-0.026, +0.361] \u2014 every CI includes zero. Within-track dynamics are small but real: laterality 0.192, CI [+0.064, +0.325]; hand_speed 0.183, CI [-0.004, +0.337]; com_speed 0.128; hip_yaw_speed 0.117; vertical bounce 0.092. The gate asked for > 0.3 on QoM, vertical bounce, head speed and metrical level; all four are below 0.05 within-track.\n\n**Verdict:** refutes\n\n## Interpretation\n**Failure mode:** `recipe_conditional`\n\nThe recipe is conditional on the corpus. Dance-derived supervision only carries audio information when the music is the only thing that varies; in a choreographed corpus the choreography carries it instead. Practically: (a) keep AIST++ for what it is good for \u2014 style priors per genre, motion realism as an FID reference, and validating the video-to-pose path against mocap; (b) get free-dancing data for block A (Oslo EDM club mocap, CC-BY-4.0, 16 and 29 dancers to DJ-mixed EDM with drop/break annotations), which is also the concert domain the product actually ships into; (c) in the meantime train Stage 1 with the honest ceiling in mind \u2014 within-track shared dynamics at R2 0.1-0.2, timing from audio, style from a genre token \u2014 and never report a block A number without the reliability ceiling next to it.\n\n## Notes\nGate fails and the reason is the corpus, not the method. Three things are now measured rather than assumed:\n(1) There IS a large, highly reliable shared movement component in AIST++ (split-half reliability of the across-dancer mean reaches 0.94), so the averaging design works.\n(2) That component is genre, not audio: the genre label explains 0.65-0.96 of between-track movement variance, and audio recovers genre only weakly (28 % accuracy over 10 genres from 10 track-mean features, chance 10 %; a proper audio classifier would do better, so this is a floor).\n(3) Within a track, causal audio does predict a little of the shared dynamics \u2014 laterality R2 0.192 (CI [+0.064, +0.325]), hand speed 0.183, centre-of-mass speed 0.128, hip yaw 0.117, vertical bounce 0.092 \u2014 which is the honest ceiling for a dance-supervised block A trained on this corpus.\nTwo method bugs were found and fixed during the audit, both of which produced spectacular nonsense first: selecting the ridge penalty on data the model had been fitted to (held-out R2 of -19), and scoring audio against a single dancer's trace rather than the across-dancer mean, which charges audio for variance no audio model could explain.\n\n#music-induced-movement #audio-to-light #cross-modal #music-to-dance #motion-to-light #generative-modelling #real-time #evaluation-metric #pose #ill-posed-ground-truth #matched-baseline #conditional-mean-collapse #metric-gaming"
+    }
+  }
+}

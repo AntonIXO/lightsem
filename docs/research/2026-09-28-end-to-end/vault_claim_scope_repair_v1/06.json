@@ -1,0 +1,8 @@
+{
+  "experiment_id": "exp-022-section-level-intent-belongs-on-47d660",
+  "verdict": "directional_only",
+  "failure_mode": "recipe_conditional",
+  "lesson": "2026-09-28 retrospective claim-scope clarification, not a new measurement: This historical 39-clip comparison is held out under the motion selector, not fully held out from the evaluated decoder: the existing audit reports 30 decoder-TRAIN clips, 5 VAL and 4 TEST. Planner FID 597.34 versus no-planner6211.29/shuffled610.46 does not establish held-out decoder generalization; paired BAS worsened by -0.0067, CI [-0.0116,-0.0023]. Human structure judgment remains explicitly unmeasured. Preserve the completed numeric negative; no new execution follows.",
+  "transfers_to": [],
+  "hint": "recipe_conditional: when the recipe changes, reopen_hypothesis('section-level-intent-belongs-on-the-conductor-0f5c23', reason=...) makes the negative re-testable instead of terminal"
+}

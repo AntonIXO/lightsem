@@ -1,0 +1,8 @@
+{
+  "experiment_id": "exp-009-the-stage-1-audio-bus-was-not-d97aa0",
+  "verdict": "directional_only",
+  "failure_mode": "recipe_conditional",
+  "lesson": "[2026-09-28 retrospective interpretation; no new experiment] The repaired version passed the recorded future-audio feature test for 23 scalars and the mel bank, with five beat-grid channels still explicitly oracle; this is not whole-pipeline causality qualification or proof about an earlier checkout. On the same checkpoint and features, corpus-rate threshold calibration lowered Light-BAS minus the shift null from +0.0212 uncalibrated to +0.0179 calibrated, so G-bas-up failed despite the passed rate gate and improved FID/diversity relative to the uncalibrated arm. The nearly unchanged rendered event count shows that this threshold adjustment did not solve surplus flashing, without identifying a unique cause or establishing human LIGHT quality.",
+  "transfers_to": [],
+  "hint": "recipe_conditional: when the recipe changes, reopen_hypothesis('the-stage-1-audio-bus-was-not-causal-and-the-f24efd', reason=...) makes the negative re-testable instead of terminal"
+}

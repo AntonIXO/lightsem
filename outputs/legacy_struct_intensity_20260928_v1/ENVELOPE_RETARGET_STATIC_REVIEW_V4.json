@@ -1,0 +1,33 @@
+{
+  "status": "STATIC_TARGET_ONLY_CHANGE_NOT_NEW_RUNTIME_TEST",
+  "old_source": {
+    "path": "/root/lightsem/outputs/legacy_struct_intensity_20260928_v1/enforce_preparation_envelope_v3.py",
+    "size_bytes": 6384,
+    "sha256": "cd3dc533ce7a51b71c7d1dda736cbae5da63586f52541c1d4d355bb5085c44aa"
+  },
+  "new_source": {
+    "path": "/root/lightsem/outputs/legacy_struct_intensity_20260928_v1/enforce_preparation_envelope_v4.py",
+    "size_bytes": 6384,
+    "sha256": "972f6e30bf96dc59aa06597016bb804b7fd2274a234792daa5c1ecbc43c6e0b1"
+  },
+  "delta": "Only V5/v5 target literals -> V6/v6: driver,plan,authorization,proof andexpectedunit. All OS/resource/source/auth checks andexec logic identical after reversing literals.",
+  "literal_normalized_whole_source_equal": true,
+  "reused_scoped_evidence": [
+    {
+      "path": "/root/lightsem/outputs/legacy_struct_intensity_20260928_v1/ENVELOPE_CHECK_ONLY_RESULT_V3.json",
+      "size_bytes": 2128,
+      "sha256": "000d3eb27e6e5b6058256b3e5309ea18cafebe873daffea471163027fbfd174c"
+    },
+    {
+      "path": "/root/lightsem/outputs/legacy_struct_intensity_20260928_v1/preparation_resource_envelope_v5.json",
+      "size_bytes": 2628,
+      "sha256": "005c01bdff0a431105dbe5f582051f92229ef1391a88b62a345a5d6936402f3b"
+    },
+    {
+      "path": "/root/lightsem/outputs/legacy_struct_intensity_20260928_v1/RESOURCE_LIMIT_PROBE_RESULT_V2.json",
+      "size_bytes": 2883,
+      "sha256": "b78841115cb760cbc568d29448b6fc861a6dd93794d8b9fbdf0642984b82d647"
+    }
+  ],
+  "limits": "Prior V3check-only/actual checks establish unchanged mechanism only, not runtime success of V4 or V6 preparation. Actual V4-specific effective resource/auth/source proof and <=900s observed runtime required. No absolute hard-real-time guarantee. No canary/preparation execution in this static step."
+}

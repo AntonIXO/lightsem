@@ -1,0 +1,31 @@
+{
+  "schema_version": 1,
+  "status": "prospective_new_auditor_definition_NOT_EXECUTED",
+  "scope": "Additional independent CPU completion-chain/probability-sanity guard; no generation, mapping, threshold or palette-argmax change.",
+  "postflight_policy": {
+    "path": "/root/lightsem/docs/research/2026-09-28-end-to-end/COMPARISON_POSTFLIGHT_POLICY_V1.json",
+    "sha256": "00f6fa55758c43dc79545d0e6ea33d1d82a28b8f087522efc27606b09973f8ee",
+    "bytes": 1570
+  },
+  "plan": {
+    "path": "/root/lightsem/outputs/shpongle_model_comparisons_20260928_v1/COMPARISON_PLAN_V2.json",
+    "sha256": "0e9286f7428346a2ff01d2f5cd45b75fd39ac1b564d663bb209a2e48f17cffd4",
+    "bytes": 25491
+  },
+  "source_files": {
+    "/root/lightsem/outputs/shpongle_model_comparisons_20260928_v1/parent_audit_v1.py": "b166ba5d9f75451bb8fb7a24e3cfbf6f5c2d0795c67d44702ad5304314ea3672",
+    "/root/lightsem/run.sh": "232ca5a566ae3b22f0677b6b5879c6901abf9decb16dc66967a4895174289556"
+  },
+  "test_sources": {
+    "/root/lightsem/outputs/shpongle_model_comparisons_20260928_v1/test_parent_audit_v1.py": "deac54a0f5caba16d6e32a6df7d14830a3ebc2449ead46fe730f43891f519805"
+  },
+  "probability_atol": 9.5367431640625e-07,
+  "probability_reference": "stable_float64_sigmoid(raw_saved_float32_event_logits)",
+  "probability_scope": "Gross mismatch sanity only; NOT exact CUDA sigmoid replay. Original saved FP32 scores remain sole cue authority. No score edits or palette-argmax tolerance.",
+  "native_test_count": 15,
+  "native_test_command": "bash run.sh -m unittest discover -s /root/lightsem/outputs/shpongle_model_comparisons_20260928_v1 -p test_parent_audit_v1.py -v > /root/lightsem/outputs/shpongle_model_comparisons_20260928_v1/native_parent_audit_tests_v1.log 2>&1",
+  "native_test_log_path": "/root/lightsem/outputs/shpongle_model_comparisons_20260928_v1/native_parent_audit_tests_v1.log",
+  "output": "/root/lightsem/outputs/shpongle_model_comparisons_20260928_v1/PARENT_AUDIT_READBACK_V1.json",
+  "publication": "One exclusive receipt only after all four canonical chains, proof-array fingerprints and probability checks pass. INFERENCE_MAPPING_READBACK_ONLY; no video delivery.",
+  "synthetic_test_data_scope": "Only temporary synthetic fixtures, fake hashes/references and arrays; no torch/project model imports, checkpoints, real outputs or sealed TEST reads."
+}

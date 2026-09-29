@@ -1,0 +1,4 @@
+{
+  "id": "dancing-light-generative-20260903",
+  "add_update": "2026-09-22 \u2014 SCORING EXECUTION BLOCKED, NOT A SCIENTIFIC RESULT. Both original selected/final score commands exited1 after~1.49s with ContractError: Circular shift escaped its valid segment (evaluation.py:516). No aggregate report was produced or inspected; per-record computations may have run internally before the exception. All15 fits and30 raw predictions are complete and unchanged. Failure ledger /root/lightsem/docs/research/2026-09-22-color-beat/OBSERVER_SCORING_FAILURE_V1.json SHA256 932920b24b5ceb2c421f48fa218b807a5caa57f8bcd676e47f754530842a0db5. Investigate actual circular-modulo boundary arithmetic. Do not drop this null, widen support, overwrite old sources/attempts, or regenerate predictions. Any scoring-only numerical correction must be separately source-bound and registered before rerunning both roles."
+}

@@ -1,0 +1,7 @@
+{
+  "phase": "preflight before any model forward",
+  "failure": "overstrict bitwise stored bus vs canonical clock assertion",
+  "finding": "Bus stored float32 timestamps promoted tofloat64 in audio92; max quantization difference1.2207031261368684e-05s vs exact DMX clock. SourceStore already handles this stored schema. First92 feature coordinates were byte-identical.",
+  "change": "Require exact bus clock equals float32-quantized canonicalDMX clock; preserve both clocks in derived audio94; no interpolation/model/mapping changes.",
+  "helper_sha256": "5e868792c94ccdea9519222f15ef8031fd2d4bc32abf650773dc208074d50c3b"
+}

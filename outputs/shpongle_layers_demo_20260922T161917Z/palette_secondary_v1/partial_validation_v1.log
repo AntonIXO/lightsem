@@ -1,0 +1,5 @@
+Validated 25/101 partial cells; no inference/scoring
+Validated 50/101 partial cells; no inference/scoring
+Validated 75/101 partial cells; no inference/scoring
+Validated 100/101 partial cells; no inference/scoring
+{"status": "interrupted_not_complete", "audit_status": "all_101_passed", "present": 101, "missing": 85, "receipt": {"path": "/mnt/lightsem-data/experiments/lightsem/palette-history-secondary-20260922-v1/PARTIAL_INTERRUPTED_RECEIPT_V1.json", "sha256": "67e49eafa0331d06d553090d7e4559ebecba07e315ada2bb77825192ba6ccca3", "bytes": 433635}, "storage": {"new_study_bytes": 3942864, "mnt_free_bytes": 1265270784}}

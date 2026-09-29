@@ -1,0 +1,29 @@
+{
+  "status": "TEMPLATE_NOT_ENFORCED",
+  "module_cli_argv": [
+    "/root/lightsem/outputs/legacy_struct_intensity_20260928_v1/measure_lossless_archive_v1.py",
+    "measure",
+    "--authorization",
+    "/root/lightsem/outputs/legacy_struct_intensity_20260928_v1/PARENT_BOUND_LOSSLESS_ARCHIVE_AUTHORIZATION_V1.json"
+  ],
+  "driver_sha256": "2c068d0062ae0b9dd24d88b848c80201dffd284221ae4e25d84a5da8d8febf39",
+  "tests_sha256": "79866d5de485812d3b6483a3f0073774fa139772a2d4667622a493358fd1eaa1",
+  "MemoryMax_bytes": 536870912,
+  "MemorySwapMax_bytes": 0,
+  "RuntimeMaxSec": 50,
+  "acceptance_wall_seconds": 60,
+  "PrivateDevices": true,
+  "GPU_devices_visible": false,
+  "CUDA_VISIBLE_DEVICES": "",
+  "process_tree_enforced": false,
+  "root_additional_requirements": {
+    "native_pre_exec_source_hash_verification": true,
+    "exact_target_argv_binding": true,
+    "PYTHONDONTWRITEBYTECODE": "1",
+    "stdout_stderr_combined_cap_bytes": 32768,
+    "receipt_cap_bytes": 65536,
+    "all_descendants_same_memory_time_device_envelope": true,
+    "root_exit_and_wall_acceptance_needed": true,
+    "this_template_is_not_OS_enforcement": true
+  }
+}

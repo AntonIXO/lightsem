@@ -1,0 +1,1845 @@
+{
+  "scope": "PREPARATION_ONLY_NO_MODEL_OR_SCORE",
+  "authorized_by": "root",
+  "plan_ref": {
+    "path": "/root/lightsem/docs/research/2026-09-28-end-to-end/PROSPECTIVE_STRUCT_INTENSITY_PROTOCOL_CANDIDATE_V5.json",
+    "size_bytes": 271804,
+    "sha256": "ceb5166d5323bbf013ef47c976bd6ab85edcece3a22314816c2b2ec04a3c61d1"
+  },
+  "driver_ref": {
+    "path": "/root/lightsem/outputs/legacy_struct_intensity_20260928_v1/prepare_struct_intensity_v5.py",
+    "size_bytes": 38497,
+    "sha256": "8ba9a187e9832367850a94d13a02434a34d70541bfd5ad14a83574ddcda90ebc"
+  },
+  "test_refs": [
+    {
+      "path": "/root/lightsem/outputs/legacy_struct_intensity_20260928_v1/test_prepare_struct_intensity_v5.py",
+      "size_bytes": 59751,
+      "sha256": "104dd196efce125202887eb09f40066025de02ffb4ef8548492c6edb8c9de20b"
+    }
+  ],
+  "argv": [
+    "/root/lightsem/outputs/legacy_struct_intensity_20260928_v1/prepare_struct_intensity_v5.py",
+    "prepare",
+    "--plan",
+    "/root/lightsem/docs/research/2026-09-28-end-to-end/PROSPECTIVE_STRUCT_INTENSITY_PROTOCOL_CANDIDATE_V5.json",
+    "--authorization",
+    "/root/lightsem/outputs/legacy_struct_intensity_20260928_v1/PARENT_BOUND_PREPARATION_AUTHORIZATION_V5.json"
+  ],
+  "allow_cpu_checkpoint_deserialization": true,
+  "allow_model_construction": false,
+  "allow_model_forward": false,
+  "allow_scoring": false,
+  "allow_GPU": false,
+  "allow_TEST_access": false,
+  "allow_raw_manifest_access": false,
+  "accept_historical_descriptive_unknown_cross_corpus_aliases": true,
+  "native_registration_receipt_verified": true,
+  "native_registration_receipt_ref": {
+    "path": "/root/lightsem/outputs/legacy_struct_intensity_20260928_v1/vault_preparation_scope_v5_receipt.json",
+    "size_bytes": 106458,
+    "sha256": "4976a6921efbb0c34ab040f7350c08c2a7c0e80f18da5e1263d95df3e64ed345"
+  },
+  "original_inventory_sha256": "e8305329ebf57603f9cda51ca498826ae9e556e43ce83fcfb2a67bcb5752b359",
+  "remaining_project_GPU_seconds": 0,
+  "other_reserved_bytes": 0,
+  "preparation_external_limits_bound": {
+    "wall_seconds": 900,
+    "host_RAM_bytes": 4294967296,
+    "GPU_access": false
+  },
+  "preparation_log": {
+    "path": "/root/lightsem/outputs/legacy_struct_intensity_20260928_v1/preparation_v5.log",
+    "max_bytes": 65536
+  },
+  "source_refs": [
+    {
+      "path": "/root/lightsem/build_justdance_structure.py",
+      "size_bytes": 4152,
+      "sha256": "80df499f8d8b5443008f9f7448f5637df9ea635a3683313a0c1a57906ce031df"
+    },
+    {
+      "path": "/root/lightsem/calibrate_events.py",
+      "size_bytes": 4581,
+      "sha256": "aa5521b94c41dcdc7dca98c4d61f8827b7ea73ed2c6595d1bbf03c8802bfb7f6"
+    },
+    {
+      "path": "/root/lightsem/calibrate_smoothing.py",
+      "size_bytes": 3685,
+      "sha256": "8af01dc2dd60c092cb635e8d6409b8587364103736f497d8f5981e0f1d174270"
+    },
+    {
+      "path": "/root/lightsem/docs/research/2026-09-28-end-to-end/PROSPECTIVE_STRUCT_INTENSITY_PROTOCOL_CANDIDATE_V3.json",
+      "size_bytes": 257231,
+      "sha256": "96e5017b5fdf90e21e31f1b24c44586812f0724c954515cfdc170b8d88a9d9af"
+    },
+    {
+      "path": "/root/lightsem/docs/research/2026-09-28-end-to-end/PROSPECTIVE_STRUCT_INTENSITY_PROTOCOL_CANDIDATE_V3.md",
+      "size_bytes": 14256,
+      "sha256": "09c05f2026fad9bdaa055e5c0d5a96e5d620c41fb9449f95fc615fefc87f680c"
+    },
+    {
+      "path": "/root/lightsem/docs/research/2026-09-28-end-to-end/PROSPECTIVE_STRUCT_INTENSITY_PROTOCOL_CANDIDATE_V4.json",
+      "size_bytes": 264086,
+      "sha256": "62e80c63b0bb213fa3080cdc9672e7c3c7db95fa97f25b24abe7fae1c1920f59"
+    },
+    {
+      "path": "/root/lightsem/docs/research/2026-09-28-end-to-end/PROSPECTIVE_STRUCT_INTENSITY_PROTOCOL_CANDIDATE_V4.md",
+      "size_bytes": 17428,
+      "sha256": "49c4d50d998a529e7a1f95aaf2e9af8d1092ca1ea2af73bd4bb6abad6c0b1bc3"
+    },
+    {
+      "path": "/root/lightsem/lightsem/__init__.py",
+      "size_bytes": 514,
+      "sha256": "956df70e34d94a9ccd3a61de2fa9aebf14191f047d7885b5013ce2730f060ae1"
+    },
+    {
+      "path": "/root/lightsem/lightsem/audio/__init__.py",
+      "size_bytes": 555,
+      "sha256": "c384bbfe543a2fd09bc0b8ec417a60d0aa70724193297cf1042313554d98e38e"
+    },
+    {
+      "path": "/root/lightsem/lightsem/audio/beatgrid.py",
+      "size_bytes": 5468,
+      "sha256": "0c230a2ff2081b6b92d7fc2d38283f715d7131fdcb93e1f62b0b955260d4f5c5"
+    },
+    {
+      "path": "/root/lightsem/lightsem/audio/features.py",
+      "size_bytes": 5657,
+      "sha256": "debdf74924404f58b9a53b0ab7fb512776091ad9b09a75d64d4e7c690165ef59"
+    },
+    {
+      "path": "/root/lightsem/lightsem/audio/online.py",
+      "size_bytes": 14121,
+      "sha256": "c39a6597bb2146c226330488b7e88351723ff1038d6e0048705b38e29b1b0ec3"
+    },
+    {
+      "path": "/root/lightsem/lightsem/audio/structure.py",
+      "size_bytes": 7895,
+      "sha256": "95c1a72dce073172bf93481f8a565cb52b9a60acd1790d459cee502aaf20c04e"
+    },
+    {
+      "path": "/root/lightsem/lightsem/conductor/__init__.py",
+      "size_bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "/root/lightsem/lightsem/conductor/beat_trigger.py",
+      "size_bytes": 3377,
+      "sha256": "bd6b67a2f0a561e8cbac57b1ce0b6f6212cdbbe4dcbba8e09d88a39923f4927c"
+    },
+    {
+      "path": "/root/lightsem/lightsem/conductor/hybrid.py",
+      "size_bytes": 7477,
+      "sha256": "2accca59f124e79b0c0cdff7f544c88093955fe44616d37af3783ee778ebf725"
+    },
+    {
+      "path": "/root/lightsem/lightsem/conductor/rig.py",
+      "size_bytes": 1936,
+      "sha256": "608a7eb9971c2bd583282e4a38f777be96b49e5c1a909baffd47bf76cf28b28a"
+    },
+    {
+      "path": "/root/lightsem/lightsem/conductor/scalers.json",
+      "size_bytes": 4170,
+      "sha256": "c3c076b4c3bd9d830ca2eaf4352304e5ab5f6d705ae564e3ba1db5ae0ef3c6d4"
+    },
+    {
+      "path": "/root/lightsem/lightsem/conductor/scalers.py",
+      "size_bytes": 2494,
+      "sha256": "af43e106d91f76f9cf555e1eb91dab671a354ece4a5dc1bf0eada13d9be28635"
+    },
+    {
+      "path": "/root/lightsem/lightsem/conductor/v0.py",
+      "size_bytes": 11902,
+      "sha256": "c6900c95eadca5d6f0a0f97d68e189cdedf7b86325bbdbed010508051d8a8f68"
+    },
+    {
+      "path": "/root/lightsem/lightsem/dmx/__init__.py",
+      "size_bytes": 509,
+      "sha256": "c8f21d31257f967d2a7af26c15826039c2010bfd5266ef30799a6f8e18ef717f"
+    },
+    {
+      "path": "/root/lightsem/lightsem/dmx/decode.py",
+      "size_bytes": 3906,
+      "sha256": "1cf639d1409283733d919e478c8c27084d3f2db4c076518894a180bfd0bd391b"
+    },
+    {
+      "path": "/root/lightsem/lightsem/dmx/encode.py",
+      "size_bytes": 4940,
+      "sha256": "f995fcf0b2f38dd49f05c37813e07faebfcdbbe21c92d084f36a2cea64b82891"
+    },
+    {
+      "path": "/root/lightsem/lightsem/dmx/fixtures.py",
+      "size_bytes": 6742,
+      "sha256": "685e8b206d7e6b96288a3b88fb5c543368fbd8bd765d8a96873806e18d48c3d7"
+    },
+    {
+      "path": "/root/lightsem/lightsem/dmx/universe.py",
+      "size_bytes": 5905,
+      "sha256": "12ebbaefdae88fa7ddc42261762814eec053e6c30b0c1bc2cd2856413acc53b0"
+    },
+    {
+      "path": "/root/lightsem/lightsem/eval/light_features.py",
+      "size_bytes": 6740,
+      "sha256": "8def407a494e8c97e33f2dcc2b1e46adcfff4bb70b1fbc0f6dbff57354a1b25e"
+    },
+    {
+      "path": "/root/lightsem/lightsem/model/__init__.py",
+      "size_bytes": 40,
+      "sha256": "cbc7d53561372998c0ee0fcb78dfa68dd465145bdbd4feccd6be40699604c9ce"
+    },
+    {
+      "path": "/root/lightsem/lightsem/model/infer.py",
+      "size_bytes": 15163,
+      "sha256": "866233e115a7c9b1bca23f3209a49c5b0ddcf8817465efafd566a866811bc892"
+    },
+    {
+      "path": "/root/lightsem/lightsem/model/jd_data.py",
+      "size_bytes": 7467,
+      "sha256": "1ebde04a938bcaed22c973efb792170225d7572d70b5bbc36ac82d263f3c8c45"
+    },
+    {
+      "path": "/root/lightsem/lightsem/model/light_data.py",
+      "size_bytes": 6857,
+      "sha256": "cb071e60fd1bf9123266870aa5a574e2e16735025f7d0a9e075321bf6ebbb7ba"
+    },
+    {
+      "path": "/root/lightsem/lightsem/motion/__init__.py",
+      "size_bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "/root/lightsem/lightsem/motion/descriptors.py",
+      "size_bytes": 16561,
+      "sha256": "84169e0983f5fb902f359f8bba28e708cc8e1c8a5458ede38de7853e707493d7"
+    },
+    {
+      "path": "/root/lightsem/lightsem/motion/io.py",
+      "size_bytes": 3410,
+      "sha256": "722c8171caface663014e368dc569a7136e39b15d5cfc26bfecbe64f32c18826"
+    },
+    {
+      "path": "/root/lightsem/lightsem/motion/skeleton.py",
+      "size_bytes": 8820,
+      "sha256": "2d24eb9f54145c717aadef283cf8de22fe69a17561a362cf8d0e2dc396b8c53d"
+    },
+    {
+      "path": "/root/lightsem/outputs/legacy_struct_intensity_20260928_v1/historical/light_trunk.py",
+      "size_bytes": 10400,
+      "sha256": "7603b168695bea0b920c5039a02b380cbc796cb1dbc4ae40b0e91352e8c87290"
+    },
+    {
+      "path": "/root/lightsem/run_stage1_eval.py",
+      "size_bytes": 10886,
+      "sha256": "7717f40559a163f4c7f1a45de8f01be5fd5992954c6a8bb03a4fa03683464c0b"
+    },
+    {
+      "path": "/root/lightsem/run_stage8_chain3.sh",
+      "size_bytes": 1439,
+      "sha256": "172bfd9615b37947108f8733fc0bb15f1e330cb2f7ce663f762101a9550bc5da"
+    },
+    {
+      "path": "/root/lightsem/run_torch.sh",
+      "size_bytes": 920,
+      "sha256": "fa8766599ce7741477aff2035e5e87566fa4ddacacdfbbe39d5bbcba947888f1"
+    },
+    {
+      "path": "/root/lightsem/train_light.py",
+      "size_bytes": 11997,
+      "sha256": "29e71d2424eee5769be6a5796783f351a4a7166befaf02bb08db4b16014394ed"
+    }
+  ],
+  "checkpoint_refs": {
+    "none": {
+      "path": "/mnt/lightsem-data/ckpt/light_trunk_jd_none_smooth.pt",
+      "size_bytes": 37418631,
+      "sha256": "9420bfb431fa8fea0d7b463284945665a9b860c94f3cfef1cc3f5c3a0b7e04ad"
+    },
+    "struct": {
+      "path": "/mnt/lightsem-data/ckpt/light_trunk_jd_struct_smooth.pt",
+      "size_bytes": 37427327,
+      "sha256": "af2aefcd49f8164b5c175b53d672d67d5af870af0ffde51f08c126f2f3628a63"
+    },
+    "shuf": {
+      "path": "/mnt/lightsem-data/ckpt/light_trunk_jd_shuf_smooth.pt",
+      "size_bytes": 37426951,
+      "sha256": "4e043491aae00067f69b2463ae5163baaefa9c8493ef730f5fa2e62107c6308e"
+    }
+  },
+  "input_refs": [
+    {
+      "path": "/mnt/lightsem-data/cache/justdance_audio/-naODqbb4B0.npz",
+      "size_bytes": 2177910,
+      "sha256": "095e144f78915c621b060fc4cec476f910bf4f24e80a43498d1a06c0e0876433",
+      "recording_id": "-naODqbb4B0",
+      "kind": "audio",
+      "current_Stage11_partition": "train",
+      "known_current_TEST_aliases": [],
+      "identity_projection_ref": {
+        "path": "/root/lightsem/docs/research/2026-09-28-end-to-end/NEW_IDENTITY_EXCLUSION_METADATA_V1.json",
+        "sha256": "54c12ef64517451c1744c824051ccce7a4d2da46adde9d0742ae52c192672c28"
+      },
+      "JD_identity_evidence": {
+        "plan_ref": {
+          "path": "/root/lightsem/docs/research/2026-09-28-end-to-end/PROSPECTIVE_STRUCT_INTENSITY_PROTOCOL_CANDIDATE_V5.json",
+          "size_bytes": 271804,
+          "sha256": "ceb5166d5323bbf013ef47c976bd6ab85edcece3a22314816c2b2ec04a3c61d1"
+        },
+        "field": "cohorts.all453_identity_manifest",
+        "canonical_id": "jd-7d18324e97a3c1a46bcc"
+      },
+      "cross_corpus_identity": "UNRESOLVED_NOT_INDEPENDENT",
+      "approval": "ROOT_APPROVED_HISTORICAL_DESCRIPTIVE_ONLY"
+    },
+    {
+      "path": "/mnt/lightsem-data/cache/justdance_structure/-naODqbb4B0.npz",
+      "size_bytes": 85052,
+      "sha256": "16d2660e9315c2881683f97bd5b8b211ecdb020a30594c71848b43fa68f314d2",
+      "recording_id": "-naODqbb4B0",
+      "kind": "structure",
+      "current_Stage11_partition": "train",
+      "known_current_TEST_aliases": [],
+      "identity_projection_ref": {
+        "path": "/root/lightsem/docs/research/2026-09-28-end-to-end/NEW_IDENTITY_EXCLUSION_METADATA_V1.json",
+        "sha256": "54c12ef64517451c1744c824051ccce7a4d2da46adde9d0742ae52c192672c28"
+      },
+      "JD_identity_evidence": {
+        "plan_ref": {
+          "path": "/root/lightsem/docs/research/2026-09-28-end-to-end/PROSPECTIVE_STRUCT_INTENSITY_PROTOCOL_CANDIDATE_V5.json",
+          "size_bytes": 271804,
+          "sha256": "ceb5166d5323bbf013ef47c976bd6ab85edcece3a22314816c2b2ec04a3c61d1"
+        },
+        "field": "cohorts.all453_identity_manifest",
+        "canonical_id": "jd-7d18324e97a3c1a46bcc"
+      },
+      "cross_corpus_identity": "UNRESOLVED_NOT_INDEPENDENT",
+      "approval": "ROOT_APPROVED_HISTORICAL_DESCRIPTIVE_ONLY"
+    },
+    {
+      "path": "/mnt/lightsem-data/cache/justdance_audio/2B1m9gH_jUc.npz",
+      "size_bytes": 1684142,
+      "sha256": "eac2536c4de17abe86deed92d1ce8d38ba60f7edcaefae7b428036c112ead21c",
+      "recording_id": "2B1m9gH_jUc",
+      "kind": "audio",
+      "current_Stage11_partition": "train",
+      "known_current_TEST_aliases": [],
+      "identity_projection_ref": {
+        "path": "/root/lightsem/docs/research/2026-09-28-end-to-end/NEW_IDENTITY_EXCLUSION_METADATA_V1.json",
+        "sha256": "54c12ef64517451c1744c824051ccce7a4d2da46adde9d0742ae52c192672c28"
+      },
+      "JD_identity_evidence": {
+        "plan_ref": {
+          "path": "/root/lightsem/docs/research/2026-09-28-end-to-end/PROSPECTIVE_STRUCT_INTENSITY_PROTOCOL_CANDIDATE_V5.json",
+          "size_bytes": 271804,
+          "sha256": "ceb5166d5323bbf013ef47c976bd6ab85edcece3a22314816c2b2ec04a3c61d1"
+        },
+        "field": "cohorts.all453_identity_manifest",
+        "canonical_id": "jd-76c6acb1147814ba659c"
+      },
+      "cross_corpus_identity": "UNRESOLVED_NOT_INDEPENDENT",
+      "approval": "ROOT_APPROVED_HISTORICAL_DESCRIPTIVE_ONLY"
+    },
+    {
+      "path": "/mnt/lightsem-data/cache/justdance_structure/2B1m9gH_jUc.npz",
+      "size_bytes": 67505,
+      "sha256": "f1cacad02f6b2e4da641d065cf835bd08cfd4eecaf0c8cc09fd2252d5c3c3442",
+      "recording_id": "2B1m9gH_jUc",
+      "kind": "structure",
+      "current_Stage11_partition": "train",
+      "known_current_TEST_aliases": [],
+      "identity_projection_ref": {
+        "path": "/root/lightsem/docs/research/2026-09-28-end-to-end/NEW_IDENTITY_EXCLUSION_METADATA_V1.json",
+        "sha256": "54c12ef64517451c1744c824051ccce7a4d2da46adde9d0742ae52c192672c28"
+      },
+      "JD_identity_evidence": {
+        "plan_ref": {
+          "path": "/root/lightsem/docs/research/2026-09-28-end-to-end/PROSPECTIVE_STRUCT_INTENSITY_PROTOCOL_CANDIDATE_V5.json",
+          "size_bytes": 271804,
+          "sha256": "ceb5166d5323bbf013ef47c976bd6ab85edcece3a22314816c2b2ec04a3c61d1"
+        },
+        "field": "cohorts.all453_identity_manifest",
+        "canonical_id": "jd-76c6acb1147814ba659c"
+      },
+      "cross_corpus_identity": "UNRESOLVED_NOT_INDEPENDENT",
+      "approval": "ROOT_APPROVED_HISTORICAL_DESCRIPTIVE_ONLY"
+    },
+    {
+      "path": "/mnt/lightsem-data/cache/justdance_audio/6-qHvsxgsRA.npz",
+      "size_bytes": 2150727,
+      "sha256": "a023e67d8fbb68068bfc75891595ab2432e2c9c1f819b3ef834ffb2036458df4",
+      "recording_id": "6-qHvsxgsRA",
+      "kind": "audio",
+      "current_Stage11_partition": "train",
+      "known_current_TEST_aliases": [],
+      "identity_projection_ref": {
+        "path": "/root/lightsem/docs/research/2026-09-28-end-to-end/NEW_IDENTITY_EXCLUSION_METADATA_V1.json",
+        "sha256": "54c12ef64517451c1744c824051ccce7a4d2da46adde9d0742ae52c192672c28"
+      },
+      "JD_identity_evidence": {
+        "plan_ref": {
+          "path": "/root/lightsem/docs/research/2026-09-28-end-to-end/PROSPECTIVE_STRUCT_INTENSITY_PROTOCOL_CANDIDATE_V5.json",
+          "size_bytes": 271804,
+          "sha256": "ceb5166d5323bbf013ef47c976bd6ab85edcece3a22314816c2b2ec04a3c61d1"
+        },
+        "field": "cohorts.all453_identity_manifest",
+        "canonical_id": "jd-ab8a11c53ac0a57fb350"
+      },
+      "cross_corpus_identity": "UNRESOLVED_NOT_INDEPENDENT",
+      "approval": "ROOT_APPROVED_HISTORICAL_DESCRIPTIVE_ONLY"
+    },
+    {
+      "path": "/mnt/lightsem-data/cache/justdance_structure/6-qHvsxgsRA.npz",
+      "size_bytes": 83661,
+      "sha256": "104f288f7e3cc7996d9f396082945ebd4a98ca76541d969bbd8f6cc09f692541",
+      "recording_id": "6-qHvsxgsRA",
+      "kind": "structure",
+      "current_Stage11_partition": "train",
+      "known_current_TEST_aliases": [],
+      "identity_projection_ref": {
+        "path": "/root/lightsem/docs/research/2026-09-28-end-to-end/NEW_IDENTITY_EXCLUSION_METADATA_V1.json",
+        "sha256": "54c12ef64517451c1744c824051ccce7a4d2da46adde9d0742ae52c192672c28"
+      },
+      "JD_identity_evidence": {
+        "plan_ref": {
+          "path": "/root/lightsem/docs/research/2026-09-28-end-to-end/PROSPECTIVE_STRUCT_INTENSITY_PROTOCOL_CANDIDATE_V5.json",
+          "size_bytes": 271804,
+          "sha256": "ceb5166d5323bbf013ef47c976bd6ab85edcece3a22314816c2b2ec04a3c61d1"
+        },
+        "field": "cohorts.all453_identity_manifest",
+        "canonical_id": "jd-ab8a11c53ac0a57fb350"
+      },
+      "cross_corpus_identity": "UNRESOLVED_NOT_INDEPENDENT",
+      "approval": "ROOT_APPROVED_HISTORICAL_DESCRIPTIVE_ONLY"
+    },
+    {
+      "path": "/mnt/lightsem-data/cache/justdance_audio/6h1MUO-uEcU.npz",
+      "size_bytes": 1809742,
+      "sha256": "fa274c51fd1fba7dc2ed7dfafc08e00c87fd47f2c49fb9c8b2fd54310f61c566",
+      "recording_id": "6h1MUO-uEcU",
+      "kind": "audio",
+      "current_Stage11_partition": "train",
+      "known_current_TEST_aliases": [],
+      "identity_projection_ref": {
+        "path": "/root/lightsem/docs/research/2026-09-28-end-to-end/NEW_IDENTITY_EXCLUSION_METADATA_V1.json",
+        "sha256": "54c12ef64517451c1744c824051ccce7a4d2da46adde9d0742ae52c192672c28"
+      },
+      "JD_identity_evidence": {
+        "plan_ref": {
+          "path": "/root/lightsem/docs/research/2026-09-28-end-to-end/PROSPECTIVE_STRUCT_INTENSITY_PROTOCOL_CANDIDATE_V5.json",
+          "size_bytes": 271804,
+          "sha256": "ceb5166d5323bbf013ef47c976bd6ab85edcece3a22314816c2b2ec04a3c61d1"
+        },
+        "field": "cohorts.all453_identity_manifest",
+        "canonical_id": "jd-6feaed54b59505bd1628"
+      },
+      "cross_corpus_identity": "UNRESOLVED_NOT_INDEPENDENT",
+      "approval": "ROOT_APPROVED_HISTORICAL_DESCRIPTIVE_ONLY"
+    },
+    {
+      "path": "/mnt/lightsem-data/cache/justdance_structure/6h1MUO-uEcU.npz",
+      "size_bytes": 73130,
+      "sha256": "6b3a90ee47240bc5a9f99f0b638ca0cf0f63261b6fcbde3849108e03e4cc88b4",
+      "recording_id": "6h1MUO-uEcU",
+      "kind": "structure",
+      "current_Stage11_partition": "train",
+      "known_current_TEST_aliases": [],
+      "identity_projection_ref": {
+        "path": "/root/lightsem/docs/research/2026-09-28-end-to-end/NEW_IDENTITY_EXCLUSION_METADATA_V1.json",
+        "sha256": "54c12ef64517451c1744c824051ccce7a4d2da46adde9d0742ae52c192672c28"
+      },
+      "JD_identity_evidence": {
+        "plan_ref": {
+          "path": "/root/lightsem/docs/research/2026-09-28-end-to-end/PROSPECTIVE_STRUCT_INTENSITY_PROTOCOL_CANDIDATE_V5.json",
+          "size_bytes": 271804,
+          "sha256": "ceb5166d5323bbf013ef47c976bd6ab85edcece3a22314816c2b2ec04a3c61d1"
+        },
+        "field": "cohorts.all453_identity_manifest",
+        "canonical_id": "jd-6feaed54b59505bd1628"
+      },
+      "cross_corpus_identity": "UNRESOLVED_NOT_INDEPENDENT",
+      "approval": "ROOT_APPROVED_HISTORICAL_DESCRIPTIVE_ONLY"
+    },
+    {
+      "path": "/mnt/lightsem-data/cache/justdance_audio/86zl8aljXbA.npz",
+      "size_bytes": 2156581,
+      "sha256": "de293f5341f05c0d1764c749bf25c24fd4884200bf14154b9e1f424e22341765",
+      "recording_id": "86zl8aljXbA",
+      "kind": "audio",
+      "current_Stage11_partition": "train",
+      "known_current_TEST_aliases": [],
+      "identity_projection_ref": {
+        "path": "/root/lightsem/docs/research/2026-09-28-end-to-end/NEW_IDENTITY_EXCLUSION_METADATA_V1.json",
+        "sha256": "54c12ef64517451c1744c824051ccce7a4d2da46adde9d0742ae52c192672c28"
+      },
+      "JD_identity_evidence": {
+        "plan_ref": {
+          "path": "/root/lightsem/docs/research/2026-09-28-end-to-end/PROSPECTIVE_STRUCT_INTENSITY_PROTOCOL_CANDIDATE_V5.json",
+          "size_bytes": 271804,
+          "sha256": "ceb5166d5323bbf013ef47c976bd6ab85edcece3a22314816c2b2ec04a3c61d1"
+        },
+        "field": "cohorts.all453_identity_manifest",
+        "canonical_id": "jd-544fc9ee5a0dd988bafe"
+      },
+      "cross_corpus_identity": "UNRESOLVED_NOT_INDEPENDENT",
+      "approval": "ROOT_APPROVED_HISTORICAL_DESCRIPTIVE_ONLY"
+    },
+    {
+      "path": "/mnt/lightsem-data/cache/justdance_structure/86zl8aljXbA.npz",
+      "size_bytes": 89683,
+      "sha256": "56e0f342ec41c66c7251c2e3788ceb00c58f0bc6e716b20cb4a2801b73ab817f",
+      "recording_id": "86zl8aljXbA",
+      "kind": "structure",
+      "current_Stage11_partition": "train",
+      "known_current_TEST_aliases": [],
+      "identity_projection_ref": {
+        "path": "/root/lightsem/docs/research/2026-09-28-end-to-end/NEW_IDENTITY_EXCLUSION_METADATA_V1.json",
+        "sha256": "54c12ef64517451c1744c824051ccce7a4d2da46adde9d0742ae52c192672c28"
+      },
+      "JD_identity_evidence": {
+        "plan_ref": {
+          "path": "/root/lightsem/docs/research/2026-09-28-end-to-end/PROSPECTIVE_STRUCT_INTENSITY_PROTOCOL_CANDIDATE_V5.json",
+          "size_bytes": 271804,
+          "sha256": "ceb5166d5323bbf013ef47c976bd6ab85edcece3a22314816c2b2ec04a3c61d1"
+        },
+        "field": "cohorts.all453_identity_manifest",
+        "canonical_id": "jd-544fc9ee5a0dd988bafe"
+      },
+      "cross_corpus_identity": "UNRESOLVED_NOT_INDEPENDENT",
+      "approval": "ROOT_APPROVED_HISTORICAL_DESCRIPTIVE_ONLY"
+    },
+    {
+      "path": "/mnt/lightsem-data/cache/justdance_audio/8STzZEtqBNY.npz",
+      "size_bytes": 1798733,
+      "sha256": "8e8dfff7d5ce811c21ad9f5f5b0d2c7fdd69103849d06980297a596749204bfe",
+      "recording_id": "8STzZEtqBNY",
+      "kind": "audio",
+      "current_Stage11_partition": "train",
+      "known_current_TEST_aliases": [],
+      "identity_projection_ref": {
+        "path": "/root/lightsem/docs/research/2026-09-28-end-to-end/NEW_IDENTITY_EXCLUSION_METADATA_V1.json",
+        "sha256": "54c12ef64517451c1744c824051ccce7a4d2da46adde9d0742ae52c192672c28"
+      },
+      "JD_identity_evidence": {
+        "plan_ref": {
+          "path": "/root/lightsem/docs/research/2026-09-28-end-to-end/PROSPECTIVE_STRUCT_INTENSITY_PROTOCOL_CANDIDATE_V5.json",
+          "size_bytes": 271804,
+          "sha256": "ceb5166d5323bbf013ef47c976bd6ab85edcece3a22314816c2b2ec04a3c61d1"
+        },
+        "field": "cohorts.all453_identity_manifest",
+        "canonical_id": "jd-ed4567d227e0c30131ce"
+      },
+      "cross_corpus_identity": "UNRESOLVED_NOT_INDEPENDENT",
+      "approval": "ROOT_APPROVED_HISTORICAL_DESCRIPTIVE_ONLY"
+    },
+    {
+      "path": "/mnt/lightsem-data/cache/justdance_structure/8STzZEtqBNY.npz",
+      "size_bytes": 68569,
+      "sha256": "8af4c8ba4f4a8f3a25002fce4309adc705d572f03689d5b6e5c898ad087306ea",
+      "recording_id": "8STzZEtqBNY",
+      "kind": "structure",
+      "current_Stage11_partition": "train",
+      "known_current_TEST_aliases": [],
+      "identity_projection_ref": {
+        "path": "/root/lightsem/docs/research/2026-09-28-end-to-end/NEW_IDENTITY_EXCLUSION_METADATA_V1.json",
+        "sha256": "54c12ef64517451c1744c824051ccce7a4d2da46adde9d0742ae52c192672c28"
+      },
+      "JD_identity_evidence": {
+        "plan_ref": {
+          "path": "/root/lightsem/docs/research/2026-09-28-end-to-end/PROSPECTIVE_STRUCT_INTENSITY_PROTOCOL_CANDIDATE_V5.json",
+          "size_bytes": 271804,
+          "sha256": "ceb5166d5323bbf013ef47c976bd6ab85edcece3a22314816c2b2ec04a3c61d1"
+        },
+        "field": "cohorts.all453_identity_manifest",
+        "canonical_id": "jd-ed4567d227e0c30131ce"
+      },
+      "cross_corpus_identity": "UNRESOLVED_NOT_INDEPENDENT",
+      "approval": "ROOT_APPROVED_HISTORICAL_DESCRIPTIVE_ONLY"
+    },
+    {
+      "path": "/mnt/lightsem-data/cache/justdance_audio/MCxmee3Isv4.npz",
+      "size_bytes": 1761091,
+      "sha256": "6c6efb781dbe3b1c73452e1d749918de9a1295dc15536385a5cc49936857fdd8",
+      "recording_id": "MCxmee3Isv4",
+      "kind": "audio",
+      "current_Stage11_partition": "train",
+      "known_current_TEST_aliases": [],
+      "identity_projection_ref": {
+        "path": "/root/lightsem/docs/research/2026-09-28-end-to-end/NEW_IDENTITY_EXCLUSION_METADATA_V1.json",
+        "sha256": "54c12ef64517451c1744c824051ccce7a4d2da46adde9d0742ae52c192672c28"
+      },
+      "JD_identity_evidence": {
+        "plan_ref": {
+          "path": "/root/lightsem/docs/research/2026-09-28-end-to-end/PROSPECTIVE_STRUCT_INTENSITY_PROTOCOL_CANDIDATE_V5.json",
+          "size_bytes": 271804,
+          "sha256": "ceb5166d5323bbf013ef47c976bd6ab85edcece3a22314816c2b2ec04a3c61d1"
+        },
+        "field": "cohorts.all453_identity_manifest",
+        "canonical_id": "jd-8b7687fc3730f03a4c69"
+      },
+      "cross_corpus_identity": "UNRESOLVED_NOT_INDEPENDENT",
+      "approval": "ROOT_APPROVED_HISTORICAL_DESCRIPTIVE_ONLY"
+    },
+    {
+      "path": "/mnt/lightsem-data/cache/justdance_structure/MCxmee3Isv4.npz",
+      "size_bytes": 68302,
+      "sha256": "41c9182006b64874cf6b0c84933dfa2c7037bdc0e2530b9f4ba1bd9c491a7a1f",
+      "recording_id": "MCxmee3Isv4",
+      "kind": "structure",
+      "current_Stage11_partition": "train",
+      "known_current_TEST_aliases": [],
+      "identity_projection_ref": {
+        "path": "/root/lightsem/docs/research/2026-09-28-end-to-end/NEW_IDENTITY_EXCLUSION_METADATA_V1.json",
+        "sha256": "54c12ef64517451c1744c824051ccce7a4d2da46adde9d0742ae52c192672c28"
+      },
+      "JD_identity_evidence": {
+        "plan_ref": {
+          "path": "/root/lightsem/docs/research/2026-09-28-end-to-end/PROSPECTIVE_STRUCT_INTENSITY_PROTOCOL_CANDIDATE_V5.json",
+          "size_bytes": 271804,
+          "sha256": "ceb5166d5323bbf013ef47c976bd6ab85edcece3a22314816c2b2ec04a3c61d1"
+        },
+        "field": "cohorts.all453_identity_manifest",
+        "canonical_id": "jd-8b7687fc3730f03a4c69"
+      },
+      "cross_corpus_identity": "UNRESOLVED_NOT_INDEPENDENT",
+      "approval": "ROOT_APPROVED_HISTORICAL_DESCRIPTIVE_ONLY"
+    },
+    {
+      "path": "/mnt/lightsem-data/cache/justdance_audio/MJTEt4aPhFQ.npz",
+      "size_bytes": 1804798,
+      "sha256": "2513f46442c53c1238cc665a3eb55349c456b6ce64456c517327211eeff35e07",
+      "recording_id": "MJTEt4aPhFQ",
+      "kind": "audio",
+      "current_Stage11_partition": "train",
+      "known_current_TEST_aliases": [],
+      "identity_projection_ref": {
+        "path": "/root/lightsem/docs/research/2026-09-28-end-to-end/NEW_IDENTITY_EXCLUSION_METADATA_V1.json",
+        "sha256": "54c12ef64517451c1744c824051ccce7a4d2da46adde9d0742ae52c192672c28"
+      },
+      "JD_identity_evidence": {
+        "plan_ref": {
+          "path": "/root/lightsem/docs/research/2026-09-28-end-to-end/PROSPECTIVE_STRUCT_INTENSITY_PROTOCOL_CANDIDATE_V5.json",
+          "size_bytes": 271804,
+          "sha256": "ceb5166d5323bbf013ef47c976bd6ab85edcece3a22314816c2b2ec04a3c61d1"
+        },
+        "field": "cohorts.all453_identity_manifest",
+        "canonical_id": "jd-fc065f98256f8cc4328c"
+      },
+      "cross_corpus_identity": "UNRESOLVED_NOT_INDEPENDENT",
+      "approval": "ROOT_APPROVED_HISTORICAL_DESCRIPTIVE_ONLY"
+    },
+    {
+      "path": "/mnt/lightsem-data/cache/justdance_structure/MJTEt4aPhFQ.npz",
+      "size_bytes": 70544,
+      "sha256": "86dc971b2d05f5e74085e575ef67974b2191f662b2ad2be64d059b683a7defac",
+      "recording_id": "MJTEt4aPhFQ",
+      "kind": "structure",
+      "current_Stage11_partition": "train",
+      "known_current_TEST_aliases": [],
+      "identity_projection_ref": {
+        "path": "/root/lightsem/docs/research/2026-09-28-end-to-end/NEW_IDENTITY_EXCLUSION_METADATA_V1.json",
+        "sha256": "54c12ef64517451c1744c824051ccce7a4d2da46adde9d0742ae52c192672c28"
+      },
+      "JD_identity_evidence": {
+        "plan_ref": {
+          "path": "/root/lightsem/docs/research/2026-09-28-end-to-end/PROSPECTIVE_STRUCT_INTENSITY_PROTOCOL_CANDIDATE_V5.json",
+          "size_bytes": 271804,
+          "sha256": "ceb5166d5323bbf013ef47c976bd6ab85edcece3a22314816c2b2ec04a3c61d1"
+        },
+        "field": "cohorts.all453_identity_manifest",
+        "canonical_id": "jd-fc065f98256f8cc4328c"
+      },
+      "cross_corpus_identity": "UNRESOLVED_NOT_INDEPENDENT",
+      "approval": "ROOT_APPROVED_HISTORICAL_DESCRIPTIVE_ONLY"
+    },
+    {
+      "path": "/mnt/lightsem-data/cache/justdance_audio/MUVg2uB8O2U.npz",
+      "size_bytes": 1794870,
+      "sha256": "d3e9fefeb497bc73200cd08cdb83047a435d513570ea643e9681bbbb993dee3d",
+      "recording_id": "MUVg2uB8O2U",
+      "kind": "audio",
+      "current_Stage11_partition": "train",
+      "known_current_TEST_aliases": [],
+      "identity_projection_ref": {
+        "path": "/root/lightsem/docs/research/2026-09-28-end-to-end/NEW_IDENTITY_EXCLUSION_METADATA_V1.json",
+        "sha256": "54c12ef64517451c1744c824051ccce7a4d2da46adde9d0742ae52c192672c28"
+      },
+      "JD_identity_evidence": {
+        "plan_ref": {
+          "path": "/root/lightsem/docs/research/2026-09-28-end-to-end/PROSPECTIVE_STRUCT_INTENSITY_PROTOCOL_CANDIDATE_V5.json",
+          "size_bytes": 271804,
+          "sha256": "ceb5166d5323bbf013ef47c976bd6ab85edcece3a22314816c2b2ec04a3c61d1"
+        },
+        "field": "cohorts.all453_identity_manifest",
+        "canonical_id": "jd-5db26890ddcbf4391ccc"
+      },
+      "cross_corpus_identity": "UNRESOLVED_NOT_INDEPENDENT",
+      "approval": "ROOT_APPROVED_HISTORICAL_DESCRIPTIVE_ONLY"
+    },
+    {
+      "path": "/mnt/lightsem-data/cache/justdance_structure/MUVg2uB8O2U.npz",
+      "size_bytes": 71687,
+      "sha256": "3fe4025e915b5ce9a474a06cf7a986abe74e17bd4dcad6113e5e4d6f7381dd58",
+      "recording_id": "MUVg2uB8O2U",
+      "kind": "structure",
+      "current_Stage11_partition": "train",
+      "known_current_TEST_aliases": [],
+      "identity_projection_ref": {
+        "path": "/root/lightsem/docs/research/2026-09-28-end-to-end/NEW_IDENTITY_EXCLUSION_METADATA_V1.json",
+        "sha256": "54c12ef64517451c1744c824051ccce7a4d2da46adde9d0742ae52c192672c28"
+      },
+      "JD_identity_evidence": {
+        "plan_ref": {
+          "path": "/root/lightsem/docs/research/2026-09-28-end-to-end/PROSPECTIVE_STRUCT_INTENSITY_PROTOCOL_CANDIDATE_V5.json",
+          "size_bytes": 271804,
+          "sha256": "ceb5166d5323bbf013ef47c976bd6ab85edcece3a22314816c2b2ec04a3c61d1"
+        },
+        "field": "cohorts.all453_identity_manifest",
+        "canonical_id": "jd-5db26890ddcbf4391ccc"
+      },
+      "cross_corpus_identity": "UNRESOLVED_NOT_INDEPENDENT",
+      "approval": "ROOT_APPROVED_HISTORICAL_DESCRIPTIVE_ONLY"
+    },
+    {
+      "path": "/mnt/lightsem-data/cache/justdance_audio/McAbcL9UcrI.npz",
+      "size_bytes": 1995740,
+      "sha256": "6ea9660da8c475e76fa60dac50d20e9a4b9ef5c707ed8007056e2a01a83892bd",
+      "recording_id": "McAbcL9UcrI",
+      "kind": "audio",
+      "current_Stage11_partition": "train",
+      "known_current_TEST_aliases": [],
+      "identity_projection_ref": {
+        "path": "/root/lightsem/docs/research/2026-09-28-end-to-end/NEW_IDENTITY_EXCLUSION_METADATA_V1.json",
+        "sha256": "54c12ef64517451c1744c824051ccce7a4d2da46adde9d0742ae52c192672c28"
+      },
+      "JD_identity_evidence": {
+        "plan_ref": {
+          "path": "/root/lightsem/docs/research/2026-09-28-end-to-end/PROSPECTIVE_STRUCT_INTENSITY_PROTOCOL_CANDIDATE_V5.json",
+          "size_bytes": 271804,
+          "sha256": "ceb5166d5323bbf013ef47c976bd6ab85edcece3a22314816c2b2ec04a3c61d1"
+        },
+        "field": "cohorts.all453_identity_manifest",
+        "canonical_id": "jd-a56fb00bedbaf42ef4be"
+      },
+      "cross_corpus_identity": "UNRESOLVED_NOT_INDEPENDENT",
+      "approval": "ROOT_APPROVED_HISTORICAL_DESCRIPTIVE_ONLY"
+    },
+    {
+      "path": "/mnt/lightsem-data/cache/justdance_structure/McAbcL9UcrI.npz",
+      "size_bytes": 79210,
+      "sha256": "4b75e41724769669d77807856f5f75acdd8bc8a6f0d83ea74f32076cbf0f5007",
+      "recording_id": "McAbcL9UcrI",
+      "kind": "structure",
+      "current_Stage11_partition": "train",
+      "known_current_TEST_aliases": [],
+      "identity_projection_ref": {
+        "path": "/root/lightsem/docs/research/2026-09-28-end-to-end/NEW_IDENTITY_EXCLUSION_METADATA_V1.json",
+        "sha256": "54c12ef64517451c1744c824051ccce7a4d2da46adde9d0742ae52c192672c28"
+      },
+      "JD_identity_evidence": {
+        "plan_ref": {
+          "path": "/root/lightsem/docs/research/2026-09-28-end-to-end/PROSPECTIVE_STRUCT_INTENSITY_PROTOCOL_CANDIDATE_V5.json",
+          "size_bytes": 271804,
+          "sha256": "ceb5166d5323bbf013ef47c976bd6ab85edcece3a22314816c2b2ec04a3c61d1"
+        },
+        "field": "cohorts.all453_identity_manifest",
+        "canonical_id": "jd-a56fb00bedbaf42ef4be"
+      },
+      "cross_corpus_identity": "UNRESOLVED_NOT_INDEPENDENT",
+      "approval": "ROOT_APPROVED_HISTORICAL_DESCRIPTIVE_ONLY"
+    },
+    {
+      "path": "/mnt/lightsem-data/cache/justdance_audio/QqOZA2nA3lA.npz",
+      "size_bytes": 1545675,
+      "sha256": "48338d46a960a565bb6f23d93ef24c414eae0128cb4deb5bcb607c70e043ea7c",
+      "recording_id": "QqOZA2nA3lA",
+      "kind": "audio",
+      "current_Stage11_partition": "train",
+      "known_current_TEST_aliases": [],
+      "identity_projection_ref": {
+        "path": "/root/lightsem/docs/research/2026-09-28-end-to-end/NEW_IDENTITY_EXCLUSION_METADATA_V1.json",
+        "sha256": "54c12ef64517451c1744c824051ccce7a4d2da46adde9d0742ae52c192672c28"
+      },
+      "JD_identity_evidence": {
+        "plan_ref": {
+          "path": "/root/lightsem/docs/research/2026-09-28-end-to-end/PROSPECTIVE_STRUCT_INTENSITY_PROTOCOL_CANDIDATE_V5.json",
+          "size_bytes": 271804,
+          "sha256": "ceb5166d5323bbf013ef47c976bd6ab85edcece3a22314816c2b2ec04a3c61d1"
+        },
+        "field": "cohorts.all453_identity_manifest",
+        "canonical_id": "jd-27fd7b8271d9607209c1"
+      },
+      "cross_corpus_identity": "UNRESOLVED_NOT_INDEPENDENT",
+      "approval": "ROOT_APPROVED_HISTORICAL_DESCRIPTIVE_ONLY"
+    },
+    {
+      "path": "/mnt/lightsem-data/cache/justdance_structure/QqOZA2nA3lA.npz",
+      "size_bytes": 60606,
+      "sha256": "61ef5df39c12b7b4624963e5dfc344b4b0f1f4441c27eac0c685d582f889c091",
+      "recording_id": "QqOZA2nA3lA",
+      "kind": "structure",
+      "current_Stage11_partition": "train",
+      "known_current_TEST_aliases": [],
+      "identity_projection_ref": {
+        "path": "/root/lightsem/docs/research/2026-09-28-end-to-end/NEW_IDENTITY_EXCLUSION_METADATA_V1.json",
+        "sha256": "54c12ef64517451c1744c824051ccce7a4d2da46adde9d0742ae52c192672c28"
+      },
+      "JD_identity_evidence": {
+        "plan_ref": {
+          "path": "/root/lightsem/docs/research/2026-09-28-end-to-end/PROSPECTIVE_STRUCT_INTENSITY_PROTOCOL_CANDIDATE_V5.json",
+          "size_bytes": 271804,
+          "sha256": "ceb5166d5323bbf013ef47c976bd6ab85edcece3a22314816c2b2ec04a3c61d1"
+        },
+        "field": "cohorts.all453_identity_manifest",
+        "canonical_id": "jd-27fd7b8271d9607209c1"
+      },
+      "cross_corpus_identity": "UNRESOLVED_NOT_INDEPENDENT",
+      "approval": "ROOT_APPROVED_HISTORICAL_DESCRIPTIVE_ONLY"
+    },
+    {
+      "path": "/mnt/lightsem-data/cache/justdance_audio/S3rvtitHrgs.npz",
+      "size_bytes": 1585277,
+      "sha256": "87705c132b9a1f299b9ca9ea64a26b3ee6e94ff71a40277c29ca49a42f021f3c",
+      "recording_id": "S3rvtitHrgs",
+      "kind": "audio",
+      "current_Stage11_partition": "train",
+      "known_current_TEST_aliases": [],
+      "identity_projection_ref": {
+        "path": "/root/lightsem/docs/research/2026-09-28-end-to-end/NEW_IDENTITY_EXCLUSION_METADATA_V1.json",
+        "sha256": "54c12ef64517451c1744c824051ccce7a4d2da46adde9d0742ae52c192672c28"
+      },
+      "JD_identity_evidence": {
+        "plan_ref": {
+          "path": "/root/lightsem/docs/research/2026-09-28-end-to-end/PROSPECTIVE_STRUCT_INTENSITY_PROTOCOL_CANDIDATE_V5.json",
+          "size_bytes": 271804,
+          "sha256": "ceb5166d5323bbf013ef47c976bd6ab85edcece3a22314816c2b2ec04a3c61d1"
+        },
+        "field": "cohorts.all453_identity_manifest",
+        "canonical_id": "jd-0f9be956d7abd600d7ed"
+      },
+      "cross_corpus_identity": "UNRESOLVED_NOT_INDEPENDENT",
+      "approval": "ROOT_APPROVED_HISTORICAL_DESCRIPTIVE_ONLY"
+    },
+    {
+      "path": "/mnt/lightsem-data/cache/justdance_structure/S3rvtitHrgs.npz",
+      "size_bytes": 61856,
+      "sha256": "ff1a980017e8568a2fab1f879cf6ff9174c500e9634af1ee4d8a4bd464f1eeaf",
+      "recording_id": "S3rvtitHrgs",
+      "kind": "structure",
+      "current_Stage11_partition": "train",
+      "known_current_TEST_aliases": [],
+      "identity_projection_ref": {
+        "path": "/root/lightsem/docs/research/2026-09-28-end-to-end/NEW_IDENTITY_EXCLUSION_METADATA_V1.json",
+        "sha256": "54c12ef64517451c1744c824051ccce7a4d2da46adde9d0742ae52c192672c28"
+      },
+      "JD_identity_evidence": {
+        "plan_ref": {
+          "path": "/root/lightsem/docs/research/2026-09-28-end-to-end/PROSPECTIVE_STRUCT_INTENSITY_PROTOCOL_CANDIDATE_V5.json",
+          "size_bytes": 271804,
+          "sha256": "ceb5166d5323bbf013ef47c976bd6ab85edcece3a22314816c2b2ec04a3c61d1"
+        },
+        "field": "cohorts.all453_identity_manifest",
+        "canonical_id": "jd-0f9be956d7abd600d7ed"
+      },
+      "cross_corpus_identity": "UNRESOLVED_NOT_INDEPENDENT",
+      "approval": "ROOT_APPROVED_HISTORICAL_DESCRIPTIVE_ONLY"
+    },
+    {
+      "path": "/mnt/lightsem-data/cache/justdance_audio/SOB351Unqsw.npz",
+      "size_bytes": 1928312,
+      "sha256": "f46158f7f244dbfcc31b3ddbd9aca049a05ae3b0c7ff76571c4f2131918b4048",
+      "recording_id": "SOB351Unqsw",
+      "kind": "audio",
+      "current_Stage11_partition": "train",
+      "known_current_TEST_aliases": [],
+      "identity_projection_ref": {
+        "path": "/root/lightsem/docs/research/2026-09-28-end-to-end/NEW_IDENTITY_EXCLUSION_METADATA_V1.json",
+        "sha256": "54c12ef64517451c1744c824051ccce7a4d2da46adde9d0742ae52c192672c28"
+      },
+      "JD_identity_evidence": {
+        "plan_ref": {
+          "path": "/root/lightsem/docs/research/2026-09-28-end-to-end/PROSPECTIVE_STRUCT_INTENSITY_PROTOCOL_CANDIDATE_V5.json",
+          "size_bytes": 271804,
+          "sha256": "ceb5166d5323bbf013ef47c976bd6ab85edcece3a22314816c2b2ec04a3c61d1"
+        },
+        "field": "cohorts.all453_identity_manifest",
+        "canonical_id": "jd-9ad8e6596eaa5d8d3667"
+      },
+      "cross_corpus_identity": "UNRESOLVED_NOT_INDEPENDENT",
+      "approval": "ROOT_APPROVED_HISTORICAL_DESCRIPTIVE_ONLY"
+    },
+    {
+      "path": "/mnt/lightsem-data/cache/justdance_structure/SOB351Unqsw.npz",
+      "size_bytes": 76929,
+      "sha256": "c4b36e5e0728ae066ac6a97b4e06793b23ff497b32df9c1de793b0e09dd192b2",
+      "recording_id": "SOB351Unqsw",
+      "kind": "structure",
+      "current_Stage11_partition": "train",
+      "known_current_TEST_aliases": [],
+      "identity_projection_ref": {
+        "path": "/root/lightsem/docs/research/2026-09-28-end-to-end/NEW_IDENTITY_EXCLUSION_METADATA_V1.json",
+        "sha256": "54c12ef64517451c1744c824051ccce7a4d2da46adde9d0742ae52c192672c28"
+      },
+      "JD_identity_evidence": {
+        "plan_ref": {
+          "path": "/root/lightsem/docs/research/2026-09-28-end-to-end/PROSPECTIVE_STRUCT_INTENSITY_PROTOCOL_CANDIDATE_V5.json",
+          "size_bytes": 271804,
+          "sha256": "ceb5166d5323bbf013ef47c976bd6ab85edcece3a22314816c2b2ec04a3c61d1"
+        },
+        "field": "cohorts.all453_identity_manifest",
+        "canonical_id": "jd-9ad8e6596eaa5d8d3667"
+      },
+      "cross_corpus_identity": "UNRESOLVED_NOT_INDEPENDENT",
+      "approval": "ROOT_APPROVED_HISTORICAL_DESCRIPTIVE_ONLY"
+    },
+    {
+      "path": "/mnt/lightsem-data/cache/justdance_audio/UDQLbRicvic.npz",
+      "size_bytes": 1584826,
+      "sha256": "eee81ad7b612e46a049f822345ca513cdecb6b26d2e1ae4bcf618dfdc184a007",
+      "recording_id": "UDQLbRicvic",
+      "kind": "audio",
+      "current_Stage11_partition": "train",
+      "known_current_TEST_aliases": [],
+      "identity_projection_ref": {
+        "path": "/root/lightsem/docs/research/2026-09-28-end-to-end/NEW_IDENTITY_EXCLUSION_METADATA_V1.json",
+        "sha256": "54c12ef64517451c1744c824051ccce7a4d2da46adde9d0742ae52c192672c28"
+      },
+      "JD_identity_evidence": {
+        "plan_ref": {
+          "path": "/root/lightsem/docs/research/2026-09-28-end-to-end/PROSPECTIVE_STRUCT_INTENSITY_PROTOCOL_CANDIDATE_V5.json",
+          "size_bytes": 271804,
+          "sha256": "ceb5166d5323bbf013ef47c976bd6ab85edcece3a22314816c2b2ec04a3c61d1"
+        },
+        "field": "cohorts.all453_identity_manifest",
+        "canonical_id": "jd-2f89481f4b87d2c77c21"
+      },
+      "cross_corpus_identity": "UNRESOLVED_NOT_INDEPENDENT",
+      "approval": "ROOT_APPROVED_HISTORICAL_DESCRIPTIVE_ONLY"
+    },
+    {
+      "path": "/mnt/lightsem-data/cache/justdance_structure/UDQLbRicvic.npz",
+      "size_bytes": 61971,
+      "sha256": "1e831a4d16a4e9304e0140d0b7088dadd483b85e8d2c40a3940d4282bd0cdd0e",
+      "recording_id": "UDQLbRicvic",
+      "kind": "structure",
+      "current_Stage11_partition": "train",
+      "known_current_TEST_aliases": [],
+      "identity_projection_ref": {
+        "path": "/root/lightsem/docs/research/2026-09-28-end-to-end/NEW_IDENTITY_EXCLUSION_METADATA_V1.json",
+        "sha256": "54c12ef64517451c1744c824051ccce7a4d2da46adde9d0742ae52c192672c28"
+      },
+      "JD_identity_evidence": {
+        "plan_ref": {
+          "path": "/root/lightsem/docs/research/2026-09-28-end-to-end/PROSPECTIVE_STRUCT_INTENSITY_PROTOCOL_CANDIDATE_V5.json",
+          "size_bytes": 271804,
+          "sha256": "ceb5166d5323bbf013ef47c976bd6ab85edcece3a22314816c2b2ec04a3c61d1"
+        },
+        "field": "cohorts.all453_identity_manifest",
+        "canonical_id": "jd-2f89481f4b87d2c77c21"
+      },
+      "cross_corpus_identity": "UNRESOLVED_NOT_INDEPENDENT",
+      "approval": "ROOT_APPROVED_HISTORICAL_DESCRIPTIVE_ONLY"
+    },
+    {
+      "path": "/mnt/lightsem-data/cache/justdance_audio/YLRnUx-1kyQ.npz",
+      "size_bytes": 2196624,
+      "sha256": "1b3a09c6505ef81570b729915f242ecc2d1073f6418dbeafae695c9d1f8ad2d5",
+      "recording_id": "YLRnUx-1kyQ",
+      "kind": "audio",
+      "current_Stage11_partition": "train",
+      "known_current_TEST_aliases": [],
+      "identity_projection_ref": {
+        "path": "/root/lightsem/docs/research/2026-09-28-end-to-end/NEW_IDENTITY_EXCLUSION_METADATA_V1.json",
+        "sha256": "54c12ef64517451c1744c824051ccce7a4d2da46adde9d0742ae52c192672c28"
+      },
+      "JD_identity_evidence": {
+        "plan_ref": {
+          "path": "/root/lightsem/docs/research/2026-09-28-end-to-end/PROSPECTIVE_STRUCT_INTENSITY_PROTOCOL_CANDIDATE_V5.json",
+          "size_bytes": 271804,
+          "sha256": "ceb5166d5323bbf013ef47c976bd6ab85edcece3a22314816c2b2ec04a3c61d1"
+        },
+        "field": "cohorts.all453_identity_manifest",
+        "canonical_id": "jd-5e69cf5bfb1d9ac43c6f"
+      },
+      "cross_corpus_identity": "UNRESOLVED_NOT_INDEPENDENT",
+      "approval": "ROOT_APPROVED_HISTORICAL_DESCRIPTIVE_ONLY"
+    },
+    {
+      "path": "/mnt/lightsem-data/cache/justdance_structure/YLRnUx-1kyQ.npz",
+      "size_bytes": 87774,
+      "sha256": "c8e4bdecd6bf2ccf16a654d81967ca8e1c3a5e960fad35c7ead68c1b8c9f8a7c",
+      "recording_id": "YLRnUx-1kyQ",
+      "kind": "structure",
+      "current_Stage11_partition": "train",
+      "known_current_TEST_aliases": [],
+      "identity_projection_ref": {
+        "path": "/root/lightsem/docs/research/2026-09-28-end-to-end/NEW_IDENTITY_EXCLUSION_METADATA_V1.json",
+        "sha256": "54c12ef64517451c1744c824051ccce7a4d2da46adde9d0742ae52c192672c28"
+      },
+      "JD_identity_evidence": {
+        "plan_ref": {
+          "path": "/root/lightsem/docs/research/2026-09-28-end-to-end/PROSPECTIVE_STRUCT_INTENSITY_PROTOCOL_CANDIDATE_V5.json",
+          "size_bytes": 271804,
+          "sha256": "ceb5166d5323bbf013ef47c976bd6ab85edcece3a22314816c2b2ec04a3c61d1"
+        },
+        "field": "cohorts.all453_identity_manifest",
+        "canonical_id": "jd-5e69cf5bfb1d9ac43c6f"
+      },
+      "cross_corpus_identity": "UNRESOLVED_NOT_INDEPENDENT",
+      "approval": "ROOT_APPROVED_HISTORICAL_DESCRIPTIVE_ONLY"
+    },
+    {
+      "path": "/mnt/lightsem-data/cache/justdance_audio/Z9yFg55IVls.npz",
+      "size_bytes": 1947249,
+      "sha256": "49de0511899319ae597460d45938cb9c1f9c4d289612db26eb7c089c5f2a6fec",
+      "recording_id": "Z9yFg55IVls",
+      "kind": "audio",
+      "current_Stage11_partition": "train",
+      "known_current_TEST_aliases": [],
+      "identity_projection_ref": {
+        "path": "/root/lightsem/docs/research/2026-09-28-end-to-end/NEW_IDENTITY_EXCLUSION_METADATA_V1.json",
+        "sha256": "54c12ef64517451c1744c824051ccce7a4d2da46adde9d0742ae52c192672c28"
+      },
+      "JD_identity_evidence": {
+        "plan_ref": {
+          "path": "/root/lightsem/docs/research/2026-09-28-end-to-end/PROSPECTIVE_STRUCT_INTENSITY_PROTOCOL_CANDIDATE_V5.json",
+          "size_bytes": 271804,
+          "sha256": "ceb5166d5323bbf013ef47c976bd6ab85edcece3a22314816c2b2ec04a3c61d1"
+        },
+        "field": "cohorts.all453_identity_manifest",
+        "canonical_id": "jd-425d9333e487e501d98d"
+      },
+      "cross_corpus_identity": "UNRESOLVED_NOT_INDEPENDENT",
+      "approval": "ROOT_APPROVED_HISTORICAL_DESCRIPTIVE_ONLY"
+    },
+    {
+      "path": "/mnt/lightsem-data/cache/justdance_structure/Z9yFg55IVls.npz",
+      "size_bytes": 76954,
+      "sha256": "4e98284b1dce5512e03c649f504892904466bef90b35e3ad45bd803134e3a46e",
+      "recording_id": "Z9yFg55IVls",
+      "kind": "structure",
+      "current_Stage11_partition": "train",
+      "known_current_TEST_aliases": [],
+      "identity_projection_ref": {
+        "path": "/root/lightsem/docs/research/2026-09-28-end-to-end/NEW_IDENTITY_EXCLUSION_METADATA_V1.json",
+        "sha256": "54c12ef64517451c1744c824051ccce7a4d2da46adde9d0742ae52c192672c28"
+      },
+      "JD_identity_evidence": {
+        "plan_ref": {
+          "path": "/root/lightsem/docs/research/2026-09-28-end-to-end/PROSPECTIVE_STRUCT_INTENSITY_PROTOCOL_CANDIDATE_V5.json",
+          "size_bytes": 271804,
+          "sha256": "ceb5166d5323bbf013ef47c976bd6ab85edcece3a22314816c2b2ec04a3c61d1"
+        },
+        "field": "cohorts.all453_identity_manifest",
+        "canonical_id": "jd-425d9333e487e501d98d"
+      },
+      "cross_corpus_identity": "UNRESOLVED_NOT_INDEPENDENT",
+      "approval": "ROOT_APPROVED_HISTORICAL_DESCRIPTIVE_ONLY"
+    },
+    {
+      "path": "/mnt/lightsem-data/cache/justdance_audio/_8f3hZ23ZEs.npz",
+      "size_bytes": 1711074,
+      "sha256": "ac8b25f5fcb1f039dd89d3775761498c6e5324881fba7aaca8bde9ab598a04e0",
+      "recording_id": "_8f3hZ23ZEs",
+      "kind": "audio",
+      "current_Stage11_partition": "train",
+      "known_current_TEST_aliases": [],
+      "identity_projection_ref": {
+        "path": "/root/lightsem/docs/research/2026-09-28-end-to-end/NEW_IDENTITY_EXCLUSION_METADATA_V1.json",
+        "sha256": "54c12ef64517451c1744c824051ccce7a4d2da46adde9d0742ae52c192672c28"
+      },
+      "JD_identity_evidence": {
+        "plan_ref": {
+          "path": "/root/lightsem/docs/research/2026-09-28-end-to-end/PROSPECTIVE_STRUCT_INTENSITY_PROTOCOL_CANDIDATE_V5.json",
+          "size_bytes": 271804,
+          "sha256": "ceb5166d5323bbf013ef47c976bd6ab85edcece3a22314816c2b2ec04a3c61d1"
+        },
+        "field": "cohorts.all453_identity_manifest",
+        "canonical_id": "jd-47dc12b18c333d047726"
+      },
+      "cross_corpus_identity": "UNRESOLVED_NOT_INDEPENDENT",
+      "approval": "ROOT_APPROVED_HISTORICAL_DESCRIPTIVE_ONLY"
+    },
+    {
+      "path": "/mnt/lightsem-data/cache/justdance_structure/_8f3hZ23ZEs.npz",
+      "size_bytes": 69838,
+      "sha256": "8d2f5c8c1d63df535632642cef6c9705cab456f0eeeec73133dd6909da9ab10d",
+      "recording_id": "_8f3hZ23ZEs",
+      "kind": "structure",
+      "current_Stage11_partition": "train",
+      "known_current_TEST_aliases": [],
+      "identity_projection_ref": {
+        "path": "/root/lightsem/docs/research/2026-09-28-end-to-end/NEW_IDENTITY_EXCLUSION_METADATA_V1.json",
+        "sha256": "54c12ef64517451c1744c824051ccce7a4d2da46adde9d0742ae52c192672c28"
+      },
+      "JD_identity_evidence": {
+        "plan_ref": {
+          "path": "/root/lightsem/docs/research/2026-09-28-end-to-end/PROSPECTIVE_STRUCT_INTENSITY_PROTOCOL_CANDIDATE_V5.json",
+          "size_bytes": 271804,
+          "sha256": "ceb5166d5323bbf013ef47c976bd6ab85edcece3a22314816c2b2ec04a3c61d1"
+        },
+        "field": "cohorts.all453_identity_manifest",
+        "canonical_id": "jd-47dc12b18c333d047726"
+      },
+      "cross_corpus_identity": "UNRESOLVED_NOT_INDEPENDENT",
+      "approval": "ROOT_APPROVED_HISTORICAL_DESCRIPTIVE_ONLY"
+    },
+    {
+      "path": "/mnt/lightsem-data/cache/justdance_audio/by-QcR2GehQ.npz",
+      "size_bytes": 1967025,
+      "sha256": "56f70ea7f0e8e2251043ee847c50b80e20bcf08fd4f6ba0da09db9d2524d5707",
+      "recording_id": "by-QcR2GehQ",
+      "kind": "audio",
+      "current_Stage11_partition": "train",
+      "known_current_TEST_aliases": [],
+      "identity_projection_ref": {
+        "path": "/root/lightsem/docs/research/2026-09-28-end-to-end/NEW_IDENTITY_EXCLUSION_METADATA_V1.json",
+        "sha256": "54c12ef64517451c1744c824051ccce7a4d2da46adde9d0742ae52c192672c28"
+      },
+      "JD_identity_evidence": {
+        "plan_ref": {
+          "path": "/root/lightsem/docs/research/2026-09-28-end-to-end/PROSPECTIVE_STRUCT_INTENSITY_PROTOCOL_CANDIDATE_V5.json",
+          "size_bytes": 271804,
+          "sha256": "ceb5166d5323bbf013ef47c976bd6ab85edcece3a22314816c2b2ec04a3c61d1"
+        },
+        "field": "cohorts.all453_identity_manifest",
+        "canonical_id": "jd-20d2cf4a080db10ded5d"
+      },
+      "cross_corpus_identity": "UNRESOLVED_NOT_INDEPENDENT",
+      "approval": "ROOT_APPROVED_HISTORICAL_DESCRIPTIVE_ONLY"
+    },
+    {
+      "path": "/mnt/lightsem-data/cache/justdance_structure/by-QcR2GehQ.npz",
+      "size_bytes": 80125,
+      "sha256": "c1b7155c7ebc4647faff327e102632d0830f4b2cc2733fd594ffd3ec38a1b339",
+      "recording_id": "by-QcR2GehQ",
+      "kind": "structure",
+      "current_Stage11_partition": "train",
+      "known_current_TEST_aliases": [],
+      "identity_projection_ref": {
+        "path": "/root/lightsem/docs/research/2026-09-28-end-to-end/NEW_IDENTITY_EXCLUSION_METADATA_V1.json",
+        "sha256": "54c12ef64517451c1744c824051ccce7a4d2da46adde9d0742ae52c192672c28"
+      },
+      "JD_identity_evidence": {
+        "plan_ref": {
+          "path": "/root/lightsem/docs/research/2026-09-28-end-to-end/PROSPECTIVE_STRUCT_INTENSITY_PROTOCOL_CANDIDATE_V5.json",
+          "size_bytes": 271804,
+          "sha256": "ceb5166d5323bbf013ef47c976bd6ab85edcece3a22314816c2b2ec04a3c61d1"
+        },
+        "field": "cohorts.all453_identity_manifest",
+        "canonical_id": "jd-20d2cf4a080db10ded5d"
+      },
+      "cross_corpus_identity": "UNRESOLVED_NOT_INDEPENDENT",
+      "approval": "ROOT_APPROVED_HISTORICAL_DESCRIPTIVE_ONLY"
+    },
+    {
+      "path": "/mnt/lightsem-data/cache/justdance_audio/cNHRSZt_6t0.npz",
+      "size_bytes": 1859139,
+      "sha256": "42f505829be12024ac898cc833a2a25cf03d38358ce51c44f6504f4bad3f945e",
+      "recording_id": "cNHRSZt_6t0",
+      "kind": "audio",
+      "current_Stage11_partition": "train",
+      "known_current_TEST_aliases": [],
+      "identity_projection_ref": {
+        "path": "/root/lightsem/docs/research/2026-09-28-end-to-end/NEW_IDENTITY_EXCLUSION_METADATA_V1.json",
+        "sha256": "54c12ef64517451c1744c824051ccce7a4d2da46adde9d0742ae52c192672c28"
+      },
+      "JD_identity_evidence": {
+        "plan_ref": {
+          "path": "/root/lightsem/docs/research/2026-09-28-end-to-end/PROSPECTIVE_STRUCT_INTENSITY_PROTOCOL_CANDIDATE_V5.json",
+          "size_bytes": 271804,
+          "sha256": "ceb5166d5323bbf013ef47c976bd6ab85edcece3a22314816c2b2ec04a3c61d1"
+        },
+        "field": "cohorts.all453_identity_manifest",
+        "canonical_id": "jd-a6dc34b3e813e178a499"
+      },
+      "cross_corpus_identity": "UNRESOLVED_NOT_INDEPENDENT",
+      "approval": "ROOT_APPROVED_HISTORICAL_DESCRIPTIVE_ONLY"
+    },
+    {
+      "path": "/mnt/lightsem-data/cache/justdance_structure/cNHRSZt_6t0.npz",
+      "size_bytes": 76874,
+      "sha256": "80715c36db20998d9c243985b400086309a01cc1d0f1acb90e410566e42078e1",
+      "recording_id": "cNHRSZt_6t0",
+      "kind": "structure",
+      "current_Stage11_partition": "train",
+      "known_current_TEST_aliases": [],
+      "identity_projection_ref": {
+        "path": "/root/lightsem/docs/research/2026-09-28-end-to-end/NEW_IDENTITY_EXCLUSION_METADATA_V1.json",
+        "sha256": "54c12ef64517451c1744c824051ccce7a4d2da46adde9d0742ae52c192672c28"
+      },
+      "JD_identity_evidence": {
+        "plan_ref": {
+          "path": "/root/lightsem/docs/research/2026-09-28-end-to-end/PROSPECTIVE_STRUCT_INTENSITY_PROTOCOL_CANDIDATE_V5.json",
+          "size_bytes": 271804,
+          "sha256": "ceb5166d5323bbf013ef47c976bd6ab85edcece3a22314816c2b2ec04a3c61d1"
+        },
+        "field": "cohorts.all453_identity_manifest",
+        "canonical_id": "jd-a6dc34b3e813e178a499"
+      },
+      "cross_corpus_identity": "UNRESOLVED_NOT_INDEPENDENT",
+      "approval": "ROOT_APPROVED_HISTORICAL_DESCRIPTIVE_ONLY"
+    },
+    {
+      "path": "/mnt/lightsem-data/cache/justdance_audio/j3CHXyWRcu0.npz",
+      "size_bytes": 1320918,
+      "sha256": "fcf29fd02b80621544e639433b659a3c061101a7cf22f327d389eaee479ffc19",
+      "recording_id": "j3CHXyWRcu0",
+      "kind": "audio",
+      "current_Stage11_partition": "train",
+      "known_current_TEST_aliases": [],
+      "identity_projection_ref": {
+        "path": "/root/lightsem/docs/research/2026-09-28-end-to-end/NEW_IDENTITY_EXCLUSION_METADATA_V1.json",
+        "sha256": "54c12ef64517451c1744c824051ccce7a4d2da46adde9d0742ae52c192672c28"
+      },
+      "JD_identity_evidence": {
+        "plan_ref": {
+          "path": "/root/lightsem/docs/research/2026-09-28-end-to-end/PROSPECTIVE_STRUCT_INTENSITY_PROTOCOL_CANDIDATE_V5.json",
+          "size_bytes": 271804,
+          "sha256": "ceb5166d5323bbf013ef47c976bd6ab85edcece3a22314816c2b2ec04a3c61d1"
+        },
+        "field": "cohorts.all453_identity_manifest",
+        "canonical_id": "jd-0ff6f4c6189669717a73"
+      },
+      "cross_corpus_identity": "UNRESOLVED_NOT_INDEPENDENT",
+      "approval": "ROOT_APPROVED_HISTORICAL_DESCRIPTIVE_ONLY"
+    },
+    {
+      "path": "/mnt/lightsem-data/cache/justdance_structure/j3CHXyWRcu0.npz",
+      "size_bytes": 54627,
+      "sha256": "9e8283ff0224532a41ad525e0dc8c97b003bc2c18c9a70e0abc81455061964af",
+      "recording_id": "j3CHXyWRcu0",
+      "kind": "structure",
+      "current_Stage11_partition": "train",
+      "known_current_TEST_aliases": [],
+      "identity_projection_ref": {
+        "path": "/root/lightsem/docs/research/2026-09-28-end-to-end/NEW_IDENTITY_EXCLUSION_METADATA_V1.json",
+        "sha256": "54c12ef64517451c1744c824051ccce7a4d2da46adde9d0742ae52c192672c28"
+      },
+      "JD_identity_evidence": {
+        "plan_ref": {
+          "path": "/root/lightsem/docs/research/2026-09-28-end-to-end/PROSPECTIVE_STRUCT_INTENSITY_PROTOCOL_CANDIDATE_V5.json",
+          "size_bytes": 271804,
+          "sha256": "ceb5166d5323bbf013ef47c976bd6ab85edcece3a22314816c2b2ec04a3c61d1"
+        },
+        "field": "cohorts.all453_identity_manifest",
+        "canonical_id": "jd-0ff6f4c6189669717a73"
+      },
+      "cross_corpus_identity": "UNRESOLVED_NOT_INDEPENDENT",
+      "approval": "ROOT_APPROVED_HISTORICAL_DESCRIPTIVE_ONLY"
+    },
+    {
+      "path": "/mnt/lightsem-data/cache/justdance_audio/jtng7Rnn_TE.npz",
+      "size_bytes": 1611909,
+      "sha256": "fc8d652255a6a356e2add01eeffccd5bc8362525123b961126544e305f02b0e5",
+      "recording_id": "jtng7Rnn_TE",
+      "kind": "audio",
+      "current_Stage11_partition": "train",
+      "known_current_TEST_aliases": [],
+      "identity_projection_ref": {
+        "path": "/root/lightsem/docs/research/2026-09-28-end-to-end/NEW_IDENTITY_EXCLUSION_METADATA_V1.json",
+        "sha256": "54c12ef64517451c1744c824051ccce7a4d2da46adde9d0742ae52c192672c28"
+      },
+      "JD_identity_evidence": {
+        "plan_ref": {
+          "path": "/root/lightsem/docs/research/2026-09-28-end-to-end/PROSPECTIVE_STRUCT_INTENSITY_PROTOCOL_CANDIDATE_V5.json",
+          "size_bytes": 271804,
+          "sha256": "ceb5166d5323bbf013ef47c976bd6ab85edcece3a22314816c2b2ec04a3c61d1"
+        },
+        "field": "cohorts.all453_identity_manifest",
+        "canonical_id": "jd-2799077214c5b2fa8db3"
+      },
+      "cross_corpus_identity": "UNRESOLVED_NOT_INDEPENDENT",
+      "approval": "ROOT_APPROVED_HISTORICAL_DESCRIPTIVE_ONLY"
+    },
+    {
+      "path": "/mnt/lightsem-data/cache/justdance_structure/jtng7Rnn_TE.npz",
+      "size_bytes": 64731,
+      "sha256": "dfd1771663ae7b6fc5032662c61962d0223e1adff333c78474651a0b5a692a86",
+      "recording_id": "jtng7Rnn_TE",
+      "kind": "structure",
+      "current_Stage11_partition": "train",
+      "known_current_TEST_aliases": [],
+      "identity_projection_ref": {
+        "path": "/root/lightsem/docs/research/2026-09-28-end-to-end/NEW_IDENTITY_EXCLUSION_METADATA_V1.json",
+        "sha256": "54c12ef64517451c1744c824051ccce7a4d2da46adde9d0742ae52c192672c28"
+      },
+      "JD_identity_evidence": {
+        "plan_ref": {
+          "path": "/root/lightsem/docs/research/2026-09-28-end-to-end/PROSPECTIVE_STRUCT_INTENSITY_PROTOCOL_CANDIDATE_V5.json",
+          "size_bytes": 271804,
+          "sha256": "ceb5166d5323bbf013ef47c976bd6ab85edcece3a22314816c2b2ec04a3c61d1"
+        },
+        "field": "cohorts.all453_identity_manifest",
+        "canonical_id": "jd-2799077214c5b2fa8db3"
+      },
+      "cross_corpus_identity": "UNRESOLVED_NOT_INDEPENDENT",
+      "approval": "ROOT_APPROVED_HISTORICAL_DESCRIPTIVE_ONLY"
+    },
+    {
+      "path": "/mnt/lightsem-data/cache/justdance_audio/kP7vUn33uGU.npz",
+      "size_bytes": 1690123,
+      "sha256": "376b28d032c2fcf78acd6caed8df38951d03de2f0552b65553bc794352fb06dc",
+      "recording_id": "kP7vUn33uGU",
+      "kind": "audio",
+      "current_Stage11_partition": "train",
+      "known_current_TEST_aliases": [],
+      "identity_projection_ref": {
+        "path": "/root/lightsem/docs/research/2026-09-28-end-to-end/NEW_IDENTITY_EXCLUSION_METADATA_V1.json",
+        "sha256": "54c12ef64517451c1744c824051ccce7a4d2da46adde9d0742ae52c192672c28"
+      },
+      "JD_identity_evidence": {
+        "plan_ref": {
+          "path": "/root/lightsem/docs/research/2026-09-28-end-to-end/PROSPECTIVE_STRUCT_INTENSITY_PROTOCOL_CANDIDATE_V5.json",
+          "size_bytes": 271804,
+          "sha256": "ceb5166d5323bbf013ef47c976bd6ab85edcece3a22314816c2b2ec04a3c61d1"
+        },
+        "field": "cohorts.all453_identity_manifest",
+        "canonical_id": "jd-5ad2e151a473d9a3956b"
+      },
+      "cross_corpus_identity": "UNRESOLVED_NOT_INDEPENDENT",
+      "approval": "ROOT_APPROVED_HISTORICAL_DESCRIPTIVE_ONLY"
+    },
+    {
+      "path": "/mnt/lightsem-data/cache/justdance_structure/kP7vUn33uGU.npz",
+      "size_bytes": 67763,
+      "sha256": "2559ecd5959cbf2281a947fa7b65c26dcad858d2122fa87dad26431717f137c8",
+      "recording_id": "kP7vUn33uGU",
+      "kind": "structure",
+      "current_Stage11_partition": "train",
+      "known_current_TEST_aliases": [],
+      "identity_projection_ref": {
+        "path": "/root/lightsem/docs/research/2026-09-28-end-to-end/NEW_IDENTITY_EXCLUSION_METADATA_V1.json",
+        "sha256": "54c12ef64517451c1744c824051ccce7a4d2da46adde9d0742ae52c192672c28"
+      },
+      "JD_identity_evidence": {
+        "plan_ref": {
+          "path": "/root/lightsem/docs/research/2026-09-28-end-to-end/PROSPECTIVE_STRUCT_INTENSITY_PROTOCOL_CANDIDATE_V5.json",
+          "size_bytes": 271804,
+          "sha256": "ceb5166d5323bbf013ef47c976bd6ab85edcece3a22314816c2b2ec04a3c61d1"
+        },
+        "field": "cohorts.all453_identity_manifest",
+        "canonical_id": "jd-5ad2e151a473d9a3956b"
+      },
+      "cross_corpus_identity": "UNRESOLVED_NOT_INDEPENDENT",
+      "approval": "ROOT_APPROVED_HISTORICAL_DESCRIPTIVE_ONLY"
+    },
+    {
+      "path": "/mnt/lightsem-data/cache/justdance_audio/pElmR7GBYas.npz",
+      "size_bytes": 1884956,
+      "sha256": "d240752a5e322c8bc50056bdadc3e4c9f9eb8f384b9c994579c81f4e1ce7949b",
+      "recording_id": "pElmR7GBYas",
+      "kind": "audio",
+      "current_Stage11_partition": "train",
+      "known_current_TEST_aliases": [],
+      "identity_projection_ref": {
+        "path": "/root/lightsem/docs/research/2026-09-28-end-to-end/NEW_IDENTITY_EXCLUSION_METADATA_V1.json",
+        "sha256": "54c12ef64517451c1744c824051ccce7a4d2da46adde9d0742ae52c192672c28"
+      },
+      "JD_identity_evidence": {
+        "plan_ref": {
+          "path": "/root/lightsem/docs/research/2026-09-28-end-to-end/PROSPECTIVE_STRUCT_INTENSITY_PROTOCOL_CANDIDATE_V5.json",
+          "size_bytes": 271804,
+          "sha256": "ceb5166d5323bbf013ef47c976bd6ab85edcece3a22314816c2b2ec04a3c61d1"
+        },
+        "field": "cohorts.all453_identity_manifest",
+        "canonical_id": "jd-650ab14d5ea8154c7286"
+      },
+      "cross_corpus_identity": "UNRESOLVED_NOT_INDEPENDENT",
+      "approval": "ROOT_APPROVED_HISTORICAL_DESCRIPTIVE_ONLY"
+    },
+    {
+      "path": "/mnt/lightsem-data/cache/justdance_structure/pElmR7GBYas.npz",
+      "size_bytes": 74864,
+      "sha256": "6040bf96fc3406ad89ec106a3f348132071b89969ca8e7c3a103635dcfbe3f48",
+      "recording_id": "pElmR7GBYas",
+      "kind": "structure",
+      "current_Stage11_partition": "train",
+      "known_current_TEST_aliases": [],
+      "identity_projection_ref": {
+        "path": "/root/lightsem/docs/research/2026-09-28-end-to-end/NEW_IDENTITY_EXCLUSION_METADATA_V1.json",
+        "sha256": "54c12ef64517451c1744c824051ccce7a4d2da46adde9d0742ae52c192672c28"
+      },
+      "JD_identity_evidence": {
+        "plan_ref": {
+          "path": "/root/lightsem/docs/research/2026-09-28-end-to-end/PROSPECTIVE_STRUCT_INTENSITY_PROTOCOL_CANDIDATE_V5.json",
+          "size_bytes": 271804,
+          "sha256": "ceb5166d5323bbf013ef47c976bd6ab85edcece3a22314816c2b2ec04a3c61d1"
+        },
+        "field": "cohorts.all453_identity_manifest",
+        "canonical_id": "jd-650ab14d5ea8154c7286"
+      },
+      "cross_corpus_identity": "UNRESOLVED_NOT_INDEPENDENT",
+      "approval": "ROOT_APPROVED_HISTORICAL_DESCRIPTIVE_ONLY"
+    },
+    {
+      "path": "/mnt/lightsem-data/cache/justdance_audio/sYFCc12rZTU.npz",
+      "size_bytes": 1662163,
+      "sha256": "3dc54b7a1ba1b295921c42e1747f54483c404853f7d3adbf8530dc1aca244ccd",
+      "recording_id": "sYFCc12rZTU",
+      "kind": "audio",
+      "current_Stage11_partition": "train",
+      "known_current_TEST_aliases": [],
+      "identity_projection_ref": {
+        "path": "/root/lightsem/docs/research/2026-09-28-end-to-end/NEW_IDENTITY_EXCLUSION_METADATA_V1.json",
+        "sha256": "54c12ef64517451c1744c824051ccce7a4d2da46adde9d0742ae52c192672c28"
+      },
+      "JD_identity_evidence": {
+        "plan_ref": {
+          "path": "/root/lightsem/docs/research/2026-09-28-end-to-end/PROSPECTIVE_STRUCT_INTENSITY_PROTOCOL_CANDIDATE_V5.json",
+          "size_bytes": 271804,
+          "sha256": "ceb5166d5323bbf013ef47c976bd6ab85edcece3a22314816c2b2ec04a3c61d1"
+        },
+        "field": "cohorts.all453_identity_manifest",
+        "canonical_id": "jd-86aff85c80b3a6b42055"
+      },
+      "cross_corpus_identity": "UNRESOLVED_NOT_INDEPENDENT",
+      "approval": "ROOT_APPROVED_HISTORICAL_DESCRIPTIVE_ONLY"
+    },
+    {
+      "path": "/mnt/lightsem-data/cache/justdance_structure/sYFCc12rZTU.npz",
+      "size_bytes": 65015,
+      "sha256": "0cb516a43c74e3be213f92ff44b93783f2d8809efe73ff852f2241ca605fea8b",
+      "recording_id": "sYFCc12rZTU",
+      "kind": "structure",
+      "current_Stage11_partition": "train",
+      "known_current_TEST_aliases": [],
+      "identity_projection_ref": {
+        "path": "/root/lightsem/docs/research/2026-09-28-end-to-end/NEW_IDENTITY_EXCLUSION_METADATA_V1.json",
+        "sha256": "54c12ef64517451c1744c824051ccce7a4d2da46adde9d0742ae52c192672c28"
+      },
+      "JD_identity_evidence": {
+        "plan_ref": {
+          "path": "/root/lightsem/docs/research/2026-09-28-end-to-end/PROSPECTIVE_STRUCT_INTENSITY_PROTOCOL_CANDIDATE_V5.json",
+          "size_bytes": 271804,
+          "sha256": "ceb5166d5323bbf013ef47c976bd6ab85edcece3a22314816c2b2ec04a3c61d1"
+        },
+        "field": "cohorts.all453_identity_manifest",
+        "canonical_id": "jd-86aff85c80b3a6b42055"
+      },
+      "cross_corpus_identity": "UNRESOLVED_NOT_INDEPENDENT",
+      "approval": "ROOT_APPROVED_HISTORICAL_DESCRIPTIVE_ONLY"
+    },
+    {
+      "path": "/mnt/lightsem-data/cache/justdance_audio/wDTjpfZMXak.npz",
+      "size_bytes": 1861123,
+      "sha256": "c5ee279a2e7450933e9a990ca5217159dc15a30e9843de365b365a7b69c4786a",
+      "recording_id": "wDTjpfZMXak",
+      "kind": "audio",
+      "current_Stage11_partition": "train",
+      "known_current_TEST_aliases": [],
+      "identity_projection_ref": {
+        "path": "/root/lightsem/docs/research/2026-09-28-end-to-end/NEW_IDENTITY_EXCLUSION_METADATA_V1.json",
+        "sha256": "54c12ef64517451c1744c824051ccce7a4d2da46adde9d0742ae52c192672c28"
+      },
+      "JD_identity_evidence": {
+        "plan_ref": {
+          "path": "/root/lightsem/docs/research/2026-09-28-end-to-end/PROSPECTIVE_STRUCT_INTENSITY_PROTOCOL_CANDIDATE_V5.json",
+          "size_bytes": 271804,
+          "sha256": "ceb5166d5323bbf013ef47c976bd6ab85edcece3a22314816c2b2ec04a3c61d1"
+        },
+        "field": "cohorts.all453_identity_manifest",
+        "canonical_id": "jd-2cf3ba061facba581e57"
+      },
+      "cross_corpus_identity": "UNRESOLVED_NOT_INDEPENDENT",
+      "approval": "ROOT_APPROVED_HISTORICAL_DESCRIPTIVE_ONLY"
+    },
+    {
+      "path": "/mnt/lightsem-data/cache/justdance_structure/wDTjpfZMXak.npz",
+      "size_bytes": 74841,
+      "sha256": "710a278d001579c0869a408ff42ff2a4479b8973a183701413b59274d255cd65",
+      "recording_id": "wDTjpfZMXak",
+      "kind": "structure",
+      "current_Stage11_partition": "train",
+      "known_current_TEST_aliases": [],
+      "identity_projection_ref": {
+        "path": "/root/lightsem/docs/research/2026-09-28-end-to-end/NEW_IDENTITY_EXCLUSION_METADATA_V1.json",
+        "sha256": "54c12ef64517451c1744c824051ccce7a4d2da46adde9d0742ae52c192672c28"
+      },
+      "JD_identity_evidence": {
+        "plan_ref": {
+          "path": "/root/lightsem/docs/research/2026-09-28-end-to-end/PROSPECTIVE_STRUCT_INTENSITY_PROTOCOL_CANDIDATE_V5.json",
+          "size_bytes": 271804,
+          "sha256": "ceb5166d5323bbf013ef47c976bd6ab85edcece3a22314816c2b2ec04a3c61d1"
+        },
+        "field": "cohorts.all453_identity_manifest",
+        "canonical_id": "jd-2cf3ba061facba581e57"
+      },
+      "cross_corpus_identity": "UNRESOLVED_NOT_INDEPENDENT",
+      "approval": "ROOT_APPROVED_HISTORICAL_DESCRIPTIVE_ONLY"
+    },
+    {
+      "path": "/mnt/lightsem-data/cache/justdance_audio/wn2iikAmmJw.npz",
+      "size_bytes": 1808171,
+      "sha256": "28aff713080ee68151bc2af4ff32d05d0dcc3d2b4a3a2d98da18d10ca4922329",
+      "recording_id": "wn2iikAmmJw",
+      "kind": "audio",
+      "current_Stage11_partition": "train",
+      "known_current_TEST_aliases": [],
+      "identity_projection_ref": {
+        "path": "/root/lightsem/docs/research/2026-09-28-end-to-end/NEW_IDENTITY_EXCLUSION_METADATA_V1.json",
+        "sha256": "54c12ef64517451c1744c824051ccce7a4d2da46adde9d0742ae52c192672c28"
+      },
+      "JD_identity_evidence": {
+        "plan_ref": {
+          "path": "/root/lightsem/docs/research/2026-09-28-end-to-end/PROSPECTIVE_STRUCT_INTENSITY_PROTOCOL_CANDIDATE_V5.json",
+          "size_bytes": 271804,
+          "sha256": "ceb5166d5323bbf013ef47c976bd6ab85edcece3a22314816c2b2ec04a3c61d1"
+        },
+        "field": "cohorts.all453_identity_manifest",
+        "canonical_id": "jd-ebdb71f0c075f60116d7"
+      },
+      "cross_corpus_identity": "UNRESOLVED_NOT_INDEPENDENT",
+      "approval": "ROOT_APPROVED_HISTORICAL_DESCRIPTIVE_ONLY"
+    },
+    {
+      "path": "/mnt/lightsem-data/cache/justdance_structure/wn2iikAmmJw.npz",
+      "size_bytes": 73199,
+      "sha256": "f4773d3f79df53a608f524bdeccc36814e7998dbb73dea4142f0c563b31915d1",
+      "recording_id": "wn2iikAmmJw",
+      "kind": "structure",
+      "current_Stage11_partition": "train",
+      "known_current_TEST_aliases": [],
+      "identity_projection_ref": {
+        "path": "/root/lightsem/docs/research/2026-09-28-end-to-end/NEW_IDENTITY_EXCLUSION_METADATA_V1.json",
+        "sha256": "54c12ef64517451c1744c824051ccce7a4d2da46adde9d0742ae52c192672c28"
+      },
+      "JD_identity_evidence": {
+        "plan_ref": {
+          "path": "/root/lightsem/docs/research/2026-09-28-end-to-end/PROSPECTIVE_STRUCT_INTENSITY_PROTOCOL_CANDIDATE_V5.json",
+          "size_bytes": 271804,
+          "sha256": "ceb5166d5323bbf013ef47c976bd6ab85edcece3a22314816c2b2ec04a3c61d1"
+        },
+        "field": "cohorts.all453_identity_manifest",
+        "canonical_id": "jd-ebdb71f0c075f60116d7"
+      },
+      "cross_corpus_identity": "UNRESOLVED_NOT_INDEPENDENT",
+      "approval": "ROOT_APPROVED_HISTORICAL_DESCRIPTIVE_ONLY"
+    },
+    {
+      "path": "/mnt/lightsem-data/cache/justdance_audio/x372dV0owm8.npz",
+      "size_bytes": 1763941,
+      "sha256": "07742b0a732e41f49f59442f036df02ee322f75a3c9c74cb335b2b14a695c4dd",
+      "recording_id": "x372dV0owm8",
+      "kind": "audio",
+      "current_Stage11_partition": "train",
+      "known_current_TEST_aliases": [],
+      "identity_projection_ref": {
+        "path": "/root/lightsem/docs/research/2026-09-28-end-to-end/NEW_IDENTITY_EXCLUSION_METADATA_V1.json",
+        "sha256": "54c12ef64517451c1744c824051ccce7a4d2da46adde9d0742ae52c192672c28"
+      },
+      "JD_identity_evidence": {
+        "plan_ref": {
+          "path": "/root/lightsem/docs/research/2026-09-28-end-to-end/PROSPECTIVE_STRUCT_INTENSITY_PROTOCOL_CANDIDATE_V5.json",
+          "size_bytes": 271804,
+          "sha256": "ceb5166d5323bbf013ef47c976bd6ab85edcece3a22314816c2b2ec04a3c61d1"
+        },
+        "field": "cohorts.all453_identity_manifest",
+        "canonical_id": "jd-73f279fed72976ef8b35"
+      },
+      "cross_corpus_identity": "UNRESOLVED_NOT_INDEPENDENT",
+      "approval": "ROOT_APPROVED_HISTORICAL_DESCRIPTIVE_ONLY"
+    },
+    {
+      "path": "/mnt/lightsem-data/cache/justdance_structure/x372dV0owm8.npz",
+      "size_bytes": 70752,
+      "sha256": "1e9912c3820ba2132358f2ef1977722b4d080393f0b909792c915ac4016d12ec",
+      "recording_id": "x372dV0owm8",
+      "kind": "structure",
+      "current_Stage11_partition": "train",
+      "known_current_TEST_aliases": [],
+      "identity_projection_ref": {
+        "path": "/root/lightsem/docs/research/2026-09-28-end-to-end/NEW_IDENTITY_EXCLUSION_METADATA_V1.json",
+        "sha256": "54c12ef64517451c1744c824051ccce7a4d2da46adde9d0742ae52c192672c28"
+      },
+      "JD_identity_evidence": {
+        "plan_ref": {
+          "path": "/root/lightsem/docs/research/2026-09-28-end-to-end/PROSPECTIVE_STRUCT_INTENSITY_PROTOCOL_CANDIDATE_V5.json",
+          "size_bytes": 271804,
+          "sha256": "ceb5166d5323bbf013ef47c976bd6ab85edcece3a22314816c2b2ec04a3c61d1"
+        },
+        "field": "cohorts.all453_identity_manifest",
+        "canonical_id": "jd-73f279fed72976ef8b35"
+      },
+      "cross_corpus_identity": "UNRESOLVED_NOT_INDEPENDENT",
+      "approval": "ROOT_APPROVED_HISTORICAL_DESCRIPTIVE_ONLY"
+    },
+    {
+      "path": "/mnt/lightsem-data/cache/justdance_audio/y9WUm3QvHK0.npz",
+      "size_bytes": 2105822,
+      "sha256": "800faf945e1d970791268c2086b232ca555ff659ab9982d517ece8f52c1afed1",
+      "recording_id": "y9WUm3QvHK0",
+      "kind": "audio",
+      "current_Stage11_partition": "train",
+      "known_current_TEST_aliases": [],
+      "identity_projection_ref": {
+        "path": "/root/lightsem/docs/research/2026-09-28-end-to-end/NEW_IDENTITY_EXCLUSION_METADATA_V1.json",
+        "sha256": "54c12ef64517451c1744c824051ccce7a4d2da46adde9d0742ae52c192672c28"
+      },
+      "JD_identity_evidence": {
+        "plan_ref": {
+          "path": "/root/lightsem/docs/research/2026-09-28-end-to-end/PROSPECTIVE_STRUCT_INTENSITY_PROTOCOL_CANDIDATE_V5.json",
+          "size_bytes": 271804,
+          "sha256": "ceb5166d5323bbf013ef47c976bd6ab85edcece3a22314816c2b2ec04a3c61d1"
+        },
+        "field": "cohorts.all453_identity_manifest",
+        "canonical_id": "jd-a061c06e47270a9c64df"
+      },
+      "cross_corpus_identity": "UNRESOLVED_NOT_INDEPENDENT",
+      "approval": "ROOT_APPROVED_HISTORICAL_DESCRIPTIVE_ONLY"
+    },
+    {
+      "path": "/mnt/lightsem-data/cache/justdance_structure/y9WUm3QvHK0.npz",
+      "size_bytes": 83487,
+      "sha256": "6c6712e95f10a2cdb32c62868ee55ee4fe7561c2995c71d3c4df4f5fef1afe52",
+      "recording_id": "y9WUm3QvHK0",
+      "kind": "structure",
+      "current_Stage11_partition": "train",
+      "known_current_TEST_aliases": [],
+      "identity_projection_ref": {
+        "path": "/root/lightsem/docs/research/2026-09-28-end-to-end/NEW_IDENTITY_EXCLUSION_METADATA_V1.json",
+        "sha256": "54c12ef64517451c1744c824051ccce7a4d2da46adde9d0742ae52c192672c28"
+      },
+      "JD_identity_evidence": {
+        "plan_ref": {
+          "path": "/root/lightsem/docs/research/2026-09-28-end-to-end/PROSPECTIVE_STRUCT_INTENSITY_PROTOCOL_CANDIDATE_V5.json",
+          "size_bytes": 271804,
+          "sha256": "ceb5166d5323bbf013ef47c976bd6ab85edcece3a22314816c2b2ec04a3c61d1"
+        },
+        "field": "cohorts.all453_identity_manifest",
+        "canonical_id": "jd-a061c06e47270a9c64df"
+      },
+      "cross_corpus_identity": "UNRESOLVED_NOT_INDEPENDENT",
+      "approval": "ROOT_APPROVED_HISTORICAL_DESCRIPTIVE_ONLY"
+    },
+    {
+      "path": "/mnt/lightsem-data/cache/justdance_audio/yAvEt3cZI2I.npz",
+      "size_bytes": 1892900,
+      "sha256": "d64f00446ac58517b2a740ae58eb350fbd57c3713db8da4f148989d504f65961",
+      "recording_id": "yAvEt3cZI2I",
+      "kind": "audio",
+      "current_Stage11_partition": "train",
+      "known_current_TEST_aliases": [],
+      "identity_projection_ref": {
+        "path": "/root/lightsem/docs/research/2026-09-28-end-to-end/NEW_IDENTITY_EXCLUSION_METADATA_V1.json",
+        "sha256": "54c12ef64517451c1744c824051ccce7a4d2da46adde9d0742ae52c192672c28"
+      },
+      "JD_identity_evidence": {
+        "plan_ref": {
+          "path": "/root/lightsem/docs/research/2026-09-28-end-to-end/PROSPECTIVE_STRUCT_INTENSITY_PROTOCOL_CANDIDATE_V5.json",
+          "size_bytes": 271804,
+          "sha256": "ceb5166d5323bbf013ef47c976bd6ab85edcece3a22314816c2b2ec04a3c61d1"
+        },
+        "field": "cohorts.all453_identity_manifest",
+        "canonical_id": "jd-1cc8ff283f821a17791f"
+      },
+      "cross_corpus_identity": "UNRESOLVED_NOT_INDEPENDENT",
+      "approval": "ROOT_APPROVED_HISTORICAL_DESCRIPTIVE_ONLY"
+    },
+    {
+      "path": "/mnt/lightsem-data/cache/justdance_structure/yAvEt3cZI2I.npz",
+      "size_bytes": 74056,
+      "sha256": "8fa0a50542db7ee6de6b766ed8537886cb71f2f59db2686816f68b3ef47be9e3",
+      "recording_id": "yAvEt3cZI2I",
+      "kind": "structure",
+      "current_Stage11_partition": "train",
+      "known_current_TEST_aliases": [],
+      "identity_projection_ref": {
+        "path": "/root/lightsem/docs/research/2026-09-28-end-to-end/NEW_IDENTITY_EXCLUSION_METADATA_V1.json",
+        "sha256": "54c12ef64517451c1744c824051ccce7a4d2da46adde9d0742ae52c192672c28"
+      },
+      "JD_identity_evidence": {
+        "plan_ref": {
+          "path": "/root/lightsem/docs/research/2026-09-28-end-to-end/PROSPECTIVE_STRUCT_INTENSITY_PROTOCOL_CANDIDATE_V5.json",
+          "size_bytes": 271804,
+          "sha256": "ceb5166d5323bbf013ef47c976bd6ab85edcece3a22314816c2b2ec04a3c61d1"
+        },
+        "field": "cohorts.all453_identity_manifest",
+        "canonical_id": "jd-1cc8ff283f821a17791f"
+      },
+      "cross_corpus_identity": "UNRESOLVED_NOT_INDEPENDENT",
+      "approval": "ROOT_APPROVED_HISTORICAL_DESCRIPTIVE_ONLY"
+    },
+    {
+      "path": "/mnt/lightsem-data/cache/justdance_audio/zARI9hxqxRM.npz",
+      "size_bytes": 1964255,
+      "sha256": "e8794d70cf7bc0889bb7e188bed492e05f4c970b762bbc23f99c7b205efb40af",
+      "recording_id": "zARI9hxqxRM",
+      "kind": "audio",
+      "current_Stage11_partition": "train",
+      "known_current_TEST_aliases": [],
+      "identity_projection_ref": {
+        "path": "/root/lightsem/docs/research/2026-09-28-end-to-end/NEW_IDENTITY_EXCLUSION_METADATA_V1.json",
+        "sha256": "54c12ef64517451c1744c824051ccce7a4d2da46adde9d0742ae52c192672c28"
+      },
+      "JD_identity_evidence": {
+        "plan_ref": {
+          "path": "/root/lightsem/docs/research/2026-09-28-end-to-end/PROSPECTIVE_STRUCT_INTENSITY_PROTOCOL_CANDIDATE_V5.json",
+          "size_bytes": 271804,
+          "sha256": "ceb5166d5323bbf013ef47c976bd6ab85edcece3a22314816c2b2ec04a3c61d1"
+        },
+        "field": "cohorts.all453_identity_manifest",
+        "canonical_id": "jd-650ab14d5ea8154c7286"
+      },
+      "cross_corpus_identity": "UNRESOLVED_NOT_INDEPENDENT",
+      "approval": "ROOT_APPROVED_HISTORICAL_DESCRIPTIVE_ONLY"
+    },
+    {
+      "path": "/mnt/lightsem-data/cache/justdance_structure/zARI9hxqxRM.npz",
+      "size_bytes": 78782,
+      "sha256": "1ab1fefe4665cc9dffb9a37936cd53f2ac00ee2bc0ff599cbd2a12c069efe66f",
+      "recording_id": "zARI9hxqxRM",
+      "kind": "structure",
+      "current_Stage11_partition": "train",
+      "known_current_TEST_aliases": [],
+      "identity_projection_ref": {
+        "path": "/root/lightsem/docs/research/2026-09-28-end-to-end/NEW_IDENTITY_EXCLUSION_METADATA_V1.json",
+        "sha256": "54c12ef64517451c1744c824051ccce7a4d2da46adde9d0742ae52c192672c28"
+      },
+      "JD_identity_evidence": {
+        "plan_ref": {
+          "path": "/root/lightsem/docs/research/2026-09-28-end-to-end/PROSPECTIVE_STRUCT_INTENSITY_PROTOCOL_CANDIDATE_V5.json",
+          "size_bytes": 271804,
+          "sha256": "ceb5166d5323bbf013ef47c976bd6ab85edcece3a22314816c2b2ec04a3c61d1"
+        },
+        "field": "cohorts.all453_identity_manifest",
+        "canonical_id": "jd-650ab14d5ea8154c7286"
+      },
+      "cross_corpus_identity": "UNRESOLVED_NOT_INDEPENDENT",
+      "approval": "ROOT_APPROVED_HISTORICAL_DESCRIPTIVE_ONLY"
+    },
+    {
+      "path": "/mnt/lightsem-data/cache/justdance_audio/zBzdeWM3VvE.npz",
+      "size_bytes": 2029998,
+      "sha256": "c52c1371a9751d9b37f71d21c5d0a4f9e89608b67e68b9f01f7b85196e8c5265",
+      "recording_id": "zBzdeWM3VvE",
+      "kind": "audio",
+      "current_Stage11_partition": "train",
+      "known_current_TEST_aliases": [],
+      "identity_projection_ref": {
+        "path": "/root/lightsem/docs/research/2026-09-28-end-to-end/NEW_IDENTITY_EXCLUSION_METADATA_V1.json",
+        "sha256": "54c12ef64517451c1744c824051ccce7a4d2da46adde9d0742ae52c192672c28"
+      },
+      "JD_identity_evidence": {
+        "plan_ref": {
+          "path": "/root/lightsem/docs/research/2026-09-28-end-to-end/PROSPECTIVE_STRUCT_INTENSITY_PROTOCOL_CANDIDATE_V5.json",
+          "size_bytes": 271804,
+          "sha256": "ceb5166d5323bbf013ef47c976bd6ab85edcece3a22314816c2b2ec04a3c61d1"
+        },
+        "field": "cohorts.all453_identity_manifest",
+        "canonical_id": "jd-73f279fed72976ef8b35"
+      },
+      "cross_corpus_identity": "UNRESOLVED_NOT_INDEPENDENT",
+      "approval": "ROOT_APPROVED_HISTORICAL_DESCRIPTIVE_ONLY"
+    },
+    {
+      "path": "/mnt/lightsem-data/cache/justdance_structure/zBzdeWM3VvE.npz",
+      "size_bytes": 80502,
+      "sha256": "acf16e5eecc76a0022a29392cfe19acd2571d0f1174a4d87404560c42622b4bb",
+      "recording_id": "zBzdeWM3VvE",
+      "kind": "structure",
+      "current_Stage11_partition": "train",
+      "known_current_TEST_aliases": [],
+      "identity_projection_ref": {
+        "path": "/root/lightsem/docs/research/2026-09-28-end-to-end/NEW_IDENTITY_EXCLUSION_METADATA_V1.json",
+        "sha256": "54c12ef64517451c1744c824051ccce7a4d2da46adde9d0742ae52c192672c28"
+      },
+      "JD_identity_evidence": {
+        "plan_ref": {
+          "path": "/root/lightsem/docs/research/2026-09-28-end-to-end/PROSPECTIVE_STRUCT_INTENSITY_PROTOCOL_CANDIDATE_V5.json",
+          "size_bytes": 271804,
+          "sha256": "ceb5166d5323bbf013ef47c976bd6ab85edcece3a22314816c2b2ec04a3c61d1"
+        },
+        "field": "cohorts.all453_identity_manifest",
+        "canonical_id": "jd-73f279fed72976ef8b35"
+      },
+      "cross_corpus_identity": "UNRESOLVED_NOT_INDEPENDENT",
+      "approval": "ROOT_APPROVED_HISTORICAL_DESCRIPTIVE_ONLY"
+    }
+  ],
+  "native_synthetic_test_result": {
+    "exit_code": 0,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "expected_failures": 0,
+    "unexpected_successes": 0,
+    "tests_run": 105,
+    "tests_expected": 105,
+    "plan_ref": {
+      "path": "/root/lightsem/docs/research/2026-09-28-end-to-end/PROSPECTIVE_STRUCT_INTENSITY_PROTOCOL_CANDIDATE_V5.json",
+      "size_bytes": 271804,
+      "sha256": "ceb5166d5323bbf013ef47c976bd6ab85edcece3a22314816c2b2ec04a3c61d1"
+    },
+    "driver_ref": {
+      "path": "/root/lightsem/outputs/legacy_struct_intensity_20260928_v1/prepare_struct_intensity_v5.py",
+      "size_bytes": 38497,
+      "sha256": "8ba9a187e9832367850a94d13a02434a34d70541bfd5ad14a83574ddcda90ebc"
+    },
+    "test_refs": [
+      {
+        "path": "/root/lightsem/outputs/legacy_struct_intensity_20260928_v1/test_prepare_struct_intensity_v5.py",
+        "size_bytes": 59751,
+        "sha256": "104dd196efce125202887eb09f40066025de02ffb4ef8548492c6edb8c9de20b"
+      }
+    ],
+    "command": "CUDA_VISIBLE_DEVICES='' PYTHONDONTWRITEBYTECODE=1 TORCH_ENV=/root/lightsem/.venv/torch-access bash run_torch.sh -u -m unittest discover -s /root/lightsem/outputs/legacy_struct_intensity_20260928_v1 -p test_prepare_struct_intensity_v5.py -v > /root/lightsem/outputs/legacy_struct_intensity_20260928_v1/native_synthetic_tests_v5.log 2>&1",
+    "log_ref": {
+      "path": "/root/lightsem/outputs/legacy_struct_intensity_20260928_v1/native_synthetic_tests_v5.log",
+      "size_bytes": 16969,
+      "sha256": "0f84527d85486a04cbb4ac6f7a93ba31a4067a7dd5703af55ed6e3c928cfb749"
+    },
+    "real_model_forwards": 0,
+    "sealed_TEST_reads": 0,
+    "checkpoint_deserializations": 0,
+    "native_binding": {
+      "path": "/root/lightsem/outputs/legacy_struct_intensity_20260928_v1/NATIVE_SYNTHETIC_TEST_BINDING_V5.json",
+      "size_bytes": 2366,
+      "sha256": "77f7fa341c7be7672af832d392d4fb31552c2db2516e24a017cd201ec03fbc1e"
+    },
+    "binding_vault_receipt": {
+      "path": "/root/lightsem/outputs/legacy_struct_intensity_20260928_v1/vault_v5_synthetic_and_envelope_checks_receipt.json",
+      "size_bytes": 102123,
+      "sha256": "9429e6eb0c3bafaa6a2b6f743f069ae8c726017138c12bb0a129b0e98422d886"
+    },
+    "dependency_initialization": "numpy.testing initialized before strict filesystem guards; installed-package metadata may be read. No scientific payloads.",
+    "qualification_limits": "Synthetic sources/shapes only; actual checkpoint/cache compatibility and external actual-exec branch not tested."
+  },
+  "external_envelope_source_sha256": "cd3dc533ce7a51b71c7d1dda736cbae5da63586f52541c1d4d355bb5085c44aa",
+  "gpu_budget": {
+    "scope": "THIS_AUTHORIZATION",
+    "credited_seconds": 0,
+    "project_ledger_status": "UNRECONCILED",
+    "measured_project_remaining_seconds": null,
+    "exhausted": null,
+    "future_GPU_admission": false,
+    "legacy_field_semantics": "remaining_project_GPU_seconds=0 is conservative authorization admission credit only, not measured full-project remaining time. Do not carry it into GPU admission."
+  },
+  "preparation_definition_ref": {
+    "path": "/root/lightsem/outputs/legacy_struct_intensity_20260928_v1/PREPARATION_ADMISSION_DEFINITION_V5.json",
+    "size_bytes": 85406,
+    "sha256": "b99b4b60b49e434a51362765f483cfe4f5983285ff877a22db4b8591a7dcc7bd"
+  },
+  "input_hash_receipt_ref": {
+    "path": "/root/lightsem/outputs/legacy_struct_intensity_20260928_v1/TRAIN_INPUT_HASH_ONLY_RESULT_V1.json",
+    "size_bytes": 71313,
+    "sha256": "88b45a5c572b31b6bde5312dcb35dfbc5cc97b3f6bddebe97e6aac15c113b692"
+  },
+  "external_runtime_policy": {
+    "configured_watchdog_seconds": 890,
+    "declared_wall_ceiling_seconds": 900,
+    "host_RAM_bytes": 4294967296,
+    "swap_bytes": 0,
+    "private_devices": true,
+    "KillMode": "control-group",
+    "KillSignal": 9,
+    "hard_realtime_guarantee": false,
+    "root_must_reject_observed_ceiling_overrun": true
+  },
+  "root_prelaunch_obligations": [
+    "hash-check run.sh,envelope,driver,plan,run_torch.sh immediately before service admission",
+    "reserve16KiBproof inside whole12MiB packet/global/freefloors",
+    "no applicable systemdunit/dropin overrides",
+    "requireexclusiveoutput/log/proof paths",
+    "validate observed service/wrapper time and all40receipt/source/input/resource outputs; no automaticfurtheradmission"
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "scope": "READ_ONLY_ACCOUNTING_OF_EXISTING_GPU_EXECUTION_EVIDENCE_NO_NEW_GPU_WORK",
+  "report_and_control_cap_bytes": 65536,
+  "existing_global_scientific_cap_bytes": 1020054732,
+  "base_commitments_bytes": 999113452,
+  "row65_metadata_reservation_bytes": 262144,
+  "additional_GPU_ledger_metadata_reservation_bytes": 65536,
+  "new_conservative_global_commitments_bytes": 999441132,
+  "no_preparation_packet_change": 12582912,
+  "no_new_fits_or_execution": true,
+  "no_actual_remaining_seconds_assumed": true
+}

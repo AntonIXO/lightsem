@@ -1,0 +1,985 @@
+{
+ "schema_version": 1,
+ "id": "GPU_EXECUTION_LEDGER_READINESS_V1",
+ "status": "UNRECONCILED",
+ "review_kind": "ACCOUNTING_ONLY_NO_EXECUTION",
+ "scope_statement": "Existing completed execution metadata for the Sept22 learned lighting-cue campaign and named follow-on palette/demo/end-to-end work. This is not a project-lifetime GPU ledger.",
+ "authority": {
+  "ceiling_hours": 36,
+  "ceiling_seconds": 129600,
+  "authority_evidence": [
+   "E01",
+   "E02",
+   "E03",
+   "E04",
+   "E05"
+  ],
+  "original_scope": "CAMPAIGN_DESIGN resource_limits and nine native hypothesis plans explicitly name campaign lighting-cue-model-20260922t094347z; nine recipes, seeds0/1/2, at most27fits, oneGPU,36GPUhour ceiling. Do not expand this to all historical LightSem work.",
+  "follow_on_scope": "End-to-end EXECUTION_PLAN_V1 carries oneGPUjob,60min/fit,36GPUh unless explicitly revised. This does not state a reset, new36-hour allocation, project-lifetime start, or a parallel-process accounting formula.",
+  "scope_decision": "36h is supported as a named campaign ceiling with a carry-forward constraint. Exact charge universe for later demonstrations/legacy evaluation and global start must be affirmed by root; do not assume all preceding project GPU jobs belong to it.",
+  "design_created_utc": "2026-09-22T09:43:47Z",
+  "nine_native_hypothesis_registration_interval_utc": [
+   "2026-09-22T10:06:05+00:00",
+   "2026-09-22T10:06:10+00:00"
+  ],
+  "first_located_execution_registration_created_utc": "2026-09-22T10:09:34+00:00",
+  "first_located_execution_registration_id": "exp-layers-20260922-rhythm-features",
+  "actual_first_GPU_job_start_utc": null,
+  "start_limitation": "Creation/registration timestamps are NOT process-start timestamps. No mtime or hidden-data reconstruction was used. CONTROL denotes policy/authorization/execution metadata, not a required literalfilename."
+ },
+ "accounting_rules": [
+  "Never multiply walltime by utilization or refund idle/CPU portions of an admitted GPU job. No busy-kernel integral is measured here.",
+  "Keep internal/child/queue/root timers separate; they are nested, not additive. Media duration, task timeout and budget reservation are not executed walltime.",
+  "Same-GPU parallel process wall sums overlap. Keep queue span and child sum separately; no3x-GPU interpretation. An exact union requires full starts/ends and an explicit charge convention.",
+  "Failed engineering, initialization and interrupted partial work remain in coverage. Missing durations are unknown, not zero.",
+  "Hash-bound completion metadata establishes scoped completion, not complete accounting for all GPU launches.",
+  "CPU-only phase receipts with explicit enforcement/device evidence can be excluded. Palette CUDA diagnostic replays are separate from CPU scientific prediction.",
+  "No project-lifetime cap or fresh36-hour reset is inferred. Parent-only native vault recording remains separate from this report."
+ ],
+ "execution_catalog": [
+  {
+   "id": "FIT15",
+   "category": "15 scientific fits",
+   "status": "COMPLETED_METADATA_BOUND",
+   "completion": {
+    "nonsmoke_fits": 15,
+    "complete_receipt_hashes_match_queue": 15,
+    "native_child_exit0": 15
+   },
+   "seconds": {
+    "training_inner_sum": 3199.4891403259244,
+    "native_child_wall_sum": 3246.2341490332037,
+    "native_queue_wall": 3252.3670072959503,
+    "published_outer_wrapper_wall": 3254.131177317002
+   },
+   "timing_scope": "Nested timers, not additive. 15 sequential children; charge complete outer job wall when accepted. Fits are not the complete GPU ledger.",
+   "gaps": [
+    "Root outer duration is published metadata, not a currently re-observed native handle. Queue initial residual30h is an input assertion, not proof that exactly6h had been spent or that30h was safely available."
+   ],
+   "evidence": [
+    "E06",
+    "E07",
+    "E08",
+    "E09",
+    "E10"
+   ]
+  },
+  {
+   "id": "RHYTHM",
+   "category": "Beat This feature extraction",
+   "status": "COMPLETED_PARTIAL_TIMING",
+   "completion": {
+    "train_plus_demo_records": 516,
+    "historical_dev_records": 52,
+    "completion_log_events": 2,
+    "pilot_13_prefixes_are_not_extra_jobs": true
+   },
+   "seconds": {
+    "516_record_loop": 75.22565692197531,
+    "52_record_loop": 7.312990479986183
+   },
+   "timing_scope": "Loop wall timers begin AFTER Audio2Frames CUDA construction. Pilot receipts are emitted inside the same loop and must not be added again. Not beat-quality evaluation.",
+   "gaps": [
+    "Missing outer process/loading/cleanup walltimes and exact launch times."
+   ],
+   "evidence": [
+    "E11",
+    "E12",
+    "E13",
+    "E14",
+    "E15"
+   ]
+  },
+  {
+   "id": "VISUAL_ENGINEERING",
+   "category": "Three visual smoke attempts, including failures",
+   "status": "COMPLETED_RECORD_SEGMENTS_NOT_WHOLE_JOBS",
+   "completion": {
+    "attempts": 3,
+    "records_per_attempt": 12,
+    "v1_complete": 0,
+    "v2_complete": 0,
+    "v3_complete": 6,
+    "v3_invalid": 6
+   },
+   "seconds": {
+    "v1_all_failed_records": 0.004429253400303423,
+    "v2_all_failed_records": 107.71039922907948,
+    "v3_all_record_outcomes": 503.3399155472871,
+    "v3_success_subset_not_additive": 461.6734067471698,
+    "v3_failure_subset_not_additive": 41.6665088001173
+   },
+   "timing_scope": "Per-record process elapsed. Include engineering failures in inventory. V1/V2 native failure ledger says before inference; do not infer free GPU-budget credit from peak allocation0.",
+   "gaps": [
+    "Unmeasured construction/outer launch/cleanup. Decode/probe and allocator-initialization engineering attempts lack complete duration/device accounting."
+   ],
+   "evidence": [
+    "E16",
+    "E17",
+    "E18",
+    "E19",
+    "E20",
+    "E21"
+   ]
+  },
+  {
+   "id": "CAPTURE131",
+   "category": "Observer capture, original and sharded workers",
+   "status": "COMPLETED_RECORDS_PARTIAL_WHOLE_JOB_TIMING",
+   "completion": {
+    "unique_complete_recordings": 131,
+    "hash_matches_aggregate": 131,
+    "original_prefix": 120,
+    "shard0_prefix": 5,
+    "shard1": 5,
+    "shard2": 1
+   },
+   "seconds": {
+    "original120_record_sum": 8685.554803660838,
+    "shard0_five_record_sum": 546.2781411641045,
+    "shard1_five_record_sum": 504.4672277789796,
+    "shard2_one_record": 115.66986222693231,
+    "all131_process_segment_sum": 9851.970034830854
+   },
+   "timing_scope": "Original120 serial; sharded work overlapped on one GPU. Sum9851.970s is overlapping process-segment wall, NOT single-device busy time or a complete elapsed-job ledger.",
+   "gaps": [
+    "Unmeasured model initialization and final process lifecycle. Preserved incomplete original Vf2s-fakSIo and shard0 ZyE3xcxZHnw may contain consumed work; later completed records do not cancel it. Policy deadline/worker PIDs are not proof of full lifetime or enforcement."
+   ],
+   "evidence": [
+    "E22",
+    "E23",
+    "E24",
+    "E25",
+    "E26",
+    "E27",
+    "E28"
+   ]
+  },
+  {
+   "id": "HANDOFFS",
+   "category": "Capture controllers and abandoned boundaries",
+   "status": "RETAINED_FAILURES_NOT_ADDITIONAL_GPU_JOBS",
+   "completion": {
+    "handoff_v1": "AttributeError before signal",
+    "handoff_v2": "No boundary in240s; producer left running",
+    "handoff_v3": "stopped at record boundary",
+    "third_worker_handoff": "stopped at record boundary"
+   },
+   "seconds": {
+    "v3_controller_timestamp_span": 55.408901,
+    "third_controller_timestamp_span": 107.555747
+   },
+   "timing_scope": "Controller waiting is CPU control-plane time and overlaps producer work; do not add as another GPU process. Exit130 boundary handoffs are not scientific failures.",
+   "gaps": [
+    "Their waits do not fill missing producer lifetime/partial-record timing."
+   ],
+   "evidence": [
+    "E29",
+    "E30",
+    "E31",
+    "E25"
+   ]
+  },
+  {
+   "id": "STUDENT_SMOKES",
+   "category": "Student GPU engineering smokes",
+   "status": "COMPLETED_MIXED_TIMER_COVERAGE",
+   "completion": {
+    "initial_smoke_receipt": "complete",
+    "batch4_children_exit0": 2,
+    "scientific_fit_count_added": 0
+   },
+   "seconds": {
+    "initial_smoke_inner": 1.5454115599859506,
+    "batch4_shared_whole_child": 8.62837871001102,
+    "batch4_independent_whole_child": 12.758731378009543
+   },
+   "timing_scope": "Initial inner timer plus two completed wrapper timers. Batch child inner timers7.553/10.923s are subsets, not extra work.",
+   "gaps": [
+    "Initial whole-process CUDA construction and cleanup unknown. Initial unit-test log skipped optional tiny CUDA test; that skip is not another GPU run."
+   ],
+   "evidence": [
+    "E32",
+    "E33",
+    "E34"
+   ]
+  },
+  {
+   "id": "PREDICT30",
+   "category": "Thirty selected/final raw prediction jobs",
+   "status": "COMPLETED_METADATA_BOUND",
+   "completion": {
+    "native_success_events": 30,
+    "receipt_hash_matches": 30,
+    "max_concurrent_same_GPU_processes": 3,
+    "start_time": "2026-09-22T14:51:37.103101+00:00",
+    "end_time": "2026-09-22T14:52:14.728487+00:00"
+   },
+   "seconds": {
+    "native_queue_wall": 37.61092847795226,
+    "published_outer_wrapper_wall": 39.64626998489257,
+    "child_process_wall_sum_overlap_included": 109.94657497270964
+   },
+   "timing_scope": "Queue37.611s, published outer39.646s and child sum109.947s have different timer scopes. They are not contradictory and must not be added. No utilization discount;3 processes are not3 GPUs.",
+   "gaps": [
+    "Published outer wall is not a fresh native-handle observation. Charge convention must specify one-device job wall versus process-wall sums; policy does not define this after parallel scheduling amendments."
+   ],
+   "evidence": [
+    "E35",
+    "E36",
+    "E37",
+    "E09",
+    "E38"
+   ]
+  },
+  {
+   "id": "PALETTE_CPU",
+   "category": "Palette scientific prediction and continuation",
+   "status": "CPU_EXCLUDED_FROM_GPU_CHARGE",
+   "completion": {
+    "initial_prediction_exit": 1,
+    "preserved_cells": 101,
+    "new_continuation_cells": 85,
+    "combined_status": "complete",
+    "continuation_gpu_used": false
+   },
+   "seconds": {
+    "failed_original_whole_wrapper": 6.739345004083589,
+    "continuation_internal": 4.571695519960485
+   },
+   "timing_scope": "Original protocol CPU-only; continuation receipt scientific_device=cpu and gpu_used=false. Do not count101 preserved cells twice or treat CPU prediction as GPU time.",
+   "gaps": [
+    "Separate CUDA diagnostics below must not be hidden by the CPU-only science phase."
+   ],
+   "evidence": [
+    "E39",
+    "E40",
+    "E41",
+    "E42"
+   ]
+  },
+  {
+   "id": "PALETTE_GPU_DIAG",
+   "category": "Palette numerical replay diagnostics",
+   "status": "COMPLETED_PARTIAL_TIMING",
+   "completion": {
+    "first_fixture_status": "diagnostic_complete",
+    "remaining_status": "all84_numeric_qualification_complete",
+    "remaining_cells_checked": 84,
+    "remaining_GPU_exception_proofs": 5
+   },
+   "seconds": {
+    "first_diagnostic_internal": 0.4875150859588757,
+    "first_GPU_replay_subset": 0.142168499995023,
+    "remaining_diagnostic_internal": 3.855211909976788,
+    "five_GPU_replay_subsets_sum": 0.15485142392572016
+   },
+   "timing_scope": "Two diagnostic executions used CUDA head-only replay. Their GPU sub-timers are contained in diagnostic elapsed times. No scientific scoring claim.",
+   "gaps": [
+    "Missing complete outer wrapper/model-load/cleanup duration."
+   ],
+   "evidence": [
+    "E43",
+    "E44"
+   ]
+  },
+  {
+   "id": "ORIGINAL_DEMO",
+   "category": "Original Shpongle anchor inference, preview and full render",
+   "status": "COMPLETED_PARTIAL_TIMING",
+   "completion": {
+    "inference_completion_log": true,
+    "preview_render_receipt": true,
+    "full_render_receipt": true
+   },
+   "seconds": {
+    "forward_and_rollout_rounded_log": 0.188,
+    "preview_render_inner": 14.694154946948402,
+    "full_render_inner": 193.52947639895137
+   },
+   "timing_scope": "GPU renderer logs and completed JSON receipts identify real work. Media duration277.3s is not GPU walltime. Inference0.188s is a rounded segment timer.",
+   "gaps": [
+    "No directly retained associated original root handle supplied. Model initialization/full inference/mapping/renderer setup+cleanup are not fully covered. Failed initial clock preflight had zero forward calls later verified; its device/lifetime is not a GPU credit."
+   ],
+   "evidence": [
+    "E45",
+    "E46",
+    "E47",
+    "E48",
+    "E49",
+    "E50",
+    "E51"
+   ]
+  },
+  {
+   "id": "COMPARISONS",
+   "category": "Four comparisons: one inference job and four serial render jobs",
+   "status": "FIVE_COMPLETE_NATIVE_HANDLES_BOUND",
+   "completion": {
+    "root_completed_jobs": 5,
+    "all_exit_codes": 0,
+    "new_encoder_forwards": 4,
+    "original_anchor_rerun": false
+   },
+   "seconds": {
+    "inference_whole_job": 6.804081256967038,
+    "four_render_whole_jobs": 800.6349295850378,
+    "five_whole_job_sum": 807.4390108420048,
+    "four_forward_rollout_subsets_sum": 0.260223182849586,
+    "four_render_inner_subsets_sum": 797.603200087091
+   },
+   "timing_scope": "Parent copied exact command/pid and matching completed BashResults into a new durable CONTROL receipt.807.439s is a conservative whole-job wall subtotal for these five jobs, not device-busy time or complete campaign cost.",
+   "gaps": [
+    "Does not fill earlier missing jobs or timing. No remaining-budget credit follows from this subtotal."
+   ],
+   "evidence": [
+    "E52",
+    "E53",
+    "E54",
+    "E55",
+    "E56",
+    "E57",
+    "E58",
+    "E59",
+    "E60",
+    "E61",
+    "E62"
+   ]
+  },
+  {
+   "id": "ROW8_PREP",
+   "category": "V5 failed and V6 completed CPU preparation",
+   "status": "CPU_GPU_ACCESS_BLOCKED_EXCLUDED",
+   "completion": {
+    "v5_exit": 2,
+    "v6_exit": 0,
+    "GPU_devices_visible": false,
+    "PrivateDevices": true
+   },
+   "seconds": {
+    "GPU_charge_seconds": 0
+   },
+   "timing_scope": "No model construction/forward. Existing external service proof reports no GPU devices; empty CUDA and PrivateDevices. CPU prep time is not GPU cost.",
+   "gaps": [
+    "Zero here is scoped to these enforced CPU preparations, not other historical/model jobs."
+   ],
+   "evidence": [
+    "E63",
+    "E64",
+    "E65",
+    "E66"
+   ]
+  }
+ ],
+ "controller_bounds": [
+  {
+   "category": "fits",
+   "declared_bound_s_per_child": 3600,
+   "initial_parent_residual_hours": 30,
+   "evidence": [
+    "E08",
+    "E10"
+   ],
+   "assessment": "Hash-matched controller monitors full child wait, timeouts and process-group termination; launch timeout=min(3600,parent supplied remaining). It does NOT reconcile earlier campaign jobs.30h cannot be treated as a verified ledger balance."
+  },
+  {
+   "category": "capture",
+   "global_policy_wall_deadline_s": 14400,
+   "per_shard_policy_wall_limit_s": 3600,
+   "max_workers_after_amendments": 3,
+   "deadline_epoch_s": 1790090078.226195,
+   "evidence": [
+    "E67",
+    "E68",
+    "E28"
+   ],
+   "assessment": "Policies preserve original deadline; later authorized third-worker reassignment. Bound source visual.py stores/uses record timers but has no globalwall-budget enforcement. An external wrapper may have enforced it, but complete native lifetime/enforcement receipts were not located. Do not book the4h ceiling as actual spend or verified total upperbound."
+  },
+  {
+   "category": "raw_predictions",
+   "per_child_timeout_s": 900,
+   "same_GPU_parallel_slots": 3,
+   "evidence": [
+    "E37",
+    "E38",
+    "E69"
+   ],
+   "assessment": "Native controller waits each child under its own900s timer, verifies exit0 and receipt, then publishes complete. This is not a900s whole-queue cap. Completed queue metadata supplies actual timers."
+  },
+  {
+   "category": "comparison_inference",
+   "whole_wrapper_timeout_s": 1800,
+   "evidence": [
+    "E52"
+   ],
+   "assessment": "Exact root completed handle records timeout1800s plus exit0 and6.804081s elapsed. Four render commands lack a similar explicit timeout in these retained commands but each has a completed native result."
+  },
+  {
+   "category": "row8_preparation",
+   "declared_external_wall_s": 900,
+   "service_runtime_max_s": 890,
+   "GPU_access": false,
+   "assessment": "CPU-only V5/V6 envelopes. No GPU-time consumption or GPU admission follows from this limit."
+  }
+ ],
+ "reconciliation": {
+  "complete_campaign_execution_inventory_proven": false,
+  "complete_outer_duration_coverage_proven": false,
+  "charge_unit_for_parallel_same_device_jobs_fully_defined": false,
+  "actual_campaign_GPU_spend_seconds": null,
+  "finite_verified_total_upper_bound_seconds": null,
+  "safe_remaining_GPU_seconds": null,
+  "positive_admission_credit_seconds": 0,
+  "budget_exhausted_proven": false,
+  "scientific_fit_count_completed": 15,
+  "new_GPU_work_authorized": false,
+  "five_comparison_whole_job_subtotal_s": 807.4390108420048,
+  "why_no_global_sum": "Available timers mix record-level segments, full children, overlapping jobs and outer wrappers. Summing them would either doublecount or omit consumed work. Even a conservative sum of located jobs cannot bound omitted launches/initialization. No36-minus-partial-total balance is reported.",
+  "meaning_of_zero_credit": "An admission gate receives no positive credit while the ledger is UNRECONCILED. This does NOT mean the36-hour budget is exhausted."
+ },
+ "blocking_gaps": [
+  "Root must fix the scope and charge convention: named Sept22 campaign plus which later tasks, and walltime per singleGPUjob versus overlapping process sums. No retrospective project-lifetime inference.",
+  "Actual first GPU launch time and a complete launch/exit inventory for that scope were not established by design/registration timestamps.",
+  "Original/parallel observer capture lacks full native worker lifecycle/enforcement timing, including two preserved partial directories and model loading.",
+  "Initial GPU engineering/probe and visual-smoke outer times remain incomplete; failed attempts are preserved, not silently removed.",
+  "Beat This timers omit CUDA construction. Original Shpongle inference/render and palette CUDA diagnostics lack complete authenticated outer timing.",
+  "No assertion that enumerated canonical metadata includes every job; unavailable/undocumented GPU work is unknown. No new run is needed or allowed for accounting reconstruction."
+ ],
+ "parent_follow_up": [
+  "Keep GPU evaluation/admission blocked for lack of reconciled credit, not because exhaustion was established.",
+  "If extant completed native/controller metadata can fill named gaps, preserve it in a new bounded CONTROL receipt and issue a new ledger version. Do not rerun science, reopen TEST, or inspect old agent transcripts.",
+  "If historical scope/coverage cannot be reconstructed, obtain an explicit prospective user budget/charge-scope decision. Do not erase prior use, invent a reset, or claim residual hours."
+ ],
+ "validation_of_existing_metadata": {
+  "fit15_hash_checks": [
+   {
+    "directory": "01_seed0_S_none_P0",
+    "seconds": 182.77845437603537,
+    "receipt_sha256": "c9c080fde8635d898a4547bb77217497a2c6c98f314129552fbe7b37d7579a12",
+    "queue_hash_matches": true,
+    "complete": true,
+    "smoke": false
+   },
+   {
+    "directory": "02_seed0_S_V6_P0",
+    "seconds": 191.82591838005465,
+    "receipt_sha256": "f7e0ccd43c15ac2971f7c69df5816fed1264ace0d793b054bf60487c06377cca",
+    "queue_hash_matches": true,
+    "complete": true,
+    "smoke": false
+   },
+   {
+    "directory": "03_seed0_S_VR_P0",
+    "seconds": 192.84384808596224,
+    "receipt_sha256": "321bcfd39eaf533e646f95d41a70660b499382a13ccf6c6f3a3458385b0e6cdf",
+    "queue_hash_matches": true,
+    "complete": true,
+    "smoke": false
+   },
+   {
+    "directory": "04_seed0_I_VR_P0",
+    "seconds": 264.7496447280282,
+    "receipt_sha256": "dc428e1ed9976628deea30978779eef4bf51c606e631cea82affb8df1502d5af",
+    "queue_hash_matches": true,
+    "complete": true,
+    "smoke": false
+   },
+   {
+    "directory": "05_seed0_S_VR_P0_Ashuf",
+    "seconds": 230.35481273999903,
+    "receipt_sha256": "f0a0e6cfffb8e95924b9db665404a30f6bcb3aaf188908b0a157493873455162",
+    "queue_hash_matches": true,
+    "complete": true,
+    "smoke": false
+   },
+   {
+    "directory": "06_seed1_S_none_P0",
+    "seconds": 187.621673847083,
+    "receipt_sha256": "01d68254e5920836b4ac39d88a3048ac96a49d32e9f001e94b50d0fa47c6fd05",
+    "queue_hash_matches": true,
+    "complete": true,
+    "smoke": false
+   },
+   {
+    "directory": "07_seed1_S_V6_P0",
+    "seconds": 193.02907740091905,
+    "receipt_sha256": "27d98aa9829bcbe1abcd11b772c22727dcc8ef1a30735d9bf24ad012b9d7042d",
+    "queue_hash_matches": true,
+    "complete": true,
+    "smoke": false
+   },
+   {
+    "directory": "08_seed1_S_VR_P0",
+    "seconds": 192.33904642402194,
+    "receipt_sha256": "088125fe030eb77c45c0af65426fc6d20bf3399eb68186334dd606a9983eea38",
+    "queue_hash_matches": true,
+    "complete": true,
+    "smoke": false
+   },
+   {
+    "directory": "09_seed1_I_VR_P0",
+    "seconds": 274.71926179598086,
+    "receipt_sha256": "65aa70dfd581f06b297a7c8d533f78d54a225ac6ed29fb8ebec65a23715d6b88",
+    "queue_hash_matches": true,
+    "complete": true,
+    "smoke": false
+   },
+   {
+    "directory": "10_seed1_S_VR_P0_Ashuf",
+    "seconds": 224.82709349598736,
+    "receipt_sha256": "877cd608b1f40cce48ecda381d6ecd8289c609412863f3ef0006f9bb74d6f04c",
+    "queue_hash_matches": true,
+    "complete": true,
+    "smoke": false
+   },
+   {
+    "directory": "11_seed2_S_none_P0",
+    "seconds": 186.23343401495367,
+    "receipt_sha256": "32602b46ea27f2daaf499005b20a8d368ec3e02c628634720cd115daf68430b6",
+    "queue_hash_matches": true,
+    "complete": true,
+    "smoke": false
+   },
+   {
+    "directory": "12_seed2_S_V6_P0",
+    "seconds": 190.71492220601067,
+    "receipt_sha256": "5bfa50cc556e2a6353fc0b19b5860705d80f31d95f6fdabcfcaf90892bf900a2",
+    "queue_hash_matches": true,
+    "complete": true,
+    "smoke": false
+   },
+   {
+    "directory": "13_seed2_S_VR_P0",
+    "seconds": 190.2423357059015,
+    "receipt_sha256": "716dddb0d668b758ce1ca2fadd9217c298f166de5c40a448629e9e4668146632",
+    "queue_hash_matches": true,
+    "complete": true,
+    "smoke": false
+   },
+   {
+    "directory": "14_seed2_I_VR_P0",
+    "seconds": 267.85537293797825,
+    "receipt_sha256": "d37247fed05c6d1e29da5d35e25e39a71b49556da7550e64621a6a55e095a4f4",
+    "queue_hash_matches": true,
+    "complete": true,
+    "smoke": false
+   },
+   {
+    "directory": "15_seed2_S_VR_P0_Ashuf",
+    "seconds": 229.3542441870086,
+    "receipt_sha256": "c24c31e85c80f5b094147a4a43f3b91d608a5d3c0fb76d3d0d9709e014d8ef90",
+    "queue_hash_matches": true,
+    "complete": true,
+    "smoke": false
+   }
+  ],
+  "capture131_aggregate_ref": "E22",
+  "capture_record_receipt_set_digest_method": "SHA256 of UTF8 json.dumps(sorted complete paths+sha256, sort_keys=True,separators=(comma,colon)); no payload hashes recomputed.",
+  "capture_record_receipt_set_digest": "1ebb38b9c2a07ed064c90bc4cd5f4760f7bb32c2732398a57a4e9382e8eeb003",
+  "prediction30_hash_checks_pass": true,
+  "source_timing_checks": "Read-only hash-matched rhythm/visual/fit/prediction controller source explains timer boundaries and pilot-prefix containment. No source imports or execution."
+ },
+ "access_and_limits": {
+  "allowed_roots_enumerated": [
+   "/root/lightsem/docs/research/2026-09-22-color-beat",
+   "/root/lightsem/docs/research/2026-09-28-end-to-end",
+   "/root/lightsem/outputs",
+   "/mnt/lightsem-data/experiments/lightsem/lighting-cue-model-20260922t094347z",
+   "/mnt/lightsem-data/experiments/lightsem/palette-history-secondary-20260922-v1",
+   "/mnt/lightsem-data/experiments/lightsem/end_to_end_20260928_v1"
+  ],
+  "candidate_text_paths_enumerated": 1172,
+  "directory_enumeration_limit_stops": [],
+  "symlinks_skipped": [
+   "/root/lightsem/outputs/rhythm_companion_20260912_comparison_1080p_av1.mp4",
+   "/root/lightsem/outputs/rhythm_companion_20260912_light_1080p_av1.mp4",
+   "/root/lightsem/outputs/surface_correction/report.md",
+   "/root/lightsem/outputs/surface_correction/shpongle_revised.mp4",
+   "/root/lightsem/outputs/surface_correction/shpongle_before_after.mp4"
+  ],
+  "new_runs": 0,
+  "new_tests": 0,
+  "project_imports": 0,
+  "GPU_calls": 0,
+  "server_calls": 0,
+  "checkpoint_or_NPZ_or_media_payloads_read": 0,
+  "raw_currentTEST_or_source_manifests_read": 0,
+  "agent_transcripts_read": 0,
+  "old_files_edited": 0,
+  "scientific_metrics_recomputed": 0,
+  "published_metrics_incidentally_encountered": "Compound native/problem receipts and completed execution metadata contain historical scientific/runtime fields. They were encountered; only execution/accounting fields and metadata hashes were used. No currentTEST numerical payload was opened and no scientific statistic was recomputed.",
+  "outside_named_roots": "Only explicit source files referenced by execution metadata were read to interpret clocks/controllers. Project top-level and docs names were listed to locate policy authority; no configs, credentials or session logs were read."
+ },
+ "report_budget": {
+  "authorization_ref": "E70",
+  "combined_report_files_max_bytes": 49152,
+  "GPU_ledger_all_control_and_report_reservation_bytes": 65536,
+  "parent_new_control_receipt_bytes": 5769,
+  "scientific_cap_bytes_unchanged": 1020054732,
+  "row8_packet_cap_bytes_unchanged": 12582912,
+  "new_fit_or_execution_storage_reserved": 0,
+  "no_old_artifact_cleanup": true,
+  "existing_control_files_bytes": 6283,
+  "report_json_bytes": 42038,
+  "report_md_bytes": 5807,
+  "combined_report_bytes": 47845,
+  "all_named_GPU_ledger_control_and_reports_bytes": 54128
+ },
+ "evidence": {
+  "E01": {
+   "path": "/root/lightsem/docs/research/2026-09-22-color-beat/CAMPAIGN_DESIGN.json",
+   "size_bytes": 9264,
+   "sha256": "1d3819baecc70cb9f4d62a19e4ef1eea0e825e2256760f8b86f505d298760935",
+   "role": "36-hour campaign authority"
+  },
+  "E02": {
+   "path": "/root/lightsem/docs/research/2026-09-22-color-beat/preregistration_vault_receipts.jsonl",
+   "size_bytes": 51699,
+   "sha256": "9d50807ff4081d68e05df01a13e3a97be50b6a0b5e182af3d850421860192c02",
+   "role": "native nine-hypothesis registration"
+  },
+  "E03": {
+   "path": "/root/lightsem/docs/research/2026-09-28-end-to-end/EXECUTION_PLAN_V1.json",
+   "size_bytes": 4288,
+   "sha256": "d0bab10aa9db51803e5921fe7cc39b5a6540059f5639280e34bb8524a50e8591",
+   "role": "end-to-end carry-forward, no reset"
+  },
+  "E04": {
+   "path": "/root/lightsem/docs/research/2026-09-22-color-beat/OBSERVER_PROXY_PROTOCOL_V1.json",
+   "size_bytes": 6622,
+   "sha256": "7f77802b8bd66729227887b0051a2e8533fd0474e2842230c5c0894e828a4186",
+   "role": "observer campaign cap"
+  },
+  "E05": {
+   "path": "/root/lightsem/docs/research/2026-09-22-color-beat/rhythm_start_receipt.json",
+   "size_bytes": 1642,
+   "sha256": "30e2bd1c82716d7d678e10164e1fe9973b2f8b9f3971b898ad11c41296325e66",
+   "role": "first located execution registration, not launch time"
+  },
+  "E06": {
+   "path": "/mnt/lightsem-data/experiments/lightsem/lighting-cue-model-20260922t094347z/observer_fits_v1/queue_complete.json",
+   "size_bytes": 16407,
+   "sha256": "cf17f0efc802344d90ce008c488cf4fcbcae9a917ce3a00d130f3a44739670fe"
+  },
+  "E07": {
+   "path": "/mnt/lightsem-data/experiments/lightsem/lighting-cue-model-20260922t094347z/observer_fits_v1/queue_progress.jsonl",
+   "size_bytes": 14813,
+   "sha256": "0c2e306ea43e3fc8849dddf8962053766971c2d7ed720e8160b341ecf2e5c436"
+  },
+  "E08": {
+   "path": "/mnt/lightsem-data/experiments/lightsem/lighting-cue-model-20260922t094347z/observer_fits_v1/queue_manifest.json",
+   "size_bytes": 69939,
+   "sha256": "6886d3595ed125d6759697577d06f48743847ca04a1fadf5636ebbde07268b54"
+  },
+  "E09": {
+   "path": "/root/lightsem/docs/research/2026-09-22-color-beat/OBSERVER_RESULTS_SUMMARY_V1.json",
+   "size_bytes": 11833,
+   "sha256": "3a92d9baa77f6d4150b959f41025744261b7c3759da3c6dfd0f7a3fcbe2b3e30"
+  },
+  "E10": {
+   "path": "/root/lightsem/run_light_layers_campaign.py",
+   "size_bytes": 22545,
+   "sha256": "a496c9771744b1d0040c212885b70ff692eeadae04ad1355ae32cf985fc257aa"
+  },
+  "E11": {
+   "path": "/mnt/lightsem-data/experiments/lightsem/lighting-cue-model-20260922t094347z/rhythm/features/complete.json",
+   "size_bytes": 425150,
+   "sha256": "6de8481d1ef0413c45474b0624a74927b133d5d03d048db6d94e83061a7e0b49"
+  },
+  "E12": {
+   "path": "/mnt/lightsem-data/experiments/lightsem/lighting-cue-model-20260922t094347z/rhythm_dev_features/complete.json",
+   "size_bytes": 45543,
+   "sha256": "42b1dbb12c89f1c4336578606e8d6ec8f5dd8f96b4f43c4f2890db73db847eff"
+  },
+  "E13": {
+   "path": "/mnt/lightsem-data/experiments/lightsem/lighting-cue-model-20260922t094347z/rhythm/extract.log",
+   "size_bytes": 398881,
+   "sha256": "cdd5322ff005d9dd2f3ec0c2dea01269757e034175c964e95010666e11fab060"
+  },
+  "E14": {
+   "path": "/mnt/lightsem-data/experiments/lightsem/lighting-cue-model-20260922t094347z/rhythm_dev_extract.log",
+   "size_bytes": 42615,
+   "sha256": "11de4ae32a2b2ef38dfa0c6f8765d960fd75c789f09c597b72702be6f4f8aa7a"
+  },
+  "E15": {
+   "path": "/root/lightsem/run_light_layers_rhythm.py",
+   "size_bytes": 4406,
+   "sha256": "d0558edd43302e53d2b65355e05501a456c5616bb7289bf43ecdf319d4c3646b"
+  },
+  "E16": {
+   "path": "/mnt/lightsem-data/experiments/lightsem/lighting-cue-model-20260922t094347z/visual_smoke_v1/results.json",
+   "size_bytes": 2704,
+   "sha256": "cecc7dc24c834061794fa4deb3ff6837970e6e8709f1a17567be713cb62ca6f6"
+  },
+  "E17": {
+   "path": "/mnt/lightsem-data/experiments/lightsem/lighting-cue-model-20260922t094347z/visual_smoke_v2/results.json",
+   "size_bytes": 2932,
+   "sha256": "11872389f1def827bc867e9c77a414f351142a5a64d9a17d0b2c8ecd62a7fc77"
+  },
+  "E18": {
+   "path": "/mnt/lightsem-data/experiments/lightsem/lighting-cue-model-20260922t094347z/visual_smoke_v3/results.json",
+   "size_bytes": 62813,
+   "sha256": "eda8b877e3e2b48b9959207b7675e1d36eeebe1773f971d2dacc491405ff8cf1"
+  },
+  "E19": {
+   "path": "/root/lightsem/docs/research/2026-09-22-color-beat/visual_runtime_failure_ledger.json",
+   "size_bytes": 1202,
+   "sha256": "6539e8689d272db452c3fc3ecfd572f640e6c3c299e0cb2a0b86b3a66be70a68"
+  },
+  "E20": {
+   "path": "/mnt/lightsem-data/experiments/lightsem/lighting-cue-model-20260922t094347z/decode_probe.log",
+   "size_bytes": 3279,
+   "sha256": "aff4e940b559cb03153660170abeef5a686cbf9f44cb9c042c59cef6755f2e23"
+  },
+  "E21": {
+   "path": "/mnt/lightsem-data/experiments/lightsem/lighting-cue-model-20260922t094347z/weights/sam_load_smoke.log",
+   "size_bytes": 38,
+   "sha256": "b969f7c1b5ec8dc87892be8507e07d63706c007e7c81512a9b6d84c08b05691e"
+  },
+  "E22": {
+   "path": "/root/lightsem/docs/research/2026-09-22-color-beat/OBSERVER_CAPTURE_AGGREGATE_V2.json",
+   "size_bytes": 46838,
+   "sha256": "7018cbceb473bc3091311dae69e378b0396ffd9420980defaea1829c3401fd7a"
+  },
+  "E23": {
+   "path": "/root/lightsem/docs/research/2026-09-22-color-beat/OBSERVER_PARALLEL_CAPTURE_RUNTIME_V1.json",
+   "size_bytes": 1631,
+   "sha256": "d3b56e33835e9d91e25555a6fe395e5e619c59864602de99e70cf4be767d1d27"
+  },
+  "E24": {
+   "path": "/root/lightsem/docs/research/2026-09-22-color-beat/PARALLEL_CAPTURE_HANDOFF_RECEIPT_V1.json",
+   "size_bytes": 2953,
+   "sha256": "ac4d901e13d704438b8fd6069972a412d09aa708a3a754452fafae0afecd027b"
+  },
+  "E25": {
+   "path": "/mnt/lightsem-data/experiments/lightsem/lighting-cue-model-20260922t094347z/third_worker_boundary_handoff_v1.log",
+   "size_bytes": 714,
+   "sha256": "eaf278c6d245b289f3bf7d758f1dd791994c5138c441f23d23db536c9cebe69e"
+  },
+  "E26": {
+   "path": "/mnt/lightsem-data/experiments/lightsem/lighting-cue-model-20260922t094347z/observer_proxy_capture_v1.log",
+   "size_bytes": 169818,
+   "sha256": "b9cc757c329da08e5d9c3d70e04cde593b409f6b8b466ea5402f57837ef083a4"
+  },
+  "E27": {
+   "path": "/mnt/lightsem-data/experiments/lightsem/lighting-cue-model-20260922t094347z/observer_parallel_shard_0_v1.log",
+   "size_bytes": 8851,
+   "sha256": "535ff3196295873ef0278c404c2abc4760cc367d4cc186680f2409aa3d6805f6"
+  },
+  "E28": {
+   "path": "/root/lightsem/lightsem/experiments/light_layers/visual.py",
+   "size_bytes": 42475,
+   "sha256": "9bcda39c8d56ba640b3344de2b1fcca93244ba0fb95fd76f75a47bb42d0843cf"
+  },
+  "E29": {
+   "path": "/mnt/lightsem-data/experiments/lightsem/lighting-cue-model-20260922t094347z/parallel_capture_handoff_v1.log",
+   "size_bytes": 262,
+   "sha256": "d3d1ace74810d6c5a21e6ec5ff7bf461f41c18a48c8fe6a79cac43bc0b650686"
+  },
+  "E30": {
+   "path": "/mnt/lightsem-data/experiments/lightsem/lighting-cue-model-20260922t094347z/parallel_capture_handoff_v2.log",
+   "size_bytes": 324,
+   "sha256": "f03d0e47e53c25a54958f5c773b6118fbb2d6e84858cabc3814e52bf01bc5ca0"
+  },
+  "E31": {
+   "path": "/mnt/lightsem-data/experiments/lightsem/lighting-cue-model-20260922t094347z/parallel_capture_handoff_v3.log",
+   "size_bytes": 2436,
+   "sha256": "4e2c970ed8db3cdf2220a62d1028712f92591e88e24c517c3976799bc69948d4"
+  },
+  "E32": {
+   "path": "/mnt/lightsem-data/experiments/lightsem/lighting-cue-model-20260922t094347z/student_smoke_v1/complete.json",
+   "size_bytes": 93500,
+   "sha256": "32bf91a092b785192ac343b8c7a52b89970b3c0065f4088550391516eeac9396"
+  },
+  "E33": {
+   "path": "/mnt/lightsem-data/experiments/lightsem/lighting-cue-model-20260922t094347z/batch_smoke_queue_complete.json",
+   "size_bytes": 539,
+   "sha256": "cc6df81c95be873ebe261375e5d24ec90134d0ff556b2edf4418cc6f04495f31"
+  },
+  "E34": {
+   "path": "/mnt/lightsem-data/experiments/lightsem/lighting-cue-model-20260922t094347z/unit_tests_initial.log",
+   "size_bytes": 10925,
+   "sha256": "5e48f30f2bba9657f3008afcf5360251e7d781aa27b05cb00c972912181de682"
+  },
+  "E35": {
+   "path": "/mnt/lightsem-data/experiments/lightsem/lighting-cue-model-20260922t094347z/observer_parallel_predictions_v1/complete.json",
+   "size_bytes": 1651,
+   "sha256": "936b5ed69005615253ec8bffcfa46218e0c1ab9aafb6864df5533ecf7fa2f77d"
+  },
+  "E36": {
+   "path": "/mnt/lightsem-data/experiments/lightsem/lighting-cue-model-20260922t094347z/observer_parallel_predictions_v1/progress.jsonl",
+   "size_bytes": 130272,
+   "sha256": "e969582dd357f24f8b46235fe0265233c8678a75b5a95a4ba0e45a77d238523c"
+  },
+  "E37": {
+   "path": "/mnt/lightsem-data/experiments/lightsem/lighting-cue-model-20260922t094347z/observer_parallel_predictions_v1/plan.json",
+   "size_bytes": 140187,
+   "sha256": "fa6aec612db8cd6ae4f16f9c19d960d7ee63445fd283b65e5f5fcaa5bb9382c2"
+  },
+  "E38": {
+   "path": "/root/lightsem/docs/research/2026-09-22-color-beat/run_observer_parallel_predictions_v1.py",
+   "size_bytes": 29581,
+   "sha256": "53d28236dd56e1f200d568e739fe3ab8e21f12e0eec5e9aaa59afcf151582456"
+  },
+  "E39": {
+   "path": "/root/lightsem/outputs/shpongle_layers_demo_20260922T161917Z/palette_secondary_v1/PALETTE_SECONDARY_PROTOCOL_V1.json",
+   "size_bytes": 9594,
+   "sha256": "35ee9ba62d5c04fffb9ce5ddd364f1a82941c7025f9b213800858cca973d11e9"
+  },
+  "E40": {
+   "path": "/root/lightsem/outputs/shpongle_layers_demo_20260922T161917Z/palette_secondary_v1/PREDICTION_FAILURE_V1.json",
+   "size_bytes": 1264,
+   "sha256": "eb387716c4f45f50d88503f0dee34adb3480c854f0e9d4160a66faf1bd465730"
+  },
+  "E41": {
+   "path": "/mnt/lightsem-data/experiments/lightsem/palette-history-secondary-20260922-v1/PARTIAL_INTERRUPTED_RECEIPT_V1.json",
+   "size_bytes": 433635,
+   "sha256": "67e49eafa0331d06d553090d7e4559ebecba07e315ada2bb77825192ba6ccca3"
+  },
+  "E42": {
+   "path": "/mnt/lightsem-data/experiments/lightsem/palette-history-secondary-20260922-v1/predictions_continuation_v1/combined_complete.json",
+   "size_bytes": 327413,
+   "sha256": "3d8f4941fb280d9eb6c6392d2783f00d9762615bda24aa1095c1c4ba554137a9"
+  },
+  "E43": {
+   "path": "/mnt/lightsem-data/experiments/lightsem/palette-history-secondary-20260922-v1/diagnosis_first_donor_replay_v1/receipt.json",
+   "size_bytes": 16703,
+   "sha256": "7102d5091eb08ffcef1e62ced0c5303a9a9a64d9ac216a594701d2be7532e89d"
+  },
+  "E44": {
+   "path": "/mnt/lightsem-data/experiments/lightsem/palette-history-secondary-20260922-v1/diagnosis_remaining_head_preflight_v1/complete.json",
+   "size_bytes": 1071211,
+   "sha256": "a125693edad76590f370acb6cc6184b47cd1dd382fd2b03be90d4b94ce642fe4"
+  },
+  "E45": {
+   "path": "/root/lightsem/outputs/shpongle_layers_demo_20260922T161917Z/inference_full.log",
+   "size_bytes": 4391,
+   "sha256": "a68bc10583c43fb7c98897ac33798e402b5734c4def4fd18ea908c314a2e64a6"
+  },
+  "E46": {
+   "path": "/root/lightsem/outputs/shpongle_layers_demo_20260922T161917Z/inference_preflight.log",
+   "size_bytes": 623,
+   "sha256": "8d815e0d6dea6ca6726a8c6fccc568f38f4ed78d3f1d9485ed311f2a7edb5377"
+  },
+  "E47": {
+   "path": "/root/lightsem/outputs/shpongle_layers_demo_20260922T161917Z/inference_preflight_v2.log",
+   "size_bytes": 712,
+   "sha256": "731f9892b470bc24a7002ce94f52c96f6170a3de42dd1e912015931648679931"
+  },
+  "E48": {
+   "path": "/root/lightsem/outputs/shpongle_layers_demo_20260922T161917Z/shpongle_experimental_preview_70_90_1080p_av1_render.json",
+   "size_bytes": 2892,
+   "sha256": "c818918b33e4d804b42c37ecf2b856a2235e5abeb4f424d2cd55b0388c3a9b81"
+  },
+  "E49": {
+   "path": "/root/lightsem/outputs/shpongle_layers_demo_20260922T161917Z/shpongle_experimental_full_1080p_av1_render.json",
+   "size_bytes": 2875,
+   "sha256": "272b75f82005ffe6e2a64415eb5a171d383ecf0003a4054a127c29af43e95f6b"
+  },
+  "E50": {
+   "path": "/root/lightsem/outputs/shpongle_layers_demo_20260922T161917Z/full_render.log",
+   "size_bytes": 1108,
+   "sha256": "4f48597b04abac7fa02a4cff9029f15b8fc50d63d0814949af150bfac6e04789"
+  },
+  "E51": {
+   "path": "/root/lightsem/outputs/shpongle_layers_demo_20260922T161917Z/preview_render.log",
+   "size_bytes": 247,
+   "sha256": "2250a602d0e2ca2fc189c339730ea90fdec254b24ccbad46bcb81573d81004ec"
+  },
+  "E52": {
+   "path": "/root/lightsem/docs/research/2026-09-28-end-to-end/GPU_LEDGER_ROOT_COMPLETED_HANDLE_METADATA_V1.json",
+   "size_bytes": 5769,
+   "sha256": "bf39447085d2ff56833164cdeebe571943dd63bcb234beeccd39fbed90f7b288"
+  },
+  "E53": {
+   "path": "/root/lightsem/outputs/shpongle_model_comparisons_20260928_v1/DELIVERY_MANIFEST_V1.json",
+   "size_bytes": 7797,
+   "sha256": "e85632d369f6912733b1133fc4a6c29f1264f20f383012b2a6215d079902571a"
+  },
+  "E54": {
+   "path": "/mnt/lightsem-data/experiments/lightsem/end_to_end_20260928_v1/comparison_demos_v1/all_complete.json",
+   "size_bytes": 1774,
+   "sha256": "f4b843fbafc92663c67d3ab90e2009ac9006011f64bdf793cf3f95995e8bc4a1"
+  },
+  "E55": {
+   "path": "/mnt/lightsem-data/experiments/lightsem/end_to_end_20260928_v1/comparison_demos_v1/04_S_VR_P0_Ashuf/inference_saved.json",
+   "size_bytes": 10917,
+   "sha256": "add16caaa6ddf4bd672b7e41ceaf32e41099dac5cb0a0b98efee1a648cc47331"
+  },
+  "E56": {
+   "path": "/mnt/lightsem-data/experiments/lightsem/end_to_end_20260928_v1/comparison_demos_v1/03_I_VR_P0/inference_saved.json",
+   "size_bytes": 10879,
+   "sha256": "450e4c5edc65ca7fe59a907be4a4983fe6de3fd8746564f8aff37a1e05472cc7"
+  },
+  "E57": {
+   "path": "/mnt/lightsem-data/experiments/lightsem/end_to_end_20260928_v1/comparison_demos_v1/02_S_V6_P0/inference_saved.json",
+   "size_bytes": 10878,
+   "sha256": "136612096164808691c3db0ba59ffbe7e192b50f4cab643933c281ba7e81c730"
+  },
+  "E58": {
+   "path": "/mnt/lightsem-data/experiments/lightsem/end_to_end_20260928_v1/comparison_demos_v1/01_S_none_P0/inference_saved.json",
+   "size_bytes": 10890,
+   "sha256": "1952cf2a4777a5b5076739b7ee6af12dd1809b1f5cdc4efa8bfcd93708332d75"
+  },
+  "E59": {
+   "path": "/root/lightsem/outputs/shpongle_model_comparisons_20260928_v1/media/01_S_none_P0/01_S_none_P0_full_1080p_av1_render.json",
+   "size_bytes": 2915,
+   "sha256": "4a8baca3af56b8a6a978a3ce4f9bf3b1f65e8a3034a4ce0e007867bb15d1030a"
+  },
+  "E60": {
+   "path": "/root/lightsem/outputs/shpongle_model_comparisons_20260928_v1/media/03_I_VR_P0/03_I_VR_P0_full_1080p_av1_render.json",
+   "size_bytes": 2905,
+   "sha256": "c7099350799582330c2a0de68b3103192cff7a9746737642c7b339e1245cff06"
+  },
+  "E61": {
+   "path": "/root/lightsem/outputs/shpongle_model_comparisons_20260928_v1/media/02_S_V6_P0/02_S_V6_P0_full_1080p_av1_render.json",
+   "size_bytes": 2905,
+   "sha256": "432978a638514015c7cc17b27d396b1860bb8a29c951b992b2645db5e24691ff"
+  },
+  "E62": {
+   "path": "/root/lightsem/outputs/shpongle_model_comparisons_20260928_v1/media/04_S_VR_P0_Ashuf/04_S_VR_P0_Ashuf_full_1080p_av1_render.json",
+   "size_bytes": 2936,
+   "sha256": "edb95ed0cb02dfc058b6be078dd327a759957fbc121de82c325345985334350a"
+  },
+  "E63": {
+   "path": "/root/lightsem/outputs/legacy_struct_intensity_20260928_v1/PREPARATION_FAILURE_V5.json",
+   "size_bytes": 3849,
+   "sha256": "a0e4aa78eedce5b873201f224a364a8a33a0d2bfa549ce8585e1f8c9732e59c6"
+  },
+  "E64": {
+   "path": "/root/lightsem/outputs/legacy_struct_intensity_20260928_v1/NATIVE_PREPARATION_EXECUTION_RESULT_V6.json",
+   "size_bytes": 2935,
+   "sha256": "82fda383caecea3707f83f23d49308fbce749944e51ef19eb67e90aa58e2d8d8"
+  },
+  "E65": {
+   "path": "/root/lightsem/outputs/legacy_struct_intensity_20260928_v1/preparation_resource_envelope_v5.json",
+   "size_bytes": 2628,
+   "sha256": "005c01bdff0a431105dbe5f582051f92229ef1391a88b62a345a5d6936402f3b"
+  },
+  "E66": {
+   "path": "/root/lightsem/outputs/legacy_struct_intensity_20260928_v1/preparation_resource_envelope_v6.json",
+   "size_bytes": 2628,
+   "sha256": "e0232a84eb81f5e57911e635ff2b4275b2d43345e447d27f30ae17c67c8f6de6"
+  },
+  "E67": {
+   "path": "/root/lightsem/docs/research/2026-09-22-color-beat/OBSERVER_PARALLEL_CAPTURE_POLICY_V1.json",
+   "size_bytes": 4179,
+   "sha256": "10631b3d2ab4827a46de166b96aa15cb5f5cd22cc3201c1030831615753c341b"
+  },
+  "E68": {
+   "path": "/root/lightsem/docs/research/2026-09-22-color-beat/OBSERVER_PARALLEL_CAPTURE_LAUNCH_V2.json",
+   "size_bytes": 22842,
+   "sha256": "bd9e0f8b48a3ff3776fb6d11eaa7d807da57c4c9ce44018aaa4ca41a8a404d49"
+  },
+  "E69": {
+   "path": "/root/lightsem/docs/research/2026-09-22-color-beat/OBSERVER_GPU_THROUGHPUT_POLICY_V1.json",
+   "size_bytes": 1284,
+   "sha256": "b6e11745d677068fb9d786dd20b824a95a7b8d80a43015d0374bd1fcba881550"
+  },
+  "E70": {
+   "path": "/root/lightsem/docs/research/2026-09-28-end-to-end/GPU_LEDGER_METADATA_REVIEW_BUDGET_V1.json",
+   "size_bytes": 514,
+   "sha256": "1daddb9ac5f619b979bc3e880101ec12cd66b279cd920b0edac444e35431092f"
+  }
+ }
+}
