@@ -6,6 +6,11 @@ The [September22 campaign](experiments/2026-09-22-color-beat/README.md) contains
 
 ## Where things live
 
+The [festival scene](docs/FESTIVAL_SCENE.md) adds a complete Blender venue and a
+configurable multi-universe DMX patch, offline music-video rendering, and a live
+Art-Net receiver. It expands the accepted controller into arbitrary fixture
+counts without changing the selected model or the existing diagnostic renderer.
+
 | Path | Purpose |
 | --- | --- |
 | `lightsem/model/light_layers/` | September 22 model, targets, training, evaluation, and overlay algorithms |
