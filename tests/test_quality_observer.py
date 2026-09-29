@@ -19,8 +19,8 @@ class ObserverTests(unittest.TestCase):
 
     def test_small_fast_jitter_does_not_pass_spatial_span(self):
         from lightsem.conductor.rig import canonical_rig
-        from lightsem.experiments.beat_conditioned_render import controls_to_dmx
-        from lightsem.experiments.beat_conditioned_data import NAMES
+        from lightsem.experiments.beat_conditioned.beat_conditioned_render import controls_to_dmx
+        from lightsem.experiments.beat_conditioned.beat_conditioned_data import NAMES
         rig=canonical_rig();frames=controls_to_dmx(np.zeros((400,21)),NAMES,10.)[0]
         for f in rig.fixtures:
             if f.kind!='moving_head':continue

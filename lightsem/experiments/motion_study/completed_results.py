@@ -7,7 +7,7 @@ from collections import defaultdict
 from pathlib import Path
 
 from .registration import PROBLEM
-from ..stage11_common import read_authenticated,authenticated_json,digest,verify_sources,verify_artifacts
+from ..stage11.stage11_common import read_authenticated,authenticated_json,digest,verify_sources,verify_artifacts
 
 ROOT = Path('/mnt/lightsem-data/experiments/lightsem/motion_native_audio_20260910')
 

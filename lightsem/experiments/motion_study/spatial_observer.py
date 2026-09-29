@@ -134,7 +134,7 @@ def gates(s,thresholds=THRESHOLDS,active=True):
 
 
 def encode_targets(targets,rig,level=.7):
-    from ..beat_conditioned_render import _angles
+    from ..beat_conditioned.beat_conditioned_render import _angles
     frames=np.zeros((len(targets),512),np.uint8)
     for i,f in enumerate(rig.by_kind('moving_head')):
         pan,tilt=_angles(targets[:,i]-f.position)

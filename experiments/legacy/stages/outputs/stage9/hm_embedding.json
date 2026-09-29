@@ -1,0 +1,103 @@
+{
+ "n_songs": 332,
+ "arms": {
+  "bus": {
+   "ap": 0.17506942898220101,
+   "delta_ap": 0.0,
+   "ci95": [
+    0.0,
+    0.0
+   ],
+   "ap_shift": 0.11940412423320289,
+   "n": 332
+  },
+  "bus+sem32": {
+   "ap": 0.19389349795889946,
+   "delta_ap": 0.018824068976698475,
+   "ci95": [
+    0.01626713007172102,
+    0.021253124049989625
+   ],
+   "ap_shift": 0.11760792326566522,
+   "n": 332
+  },
+  "bus+rhy32": {
+   "ap": 0.19426256099094577,
+   "delta_ap": 0.019193132008744763,
+   "ci95": [
+    0.016716475722054328,
+    0.021653457958322356
+   ],
+   "ap_shift": 0.11740697436157231,
+   "n": 332
+  },
+  "bus+sem32_resid": {
+   "ap": 0.19261757173172706,
+   "delta_ap": 0.01754814274952607,
+   "ci95": [
+    0.015251873613005104,
+    0.019998643993602898
+   ],
+   "ap_shift": 0.11744431869794743,
+   "n": 332
+  },
+  "bus+rhy32_resid": {
+   "ap": 0.19308145905463758,
+   "delta_ap": 0.018012030072436593,
+   "ci95": [
+    0.015546427603459208,
+    0.02055936490605865
+   ],
+   "ap_shift": 0.11702001585983011,
+   "n": 332
+  },
+  "bus+randproj32": {
+   "ap": 0.17505572427037452,
+   "delta_ap": -1.3704711826463245e-05,
+   "ci95": [
+    -3.16759842471312e-05,
+    3.0993228037067795e-08
+   ],
+   "ap_shift": 0.11940249933577153,
+   "n": 332
+  },
+  "sem32_only": {
+   "ap": 0.17909632541598805,
+   "delta_ap": 0.004026896433787037,
+   "ci95": [
+    -0.000653251763962565,
+    0.008684886464232022
+   ],
+   "ap_shift": 0.11216239380268095,
+   "n": 332
+  }
+ },
+ "song_id_probe": {
+  "embedding": 0.8343373493975904,
+  "bus": 0.03614457831325301,
+  "chance": 0.0030120481927710845
+ },
+ "gates": {
+  "G9.7-emb": {
+   "passed": false,
+   "evidence": "exp-016 ridge on JD visual events, 332 held-out songs, base AP 0.1751: bus+sem32 dAP +0.0188 CI [0.0163, 0.0213]; bus+rhy32 dAP +0.0192 CI [0.0167, 0.0217]; bus+sem32_resid dAP +0.0175 CI [0.0153, 0.02]; bus+rhy32_resid dAP +0.0180 CI [0.0155, 0.0206]; bus+randproj32 dAP -0.0000 CI [-0.0, 0.0]; sem32_only dAP +0.0040 CI [-0.0007, 0.0087]. Best group bus+rhy32: raw +0.0192, after subtracting the song mean +0.0180, random projection -0.0000 (gate: residual >= +0.02 over the bus and over the random projection)."
+  },
+  "G9.7-leak": {
+   "passed": true,
+   "evidence": "song-ID kNN probe: two halves of a song find each other 83.4% of the time on the raw embedding (bus scalars 3.6%, chance 0.30%); gain kept after subtracting the song mean: +0.0180 of +0.0192."
+  }
+ },
+ "measurements": [
+  {
+   "diagnostic_id": "event-ap-lift-by-feature-family",
+   "before": 2.0211,
+   "after": 2.229
+  }
+ ],
+ "config": {
+  "model": "MERT-v1-330M frozen, layers 10-13 (semantic) and 15-16 (rhythm) mean-pooled to 10 Hz, PCA 32 d fitted per fold on training songs",
+  "audit": "run_stage9_embedding.py: exp-016 ridge on JD visual scene-change events, 5-fold by song, random-projection width control, song-mean residual, song-ID kNN probe"
+ },
+ "notes": "H-M frozen MERT layer groups on JD visual events (332 songs). exp-016 ridge on JD visual events, 332 held-out songs, base AP 0.1751: bus+sem32 dAP +0.0188 CI [0.0163, 0.0213]; bus+rhy32 dAP +0.0192 CI [0.0167, 0.0217]; bus+sem32_resid dAP +0.0175 CI [0.0153, 0.02]; bus+rhy32_resid dAP +0.0180 CI [0.0155, 0.0206]; bus+randproj32 dAP -0.0000 CI [-0.0, 0.0]; sem32_only dAP +0.0040 CI [-0.0007, 0.0087]. Best group bus+rhy32: raw +0.0192, after subtracting the song mean +0.0180, random projection -0.0000 (gate: residual >= +0.02 over the bus and over the random projection). song-ID kNN probe: two halves of a song find each other 83.4% of the time on the raw embedding (bus scalars 3.6%, chance 0.30%); gain kept after subtracting the song mean: +0.0180 of +0.0192.",
+ "elapsed_s": 137.04415655136108
+}

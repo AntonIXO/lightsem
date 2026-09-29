@@ -5,7 +5,7 @@ import sys
 from pathlib import Path
 
 from .registration import PROBLEM
-from ..stage11_common import authenticated_json,read_authenticated,digest,verify_sources,gpu_lock
+from ..stage11.stage11_common import authenticated_json,read_authenticated,digest,verify_sources,gpu_lock
 
 ROOT = Path('/mnt/lightsem-data/experiments/lightsem/motion_native_audio_20260910')
 OUT = ROOT/'exposure_roles'

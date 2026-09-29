@@ -10,8 +10,8 @@ import unittest
 from unittest.mock import patch
 import tempfile
 
-from lightsem.experiments.light_layers import visual as v
-from lightsem.experiments.stage11_data import resize_mask, UI
+from lightsem.model.light_layers import visual as v
+from lightsem.experiments.stage11.stage11_data import resize_mask, UI
 
 
 class VisualTests(unittest.TestCase):
@@ -22,7 +22,7 @@ class VisualTests(unittest.TestCase):
 
     def test_import_does_not_force_torch(self):
         tmp_path = self.tmp_path
-        cp = subprocess.run([sys.executable, "-c", "import sys; from lightsem.experiments.light_layers import visual; assert 'torch' not in sys.modules; assert 'ultralytics' not in sys.modules"], capture_output=True, text=True)
+        cp = subprocess.run([sys.executable, "-c", "import sys; from lightsem.model.light_layers import visual; assert 'torch' not in sys.modules; assert 'ultralytics' not in sys.modules"], capture_output=True, text=True)
         assert cp.returncode == 0, cp.stderr
 
 

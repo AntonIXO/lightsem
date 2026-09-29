@@ -6,8 +6,8 @@ from pathlib import Path
 import numpy as np
 
 from .audio_prepare import ROOT
-from ..night_common import BASE
-from ..stage11_common import read_authenticated,authenticated_json,digest
+from ..night.night_common import BASE
+from ..stage11.stage11_common import read_authenticated,authenticated_json,digest
 
 
 def loudness(audio_path,output):

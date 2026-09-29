@@ -2,8 +2,8 @@ import json
 from pathlib import Path
 import tempfile
 import unittest
-from lightsem.experiments.stage11_rating import rate
-from lightsem.experiments.stage11_common import digest
+from lightsem.experiments.stage11.stage11_rating import rate
+from lightsem.experiments.stage11.stage11_common import digest
 
 class RatingTests(unittest.TestCase):
     def test_unknown_and_tie_are_distinct_and_resume_is_per_rater(self):

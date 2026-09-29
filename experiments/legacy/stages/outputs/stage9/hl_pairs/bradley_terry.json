@@ -1,0 +1,1220 @@
+{
+  "schema_version": 2,
+  "n_ratings": 39,
+  "raters": {
+    "anton": 39
+  },
+  "n_unique_pairs": 39,
+  "unrated_pair_ids": [],
+  "canonical_song_unresolved_pair_ids": [],
+  "question_agreement_count": 33,
+  "questions": {
+    "fits_music": {
+      "answer_counts": {
+        "a": 17,
+        "b": 22
+      },
+      "n_decided": 39,
+      "n_unique_pairs": 39,
+      "n_song_groups": 29,
+      "n_foil_rows": 0,
+      "n_foil_decided": 0,
+      "foil_pass_rate": null,
+      "gate_G9.6-acc": false,
+      "heldout_accuracy": 0.5641025641025641,
+      "song_macro_accuracy": 0.5804597701149425,
+      "chance_accuracy": 0.5,
+      "train_fold_majority_accuracy": 0.5641025641025641,
+      "conditional_oof_song_bootstrap_ci95": [
+        0.42857142857142855,
+        0.7058823529411765
+      ],
+      "oof_log_loss": 0.6729447879436204,
+      "w": {
+        "base_level": -0.5787503179457597,
+        "bounce_depth": 0.7814926369463495,
+        "contrast_gain": -0.3931002349032872,
+        "blinder_decay_s": 0.3211281410946779,
+        "strobe_decay_s": -0.22149414530099806,
+        "spatial_sigma": -0.3695754533353585,
+        "slew_hue": -0.4019355571569468,
+        "slew_wash_dimmer": -0.6083452549438108,
+        "onset_percentile": -0.09617325795047256
+      },
+      "fitted_knobs": {
+        "base_level": 0.0898477511347209,
+        "bounce_depth": 0.9735347536699621,
+        "contrast_gain": 0.6983261323977656,
+        "blinder_decay_s": 0.2583180601402453,
+        "strobe_decay_s": 0.10741981584513566,
+        "spatial_sigma": 0.34913790401870354,
+        "slew_hue": 0.36807245382585574,
+        "slew_wash_dimmer": 2.9509340095527286,
+        "onset_percentile": 83.86850750525268
+      },
+      "candidate_only": true,
+      "folds": [
+        {
+          "fold": 0,
+          "train_songs": [
+            "song:--74o20SmOs",
+            "song:0bZbusRBSvc",
+            "song:2WzjnaFjHYY",
+            "song:8B6VxbBLDEg",
+            "song:981MHMgULkk",
+            "song:CdXP-aZLuOI",
+            "song:Cnjnj8QWo4M",
+            "song:EH-Ig1Xv0vU",
+            "song:NI31AWYYuFI",
+            "song:OcYYKHVN0MQ",
+            "song:RIkexdTR6_M",
+            "song:RocuEwLM5fQ",
+            "song:Tjbw_Yc48fs",
+            "song:UnbJ4AX6wTA",
+            "song:ZoBKemKNjM4",
+            "song:gDGtf4yMW5I",
+            "song:gE8dDV-XCEs",
+            "song:kZGzpaJfkWc",
+            "song:l8WxpazGFug",
+            "song:lg-XapP0epM",
+            "song:moryohPkTSY",
+            "song:u3S8T3jZA6A",
+            "song:xV3dqkP1RrY"
+          ],
+          "test_songs": [
+            "song:11qRVJWomH8",
+            "song:4QyGK8HtgLc",
+            "song:HyiOce29uio",
+            "song:KatqpM7-x9I",
+            "song:TPXoxjy-RKk",
+            "song:bYjI048jg40"
+          ],
+          "test_pair_ids": [
+            "pair002",
+            "pair004",
+            "pair009",
+            "pair014",
+            "pair027",
+            "pair029",
+            "pair034"
+          ]
+        },
+        {
+          "fold": 1,
+          "train_songs": [
+            "song:--74o20SmOs",
+            "song:0bZbusRBSvc",
+            "song:11qRVJWomH8",
+            "song:4QyGK8HtgLc",
+            "song:8B6VxbBLDEg",
+            "song:CdXP-aZLuOI",
+            "song:Cnjnj8QWo4M",
+            "song:EH-Ig1Xv0vU",
+            "song:HyiOce29uio",
+            "song:KatqpM7-x9I",
+            "song:NI31AWYYuFI",
+            "song:OcYYKHVN0MQ",
+            "song:RIkexdTR6_M",
+            "song:RocuEwLM5fQ",
+            "song:TPXoxjy-RKk",
+            "song:Tjbw_Yc48fs",
+            "song:UnbJ4AX6wTA",
+            "song:ZoBKemKNjM4",
+            "song:bYjI048jg40",
+            "song:gE8dDV-XCEs",
+            "song:kZGzpaJfkWc",
+            "song:l8WxpazGFug",
+            "song:moryohPkTSY"
+          ],
+          "test_songs": [
+            "song:2WzjnaFjHYY",
+            "song:981MHMgULkk",
+            "song:gDGtf4yMW5I",
+            "song:lg-XapP0epM",
+            "song:u3S8T3jZA6A",
+            "song:xV3dqkP1RrY"
+          ],
+          "test_pair_ids": [
+            "pair005",
+            "pair008",
+            "pair020",
+            "pair021",
+            "pair024",
+            "pair030",
+            "pair032",
+            "pair035",
+            "pair036"
+          ]
+        },
+        {
+          "fold": 2,
+          "train_songs": [
+            "song:0bZbusRBSvc",
+            "song:11qRVJWomH8",
+            "song:2WzjnaFjHYY",
+            "song:4QyGK8HtgLc",
+            "song:8B6VxbBLDEg",
+            "song:981MHMgULkk",
+            "song:CdXP-aZLuOI",
+            "song:EH-Ig1Xv0vU",
+            "song:HyiOce29uio",
+            "song:KatqpM7-x9I",
+            "song:OcYYKHVN0MQ",
+            "song:RIkexdTR6_M",
+            "song:RocuEwLM5fQ",
+            "song:TPXoxjy-RKk",
+            "song:Tjbw_Yc48fs",
+            "song:bYjI048jg40",
+            "song:gDGtf4yMW5I",
+            "song:gE8dDV-XCEs",
+            "song:l8WxpazGFug",
+            "song:lg-XapP0epM",
+            "song:moryohPkTSY",
+            "song:u3S8T3jZA6A",
+            "song:xV3dqkP1RrY"
+          ],
+          "test_songs": [
+            "song:--74o20SmOs",
+            "song:Cnjnj8QWo4M",
+            "song:NI31AWYYuFI",
+            "song:UnbJ4AX6wTA",
+            "song:ZoBKemKNjM4",
+            "song:kZGzpaJfkWc"
+          ],
+          "test_pair_ids": [
+            "pair003",
+            "pair010",
+            "pair012",
+            "pair013",
+            "pair016",
+            "pair023",
+            "pair025",
+            "pair037",
+            "pair038"
+          ]
+        },
+        {
+          "fold": 3,
+          "train_songs": [
+            "song:--74o20SmOs",
+            "song:0bZbusRBSvc",
+            "song:11qRVJWomH8",
+            "song:2WzjnaFjHYY",
+            "song:4QyGK8HtgLc",
+            "song:981MHMgULkk",
+            "song:Cnjnj8QWo4M",
+            "song:EH-Ig1Xv0vU",
+            "song:HyiOce29uio",
+            "song:KatqpM7-x9I",
+            "song:NI31AWYYuFI",
+            "song:RocuEwLM5fQ",
+            "song:TPXoxjy-RKk",
+            "song:UnbJ4AX6wTA",
+            "song:ZoBKemKNjM4",
+            "song:bYjI048jg40",
+            "song:gDGtf4yMW5I",
+            "song:kZGzpaJfkWc",
+            "song:l8WxpazGFug",
+            "song:lg-XapP0epM",
+            "song:moryohPkTSY",
+            "song:u3S8T3jZA6A",
+            "song:xV3dqkP1RrY"
+          ],
+          "test_songs": [
+            "song:8B6VxbBLDEg",
+            "song:CdXP-aZLuOI",
+            "song:OcYYKHVN0MQ",
+            "song:RIkexdTR6_M",
+            "song:Tjbw_Yc48fs",
+            "song:gE8dDV-XCEs"
+          ],
+          "test_pair_ids": [
+            "pair001",
+            "pair011",
+            "pair017",
+            "pair019",
+            "pair022",
+            "pair028",
+            "pair033"
+          ]
+        },
+        {
+          "fold": 4,
+          "train_songs": [
+            "song:--74o20SmOs",
+            "song:11qRVJWomH8",
+            "song:2WzjnaFjHYY",
+            "song:4QyGK8HtgLc",
+            "song:8B6VxbBLDEg",
+            "song:981MHMgULkk",
+            "song:CdXP-aZLuOI",
+            "song:Cnjnj8QWo4M",
+            "song:HyiOce29uio",
+            "song:KatqpM7-x9I",
+            "song:NI31AWYYuFI",
+            "song:OcYYKHVN0MQ",
+            "song:RIkexdTR6_M",
+            "song:TPXoxjy-RKk",
+            "song:Tjbw_Yc48fs",
+            "song:UnbJ4AX6wTA",
+            "song:ZoBKemKNjM4",
+            "song:bYjI048jg40",
+            "song:gDGtf4yMW5I",
+            "song:gE8dDV-XCEs",
+            "song:kZGzpaJfkWc",
+            "song:lg-XapP0epM",
+            "song:u3S8T3jZA6A",
+            "song:xV3dqkP1RrY"
+          ],
+          "test_songs": [
+            "song:0bZbusRBSvc",
+            "song:EH-Ig1Xv0vU",
+            "song:RocuEwLM5fQ",
+            "song:l8WxpazGFug",
+            "song:moryohPkTSY"
+          ],
+          "test_pair_ids": [
+            "pair000",
+            "pair006",
+            "pair007",
+            "pair015",
+            "pair018",
+            "pair026",
+            "pair031"
+          ]
+        }
+      ],
+      "out_of_fold": [
+        {
+          "id": "pair000",
+          "rater": "anton",
+          "song_group": "song:RocuEwLM5fQ",
+          "answer": "a",
+          "probability_a": 0.6201427024477422,
+          "correct": 1.0
+        },
+        {
+          "id": "pair001",
+          "rater": "anton",
+          "song_group": "song:RIkexdTR6_M",
+          "answer": "b",
+          "probability_a": 0.6297277566755306,
+          "correct": 0.0
+        },
+        {
+          "id": "pair002",
+          "rater": "anton",
+          "song_group": "song:4QyGK8HtgLc",
+          "answer": "a",
+          "probability_a": 0.6001728046866529,
+          "correct": 1.0
+        },
+        {
+          "id": "pair003",
+          "rater": "anton",
+          "song_group": "song:Cnjnj8QWo4M",
+          "answer": "a",
+          "probability_a": 0.4268103340432062,
+          "correct": 0.0
+        },
+        {
+          "id": "pair004",
+          "rater": "anton",
+          "song_group": "song:11qRVJWomH8",
+          "answer": "b",
+          "probability_a": 0.17132734216627796,
+          "correct": 1.0
+        },
+        {
+          "id": "pair005",
+          "rater": "anton",
+          "song_group": "song:2WzjnaFjHYY",
+          "answer": "a",
+          "probability_a": 0.3214256677928496,
+          "correct": 0.0
+        },
+        {
+          "id": "pair006",
+          "rater": "anton",
+          "song_group": "song:moryohPkTSY",
+          "answer": "b",
+          "probability_a": 0.6144150191147592,
+          "correct": 0.0
+        },
+        {
+          "id": "pair007",
+          "rater": "anton",
+          "song_group": "song:EH-Ig1Xv0vU",
+          "answer": "b",
+          "probability_a": 0.2555089518482335,
+          "correct": 1.0
+        },
+        {
+          "id": "pair008",
+          "rater": "anton",
+          "song_group": "song:u3S8T3jZA6A",
+          "answer": "b",
+          "probability_a": 0.7153441753056553,
+          "correct": 0.0
+        },
+        {
+          "id": "pair009",
+          "rater": "anton",
+          "song_group": "song:TPXoxjy-RKk",
+          "answer": "a",
+          "probability_a": 0.6296712606097359,
+          "correct": 1.0
+        },
+        {
+          "id": "pair010",
+          "rater": "anton",
+          "song_group": "song:NI31AWYYuFI",
+          "answer": "b",
+          "probability_a": 0.6938195641982711,
+          "correct": 0.0
+        },
+        {
+          "id": "pair011",
+          "rater": "anton",
+          "song_group": "song:Tjbw_Yc48fs",
+          "answer": "b",
+          "probability_a": 0.6009899559272598,
+          "correct": 0.0
+        },
+        {
+          "id": "pair012",
+          "rater": "anton",
+          "song_group": "song:UnbJ4AX6wTA",
+          "answer": "a",
+          "probability_a": 0.5073910502839235,
+          "correct": 1.0
+        },
+        {
+          "id": "pair013",
+          "rater": "anton",
+          "song_group": "song:ZoBKemKNjM4",
+          "answer": "a",
+          "probability_a": 0.5621473373250616,
+          "correct": 1.0
+        },
+        {
+          "id": "pair014",
+          "rater": "anton",
+          "song_group": "song:bYjI048jg40",
+          "answer": "a",
+          "probability_a": 0.38707357886131266,
+          "correct": 0.0
+        },
+        {
+          "id": "pair015",
+          "rater": "anton",
+          "song_group": "song:0bZbusRBSvc",
+          "answer": "b",
+          "probability_a": 0.50119101066512,
+          "correct": 0.0
+        },
+        {
+          "id": "pair016",
+          "rater": "anton",
+          "song_group": "song:--74o20SmOs",
+          "answer": "b",
+          "probability_a": 0.8294139508841771,
+          "correct": 0.0
+        },
+        {
+          "id": "pair017",
+          "rater": "anton",
+          "song_group": "song:OcYYKHVN0MQ",
+          "answer": "b",
+          "probability_a": 0.35808389372150573,
+          "correct": 1.0
+        },
+        {
+          "id": "pair018",
+          "rater": "anton",
+          "song_group": "song:moryohPkTSY",
+          "answer": "a",
+          "probability_a": 0.6485527258595404,
+          "correct": 1.0
+        },
+        {
+          "id": "pair019",
+          "rater": "anton",
+          "song_group": "song:CdXP-aZLuOI",
+          "answer": "a",
+          "probability_a": 0.7586846060326587,
+          "correct": 1.0
+        },
+        {
+          "id": "pair020",
+          "rater": "anton",
+          "song_group": "song:981MHMgULkk",
+          "answer": "a",
+          "probability_a": 0.5958883626073921,
+          "correct": 1.0
+        },
+        {
+          "id": "pair021",
+          "rater": "anton",
+          "song_group": "song:gDGtf4yMW5I",
+          "answer": "b",
+          "probability_a": 0.3773714825066451,
+          "correct": 1.0
+        },
+        {
+          "id": "pair022",
+          "rater": "anton",
+          "song_group": "song:OcYYKHVN0MQ",
+          "answer": "b",
+          "probability_a": 0.5983184847904757,
+          "correct": 0.0
+        },
+        {
+          "id": "pair023",
+          "rater": "anton",
+          "song_group": "song:ZoBKemKNjM4",
+          "answer": "b",
+          "probability_a": 0.3980855650996788,
+          "correct": 1.0
+        },
+        {
+          "id": "pair024",
+          "rater": "anton",
+          "song_group": "song:981MHMgULkk",
+          "answer": "b",
+          "probability_a": 0.5178367132263497,
+          "correct": 0.0
+        },
+        {
+          "id": "pair025",
+          "rater": "anton",
+          "song_group": "song:NI31AWYYuFI",
+          "answer": "a",
+          "probability_a": 0.5675084525780605,
+          "correct": 1.0
+        },
+        {
+          "id": "pair026",
+          "rater": "anton",
+          "song_group": "song:moryohPkTSY",
+          "answer": "b",
+          "probability_a": 0.3967954047260354,
+          "correct": 1.0
+        },
+        {
+          "id": "pair027",
+          "rater": "anton",
+          "song_group": "song:HyiOce29uio",
+          "answer": "b",
+          "probability_a": 0.5750486008583374,
+          "correct": 0.0
+        },
+        {
+          "id": "pair028",
+          "rater": "anton",
+          "song_group": "song:gE8dDV-XCEs",
+          "answer": "a",
+          "probability_a": 0.5307288480570973,
+          "correct": 1.0
+        },
+        {
+          "id": "pair029",
+          "rater": "anton",
+          "song_group": "song:KatqpM7-x9I",
+          "answer": "a",
+          "probability_a": 0.7749281691768549,
+          "correct": 1.0
+        },
+        {
+          "id": "pair030",
+          "rater": "anton",
+          "song_group": "song:981MHMgULkk",
+          "answer": "b",
+          "probability_a": 0.5601834297087508,
+          "correct": 0.0
+        },
+        {
+          "id": "pair031",
+          "rater": "anton",
+          "song_group": "song:l8WxpazGFug",
+          "answer": "a",
+          "probability_a": 0.5354200517142391,
+          "correct": 1.0
+        },
+        {
+          "id": "pair032",
+          "rater": "anton",
+          "song_group": "song:xV3dqkP1RrY",
+          "answer": "b",
+          "probability_a": 0.34904256026963104,
+          "correct": 1.0
+        },
+        {
+          "id": "pair033",
+          "rater": "anton",
+          "song_group": "song:8B6VxbBLDEg",
+          "answer": "b",
+          "probability_a": 0.39372377831135996,
+          "correct": 1.0
+        },
+        {
+          "id": "pair034",
+          "rater": "anton",
+          "song_group": "song:KatqpM7-x9I",
+          "answer": "a",
+          "probability_a": 0.40991204011387566,
+          "correct": 0.0
+        },
+        {
+          "id": "pair035",
+          "rater": "anton",
+          "song_group": "song:gDGtf4yMW5I",
+          "answer": "b",
+          "probability_a": 0.5257662427411516,
+          "correct": 0.0
+        },
+        {
+          "id": "pair036",
+          "rater": "anton",
+          "song_group": "song:lg-XapP0epM",
+          "answer": "a",
+          "probability_a": 0.7880680709333716,
+          "correct": 1.0
+        },
+        {
+          "id": "pair037",
+          "rater": "anton",
+          "song_group": "song:NI31AWYYuFI",
+          "answer": "b",
+          "probability_a": 0.526456261847668,
+          "correct": 0.0
+        },
+        {
+          "id": "pair038",
+          "rater": "anton",
+          "song_group": "song:kZGzpaJfkWc",
+          "answer": "b",
+          "probability_a": 0.21551431038949584,
+          "correct": 1.0
+        }
+      ]
+    },
+    "engineer": {
+      "answer_counts": {
+        "a": 19,
+        "b": 20
+      },
+      "n_decided": 39,
+      "n_unique_pairs": 39,
+      "n_song_groups": 29,
+      "n_foil_rows": 0,
+      "n_foil_decided": 0,
+      "foil_pass_rate": null,
+      "gate_G9.6-acc": false,
+      "heldout_accuracy": 0.5897435897435898,
+      "song_macro_accuracy": 0.6091954022988506,
+      "chance_accuracy": 0.5,
+      "train_fold_majority_accuracy": 0.41025641025641024,
+      "conditional_oof_song_bootstrap_ci95": [
+        0.4473684210526316,
+        0.7382142857142852
+      ],
+      "oof_log_loss": 0.7387198249292286,
+      "w": {
+        "base_level": -0.7290328646926849,
+        "bounce_depth": 0.8304387436390248,
+        "contrast_gain": -0.5616660444150311,
+        "blinder_decay_s": -0.3730245235483168,
+        "strobe_decay_s": 0.06380940372578439,
+        "spatial_sigma": -0.4904946587929927,
+        "slew_hue": -0.34405252364452404,
+        "slew_wash_dimmer": -0.3619917565687177,
+        "onset_percentile": -0.0807875856417817
+      },
+      "fitted_knobs": {
+        "base_level": 0.08334389077216453,
+        "bounce_depth": 0.9735347536699621,
+        "contrast_gain": 0.6418812561255269,
+        "blinder_decay_s": 0.18256664502460135,
+        "strobe_decay_s": 0.12389029355984495,
+        "spatial_sigma": 0.3286546100621914,
+        "slew_hue": 0.37888067769815376,
+        "slew_wash_dimmer": 3.3377551920325876,
+        "onset_percentile": 84.51618222565475
+      },
+      "candidate_only": true,
+      "folds": [
+        {
+          "fold": 0,
+          "train_songs": [
+            "song:--74o20SmOs",
+            "song:0bZbusRBSvc",
+            "song:2WzjnaFjHYY",
+            "song:8B6VxbBLDEg",
+            "song:981MHMgULkk",
+            "song:CdXP-aZLuOI",
+            "song:Cnjnj8QWo4M",
+            "song:EH-Ig1Xv0vU",
+            "song:NI31AWYYuFI",
+            "song:OcYYKHVN0MQ",
+            "song:RIkexdTR6_M",
+            "song:RocuEwLM5fQ",
+            "song:Tjbw_Yc48fs",
+            "song:UnbJ4AX6wTA",
+            "song:ZoBKemKNjM4",
+            "song:gDGtf4yMW5I",
+            "song:gE8dDV-XCEs",
+            "song:kZGzpaJfkWc",
+            "song:l8WxpazGFug",
+            "song:lg-XapP0epM",
+            "song:moryohPkTSY",
+            "song:u3S8T3jZA6A",
+            "song:xV3dqkP1RrY"
+          ],
+          "test_songs": [
+            "song:11qRVJWomH8",
+            "song:4QyGK8HtgLc",
+            "song:HyiOce29uio",
+            "song:KatqpM7-x9I",
+            "song:TPXoxjy-RKk",
+            "song:bYjI048jg40"
+          ],
+          "test_pair_ids": [
+            "pair002",
+            "pair004",
+            "pair009",
+            "pair014",
+            "pair027",
+            "pair029",
+            "pair034"
+          ]
+        },
+        {
+          "fold": 1,
+          "train_songs": [
+            "song:--74o20SmOs",
+            "song:0bZbusRBSvc",
+            "song:11qRVJWomH8",
+            "song:4QyGK8HtgLc",
+            "song:8B6VxbBLDEg",
+            "song:CdXP-aZLuOI",
+            "song:Cnjnj8QWo4M",
+            "song:EH-Ig1Xv0vU",
+            "song:HyiOce29uio",
+            "song:KatqpM7-x9I",
+            "song:NI31AWYYuFI",
+            "song:OcYYKHVN0MQ",
+            "song:RIkexdTR6_M",
+            "song:RocuEwLM5fQ",
+            "song:TPXoxjy-RKk",
+            "song:Tjbw_Yc48fs",
+            "song:UnbJ4AX6wTA",
+            "song:ZoBKemKNjM4",
+            "song:bYjI048jg40",
+            "song:gE8dDV-XCEs",
+            "song:kZGzpaJfkWc",
+            "song:l8WxpazGFug",
+            "song:moryohPkTSY"
+          ],
+          "test_songs": [
+            "song:2WzjnaFjHYY",
+            "song:981MHMgULkk",
+            "song:gDGtf4yMW5I",
+            "song:lg-XapP0epM",
+            "song:u3S8T3jZA6A",
+            "song:xV3dqkP1RrY"
+          ],
+          "test_pair_ids": [
+            "pair005",
+            "pair008",
+            "pair020",
+            "pair021",
+            "pair024",
+            "pair030",
+            "pair032",
+            "pair035",
+            "pair036"
+          ]
+        },
+        {
+          "fold": 2,
+          "train_songs": [
+            "song:0bZbusRBSvc",
+            "song:11qRVJWomH8",
+            "song:2WzjnaFjHYY",
+            "song:4QyGK8HtgLc",
+            "song:8B6VxbBLDEg",
+            "song:981MHMgULkk",
+            "song:CdXP-aZLuOI",
+            "song:EH-Ig1Xv0vU",
+            "song:HyiOce29uio",
+            "song:KatqpM7-x9I",
+            "song:OcYYKHVN0MQ",
+            "song:RIkexdTR6_M",
+            "song:RocuEwLM5fQ",
+            "song:TPXoxjy-RKk",
+            "song:Tjbw_Yc48fs",
+            "song:bYjI048jg40",
+            "song:gDGtf4yMW5I",
+            "song:gE8dDV-XCEs",
+            "song:l8WxpazGFug",
+            "song:lg-XapP0epM",
+            "song:moryohPkTSY",
+            "song:u3S8T3jZA6A",
+            "song:xV3dqkP1RrY"
+          ],
+          "test_songs": [
+            "song:--74o20SmOs",
+            "song:Cnjnj8QWo4M",
+            "song:NI31AWYYuFI",
+            "song:UnbJ4AX6wTA",
+            "song:ZoBKemKNjM4",
+            "song:kZGzpaJfkWc"
+          ],
+          "test_pair_ids": [
+            "pair003",
+            "pair010",
+            "pair012",
+            "pair013",
+            "pair016",
+            "pair023",
+            "pair025",
+            "pair037",
+            "pair038"
+          ]
+        },
+        {
+          "fold": 3,
+          "train_songs": [
+            "song:--74o20SmOs",
+            "song:0bZbusRBSvc",
+            "song:11qRVJWomH8",
+            "song:2WzjnaFjHYY",
+            "song:4QyGK8HtgLc",
+            "song:981MHMgULkk",
+            "song:Cnjnj8QWo4M",
+            "song:EH-Ig1Xv0vU",
+            "song:HyiOce29uio",
+            "song:KatqpM7-x9I",
+            "song:NI31AWYYuFI",
+            "song:RocuEwLM5fQ",
+            "song:TPXoxjy-RKk",
+            "song:UnbJ4AX6wTA",
+            "song:ZoBKemKNjM4",
+            "song:bYjI048jg40",
+            "song:gDGtf4yMW5I",
+            "song:kZGzpaJfkWc",
+            "song:l8WxpazGFug",
+            "song:lg-XapP0epM",
+            "song:moryohPkTSY",
+            "song:u3S8T3jZA6A",
+            "song:xV3dqkP1RrY"
+          ],
+          "test_songs": [
+            "song:8B6VxbBLDEg",
+            "song:CdXP-aZLuOI",
+            "song:OcYYKHVN0MQ",
+            "song:RIkexdTR6_M",
+            "song:Tjbw_Yc48fs",
+            "song:gE8dDV-XCEs"
+          ],
+          "test_pair_ids": [
+            "pair001",
+            "pair011",
+            "pair017",
+            "pair019",
+            "pair022",
+            "pair028",
+            "pair033"
+          ]
+        },
+        {
+          "fold": 4,
+          "train_songs": [
+            "song:--74o20SmOs",
+            "song:11qRVJWomH8",
+            "song:2WzjnaFjHYY",
+            "song:4QyGK8HtgLc",
+            "song:8B6VxbBLDEg",
+            "song:981MHMgULkk",
+            "song:CdXP-aZLuOI",
+            "song:Cnjnj8QWo4M",
+            "song:HyiOce29uio",
+            "song:KatqpM7-x9I",
+            "song:NI31AWYYuFI",
+            "song:OcYYKHVN0MQ",
+            "song:RIkexdTR6_M",
+            "song:TPXoxjy-RKk",
+            "song:Tjbw_Yc48fs",
+            "song:UnbJ4AX6wTA",
+            "song:ZoBKemKNjM4",
+            "song:bYjI048jg40",
+            "song:gDGtf4yMW5I",
+            "song:gE8dDV-XCEs",
+            "song:kZGzpaJfkWc",
+            "song:lg-XapP0epM",
+            "song:u3S8T3jZA6A",
+            "song:xV3dqkP1RrY"
+          ],
+          "test_songs": [
+            "song:0bZbusRBSvc",
+            "song:EH-Ig1Xv0vU",
+            "song:RocuEwLM5fQ",
+            "song:l8WxpazGFug",
+            "song:moryohPkTSY"
+          ],
+          "test_pair_ids": [
+            "pair000",
+            "pair006",
+            "pair007",
+            "pair015",
+            "pair018",
+            "pair026",
+            "pair031"
+          ]
+        }
+      ],
+      "out_of_fold": [
+        {
+          "id": "pair000",
+          "rater": "anton",
+          "song_group": "song:RocuEwLM5fQ",
+          "answer": "a",
+          "probability_a": 0.5559410978502989,
+          "correct": 1.0
+        },
+        {
+          "id": "pair001",
+          "rater": "anton",
+          "song_group": "song:RIkexdTR6_M",
+          "answer": "a",
+          "probability_a": 0.6329001052751004,
+          "correct": 1.0
+        },
+        {
+          "id": "pair002",
+          "rater": "anton",
+          "song_group": "song:4QyGK8HtgLc",
+          "answer": "b",
+          "probability_a": 0.7595719780353367,
+          "correct": 0.0
+        },
+        {
+          "id": "pair003",
+          "rater": "anton",
+          "song_group": "song:Cnjnj8QWo4M",
+          "answer": "b",
+          "probability_a": 0.4748402779092225,
+          "correct": 1.0
+        },
+        {
+          "id": "pair004",
+          "rater": "anton",
+          "song_group": "song:11qRVJWomH8",
+          "answer": "a",
+          "probability_a": 0.1066761118884541,
+          "correct": 0.0
+        },
+        {
+          "id": "pair005",
+          "rater": "anton",
+          "song_group": "song:2WzjnaFjHYY",
+          "answer": "a",
+          "probability_a": 0.2988648855847679,
+          "correct": 0.0
+        },
+        {
+          "id": "pair006",
+          "rater": "anton",
+          "song_group": "song:moryohPkTSY",
+          "answer": "a",
+          "probability_a": 0.44517354223528244,
+          "correct": 0.0
+        },
+        {
+          "id": "pair007",
+          "rater": "anton",
+          "song_group": "song:EH-Ig1Xv0vU",
+          "answer": "b",
+          "probability_a": 0.4565105960268631,
+          "correct": 1.0
+        },
+        {
+          "id": "pair008",
+          "rater": "anton",
+          "song_group": "song:u3S8T3jZA6A",
+          "answer": "b",
+          "probability_a": 0.5698032109248018,
+          "correct": 0.0
+        },
+        {
+          "id": "pair009",
+          "rater": "anton",
+          "song_group": "song:TPXoxjy-RKk",
+          "answer": "a",
+          "probability_a": 0.698154334153656,
+          "correct": 1.0
+        },
+        {
+          "id": "pair010",
+          "rater": "anton",
+          "song_group": "song:NI31AWYYuFI",
+          "answer": "a",
+          "probability_a": 0.6617080159270159,
+          "correct": 1.0
+        },
+        {
+          "id": "pair011",
+          "rater": "anton",
+          "song_group": "song:Tjbw_Yc48fs",
+          "answer": "b",
+          "probability_a": 0.6441629686907346,
+          "correct": 0.0
+        },
+        {
+          "id": "pair012",
+          "rater": "anton",
+          "song_group": "song:UnbJ4AX6wTA",
+          "answer": "a",
+          "probability_a": 0.5214856437681087,
+          "correct": 1.0
+        },
+        {
+          "id": "pair013",
+          "rater": "anton",
+          "song_group": "song:ZoBKemKNjM4",
+          "answer": "a",
+          "probability_a": 0.4279175872852037,
+          "correct": 0.0
+        },
+        {
+          "id": "pair014",
+          "rater": "anton",
+          "song_group": "song:bYjI048jg40",
+          "answer": "a",
+          "probability_a": 0.29586797141148036,
+          "correct": 0.0
+        },
+        {
+          "id": "pair015",
+          "rater": "anton",
+          "song_group": "song:0bZbusRBSvc",
+          "answer": "b",
+          "probability_a": 0.3998765126560983,
+          "correct": 1.0
+        },
+        {
+          "id": "pair016",
+          "rater": "anton",
+          "song_group": "song:--74o20SmOs",
+          "answer": "b",
+          "probability_a": 0.8568550143701724,
+          "correct": 0.0
+        },
+        {
+          "id": "pair017",
+          "rater": "anton",
+          "song_group": "song:OcYYKHVN0MQ",
+          "answer": "b",
+          "probability_a": 0.3818700922253581,
+          "correct": 1.0
+        },
+        {
+          "id": "pair018",
+          "rater": "anton",
+          "song_group": "song:moryohPkTSY",
+          "answer": "a",
+          "probability_a": 0.6424315346566457,
+          "correct": 1.0
+        },
+        {
+          "id": "pair019",
+          "rater": "anton",
+          "song_group": "song:CdXP-aZLuOI",
+          "answer": "a",
+          "probability_a": 0.5481182973868255,
+          "correct": 1.0
+        },
+        {
+          "id": "pair020",
+          "rater": "anton",
+          "song_group": "song:981MHMgULkk",
+          "answer": "a",
+          "probability_a": 0.7386143663394598,
+          "correct": 1.0
+        },
+        {
+          "id": "pair021",
+          "rater": "anton",
+          "song_group": "song:gDGtf4yMW5I",
+          "answer": "b",
+          "probability_a": 0.37208274734406477,
+          "correct": 1.0
+        },
+        {
+          "id": "pair022",
+          "rater": "anton",
+          "song_group": "song:OcYYKHVN0MQ",
+          "answer": "b",
+          "probability_a": 0.6030130696234982,
+          "correct": 0.0
+        },
+        {
+          "id": "pair023",
+          "rater": "anton",
+          "song_group": "song:ZoBKemKNjM4",
+          "answer": "b",
+          "probability_a": 0.5516067337462974,
+          "correct": 0.0
+        },
+        {
+          "id": "pair024",
+          "rater": "anton",
+          "song_group": "song:981MHMgULkk",
+          "answer": "b",
+          "probability_a": 0.5699534154462821,
+          "correct": 0.0
+        },
+        {
+          "id": "pair025",
+          "rater": "anton",
+          "song_group": "song:NI31AWYYuFI",
+          "answer": "a",
+          "probability_a": 0.6643811367242622,
+          "correct": 1.0
+        },
+        {
+          "id": "pair026",
+          "rater": "anton",
+          "song_group": "song:moryohPkTSY",
+          "answer": "b",
+          "probability_a": 0.4436120058504186,
+          "correct": 1.0
+        },
+        {
+          "id": "pair027",
+          "rater": "anton",
+          "song_group": "song:HyiOce29uio",
+          "answer": "b",
+          "probability_a": 0.5944065988469349,
+          "correct": 0.0
+        },
+        {
+          "id": "pair028",
+          "rater": "anton",
+          "song_group": "song:gE8dDV-XCEs",
+          "answer": "a",
+          "probability_a": 0.5598291244380207,
+          "correct": 1.0
+        },
+        {
+          "id": "pair029",
+          "rater": "anton",
+          "song_group": "song:KatqpM7-x9I",
+          "answer": "a",
+          "probability_a": 0.7514036201404265,
+          "correct": 1.0
+        },
+        {
+          "id": "pair030",
+          "rater": "anton",
+          "song_group": "song:981MHMgULkk",
+          "answer": "b",
+          "probability_a": 0.5830563378985669,
+          "correct": 0.0
+        },
+        {
+          "id": "pair031",
+          "rater": "anton",
+          "song_group": "song:l8WxpazGFug",
+          "answer": "a",
+          "probability_a": 0.6453378241490566,
+          "correct": 1.0
+        },
+        {
+          "id": "pair032",
+          "rater": "anton",
+          "song_group": "song:xV3dqkP1RrY",
+          "answer": "b",
+          "probability_a": 0.3052754338214018,
+          "correct": 1.0
+        },
+        {
+          "id": "pair033",
+          "rater": "anton",
+          "song_group": "song:8B6VxbBLDEg",
+          "answer": "b",
+          "probability_a": 0.48610071038501623,
+          "correct": 1.0
+        },
+        {
+          "id": "pair034",
+          "rater": "anton",
+          "song_group": "song:KatqpM7-x9I",
+          "answer": "a",
+          "probability_a": 0.359603352846037,
+          "correct": 0.0
+        },
+        {
+          "id": "pair035",
+          "rater": "anton",
+          "song_group": "song:gDGtf4yMW5I",
+          "answer": "b",
+          "probability_a": 0.48526687615348857,
+          "correct": 1.0
+        },
+        {
+          "id": "pair036",
+          "rater": "anton",
+          "song_group": "song:lg-XapP0epM",
+          "answer": "a",
+          "probability_a": 0.7293788244867555,
+          "correct": 1.0
+        },
+        {
+          "id": "pair037",
+          "rater": "anton",
+          "song_group": "song:NI31AWYYuFI",
+          "answer": "b",
+          "probability_a": 0.5629878509702732,
+          "correct": 0.0
+        },
+        {
+          "id": "pair038",
+          "rater": "anton",
+          "song_group": "song:kZGzpaJfkWc",
+          "answer": "b",
+          "probability_a": 0.18994657346591032,
+          "correct": 1.0
+        }
+      ]
+    }
+  },
+  "protocol": {
+    "validation": "five folds grouped by canonical song; seed fixed before fitting",
+    "lambda": 1.0,
+    "seed": 0,
+    "foil_policy": "excluded from fit and validation",
+    "ties": "reported, excluded from binary fit",
+    "interval": "2000 song bootstrap draws conditional on fixed OOF predictions; no model refit",
+    "generalisation": "new songs for observed raters; not new-rater validation"
+  },
+  "gates": {
+    "G9.6-acc": false,
+    "G9.6-bas": null,
+    "G9.6-fresh": null
+  },
+  "deployment_eligible": false,
+  "notes": [
+    "Exploratory conductor-knob analysis; does not evaluate GroupEngine wave/colour controls.",
+    "Fresh fitted-versus-default render preference and BAS gates have not been measured.",
+    "The original accuracy gate counts 200 non-foil decided ratings; unique pairs and songs are reported separately because repeat raters do not increase song diversity."
+  ],
+  "provenance": {
+    "ratings_path": "/root/lightsem/outputs/stage9/hl_pairs/ratings.jsonl",
+    "ratings_sha256": "def1baf86ef8d0d924d88d532352994e5902a0f1204d4a90d3ee37e16894501e",
+    "pairs_sha256": "35b5c3fdea90ed56129283e77ae1acfdd0a52a77c9b1947bbe8ddbf6a345d244",
+    "song_map_sha256": "2285324f2d3174bf5d92ac8cb99144770b653ee94949c3e262644560b230e1a5",
+    "fitter_sha256": "5eaf998f57ea590656f7974c4f1f7b6ca0423b3d9e6fe6a8d27cc0ed1e5e9701"
+  }
+}

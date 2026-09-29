@@ -1,0 +1,70 @@
+[
+ {
+  "title": "Joyride",
+  "artist": "Rhode & Brown",
+  "label": "Toy Tonics",
+  "year": 2013,
+  "wanted_version": "",
+  "candidates": [
+   {
+    "deezer_id": 680217502,
+    "title": "Joyride",
+    "artist": "Rhode & Brown",
+    "album": "Joyride EP",
+    "isrc": "DEBY41200033",
+    "duration_s": 353
+   }
+  ]
+ },
+ {
+  "title": "Ladykiller",
+  "artist": "Vanilla Ace",
+  "label": "Erase Records",
+  "year": 2014,
+  "wanted_version": "Original Mix",
+  "candidates": [
+   {
+    "deezer_id": 76013257,
+    "title": "Ladykiller (Original Mix)",
+    "artist": "Vanilla Ace",
+    "album": "Poolside Miami",
+    "isrc": "GRER11400392",
+    "duration_s": 407
+   }
+  ]
+ },
+ {
+  "title": "Unlock Down",
+  "artist": "NUAGE",
+  "label": "Electronica Records",
+  "year": 2014,
+  "wanted_version": "Original Mix",
+  "candidates": [
+   {
+    "deezer_id": 78284520,
+    "title": "Unlock Down",
+    "artist": "Nuage",
+    "album": "My Patience EP",
+    "isrc": "GBKQU1436829",
+    "duration_s": 384
+   }
+  ]
+ },
+ {
+  "title": "Icarus",
+  "artist": "Madeon",
+  "label": "Popcultur",
+  "year": 2012,
+  "wanted_version": "Extended Mix",
+  "candidates": [
+   {
+    "deezer_id": 16638434,
+    "title": "Icarus (Extended Mix)",
+    "artist": "Madeon",
+    "album": "Icarus",
+    "isrc": "FR9W11114946",
+    "duration_s": 249
+   }
+  ]
+ }
+]

@@ -9,7 +9,7 @@ from unittest.mock import patch
 
 import numpy as np
 
-from lightsem.experiments.stage11_data import (
+from lightsem.experiments.stage11.stage11_data import (
     active_fingerprint, active_span, atomic_copy, canonicalize, fingerprint_candidates, fingerprint_score,
     load_manifest, normalize_scene, normalize_title, reduce_histograms,
     recording_mask_dilation, resize_mask, sha256,
@@ -25,7 +25,7 @@ class Stage11DataTests(unittest.TestCase):
             def failed_copy(src, dst):
                 Path(dst).write_bytes(b'partial')
                 raise OSError('interrupted copy')
-            with patch('lightsem.experiments.stage11_data.shutil.copyfile', failed_copy):
+            with patch('lightsem.experiments.stage11.stage11_data.shutil.copyfile', failed_copy):
                 with self.assertRaisesRegex(OSError, 'interrupted'):
                     atomic_copy(source, destination)
             self.assertEqual(destination.read_bytes(), b'previous complete data')

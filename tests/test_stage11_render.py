@@ -13,7 +13,7 @@ import numpy as np
 
 from lightsem.conductor.rig import canonical_rig
 from lightsem.dmx.decode import decode_stream, emitted_light
-from lightsem.experiments import stage11_render as render
+from lightsem.experiments.stage11 import stage11_render as render
 
 
 @dataclass

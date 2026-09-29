@@ -15,11 +15,11 @@ import time
 import numpy as np
 import torch
 
-from .night_common import ROOT as REFERENCE, BASE, base_context
-from .night_model import NightModel
-from .night_training import NightResident, run_cell, study_context
+from .night.night_common import ROOT as REFERENCE, BASE, base_context
+from .night.night_model import NightModel
+from .night.night_training import NightResident, run_cell, study_context
 from .training_runtime import TrainingRuntime, BatchStream, runtime_loss, backward_checked
-from .stage11_common import (authenticated_json, read_authenticated, digest, json_digest,
+from .stage11.stage11_common import (authenticated_json, read_authenticated, digest, json_digest,
                             artifact_manifest, verify_artifacts, seed_all, freeze_sources,
                             verify_sources, gpu_lock, require_space)
 
@@ -205,7 +205,7 @@ def freeze(root):
         for file in record['files'].values():
             if digest(file['path'])!=file['sha256']:raise RuntimeError('Evaluation input drift')
             pins[file['path']]=file['sha256']
-    from .night_evaluation import inputs
+    from .night.night_evaluation import inputs
     for row in inputs():pins[row['path']]=row['sha256']
     initial=[]
     for seed in SEEDS:
@@ -263,7 +263,7 @@ def train(root,arm,seed,resume=False):
 
 
 def evaluate(root,arm,seed):
-    from .night_evaluation import infer_cell,render_cell
+    from .night.night_evaluation import infer_cell,render_cell
     verify_sources(root,check_live=True)
     infer_cell(arm,seed,root);render_cell(arm,seed,root)
 
@@ -284,7 +284,7 @@ def relative_comparison(before,after,lower_better,*,seed=20260910,repetitions=10
 
 
 def summary_gates(rows,videos):
-    from .night_metrics import aggregate
+    from .night.night_metrics import aggregate
     gates=aggregate(rows,videos)['gates']
     gates['group_independence']=bool(np.mean([v['independent']['unrelated_velocity_abs_correlation'] is not None and
                                             v['independent']['unrelated_velocity_abs_correlation']<.85 for v in videos])>=.75)
@@ -293,7 +293,7 @@ def summary_gates(rows,videos):
 
 
 def summarize(root):
-    from .night_evaluation import inputs
+    from .night.night_evaluation import inputs
     p=read_authenticated(root/'protocol.json');_,norms=base_context();input_rows={r['entry']['key']:r for r in inputs()}
     cells=[]
     for seed in SEEDS:

@@ -10,7 +10,7 @@ import numpy as np
 import torch
 
 ROOT=Path('/root/lightsem')
-spec=importlib.util.spec_from_file_location('physical_visual',ROOT/'outputs/review_music_physical_revision.py')
+spec=importlib.util.spec_from_file_location('physical_visual',ROOT/'scripts/motion/review_music_physical_revision.py')
 v=importlib.util.module_from_spec(spec);spec.loader.exec_module(v)
 from lightsem.experiments.motion_study import lighting_map as lm
 from lightsem.experiments.motion_study.geometry import joints_from_features
@@ -30,11 +30,22 @@ class WorldSeamTests(unittest.TestCase):
     @classmethod
     def setUpClass(cls):
         # Immutable pre-review training snapshot, CPU source only (not a model).
+        # Its original relative import needs the companion module from that
+        # same snapshot after the live package was reorganized.
+        import sys
+        companion='lightsem.experiments.beat_conditioned_render'
+        companion_path=v.EXPERIMENT/'source/lightsem/experiments/beat_conditioned_render.py'
+        companion_spec=importlib.util.spec_from_file_location(companion,companion_path)
+        historical=importlib.util.module_from_spec(companion_spec)
+        sys.modules[companion]=historical
+        companion_spec.loader.exec_module(historical)
         path=v.EXPERIMENT/'source/lightsem/experiments/motion_study/lighting_map.py'
         name='lightsem.experiments.motion_study._pre_review_lighting_map'
         spec=importlib.util.spec_from_file_location(name,path)
-        import sys
-        cls.old=importlib.util.module_from_spec(spec);sys.modules[name]=cls.old;spec.loader.exec_module(cls.old)
+        try:
+            cls.old=importlib.util.module_from_spec(spec);sys.modules[name]=cls.old;spec.loader.exec_module(cls.old)
+        finally:
+            del sys.modules[companion]
 
     def test_default_dmx_and_trace_byte_parity(self):
         f,c=synthetic()
@@ -139,7 +150,7 @@ class ReviewTests(unittest.TestCase):
             with self.assertRaises(ValueError):v.verify_evaluator_row(p,q,'physical','full',spec)
 
     def test_no_result_model_import_in_visual_script(self):
-        text=(ROOT/'outputs/review_music_physical_revision.py').read_text()
+        text=(ROOT/'scripts/motion/review_music_physical_revision.py').read_text()
         self.assertNotIn('torch.load(',text);self.assertNotIn('.generate(',text);self.assertNotIn('cuda()',text)
 
     def test_review_requires_next_missing_and_all_rows(self):

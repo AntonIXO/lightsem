@@ -7,8 +7,8 @@ from unittest.mock import patch
 import numpy as np
 import torch
 
-from lightsem.experiments import dance_no_clock_training as training
-from lightsem.experiments.stage11_common import rng_state, restore_rng, json_digest
+from lightsem.experiments.dance_no_clock import dance_no_clock_training as training
+from lightsem.experiments.stage11.stage11_common import rng_state, restore_rng, json_digest
 
 
 def scales():

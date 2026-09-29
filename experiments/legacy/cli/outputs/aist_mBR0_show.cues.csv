@@ -1,0 +1,9 @@
+type,time_s,duration_s,segment,scene,movement,base_dimmer,zoom,strobe_rate,energy,energy_slope,mode,lookahead_s,lead_to_next_drop_s
+structure,0.0,3.437,intro,intro,slow_sweep,0.3,0.75,0.0,0.3891,0.0248,,,
+anticipation,0.023,,,anticipatory_lift,,,,,,,causal,2.0,10.147
+structure,3.437,2.81,breakdown,breakdown,slow_sweep,0.35,0.85,0.0,0.3617,0.1604,,,
+structure,6.246,3.924,breakdown,breakdown,slow_sweep,0.35,0.85,0.0,0.3575,-0.0374,,,
+structure,10.17,2.833,drop,drop,fan,1.0,0.15,0.55,0.3997,0.0332,,,
+structure,13.003,3.367,breakdown,breakdown,slow_sweep,0.35,0.85,0.0,0.3877,-0.0506,,,
+structure,16.37,3.367,drop,drop,fan,1.0,0.15,0.55,0.423,-0.1243,,,
+structure,19.737,5.263,drop,drop,fan,1.0,0.15,0.55,0.4077,-0.0457,,,

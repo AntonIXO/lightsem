@@ -6,7 +6,7 @@ import numpy as np
 
 from .audio_prepare import ROOT
 from .music_training import context
-from ..stage11_common import read_authenticated,authenticated_json,digest
+from ..stage11.stage11_common import read_authenticated,authenticated_json,digest
 
 
 def comparison(per_song,control,config):

@@ -102,7 +102,7 @@ class PhaseCodec(nn.Module):
 def fit_moments(entries, normalizers):
     """Identical full TRAIN exposure across all ranks; no outcome-based fitting."""
     from collections import Counter
-    from ..stage11_common import digest
+    from ..stage11.stage11_common import digest
     entries = [e for e in entries if e['partition']=='train']
     counts = Counter(e['canonical_id'] for e in entries)
     mean = np.asarray(normalizers['mean'][3:135],dtype=np.float64)

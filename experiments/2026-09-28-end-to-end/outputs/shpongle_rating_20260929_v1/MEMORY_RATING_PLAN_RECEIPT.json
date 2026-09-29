@@ -1,0 +1,18 @@
+{
+  "ok": true,
+  "data": {
+    "id": "rb-shpongle-human-rating-20260929",
+    "problem_id": "dancing-light-generative-20260903",
+    "prompt": "Collect the user's ratings for the recent committed lighting experiments on /root/shpongle.flac, source SHA256 95e4388424ef62950bdeae78e47b8e71839ed28c6e01189fe15f9ae6c902b6c0. Rating page http://127.0.0.1:8765; source/manifest/direct-link index and optional CSV are in /root/lightsem/outputs/shpongle_rating_20260929_v1/. Ten versions:01 original motion mapping;02 rhythm companion;03 shared audio-only S_none_P0;04 shared legacy6 S_V6_P0;05 combined rich shared S_VR_P0 with rhythm, motion style, brightness dynamics, colors, accents and generated palette history;06 independent rich I_VR_P0;07 shuffled-audio-training control on recipient audio;08 rich colors only;09 rich accents only;10 rich combined with previous palette replaced by trained null state. Primary selected seed0 models, fixed existing mapping, 277.3s/8319frames, native1080p30AV1 and identical source AAC decode. Seven exact existing renders reused; three new deterministic visual ablations, with CPU own-history palette replay required to match saved IDs, no encoder forward/training/threshold tuning. All469 protectedDMX slots/motion remain unchanged in overlay variants. Request scores1-5 for music fit, deliberate design and overall preference, plus timestamped notes. Browser localStorage and exported JSON are user input, not prefilled evidence. Existing identifying captions mean this is NOT blinded, and one-song preference is NOT broad scientific qualification. Variant10 is not the stochastic64s palette study. Alternative architectures cannot be simultaneously stacked;05 is the compatible rich shared stack, not an invented ensemble. Do not rewrite scientific verdicts or promote defaults from uncollected ratings; preserve previous negative/unqualified study results and all historical media.",
+    "preconditions": "All10 recent-variant Shpongle full-track videos must be verified in /root/lightsem/outputs/shpongle_rating_20260929_v1/MANIFEST.json before calling the delivery complete. Human ratings do not exist until the user supplies them.",
+    "gates": [],
+    "status": "queued",
+    "hypothesis_id": null,
+    "priority": 10,
+    "notes": [],
+    "former_ids": [],
+    "topic_tags": [],
+    "created_at": "2026-09-29T08:37:26+00:00",
+    "updated_at": "2026-09-29T08:37:26+00:00"
+  }
+}

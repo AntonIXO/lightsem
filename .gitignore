@@ -1,5 +1,5 @@
-# Bulk data and generated artefacts live on /mnt or are rebuildable from the
-# cache scripts; see CLAUDE.md. Nothing here belongs in the repo.
+# Bulk data and generated artifacts live on /mnt or are rebuildable from the
+# cache scripts; see CLAUDE.md. Curated records under experiments/ are tracked.
 .venv/
 __pycache__/
 *.pyc
@@ -9,8 +9,20 @@ __pycache__/
 # which is source code, and git ignores it without saying so.
 /data/
 
-# Stage outputs: JSON results are small but the renders are ~90 MB of MP4
-/outputs/
+# New transient runs. Historical campaign records live under experiments/.
+/runs/
+
+# Large media and generated arrays in campaign output folders.
+*.mp4
+*.mkv
+*.avi
+*.mov
+*.wav
+*.flac
+*.npy
+*.jpg
+*.jpeg
+!/experiments/legacy/misc/outputs/root/probe1_results.npy
 
 # Model weights downloaded at run time
 *.pt
@@ -20,9 +32,7 @@ __pycache__/
 *.npz
 *.parquet
 
-# Run logs: nohup output from the cache builders and trainers. Every number
-# they contain is restated in outputs/*.json or the vault, and they were
-# committed by accident.
+# New root-level nohup output from cache builders and trainers.
 logs_*.txt
 
 # Editor and OS noise

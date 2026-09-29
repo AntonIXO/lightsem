@@ -1,0 +1,787 @@
+{
+  "instrument": "synthetic FK raw target geometry; no controller, rendered pixels, real clips or music",
+  "N_per_probe": 241,
+  "activity": 0.7,
+  "config": {
+    "fps": 40.0,
+    "target_space": "articulated_stage",
+    "quiet_dimmer": 0.12,
+    "active_dimmer": 0.88,
+    "loudness_range_lu": 12.0,
+    "target_smoothing_s": 0,
+    "tracking_s": 0.35,
+    "target_smoothing_mode": "causal",
+    "angular_feedforward": false,
+    "angular_controller": "chase",
+    "stage_base_unfolded_m": [
+      7.7,
+      3.2,
+      8.0
+    ],
+    "stage_lean_gain_m": 0.0,
+    "surface_gain": 1.0,
+    "torso_gain": 1.0,
+    "palette_smoothing_s": 10.0,
+    "maximum_speed_deg_s": 30.0,
+    "maximum_acceleration_deg_s2": 80.0,
+    "quiet_target_speed_deg_s": 3.0,
+    "wash_gain": 0.18,
+    "blinder_gain": 0.06,
+    "strobe_gain": 0.025,
+    "projector_gain": 0.2
+  },
+  "checks": {
+    "max_bone_length_error_m": 1.7077586511593523e-08,
+    "max_inferred_Q_error": 1.1102230246251565e-15,
+    "permutation_target_error_m": 0.0,
+    "left_arm_only_other_region_max_change_m": 0.0,
+    "seam_adjacent_max_distance_m": 9.99999993922529e-09,
+    "all_saved_arrays_finite": true,
+    "cuda_visible_devices": "",
+    "torch_cuda_initialized": false
+  },
+  "saturation": [
+    {
+      "world_delta_x_m": 0,
+      "lane_shift_m": 0.0,
+      "derivative_m_per_m": 2.17
+    },
+    {
+      "world_delta_x_m": 0.1,
+      "lane_shift_m": 0.20928210661910232,
+      "derivative_m_per_m": 1.9450441885739251
+    },
+    {
+      "world_delta_x_m": 0.25,
+      "lane_shift_m": 0.44391520650904615,
+      "derivative_m_per_m": 1.1578775338773186
+    },
+    {
+      "world_delta_x_m": 0.5,
+      "lane_shift_m": 0.6054424418796029,
+      "derivative_m_per_m": 0.2873103090385187
+    },
+    {
+      "world_delta_x_m": 0.75,
+      "lane_shift_m": 0.6413655227216323,
+      "derivative_m_per_m": 0.057268823178452014
+    },
+    {
+      "world_delta_x_m": 1,
+      "lane_shift_m": 0.6483645179194774,
+      "derivative_m_per_m": 0.010906250010898977
+    },
+    {
+      "world_delta_x_m": 1.25,
+      "lane_shift_m": 0.6496915734594174,
+      "derivative_m_per_m": 0.0020588517054284986
+    }
+  ],
+  "probes": {
+    "neutral": {
+      "existing": {
+        "x_span_minmax_m": [
+          9.5,
+          9.5
+        ],
+        "chart_hull_area_minmax_m2": [
+          35.910000000000004,
+          35.910000000000004
+        ],
+        "surface_pair_distance_min_m": 1.8999999999999997,
+        "x_order_inversion_frames": 0,
+        "hand_order_inversion_frames": 0,
+        "leg_order_inversion_frames": 0,
+        "max_step_surface_m": 0.0
+      },
+      "candidate": {
+        "x_span_minmax_m": [
+          9.691502552988995,
+          9.691502552988995
+        ],
+        "chart_hull_area_minmax_m2": [
+          27.664523603560795,
+          27.664523603560795
+        ],
+        "surface_pair_distance_min_m": 1.557576617595268,
+        "x_order_inversion_frames": 0,
+        "hand_order_inversion_frames": 0,
+        "leg_order_inversion_frames": 0,
+        "max_step_surface_m": 0.0
+      },
+      "existing_endpoint_x_delta_m": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "candidate_endpoint_x_delta_m": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "existing_endpoint_chart_displacement_m": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "candidate_endpoint_chart_displacement_m": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "local_right_left_wrist_x_endpoint": [
+        -0.7187545124907047,
+        0.7223283227067441
+      ],
+      "existing_min_lateral_derivative_m_per_m": 2.17,
+      "existing_articulation_delta_max_m": 1.1102230246251565e-16
+    },
+    "hands_fold_cross": {
+      "existing": {
+        "x_span_minmax_m": [
+          8.210896964597568,
+          9.5
+        ],
+        "chart_hull_area_minmax_m2": [
+          34.812282781029246,
+          38.86764596601334
+        ],
+        "surface_pair_distance_min_m": 1.8999999999999997,
+        "x_order_inversion_frames": 0,
+        "hand_order_inversion_frames": 0,
+        "leg_order_inversion_frames": 0,
+        "max_step_surface_m": 0.012164978583609294
+      },
+      "candidate": {
+        "x_span_minmax_m": [
+          1.8539026594435208,
+          9.691502552988995
+        ],
+        "chart_hull_area_minmax_m2": [
+          8.43275677956508,
+          27.664523603560795
+        ],
+        "surface_pair_distance_min_m": 0.1744553820103962,
+        "x_order_inversion_frames": 23,
+        "hand_order_inversion_frames": 0,
+        "leg_order_inversion_frames": 0,
+        "max_step_surface_m": 0.026387862544555583
+      },
+      "existing_endpoint_x_delta_m": [
+        0.6449117389669077,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        -0.6441912964355243
+      ],
+      "candidate_endpoint_x_delta_m": [
+        4.232305766736249,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        -4.098148675354302
+      ],
+      "existing_endpoint_chart_displacement_m": [
+        0.8185352171883924,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.8191593630726542
+      ],
+      "candidate_endpoint_chart_displacement_m": [
+        4.258013111688679,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        4.124890772849749
+      ],
+      "local_right_left_wrist_x_endpoint": [
+        0.11085841315798461,
+        -0.08736857329495248
+      ],
+      "existing_min_lateral_derivative_m_per_m": 0.033840951965950106,
+      "existing_articulation_delta_max_m": 0.8296129256486894
+    },
+    "hands_front_reach": {
+      "existing": {
+        "x_span_minmax_m": [
+          8.21089081012189,
+          8.260870770576368
+        ],
+        "chart_hull_area_minmax_m2": [
+          34.812282781029246,
+          39.38600993454237
+        ],
+        "surface_pair_distance_min_m": 1.8999999999999997,
+        "x_order_inversion_frames": 0,
+        "hand_order_inversion_frames": 0,
+        "leg_order_inversion_frames": 0,
+        "max_step_surface_m": 0.0040960648499321056
+      },
+      "candidate": {
+        "x_span_minmax_m": [
+          1.8539026594435208,
+          4.458675563504819
+        ],
+        "chart_hull_area_minmax_m2": [
+          8.43275677956508,
+          17.44154900508812
+        ],
+        "surface_pair_distance_min_m": 0.1744553820103962,
+        "x_order_inversion_frames": 98,
+        "hand_order_inversion_frames": 0,
+        "leg_order_inversion_frames": 0,
+        "max_step_surface_m": 0.010064002300048464
+      },
+      "existing_endpoint_x_delta_m": [
+        -0.0238431281042093,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.026130677874590447
+      ],
+      "candidate_endpoint_x_delta_m": [
+        -1.5683203952236775,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.5293070573826983
+      ],
+      "existing_endpoint_chart_displacement_m": [
+        0.6401333410999508,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.6354577436436533
+      ],
+      "candidate_endpoint_chart_displacement_m": [
+        1.6652889148422927,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.6271807409552859
+      ],
+      "local_right_left_wrist_x_endpoint": [
+        -0.15222318167798224,
+        0.1709659479092807
+      ],
+      "existing_min_lateral_derivative_m_per_m": 0.0338260571715813,
+      "existing_articulation_delta_max_m": 0.8296793800083829
+    },
+    "hands_raise": {
+      "existing": {
+        "x_span_minmax_m": [
+          8.27837906075463,
+          9.500103742191051
+        ],
+        "chart_hull_area_minmax_m2": [
+          35.910000000000004,
+          42.97253770345254
+        ],
+        "surface_pair_distance_min_m": 1.8999999999999997,
+        "x_order_inversion_frames": 0,
+        "hand_order_inversion_frames": 0,
+        "leg_order_inversion_frames": 0,
+        "max_step_surface_m": 0.010738974808841296
+      },
+      "candidate": {
+        "x_span_minmax_m": [
+          4.896222050066397,
+          9.691675752048102
+        ],
+        "chart_hull_area_minmax_m2": [
+          20.031591764176014,
+          29.020951002910653
+        ],
+        "surface_pair_distance_min_m": 1.557576617595268,
+        "x_order_inversion_frames": 0,
+        "hand_order_inversion_frames": 0,
+        "leg_order_inversion_frames": 0,
+        "max_step_surface_m": 0.019211490985735016
+      },
+      "existing_endpoint_x_delta_m": [
+        0.6112634471677643,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        -0.610357492077604
+      ],
+      "candidate_endpoint_x_delta_m": [
+        2.411972480527752,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        -2.3833080223948464
+      ],
+      "existing_endpoint_chart_displacement_m": [
+        1.7728290566143978,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.7352612819286195
+      ],
+      "candidate_endpoint_chart_displacement_m": [
+        2.814683414987821,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        2.7740277087045326
+      ],
+      "local_right_left_wrist_x_endpoint": [
+        -0.19709423254244035,
+        0.20423807832412427
+      ],
+      "existing_min_lateral_derivative_m_per_m": 0.2509341680468245,
+      "existing_articulation_delta_max_m": 0.5368113997392356
+    },
+    "hands_raise_yaw90": {
+      "existing": {
+        "x_span_minmax_m": [
+          9.5,
+          9.5
+        ],
+        "chart_hull_area_minmax_m2": [
+          35.91,
+          46.727806082859175
+        ],
+        "surface_pair_distance_min_m": 1.9,
+        "x_order_inversion_frames": 0,
+        "hand_order_inversion_frames": 0,
+        "leg_order_inversion_frames": 0,
+        "max_step_surface_m": 0.013423732873881988
+      },
+      "candidate": {
+        "x_span_minmax_m": [
+          4.885329836249221,
+          9.678396981069024
+        ],
+        "chart_hull_area_minmax_m2": [
+          19.966576852393445,
+          29.096224864412903
+        ],
+        "surface_pair_distance_min_m": 1.5538263823522347,
+        "x_order_inversion_frames": 0,
+        "hand_order_inversion_frames": 0,
+        "leg_order_inversion_frames": 0,
+        "max_step_surface_m": 0.019763555111783883
+      },
+      "existing_endpoint_x_delta_m": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "candidate_endpoint_x_delta_m": [
+        2.5193547291483336,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        -2.273526098758971
+      ],
+      "existing_endpoint_chart_displacement_m": [
+        2.876975490071345,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.41981558436527777
+      ],
+      "candidate_endpoint_chart_displacement_m": [
+        2.8781425753058008,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        2.6502653498883197
+      ],
+      "local_right_left_wrist_x_endpoint": [
+        -0.07818479090929031,
+        -0.07697522966191171
+      ],
+      "existing_min_lateral_derivative_m_per_m": 2.17,
+      "existing_articulation_delta_max_m": 0.5368113997392356
+    },
+    "legs_cross": {
+      "existing": {
+        "x_span_minmax_m": [
+          9.5,
+          9.5
+        ],
+        "chart_hull_area_minmax_m2": [
+          32.76172003568401,
+          35.910000000000004
+        ],
+        "surface_pair_distance_min_m": 1.8999999999999997,
+        "x_order_inversion_frames": 0,
+        "hand_order_inversion_frames": 0,
+        "leg_order_inversion_frames": 0,
+        "max_step_surface_m": 0.0027945971100057647
+      },
+      "candidate": {
+        "x_span_minmax_m": [
+          9.691502552988995,
+          9.691502552988995
+        ],
+        "chart_hull_area_minmax_m2": [
+          23.456209402559367,
+          27.664523603560795
+        ],
+        "surface_pair_distance_min_m": 0.0033290098843493043,
+        "x_order_inversion_frames": 222,
+        "hand_order_inversion_frames": 0,
+        "leg_order_inversion_frames": 123,
+        "max_step_surface_m": 0.007928627813175123
+      },
+      "existing_endpoint_x_delta_m": [
+        0.0,
+        0.49510567390781013,
+        0.0,
+        0.0,
+        -0.4980044120201663,
+        0.0
+      ],
+      "candidate_endpoint_x_delta_m": [
+        0.0,
+        1.8481662577335092,
+        0.0,
+        0.0,
+        -1.867755180668757,
+        0.0
+      ],
+      "existing_endpoint_chart_displacement_m": [
+        0.0,
+        0.5124909267374578,
+        0.0,
+        0.0,
+        0.5134346887882002,
+        0.0
+      ],
+      "candidate_endpoint_chart_displacement_m": [
+        0.0,
+        1.8509717209982353,
+        0.0,
+        0.0,
+        1.8702258772564295,
+        0.0
+      ],
+      "local_right_left_wrist_x_endpoint": [
+        -0.7187545124907047,
+        0.7223283227067441
+      ],
+      "existing_min_lateral_derivative_m_per_m": 0.8962054063203153,
+      "existing_articulation_delta_max_m": 0.3028234566767682
+    },
+    "torso_signed_bend": {
+      "existing": {
+        "x_span_minmax_m": [
+          9.12280788025254,
+          9.500009233076044
+        ],
+        "chart_hull_area_minmax_m2": [
+          34.032361183175645,
+          35.910197551275196
+        ],
+        "surface_pair_distance_min_m": 1.8874199582814506,
+        "x_order_inversion_frames": 0,
+        "hand_order_inversion_frames": 0,
+        "leg_order_inversion_frames": 0,
+        "max_step_surface_m": 0.012649608279403236
+      },
+      "candidate": {
+        "x_span_minmax_m": [
+          8.521844866000478,
+          9.691502552988995
+        ],
+        "chart_hull_area_minmax_m2": [
+          25.50101212811859,
+          27.66467950941627
+        ],
+        "surface_pair_distance_min_m": 1.3312861995992056,
+        "x_order_inversion_frames": 218,
+        "hand_order_inversion_frames": 0,
+        "leg_order_inversion_frames": 0,
+        "max_step_surface_m": 0.018154837652746128
+      },
+      "existing_endpoint_x_delta_m": [
+        -0.6640995506486718,
+        0.0,
+        -0.8450581323742344,
+        -0.8450981266590321,
+        0.0,
+        -0.6726529685578759
+      ],
+      "candidate_endpoint_x_delta_m": [
+        -1.6391010855458,
+        0.0,
+        -2.8329912901673087,
+        -2.8295943088910267,
+        0.0,
+        -1.6517774149978477
+      ],
+      "existing_endpoint_chart_displacement_m": [
+        2.6561629172114793,
+        0.0,
+        0.9161859256204499,
+        0.9112824243368297,
+        0.0,
+        2.6400668166610206
+      ],
+      "candidate_endpoint_chart_displacement_m": [
+        2.9363440257930162,
+        0.0,
+        2.852428890054921,
+        2.8476574440782625,
+        0.0,
+        2.929333468316025
+      ],
+      "local_right_left_wrist_x_endpoint": [
+        -0.7862740059226891,
+        0.3916086554346514
+      ],
+      "existing_min_lateral_derivative_m_per_m": 0.7743688020448615,
+      "existing_articulation_delta_max_m": 0.4773331754181039
+    },
+    "rigid_yaw": {
+      "existing": {
+        "x_span_minmax_m": [
+          9.5,
+          9.500000000000002
+        ],
+        "chart_hull_area_minmax_m2": [
+          35.90999999999999,
+          35.91000000000001
+        ],
+        "surface_pair_distance_min_m": 1.8999999999999997,
+        "x_order_inversion_frames": 0,
+        "hand_order_inversion_frames": 0,
+        "leg_order_inversion_frames": 0,
+        "max_step_surface_m": 0.009162716899942525
+      },
+      "candidate": {
+        "x_span_minmax_m": [
+          9.678210664156525,
+          9.691521440099548
+        ],
+        "chart_hull_area_minmax_m2": [
+          27.664515013351913,
+          28.02157794681687
+        ],
+        "surface_pair_distance_min_m": 1.5538263823522347,
+        "x_order_inversion_frames": 0,
+        "hand_order_inversion_frames": 0,
+        "leg_order_inversion_frames": 0,
+        "max_step_surface_m": 0.009072004153532646
+      },
+      "existing_endpoint_x_delta_m": [
+        0.0,
+        0.0,
+        -1.1102230246251565e-16,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "candidate_endpoint_x_delta_m": [
+        0.0,
+        1.1102230246251565e-16,
+        1.1102230246251565e-16,
+        1.1102230246251565e-16,
+        0.0,
+        0.0
+      ],
+      "existing_endpoint_chart_displacement_m": [
+        0.0,
+        4.440892098500626e-16,
+        1.1102230246251565e-16,
+        0.0,
+        4.440892098500626e-16,
+        0.0
+      ],
+      "candidate_endpoint_chart_displacement_m": [
+        0.0,
+        1.1102230246251565e-16,
+        1.1102230246251565e-16,
+        1.1102230246251565e-16,
+        0.0,
+        0.0
+      ],
+      "local_right_left_wrist_x_endpoint": [
+        0.7187545124907047,
+        -0.7223283227067441
+      ],
+      "existing_min_lateral_derivative_m_per_m": 2.17,
+      "existing_articulation_delta_max_m": 2.220446049250313e-16
+    },
+    "rigid_signed_roll": {
+      "existing": {
+        "x_span_minmax_m": [
+          9.499999999999998,
+          9.5
+        ],
+        "chart_hull_area_minmax_m2": [
+          35.909999999999975,
+          35.91000000000002
+        ],
+        "surface_pair_distance_min_m": 1.8999999999999997,
+        "x_order_inversion_frames": 0,
+        "hand_order_inversion_frames": 0,
+        "leg_order_inversion_frames": 0,
+        "max_step_surface_m": 4.782987168225453e-15
+      },
+      "candidate": {
+        "x_span_minmax_m": [
+          9.669849993337882,
+          9.69152295665657
+        ],
+        "chart_hull_area_minmax_m2": [
+          27.5954729022867,
+          27.66460434785115
+        ],
+        "surface_pair_distance_min_m": 1.551514456564927,
+        "x_order_inversion_frames": 0,
+        "hand_order_inversion_frames": 0,
+        "leg_order_inversion_frames": 0,
+        "max_step_surface_m": 0.0037955463925806177
+      },
+      "existing_endpoint_x_delta_m": [
+        0.0,
+        4.440892098500626e-16,
+        -1.1102230246251565e-16,
+        -1.1102230246251565e-16,
+        4.440892098500626e-16,
+        0.0
+      ],
+      "candidate_endpoint_x_delta_m": [
+        -0.5264599241618484,
+        -0.887046772373584,
+        -0.8909758270017001,
+        -0.8899487699332669,
+        -0.8858175017766428,
+        -0.5238784035063038
+      ],
+      "existing_endpoint_chart_displacement_m": [
+        0.0,
+        6.280369834735101e-16,
+        8.95090418262362e-16,
+        1.1102230246251565e-16,
+        4.440892098500626e-16,
+        8.881784197001252e-16
+      ],
+      "candidate_endpoint_chart_displacement_m": [
+        0.5264599241618484,
+        0.887046772373584,
+        0.8909758270017001,
+        0.8899487699332669,
+        0.8858175017766428,
+        0.5238784035063038
+      ],
+      "local_right_left_wrist_x_endpoint": [
+        -0.836206464223159,
+        0.5164280423709329
+      ],
+      "existing_min_lateral_derivative_m_per_m": 2.17,
+      "existing_articulation_delta_max_m": 9.992007221626409e-16
+    },
+    "leaf_wrist_rotation": {
+      "existing": {
+        "x_span_minmax_m": [
+          9.5,
+          9.5
+        ],
+        "chart_hull_area_minmax_m2": [
+          35.910000000000004,
+          35.910000000000004
+        ],
+        "surface_pair_distance_min_m": 1.8999999999999997,
+        "x_order_inversion_frames": 0,
+        "hand_order_inversion_frames": 0,
+        "leg_order_inversion_frames": 0,
+        "max_step_surface_m": 0.0
+      },
+      "candidate": {
+        "x_span_minmax_m": [
+          9.691502552988995,
+          9.691502552988995
+        ],
+        "chart_hull_area_minmax_m2": [
+          27.664523603560795,
+          27.664523603560795
+        ],
+        "surface_pair_distance_min_m": 1.557576617595268,
+        "x_order_inversion_frames": 0,
+        "hand_order_inversion_frames": 0,
+        "leg_order_inversion_frames": 0,
+        "max_step_surface_m": 0.0
+      },
+      "existing_endpoint_x_delta_m": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "candidate_endpoint_x_delta_m": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "existing_endpoint_chart_displacement_m": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "candidate_endpoint_chart_displacement_m": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "local_right_left_wrist_x_endpoint": [
+        -0.7187545124907047,
+        0.7223283227067441
+      ],
+      "existing_min_lateral_derivative_m_per_m": 2.17,
+      "existing_articulation_delta_max_m": 1.1102230246251565e-16
+    }
+  },
+  "sources_sha256": {
+    "lightsem/experiments/motion_study/articulated_stage.py": "773e5a07eb0a24d5c33ecc829ff29479d99b091bdc5f5597ee32bdad2a83ac82",
+    "lightsem/experiments/motion_study/geometry.py": "f5446c9c86a628c1dd9acd1ed9e1574f587e11170ebb099a971d62f2d3664c13",
+    "/root/lightsem/outputs/gesture_transfer_20260911_posechart_audit/pose_chart.py": "074aafe63f0a980e508ec6571e8b6233811332a2bb582b19380a16d34c830f78"
+  }
+}

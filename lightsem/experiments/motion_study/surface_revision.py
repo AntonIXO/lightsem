@@ -2,7 +2,7 @@
 import argparse,json,math,subprocess,time
 from pathlib import Path
 import numpy as np
-from ..stage11_common import authenticated_json,read_authenticated,digest,freeze_sources,verify_sources,gpu_lock
+from ..stage11.stage11_common import authenticated_json,read_authenticated,digest,freeze_sources,verify_sources,gpu_lock
 from .spatial_observer import spatial_series,summary,gates,THRESHOLDS
 from ...conductor.rig import canonical_rig
 

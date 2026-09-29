@@ -23,7 +23,7 @@ from .dmx import club_rig, render_stream
 from .sim import RenderConfig, StageRenderer
 
 WAV_DIR = Path("/root/lightsem/data/wav/wav")
-OUT_DIR = Path("/root/lightsem/outputs")
+OUT_DIR = Path("/root/lightsem/runs/cli")
 
 
 def resolve_wav(args) -> Path:

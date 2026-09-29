@@ -8,7 +8,7 @@ matplotlib.use('Agg')
 import matplotlib.pyplot as plt
 
 from .delivery import OUT,ROOT
-from ..stage11_common import read_authenticated,authenticated_json,digest
+from ..stage11.stage11_common import read_authenticated,authenticated_json,digest
 from ...conductor.rig import canonical_rig
 
 

@@ -6,7 +6,7 @@ from pathlib import Path
 
 import numpy as np
 
-from fit_bradley_terry import analyse_question, correctness, grouped_folds, load_inputs
+from scripts.training.fit_bradley_terry import analyse_question, correctness, grouped_folds, load_inputs
 
 
 def fixture():

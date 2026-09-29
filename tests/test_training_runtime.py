@@ -10,9 +10,9 @@ import torch
 from torch.nn import functional as F
 
 from lightsem.experiments.training_runtime import TrainingRuntime,BatchStream,backward_checked,runtime_loss
-from lightsem.experiments.night_model import NightModel
-from lightsem.experiments.night_training import NightResident,run_cell
-from lightsem.experiments.stage11_common import seed_all,read_authenticated
+from lightsem.experiments.night.night_model import NightModel
+from lightsem.experiments.night.night_training import NightResident,run_cell
+from lightsem.experiments.stage11.stage11_common import seed_all,read_authenticated
 from lightsem.model.light_trunk import CausalWindowAttention
 
 
@@ -110,7 +110,7 @@ class RuntimeTests(unittest.TestCase):
              'runtime':TrainingRuntime(precision='bf16',optimizer='adamw_fused',prefetch=2,
                                        compile='default' if os.environ.get('LIGHTSEM_TEST_COMPILE') else 'off').as_dict()}
         def context(root):return {'training':cfg}, {}, {'pos_weight':[1.,1.,1.]}, {'protocol_sha256':'fixed','source_sha256':'fixed'}
-        with tempfile.TemporaryDirectory() as temp, patch('lightsem.experiments.night_training.study_context',side_effect=context):
+        with tempfile.TemporaryDirectory() as temp, patch('lightsem.experiments.night.night_training.study_context',side_effect=context):
             root=Path(temp);full=root/'full';partial=root/'partial'
             run_cell('base_once',0,TinyData(),full)
             original=BatchStream.next;count=0
@@ -133,7 +133,7 @@ class RuntimeTests(unittest.TestCase):
             self.assertEqual(a['rng']['numpy_batch'],b['rng']['numpy_batch'])
 
     def test_inference_reuse_and_bf16_numpy_boundary(self):
-        from lightsem.experiments.night_evaluation import generate_groups
+        from lightsem.experiments.night.night_evaluation import generate_groups
         seed_all(5);m=NightModel().cuda().eval();x=torch.randn(1,1600,92,device='cuda')
         with torch.no_grad():
             h=m.encode_audio_chunked(x,640)

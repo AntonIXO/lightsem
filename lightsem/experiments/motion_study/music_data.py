@@ -8,7 +8,7 @@ from . import ROOT as SOURCE
 from .audio_prepare import ROOT
 from .geometry import joints_from_features
 from .training import MotionResident
-from ..stage11_common import read_authenticated, authenticated_json, digest
+from ..stage11.stage11_common import read_authenticated, authenticated_json, digest
 
 SUMMARY_NAMES = ('root_speed','root_height','body_speed','upper_speed','lower_speed',
     'left_hand_speed','right_hand_speed','left_foot_speed','right_foot_speed',

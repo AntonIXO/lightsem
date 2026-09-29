@@ -1,0 +1,1430 @@
+{
+ "knobs": [
+  "base_level",
+  "bounce_depth",
+  "contrast_gain",
+  "blinder_decay_s",
+  "strobe_decay_s",
+  "spatial_sigma",
+  "slew_hue",
+  "slew_wash_dimmer",
+  "onset_percentile"
+ ],
+ "defaults": {
+  "base_level": 0.12,
+  "bounce_depth": 0.68,
+  "contrast_gain": 0.85,
+  "blinder_decay_s": 0.22,
+  "strobe_decay_s": 0.12,
+  "spatial_sigma": 0.42,
+  "slew_hue": 0.45,
+  "slew_wash_dimmer": 4.0,
+  "onset_percentile": 88.0
+ },
+ "pairs": [
+  {
+   "id": "pair000",
+   "song": "RocuEwLM5fQ_c0",
+   "music_id": "RocuEwLM5fQ",
+   "start_s": 120.11502843245262,
+   "clip_s": 30.0,
+   "phi": {
+    "A": {
+     "base_level": 0.052609782465136236,
+     "bounce_depth": 0.68,
+     "contrast_gain": 0.85,
+     "blinder_decay_s": 0.2649347477160459,
+     "strobe_decay_s": 0.24645526735628534,
+     "spatial_sigma": 0.42,
+     "slew_hue": 0.28878835931457575,
+     "slew_wash_dimmer": 4.0,
+     "onset_percentile": 88.0
+    },
+    "B": {
+     "base_level": 0.12,
+     "bounce_depth": 0.68,
+     "contrast_gain": 0.85,
+     "blinder_decay_s": 0.14947571330676815,
+     "strobe_decay_s": 0.24610819477155454,
+     "spatial_sigma": 0.42,
+     "slew_hue": 0.3727234512788919,
+     "slew_wash_dimmer": 3.689372721450024,
+     "onset_percentile": 88.0
+    }
+   },
+   "foil_overbright": null,
+   "brightness": {
+    "A": 0.19702207301221142,
+    "B": 0.19624221178667545
+   }
+  },
+  {
+   "id": "pair001",
+   "song": "RIkexdTR6_M_c0",
+   "music_id": "RIkexdTR6_M",
+   "start_s": 131.56930718391897,
+   "clip_s": 30.0,
+   "phi": {
+    "A": {
+     "base_level": 0.12,
+     "bounce_depth": 0.68,
+     "contrast_gain": 0.4926485919530946,
+     "blinder_decay_s": 0.09002033100822696,
+     "strobe_decay_s": 0.12,
+     "spatial_sigma": 0.3937289107887105,
+     "slew_hue": 0.45,
+     "slew_wash_dimmer": 2.3053200539696004,
+     "onset_percentile": 88.0
+    },
+    "B": {
+     "base_level": 0.12,
+     "bounce_depth": 0.68,
+     "contrast_gain": 0.85,
+     "blinder_decay_s": 0.22,
+     "strobe_decay_s": 0.12,
+     "spatial_sigma": 0.42,
+     "slew_hue": 0.45,
+     "slew_wash_dimmer": 4.0,
+     "onset_percentile": 88.0
+    }
+   },
+   "foil_overbright": null,
+   "brightness": {
+    "A": 0.24917070266014898,
+    "B": 0.2490119477856502
+   }
+  },
+  {
+   "id": "pair002",
+   "song": "4QyGK8HtgLc_c0",
+   "music_id": "4QyGK8HtgLc",
+   "start_s": 53.308011377604565,
+   "clip_s": 30.0,
+   "phi": {
+    "A": {
+     "base_level": 0.12,
+     "bounce_depth": 0.9110428427305084,
+     "contrast_gain": 1.015409498712415,
+     "blinder_decay_s": 0.11958541732600222,
+     "strobe_decay_s": 0.12,
+     "spatial_sigma": 0.42,
+     "slew_hue": 0.45,
+     "slew_wash_dimmer": 2.100618881330399,
+     "onset_percentile": 88.0
+    },
+    "B": {
+     "base_level": 0.12,
+     "bounce_depth": 0.68,
+     "contrast_gain": 0.85,
+     "blinder_decay_s": 0.22,
+     "strobe_decay_s": 0.12,
+     "spatial_sigma": 0.42,
+     "slew_hue": 0.45,
+     "slew_wash_dimmer": 4.0,
+     "onset_percentile": 88.0
+    }
+   },
+   "foil_overbright": null,
+   "brightness": {
+    "A": 0.288114004686842,
+    "B": 0.28693632211054354
+   }
+  },
+  {
+   "id": "pair003",
+   "song": "Cnjnj8QWo4M_c0",
+   "music_id": "Cnjnj8QWo4M",
+   "start_s": 23.870468777016896,
+   "clip_s": 30.0,
+   "phi": {
+    "A": {
+     "base_level": 0.12,
+     "bounce_depth": 0.68,
+     "contrast_gain": 0.85,
+     "blinder_decay_s": 0.5941011486589387,
+     "strobe_decay_s": 0.1519112290783618,
+     "spatial_sigma": 0.42,
+     "slew_hue": 1.30630431503667,
+     "slew_wash_dimmer": 4.0,
+     "onset_percentile": 83.3009609403875
+    },
+    "B": {
+     "base_level": 0.06553344420386024,
+     "bounce_depth": 0.68,
+     "contrast_gain": 1.1889131305119918,
+     "blinder_decay_s": 0.23241842542244245,
+     "strobe_decay_s": 0.12,
+     "spatial_sigma": 0.42,
+     "slew_hue": 0.45,
+     "slew_wash_dimmer": 6.203558702739348,
+     "onset_percentile": 88.0
+    }
+   },
+   "foil_overbright": null,
+   "brightness": {
+    "A": 0.21045493583054137,
+    "B": 0.21305041009868
+   }
+  },
+  {
+   "id": "pair004",
+   "song": "11qRVJWomH8_c0",
+   "music_id": "11qRVJWomH8",
+   "start_s": 31.537945024561008,
+   "clip_s": 30.0,
+   "phi": {
+    "A": {
+     "base_level": 0.12,
+     "bounce_depth": 0.68,
+     "contrast_gain": 0.85,
+     "blinder_decay_s": 0.22,
+     "strobe_decay_s": 0.12,
+     "spatial_sigma": 0.8749009221701054,
+     "slew_hue": 1.0368586642800646,
+     "slew_wash_dimmer": 10.78954856976286,
+     "onset_percentile": 77.80549116257099
+    },
+    "B": {
+     "base_level": 0.12,
+     "bounce_depth": 0.68,
+     "contrast_gain": 1.439065465991789,
+     "blinder_decay_s": 0.4025173634150657,
+     "strobe_decay_s": 0.12,
+     "spatial_sigma": 0.42,
+     "slew_hue": 0.2055859764627242,
+     "slew_wash_dimmer": 4.0,
+     "onset_percentile": 79.4280603385245
+    }
+   },
+   "foil_overbright": null,
+   "brightness": {
+    "A": 0.22391232950696613,
+    "B": 0.22415333296717382
+   }
+  },
+  {
+   "id": "pair005",
+   "song": "2WzjnaFjHYY_c0",
+   "music_id": "2WzjnaFjHYY",
+   "start_s": 66.96325976616009,
+   "clip_s": 30.0,
+   "phi": {
+    "A": {
+     "base_level": 0.31760104262970446,
+     "bounce_depth": 0.68,
+     "contrast_gain": 0.43874418898110246,
+     "blinder_decay_s": 0.22,
+     "strobe_decay_s": 0.12,
+     "spatial_sigma": 0.42,
+     "slew_hue": 0.3206790419374452,
+     "slew_wash_dimmer": 2.3527342346561593,
+     "onset_percentile": 88.0
+    },
+    "B": {
+     "base_level": 0.175062018085043,
+     "bounce_depth": 0.68,
+     "contrast_gain": 0.85,
+     "blinder_decay_s": 0.22,
+     "strobe_decay_s": 0.12530657107473453,
+     "spatial_sigma": 0.42,
+     "slew_hue": 0.10442578130629657,
+     "slew_wash_dimmer": 4.0,
+     "onset_percentile": 89.57128267120967
+    }
+   },
+   "foil_overbright": null,
+   "brightness": {
+    "A": 0.289997528423134,
+    "B": 0.295355649841636
+   }
+  },
+  {
+   "id": "pair006",
+   "song": "moryohPkTSY_c2",
+   "music_id": "moryohPkTSY",
+   "start_s": 37.98873644894959,
+   "clip_s": 30.0,
+   "phi": {
+    "A": {
+     "base_level": 0.12,
+     "bounce_depth": 0.68,
+     "contrast_gain": 1.5117579758663136,
+     "blinder_decay_s": 0.24358969607772973,
+     "strobe_decay_s": 0.12,
+     "spatial_sigma": 0.42,
+     "slew_hue": 0.4994696021129818,
+     "slew_wash_dimmer": 4.0,
+     "onset_percentile": 82.16088319404786
+    },
+    "B": {
+     "base_level": 0.12,
+     "bounce_depth": 0.4929307081351392,
+     "contrast_gain": 0.85,
+     "blinder_decay_s": 0.22,
+     "strobe_decay_s": 0.12,
+     "spatial_sigma": 0.42,
+     "slew_hue": 0.48902854867777074,
+     "slew_wash_dimmer": 7.478675405439042,
+     "onset_percentile": 85.99343344812367
+    }
+   },
+   "foil_overbright": null,
+   "brightness": {
+    "A": 0.17159366360923453,
+    "B": 0.17239140074330386
+   }
+  },
+  {
+   "id": "pair007",
+   "song": "EH-Ig1Xv0vU_c0",
+   "music_id": "EH-Ig1Xv0vU",
+   "start_s": 28.584898266391473,
+   "clip_s": 30.0,
+   "phi": {
+    "A": {
+     "base_level": 0.12,
+     "bounce_depth": 0.68,
+     "contrast_gain": 0.85,
+     "blinder_decay_s": 0.22,
+     "strobe_decay_s": 0.12,
+     "spatial_sigma": 0.42,
+     "slew_hue": 0.45,
+     "slew_wash_dimmer": 4.0,
+     "onset_percentile": 88.0
+    },
+    "B": {
+     "base_level": 0.21503439051413012,
+     "bounce_depth": 0.68,
+     "contrast_gain": 0.85,
+     "blinder_decay_s": 0.22,
+     "strobe_decay_s": 0.12,
+     "spatial_sigma": 0.42,
+     "slew_hue": 0.10273240896003881,
+     "slew_wash_dimmer": 1.215782986084354,
+     "onset_percentile": 82.07253557930237
+    }
+   },
+   "foil_overbright": null,
+   "brightness": {
+    "A": 0.16541629135314256,
+    "B": 0.16430699273173321
+   }
+  },
+  {
+   "id": "pair008",
+   "song": "u3S8T3jZA6A_c0",
+   "music_id": "u3S8T3jZA6A",
+   "start_s": 55.45669808841067,
+   "clip_s": 30.0,
+   "phi": {
+    "A": {
+     "base_level": 0.12,
+     "bounce_depth": 0.3994194166670649,
+     "contrast_gain": 0.85,
+     "blinder_decay_s": 0.5722085464273011,
+     "strobe_decay_s": 0.12,
+     "spatial_sigma": 0.42,
+     "slew_hue": 0.2804276719194872,
+     "slew_wash_dimmer": 3.3694363988219314,
+     "onset_percentile": 88.0
+    },
+    "B": {
+     "base_level": 0.2491886997389554,
+     "bounce_depth": 0.68,
+     "contrast_gain": 0.85,
+     "blinder_decay_s": 0.22,
+     "strobe_decay_s": 0.09265826371669673,
+     "spatial_sigma": 0.42,
+     "slew_hue": 0.3986919410157977,
+     "slew_wash_dimmer": 4.0,
+     "onset_percentile": 92.81033799602314
+    }
+   },
+   "foil_overbright": null,
+   "brightness": {
+    "A": 0.204015947163179,
+    "B": 0.20359411032386812
+   }
+  },
+  {
+   "id": "pair009",
+   "song": "TPXoxjy-RKk_c0",
+   "music_id": "TPXoxjy-RKk",
+   "start_s": 24.257884738859683,
+   "clip_s": 30.0,
+   "phi": {
+    "A": {
+     "base_level": 0.12,
+     "bounce_depth": 0.8873127411591779,
+     "contrast_gain": 1.1286271120249787,
+     "blinder_decay_s": 0.22,
+     "strobe_decay_s": 0.12,
+     "spatial_sigma": 0.42,
+     "slew_hue": 1.0286399905460364,
+     "slew_wash_dimmer": 1.8480602555403884,
+     "onset_percentile": 88.0
+    },
+    "B": {
+     "base_level": 0.2707151414509394,
+     "bounce_depth": 0.68,
+     "contrast_gain": 0.85,
+     "blinder_decay_s": 0.256548419441092,
+     "strobe_decay_s": 0.12,
+     "spatial_sigma": 0.42,
+     "slew_hue": 0.2918847810539223,
+     "slew_wash_dimmer": 4.035089572989689,
+     "onset_percentile": 88.0
+    }
+   },
+   "foil_overbright": null,
+   "brightness": {
+    "A": 0.1972087777594698,
+    "B": 0.192772314677505
+   }
+  },
+  {
+   "id": "pair010",
+   "song": "NI31AWYYuFI_c2",
+   "music_id": "NI31AWYYuFI",
+   "start_s": 121.63228949596838,
+   "clip_s": 30.0,
+   "phi": {
+    "A": {
+     "base_level": 0.1082083773669168,
+     "bounce_depth": 0.33456296963799814,
+     "contrast_gain": 0.85,
+     "blinder_decay_s": 0.22,
+     "strobe_decay_s": 0.1996217903712209,
+     "spatial_sigma": 0.42,
+     "slew_hue": 0.45,
+     "slew_wash_dimmer": 4.0,
+     "onset_percentile": 95.486307848406
+    },
+    "B": {
+     "base_level": 0.11210789712228211,
+     "bounce_depth": 0.22466801520985555,
+     "contrast_gain": 0.85,
+     "blinder_decay_s": 0.2562136621719196,
+     "strobe_decay_s": 0.12,
+     "spatial_sigma": 0.8505440359611913,
+     "slew_hue": 0.45,
+     "slew_wash_dimmer": 4.0,
+     "onset_percentile": 88.0
+    }
+   },
+   "foil_overbright": null,
+   "brightness": {
+    "A": 0.23454660112410977,
+    "B": 0.23153013676058662
+   }
+  },
+  {
+   "id": "pair011",
+   "song": "Tjbw_Yc48fs_c0",
+   "music_id": "Tjbw_Yc48fs",
+   "start_s": 45.28806661498945,
+   "clip_s": 30.0,
+   "phi": {
+    "A": {
+     "base_level": 0.12,
+     "bounce_depth": 0.68,
+     "contrast_gain": 0.85,
+     "blinder_decay_s": 0.22,
+     "strobe_decay_s": 0.12,
+     "spatial_sigma": 0.42,
+     "slew_hue": 0.45,
+     "slew_wash_dimmer": 4.0,
+     "onset_percentile": 88.0
+    },
+    "B": {
+     "base_level": 0.2725547676133609,
+     "bounce_depth": 0.68,
+     "contrast_gain": 0.85,
+     "blinder_decay_s": 0.22,
+     "strobe_decay_s": 0.11654431723488215,
+     "spatial_sigma": 0.42,
+     "slew_hue": 0.291517012573476,
+     "slew_wash_dimmer": 4.0,
+     "onset_percentile": 93.04897601285279
+    }
+   },
+   "foil_overbright": null,
+   "brightness": {
+    "A": 0.2627946266088135,
+    "B": 0.2603703804397576
+   }
+  },
+  {
+   "id": "pair012",
+   "song": "UnbJ4AX6wTA_c0",
+   "music_id": "UnbJ4AX6wTA",
+   "start_s": 30.77999849224307,
+   "clip_s": 30.0,
+   "phi": {
+    "A": {
+     "base_level": 0.03193895368429486,
+     "bounce_depth": 0.3336680402794694,
+     "contrast_gain": 0.85,
+     "blinder_decay_s": 0.22,
+     "strobe_decay_s": 0.12,
+     "spatial_sigma": 0.4220820080676191,
+     "slew_hue": 0.45,
+     "slew_wash_dimmer": 5.334337513304106,
+     "onset_percentile": 88.0
+    },
+    "B": {
+     "base_level": 0.12,
+     "bounce_depth": 0.68,
+     "contrast_gain": 0.85,
+     "blinder_decay_s": 0.22,
+     "strobe_decay_s": 0.12,
+     "spatial_sigma": 0.42,
+     "slew_hue": 0.45,
+     "slew_wash_dimmer": 4.0,
+     "onset_percentile": 88.0
+    }
+   },
+   "foil_overbright": null,
+   "brightness": {
+    "A": 0.20955252375459987,
+    "B": 0.20825656157887992
+   }
+  },
+  {
+   "id": "pair013",
+   "song": "ZoBKemKNjM4_c1",
+   "music_id": "ZoBKemKNjM4",
+   "start_s": 89.18924986433706,
+   "clip_s": 30.0,
+   "phi": {
+    "A": {
+     "base_level": 0.03376257088384438,
+     "bounce_depth": 0.7343335060587661,
+     "contrast_gain": 1.5751209037848417,
+     "blinder_decay_s": 0.22,
+     "strobe_decay_s": 0.12,
+     "spatial_sigma": 0.42,
+     "slew_hue": 0.45,
+     "slew_wash_dimmer": 4.0,
+     "onset_percentile": 84.61949556643289
+    },
+    "B": {
+     "base_level": 0.02410813455397558,
+     "bounce_depth": 0.527719688696431,
+     "contrast_gain": 0.85,
+     "blinder_decay_s": 0.22,
+     "strobe_decay_s": 0.12,
+     "spatial_sigma": 0.42,
+     "slew_hue": 1.1873635685698254,
+     "slew_wash_dimmer": 5.093242638468779,
+     "onset_percentile": 88.0
+    }
+   },
+   "foil_overbright": null,
+   "brightness": {
+    "A": 0.1870022628659307,
+    "B": 0.1864176186814595
+   }
+  },
+  {
+   "id": "pair014",
+   "song": "bYjI048jg40_c0",
+   "music_id": "bYjI048jg40",
+   "start_s": 70.01351165875131,
+   "clip_s": 30.0,
+   "phi": {
+    "A": {
+     "base_level": 0.12,
+     "bounce_depth": 0.68,
+     "contrast_gain": 0.85,
+     "blinder_decay_s": 0.22,
+     "strobe_decay_s": 0.12,
+     "spatial_sigma": 0.42,
+     "slew_hue": 0.45,
+     "slew_wash_dimmer": 4.0,
+     "onset_percentile": 88.0
+    },
+    "B": {
+     "base_level": 0.12,
+     "bounce_depth": 0.68,
+     "contrast_gain": 1.3501593763741089,
+     "blinder_decay_s": 0.22,
+     "strobe_decay_s": 0.20561351690820642,
+     "spatial_sigma": 0.42,
+     "slew_hue": 0.6810282191569689,
+     "slew_wash_dimmer": 1.240763422235458,
+     "onset_percentile": 88.0
+    }
+   },
+   "foil_overbright": null,
+   "brightness": {
+    "A": 0.19121813222020834,
+    "B": 0.1912482351110379
+   }
+  },
+  {
+   "id": "pair015",
+   "song": "0bZbusRBSvc_c0",
+   "music_id": "0bZbusRBSvc",
+   "start_s": 76.7490840622871,
+   "clip_s": 30.0,
+   "phi": {
+    "A": {
+     "base_level": 0.12,
+     "bounce_depth": 0.20009681183536512,
+     "contrast_gain": 0.85,
+     "blinder_decay_s": 0.3584831324645556,
+     "strobe_decay_s": 0.10366614389709913,
+     "spatial_sigma": 0.42,
+     "slew_hue": 0.45,
+     "slew_wash_dimmer": 4.0,
+     "onset_percentile": 77.11423792343263
+    },
+    "B": {
+     "base_level": 0.12,
+     "bounce_depth": 0.7498189722234422,
+     "contrast_gain": 1.2884647156753593,
+     "blinder_decay_s": 0.18802220606592573,
+     "strobe_decay_s": 0.12,
+     "spatial_sigma": 0.42,
+     "slew_hue": 1.427972054726659,
+     "slew_wash_dimmer": 4.0,
+     "onset_percentile": 88.0
+    }
+   },
+   "foil_overbright": null,
+   "brightness": {
+    "A": 0.22862238974020982,
+    "B": 0.23077241811757385
+   }
+  },
+  {
+   "id": "pair016",
+   "song": "--74o20SmOs_c0",
+   "music_id": "--74o20SmOs",
+   "start_s": 116.61482473924892,
+   "clip_s": 30.0,
+   "phi": {
+    "A": {
+     "base_level": 0.06819005393567067,
+     "bounce_depth": 0.68,
+     "contrast_gain": 0.7197395244035962,
+     "blinder_decay_s": 0.10243581593631625,
+     "strobe_decay_s": 0.12,
+     "spatial_sigma": 0.4830685051026099,
+     "slew_hue": 0.45,
+     "slew_wash_dimmer": 4.0,
+     "onset_percentile": 88.0
+    },
+    "B": {
+     "base_level": 0.12,
+     "bounce_depth": 0.3209772368890941,
+     "contrast_gain": 0.85,
+     "blinder_decay_s": 0.25262372620629986,
+     "strobe_decay_s": 0.12,
+     "spatial_sigma": 0.634556160341564,
+     "slew_hue": 0.45,
+     "slew_wash_dimmer": 5.71636089117669,
+     "onset_percentile": 88.0
+    }
+   },
+   "foil_overbright": null,
+   "brightness": {
+    "A": 0.29378427161714354,
+    "B": 0.2913628814924663
+   }
+  },
+  {
+   "id": "pair017",
+   "song": "OcYYKHVN0MQ_c0",
+   "music_id": "OcYYKHVN0MQ",
+   "start_s": 142.20342071020605,
+   "clip_s": 30.0,
+   "phi": {
+    "A": {
+     "base_level": 0.12,
+     "bounce_depth": 0.68,
+     "contrast_gain": 0.85,
+     "blinder_decay_s": 0.23375612711700886,
+     "strobe_decay_s": 0.12,
+     "spatial_sigma": 0.6927165904260785,
+     "slew_hue": 0.9045847711333972,
+     "slew_wash_dimmer": 4.0,
+     "onset_percentile": 86.31107146186037
+    },
+    "B": {
+     "base_level": 0.12,
+     "bounce_depth": 0.68,
+     "contrast_gain": 0.6884489116256497,
+     "blinder_decay_s": 0.26179336107546286,
+     "strobe_decay_s": 0.19273331688507173,
+     "spatial_sigma": 0.42,
+     "slew_hue": 0.45,
+     "slew_wash_dimmer": 2.9785687310725923,
+     "onset_percentile": 88.0
+    }
+   },
+   "foil_overbright": null,
+   "brightness": {
+    "A": 0.2632709049632925,
+    "B": 0.26485904871752625
+   }
+  },
+  {
+   "id": "pair018",
+   "song": "moryohPkTSY_c0",
+   "music_id": "moryohPkTSY",
+   "start_s": 43.231249564264495,
+   "clip_s": 30.0,
+   "phi": {
+    "A": {
+     "base_level": 0.12,
+     "bounce_depth": 0.68,
+     "contrast_gain": 0.85,
+     "blinder_decay_s": 0.22,
+     "strobe_decay_s": 0.12,
+     "spatial_sigma": 0.42,
+     "slew_hue": 0.45,
+     "slew_wash_dimmer": 4.0,
+     "onset_percentile": 88.0
+    },
+    "B": {
+     "base_level": 0.12,
+     "bounce_depth": 0.22969424204223873,
+     "contrast_gain": 0.85,
+     "blinder_decay_s": 0.22,
+     "strobe_decay_s": 0.17405378033991287,
+     "spatial_sigma": 0.42,
+     "slew_hue": 1.14050914969824,
+     "slew_wash_dimmer": 2.2591878105915097,
+     "onset_percentile": 88.0
+    }
+   },
+   "foil_overbright": null,
+   "brightness": {
+    "A": 0.15999106296113216,
+    "B": 0.15921172534373224
+   }
+  },
+  {
+   "id": "pair019",
+   "song": "CdXP-aZLuOI_c0",
+   "music_id": "CdXP-aZLuOI",
+   "start_s": 85.59182804991912,
+   "clip_s": 30.0,
+   "phi": {
+    "A": {
+     "base_level": 0.12,
+     "bounce_depth": 0.68,
+     "contrast_gain": 0.85,
+     "blinder_decay_s": 0.47438997214023043,
+     "strobe_decay_s": 0.20564775408773467,
+     "spatial_sigma": 0.42,
+     "slew_hue": 0.15564521868561787,
+     "slew_wash_dimmer": 1.0614867948838826,
+     "onset_percentile": 88.0
+    },
+    "B": {
+     "base_level": 0.12,
+     "bounce_depth": 0.68,
+     "contrast_gain": 0.85,
+     "blinder_decay_s": 0.22,
+     "strobe_decay_s": 0.12,
+     "spatial_sigma": 0.42,
+     "slew_hue": 0.45,
+     "slew_wash_dimmer": 4.0,
+     "onset_percentile": 88.0
+    }
+   },
+   "foil_overbright": null,
+   "brightness": {
+    "A": 0.2135508375899379,
+    "B": 0.2163978835978836
+   }
+  },
+  {
+   "id": "pair020",
+   "song": "981MHMgULkk_c0",
+   "music_id": "981MHMgULkk",
+   "start_s": 96.91679821177021,
+   "clip_s": 30.0,
+   "phi": {
+    "A": {
+     "base_level": 0.02469803070593823,
+     "bounce_depth": 0.5349798177529194,
+     "contrast_gain": 0.85,
+     "blinder_decay_s": 0.13143478091897373,
+     "strobe_decay_s": 0.12,
+     "spatial_sigma": 0.4744832921273873,
+     "slew_hue": 0.45,
+     "slew_wash_dimmer": 4.0,
+     "onset_percentile": 88.0
+    },
+    "B": {
+     "base_level": 0.12,
+     "bounce_depth": 0.68,
+     "contrast_gain": 0.85,
+     "blinder_decay_s": 0.22,
+     "strobe_decay_s": 0.12,
+     "spatial_sigma": 0.42,
+     "slew_hue": 0.45,
+     "slew_wash_dimmer": 4.0,
+     "onset_percentile": 88.0
+    }
+   },
+   "foil_overbright": null,
+   "brightness": {
+    "A": 0.24258534080298788,
+    "B": 0.24103036286409987
+   }
+  },
+  {
+   "id": "pair021",
+   "song": "gDGtf4yMW5I_c0",
+   "music_id": "gDGtf4yMW5I",
+   "start_s": 168.57221197625734,
+   "clip_s": 30.0,
+   "phi": {
+    "A": {
+     "base_level": 0.12,
+     "bounce_depth": 0.68,
+     "contrast_gain": 0.6169661313868643,
+     "blinder_decay_s": 0.22,
+     "strobe_decay_s": 0.09223536588779675,
+     "spatial_sigma": 0.5870518920541556,
+     "slew_hue": 1.1475862925615268,
+     "slew_wash_dimmer": 4.0,
+     "onset_percentile": 88.0
+    },
+    "B": {
+     "base_level": 0.12,
+     "bounce_depth": 0.68,
+     "contrast_gain": 0.85,
+     "blinder_decay_s": 0.22,
+     "strobe_decay_s": 0.12,
+     "spatial_sigma": 0.42,
+     "slew_hue": 0.45,
+     "slew_wash_dimmer": 4.0,
+     "onset_percentile": 88.0
+    }
+   },
+   "foil_overbright": null,
+   "brightness": {
+    "A": 0.29544119752476156,
+    "B": 0.29822916094542395
+   }
+  },
+  {
+   "id": "pair022",
+   "song": "OcYYKHVN0MQ_c1",
+   "music_id": "OcYYKHVN0MQ",
+   "start_s": 122.3329028714909,
+   "clip_s": 30.0,
+   "phi": {
+    "A": {
+     "base_level": 0.12,
+     "bounce_depth": 0.68,
+     "contrast_gain": 0.85,
+     "blinder_decay_s": 0.22,
+     "strobe_decay_s": 0.12,
+     "spatial_sigma": 0.42,
+     "slew_hue": 0.45,
+     "slew_wash_dimmer": 4.0,
+     "onset_percentile": 88.0
+    },
+    "B": {
+     "base_level": 0.12,
+     "bounce_depth": 0.68,
+     "contrast_gain": 0.8937927616278357,
+     "blinder_decay_s": 0.22,
+     "strobe_decay_s": 0.060618270868607875,
+     "spatial_sigma": 0.42,
+     "slew_hue": 1.403834169051529,
+     "slew_wash_dimmer": 4.0,
+     "onset_percentile": 78.62310480775348
+    }
+   },
+   "foil_overbright": null,
+   "brightness": {
+    "A": 0.21912432947035024,
+    "B": 0.21853863623880926
+   }
+  },
+  {
+   "id": "pair023",
+   "song": "ZoBKemKNjM4_c0",
+   "music_id": "ZoBKemKNjM4",
+   "start_s": 43.54047374986959,
+   "clip_s": 30.0,
+   "phi": {
+    "A": {
+     "base_level": 0.12,
+     "bounce_depth": 0.7533252818218825,
+     "contrast_gain": 0.85,
+     "blinder_decay_s": 0.1759932439634202,
+     "strobe_decay_s": 0.12,
+     "spatial_sigma": 0.42,
+     "slew_hue": 0.9266342032381898,
+     "slew_wash_dimmer": 4.0,
+     "onset_percentile": 84.15988054614267
+    },
+    "B": {
+     "base_level": 0.12,
+     "bounce_depth": 0.4617189739540333,
+     "contrast_gain": 0.7227227394938187,
+     "blinder_decay_s": 0.22,
+     "strobe_decay_s": 0.12,
+     "spatial_sigma": 0.21259933187688013,
+     "slew_hue": 0.2599312216231934,
+     "slew_wash_dimmer": 4.0,
+     "onset_percentile": 88.0
+    }
+   },
+   "foil_overbright": null,
+   "brightness": {
+    "A": 0.1706165275260431,
+    "B": 0.17129584866626388
+   }
+  },
+  {
+   "id": "pair024",
+   "song": "981MHMgULkk_c2",
+   "music_id": "981MHMgULkk",
+   "start_s": 142.92832265521173,
+   "clip_s": 30.0,
+   "phi": {
+    "A": {
+     "base_level": 0.12,
+     "bounce_depth": 0.3363116805516781,
+     "contrast_gain": 0.85,
+     "blinder_decay_s": 0.13636861837663894,
+     "strobe_decay_s": 0.12,
+     "spatial_sigma": 0.42,
+     "slew_hue": 0.10133562703879315,
+     "slew_wash_dimmer": 11.727167264813103,
+     "onset_percentile": 88.0
+    },
+    "B": {
+     "base_level": 0.12,
+     "bounce_depth": 0.68,
+     "contrast_gain": 0.85,
+     "blinder_decay_s": 0.1779394298257324,
+     "strobe_decay_s": 0.19107402824896455,
+     "spatial_sigma": 0.22785120023889746,
+     "slew_hue": 0.45,
+     "slew_wash_dimmer": 4.0,
+     "onset_percentile": 83.3138680244754
+    }
+   },
+   "foil_overbright": null,
+   "brightness": {
+    "A": 0.21027646509584225,
+    "B": 0.21342920122297288
+   }
+  },
+  {
+   "id": "pair025",
+   "song": "NI31AWYYuFI_c1",
+   "music_id": "NI31AWYYuFI",
+   "start_s": 135.0147478756092,
+   "clip_s": 30.0,
+   "phi": {
+    "A": {
+     "base_level": 0.12,
+     "bounce_depth": 0.9735347536699621,
+     "contrast_gain": 0.85,
+     "blinder_decay_s": 0.22,
+     "strobe_decay_s": 0.20163449625924632,
+     "spatial_sigma": 0.7043679578367487,
+     "slew_hue": 0.45,
+     "slew_wash_dimmer": 9.095815096640768,
+     "onset_percentile": 88.0
+    },
+    "B": {
+     "base_level": 0.12,
+     "bounce_depth": 0.26297215581233163,
+     "contrast_gain": 0.8408205088343228,
+     "blinder_decay_s": 0.38325579506592117,
+     "strobe_decay_s": 0.14064273719143036,
+     "spatial_sigma": 0.42,
+     "slew_hue": 0.45,
+     "slew_wash_dimmer": 4.0,
+     "onset_percentile": 88.0
+    }
+   },
+   "foil_overbright": null,
+   "brightness": {
+    "A": 0.23818975577158966,
+    "B": 0.2371319904432361
+   }
+  },
+  {
+   "id": "pair026",
+   "song": "moryohPkTSY_c1",
+   "music_id": "moryohPkTSY",
+   "start_s": 108.80642535944847,
+   "clip_s": 30.0,
+   "phi": {
+    "A": {
+     "base_level": 0.12,
+     "bounce_depth": 0.5131716598698239,
+     "contrast_gain": 0.85,
+     "blinder_decay_s": 0.2281098009566723,
+     "strobe_decay_s": 0.11459117398033519,
+     "spatial_sigma": 0.42,
+     "slew_hue": 0.45,
+     "slew_wash_dimmer": 6.1789817092257335,
+     "onset_percentile": 88.0
+    },
+    "B": {
+     "base_level": 0.12,
+     "bounce_depth": 0.68,
+     "contrast_gain": 0.85,
+     "blinder_decay_s": 0.22,
+     "strobe_decay_s": 0.12,
+     "spatial_sigma": 0.42,
+     "slew_hue": 0.45,
+     "slew_wash_dimmer": 4.0,
+     "onset_percentile": 88.0
+    }
+   },
+   "foil_overbright": null,
+   "brightness": {
+    "A": 0.20962435418611888,
+    "B": 0.21050982314494426
+   }
+  },
+  {
+   "id": "pair027",
+   "song": "HyiOce29uio_c0",
+   "music_id": "HyiOce29uio",
+   "start_s": 54.41083024167065,
+   "clip_s": 30.0,
+   "phi": {
+    "A": {
+     "base_level": 0.12,
+     "bounce_depth": 0.68,
+     "contrast_gain": 1.0236123517234006,
+     "blinder_decay_s": 0.22,
+     "strobe_decay_s": 0.1402713153575247,
+     "spatial_sigma": 0.3482962717760733,
+     "slew_hue": 0.45,
+     "slew_wash_dimmer": 4.0,
+     "onset_percentile": 92.37583448906231
+    },
+    "B": {
+     "base_level": 0.12,
+     "bounce_depth": 0.43761599280968194,
+     "contrast_gain": 0.85,
+     "blinder_decay_s": 0.22,
+     "strobe_decay_s": 0.2257000503348499,
+     "spatial_sigma": 0.42,
+     "slew_hue": 0.3628729551441927,
+     "slew_wash_dimmer": 4.0,
+     "onset_percentile": 85.50921664156195
+    }
+   },
+   "foil_overbright": null,
+   "brightness": {
+    "A": 0.261805365152597,
+    "B": 0.2601588473297816
+   }
+  },
+  {
+   "id": "pair028",
+   "song": "gE8dDV-XCEs_c0",
+   "music_id": "gE8dDV-XCEs",
+   "start_s": 73.04651605352237,
+   "clip_s": 30.0,
+   "phi": {
+    "A": {
+     "base_level": 0.12,
+     "bounce_depth": 0.68,
+     "contrast_gain": 0.85,
+     "blinder_decay_s": 0.22,
+     "strobe_decay_s": 0.12,
+     "spatial_sigma": 0.42,
+     "slew_hue": 0.45,
+     "slew_wash_dimmer": 4.0,
+     "onset_percentile": 88.0
+    },
+    "B": {
+     "base_level": 0.12,
+     "bounce_depth": 0.68,
+     "contrast_gain": 0.85,
+     "blinder_decay_s": 0.22,
+     "strobe_decay_s": 0.07132114089508176,
+     "spatial_sigma": 0.6551089349416804,
+     "slew_hue": 0.45,
+     "slew_wash_dimmer": 4.860325845094805,
+     "onset_percentile": 87.11736852839788
+    }
+   },
+   "foil_overbright": null,
+   "brightness": {
+    "A": 0.22278686585745408,
+    "B": 0.21947991798026398
+   }
+  },
+  {
+   "id": "pair029",
+   "song": "KatqpM7-x9I_c0",
+   "music_id": "KatqpM7-x9I",
+   "start_s": 101.27394294675281,
+   "clip_s": 30.0,
+   "phi": {
+    "A": {
+     "base_level": 0.12,
+     "bounce_depth": 0.68,
+     "contrast_gain": 0.8314561365786535,
+     "blinder_decay_s": 0.25581117824840116,
+     "strobe_decay_s": 0.15666786906081,
+     "spatial_sigma": 0.42,
+     "slew_hue": 0.45,
+     "slew_wash_dimmer": 4.0,
+     "onset_percentile": 81.87630560046568
+    },
+    "B": {
+     "base_level": 0.20981953181018828,
+     "bounce_depth": 0.2229241677047879,
+     "contrast_gain": 0.85,
+     "blinder_decay_s": 0.11774480179923881,
+     "strobe_decay_s": 0.12,
+     "spatial_sigma": 0.6399353593193169,
+     "slew_hue": 0.45,
+     "slew_wash_dimmer": 4.0,
+     "onset_percentile": 88.0
+    }
+   },
+   "foil_overbright": null,
+   "brightness": {
+    "A": 0.22610197726149286,
+    "B": 0.21387664268321704
+   }
+  },
+  {
+   "id": "pair030",
+   "song": "981MHMgULkk_c1",
+   "music_id": "981MHMgULkk",
+   "start_s": 97.00436721882137,
+   "clip_s": 30.0,
+   "phi": {
+    "A": {
+     "base_level": 0.12,
+     "bounce_depth": 0.68,
+     "contrast_gain": 0.85,
+     "blinder_decay_s": 0.22,
+     "strobe_decay_s": 0.12,
+     "spatial_sigma": 0.42,
+     "slew_hue": 0.45,
+     "slew_wash_dimmer": 4.0,
+     "onset_percentile": 88.0
+    },
+    "B": {
+     "base_level": 0.12,
+     "bounce_depth": 0.48138448846411086,
+     "contrast_gain": 0.9348166810003695,
+     "blinder_decay_s": 0.22,
+     "strobe_decay_s": 0.09928322587354999,
+     "spatial_sigma": 0.5012001350707366,
+     "slew_hue": 0.45,
+     "slew_wash_dimmer": 4.0,
+     "onset_percentile": 88.0
+    }
+   },
+   "foil_overbright": null,
+   "brightness": {
+    "A": 0.24208487486497868,
+    "B": 0.23948611706120354
+   }
+  },
+  {
+   "id": "pair031",
+   "song": "l8WxpazGFug_c0",
+   "music_id": "l8WxpazGFug",
+   "start_s": 158.58290314694173,
+   "clip_s": 30.0,
+   "phi": {
+    "A": {
+     "base_level": 0.02070487036958739,
+     "bounce_depth": 0.26837396538877756,
+     "contrast_gain": 0.85,
+     "blinder_decay_s": 0.22,
+     "strobe_decay_s": 0.11880195985815378,
+     "spatial_sigma": 0.29653970263966073,
+     "slew_hue": 0.45,
+     "slew_wash_dimmer": 4.0,
+     "onset_percentile": 88.0
+    },
+    "B": {
+     "base_level": 0.12,
+     "bounce_depth": 0.68,
+     "contrast_gain": 0.85,
+     "blinder_decay_s": 0.22,
+     "strobe_decay_s": 0.12,
+     "spatial_sigma": 0.42,
+     "slew_hue": 0.45,
+     "slew_wash_dimmer": 4.0,
+     "onset_percentile": 88.0
+    }
+   },
+   "foil_overbright": null,
+   "brightness": {
+    "A": 0.22808620768568869,
+    "B": 0.2255919545596016
+   }
+  },
+  {
+   "id": "pair032",
+   "song": "xV3dqkP1RrY_c0",
+   "music_id": "xV3dqkP1RrY",
+   "start_s": 131.68769713508044,
+   "clip_s": 30.0,
+   "phi": {
+    "A": {
+     "base_level": 0.28999004514228044,
+     "bounce_depth": 0.68,
+     "contrast_gain": 0.85,
+     "blinder_decay_s": 0.22,
+     "strobe_decay_s": 0.07805225792136565,
+     "spatial_sigma": 0.42,
+     "slew_hue": 0.45,
+     "slew_wash_dimmer": 2.982053291156832,
+     "onset_percentile": 90.78084129055799
+    },
+    "B": {
+     "base_level": 0.12,
+     "bounce_depth": 0.68,
+     "contrast_gain": 0.85,
+     "blinder_decay_s": 0.1917659030537426,
+     "strobe_decay_s": 0.1399421243528212,
+     "spatial_sigma": 0.2479937561867806,
+     "slew_hue": 0.45,
+     "slew_wash_dimmer": 1.0347266610457084,
+     "onset_percentile": 88.0
+    }
+   },
+   "foil_overbright": null,
+   "brightness": {
+    "A": 0.2858332536936343,
+    "B": 0.2912272971933872
+   }
+  },
+  {
+   "id": "pair033",
+   "song": "8B6VxbBLDEg_c0",
+   "music_id": "8B6VxbBLDEg",
+   "start_s": 62.09838409846929,
+   "clip_s": 30.0,
+   "phi": {
+    "A": {
+     "base_level": 0.10961254004831947,
+     "bounce_depth": 0.68,
+     "contrast_gain": 0.85,
+     "blinder_decay_s": 0.4602782467447642,
+     "strobe_decay_s": 0.12425698005973457,
+     "spatial_sigma": 0.42,
+     "slew_hue": 0.45,
+     "slew_wash_dimmer": 2.1929395201879407,
+     "onset_percentile": 88.0
+    },
+    "B": {
+     "base_level": 0.12,
+     "bounce_depth": 0.68,
+     "contrast_gain": 0.5272940868465268,
+     "blinder_decay_s": 0.4265239135521056,
+     "strobe_decay_s": 0.07960462671568569,
+     "spatial_sigma": 0.42,
+     "slew_hue": 0.45,
+     "slew_wash_dimmer": 1.460003402084268,
+     "onset_percentile": 88.0
+    }
+   },
+   "foil_overbright": null,
+   "brightness": {
+    "A": 0.2663511076325955,
+    "B": 0.26564559235458884
+   }
+  },
+  {
+   "id": "pair034",
+   "song": "KatqpM7-x9I_c1",
+   "music_id": "KatqpM7-x9I",
+   "start_s": 33.06032127339569,
+   "clip_s": 30.0,
+   "phi": {
+    "A": {
+     "base_level": 0.12,
+     "bounce_depth": 0.68,
+     "contrast_gain": 0.85,
+     "blinder_decay_s": 0.22,
+     "strobe_decay_s": 0.12,
+     "spatial_sigma": 0.42,
+     "slew_hue": 0.45,
+     "slew_wash_dimmer": 4.0,
+     "onset_percentile": 88.0
+    },
+    "B": {
+     "base_level": 0.12,
+     "bounce_depth": 0.38480453152254573,
+     "contrast_gain": 0.85,
+     "blinder_decay_s": 0.22,
+     "strobe_decay_s": 0.12,
+     "spatial_sigma": 0.31713512484193535,
+     "slew_hue": 0.45,
+     "slew_wash_dimmer": 1.7770225595061708,
+     "onset_percentile": 88.07038652544517
+    }
+   },
+   "foil_overbright": null,
+   "brightness": {
+    "A": 0.1546540387396789,
+    "B": 0.15663522271653763
+   }
+  },
+  {
+   "id": "pair035",
+   "song": "gDGtf4yMW5I_c1",
+   "music_id": "gDGtf4yMW5I",
+   "start_s": 157.68744044932367,
+   "clip_s": 30.0,
+   "phi": {
+    "A": {
+     "base_level": 0.12,
+     "bounce_depth": 0.68,
+     "contrast_gain": 0.85,
+     "blinder_decay_s": 0.22,
+     "strobe_decay_s": 0.12,
+     "spatial_sigma": 0.42,
+     "slew_hue": 0.45,
+     "slew_wash_dimmer": 4.0,
+     "onset_percentile": 88.0
+    },
+    "B": {
+     "base_level": 0.12,
+     "bounce_depth": 0.68,
+     "contrast_gain": 0.85,
+     "blinder_decay_s": 0.11267830259999514,
+     "strobe_decay_s": 0.06220544056593227,
+     "spatial_sigma": 0.2243680020548835,
+     "slew_hue": 0.45,
+     "slew_wash_dimmer": 1.4510357999278978,
+     "onset_percentile": 88.0
+    }
+   },
+   "foil_overbright": null,
+   "brightness": {
+    "A": 0.2920719649951484,
+    "B": 0.29650490196078433
+   }
+  },
+  {
+   "id": "pair036",
+   "song": "lg-XapP0epM_c0",
+   "music_id": "lg-XapP0epM",
+   "start_s": 32.78896989205457,
+   "clip_s": 30.0,
+   "phi": {
+    "A": {
+     "base_level": 0.12,
+     "bounce_depth": 0.5824320055945283,
+     "contrast_gain": 0.85,
+     "blinder_decay_s": 0.302602432335092,
+     "strobe_decay_s": 0.12,
+     "spatial_sigma": 0.42,
+     "slew_hue": 0.48347112008832993,
+     "slew_wash_dimmer": 4.0,
+     "onset_percentile": 76.58580289639025
+    },
+    "B": {
+     "base_level": 0.2839003908171426,
+     "bounce_depth": 0.28625595251175895,
+     "contrast_gain": 0.85,
+     "blinder_decay_s": 0.1638814255541346,
+     "strobe_decay_s": 0.12,
+     "spatial_sigma": 0.42,
+     "slew_hue": 0.45,
+     "slew_wash_dimmer": 4.0,
+     "onset_percentile": 80.40370215504912
+    }
+   },
+   "foil_overbright": null,
+   "brightness": {
+    "A": 0.29415736712985846,
+    "B": 0.2886018829754124
+   }
+  },
+  {
+   "id": "pair037",
+   "song": "NI31AWYYuFI_c0",
+   "music_id": "NI31AWYYuFI",
+   "start_s": 135.49276419550895,
+   "clip_s": 30.0,
+   "phi": {
+    "A": {
+     "base_level": 0.07454584682738816,
+     "bounce_depth": 0.68,
+     "contrast_gain": 0.85,
+     "blinder_decay_s": 0.36632334088997254,
+     "strobe_decay_s": 0.11661057191590075,
+     "spatial_sigma": 0.42,
+     "slew_hue": 1.1302097119919632,
+     "slew_wash_dimmer": 4.0,
+     "onset_percentile": 88.0
+    },
+    "B": {
+     "base_level": 0.12,
+     "bounce_depth": 0.68,
+     "contrast_gain": 0.85,
+     "blinder_decay_s": 0.22,
+     "strobe_decay_s": 0.12,
+     "spatial_sigma": 0.42,
+     "slew_hue": 0.45,
+     "slew_wash_dimmer": 4.0,
+     "onset_percentile": 88.0
+    }
+   },
+   "foil_overbright": null,
+   "brightness": {
+    "A": 0.21714777924241593,
+    "B": 0.21699845389136044
+   }
+  },
+  {
+   "id": "pair038",
+   "song": "kZGzpaJfkWc_c0",
+   "music_id": "kZGzpaJfkWc",
+   "start_s": 75.03318235220458,
+   "clip_s": 30.0,
+   "phi": {
+    "A": {
+     "base_level": 0.12,
+     "bounce_depth": 0.68,
+     "contrast_gain": 0.9943838737022619,
+     "blinder_decay_s": 0.31960990305816483,
+     "strobe_decay_s": 0.14294607439269533,
+     "spatial_sigma": 0.5533456471232981,
+     "slew_hue": 0.45,
+     "slew_wash_dimmer": 4.0,
+     "onset_percentile": 88.0
+    },
+    "B": {
+     "base_level": 0.06671106396273105,
+     "bounce_depth": 0.68,
+     "contrast_gain": 0.4717198545740158,
+     "blinder_decay_s": 0.22,
+     "strobe_decay_s": 0.12,
+     "spatial_sigma": 0.42,
+     "slew_hue": 0.31779064326923423,
+     "slew_wash_dimmer": 2.5605257012326534,
+     "onset_percentile": 88.0
+    }
+   },
+   "foil_overbright": null,
+   "brightness": {
+    "A": 0.2502574449387598,
+    "B": 0.25261080994489293
+   }
+  }
+ ]
+}

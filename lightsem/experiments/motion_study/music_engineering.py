@@ -11,7 +11,7 @@ from .audio_prepare import ROOT
 from .music_model import MusicModel,MusicConfig
 from .music_data import MusicResident
 from ..training_runtime import TrainingRuntime,BatchStream,backward_checked
-from ..stage11_common import read_authenticated,authenticated_json,digest,seed_all,gpu_lock
+from ..stage11.stage11_common import read_authenticated,authenticated_json,digest,seed_all,gpu_lock
 
 
 def main():

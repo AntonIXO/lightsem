@@ -9,7 +9,7 @@ from collections import defaultdict
 import numpy as np
 import torch
 
-from ..stage11_common import digest
+from ..stage11.stage11_common import digest
 
 
 class MusicRevisionResident:

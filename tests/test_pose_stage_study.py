@@ -8,7 +8,7 @@ from unittest.mock import patch
 import numpy as np
 
 ROOT=Path(__file__).resolve().parents[1]
-spec=importlib.util.spec_from_file_location('pose_eval',ROOT/'outputs/eval_pose_stage_study.py')
+spec=importlib.util.spec_from_file_location('pose_eval',ROOT/'scripts/motion/eval_pose_stage_study.py')
 e=importlib.util.module_from_spec(spec);spec.loader.exec_module(e)
 
 class IOTests(unittest.TestCase):
@@ -95,7 +95,7 @@ class NamespaceTests(unittest.TestCase):
                     dest=out/'source'/p.relative_to(ROOT);dest.parent.mkdir(parents=True,exist_ok=True);shutil.copyfile(p,dest)
                     files['source/'+str(p.relative_to(ROOT))]=e.digest(dest)
             for name,filename in [('review','review_music_physical_support_revision.py'),('optics','run_dance_optics_full.py')]:
-                dest=out/'frozen/source_helpers'/f'{name}.py';dest.parent.mkdir(parents=True,exist_ok=True);shutil.copyfile(ROOT/'outputs'/filename,dest)
+                dest=out/'frozen/source_helpers'/f'{name}.py';dest.parent.mkdir(parents=True,exist_ok=True);shutil.copyfile(ROOT/'scripts/motion'/filename,dest)
                 files[f'source_helpers/{name}.py']=e.digest(dest)
             e.savejson(out/'freeze.json',{'files':files})
             env=dict(os.environ,CUDA_VISIBLE_DEVICES='')
@@ -149,7 +149,7 @@ class GeometryTests(unittest.TestCase):
         a[1,0]=255;mech,_,_=e.mechanics(a,rig);self.assertFalse(mech['pass'])
     def test_frozen_optics_geometry_on_synthetic_only(self):
         # Load helper SOURCE bytes only. This test does not load any study arrays.
-        spec=importlib.util.spec_from_file_location('optics_synthetic',ROOT/'outputs/run_dance_optics_full.py');o=importlib.util.module_from_spec(spec);spec.loader.exec_module(o)
+        spec=importlib.util.spec_from_file_location('optics_synthetic',ROOT/'scripts/motion/run_dance_optics_full.py');o=importlib.util.module_from_spec(spec);spec.loader.exec_module(o)
         cfg=SimpleNamespace(cam_pos=[0,6,11],cam_target=[0,2,-3],camera_scale=.45,height=360,width=640,beam_edge_profile='angular',beam_edge_softness_deg=.6)
         heads=[SimpleNamespace(address=1+16*i,pan_range_deg=540,tilt_range_deg=270,beam_min_deg=2,position=np.array([i-2.5,6.,-1.])) for i in range(6)]
         rig=SimpleNamespace(by_kind=lambda k:heads)

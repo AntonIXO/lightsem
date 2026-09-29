@@ -1,0 +1,78 @@
+{
+  "name": "perplexity_research",
+  "description": "Conduct deep, multi-source research on a topic. Best for: literature reviews, comprehensive overviews, investigative queries needing many sources. Returns a detailed response with numbered citations. Significantly slower than other tools (60+ seconds). For quick factual questions, use perplexity_ask instead. For logical analysis and reasoning, use perplexity_reason instead. Supports optional file attachments via the `files` parameter (requires authentication token).",
+  "inputSchema": {
+    "$defs": {
+      "FileAttachment": {
+        "description": "A file to attach to the query for document analysis.\nRequires authentication tokens. Provide either `text` or `data`, not both.",
+        "properties": {
+          "data": {
+            "default": null,
+            "description": "Base64-encoded binary file content. Use for binary files (.pdf, .docx, images).\nMutually exclusive with `text`.",
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "filename": {
+            "description": "Filename with extension, e.g. \"report.pdf\" or \"notes.txt\".",
+            "type": "string"
+          },
+          "text": {
+            "default": null,
+            "description": "Plain-text file content. Use for text files (.txt, .md, .csv, .json, source code).\nMutually exclusive with `data`.",
+            "type": [
+              "string",
+              "null"
+            ]
+          }
+        },
+        "required": [
+          "filename"
+        ],
+        "type": "object"
+      }
+    },
+    "$schema": "https://json-schema.org/draft/2020-12/schema",
+    "properties": {
+      "files": {
+        "default": null,
+        "description": "Optional file attachments for document analysis.\nRequires authentication token (PERPLEXITY_SESSION_TOKEN).\nEach entry needs `filename` and either `text` (plain text) or `data` (base64 binary).",
+        "items": {
+          "$ref": "#/$defs/FileAttachment"
+        },
+        "type": [
+          "array",
+          "null"
+        ]
+      },
+      "language": {
+        "default": null,
+        "description": "Language code (ISO 639), e.g., \"en-US\". Defaults to \"en-US\".",
+        "type": [
+          "string",
+          "null"
+        ]
+      },
+      "query": {
+        "description": "The search query or question to ask.",
+        "type": "string"
+      },
+      "sources": {
+        "default": null,
+        "description": "Information sources to search.\nStandard (no auth): \"web\", \"scholar\", \"social\".\nConnectors (require auth + connected account): \"google_drive\",\n\"gcal\" / \"google_calendar\", \"outlook\", \"notion_mcp\" / \"notion\",\n\"github_mcp_direct\" / \"github\", \"linear_alt\" / \"linear\",\n\"slack_direct\" / \"slack\", \"jira_mcp_merge\" / \"jira\",\n\"confluence_mcp_merge\" / \"confluence\",\n\"microsoft_teams_mcp_merge\" / \"teams\", \"onedrive\", \"sharepoint\",\n\"dropbox\", \"box\", \"hugging_face\" / \"huggingface\".\nUnknown connector IDs are passed through unchanged.\nDefaults to [\"web\"] if not specified.",
+        "items": {
+          "type": "string"
+        },
+        "type": [
+          "array",
+          "null"
+        ]
+      }
+    },
+    "required": [
+      "query"
+    ],
+    "type": "object"
+  }
+}

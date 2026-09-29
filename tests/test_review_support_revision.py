@@ -1,7 +1,7 @@
 import importlib.util,sys,unittest
 from pathlib import Path
 import numpy as np
-p=Path(__file__).parents[1]/'outputs/review_music_physical_support_revision.py';s=importlib.util.spec_from_file_location('support_review',p);m=importlib.util.module_from_spec(s);sys.modules[s.name]=m;s.loader.exec_module(m)
+p=Path(__file__).parents[1]/'scripts/motion/review_music_physical_support_revision.py';s=importlib.util.spec_from_file_location('support_review',p);m=importlib.util.module_from_spec(s);sys.modules[s.name]=m;s.loader.exec_module(m)
 class Tests(unittest.TestCase):
  def test_no_extrapolation_or_invented_poses(self):
   times=np.array([0.,.025,.05]);v=np.arange(3*17*2).reshape(3,17,2).astype(float);old={'times':times,'pose8':v,'pose32':v+1}

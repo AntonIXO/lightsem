@@ -14,7 +14,7 @@ from .geometry import joints_from_features
 from .metrics import compare
 from .evaluate import aggregate
 from .phase_study import gates
-from ..stage11_common import read_authenticated, authenticated_json, digest, freeze_sources, verify_sources, gpu_lock
+from ..stage11.stage11_common import read_authenticated, authenticated_json, digest, freeze_sources, verify_sources, gpu_lock
 
 
 def freeze():

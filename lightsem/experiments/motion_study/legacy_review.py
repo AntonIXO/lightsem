@@ -12,9 +12,9 @@ import time
 import numpy as np
 
 from . import ROOT
-from ..night_common import ROOT as NIGHT, STAGE
-from ..stage11_common import authenticated_json, read_authenticated, digest, gpu_lock
-from ..stage11_data import load_manifest
+from ..night.night_common import ROOT as NIGHT, STAGE
+from ..stage11.stage11_common import authenticated_json, read_authenticated, digest, gpu_lock
+from ..stage11.stage11_data import load_manifest
 
 PANELS = [
     ('Detected pose: gray = uncertain', 'descriptor256', 'truth'),

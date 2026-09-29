@@ -1,0 +1,56 @@
+{
+ "tempo": 90.0,
+ "duration_s": 277.3066666666667,
+ "arms": {
+  "decoder_v1_onbeat": {
+   "bas_minus_null": 0.5951450031415787,
+   "events": 415,
+   "brightness": 0.2675141731172575
+  },
+  "beat_trigger": {
+   "bas_minus_null": 0.116,
+   "events": 1132,
+   "brightness": 0.268
+  },
+  "conductor": {
+   "bas_minus_null": 0.119,
+   "events": 1007,
+   "brightness": 0.217
+  },
+  "decoder_v1": {
+   "bas_minus_null": -0.289,
+   "events": 108,
+   "brightness": 0.217
+  },
+  "decoder_v2": {
+   "bas_minus_null": -0.028,
+   "events": 932,
+   "brightness": 0.209
+  },
+  "engine_only": {
+   "bas_minus_null": 0.595,
+   "events": 415,
+   "brightness": 0.217
+  },
+  "decoder_v2_plan": {
+   "bas_minus_null": -0.045,
+   "events": 868,
+   "brightness": 0.214
+  },
+  "best_of_8": {
+   "bas_minus_null": 0.113,
+   "events": 997,
+   "brightness": 0.212
+  },
+  "cue_held": {
+   "bas_minus_null": 0.5932337610406251,
+   "events": 416,
+   "brightness": 0.2676836524615715
+  },
+  "cue_held_waves": {
+   "bas_minus_null": 0.5932337610406251,
+   "events": 416,
+   "brightness": 0.2549423088780423
+  }
+ }
+}

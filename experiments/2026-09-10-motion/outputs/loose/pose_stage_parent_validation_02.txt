@@ -1,0 +1,67 @@
+test_broadband_is_new_not_selected_subband (test_pose_stage_study.GeometryTests.test_broadband_is_new_not_selected_subband) ... ok
+test_cloud_not_pair_merge (test_pose_stage_study.GeometryTests.test_cloud_not_pair_merge) ... ok
+test_cloud_runs_and_invalid (test_pose_stage_study.GeometryTests.test_cloud_runs_and_invalid) ... ok
+test_collapse_uses_provided_first_hit_radii (test_pose_stage_study.GeometryTests.test_collapse_uses_provided_first_hit_radii) ... ok
+test_exact_edge_band_power_partition (test_pose_stage_study.GeometryTests.test_exact_edge_band_power_partition) ... ok
+test_frozen_optics_geometry_on_synthetic_only (test_pose_stage_study.GeometryTests.test_frozen_optics_geometry_on_synthetic_only) ... ok
+test_hull_zero_without_jitter (test_pose_stage_study.GeometryTests.test_hull_zero_without_jitter) ... ok
+test_nonangle_and_exact_decode (test_pose_stage_study.GeometryTests.test_nonangle_and_exact_decode) ... ok
+test_full_coverage (test_pose_stage_study.IOTests.test_full_coverage) ... ok
+test_incomplete_cache_and_wrong_identity (test_pose_stage_study.IOTests.test_incomplete_cache_and_wrong_identity) ... ok
+test_lock_is_exclusive (test_pose_stage_study.IOTests.test_lock_is_exclusive) ... ok
+test_missing_freeze_before_activation (test_pose_stage_study.IOTests.test_missing_freeze_before_activation) ... ok
+test_parity_never_repaired (test_pose_stage_study.IOTests.test_parity_never_repaired) ... ok
+test_receipt_hash_create_only_and_corruption (test_pose_stage_study.IOTests.test_receipt_hash_create_only_and_corruption) ... ok
+test_registration_required_and_exact (test_pose_stage_study.IOTests.test_registration_required_and_exact) ... ok
+test_resource_preflight_retains_blocked_state (test_pose_stage_study.IOTests.test_resource_preflight_retains_blocked_state) ... ok
+test_storage_reserve_total_cap_and_bookkeeping (test_pose_stage_study.IOTests.test_storage_reserve_total_cap_and_bookkeeping) ... ok
+test_wrong_hash (test_pose_stage_study.IOTests.test_wrong_hash) ... ok
+test_fresh_frozen_namespace_and_synthetic_full_map (test_pose_stage_study.NamespaceTests.test_fresh_frozen_namespace_and_synthetic_full_map) ... ok
+test_failure_capable_numeric_report (test_pose_stage_study.StageTests.test_failure_capable_numeric_report) ... ok
+test_map_gate_thresholds_not_cached_pass (test_pose_stage_study.StageTests.test_map_gate_thresholds_not_cached_pass) ... ok
+test_native_fail_schedule_and_no_reference_run (test_pose_stage_study.StageTests.test_native_fail_schedule_and_no_reference_run) ... ok
+test_native_first_even_if_shpongle_last_in_plan (test_pose_stage_study.StageTests.test_native_first_even_if_shpongle_last_in_plan) ... ok
+test_oracle_holds_not_rewarded (test_pose_stage_study.StageTests.test_oracle_holds_not_rewarded) ... ok
+test_original_map_exception_survives_receipt_write_failure (test_pose_stage_study.StageTests.test_original_map_exception_survives_receipt_write_failure) ... SECONDARY FAILURE RECORDING ERROR: OSError('disk full')
+ok
+test_quiet_coordinate_speed_cap (test_pose_stage_study.StageTests.test_quiet_coordinate_speed_cap) ... ok
+test_reference_fail_and_success_schedules (test_pose_stage_study.StageTests.test_reference_fail_and_success_schedules) ... ok
+test_budget_two_rejected_before_lock_context_or_gpu (test_pose_stage_renderer.PureTests.test_budget_two_rejected_before_lock_context_or_gpu) ... ok
+test_full_arrays_no_padding (test_pose_stage_renderer.PureTests.test_full_arrays_no_padding) ... ok
+test_global_dim_rounding_and_repeated_hash (test_pose_stage_renderer.PureTests.test_global_dim_rounding_and_repeated_hash) ... ok
+test_pixel_gate_strict_boundaries (test_pose_stage_renderer.PureTests.test_pixel_gate_strict_boundaries) ... ok
+test_preflight_block_retained_and_reported_not_scientific_failure (test_pose_stage_renderer.PureTests.test_preflight_block_retained_and_reported_not_scientific_failure) ... Created immutable terminal render_report.json, including missing/failing coverage; no acceptance inferred.
+Ordinary started receipt not written: OSError: synthetic receipt storage error
+Could not record storage block: synthetic receipt storage error; ORIGINAL: Resource blocked at storage_preflight: free=100 bytes, required=1000, study bytes=unknown, budget remaining=unknown; partial evidence retained
+ok
+test_real_evaluator_bookkeeping_survives_blocked_start_at_both_edges (test_pose_stage_renderer.PureTests.test_real_evaluator_bookkeeping_survives_blocked_start_at_both_edges) ... Ordinary started receipt not written: ResourceBlocked: Storage resource blocked; preserve partial evidence, ask parent; {"bookkeeping": false, "bookkeeping_margin_bytes": 4194304, "filesystem_free_bytes": 1074790400, "free_reserve_bytes": 1073741824, "next_write_bytes": 613, "remaining_study_budget_bytes": 1879048192, "scientific_refutation": false, "study_artifact_bytes": 0, "study_limit_bytes": 1879048192}
+Created immutable terminal render_report.json, including missing/failing coverage; no acceptance inferred.
+Ordinary started receipt not written: ResourceBlocked: Storage resource blocked; preserve partial evidence, ask parent; {"bookkeeping": false, "bookkeeping_margin_bytes": 4194304, "filesystem_free_bytes": 107374182400, "free_reserve_bytes": 1073741824, "next_write_bytes": 613, "remaining_study_budget_bytes": 1048576, "scientific_refutation": false, "study_artifact_bytes": 1877999616, "study_limit_bytes": 1879048192}
+Created immutable terminal render_report.json, including missing/failing coverage; no acceptance inferred.
+ok
+test_review_schedule (test_pose_stage_renderer.PureTests.test_review_schedule) ... ok
+test_run_preflight_blocks_before_gpu_import (test_pose_stage_renderer.PureTests.test_run_preflight_blocks_before_gpu_import) ... ok
+test_run_review_report_route_without_project_or_gpu_import (test_pose_stage_renderer.PureTests.test_run_review_report_route_without_project_or_gpu_import) ... ok
+test_software_commands_no_padding (test_pose_stage_renderer.PureTests.test_software_commands_no_padding) ... ok
+test_storage_preflight_and_runtime_reserve_boundaries (test_pose_stage_renderer.PureTests.test_storage_preflight_and_runtime_reserve_boundaries) ... STORAGE PREFLIGHT {"bookkeeping_margin_bytes": 4194304, "estimated_batch_bytes": 147976704, "free_bytes": 107374182400, "next_write_and_inflight_allowance_bytes": 147976704, "remaining_study_budget_bytes": 1879048192, "required_free_bytes": 1225912832, "study_artifact_bytes": 0, "study_artifact_limit_bytes": 1879048192}
+STORAGE PREFLIGHT BLOCKED {"bookkeeping_margin_bytes": 4194304, "estimate_is_crf_hard_bound": false, "estimated_batch_bytes": 147976704, "estimated_entries": [{"decoded_png_allowance_bytes": 51339264, "entry_id": "synthetic", "estimated_bytes": 147976704, "metadata_allowance_bytes": 33554432, "retained_muxed_video_planning_bytes": 41943040, "retained_silent_video_planning_bytes": 0, "sheet_allowance_bytes": 21139968, "video_components_scope": "Combined allowance; this renderer retains only one directly muxed movie, no separate silent intermediate.", "video_planning_bytes": 41943040}], "free_bytes": 1225912831, "next_write_and_inflight_allowance_bytes": 147976704, "path": "/synthetic", "phase": "storage_preflight", "remaining_study_budget_bytes": 1879048192, "required_free_bytes": 1225912832, "scientific_refutation": false, "study_artifact_bytes": 0, "study_artifact_limit_bytes": 1879048192}
+ok
+test_storage_size_includes_all_study_files (test_pose_stage_renderer.PureTests.test_storage_size_includes_all_study_files) ... ok
+test_terminal_report_preserves_failure_and_missing_coverage (test_pose_stage_renderer.PureTests.test_terminal_report_preserves_failure_and_missing_coverage) ... Created immutable terminal render_report.json, including missing/failing coverage; no acceptance inferred.
+Created immutable terminal render_report.json, including missing/failing coverage; no acceptance inferred.
+ok
+test_full_decode_brightness_repeat_and_create_only (test_pose_stage_renderer.SyntheticMediaTests.test_full_decode_brightness_repeat_and_create_only) ... RENDER full 1 / 6
+RENDER COMPLETE full {'candidate_pixels': True, 'complete_software_media': True}
+RENDER dim 1 / 6
+RENDER COMPLETE dim {'candidate_pixels': True, 'complete_software_media': True}
+Independent sampled observation recorded: full
+RENDER decode-failure 1 / 6
+RENDER runtime-resource-block 1 / 6
+RENDER receipt-save-failure 1 / 6
+Failure receipt could not be saved: secondary synthetic receipt failure; ORIGINAL: ValueError: original synthetic media failure
+ok
+
+----------------------------------------------------------------------
+Ran 41 tests in 5.093s
+
+OK

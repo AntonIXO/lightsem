@@ -5,7 +5,7 @@ from pathlib import Path
 import numpy as np
 
 from . import ROOT
-from ..stage11_common import authenticated_json, read_authenticated, digest
+from ..stage11.stage11_common import authenticated_json, read_authenticated, digest
 
 
 def source_gate(root=ROOT):

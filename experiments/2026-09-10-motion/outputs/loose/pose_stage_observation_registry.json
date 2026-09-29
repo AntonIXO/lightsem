@@ -1,0 +1,72 @@
+[
+  {
+    "entry_id": "holds_083_1200_reference_planned",
+    "path": "/mnt/lightsem-data/experiments/lightsem/dance_diagnosis_20260911/pose_stage_01/observer_audits/holds/holds_083_1200_reference_planned/observation.json",
+    "sha256": "569fa8705dfb431db5eea255a9177887efeba0813cd71e1002f1c62a21121217"
+  },
+  {
+    "entry_id": "holds_067_0_reference_planned",
+    "path": "/mnt/lightsem-data/experiments/lightsem/dance_diagnosis_20260911/pose_stage_01/observer_audits/holds/holds_067_0_reference_planned/observation.json",
+    "sha256": "2ce612e176dbc09c6bce7df9ff9f93a7ea79215f2b170e2373f3f6d1e42d494f"
+  },
+  {
+    "entry_id": "holds_078_0_reference_planned",
+    "path": "/mnt/lightsem-data/experiments/lightsem/dance_diagnosis_20260911/pose_stage_01/observer_audits/holds/holds_078_0_reference_planned/observation.json",
+    "sha256": "9f35c3b5f15a3223efb28be5adba1f7ff17f99040e8e82165f8dd38d177332e9"
+  },
+  {
+    "entry_id": "holds_005_0_reference_planned",
+    "path": "/mnt/lightsem-data/experiments/lightsem/dance_diagnosis_20260911/pose_stage_01/observer_audits/holds/holds_005_0_reference_planned/observation.json",
+    "sha256": "d9f9b95e19da0dbb5b404d38e90d29a39f9210f52ae18061a9f0dba5f227a631"
+  },
+  {
+    "entry_id": "travel_035_4800_reference_planned",
+    "path": "/mnt/lightsem-data/experiments/lightsem/dance_diagnosis_20260911/pose_stage_01/observer_audits/travel/travel_035_4800_reference_planned/observation.json",
+    "sha256": "4064b22d6f0d0a95efabb671c6fc4e264b98d51da8e6c4fbfc3d8c903d26d553"
+  },
+  {
+    "entry_id": "travel_135_3600_reference_planned",
+    "path": "/mnt/lightsem-data/experiments/lightsem/dance_diagnosis_20260911/pose_stage_01/observer_audits/travel/travel_135_3600_reference_planned/observation.json",
+    "sha256": "fa25ba553fe3bc8dec10c15fba8f0f2015ea9dc6239b4897b9a001801154dd56"
+  },
+  {
+    "entry_id": "travel_127_1200_reference_planned",
+    "path": "/mnt/lightsem-data/experiments/lightsem/dance_diagnosis_20260911/pose_stage_01/observer_audits/travel/travel_127_1200_reference_planned/observation.json",
+    "sha256": "55b5849d4fac9c9fb8a08d3405f170a09c2532944ee6ac585bf53f7f47aa939f"
+  },
+  {
+    "entry_id": "travel_027_4200_reference_planned",
+    "path": "/mnt/lightsem-data/experiments/lightsem/dance_diagnosis_20260911/pose_stage_01/observer_audits/travel/travel_027_4200_reference_planned/observation.json",
+    "sha256": "55a9131710a16a52c5b5728a269149a4c49917cc952f50bd1226f4e8b9155146"
+  },
+  {
+    "entry_id": "coordination_057_1200_reference_planned",
+    "path": "/mnt/lightsem-data/experiments/lightsem/dance_diagnosis_20260911/pose_stage_01/observer_audits/coordination/coordination_057_1200_reference_planned.observation.json",
+    "sha256": "2607045b9695bea90dabec2cb67dd8546a04e38488dfeaf7094586ac0a6c7786"
+  },
+  {
+    "entry_id": "coordination_085_0_reference_planned",
+    "path": "/mnt/lightsem-data/experiments/lightsem/dance_diagnosis_20260911/pose_stage_01/observer_audits/coordination/coordination_085_0_reference_planned.observation.json",
+    "sha256": "946935511da8f9493c36334ff73a2845af2a8438626f2df62675f6ea01784d21"
+  },
+  {
+    "entry_id": "coordination_076_2400_reference_planned",
+    "path": "/mnt/lightsem-data/experiments/lightsem/dance_diagnosis_20260911/pose_stage_01/observer_audits/coordination/coordination_076_2400_reference_planned.observation.json",
+    "sha256": "fe9497b970cc21de4cb748dffd91b994b6af6182c8fd166278daa3a62d27a2d1"
+  },
+  {
+    "entry_id": "coordination_102_600_reference_planned",
+    "path": "/mnt/lightsem-data/experiments/lightsem/dance_diagnosis_20260911/pose_stage_01/observer_audits/coordination/coordination_102_600_reference_planned.observation.json",
+    "sha256": "9992249258dc49f59ee1da5a25ce95c1d7f30b6e771e460971f1d02019914546"
+  },
+  {
+    "entry_id": "shpongle_prior_flow0_planned",
+    "path": "/mnt/lightsem-data/experiments/lightsem/dance_diagnosis_20260911/pose_stage_01/observer_audits/shpongle/shpongle_prior_flow0_planned_observation.json",
+    "sha256": "a211edd8431aacc1cebdf6debb92fdffbc7383000d3b02462412334090edeb8f"
+  },
+  {
+    "entry_id": "shpongle_prior_flow0_global_matched",
+    "path": "/mnt/lightsem-data/experiments/lightsem/dance_diagnosis_20260911/pose_stage_01/observer_audits/shpongle/shpongle_prior_flow0_global_matched_observation.json",
+    "sha256": "8e0f0a2de03c582bb77f78e37072aea497357efabe508f041acdf30998ba9ae8"
+  }
+]

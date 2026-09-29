@@ -9,7 +9,7 @@ import tempfile
 import unittest
 from unittest.mock import patch
 
-import rate_hl_pairs
+import scripts.training.rate_hl_pairs as rate_hl_pairs
 
 
 class RateHLPairsTests(unittest.TestCase):
@@ -23,7 +23,7 @@ class RateHLPairsTests(unittest.TestCase):
 
     def run_session(self, answers, rater="anton"):
         with patch("builtins.input", side_effect=answers) as prompt, \
-                patch("rate_hl_pairs.subprocess.run") as player, \
+                patch("scripts.training.rate_hl_pairs.subprocess.run") as player, \
                 contextlib.redirect_stdout(io.StringIO()):
             completed = rate_hl_pairs.rate_pairs(self.pairs_path, rater)
         return completed, prompt, player
@@ -95,7 +95,7 @@ class RateHLPairsTests(unittest.TestCase):
         prompt.assert_not_called()
 
     def test_existing_cli_arguments_select_pairs_and_rater(self):
-        with patch("rate_hl_pairs.rate_pairs") as rate:
+        with patch("scripts.training.rate_hl_pairs.rate_pairs") as rate:
             status = rate_hl_pairs.main(["--rater", "second", "--pairs", str(self.pairs_path)])
         self.assertEqual(status, 0)
         rate.assert_called_once_with(self.pairs_path, "second")

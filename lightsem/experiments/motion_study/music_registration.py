@@ -4,7 +4,7 @@ import sys
 from pathlib import Path
 
 from .registration import PROBLEM
-from ..stage11_common import read_authenticated,authenticated_json,digest
+from ..stage11.stage11_common import read_authenticated,authenticated_json,digest
 
 ROOT = Path('/mnt/lightsem-data/experiments/lightsem/motion_native_audio_20260910')
 HYPOTHESIS = 'h-motion-native-audio-20260910'

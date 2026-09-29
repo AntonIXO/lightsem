@@ -9,8 +9,8 @@ from pathlib import Path
 
 import numpy as np
 
-from .stage11_common import authenticated_json, read_authenticated, digest, verify_artifacts, artifact_manifest, gpu_lock
-from .dance_no_clock_render import controls_to_dmx, render_gpu
+from .stage11.stage11_common import authenticated_json, read_authenticated, digest, verify_artifacts, artifact_manifest, gpu_lock
+from .dance_no_clock.dance_no_clock_render import controls_to_dmx, render_gpu
 
 
 def main():

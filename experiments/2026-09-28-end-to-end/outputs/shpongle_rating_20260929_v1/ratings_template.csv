@@ -1,0 +1,11 @@
+id,variant,music_fit_1_to_5,designed_1_to_5,overall_1_to_5,notes
+01,Original motion-led lighting,,,,
+02,Rhythm-led companion,,,,
+03,Audio-only model,,,,
+04,Model with six visual descriptors,,,,
+05,Combined: rhythm + rich model + palette history,,,,
+06,Independent model with rich visual supervision,,,,
+07,Shuffled-audio training control,,,,
+08,Learned colors only,,,,
+09,Learned accents only,,,,
+10,Combined with palette history disabled,,,,

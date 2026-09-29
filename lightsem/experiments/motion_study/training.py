@@ -14,7 +14,7 @@ import torch
 from . import ROOT
 from .model import CodecConfig, MotionCodec
 from ..training_runtime import TrainingRuntime, BatchStream, backward_checked
-from ..stage11_common import (authenticated_json, read_authenticated, atomic_json, atomic_torch,
+from ..stage11.stage11_common import (authenticated_json, read_authenticated, atomic_json, atomic_torch,
     digest, json_digest, seed_all, rng_state, restore_rng, artifact_manifest, verify_artifacts,
     gpu_lock, require_space, freeze_sources, verify_sources)
 

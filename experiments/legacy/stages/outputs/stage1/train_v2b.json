@@ -1,0 +1,130 @@
+{
+ "tag": "v2b",
+ "steps": 12000,
+ "baseline_mse": false,
+ "v2": true,
+ "block_a": [
+  "footfall_rate",
+  "metric_level",
+  "vert_period_s",
+  "vert_bounce_amp",
+  "com_speed",
+  "hip_yaw_speed"
+ ],
+ "block_c": [
+  "qom",
+  "head_speed",
+  "foot_speed",
+  "weight",
+  "time_eff",
+  "spread",
+  "section_energy",
+  "hand_speed",
+  "hand_spread",
+  "lateral_pos",
+  "travel_speed",
+  "symmetry",
+  "laterality",
+  "space_eff",
+  "flow_eff",
+  "jerk",
+  "vert_bounce"
+ ],
+ "params_m": 9.337938,
+ "causality_leak": 0.0,
+ "train_s": 676.2904508113861,
+ "splits": {
+  "train": 784,
+  "val_track": 154,
+  "test_genre": 282,
+  "test_dancer": 188
+ },
+ "train": {
+  "r2_block_a": {
+   "footfall_rate": 0.40259259939193726,
+   "metric_level": 0.12745416164398193,
+   "vert_period_s": 0.06065255403518677,
+   "vert_bounce_amp": 0.3312920331954956,
+   "com_speed": 0.17840272188186646,
+   "hip_yaw_speed": -0.012386441230773926
+  },
+  "r2_a_mean": 0.1813346048196157,
+  "event_ap": {
+   "footfall": 0.5627088866473031,
+   "footfall_base": 0.47121875,
+   "jump": 0.10364251103074872,
+   "jump_base": 0.041703125,
+   "hit": 0.5087333725100242,
+   "hit_base": 0.463578125
+  },
+  "div_flow_samples": 1.2532488107681274,
+  "div_real_neighbour": 3.6135077476501465,
+  "n_windows": 400
+ },
+ "val_track": {
+  "r2_block_a": {
+   "footfall_rate": 0.1468619704246521,
+   "metric_level": 0.03391522169113159,
+   "vert_period_s": 0.040489375591278076,
+   "vert_bounce_amp": -0.005177855491638184,
+   "com_speed": 0.03184765577316284,
+   "hip_yaw_speed": 0.014839470386505127
+  },
+  "r2_a_mean": 0.04379597306251526,
+  "event_ap": {
+   "footfall": 0.3796569431231671,
+   "footfall_base": 0.346890625,
+   "jump": 0.048018442993540245,
+   "jump_base": 0.03365625,
+   "hit": 0.42222472090081703,
+   "hit_base": 0.42040625
+  },
+  "div_flow_samples": 1.2864134311676025,
+  "div_real_neighbour": 23.637462615966797,
+  "n_windows": 400
+ },
+ "test_genre": {
+  "r2_block_a": {
+   "footfall_rate": -0.16574954986572266,
+   "metric_level": -0.4206274747848511,
+   "vert_period_s": -0.5322661399841309,
+   "vert_bounce_amp": -0.36142873764038086,
+   "com_speed": -0.11055278778076172,
+   "hip_yaw_speed": -0.04114425182342529
+  },
+  "r2_a_mean": -0.2719614903132121,
+  "event_ap": {
+   "footfall": 0.31037850799171834,
+   "footfall_base": 0.30340625,
+   "jump": 0.045114542114957884,
+   "jump_base": 0.042734375,
+   "hit": 0.45859074041155856,
+   "hit_base": 0.4533125
+  },
+  "div_flow_samples": 1.2161917686462402,
+  "div_real_neighbour": 3.0198678970336914,
+  "n_windows": 400
+ },
+ "test_dancer": {
+  "r2_block_a": {
+   "footfall_rate": 0.25734883546829224,
+   "metric_level": 0.019750237464904785,
+   "vert_period_s": -0.10199952125549316,
+   "vert_bounce_amp": -0.06269419193267822,
+   "com_speed": 0.019700586795806885,
+   "hip_yaw_speed": -0.008567214012145996
+  },
+  "r2_a_mean": 0.020589788754781086,
+  "event_ap": {
+   "footfall": 0.6518944440746961,
+   "footfall_base": 0.572453125,
+   "jump": 0.05632644545580767,
+   "jump_base": 0.041171875,
+   "hit": 0.4979219592802034,
+   "hit_base": 0.4746875
+  },
+  "div_flow_samples": 1.1854459047317505,
+  "div_real_neighbour": 6.007111072540283,
+  "n_windows": 400
+ }
+}

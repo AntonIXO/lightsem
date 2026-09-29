@@ -6,7 +6,7 @@ import subprocess
 from pathlib import Path
 
 from . import DATA
-from ..stage11_common import authenticated_json, digest, read_authenticated
+from ..stage11.stage11_common import authenticated_json, digest, read_authenticated
 
 URL = ('https://drive.usercontent.google.com/download?'
        'id=1zQvWG9I0H4U3Zrm8d_QD_ehenZvqfQfS&export=download&confirm=t&download=1')

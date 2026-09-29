@@ -9,7 +9,7 @@ import torch
 from . import ROOT
 from .geometry import FPS, BODY_HEIGHT, joints_from_features
 from .metrics import compare
-from ..stage11_common import authenticated_json, read_authenticated, digest
+from ..stage11.stage11_common import authenticated_json, read_authenticated, digest
 
 
 def diagnose(root=ROOT):

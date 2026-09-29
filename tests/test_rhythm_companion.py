@@ -51,7 +51,7 @@ class CompanionTests(unittest.TestCase):
         self.assertGreater(np.sqrt(np.mean((a-c)**2)),.05)
 
     def test_emitted_tempo_changes_with_clock(self):
-        from run_rhythm_companion import angles
+        from scripts.motion.run_rhythm_companion import angles
         duration=24;b=body(30,duration);n=len(b)
         curve={'time':np.arange(n)/30,'momentary':np.full(n,-14.),'short_term':np.full(n,-14.)}
         bundle=compose_world_joints(b,curve,duration,config=default_lighting_config())

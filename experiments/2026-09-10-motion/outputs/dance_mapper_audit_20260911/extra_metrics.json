@@ -1,0 +1,176 @@
+{
+  "full": {
+    "raw": {
+      "angular_speed_median_p95": [
+        24.035611824453184,
+        86.74344834291817
+      ],
+      "speed_above_local_limit_fraction": 0.7466263937727287,
+      "acceleration_above_80_fraction": 0.9228734595731891
+    },
+    "smooth": {
+      "angular_speed_median_p95": [
+        12.896748543878122,
+        43.557168734187805
+      ],
+      "speed_above_local_limit_fraction": 0.4633937426742404,
+      "acceleration_above_80_fraction": 0.6125338142470694
+    },
+    "emitted": {
+      "angular_speed_median_p95": [
+        8.280968696734968,
+        24.842906090204906
+      ],
+      "speed_above_local_limit_fraction": 0.15336759534757913,
+      "acceleration_above_80_fraction": 0.0
+    },
+    "regional_position_power_fraction_by_band": {
+      "0.1-0.5": 0.4957543866180074,
+      "0.5-1": 0.2945952980029527,
+      "1-2": 0.16483271885156933,
+      "2-4": 0.04481759652747049
+    },
+    "cross_spectral_at_frequency": {
+      "0.5": {
+        "actual_frequency": 0.5,
+        "gain": 0.6347004359960015,
+        "phase_deg": -95.62710376572771,
+        "coherence": 0.6669746198665106
+      },
+      "1": {
+        "actual_frequency": 1.0,
+        "gain": 0.16983951199415265,
+        "phase_deg": -144.03787150976217,
+        "coherence": 0.4391360021022203
+      },
+      "1.5": {
+        "actual_frequency": 1.5,
+        "gain": 0.07109721419384382,
+        "phase_deg": -154.75406213462387,
+        "coherence": 0.3369764740111143
+      },
+      "2": {
+        "actual_frequency": 2.0,
+        "gain": 0.037080672363473656,
+        "phase_deg": -154.36649498379893,
+        "coherence": 0.27349429923582635
+      }
+    }
+  },
+  "quiet": {
+    "raw": {
+      "angular_speed_median_p95": [
+        8.483028309019058,
+        30.289069797517083
+      ],
+      "speed_above_local_limit_fraction": 0.901543596161869,
+      "acceleration_above_80_fraction": 0.7042606516290727
+    },
+    "smooth": {
+      "angular_speed_median_p95": [
+        4.612578650039877,
+        16.74650929176693
+      ],
+      "speed_above_local_limit_fraction": 0.7217355027117229,
+      "acceleration_above_80_fraction": 0.14974937343358397
+    },
+    "emitted": {
+      "angular_speed_median_p95": [
+        2.9709280365461925,
+        3.1997874213875535
+      ],
+      "speed_above_local_limit_fraction": 0.3285356695869837,
+      "acceleration_above_80_fraction": 0.0
+    },
+    "regional_position_power_fraction_by_band": {
+      "0.1-0.5": 0.550106242419338,
+      "0.5-1": 0.30449123233590764,
+      "1-2": 0.10951409457107197,
+      "2-4": 0.035888430673682345
+    },
+    "cross_spectral_at_frequency": {
+      "0.5": {
+        "actual_frequency": 0.5,
+        "gain": 0.2384022637233015,
+        "phase_deg": -84.89209775758887,
+        "coherence": 0.7160467375557055
+      },
+      "1": {
+        "actual_frequency": 1.0,
+        "gain": 0.10144858669230304,
+        "phase_deg": -104.03198273538925,
+        "coherence": 0.37134609002192404
+      },
+      "1.5": {
+        "actual_frequency": 1.5,
+        "gain": 0.08686734640321088,
+        "phase_deg": -115.57231712449102,
+        "coherence": 0.4952460366654467
+      },
+      "2": {
+        "actual_frequency": 2.0,
+        "gain": 0.044482363261937705,
+        "phase_deg": -121.60303942391259,
+        "coherence": 0.29719236112737113
+      }
+    }
+  },
+  "active": {
+    "raw": {
+      "angular_speed_median_p95": [
+        24.502333660008183,
+        78.49517454657916
+      ],
+      "speed_above_local_limit_fraction": 0.74822695035461,
+      "acceleration_above_80_fraction": 0.9573934837092731
+    },
+    "smooth": {
+      "angular_speed_median_p95": [
+        13.380256520588603,
+        41.9673314111905
+      ],
+      "speed_above_local_limit_fraction": 0.44367959949937424,
+      "acceleration_above_80_fraction": 0.6487050960735171
+    },
+    "emitted": {
+      "angular_speed_median_p95": [
+        9.741883828866985,
+        19.675598586451155
+      ],
+      "speed_above_local_limit_fraction": 0.1462244472256988,
+      "acceleration_above_80_fraction": 0.0
+    },
+    "regional_position_power_fraction_by_band": {
+      "0.1-0.5": 0.49142624109453176,
+      "0.5-1": 0.30574496279517877,
+      "1-2": 0.16462055578808651,
+      "2-4": 0.03820824032220295
+    },
+    "cross_spectral_at_frequency": {
+      "0.5": {
+        "actual_frequency": 0.5,
+        "gain": 0.5417216975844527,
+        "phase_deg": -86.65261069645993,
+        "coherence": 0.7398048239884326
+      },
+      "1": {
+        "actual_frequency": 1.0,
+        "gain": 0.27749136990889234,
+        "phase_deg": -114.19614586403058,
+        "coherence": 0.7062992814917437
+      },
+      "1.5": {
+        "actual_frequency": 1.5,
+        "gain": 0.09760352172746616,
+        "phase_deg": -116.76774998854596,
+        "coherence": 0.37183659340650127
+      },
+      "2": {
+        "actual_frequency": 2.0,
+        "gain": 0.0703615912506283,
+        "phase_deg": -132.43889520562223,
+        "coherence": 0.5407084537090155
+      }
+    }
+  }
+}

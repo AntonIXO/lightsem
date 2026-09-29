@@ -1,0 +1,132 @@
+{
+ "ckpt": "/mnt/lightsem-data/ckpt/light_trunk_jd_none_smooth.pt",
+ "tag": "jd_none_smooth",
+ "tau": 2.0,
+ "offline_bus": false,
+ "n_slots": 8,
+ "raw": [
+  {
+   "title": "Joyride",
+   "mix": 1,
+   "r_qom_vs_crowd": 0.41249028767872353,
+   "placement_margin": -0.012490471438714956,
+   "r_each": {
+    "qom": 0.41249028767872353,
+    "vert_bounce_amp": 0.4892648472717778,
+    "head_speed": 0.3876489214502779,
+    "com_speed": 0.28602679756248384,
+    "spread": 0.20475616943358796,
+    "hand_speed": 0.4647539348309778
+   }
+  },
+  {
+   "title": "Ladykiller",
+   "mix": 1,
+   "r_qom_vs_crowd": 0.7284746133563212,
+   "placement_margin": 0.05072948448077397,
+   "r_each": {
+    "qom": 0.7284746133563212,
+    "vert_bounce_amp": 0.6199108297072188,
+    "head_speed": 0.7281373472795003,
+    "com_speed": 0.6090426865502973,
+    "spread": -0.1337159747142845,
+    "hand_speed": 0.71150733684234
+   }
+  },
+  {
+   "title": "Unlock Down",
+   "mix": 1,
+   "r_qom_vs_crowd": 0.4543463732131796,
+   "placement_margin": 0.07225558109198954,
+   "r_each": {
+    "qom": 0.4543463732131796,
+    "vert_bounce_amp": 0.45646174700590253,
+    "head_speed": 0.3629773369184721,
+    "com_speed": 0.4120412554715812,
+    "spread": -0.08392272780458909,
+    "hand_speed": 0.43550181580014335
+   }
+  },
+  {
+   "title": "Icarus",
+   "mix": 1,
+   "r_qom_vs_crowd": 0.3424656921773912,
+   "placement_margin": 0.0595547685871462,
+   "r_each": {
+    "qom": 0.3424656921773912,
+    "vert_bounce_amp": 0.14058064025609854,
+    "head_speed": 0.28442171821724105,
+    "com_speed": 0.322923657458522,
+    "spread": -0.5174045893110486,
+    "hand_speed": 0.363415450863146
+   }
+  },
+  {
+   "title": "Joyride",
+   "mix": 2,
+   "r_qom_vs_crowd": -0.37801181290003844,
+   "placement_margin": -0.16285988749323108,
+   "r_each": {
+    "qom": -0.37801181290003844,
+    "vert_bounce_amp": 0.7389631635891418,
+    "head_speed": 0.2398196113749482,
+    "com_speed": 0.8217683447820671,
+    "spread": -0.44607363464038613,
+    "hand_speed": -0.2402878613191773
+   }
+  },
+  {
+   "title": "Icarus",
+   "mix": 2,
+   "r_qom_vs_crowd": -0.048368927808487436,
+   "placement_margin": -0.04244718542809239,
+   "r_each": {
+    "qom": -0.048368927808487436,
+    "vert_bounce_amp": -0.22800779973699117,
+    "head_speed": -0.013119666490839389,
+    "com_speed": -0.1595380631571643,
+    "spread": -0.05998941923924589,
+    "hand_speed": -0.062297360699640605
+   }
+  },
+  {
+   "title": "Unlock Down",
+   "mix": 2,
+   "r_qom_vs_crowd": 0.5403232014719387,
+   "placement_margin": 0.10539966316572796,
+   "r_each": {
+    "qom": 0.5403232014719387,
+    "vert_bounce_amp": 0.5742705951845405,
+    "head_speed": 0.44965172646512624,
+    "com_speed": 0.5011306160054031,
+    "spread": 0.1573098625551144,
+    "hand_speed": 0.5652556102496884
+   }
+  },
+  {
+   "title": "Ladykiller",
+   "mix": 2,
+   "r_qom_vs_crowd": 0.6296444413105141,
+   "placement_margin": 0.08664557487014579,
+   "r_each": {
+    "qom": 0.6296444413105141,
+    "vert_bounce_amp": 0.1701005494327665,
+    "head_speed": 0.4813800188527762,
+    "com_speed": 0.3959991409728647,
+    "spread": -0.2991393491792918,
+    "hand_speed": 0.663368674115978
+   }
+  }
+ ],
+ "raw_mean_r_qom": 0.33517048356244283,
+ "held_out_track_ridge": {
+  "r2": -0.07918588587153513,
+  "ci95": [
+   -0.35728251814623935,
+   0.16187528003876406
+  ],
+  "r": 0.24234297495379648,
+  "n_slots": 8
+ },
+ "reference_oslo_audit_r2": 0.3
+}

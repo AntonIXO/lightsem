@@ -1,0 +1,28 @@
+{
+ "ckpt_in": "/mnt/lightsem-data/ckpt/light_trunk_jd_none.pt",
+ "ckpt_out": "/mnt/lightsem-data/ckpt/light_trunk_jd_none_smooth.pt",
+ "split": "val_track",
+ "n_clips": 39,
+ "smooth_tau": {
+  "metric_level": 0.039834455473348504,
+  "vert_period_s": 0.07237429271079601,
+  "vert_bounce_amp": 0.10510467790998518,
+  "qom": 0.011534604201093316,
+  "head_speed": 0.022626066738739608,
+  "foot_speed": 0.024997342115268117,
+  "weight": 0.15395426896773287,
+  "time_eff": 0.24532725986652076,
+  "spread": 0.13142946863733232,
+  "section_energy": 0.9999999995362013,
+  "hand_speed": 0.01746874086000026,
+  "hand_spread": 0.0877550930995494,
+  "lateral_pos": 0.5149669608194377,
+  "travel_speed": 0.0426202258411795,
+  "symmetry": 0.022231602283194665,
+  "laterality": 0.02609412757866085,
+  "space_eff": 0.0990921639185399,
+  "flow_eff": 0.3947439838889987,
+  "jerk": 0.01771633605472744,
+  "vert_bounce": 0.05259519982151688
+ }
+}

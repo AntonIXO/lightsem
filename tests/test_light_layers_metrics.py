@@ -5,7 +5,7 @@ from dataclasses import replace
 
 import numpy as np
 
-from lightsem.experiments.light_layers.metrics import (
+from lightsem.model.light_layers.metrics import (
     BOOTSTRAP_REPLICATES, VISUAL_TOLERANCE_S, MetricObservation,
     fixed_shift_metadata, holm_adjust, macro_song_mean, paired_song_bootstrap,
     palette_metrics, visual_event_ap,

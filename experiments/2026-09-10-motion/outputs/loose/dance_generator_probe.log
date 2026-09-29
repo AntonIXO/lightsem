@@ -1,0 +1,19 @@
+loaded flow
+flow train 001
+flow train 002
+flow train 003
+flow train 007
+flow val 004
+flow val 005
+flow val 014
+flow val 027
+loaded regression
+regression train 001
+regression train 002
+regression train 003
+regression train 007
+regression val 004
+regression val 005
+regression val 014
+regression val 027
+DONE /root/lightsem/outputs/dance_generator_probe.json

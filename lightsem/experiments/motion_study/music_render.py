@@ -6,7 +6,7 @@ from pathlib import Path
 import numpy as np
 
 from .render import VERTEX,camera_project
-from ..stage11_common import authenticated_json,digest
+from ..stage11.stage11_common import authenticated_json,digest
 
 FRAGMENT = '''#version 330
 uniform vec2 joints[176]; uniform float contact[32]; uniform sampler2D labels;

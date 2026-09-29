@@ -11,7 +11,7 @@ from .geometry import FPS, joints_from_features
 from .model import CodecConfig
 from .render import render_comparison
 from .training import load_context
-from ..stage11_common import authenticated_json, read_authenticated, digest, gpu_lock
+from ..stage11.stage11_common import authenticated_json, read_authenticated, digest, gpu_lock
 
 
 def numerical_gates(report, protocol):

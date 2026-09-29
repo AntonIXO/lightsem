@@ -10,8 +10,8 @@ import time
 import unittest
 from unittest.mock import patch
 
-from lightsem.experiments import stage11_supervisor as supervisor
-from lightsem.experiments.stage11_common import (
+from lightsem.experiments.stage11 import stage11_supervisor as supervisor
+from lightsem.experiments.stage11.stage11_common import (
     artifact_manifest, authenticated_json, digest, json_digest, read_authenticated, read_json,
 )
 

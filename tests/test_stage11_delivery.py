@@ -12,8 +12,8 @@ from unittest.mock import patch
 import numpy as np
 import torch
 
-from lightsem.experiments import stage11_delivery as delivery
-from lightsem.experiments.stage11_common import authenticated_json, artifact_manifest, digest, json_digest, read_authenticated
+from lightsem.experiments.stage11 import stage11_delivery as delivery
+from lightsem.experiments.stage11.stage11_common import authenticated_json, artifact_manifest, digest, json_digest, read_authenticated
 from lightsem.model.light_trunk import LightTrunk, TrunkConfig
 
 
@@ -104,16 +104,16 @@ class DeliveryTests(unittest.TestCase):
         context = (self.protocol, {}, self.normalizers, self.binding)
         changed = {**self.assets, 'event_thr': {'footfall': .01}}
         authenticated_json(self.root / 'render_assets.json', changed)
-        with patch('lightsem.experiments.stage11_evaluation._context', return_value=context):
+        with patch('lightsem.experiments.stage11.stage11_evaluation._context', return_value=context):
             with self.assertRaisesRegex(RuntimeError, 'postprocessing binding changed'):
                 delivery._render_context(self.root, 'val')
 
     def test_strict_test_unlock_runs_before_manifest_or_array_access(self):
         context = (self.protocol, {}, self.normalizers, self.binding)
-        with patch('lightsem.experiments.stage11_evaluation._context', return_value=context), \
-             patch('lightsem.experiments.stage11_evaluation._test_unlock', side_effect=RuntimeError('strict unlock denied')) as unlock, \
+        with patch('lightsem.experiments.stage11.stage11_evaluation._context', return_value=context), \
+             patch('lightsem.experiments.stage11.stage11_evaluation._test_unlock', side_effect=RuntimeError('strict unlock denied')) as unlock, \
              patch.object(delivery, 'verify_training_inputs') as verify_inputs, \
-             patch('lightsem.experiments.stage11_data.load_manifest') as manifest:
+             patch('lightsem.experiments.stage11.stage11_data.load_manifest') as manifest:
             with self.assertRaisesRegex(RuntimeError, 'strict unlock denied'):
                 delivery.render_campaign(self.root, 'test')
             unlock.assert_called_once_with(self.root, self.protocol, self.binding)
@@ -133,7 +133,7 @@ class DeliveryTests(unittest.TestCase):
     def test_motion_only_delivery_preserves_102_seed_and_hashes_source_candidates(self):
         # Exercise the entire delivery orchestration with CPU renderer/model
         # doubles. Every operation that could allocate CUDA or EGL is replaced.
-        from lightsem.experiments import stage11_render
+        from lightsem.experiments.stage11 import stage11_render
         visual = self.root / 'visual.npz'
         np.savez(visual, x=np.zeros((400, 52), np.float32))
         audio = self.root / 'audio.wav'
@@ -182,7 +182,7 @@ class DeliveryTests(unittest.TestCase):
              patch.object(delivery, 'motion_adapter', return_value=SimpleNamespace(descriptors=lambda bus, seed: seed)), \
              patch.object(delivery.gc, 'collect'), \
              patch.object(delivery.torch.cuda, 'empty_cache'), \
-             patch('lightsem.experiments.stage11_data.load_manifest', return_value=manifest), \
+             patch('lightsem.experiments.stage11.stage11_data.load_manifest', return_value=manifest), \
              patch('lightsem.motion.io.load_bus', return_value=bus), \
              patch('lightsem.motion.io.slice_bus', return_value=bus), \
              patch('lightsem.conductor.hybrid.ConductorHybrid', return_value=fake_conductor), \

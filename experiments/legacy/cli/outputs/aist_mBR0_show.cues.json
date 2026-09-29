@@ -1,0 +1,206 @@
+{
+  "fps": 40.0,
+  "n_frames": 1000,
+  "duration_s": 25.0,
+  "rig": {
+    "n_fixtures": 14,
+    "by_kind": {
+      "blinder": 2,
+      "moving_head": 6,
+      "projector": 1,
+      "strobe": 1,
+      "wash": 4
+    },
+    "channels_used": 117,
+    "patch": [
+      {
+        "name": "mh1",
+        "kind": "moving_head",
+        "address": 1,
+        "n_channels": 12
+      },
+      {
+        "name": "mh2",
+        "kind": "moving_head",
+        "address": 13,
+        "n_channels": 12
+      },
+      {
+        "name": "mh3",
+        "kind": "moving_head",
+        "address": 25,
+        "n_channels": 12
+      },
+      {
+        "name": "mh4",
+        "kind": "moving_head",
+        "address": 37,
+        "n_channels": 12
+      },
+      {
+        "name": "mh5",
+        "kind": "moving_head",
+        "address": 49,
+        "n_channels": 12
+      },
+      {
+        "name": "mh6",
+        "kind": "moving_head",
+        "address": 61,
+        "n_channels": 12
+      },
+      {
+        "name": "wash1",
+        "kind": "wash",
+        "address": 73,
+        "n_channels": 7
+      },
+      {
+        "name": "wash2",
+        "kind": "wash",
+        "address": 80,
+        "n_channels": 7
+      },
+      {
+        "name": "wash3",
+        "kind": "wash",
+        "address": 87,
+        "n_channels": 7
+      },
+      {
+        "name": "wash4",
+        "kind": "wash",
+        "address": 94,
+        "n_channels": 7
+      },
+      {
+        "name": "blinder1",
+        "kind": "blinder",
+        "address": 101,
+        "n_channels": 2
+      },
+      {
+        "name": "blinder2",
+        "kind": "blinder",
+        "address": 103,
+        "n_channels": 2
+      },
+      {
+        "name": "strobe1",
+        "kind": "strobe",
+        "address": 105,
+        "n_channels": 3
+      },
+      {
+        "name": "proj1",
+        "kind": "projector",
+        "address": 108,
+        "n_channels": 10
+      }
+    ]
+  },
+  "cues": [
+    {
+      "type": "structure",
+      "time_s": 0.0,
+      "duration_s": 3.437,
+      "segment": "intro",
+      "scene": "intro",
+      "movement": "slow_sweep",
+      "base_dimmer": 0.3,
+      "zoom": 0.75,
+      "strobe_rate": 0.0,
+      "energy": 0.3891,
+      "energy_slope": 0.0248
+    },
+    {
+      "type": "anticipation",
+      "time_s": 0.023,
+      "duration_s": null,
+      "segment": null,
+      "scene": "anticipatory_lift",
+      "movement": null,
+      "mode": "causal",
+      "lookahead_s": 2.0,
+      "lead_to_next_drop_s": 10.147
+    },
+    {
+      "type": "structure",
+      "time_s": 3.437,
+      "duration_s": 2.81,
+      "segment": "breakdown",
+      "scene": "breakdown",
+      "movement": "slow_sweep",
+      "base_dimmer": 0.35,
+      "zoom": 0.85,
+      "strobe_rate": 0.0,
+      "energy": 0.3617,
+      "energy_slope": 0.1604
+    },
+    {
+      "type": "structure",
+      "time_s": 6.246,
+      "duration_s": 3.924,
+      "segment": "breakdown",
+      "scene": "breakdown",
+      "movement": "slow_sweep",
+      "base_dimmer": 0.35,
+      "zoom": 0.85,
+      "strobe_rate": 0.0,
+      "energy": 0.3575,
+      "energy_slope": -0.0374
+    },
+    {
+      "type": "structure",
+      "time_s": 10.17,
+      "duration_s": 2.833,
+      "segment": "drop",
+      "scene": "drop",
+      "movement": "fan",
+      "base_dimmer": 1.0,
+      "zoom": 0.15,
+      "strobe_rate": 0.55,
+      "energy": 0.3997,
+      "energy_slope": 0.0332
+    },
+    {
+      "type": "structure",
+      "time_s": 13.003,
+      "duration_s": 3.367,
+      "segment": "breakdown",
+      "scene": "breakdown",
+      "movement": "slow_sweep",
+      "base_dimmer": 0.35,
+      "zoom": 0.85,
+      "strobe_rate": 0.0,
+      "energy": 0.3877,
+      "energy_slope": -0.0506
+    },
+    {
+      "type": "structure",
+      "time_s": 16.37,
+      "duration_s": 3.367,
+      "segment": "drop",
+      "scene": "drop",
+      "movement": "fan",
+      "base_dimmer": 1.0,
+      "zoom": 0.15,
+      "strobe_rate": 0.55,
+      "energy": 0.423,
+      "energy_slope": -0.1243
+    },
+    {
+      "type": "structure",
+      "time_s": 19.737,
+      "duration_s": 5.263,
+      "segment": "drop",
+      "scene": "drop",
+      "movement": "fan",
+      "base_dimmer": 1.0,
+      "zoom": 0.15,
+      "strobe_rate": 0.55,
+      "energy": 0.4077,
+      "energy_slope": -0.0457
+    }
+  ]
+}

@@ -1,0 +1,1316 @@
+{
+  "scope": "unpreregistered CPU diagnostic; 4 sorted TRAIN and 4 sorted VAL records, first 960 frames; not corpus conditioning score",
+  "rows": [
+    {
+      "arm": "flow",
+      "partition": "train",
+      "key": "001",
+      "t": 0.0,
+      "errors": {
+        "correct": {
+          "native": 0.4425688683986664,
+          "velocity": 0.7901748418807983,
+          "total": 0.48207759857177734
+        },
+        "donor": {
+          "native": 0.5396052002906799,
+          "velocity": 0.809988260269165,
+          "total": 0.5801045894622803
+        },
+        "zero": {
+          "native": 0.47652357816696167,
+          "velocity": 0.7509275078773499,
+          "total": 0.5140699744224548
+        }
+      },
+      "audio_change_rms": 1.9172887802124023,
+      "prediction_change_rms": 0.27499181032180786,
+      "prediction_rms": 1.1063446998596191
+    },
+    {
+      "arm": "flow",
+      "partition": "train",
+      "key": "001",
+      "t": 0.1,
+      "errors": {
+        "correct": {
+          "native": 0.45282793045043945,
+          "velocity": 0.8342127799987793,
+          "total": 0.4945385754108429
+        },
+        "donor": {
+          "native": 0.5025694966316223,
+          "velocity": 0.8303484916687012,
+          "total": 0.5440869331359863
+        },
+        "zero": {
+          "native": 0.4641280472278595,
+          "velocity": 0.7938646674156189,
+          "total": 0.5038212537765503
+        }
+      },
+      "audio_change_rms": 1.9172887802124023,
+      "prediction_change_rms": 0.23885378241539001,
+      "prediction_rms": 1.034659743309021
+    },
+    {
+      "arm": "flow",
+      "partition": "train",
+      "key": "001",
+      "t": 0.5,
+      "errors": {
+        "correct": {
+          "native": 0.44978025555610657,
+          "velocity": 1.0776630640029907,
+          "total": 0.5036634206771851
+        },
+        "donor": {
+          "native": 0.4553002417087555,
+          "velocity": 1.0787407159805298,
+          "total": 0.5092372894287109
+        },
+        "zero": {
+          "native": 0.44519540667533875,
+          "velocity": 1.0550671815872192,
+          "total": 0.4979487657546997
+        }
+      },
+      "audio_change_rms": 1.9172887802124023,
+      "prediction_change_rms": 0.13600192964076996,
+      "prediction_rms": 1.0092207193374634
+    },
+    {
+      "arm": "flow",
+      "partition": "train",
+      "key": "001",
+      "t": 0.9,
+      "errors": {
+        "correct": {
+          "native": 0.673193097114563,
+          "velocity": 1.831797480583191,
+          "total": 0.7647829651832581
+        },
+        "donor": {
+          "native": 0.6713999509811401,
+          "velocity": 1.8355932235717773,
+          "total": 0.7631796002388
+        },
+        "zero": {
+          "native": 0.6686590313911438,
+          "velocity": 1.804595947265625,
+          "total": 0.758888840675354
+        }
+      },
+      "audio_change_rms": 1.9172887802124023,
+      "prediction_change_rms": 0.09013181924819946,
+      "prediction_rms": 0.8898829817771912
+    },
+    {
+      "arm": "flow",
+      "partition": "train",
+      "key": "001",
+      "t": 1.0,
+      "errors": {
+        "correct": {
+          "native": 1.1175134181976318,
+          "velocity": 6.248129844665527,
+          "total": 1.429919958114624
+        },
+        "donor": {
+          "native": 1.1180362701416016,
+          "velocity": 6.259210586547852,
+          "total": 1.4309967756271362
+        },
+        "zero": {
+          "native": 1.1144587993621826,
+          "velocity": 6.2158308029174805,
+          "total": 1.4252502918243408
+        }
+      },
+      "audio_change_rms": 1.9172887802124023,
+      "prediction_change_rms": 0.09124929457902908,
+      "prediction_rms": 0.7391372323036194
+    },
+    {
+      "arm": "flow",
+      "partition": "train",
+      "key": "002",
+      "t": 0.0,
+      "errors": {
+        "correct": {
+          "native": 0.585223376750946,
+          "velocity": 1.0681664943695068,
+          "total": 0.6386317014694214
+        },
+        "donor": {
+          "native": 0.5539732575416565,
+          "velocity": 1.0576050281524658,
+          "total": 0.6068534851074219
+        },
+        "zero": {
+          "native": 0.5699399709701538,
+          "velocity": 1.007703423500061,
+          "total": 0.6203251481056213
+        }
+      },
+      "audio_change_rms": 1.9172887802124023,
+      "prediction_change_rms": 0.22931315004825592,
+      "prediction_rms": 1.1001601219177246
+    },
+    {
+      "arm": "flow",
+      "partition": "train",
+      "key": "002",
+      "t": 0.1,
+      "errors": {
+        "correct": {
+          "native": 0.6138667464256287,
+          "velocity": 1.1410105228424072,
+          "total": 0.670917272567749
+        },
+        "donor": {
+          "native": 0.6155509948730469,
+          "velocity": 1.1524717807769775,
+          "total": 0.6731745600700378
+        },
+        "zero": {
+          "native": 0.6031880974769592,
+          "velocity": 1.1033560037612915,
+          "total": 0.6583558917045593
+        }
+      },
+      "audio_change_rms": 1.9172887802124023,
+      "prediction_change_rms": 0.21311068534851074,
+      "prediction_rms": 1.0350046157836914
+    },
+    {
+      "arm": "flow",
+      "partition": "train",
+      "key": "002",
+      "t": 0.5,
+      "errors": {
+        "correct": {
+          "native": 0.543032705783844,
+          "velocity": 1.3098558187484741,
+          "total": 0.6085255146026611
+        },
+        "donor": {
+          "native": 0.5530820488929749,
+          "velocity": 1.3342390060424805,
+          "total": 0.6197940111160278
+        },
+        "zero": {
+          "native": 0.5486499667167664,
+          "velocity": 1.3054943084716797,
+          "total": 0.6139246821403503
+        }
+      },
+      "audio_change_rms": 1.9172887802124023,
+      "prediction_change_rms": 0.13102349638938904,
+      "prediction_rms": 1.005919098854065
+    },
+    {
+      "arm": "flow",
+      "partition": "train",
+      "key": "002",
+      "t": 0.9,
+      "errors": {
+        "correct": {
+          "native": 0.6995721459388733,
+          "velocity": 2.0369865894317627,
+          "total": 0.8014214634895325
+        },
+        "donor": {
+          "native": 0.7031956911087036,
+          "velocity": 2.0411887168884277,
+          "total": 0.805255115032196
+        },
+        "zero": {
+          "native": 0.7005842924118042,
+          "velocity": 2.013754367828369,
+          "total": 0.8012720346450806
+        }
+      },
+      "audio_change_rms": 1.9172887802124023,
+      "prediction_change_rms": 0.08827336132526398,
+      "prediction_rms": 0.9252883195877075
+    },
+    {
+      "arm": "flow",
+      "partition": "train",
+      "key": "002",
+      "t": 1.0,
+      "errors": {
+        "correct": {
+          "native": 1.1263927221298218,
+          "velocity": 6.472334384918213,
+          "total": 1.4500094652175903
+        },
+        "donor": {
+          "native": 1.129384160041809,
+          "velocity": 6.464981555938721,
+          "total": 1.452633261680603
+        },
+        "zero": {
+          "native": 1.1260212659835815,
+          "velocity": 6.43179988861084,
+          "total": 1.4476113319396973
+        }
+      },
+      "audio_change_rms": 1.9172887802124023,
+      "prediction_change_rms": 0.09204469621181488,
+      "prediction_rms": 0.7937606573104858
+    },
+    {
+      "arm": "flow",
+      "partition": "train",
+      "key": "003",
+      "t": 0.0,
+      "errors": {
+        "correct": {
+          "native": 0.6599823832511902,
+          "velocity": 0.5205190181732178,
+          "total": 0.6860083341598511
+        },
+        "donor": {
+          "native": 0.692098081111908,
+          "velocity": 0.5403675436973572,
+          "total": 0.7191164493560791
+        },
+        "zero": {
+          "native": 0.7216933965682983,
+          "velocity": 0.491590291261673,
+          "total": 0.7462729215621948
+        }
+      },
+      "audio_change_rms": 1.715590238571167,
+      "prediction_change_rms": 0.3118214011192322,
+      "prediction_rms": 1.1446915864944458
+    },
+    {
+      "arm": "flow",
+      "partition": "train",
+      "key": "003",
+      "t": 0.1,
+      "errors": {
+        "correct": {
+          "native": 0.7009423971176147,
+          "velocity": 0.5294770002365112,
+          "total": 0.7274162769317627
+        },
+        "donor": {
+          "native": 0.7086190581321716,
+          "velocity": 0.5439324975013733,
+          "total": 0.735815703868866
+        },
+        "zero": {
+          "native": 0.701160728931427,
+          "velocity": 0.49342745542526245,
+          "total": 0.7258321046829224
+        }
+      },
+      "audio_change_rms": 1.715590238571167,
+      "prediction_change_rms": 0.25004449486732483,
+      "prediction_rms": 1.0754978656768799
+    },
+    {
+      "arm": "flow",
+      "partition": "train",
+      "key": "003",
+      "t": 0.5,
+      "errors": {
+        "correct": {
+          "native": 0.5464627146720886,
+          "velocity": 0.8982176780700684,
+          "total": 0.59137362241745
+        },
+        "donor": {
+          "native": 0.5548341274261475,
+          "velocity": 0.8998474478721619,
+          "total": 0.5998265147209167
+        },
+        "zero": {
+          "native": 0.5476599335670471,
+          "velocity": 0.882614254951477,
+          "total": 0.5917906761169434
+        }
+      },
+      "audio_change_rms": 1.715590238571167,
+      "prediction_change_rms": 0.13633568584918976,
+      "prediction_rms": 1.0663000345230103
+    },
+    {
+      "arm": "flow",
+      "partition": "train",
+      "key": "003",
+      "t": 0.9,
+      "errors": {
+        "correct": {
+          "native": 0.7156204581260681,
+          "velocity": 1.8481725454330444,
+          "total": 0.808029055595398
+        },
+        "donor": {
+          "native": 0.7171617150306702,
+          "velocity": 1.841085433959961,
+          "total": 0.8092159628868103
+        },
+        "zero": {
+          "native": 0.7134009599685669,
+          "velocity": 1.813718318939209,
+          "total": 0.8040868639945984
+        }
+      },
+      "audio_change_rms": 1.715590238571167,
+      "prediction_change_rms": 0.09639256447553635,
+      "prediction_rms": 1.0086122751235962
+    },
+    {
+      "arm": "flow",
+      "partition": "train",
+      "key": "003",
+      "t": 1.0,
+      "errors": {
+        "correct": {
+          "native": 1.1337589025497437,
+          "velocity": 6.215762615203857,
+          "total": 1.4445470571517944
+        },
+        "donor": {
+          "native": 1.1338732242584229,
+          "velocity": 6.203418731689453,
+          "total": 1.4440441131591797
+        },
+        "zero": {
+          "native": 1.1311845779418945,
+          "velocity": 6.1697258949279785,
+          "total": 1.4396709203720093
+        }
+      },
+      "audio_change_rms": 1.715590238571167,
+      "prediction_change_rms": 0.09873178601264954,
+      "prediction_rms": 0.8983908891677856
+    },
+    {
+      "arm": "flow",
+      "partition": "train",
+      "key": "007",
+      "t": 0.0,
+      "errors": {
+        "correct": {
+          "native": 0.6360045075416565,
+          "velocity": 0.4830934405326843,
+          "total": 0.660159170627594
+        },
+        "donor": {
+          "native": 0.6576337218284607,
+          "velocity": 0.49985599517822266,
+          "total": 0.6826265454292297
+        },
+        "zero": {
+          "native": 0.7218337655067444,
+          "velocity": 0.4460616707801819,
+          "total": 0.7441368699073792
+        }
+      },
+      "audio_change_rms": 1.5372288227081299,
+      "prediction_change_rms": 0.1739722192287445,
+      "prediction_rms": 1.101635217666626
+    },
+    {
+      "arm": "flow",
+      "partition": "train",
+      "key": "007",
+      "t": 0.1,
+      "errors": {
+        "correct": {
+          "native": 0.6552963852882385,
+          "velocity": 0.48111066222190857,
+          "total": 0.6793519258499146
+        },
+        "donor": {
+          "native": 0.6726900339126587,
+          "velocity": 0.4997025728225708,
+          "total": 0.6976751685142517
+        },
+        "zero": {
+          "native": 0.6864452362060547,
+          "velocity": 0.4424740970134735,
+          "total": 0.7085689306259155
+        }
+      },
+      "audio_change_rms": 1.5372288227081299,
+      "prediction_change_rms": 0.17023971676826477,
+      "prediction_rms": 1.0343812704086304
+    },
+    {
+      "arm": "flow",
+      "partition": "train",
+      "key": "007",
+      "t": 0.5,
+      "errors": {
+        "correct": {
+          "native": 0.5385472178459167,
+          "velocity": 0.8399162292480469,
+          "total": 0.580543041229248
+        },
+        "donor": {
+          "native": 0.5445635914802551,
+          "velocity": 0.8628385663032532,
+          "total": 0.5877054929733276
+        },
+        "zero": {
+          "native": 0.5401715636253357,
+          "velocity": 0.8423677682876587,
+          "total": 0.5822899341583252
+        }
+      },
+      "audio_change_rms": 1.5372288227081299,
+      "prediction_change_rms": 0.126844584941864,
+      "prediction_rms": 1.0602445602416992
+    },
+    {
+      "arm": "flow",
+      "partition": "train",
+      "key": "007",
+      "t": 0.9,
+      "errors": {
+        "correct": {
+          "native": 0.7201655507087708,
+          "velocity": 1.7572122812271118,
+          "total": 0.8080261945724487
+        },
+        "donor": {
+          "native": 0.7186430096626282,
+          "velocity": 1.760252833366394,
+          "total": 0.8066556453704834
+        },
+        "zero": {
+          "native": 0.7173111438751221,
+          "velocity": 1.7348395586013794,
+          "total": 0.8040531277656555
+        }
+      },
+      "audio_change_rms": 1.5372288227081299,
+      "prediction_change_rms": 0.08477401733398438,
+      "prediction_rms": 0.9800637364387512
+    },
+    {
+      "arm": "flow",
+      "partition": "train",
+      "key": "007",
+      "t": 1.0,
+      "errors": {
+        "correct": {
+          "native": 1.128191351890564,
+          "velocity": 5.869474411010742,
+          "total": 1.421665072441101
+        },
+        "donor": {
+          "native": 1.1277761459350586,
+          "velocity": 5.8807692527771,
+          "total": 1.4218146800994873
+        },
+        "zero": {
+          "native": 1.1253920793533325,
+          "velocity": 5.848835468292236,
+          "total": 1.4178338050842285
+        }
+      },
+      "audio_change_rms": 1.5372288227081299,
+      "prediction_change_rms": 0.08609794825315475,
+      "prediction_rms": 0.8595027327537537
+    },
+    {
+      "arm": "flow",
+      "partition": "val",
+      "key": "004",
+      "t": 0.0,
+      "errors": {
+        "correct": {
+          "native": 0.6699440479278564,
+          "velocity": 0.7243512868881226,
+          "total": 0.706161618232727
+        },
+        "donor": {
+          "native": 0.6734827160835266,
+          "velocity": 0.6963168382644653,
+          "total": 0.7082985639572144
+        },
+        "zero": {
+          "native": 0.6295995712280273,
+          "velocity": 0.668846070766449,
+          "total": 0.663041889667511
+        }
+      },
+      "audio_change_rms": 1.5059781074523926,
+      "prediction_change_rms": 0.35689112544059753,
+      "prediction_rms": 1.0993235111236572
+    },
+    {
+      "arm": "flow",
+      "partition": "val",
+      "key": "004",
+      "t": 0.1,
+      "errors": {
+        "correct": {
+          "native": 0.6574145555496216,
+          "velocity": 0.7449945211410522,
+          "total": 0.6946642994880676
+        },
+        "donor": {
+          "native": 0.6926044821739197,
+          "velocity": 0.7365066409111023,
+          "total": 0.7294298410415649
+        },
+        "zero": {
+          "native": 0.62908935546875,
+          "velocity": 0.6995096802711487,
+          "total": 0.6640648245811462
+        }
+      },
+      "audio_change_rms": 1.5059781074523926,
+      "prediction_change_rms": 0.34007880091667175,
+      "prediction_rms": 1.0253617763519287
+    },
+    {
+      "arm": "flow",
+      "partition": "val",
+      "key": "004",
+      "t": 0.5,
+      "errors": {
+        "correct": {
+          "native": 0.5639108419418335,
+          "velocity": 1.075115442276001,
+          "total": 0.6176666021347046
+        },
+        "donor": {
+          "native": 0.5641217231750488,
+          "velocity": 1.0477452278137207,
+          "total": 0.616508960723877
+        },
+        "zero": {
+          "native": 0.5574306845664978,
+          "velocity": 1.042793869972229,
+          "total": 0.6095703840255737
+        }
+      },
+      "audio_change_rms": 1.5059781074523926,
+      "prediction_change_rms": 0.14623765647411346,
+      "prediction_rms": 1.0254735946655273
+    },
+    {
+      "arm": "flow",
+      "partition": "val",
+      "key": "004",
+      "t": 0.9,
+      "errors": {
+        "correct": {
+          "native": 0.7286420464515686,
+          "velocity": 1.8852368593215942,
+          "total": 0.8229038715362549
+        },
+        "donor": {
+          "native": 0.7315692901611328,
+          "velocity": 1.8664897680282593,
+          "total": 0.8248937726020813
+        },
+        "zero": {
+          "native": 0.7271697521209717,
+          "velocity": 1.8489269018173218,
+          "total": 0.8196160793304443
+        }
+      },
+      "audio_change_rms": 1.5059781074523926,
+      "prediction_change_rms": 0.08951202780008316,
+      "prediction_rms": 0.9540295600891113
+    },
+    {
+      "arm": "flow",
+      "partition": "val",
+      "key": "004",
+      "t": 1.0,
+      "errors": {
+        "correct": {
+          "native": 1.166567087173462,
+          "velocity": 6.278769016265869,
+          "total": 1.4805055856704712
+        },
+        "donor": {
+          "native": 1.1708507537841797,
+          "velocity": 6.257587909698486,
+          "total": 1.4837301969528198
+        },
+        "zero": {
+          "native": 1.165615200996399,
+          "velocity": 6.24017333984375,
+          "total": 1.4776239395141602
+        }
+      },
+      "audio_change_rms": 1.5059781074523926,
+      "prediction_change_rms": 0.09034088999032974,
+      "prediction_rms": 0.8356398344039917
+    },
+    {
+      "arm": "flow",
+      "partition": "val",
+      "key": "005",
+      "t": 0.0,
+      "errors": {
+        "correct": {
+          "native": 0.7847691774368286,
+          "velocity": 0.517967164516449,
+          "total": 0.8106675148010254
+        },
+        "donor": {
+          "native": 0.7639303207397461,
+          "velocity": 0.5371723175048828,
+          "total": 0.7907889485359192
+        },
+        "zero": {
+          "native": 0.7392781972885132,
+          "velocity": 0.47243261337280273,
+          "total": 0.7628998160362244
+        }
+      },
+      "audio_change_rms": 1.5059781074523926,
+      "prediction_change_rms": 0.35418474674224854,
+      "prediction_rms": 1.0989313125610352
+    },
+    {
+      "arm": "flow",
+      "partition": "val",
+      "key": "005",
+      "t": 0.1,
+      "errors": {
+        "correct": {
+          "native": 0.7879409790039062,
+          "velocity": 0.5337022542953491,
+          "total": 0.8146260976791382
+        },
+        "donor": {
+          "native": 0.787755012512207,
+          "velocity": 0.5353674292564392,
+          "total": 0.8145233988761902
+        },
+        "zero": {
+          "native": 0.7579270005226135,
+          "velocity": 0.48109832406044006,
+          "total": 0.7819819450378418
+        }
+      },
+      "audio_change_rms": 1.5059781074523926,
+      "prediction_change_rms": 0.321552038192749,
+      "prediction_rms": 1.0320218801498413
+    },
+    {
+      "arm": "flow",
+      "partition": "val",
+      "key": "005",
+      "t": 0.5,
+      "errors": {
+        "correct": {
+          "native": 0.5475034713745117,
+          "velocity": 0.8646601438522339,
+          "total": 0.5907365083694458
+        },
+        "donor": {
+          "native": 0.5561920404434204,
+          "velocity": 0.8994084000587463,
+          "total": 0.6011624336242676
+        },
+        "zero": {
+          "native": 0.5451828837394714,
+          "velocity": 0.8642268776893616,
+          "total": 0.5883942246437073
+        }
+      },
+      "audio_change_rms": 1.5059781074523926,
+      "prediction_change_rms": 0.15268708765506744,
+      "prediction_rms": 1.0804542303085327
+    },
+    {
+      "arm": "flow",
+      "partition": "val",
+      "key": "005",
+      "t": 0.9,
+      "errors": {
+        "correct": {
+          "native": 0.7302044630050659,
+          "velocity": 1.8317781686782837,
+          "total": 0.8217933773994446
+        },
+        "donor": {
+          "native": 0.7302298545837402,
+          "velocity": 1.8506691455841064,
+          "total": 0.8227633237838745
+        },
+        "zero": {
+          "native": 0.7266690135002136,
+          "velocity": 1.8127602338790894,
+          "total": 0.8173069953918457
+        }
+      },
+      "audio_change_rms": 1.5059781074523926,
+      "prediction_change_rms": 0.0897582620382309,
+      "prediction_rms": 1.0100700855255127
+    },
+    {
+      "arm": "flow",
+      "partition": "val",
+      "key": "005",
+      "t": 1.0,
+      "errors": {
+        "correct": {
+          "native": 1.1624367237091064,
+          "velocity": 6.226639747619629,
+          "total": 1.473768711090088
+        },
+        "donor": {
+          "native": 1.1599148511886597,
+          "velocity": 6.248071670532227,
+          "total": 1.472318410873413
+        },
+        "zero": {
+          "native": 1.1572376489639282,
+          "velocity": 6.201381206512451,
+          "total": 1.4673067331314087
+        }
+      },
+      "audio_change_rms": 1.5059781074523926,
+      "prediction_change_rms": 0.08964193612337112,
+      "prediction_rms": 0.903414785861969
+    },
+    {
+      "arm": "flow",
+      "partition": "val",
+      "key": "014",
+      "t": 0.0,
+      "errors": {
+        "correct": {
+          "native": 0.6514795422554016,
+          "velocity": 1.0408062934875488,
+          "total": 0.703519880771637
+        },
+        "donor": {
+          "native": 0.6682846546173096,
+          "velocity": 1.0973374843597412,
+          "total": 0.7231515049934387
+        },
+        "zero": {
+          "native": 0.6662600040435791,
+          "velocity": 1.021195411682129,
+          "total": 0.7173197865486145
+        }
+      },
+      "audio_change_rms": 0.9825747609138489,
+      "prediction_change_rms": 0.1970176249742508,
+      "prediction_rms": 1.0806713104248047
+    },
+    {
+      "arm": "flow",
+      "partition": "val",
+      "key": "014",
+      "t": 0.1,
+      "errors": {
+        "correct": {
+          "native": 0.6739941835403442,
+          "velocity": 1.1502137184143066,
+          "total": 0.7315048575401306
+        },
+        "donor": {
+          "native": 0.7135971784591675,
+          "velocity": 1.1824091672897339,
+          "total": 0.7727176547050476
+        },
+        "zero": {
+          "native": 0.669773519039154,
+          "velocity": 1.1312143802642822,
+          "total": 0.7263342142105103
+        }
+      },
+      "audio_change_rms": 0.9825747609138489,
+      "prediction_change_rms": 0.18851305544376373,
+      "prediction_rms": 0.9958473443984985
+    },
+    {
+      "arm": "flow",
+      "partition": "val",
+      "key": "014",
+      "t": 0.5,
+      "errors": {
+        "correct": {
+          "native": 0.5791728496551514,
+          "velocity": 1.5137354135513306,
+          "total": 0.6548596024513245
+        },
+        "donor": {
+          "native": 0.5717714428901672,
+          "velocity": 1.5308198928833008,
+          "total": 0.6483124494552612
+        },
+        "zero": {
+          "native": 0.5588228106498718,
+          "velocity": 1.4997817277908325,
+          "total": 0.633811891078949
+        }
+      },
+      "audio_change_rms": 0.9825747609138489,
+      "prediction_change_rms": 0.09546253830194473,
+      "prediction_rms": 0.9744165539741516
+    },
+    {
+      "arm": "flow",
+      "partition": "val",
+      "key": "014",
+      "t": 0.9,
+      "errors": {
+        "correct": {
+          "native": 0.7004650831222534,
+          "velocity": 2.307868003845215,
+          "total": 0.8158584833145142
+        },
+        "donor": {
+          "native": 0.7001883387565613,
+          "velocity": 2.329737424850464,
+          "total": 0.8166751861572266
+        },
+        "zero": {
+          "native": 0.6958057284355164,
+          "velocity": 2.2876951694488525,
+          "total": 0.8101904988288879
+        }
+      },
+      "audio_change_rms": 0.9825747609138489,
+      "prediction_change_rms": 0.06593107432126999,
+      "prediction_rms": 0.900809645652771
+    },
+    {
+      "arm": "flow",
+      "partition": "val",
+      "key": "014",
+      "t": 1.0,
+      "errors": {
+        "correct": {
+          "native": 1.1069002151489258,
+          "velocity": 6.6385698318481445,
+          "total": 1.438828706741333
+        },
+        "donor": {
+          "native": 1.107216715812683,
+          "velocity": 6.660567283630371,
+          "total": 1.4402451515197754
+        },
+        "zero": {
+          "native": 1.103521466255188,
+          "velocity": 6.613945007324219,
+          "total": 1.4342187643051147
+        }
+      },
+      "audio_change_rms": 0.9825747609138489,
+      "prediction_change_rms": 0.06602156162261963,
+      "prediction_rms": 0.7670139074325562
+    },
+    {
+      "arm": "flow",
+      "partition": "val",
+      "key": "027",
+      "t": 0.0,
+      "errors": {
+        "correct": {
+          "native": 0.6971606016159058,
+          "velocity": 0.31286776065826416,
+          "total": 0.7128039598464966
+        },
+        "donor": {
+          "native": 0.7121708393096924,
+          "velocity": 0.3246999979019165,
+          "total": 0.7284058332443237
+        },
+        "zero": {
+          "native": 0.7295694947242737,
+          "velocity": 0.2530837953090668,
+          "total": 0.7422236800193787
+        }
+      },
+      "audio_change_rms": 1.6337530612945557,
+      "prediction_change_rms": 0.40370672941207886,
+      "prediction_rms": 1.1115835905075073
+    },
+    {
+      "arm": "flow",
+      "partition": "val",
+      "key": "027",
+      "t": 0.1,
+      "errors": {
+        "correct": {
+          "native": 0.6770622730255127,
+          "velocity": 0.2458951324224472,
+          "total": 0.6893570423126221
+        },
+        "donor": {
+          "native": 0.7764210104942322,
+          "velocity": 0.2609730660915375,
+          "total": 0.7894696593284607
+        },
+        "zero": {
+          "native": 0.771736741065979,
+          "velocity": 0.21248018741607666,
+          "total": 0.7823607325553894
+        }
+      },
+      "audio_change_rms": 1.6337530612945557,
+      "prediction_change_rms": 0.434935599565506,
+      "prediction_rms": 1.032427430152893
+    },
+    {
+      "arm": "flow",
+      "partition": "val",
+      "key": "027",
+      "t": 0.5,
+      "errors": {
+        "correct": {
+          "native": 0.49675801396369934,
+          "velocity": 0.5512747168540955,
+          "total": 0.5243217349052429
+        },
+        "donor": {
+          "native": 0.5537444353103638,
+          "velocity": 0.6432860493659973,
+          "total": 0.5859087109565735
+        },
+        "zero": {
+          "native": 0.5166820287704468,
+          "velocity": 0.5847951769828796,
+          "total": 0.545921802520752
+        }
+      },
+      "audio_change_rms": 1.6337530612945557,
+      "prediction_change_rms": 0.2505952715873718,
+      "prediction_rms": 1.0509494543075562
+    },
+    {
+      "arm": "flow",
+      "partition": "val",
+      "key": "027",
+      "t": 0.9,
+      "errors": {
+        "correct": {
+          "native": 0.6828553676605225,
+          "velocity": 1.5906319618225098,
+          "total": 0.7623869776725769
+        },
+        "donor": {
+          "native": 0.6928635835647583,
+          "velocity": 1.620640754699707,
+          "total": 0.7738956212997437
+        },
+        "zero": {
+          "native": 0.6861856579780579,
+          "velocity": 1.5875234603881836,
+          "total": 0.7655618190765381
+        }
+      },
+      "audio_change_rms": 1.6337530612945557,
+      "prediction_change_rms": 0.11872723698616028,
+      "prediction_rms": 0.9279947876930237
+    },
+    {
+      "arm": "flow",
+      "partition": "val",
+      "key": "027",
+      "t": 1.0,
+      "errors": {
+        "correct": {
+          "native": 1.1041022539138794,
+          "velocity": 5.738966941833496,
+          "total": 1.3910505771636963
+        },
+        "donor": {
+          "native": 1.1066720485687256,
+          "velocity": 5.7575154304504395,
+          "total": 1.3945478200912476
+        },
+        "zero": {
+          "native": 1.1025093793869019,
+          "velocity": 5.7171783447265625,
+          "total": 1.3883683681488037
+        }
+      },
+      "audio_change_rms": 1.6337530612945557,
+      "prediction_change_rms": 0.11124444752931595,
+      "prediction_rms": 0.7868499159812927
+    },
+    {
+      "arm": "regression",
+      "partition": "train",
+      "key": "001",
+      "t": 1.0,
+      "errors": {
+        "correct": {
+          "native": 0.19187341630458832,
+          "velocity": 0.505133330821991,
+          "total": 0.21713007986545563
+        },
+        "donor": {
+          "native": 0.6365470886230469,
+          "velocity": 0.8679527640342712,
+          "total": 0.6799447536468506
+        },
+        "zero": {
+          "native": 0.4600052237510681,
+          "velocity": 0.6131914258003235,
+          "total": 0.4906647801399231
+        }
+      },
+      "audio_change_rms": 1.9172887802124023,
+      "prediction_change_rms": 0.6949888467788696,
+      "prediction_rms": 0.5696939826011658
+    },
+    {
+      "arm": "regression",
+      "partition": "train",
+      "key": "002",
+      "t": 1.0,
+      "errors": {
+        "correct": {
+          "native": 0.22079971432685852,
+          "velocity": 0.6468831300735474,
+          "total": 0.25314387679100037
+        },
+        "donor": {
+          "native": 0.6709569692611694,
+          "velocity": 1.0420775413513184,
+          "total": 0.7230608463287354
+        },
+        "zero": {
+          "native": 0.5383596420288086,
+          "velocity": 0.8700653314590454,
+          "total": 0.5818629264831543
+        }
+      },
+      "audio_change_rms": 1.9172887802124023,
+      "prediction_change_rms": 0.6949888467788696,
+      "prediction_rms": 0.6149617433547974
+    },
+    {
+      "arm": "regression",
+      "partition": "train",
+      "key": "003",
+      "t": 1.0,
+      "errors": {
+        "correct": {
+          "native": 0.2799965441226959,
+          "velocity": 0.33372676372528076,
+          "total": 0.2966828942298889
+        },
+        "donor": {
+          "native": 0.7505245804786682,
+          "velocity": 0.5239934921264648,
+          "total": 0.7767242789268494
+        },
+        "zero": {
+          "native": 0.6561515927314758,
+          "velocity": 0.35552704334259033,
+          "total": 0.6739279627799988
+        }
+      },
+      "audio_change_rms": 1.715590238571167,
+      "prediction_change_rms": 0.7053816318511963,
+      "prediction_rms": 0.691100537776947
+    },
+    {
+      "arm": "regression",
+      "partition": "train",
+      "key": "007",
+      "t": 1.0,
+      "errors": {
+        "correct": {
+          "native": 0.2366294115781784,
+          "velocity": 0.2908369302749634,
+          "total": 0.2511712610721588
+        },
+        "donor": {
+          "native": 0.6695367693901062,
+          "velocity": 0.46696844696998596,
+          "total": 0.6928852200508118
+        },
+        "zero": {
+          "native": 0.60821533203125,
+          "velocity": 0.3086968958377838,
+          "total": 0.6236501932144165
+        }
+      },
+      "audio_change_rms": 1.5372288227081299,
+      "prediction_change_rms": 0.6628648638725281,
+      "prediction_rms": 0.6630584597587585
+    },
+    {
+      "arm": "regression",
+      "partition": "val",
+      "key": "004",
+      "t": 1.0,
+      "errors": {
+        "correct": {
+          "native": 0.9810377359390259,
+          "velocity": 0.8411759734153748,
+          "total": 1.0230965614318848
+        },
+        "donor": {
+          "native": 0.9616982340812683,
+          "velocity": 0.7120996117591858,
+          "total": 0.9973031878471375
+        },
+        "zero": {
+          "native": 0.5855453610420227,
+          "velocity": 0.5307835936546326,
+          "total": 0.6120845675468445
+        }
+      },
+      "audio_change_rms": 1.5059781074523926,
+      "prediction_change_rms": 0.8640586137771606,
+      "prediction_rms": 0.6017825603485107
+    },
+    {
+      "arm": "regression",
+      "partition": "val",
+      "key": "005",
+      "t": 1.0,
+      "errors": {
+        "correct": {
+          "native": 1.03836989402771,
+          "velocity": 0.513405442237854,
+          "total": 1.064040184020996
+        },
+        "donor": {
+          "native": 1.0876675844192505,
+          "velocity": 0.6561758518218994,
+          "total": 1.1204763650894165
+        },
+        "zero": {
+          "native": 0.7055163383483887,
+          "velocity": 0.3327435553073883,
+          "total": 0.7221535444259644
+        }
+      },
+      "audio_change_rms": 1.5059781074523926,
+      "prediction_change_rms": 0.8640586137771606,
+      "prediction_rms": 0.6324842572212219
+    },
+    {
+      "arm": "regression",
+      "partition": "val",
+      "key": "014",
+      "t": 1.0,
+      "errors": {
+        "correct": {
+          "native": 1.0283950567245483,
+          "velocity": 0.983805239200592,
+          "total": 1.0775853395462036
+        },
+        "donor": {
+          "native": 0.9470739960670471,
+          "velocity": 1.2300865650177002,
+          "total": 1.0085783004760742
+        },
+        "zero": {
+          "native": 0.7409459352493286,
+          "velocity": 0.8876068592071533,
+          "total": 0.7853263020515442
+        }
+      },
+      "audio_change_rms": 0.9825747609138489,
+      "prediction_change_rms": 0.9553431272506714,
+      "prediction_rms": 0.7470722198486328
+    },
+    {
+      "arm": "regression",
+      "partition": "val",
+      "key": "027",
+      "t": 1.0,
+      "errors": {
+        "correct": {
+          "native": 0.9239932894706726,
+          "velocity": 0.23758195340633392,
+          "total": 0.9358723759651184
+        },
+        "donor": {
+          "native": 1.0906366109848022,
+          "velocity": 0.4510456919670105,
+          "total": 1.1131888628005981
+        },
+        "zero": {
+          "native": 0.6955000162124634,
+          "velocity": 0.11982015520334244,
+          "total": 0.7014909982681274
+        }
+      },
+      "audio_change_rms": 1.6337530612945557,
+      "prediction_change_rms": 0.8946014046669006,
+      "prediction_rms": 0.6055161952972412
+    }
+  ],
+  "counterexamples": {
+    "key": "001",
+    "constant_root_vx_plus_0.1_m_s": {
+      "coordinate_loss": {
+        "native": 0.001081442809663713,
+        "velocity": 8.7535600847481e-17,
+        "total": 0.001081442809663713
+      },
+      "last_root_displacement_m": 3.196666717529297,
+      "source_physical": {
+        "kinetic": 0.3773180842399597,
+        "travel": 6.096011638641357,
+        "penetration": 0.0,
+        "sliding": 0.03207908570766449,
+        "contact_coverage": 0.6559895873069763,
+        "high_frequency": 0.0006172335706651211,
+        "frozen_distal_fraction": 0.0
+      },
+      "biased_physical": {
+        "kinetic": 0.3870600759983063,
+        "travel": 7.660508155822754,
+        "penetration": 0.0,
+        "sliding": 0.10883213579654694,
+        "contact_coverage": 0.6559895873069763,
+        "high_frequency": 0.0006172336870804429,
+        "frozen_distal_fraction": 0.0
+      }
+    },
+    "rotation6d_scale2_same_geometry": {
+      "coordinate_loss": {
+        "native": 63.12943649291992,
+        "velocity": 0.5754835605621338,
+        "total": 63.15821075439453
+      },
+      "joint_max_abs_m": 0.0
+    }
+  },
+  "noise_scales": {
+    "std_quantiles": [
+      0.05000000074505806,
+      0.05000000074505806,
+      0.1473514586687088,
+      0.44413065910339355,
+      0.5859215259552002
+    ],
+    "delta_scale_quantiles": [
+      0.05000000074505806,
+      0.05000000074505806,
+      0.15465249121189117,
+      0.21798774600028992,
+      0.5000210404396057
+    ],
+    "zero_output_noise_loss": {
+      "native": 1.0161123275756836,
+      "velocity": 5.574163436889648,
+      "total": 1.2948205471038818
+    },
+    "zero_output_target_loss": {
+      "native": 0.5055134892463684,
+      "velocity": 0.609031617641449,
+      "total": 0.535965085029602
+    }
+  }
+}

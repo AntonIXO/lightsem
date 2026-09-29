@@ -5,7 +5,7 @@ import unittest
 
 import numpy as np
 
-from lightsem.experiments.light_layers.targets import (
+from lightsem.model.light_layers.targets import (
     HS_DIM, HUE_BINS, MIN_SATURATION, MIN_VALUE, QUADRANT_NAMES, RICH_DIM,
     SATURATION_BINS, chromatic_event_targets, chromatic_novelty,
     extract_color_targets, jensen_shannon_distance, retained_mask_activity,

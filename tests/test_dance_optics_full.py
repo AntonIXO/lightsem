@@ -8,7 +8,7 @@ import unittest
 import tempfile
 import math
 
-PATH=Path(__file__).parents[1]/'outputs/run_dance_optics_full.py'
+PATH=Path(__file__).parents[1]/'scripts/motion/run_dance_optics_full.py'
 spec=importlib.util.spec_from_file_location('dance_optics_full',PATH)
 m=importlib.util.module_from_spec(spec);sys.modules[spec.name]=m;spec.loader.exec_module(m)
 

@@ -1,0 +1,4 @@
+/root/lightsem/outputs/dance_generator_loss_test.py:19: UserWarning: Converting a tensor with requires_grad=True to a scalar may lead to unexpected behavior.
+Consider using tensor.detach() first. (Triggered internally at /__w/pytorch/pytorch/torch/csrc/autograd/generated/python_variable_methods.cpp:820.)
+  assert abs(float(support)-.01)<1e-6
+{"support_mse_static": 0.0, "support_mse_slide_0.1_m_s": 0.010000001639127731, "gradient_wrt_vx": 0.20000001788139343, "clean_estimate_roundtrips": [{"t": 0.0, "clean_normalized_max_abs": 2.384185791015625e-07}, {"t": 0.5, "clean_normalized_max_abs": 1.1920928955078125e-07}, {"t": 0.99, "clean_normalized_max_abs": 2.384185791015625e-07}, {"t": 1.0, "clean_normalized_max_abs": 0.0}], "scope": "synthetic CPU unit tests for proposed loss path, not model training or validation"}

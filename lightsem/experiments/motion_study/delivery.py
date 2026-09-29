@@ -5,8 +5,8 @@ import sys
 from pathlib import Path
 
 from .registration import PROBLEM
-from ..night_common import BASE,ROOT as NIGHT,STAGE
-from ..stage11_common import authenticated_json,read_authenticated,digest,freeze_sources,verify_sources,verify_artifacts,gpu_lock
+from ..night.night_common import BASE,ROOT as NIGHT,STAGE
+from ..stage11.stage11_common import authenticated_json,read_authenticated,digest,freeze_sources,verify_sources,verify_artifacts,gpu_lock
 
 ROOT=Path('/mnt/lightsem-data/experiments/lightsem/motion_native_audio_20260910')
 OUT=ROOT/'delivery/final_diagnostic'
@@ -14,7 +14,7 @@ OUT=ROOT/'delivery/final_diagnostic'
 
 def freeze():
     if (OUT/'protocol.json').exists():return read_authenticated(OUT/'protocol.json')
-    from ..stage11_data import load_manifest
+    from ..stage11.stage11_data import load_manifest
     records={r['recording_id']:r for r in load_manifest(STAGE)['recordings']}
     old=read_authenticated(NIGHT/'delivery/pose/protocol.json')
     demo=read_authenticated(ROOT/'data/shpongle/input.json')
@@ -88,9 +88,9 @@ def infer():
     import torch
     from .music_model import MusicModel,MusicConfig
     from .music_evaluation import persist_npz
-    from ..beat_conditioned_model import BeatConditionedModel
-    from ..night_probes import PoseDecoder
-    from ..night_evaluation import generate_groups,normalized_input
+    from ..beat_conditioned.beat_conditioned_model import BeatConditionedModel
+    from ..night.night_probes import PoseDecoder
+    from ..night.night_evaluation import generate_groups,normalized_input
     p=context();torch.set_num_threads(4)
     n=read_authenticated(ROOT/'data/audio_normalizers.json');mn=read_authenticated(ROOT/'data/motion_normalizers.json')
     native={}

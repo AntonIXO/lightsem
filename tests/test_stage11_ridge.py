@@ -11,8 +11,8 @@ from unittest.mock import patch
 import numpy as np
 from threadpoolctl import threadpool_limits
 
-from lightsem.experiments import stage11_ridge as ridge
-from lightsem.experiments.stage11_common import authenticated_json, digest, json_digest, read_authenticated
+from lightsem.experiments.stage11 import stage11_ridge as ridge
+from lightsem.experiments.stage11.stage11_common import authenticated_json, digest, json_digest, read_authenticated
 
 
 class RidgeTests(unittest.TestCase):

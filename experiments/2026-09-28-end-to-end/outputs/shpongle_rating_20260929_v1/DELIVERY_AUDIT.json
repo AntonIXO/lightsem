@@ -1,0 +1,99 @@
+{
+  "status": "PASS_ALL_TEN_READY_FOR_USER_RATING",
+  "videos": [
+    {
+      "id": "01",
+      "path": "/mnt/lightsem-data/experiments/lightsem/rhythm_companion_20260912T193657Z/full_baseline_1080p_av1.mp4",
+      "sha256": "dee09af87bde02bbea5b16f1e27a1610136d6cf9bb0b4864a0083a5b000c119b",
+      "bytes": 215944139,
+      "audit_sha256": "d1ea726ad4cbf9ceb1e00d6aaf237f9ba24ba7379175e3d27a75ade54c9f88dc",
+      "verified": true
+    },
+    {
+      "id": "02",
+      "path": "/mnt/lightsem-data/experiments/lightsem/rhythm_companion_20260912T193657Z/full_candidate_1080p_av1.mp4",
+      "sha256": "983aaa0bef5c49684e0656e9e235967b0b44d554e2d3637ea5557eb3072e9382",
+      "bytes": 210316664,
+      "audit_sha256": "4f448d610cd15474818dd9068dd577d2d4d47a29da433cc97b65715fe5bc8028",
+      "verified": true
+    },
+    {
+      "id": "03",
+      "path": "/root/lightsem/outputs/shpongle_model_comparisons_20260928_v1/media/01_S_none_P0/01_S_none_P0_full_1080p_av1.mp4",
+      "sha256": "d813e3326f1cc891a736a3c1350eb64189d99dd5d29a8c153be7ca0eef253f73",
+      "bytes": 223564696,
+      "audit_sha256": "c6597ca27a9ef9403ffb6c10fdfd83c678b55b91f543594f3111a8bd85567271",
+      "verified": true
+    },
+    {
+      "id": "04",
+      "path": "/root/lightsem/outputs/shpongle_model_comparisons_20260928_v1/media/02_S_V6_P0/02_S_V6_P0_full_1080p_av1.mp4",
+      "sha256": "d643c4bab3c6048d84702cb12ffae1602ee2040db926ece0618cc6f1fbe8c49b",
+      "bytes": 223497715,
+      "audit_sha256": "ae7ecce79dc89c205f495fd7002bd5da03c467873cee4f8ab56087c8685bd6c1",
+      "verified": true
+    },
+    {
+      "id": "05",
+      "path": "/root/lightsem/outputs/shpongle_layers_demo_20260922T161917Z/shpongle_experimental_full_1080p_av1.mp4",
+      "sha256": "a78a64342ecb2db36cc6ea614e62552ba1f334c1b524384ff6614b6a4c5256be",
+      "bytes": 223607757,
+      "audit_sha256": "d19de021bf4aa78b694a443b59e085e6c21c0c684de2daaf46293ab73f8a11d4",
+      "verified": true
+    },
+    {
+      "id": "06",
+      "path": "/root/lightsem/outputs/shpongle_model_comparisons_20260928_v1/media/03_I_VR_P0/03_I_VR_P0_full_1080p_av1.mp4",
+      "sha256": "0656487bce4c490d5d823a93b0c4029b899329cfb643740a749789c538caf317",
+      "bytes": 225382466,
+      "audit_sha256": "fedf2589f6284438c5f1ffd070ae67b4af2c47694bc067f27ce1e71c3529f10c",
+      "verified": true
+    },
+    {
+      "id": "07",
+      "path": "/root/lightsem/outputs/shpongle_model_comparisons_20260928_v1/media/04_S_VR_P0_Ashuf/04_S_VR_P0_Ashuf_full_1080p_av1.mp4",
+      "sha256": "f86dbfe665418cf35ff2475fdd0a0d55c13f71413aeae6ccc4e08042f63c64f1",
+      "bytes": 227372817,
+      "audit_sha256": "be4bc3cd1df1818c89b40c4eaed4982d428b8fa1c66ebfa8467fca44e9c1caad",
+      "verified": true
+    },
+    {
+      "id": "08",
+      "path": "/root/lightsem/outputs/shpongle_rating_20260929_v1/media/08/08_full_1080p_av1.mp4",
+      "sha256": "a02a78cc7cefebaa15c66583cd1e77ac4358f7bad4b3928fd1d0fc82af30cd21",
+      "bytes": 223695697,
+      "audit_sha256": "78541e0d590252a117d6ccf0c4aa996f80bbb0526cbd1d22761585e2ad960865",
+      "verified": true
+    },
+    {
+      "id": "09",
+      "path": "/root/lightsem/outputs/shpongle_rating_20260929_v1/media/09/09_full_1080p_av1.mp4",
+      "sha256": "8387d272b8b1e9879910b37d2244d0572793665db95f4ff7e983a36740e6418b",
+      "bytes": 209267950,
+      "audit_sha256": "d0fb3d397666b71e0d56c921127084a34dd8a8ff82417660fe8896b7f4cf7759",
+      "verified": true
+    },
+    {
+      "id": "10",
+      "path": "/root/lightsem/outputs/shpongle_rating_20260929_v1/media/10/10_full_1080p_av1.mp4",
+      "sha256": "0ab68b6445ef239f6ba25b9bbf6091ae1efbdb572e9efcbc80ed5850fd8a77cd",
+      "bytes": 223773404,
+      "audit_sha256": "578ce30d48d6f96779aa0f781f2f6b55100569d84802eab96b22c83794cc5291",
+      "verified": true
+    }
+  ],
+  "same_source_audio": true,
+  "identical_decoded_audio_sha256": "6d5d8917556e5b7247fef054c758e975b9bf9d8ad206dccae755d4b51d794455",
+  "source_audio_sha256": "95e4388424ef62950bdeae78e47b8e71839ed28c6e01189fe15f9ae6c902b6c0",
+  "combined_variant": "05",
+  "new_renders": 3,
+  "reused_verified_renders": 7,
+  "new_media_package_bytes": 665984232,
+  "new_data_bytes": 1267582,
+  "free_bytes": {
+    "/root/lightsem/outputs/shpongle_rating_20260929_v1": 3944787968,
+    "/mnt/lightsem-data/experiments/lightsem/end_to_end_20260928_v1/shpongle_rating_20260929_v1": 1245573120
+  },
+  "human_ratings_collected": false,
+  "scientific_or_default_promotion": false
+}

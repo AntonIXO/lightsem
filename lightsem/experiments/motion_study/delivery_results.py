@@ -5,7 +5,7 @@ from pathlib import Path
 
 from .delivery import ROOT,OUT
 from .registration import PROBLEM
-from ..stage11_common import authenticated_json,read_authenticated,digest,verify_sources
+from ..stage11.stage11_common import authenticated_json,read_authenticated,digest,verify_sources
 
 
 def close():

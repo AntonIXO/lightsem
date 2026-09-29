@@ -1,1 +1,0 @@
-/root/lightsem/logs/jd_pose_resume.txt

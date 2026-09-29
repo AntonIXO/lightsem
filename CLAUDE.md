@@ -7,12 +7,12 @@ visual diagnostic of the intermediate motion representation, not a separate
 product or an optimization target. Implement direct audio rhythm controls for
 lighting timing, using internal motion for spatial style rather than literal
 limb tracking. Do not retime or retrain the dancer to satisfy a lighting request.
-See `docs/research/2026-09-10-motion/RHYTHM_COMPANION_PLAN.md` and
-`RHYTHM_COMPANION.md`. The new offline entry point is `run_rhythm_companion.py`;
+See `experiments/2026-09-10-motion/records/RHYTHM_COMPANION_PLAN.md` and
+`RHYTHM_COMPANION.md`. The offline entry point is `scripts/motion/run_rhythm_companion.py`;
 existing mapper defaults remain unchanged. Deliver native 1080p AV1 with audio.
 
 Earlier authorization (September 10, 2026): follow
-`docs/research/2026-09-10-motion/PLAN.md`. Music-only playback may generate an internal
+`experiments/2026-09-10-motion/records/PLAN.md`. Music-only playback may generate an internal
 motion sequence, and direct audio dynamics may control brightness/activity. This
 explicit user update supersedes the older inference restriction below.
 
@@ -21,8 +21,14 @@ Historical architecture: LightSem turns sound into stage lighting for concerts a
 the system takes audio and emits DMX. There is no dancer, pose or dance generator in the
 inference path, and proposing one is a repeat of a mistake already corrected once.
 
-`PLAN.md` is the current plan (rev. 5) and section 1.2/1.3 hold the measured results that
+`docs/archive/PLAN.md` preserves the earlier plan (rev. 5) and section 1.2/1.3 hold measured results that
 constrain it. The **system of record is the vibescience vault**, not this repo.
+
+The first navigation path is now `experiments/2026-09-22-color-beat/README.md`.
+The associated Rich96 implementation is `lightsem/model/light_layers/`. This
+experimental delivery has not been promoted to a runtime default;
+`lightsem/model/infer.py` still selects the causal v3 checkpoint. See the root
+README and `experiments/RELOCATION_MAP.json` for the new tree and old paths.
 
 ## Running things
 
@@ -40,26 +46,24 @@ project's venv).
 Rebuild the caches in this order; each is fast and everything downstream reads them:
 
 ```bash
-bash run.sh build_caches.py audio       # 60 AIST tracks -> causal feature bus + beat grid
-bash run.sh build_caches.py motion      # 1408 clips -> 30 descriptor channels + events
-bash run.sh build_targets.py scalers    # corpus median/IQR the conductor calibrates against
+bash run.sh scripts/data/build_caches.py audio       # 60 AIST tracks -> causal feature bus + beat grid
+bash run.sh scripts/data/build_caches.py motion      # 1408 clips -> 30 descriptor channels + events
+bash run.sh scripts/data/build_targets.py scalers    # corpus median/IQR the conductor calibrates against
 bash run.sh -m lightsem.model.light_data  # the training tensor
 ```
 
 Verification suite (14 checks, each aimed at a specific silent-failure mode):
 
 ```bash
-bash run_torch.sh verify_all.py            # all
-bash run_torch.sh verify_all.py beat grid  # only checks whose name matches a filter word
+bash run_torch.sh scripts/diagnostics/verify_all.py            # all
+bash run_torch.sh scripts/diagnostics/verify_all.py beat grid  # only checks whose name matches a filter word
 ```
 
-Stage drivers, each writing JSON under `outputs/`: `run_stage0a.py {metrics,render}`,
-`run_stage0b.py {build,fit,shared}`, `run_burger_replication.py`, `run_oslo_audit.py`,
-`run_stage0c.py {category,late}`, `train_light.py`, `run_stage1_eval.py`, `run_stage2.py`,
-`train_operator_head.py`, `run_stage4.py`, `run_pose_validation.py`.
+Earlier stage drivers are in `scripts/legacy_stages/` and `scripts/training/`.
+Their repository-local results are under `experiments/legacy/stages/outputs/`.
 
-Vault writes go through `log_to_vault.Client` (stdio MCP with the vault path pinned); see the
-`log_*_to_vault.py` scripts for the call sequence and `docs/VIBESCIENCE_API_NOTES.md` for the
+Vault writes go through `scripts.vault.log_to_vault.Client` (stdio MCP with the vault path pinned); see the
+`scripts/vault/log_*_to_vault.py` scripts for the call sequence and `docs/VIBESCIENCE_API_NOTES.md` for the
 argument names the server validates hard.
 
 ## Architecture
@@ -104,11 +108,11 @@ over-bright foil. A bare number here will be challenged.
   The installed experiment writer can drop custom `##` sections in Notes. The
   physical-objective and optics-full records were restored using the isolated
   recovery MCP; preserve their full note text on any subsequent write. See
-  `docs/research/2026-09-28-end-to-end/interpretation_debt_20260928_v1/repair_v1/REPAIR_AUDIT_V1.json`.
+  `experiments/2026-09-28-end-to-end/records/interpretation_debt_20260928_v1/repair_v1/REPAIR_AUDIT_V1.json`.
 - **Vault isolation.** Write only to `/root/lightsem-vault`. `/root/vibescience-vault` belongs to
   an unrelated project and must remain unchanged. Capture its file hashes before
   and after writes; historical count assertions may be stale (695 at this study).
-- **Disk.** Root is ~80% full. All datasets, caches and checkpoints live under
+- **Disk.** Keep free space in view. Datasets, caches and checkpoints live under
   `/mnt/lightsem-data/`.
 - **Beat grid.** Use `audio/beatgrid.py`, not `librosa.beat.beat_track`: the latter returned
   octave-wrong tempi on this corpus and locked phase to the off-beat. Period comes from broadband
@@ -122,4 +126,4 @@ over-bright foil. A bare number here will be challenged.
 - **Corpus validity is not interchangeable.** AIST++ movement is explained by genre, not by
   audio, so it cannot train block A; free dancing to EDM (`data/oslo.py`) can; the RPMC-L2
   operator data carries the strongest audio-to-light coupling in the project. Check
-  `PLAN.md` section 1.2 before assuming a corpus supports a claim.
+  `docs/archive/PLAN.md` section 1.2 before assuming a corpus supports a claim.

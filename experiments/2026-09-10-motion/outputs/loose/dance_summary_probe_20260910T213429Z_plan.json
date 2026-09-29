@@ -1,0 +1,30 @@
+{
+  "status": "unpreregistered exploratory diagnostic; plan recorded locally before feature/target measurement; no vault registration",
+  "cohort": "audio-manifest TRAIN and VAL entries n_frames>=960 only, full recordings, canonical-song disjointness asserted; no TEST arrays",
+  "target": "unmodified production motion_summary native features: 18 transformed physical channels at 2Hz; no source cached joints override",
+  "audio": "aligned Base92, 15-frame half-second arithmetic means, 92 channels; no neural features/context tuning",
+  "lags_seconds": [
+    -4,
+    -2,
+    -1,
+    -0.5,
+    0,
+    0.5,
+    1,
+    2,
+    4
+  ],
+  "lag_sign": "predict motion at t using audio at t+lag; positive means later audio",
+  "support": "same motion bins at every lag: remove first and last 8 half-second bins; same recordings every lag",
+  "ridge": "fixed lambda=.1 in song/record/bin-weighted mean standardized squared loss + lambda squared coefficient norm; no hyperparameter selection; float64 solve; scales and coefficients TRAIN only",
+  "models": [
+    "within-record centered X and Y ridge; 0 is oracle per-record target-mean control, not deployable",
+    "globally TRAIN-centered/scaled raw X->Y ridge; TRAIN mean and same raw ridge fed per-record constant audio controls"
+  ],
+  "primary": "zero-lag within-record centered prediction squared error, song-weighted; no correlation or music-fit claim",
+  "nulls": "fixed next sorted canonical-distinct recording donor, linearly resample donor features to target support length; circular within-record shifts at 25%,50%,75% support length; score average of 3 separate errors, not mean prediction",
+  "lag_interpretation": "all offsets reported; no selected offset counted as confirmation or alignment correction; per-song heterogeneity and unadjusted exploratory bootstrap intervals only",
+  "uncertainty": "10000 paired canonical song bootstraps, seed=20260910; no frame-iid intervals",
+  "units": "original motion_summary outputs include log1p speed/energy; report per-channel target global and within spread, physical-summary MAE baselines and standardized aggregate MSE",
+  "runtime": "CPU only, torch threads=2, BLAS threads=2, no checkpoint loading/training or production/vault changes"
+}

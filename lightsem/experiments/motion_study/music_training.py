@@ -14,7 +14,7 @@ from .audio_prepare import ROOT
 from .music_data import MusicResident
 from .music_model import MusicModel,MusicConfig
 from ..training_runtime import TrainingRuntime,BatchStream,backward_checked
-from ..stage11_common import (read_authenticated,authenticated_json,digest,json_digest,freeze_sources,verify_sources,
+from ..stage11.stage11_common import (read_authenticated,authenticated_json,digest,json_digest,freeze_sources,verify_sources,
     seed_all,rng_state,restore_rng,atomic_torch,atomic_json,artifact_manifest,verify_artifacts,require_space,gpu_lock)
 
 

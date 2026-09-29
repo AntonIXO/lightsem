@@ -12,7 +12,7 @@ import unittest
 
 import torch
 
-from lightsem.experiments.light_layers import (
+from lightsem.model.light_layers import (
     IndependentLightLayers, LightLayersConfig, SharedLightLayers,
     build_light_layers, count_trainable_parameters, match_independent_width,
 )

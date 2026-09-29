@@ -1,0 +1,108 @@
+{
+ "ckpt": "/mnt/lightsem-data/ckpt/group_decoder_v2.pt",
+ "threshold": 0.6,
+ "corpus_cue_rate_per_min": 5.229464530944824,
+ "n_test_songs": 38,
+ "distance": {
+  "per_frame": 8.867107021796908,
+  "cue_held": 6.855258284882675,
+  "cue_held_bt": 133.84503387835278,
+  "donor": 5.658297744509987,
+  "floor": {
+   "mean": 2.5554125901304063,
+   "sd": 0.6592173403775021,
+   "n_rep": 20
+  }
+ },
+ "means": {
+  "authored": {
+   "cues_per_min": 5.232,
+   "iei_median_s": 5.897,
+   "iei_cv": 1.034,
+   "hue_jump_at_cue": 0.924,
+   "value_change_at_cue": 1.411,
+   "frac_on_beat": 0.192,
+   "hue_drift_between_cues": 0.397
+  },
+  "per_frame": {
+   "cues_per_min": 7.64,
+   "iei_median_s": 5.993,
+   "iei_cv": 0.774,
+   "hue_jump_at_cue": 0.492,
+   "value_change_at_cue": 1.738,
+   "frac_on_beat": 0.219,
+   "hue_drift_between_cues": 0.445
+  },
+  "cue_held": {
+   "cues_per_min": 6.103,
+   "iei_median_s": 4.48,
+   "iei_cv": 1.357,
+   "hue_jump_at_cue": 0.753,
+   "value_change_at_cue": 1.0,
+   "frac_on_beat": 0.197,
+   "hue_drift_between_cues": 0.27
+  },
+  "cue_held_bt": {
+   "cues_per_min": 1.442,
+   "iei_median_s": 25.396,
+   "iei_cv": 0.717,
+   "hue_jump_at_cue": 0.959,
+   "value_change_at_cue": 1.204,
+   "frac_on_beat": 0.172,
+   "hue_drift_between_cues": 0.329
+  },
+  "donor": {
+   "cues_per_min": 5.656,
+   "iei_median_s": 5.241,
+   "iei_cv": 1.293,
+   "hue_jump_at_cue": 0.76,
+   "value_change_at_cue": 1.024,
+   "frac_on_beat": 0.188,
+   "hue_drift_between_cues": 0.276
+  }
+ },
+ "cue_lift": {
+  "hazard": 2.350492477416992,
+  "beat_trigger": 1.1448169946670532
+ },
+ "bas_minus_null": {
+  "real": 0.08079964284351161,
+  "conductor": 0.12484115523565652,
+  "cue_held": 0.5132905774590178,
+  "per_frame": 0.3990221953868232
+ },
+ "events_per_clip": {
+  "real": 888.0769230769231,
+  "conductor": 771.4615384615385,
+  "cue_held": 419.2307692307692,
+  "per_frame": 508.7435897435897
+ },
+ "gates": {
+  "G10.1-cue": {
+   "passed": false,
+   "evidence": "cue-transition distance to the authored JD set (38 held-out songs): cue-held 6.86, per-frame 8.87, cue-held on beat-trigger cues 133.85, shuffled donor 5.66, split-half floor 2.56. Cue lift: hazard 2.35x vs beat-trigger novelty 1.14x. Means: {\"authored\": {\"cues_per_min\": 5.232, \"iei_median_s\": 5.897, \"iei_cv\": 1.034, \"hue_jump_at_cue\": 0.924, \"value_change_at_cue\": 1.411, \"frac_on_beat\": 0.192, \"hue_drift_between_cues\": 0.397}, \"per_frame\": {\"cues_per_min\": 7.64, \"iei_median_s\": 5.993, \"iei_cv\": 0.774, \"hue_jump_at_cue\": 0.492, \"value_change_at_cue\": 1.738, \"frac_on_beat\": 0.219, \"hue_drift_between_cues\": 0.445}, \"cue_held\": {\"cues_per_min\": 6.103, \"iei_median_s\": 4.48, \"iei_cv\": 1.357, \"hue_jump_at_cue\": 0.753, \"value_change_at_cue\": 1.0, \"frac_on_beat\": 0.197, \"hue_drift_between_cues\": 0.27}, \"cue_held_bt\": {\"cues_per_min\": 1.442, \"iei_median_s\": 25.396, \"iei_cv\": 0.717, \"hue_jump_at_cue\": 0.959, \"value_change_at_cue\": 1.204, \"frac_on_beat\": 0.172, \"hue_drift_between_cues\": 0.329}, \"donor\": {\"cues_per_min\": 5.656, \"iei_median_s\": 5.241, \"iei_cv\": 1.293, \"hue_jump_at_cue\": 0.76, \"value_change_at_cue\": 1.024, \"frac_on_beat\": 0.188, \"hue_drift_between_cues\": 0.276}}"
+  },
+  "G10.1-bas": {
+   "passed": true,
+   "evidence": "Light-BAS minus null on 39 held-out coach clips (engine with zero phase spread): cue-held +0.5133, per-frame +0.3990, conductor +0.1248, real coach +0.0808; paired cue-held minus conductor +0.3884 CI [+0.3671, +0.4106]; events per clip cue-held 419, per-frame 509, conductor 771, real 888."
+  }
+ },
+ "measurements": [
+  {
+   "diagnostic_id": "cue-transition-distance",
+   "before": 8.867,
+   "after": 6.855
+  },
+  {
+   "diagnostic_id": "light-bas-minus-shift-null",
+   "before": 0.1248,
+   "after": 0.5133
+  }
+ ],
+ "config": {
+  "arm": "run_stage10_cue_eval.py: v2 flow head sampled once per cue and held (0.5 s crossfade), cues from the decoder's look-change hazard with the threshold calibrated on training songs to the corpus rate (5.23/min, thr 0.600), refractory 2 s; engine with zero phase spread",
+  "ckpt": "/mnt/lightsem-data/ckpt/group_decoder_v2.pt"
+ },
+ "notes": "H-N cue-held sampler (v2). cue-transition distance to the authored JD set (38 held-out songs): cue-held 6.86, per-frame 8.87, cue-held on beat-trigger cues 133.85, shuffled donor 5.66, split-half floor 2.56. Cue lift: hazard 2.35x vs beat-trigger novelty 1.14x. Means: {\"authored\": {\"cues_per_min\": 5.232, \"iei_median_s\": 5.897, \"iei_cv\": 1.034, \"hue_jump_at_cue\": 0.924, \"value_change_at_cue\": 1.411, \"frac_on_beat\": 0.192, \"hue_drift_between_cues\": 0.397}, \"per_frame\": {\"cues_per_min\": 7.64, \"iei_median_s\": 5.993, \"iei_cv\": 0.774, \"hue_jump_at_cue\": 0.492, \"value_change_at_cue\": 1.738, \"frac_on_beat\": 0.219, \"hue_drift_between_cues\": 0.445}, \"cue_held\": {\"cues_per_min\": 6.103, \"iei_median_s\": 4.48, \"iei_cv\": 1.357, \"hue_jump_at_cue\": 0.753, \"value_change_at_cue\": 1.0, \"frac_on_beat\": 0.197, \"hue_drift_between_cues\": 0.27}, \"cue_held_bt\": {\"cues_per_min\": 1.442, \"iei_median_s\": 25.396, \"iei_cv\": 0.717, \"hue_jump_at_cue\": 0.959, \"value_change_at_cue\": 1.204, \"frac_on_beat\": 0.172, \"hue_drift_between_cues\": 0.329}, \"donor\": {\"cues_per_min\": 5.656, \"iei_median_s\": 5.241, \"iei_cv\": 1.293, \"hue_jump_at_cue\": 0.76, \"value_change_at_cue\": 1.024, \"frac_on_beat\": 0.188, \"hue_drift_between_cues\": 0.276}} Light-BAS minus null on 39 held-out coach clips (engine with zero phase spread): cue-held +0.5133, per-frame +0.3990, conductor +0.1248, real coach +0.0808; paired cue-held minus conductor +0.3884 CI [+0.3671, +0.4106]; events per clip cue-held 419, per-frame 509, conductor 771, real 888.",
+ "elapsed_s": 131.9198935031891
+}

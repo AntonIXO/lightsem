@@ -6,9 +6,9 @@ from unittest.mock import patch
 import numpy as np
 import torch
 
-from lightsem.experiments import stage11_training as tr
-from lightsem.experiments.stage11_common import atomic_json,authenticated_json,digest,read_authenticated
-from lightsem.experiments.stage11_models import SceneFlowModel,SceneFlowConfig
+from lightsem.experiments.stage11 import stage11_training as tr
+from lightsem.experiments.stage11.stage11_common import atomic_json,authenticated_json,digest,read_authenticated
+from lightsem.experiments.stage11.stage11_models import SceneFlowModel,SceneFlowConfig
 
 
 class TrainingIntegrityTests(unittest.TestCase):

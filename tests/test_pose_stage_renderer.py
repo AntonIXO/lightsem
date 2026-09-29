@@ -23,8 +23,8 @@ def module(name, path):
     spec.loader.exec_module(result)
     return result
 
-r = module('synthetic_pose_renderer', ROOT/'outputs/render_pose_stage_study.py')
-optics = module('synthetic_optics_helper', ROOT/'outputs/run_dance_optics_full.py')
+r = module('synthetic_pose_renderer', ROOT/'scripts/motion/render_pose_stage_study.py')
+optics = module('synthetic_optics_helper', ROOT/'scripts/motion/run_dance_optics_full.py')
 
 class CPUHelpers:
     @staticmethod
@@ -241,7 +241,7 @@ class PureTests(unittest.TestCase):
 
     def test_real_evaluator_bookkeeping_survives_blocked_start_at_both_edges(self):
         # Import CPU utilities only. No context/freeze/map/study arrays are opened.
-        evaluator = module('real_eval_storage_integration', ROOT/'outputs/eval_pose_stage_study.py')
+        evaluator = module('real_eval_storage_integration', ROOT/'scripts/motion/eval_pose_stage_study.py')
         for edge in ('free_reserve', 'study_cap'):
             with self.subTest(edge=edge), tempfile.TemporaryDirectory(prefix='pose-stage-real-lock-cpu-') as tmp:
                 out = Path(tmp); (out/'freeze.json').write_text('{}')

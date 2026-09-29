@@ -6,7 +6,7 @@ import numpy as np
 
 from lightsem.dmx.decode import decode_stream
 from lightsem.dmx.fixtures import Fixture, Rig, club_rig
-from lightsem.experiments.light_layers.overlay import (
+from lightsem.model.light_layers.overlay import (
     AccentConfig, AccentEvent, OverlayConfig, allowed_slot_mask,
     apply_accent_events, apply_overlay, sample_accent_events,
 )

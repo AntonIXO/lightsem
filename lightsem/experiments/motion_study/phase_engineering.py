@@ -9,7 +9,7 @@ import torch
 from . import ROOT as PARENT
 from .phase_registration import ROOT
 from .phase_model import PhaseCodec,PhaseConfig
-from ..stage11_common import authenticated_json,read_authenticated,digest,gpu_lock
+from ..stage11.stage11_common import authenticated_json,read_authenticated,digest,gpu_lock
 
 
 def main():

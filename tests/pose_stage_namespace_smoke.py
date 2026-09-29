@@ -6,7 +6,7 @@ import sys
 import numpy as np
 
 out=Path(sys.argv[1]);repo=Path('/root/lightsem')
-spec=importlib.util.spec_from_file_location('eval_synthetic',repo/'outputs/eval_pose_stage_study.py');e=importlib.util.module_from_spec(spec);spec.loader.exec_module(e)
+spec=importlib.util.spec_from_file_location('eval_synthetic',repo/'scripts/motion/eval_pose_stage_study.py');e=importlib.util.module_from_spec(spec);spec.loader.exec_module(e)
 f=e.loadjson(out/'freeze.json');source=out/'source'
 # An old helper has a source activation function. Loading it MUST NOT call it.
 helper=e.load_helper(out,'review')
@@ -26,7 +26,7 @@ from lightsem.sim.renderer import RenderConfig
 n=600;rot=torch.eye(3,dtype=torch.float64).expand(n,22,3,3)
 root=torch.tensor([[0.,.95,0.]],dtype=torch.float64).expand(n,3)
 world=forward_kinematics(rot,root).numpy();world_before=world.copy()
-plan=json.loads((repo/'outputs/pose_stage_study_plan.json').read_text())
+plan=json.loads((repo/'experiments/2026-09-10-motion/outputs/loose/pose_stage_study_plan.json').read_text())
 curve={'time':np.array([0.,20.]),'momentary':np.array([-20.,-20.]),'short_term':np.array([-20.,-20.])}
 baseline,_,_=compose_world_joints(world,curve,20.,config=LightingConfig(**plan['baseline']),dynamics=True)
 e.savenpz(out/'world.npz',reference=world,times=np.arange(n)/30)

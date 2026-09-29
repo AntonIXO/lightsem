@@ -13,7 +13,7 @@ prior with a music watermark. So every channel carries a block label:
   spread residual, effort qualities).
 
 The assignment here is the literature's *prediction*, not a measurement. Stage
-0b (``run_stage0b.py``) re-derives it from data and is allowed to overrule any
+0b (``scripts/legacy_stages/run_stage0b.py``) re-derives it from data and is allowed to overrule any
 entry; ``BLOCKS`` is the provisional map until it does.
 
 Units: torso lengths (TL) and TL/s throughout, from

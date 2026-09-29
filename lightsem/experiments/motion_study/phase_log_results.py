@@ -6,7 +6,7 @@ from pathlib import Path
 from .phase_registration import ROOT
 from .registration import PROBLEM
 from .log_results import bootstrap
-from ..stage11_common import read_authenticated, authenticated_json, digest, verify_sources
+from ..stage11.stage11_common import read_authenticated, authenticated_json, digest, verify_sources
 
 
 def main():

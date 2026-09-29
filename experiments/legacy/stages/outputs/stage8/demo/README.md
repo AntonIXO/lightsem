@@ -1,0 +1,1 @@
+Held-out Just Dance songs, 40 s from 60 s in. `__model.mp4`: light from the Just Dance-trained model (light_trunk_jd_none_smooth) hearing only the audio. `__coach.mp4`: the same conductor driven by the real coach's motion. Same rig, same audio, same window.

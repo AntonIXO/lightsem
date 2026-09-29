@@ -1,0 +1,19 @@
+{
+ "n_songs": 598,
+ "n_test": 86,
+ "with_hazard": true,
+ "params_m": 3.552311,
+ "model_lift": 1.3561543226242065,
+ "rhythm_lift": 1.3091198205947876,
+ "ridge_on_same_causal_features_lift": 1.2626774311065674,
+ "delta": 0.047034502029418945,
+ "ci95": [
+  -0.1036139503121376,
+  0.20030538737773895
+ ],
+ "ridge_reference_delta": 0.3145,
+ "offline": false,
+ "horizon_s": 4.0,
+ "causality_leak": 0.0,
+ "train_s": 589.9887523651123
+}

@@ -9,7 +9,7 @@ import tempfile
 import unittest
 from unittest.mock import patch
 
-spec = importlib.util.spec_from_file_location('optics_media_audit', Path(__file__).resolve().parents[1] / 'outputs/audit_dance_optics_media.py')
+spec = importlib.util.spec_from_file_location('optics_media_audit', Path(__file__).resolve().parents[1] / 'scripts/motion/audit_dance_optics_media.py')
 m = importlib.util.module_from_spec(spec); spec.loader.exec_module(m)
 
 

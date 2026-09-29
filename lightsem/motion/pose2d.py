@@ -10,12 +10,13 @@ true jump height, torso twist. Those are dropped rather than guessed.
 The 2D skeleton is embedded as (lateral, up, 0) so it flows through exactly the
 same `prepare` and `extract` path as mocap; a descriptor computed here and a
 descriptor computed from mocap are then the same function of the same skeleton,
-which is what makes the validation in `run_pose_validation.py` meaningful.
+which is what makes the validation in `scripts/legacy_stages/run_pose_validation.py` meaningful.
 """
 
 from __future__ import annotations
 
 import numpy as np
+from pathlib import Path
 
 from .skeleton import LSHO, LHIP, RSHO, RHIP, Skeleton, prepare
 
@@ -58,7 +59,10 @@ def _decode_frames(path: str, start_s: float = 0.0,
             n += 1
 
 
-def keypoints_from_video(path: str, model_name: str = "yolo11m-pose.pt",
+DEFAULT_POSE_MODEL = str(Path(__file__).resolve().parents[2] / "assets/models/pose/yolo11m-pose.pt")
+
+
+def keypoints_from_video(path: str, model_name: str = DEFAULT_POSE_MODEL,
                          conf: float = 0.35, device: str = "cuda",
                          max_frames: int | None = None,
                          imgsz: int = 960,

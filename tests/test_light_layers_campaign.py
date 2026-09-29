@@ -5,8 +5,8 @@ from pathlib import Path
 
 import pytest
 
-import run_light_layers_campaign as queue
-from lightsem.experiments.light_layers.training import (
+import scripts.light_layers.run_light_layers_campaign as queue
+from lightsem.model.light_layers.training import (
     ContractError, OBSERVER_RECIPES, SourceStore, TrainConfig, json_hash,
     provenance, sha256, validate_run_scope)
 from test_light_layers_training import observer_scope_fixture
@@ -76,7 +76,7 @@ def test_plan_exact15_seed_outer_native_cli_and_aggregate_id(frozen_inputs):
     plan,jobs=queue.validate_inputs(frozen_inputs)
     assert len(jobs) == 15
     assert [(j.recipe,j.seed) for j in jobs] == [(r,s) for s in (0,1,2) for r in OBSERVER_RECIPES]
-    assert all(j.argv[:4] == ("bash","run_torch.sh","-u","run_light_layers_train.py") for j in jobs)
+    assert all(j.argv[:4] == ("bash","run_torch.sh","-u","scripts/light_layers/run_light_layers_train.py") for j in jobs)
     assert all("--observer-proxy" in j.argv and "--gpu-authorized" in j.argv for j in jobs)
     assert all(j.argv[j.argv.index("--steps")+1] == "6000" for j in jobs)
     assert all(j.argv[j.argv.index("--batch")+1] == "4" for j in jobs)

@@ -14,7 +14,7 @@ from .geometry import joints_from_features,FEET
 from .music_model import MusicModel,MusicConfig
 from .music_data import motion_summary,energy_score
 from .music_training import context
-from ..stage11_common import read_authenticated,authenticated_json,digest,seed_all,gpu_lock
+from ..stage11.stage11_common import read_authenticated,authenticated_json,digest,seed_all,gpu_lock
 
 
 def aggregate(rows):

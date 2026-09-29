@@ -9,7 +9,7 @@ from unittest.mock import patch
 import numpy as np
 import torch
 
-PATH = Path(__file__).resolve().parents[1]/'outputs/eval_music_physical_revision.py'
+PATH = Path(__file__).resolve().parents[1]/'scripts/motion/eval_music_physical_revision.py'
 spec = importlib.util.spec_from_file_location('physical_evaluation', PATH)
 ev = importlib.util.module_from_spec(spec)
 spec.loader.exec_module(ev)

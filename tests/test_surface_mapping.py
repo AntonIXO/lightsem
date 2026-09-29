@@ -8,7 +8,7 @@ from lightsem.experiments.motion_study.spatial_observer import (controls,spatial
 from lightsem.experiments.motion_study.lighting_map import compose,LightingConfig,surface_targets
 from lightsem.experiments.motion_study.geometry import joints_from_features,matrix_to_rotation_6d
 from lightsem.experiments.quality_observer import beam_series
-from lightsem.experiments.beat_conditioned_render import _angles
+from lightsem.experiments.beat_conditioned.beat_conditioned_render import _angles
 from lightsem.sim.renderer import _decode_fixture,_beam_direction
 
 

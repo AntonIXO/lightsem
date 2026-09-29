@@ -5,7 +5,7 @@ FRAME RATES (derived, not assumed -- see docs):
   openl3           : 10 Hz   (hop 0.1 s)  <- the TRUE information rate of x
   librosa features : 43.07 Hz (hop 512 @ 22050)
 
-extract_rpmc.py upsampled openl3 (10 Hz) onto the 30 fps light grid, so 2 of
+scripts/data/extract_rpmc.py upsampled openl3 (10 Hz) onto the 30 fps light grid, so 2 of
 every 3 x-frames are interpolation artefacts. We undo that here: decimate to
 10 Hz and average y over each group of 3 frames. Averaging y is not lossy for
 our purpose -- it IS the macro layer. Beat-rate flashes are the micro layer's

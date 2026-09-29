@@ -1,0 +1,38 @@
+{
+ "n_songs": 930,
+ "corpora": "rpmc,jd",
+ "cond_dim": 192,
+ "params_m": 20.725308,
+ "self_hazard": true,
+ "d_model": 384,
+ "n_blocks": 6,
+ "random_rig": true,
+ "offline": false,
+ "per_corpus": {
+  "rpmc": {
+   "scene_mse": 1.1481286460577056,
+   "scene_mse_shuffled_donor": 0.08811473755469156,
+   "look_ap_lift": 1.4474023580551147,
+   "look_ap_lift_hazard_ridge": 1.250106930732727,
+   "value_r": 0.028226524376108737,
+   "sample_scene_mse": 0.10563619348198869,
+   "sample_value_std_ratio": 0.7486373816811761,
+   "sample_value_r": 0.011066552635358553,
+   "look_ap_lift_own_cues": 1.306951880455017,
+   "n_test": 86
+  },
+  "jd": {
+   "scene_mse": 0.9832908181767714,
+   "scene_mse_shuffled_donor": 0.08986062468274643,
+   "look_ap_lift": 2.309706449508667,
+   "look_ap_lift_hazard_ridge": 1.4812017679214478,
+   "value_r": 0.20060943787659938,
+   "sample_scene_mse": 0.10853676948892443,
+   "sample_value_std_ratio": 0.7451456157784713,
+   "sample_value_r": 0.07770928921259856,
+   "look_ap_lift_own_cues": 2.2749276161193848,
+   "n_test": 38
+  }
+ },
+ "train_s": 940.2627060413361
+}

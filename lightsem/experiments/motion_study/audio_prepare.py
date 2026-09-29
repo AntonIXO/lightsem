@@ -6,7 +6,7 @@ from pathlib import Path
 import numpy as np
 
 from . import ROOT as SOURCE
-from ..stage11_common import authenticated_json, read_authenticated, digest
+from ..stage11.stage11_common import authenticated_json, read_authenticated, digest
 
 ROOT = Path('/mnt/lightsem-data/experiments/lightsem/motion_native_audio_20260910')
 

@@ -16,7 +16,7 @@ from .metrics import compare
 from .evaluate import aggregate
 from .selection import numerical_gates
 from .render import render_comparison
-from ..stage11_common import (authenticated_json, read_authenticated, digest, json_digest,
+from ..stage11.stage11_common import (authenticated_json, read_authenticated, digest, json_digest,
     freeze_sources, verify_sources, atomic_torch, gpu_lock, require_space)
 
 ARMS = ('frame24','phase64','phase128','phase256')

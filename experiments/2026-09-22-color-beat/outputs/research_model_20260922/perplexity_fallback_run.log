@@ -1,0 +1,79 @@
+2026-09-22T09:26:32.181294Z  INFO perplexity_web_api_mcp: Starting Perplexity MCP server
+2026-09-22T09:26:32.181354Z  INFO perplexity_web_api_mcp: Perplexity request incognito mode is enabled
+2026-09-22T09:26:32.902829Z  INFO perplexity_web_api_mcp: Perplexity client initialized
+2026-09-22T09:26:32.903739Z  INFO serve_inner: rmcp::service: Service initialized as server peer_info=Some(InitializeRequestParams { meta: None, protocol_version: ProtocolVersion("2025-11-25"), capabilities: ClientCapabilities { experimental: None, extensions: None, roots: None, sampling: None, elicitation: None, tasks: None }, client_info: Implementation { name: "mcp", title: None, version: "0.1.0", description: None, icons: None, website_url: None } })
+2026-09-22T09:26:32.903785Z  INFO perplexity_web_api_mcp: MCP server running on stdio
+2026-09-22T09:26:32.904466Z  INFO serve_inner: rmcp::service: received notification notification=InitializedNotification(NotificationNoParam { method: InitializedNotificationMethod, extensions: Extensions })
+2026-09-22T09:26:32.904512Z  INFO serve_inner: rmcp::handler::server: client initialized
+2026-09-22T09:26:32.907728Z  INFO serve_inner: rmcp::service: input stream terminated
+2026-09-22T09:26:32.907758Z  INFO serve_inner: rmcp::service: serve finished quit_reason=Closed
+2026-09-22T09:26:32.919644Z  INFO perplexity_web_api_mcp: Starting Perplexity MCP server
+2026-09-22T09:26:32.919674Z  INFO perplexity_web_api_mcp: Perplexity request incognito mode is enabled
+2026-09-22T09:26:33.612528Z  INFO perplexity_web_api_mcp: Perplexity client initialized
+2026-09-22T09:26:33.613017Z  INFO serve_inner: rmcp::service: Service initialized as server peer_info=Some(InitializeRequestParams { meta: None, protocol_version: ProtocolVersion("2025-11-25"), capabilities: ClientCapabilities { experimental: None, extensions: None, roots: None, sampling: None, elicitation: None, tasks: None }, client_info: Implementation { name: "mcp", title: None, version: "0.1.0", description: None, icons: None, website_url: None } })
+2026-09-22T09:26:33.613034Z  INFO perplexity_web_api_mcp: MCP server running on stdio
+2026-09-22T09:26:33.613989Z  INFO serve_inner: rmcp::service: received notification notification=InitializedNotification(NotificationNoParam { method: InitializedNotificationMethod, extensions: Extensions })
+2026-09-22T09:26:33.614016Z  INFO serve_inner: rmcp::handler::server: client initialized
+2026-09-22T09:26:33.775032Z  WARN serve_inner: rmcp::service: response error id=2 error=ErrorData { code: ErrorCode(-32603), message: "Perplexity API error: Perplexity quota exhausted: Pro Search has 0 queries remaining. The request was not answered because the plan limit for this mode is reached.", data: None }
+2026-09-22T09:26:33.776920Z  INFO serve_inner: rmcp::service: input stream terminated
+2026-09-22T09:26:33.776942Z  INFO serve_inner: rmcp::service: serve finished quit_reason=Closed
+  + Exception Group Traceback (most recent call last):
+  |   File "/root/lightsem/outputs/research_model_20260922/perplexity_fallback_runner.py", line 10, in <module>
+  |     asyncio.run(main())
+  |   File "/root/.local/share/uv/python/cpython-3.11.15-linux-x86_64-gnu/lib/python3.11/asyncio/runners.py", line 190, in run
+  |     return runner.run(main)
+  |            ^^^^^^^^^^^^^^^^
+  |   File "/root/.local/share/uv/python/cpython-3.11.15-linux-x86_64-gnu/lib/python3.11/asyncio/runners.py", line 118, in run
+  |     return self._loop.run_until_complete(task)
+  |            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  |   File "/root/.local/share/uv/python/cpython-3.11.15-linux-x86_64-gnu/lib/python3.11/asyncio/base_events.py", line 654, in run_until_complete
+  |     return future.result()
+  |            ^^^^^^^^^^^^^^^
+  |   File "/root/lightsem/outputs/research_model_20260922/perplexity_fallback_runner.py", line 6, in main
+  |     result=await local_mcp.perplexity.perplexity_ask(query=(outdir/'perplexity_fallback_query.txt').read_text(),sources=['web','scholar'])
+  |            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  |   File "/root/.prime/agent/kernel-venv/lib/python3.11/site-packages/rlm/mcp_base.py", line 300, in _call
+  |     return await self.call_tool(name, kwargs)
+  |            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  |   File "/root/.prime/agent/kernel-venv/lib/python3.11/site-packages/rlm/mcp_base.py", line 283, in call_tool
+  |     async with AsyncExitStack() as stack:
+  |   File "/root/.local/share/uv/python/cpython-3.11.15-linux-x86_64-gnu/lib/python3.11/contextlib.py", line 745, in __aexit__
+  |     raise exc_details[1]
+  |   File "/root/.local/share/uv/python/cpython-3.11.15-linux-x86_64-gnu/lib/python3.11/contextlib.py", line 728, in __aexit__
+  |     cb_suppress = await cb(*exc_details)
+  |                   ^^^^^^^^^^^^^^^^^^^^^^
+  |   File "/root/.local/share/uv/python/cpython-3.11.15-linux-x86_64-gnu/lib/python3.11/contextlib.py", line 231, in __aexit__
+  |     await self.gen.athrow(typ, value, traceback)
+  |   File "/root/.prime/agent/kernel-venv/lib/python3.11/site-packages/mcp/client/stdio.py", line 200, in stdio_client
+  |     async with anyio.create_task_group() as tg:
+  |   File "/root/.prime/agent/kernel-venv/lib/python3.11/site-packages/anyio/_backends/_asyncio.py", line 847, in __aexit__
+  |     raise BaseExceptionGroup(
+  | ExceptionGroup: unhandled errors in a TaskGroup (1 sub-exception)
+  +-+---------------- 1 ----------------
+    | Exception Group Traceback (most recent call last):
+    |   File "/root/.prime/agent/kernel-venv/lib/python3.11/site-packages/mcp/client/stdio.py", line 204, in stdio_client
+    |     yield read_stream, write_stream
+    |   File "/root/.local/share/uv/python/cpython-3.11.15-linux-x86_64-gnu/lib/python3.11/contextlib.py", line 728, in __aexit__
+    |     cb_suppress = await cb(*exc_details)
+    |                   ^^^^^^^^^^^^^^^^^^^^^^
+    |   File "/root/.prime/agent/kernel-venv/lib/python3.11/site-packages/mcp/client/session.py", line 514, in __aexit__
+    |     result = await self._task_group.__aexit__(exc_type, exc_val, exc_tb)
+    |              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    |   File "/root/.prime/agent/kernel-venv/lib/python3.11/site-packages/anyio/_backends/_asyncio.py", line 847, in __aexit__
+    |     raise BaseExceptionGroup(
+    | ExceptionGroup: unhandled errors in a TaskGroup (1 sub-exception)
+    +-+---------------- 1 ----------------
+      | Traceback (most recent call last):
+      |   File "/root/.prime/agent/kernel-venv/lib/python3.11/site-packages/rlm/mcp_base.py", line 285, in call_tool
+      |     result = await session.call_tool(tool, arguments or {})
+      |              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+      |   File "/root/.prime/agent/kernel-venv/lib/python3.11/site-packages/mcp/client/session.py", line 1086, in call_tool
+      |     result = await self.send_request(
+      |              ^^^^^^^^^^^^^^^^^^^^^^^^
+      |   File "/root/.prime/agent/kernel-venv/lib/python3.11/site-packages/mcp/client/session.py", line 586, in send_request
+      |     raw = await self._dispatcher.send_raw_request(method, data.get("params"), opts)
+      |           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+      |   File "/root/.prime/agent/kernel-venv/lib/python3.11/site-packages/mcp/shared/jsonrpc_dispatcher.py", line 444, in send_raw_request
+      |     raise MCPError(code=outcome.code, message=outcome.message, data=outcome.data)
+      | mcp.shared.exceptions.MCPError: Perplexity API error: Perplexity quota exhausted: Pro Search has 0 queries remaining. The request was not answered because the plan limit for this mode is reached.
+      +------------------------------------

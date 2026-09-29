@@ -10,7 +10,7 @@ from .audio_prepare import ROOT
 from .native_codec import NativeCodec
 from .geometry import joints_from_features
 from .render import render_comparison
-from ..stage11_common import read_authenticated, authenticated_json, digest, freeze_sources, verify_sources, gpu_lock
+from ..stage11.stage11_common import read_authenticated, authenticated_json, digest, freeze_sources, verify_sources, gpu_lock
 
 
 def freeze():

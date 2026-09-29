@@ -12,7 +12,7 @@ import numpy as np
 from .audio_prepare import ROOT
 from ...conductor.rig import canonical_rig
 from ...sim.renderer import StageRenderer,RenderConfig
-from ..stage11_common import read_authenticated,authenticated_json,digest,freeze_sources,verify_sources,gpu_lock
+from ..stage11.stage11_common import read_authenticated,authenticated_json,digest,freeze_sources,verify_sources,gpu_lock
 
 OUT = ROOT/'exposure'
 ROLE_REVISION = False

@@ -44,7 +44,7 @@ def load_scalers(path: str | Path = SCALER_PATH) -> dict:
     path = Path(path)
     if not path.exists():
         raise FileNotFoundError(
-            f"{path} missing — run `bash run.sh build_targets.py scalers` first")
+            f"{path} missing — run `bash run.sh scripts/data/build_targets.py scalers` first")
     return json.loads(path.read_text())
 
 

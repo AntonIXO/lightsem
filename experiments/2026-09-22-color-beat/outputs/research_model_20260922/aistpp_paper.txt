@@ -1,0 +1,13 @@
+ICCV 2021 Open Access Repository ICCV 2021 open access These ICCV 2021 papers are the Open Access versions, provided by the Computer Vision Foundation. Except for the watermark, they are identical to the accepted versions;
+the final published version of the proceedings is available on IEEE Xplore. This material is presented to ensure timely dissemination of scholarly and technical work.
+Copyright and all rights therein are retained by authors or by other copyright holders.
+All persons copying this information are expected to adhere to the terms and constraints invoked 
+by each author's copyright. Powered by: Sponsored by: AI Choreographer: Music Conditioned 3D Dance Generation With AIST++ Ruilong Li, Shan Yang, David A. Ross, Angjoo Kanazawa ; Proceedings of the IEEE/CVF International Conference on Computer Vision (ICCV), 2021, pp. 13401-13412 Abstract We present AIST++, a new multi-modal dataset of 3D dance motion and music, along with FACT, a Full-Attention Cross-modal Transformer network for generating 3D dance motion conditioned on music. The proposed AIST++ dataset contains 1.1M frames of 3D dance motion in 1408 sequences, covering 10 dance genres with multi-view videos with known camera poses---the largest dataset of this kind to our knowledge. We show that naively applying sequence models such as transformers to this dataset for the task of music conditioned 3D motion generation does not produce satisfactory 3D motion that is well correlated with the input music. We overcome these shortcomings by introducing key changes in its architecture design and supervision: FACT model involves a deep cross-modal transformer block with full-attention that is trained to predict N future motions. We empirically show that these changes are key factors in generating long sequences of realistic dance motion that are well-attuned to the input music. We conduct extensive experiments on AIST++ with user studies, where our method outperforms recent state-of-the-art methods both qualitatively and quantitatively. The code and the dataset can be found at: https://google.github.io/aichoreographer. Related Material [ pdf ]
+[ supp ] [ bibtex ] @InProceedings{Li_2021_ICCV,
+    author    = {Li, Ruilong and Yang, Shan and Ross, David A. and Kanazawa, Angjoo},
+    title     = {AI Choreographer: Music Conditioned 3D Dance Generation With AIST++},
+    booktitle = {Proceedings of the IEEE/CVF International Conference on Computer Vision (ICCV)},
+    month     = {October},
+    year      = {2021},
+    pages     = {13401-13412}
+}

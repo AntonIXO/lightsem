@@ -8,8 +8,8 @@ import numpy as np
 import pytest
 import torch
 
-from lightsem.experiments.light_layers.model import LightLayersConfig, SharedLightLayers
-from lightsem.experiments.light_layers.training import (
+from lightsem.model.light_layers.model import LightLayersConfig, SharedLightLayers
+from lightsem.model.light_layers.training import (
     AUDIO_SCALARS, CENTER10, CENTER40, BatchSampler, ContractError, SourceStore,
     TrainConfig, TrainingData, VisualRecord, compute_loss, deterministic_donors,
     fit_transforms, generated_history, implementation_hashes, intensity_novelty,
@@ -194,7 +194,7 @@ def test_whole_sequence_null_dropout_and_empty_masks_are_finite():
 
 
 def test_aux_loss_coordinate_average_not_dimension_weight():
-    from lightsem.experiments.light_layers.training import _aux_loss
+    from lightsem.model.light_layers.training import _aux_loss
     a = _aux_loss(torch.ones(1,80,6),torch.zeros(1,80,6),torch.ones(1,80,6,dtype=torch.bool))
     b = _aux_loss(torch.ones(1,80,96),torch.zeros(1,80,96),torch.ones(1,80,96,dtype=torch.bool))
     assert a == b == 1
@@ -294,7 +294,7 @@ def test_pose_active_offset_and_coach_average_valid_only(tmp_path):
     manifest,_=source_fixture(tmp_path)
     motion=tmp_path/"motion.npz"; validity=tmp_path/"validity.npz"
     times=np.arange(1000)/10
-    from lightsem.experiments.light_layers.training import POSE_NAMES
+    from lightsem.model.light_layers.training import POSE_NAMES
     np.savez(motion,times=times,meta=json.dumps({"start_s":7.}),
              **{"ch__"+key:times+i for i,key in enumerate(POSE_NAMES)})
     valid=np.ones((1000,4),bool);valid[100,1]=False
@@ -339,7 +339,7 @@ def test_off_phase_requested_crop_rejected_and_config_truthful():
 
 
 def test_transform_payload_hash_not_merely_trusted(tmp_path):
-    from lightsem.experiments.light_layers.training import provenance
+    from lightsem.model.light_layers.training import provenance
     manifest,r=source_fixture(tmp_path)
     path=tmp_path/"manifest.json";path.write_text(json.dumps(manifest))
     store=SourceStore(manifest)
@@ -351,7 +351,7 @@ def test_transform_payload_hash_not_merely_trusted(tmp_path):
 
 
 def test_one_update_synthetic_cpu_smoke_writes_model_only(tmp_path,monkeypatch):
-    import lightsem.experiments.light_layers.training as training
+    import lightsem.model.light_layers.training as training
     manifest,r=source_fixture(tmp_path)
     rows=[]
     for i in range(12):
@@ -404,8 +404,8 @@ def test_extractor_v1_quantized_histograms_and_actual_pts(tmp_path):
 @pytest.mark.parametrize("architecture",["shared","independent"])
 def test_independent_checkpoint_load_does_not_narrow_twice(tmp_path,architecture):
     from dataclasses import asdict
-    from lightsem.experiments.light_layers.model import build_light_layers
-    from lightsem.experiments.light_layers.training import load_checkpoint
+    from lightsem.model.light_layers.model import build_light_layers
+    from lightsem.model.light_layers.training import load_checkpoint
     config=LightLayersConfig(visual_aux_dim=96)
     model=build_light_layers(config,architecture=architecture)
     path=tmp_path/"independent.pt"
@@ -458,7 +458,7 @@ def test_missing_visual_frames_never_supervise_zero_placeholders_or_legacy(tmp_p
 
 
 def observer_scope_fixture(tmp_path):
-    from lightsem.experiments.light_layers.training import OBSERVER_RECIPES,json_hash
+    from lightsem.model.light_layers.training import OBSERVER_RECIPES,json_hash
     capture_rows=[]
     for i in range(131):
         rid=f"r{i}"
@@ -509,7 +509,7 @@ def observer_scope_fixture(tmp_path):
 
 
 def test_observer_scope_explicit_and_original_gate_not_waived(tmp_path):
-    from lightsem.experiments.light_layers.training import validate_run_scope,OBSERVER_RECIPES
+    from lightsem.model.light_layers.training import validate_run_scope,OBSERVER_RECIPES
     manifest,_,_=observer_scope_fixture(tmp_path)
     with pytest.raises(ContractError,match="explicit --observer-proxy"):
         validate_run_scope(manifest,TrainConfig())
@@ -534,7 +534,7 @@ def test_observer_scope_explicit_and_original_gate_not_waived(tmp_path):
     ("context","feature provenance"),("selection","original31/40"),
     ("enrollment","enrollment changed"),("pose_aux","never pose")])
 def test_observer_scope_fails_closed_on_scope_drift(tmp_path,change,pattern):
-    from lightsem.experiments.light_layers.training import validate_run_scope
+    from lightsem.model.light_layers.training import validate_run_scope
     manifest,protocol,path=observer_scope_fixture(tmp_path)
     if change == "bad_hash": manifest["observer_protocol"]["sha256"]="f"*64
     elif change == "bad_id": protocol["id"]="different-protocol"
@@ -551,7 +551,7 @@ def test_observer_scope_fails_closed_on_scope_drift(tmp_path,change,pattern):
 
 
 def test_observer_scope_never_allows_pose_or_smoke_overrides(tmp_path):
-    from lightsem.experiments.light_layers.training import validate_run_scope
+    from lightsem.model.light_layers.training import validate_run_scope
     manifest,_,_=observer_scope_fixture(tmp_path)
     with pytest.raises(ContractError,match="five frozen P0"):
         validate_run_scope(manifest,TrainConfig(recipe="S_V6_P1"),observer_proxy=True)
@@ -560,13 +560,13 @@ def test_observer_scope_never_allows_pose_or_smoke_overrides(tmp_path):
 
 
 def test_observer_preregistration_binds_full_scope_and_all_five_recipes(tmp_path):
-    from lightsem.experiments.light_layers.training import validate_run_scope,OBSERVER_RECIPES,OBSERVER_SCOPE_BINDINGS
+    from lightsem.model.light_layers.training import validate_run_scope,OBSERVER_RECIPES,OBSERVER_SCOPE_BINDINGS
     manifest,_,_=observer_scope_fixture(tmp_path)
     scope=validate_run_scope(manifest,TrainConfig(),observer_proxy=True)
     bindings={key:scope[key] for key in OBSERVER_SCOPE_BINDINGS}
     bindings.update({key:"a"*64 for key in ("manifest_sha256","source_sha256","split_sha256",
         "config_sha256","norm_sha256","vocab_sha256","transforms_sha256")})
-    from lightsem.experiments.light_layers.training import json_hash
+    from lightsem.model.light_layers.training import json_hash
     from dataclasses import asdict
     bindings["config_sha256"]=json_hash(asdict(TrainConfig()))
     registration={"registered_before_fit":True,"vault_experiment_id":"synthetic-only",
@@ -592,7 +592,7 @@ def test_observer_preregistration_binds_full_scope_and_all_five_recipes(tmp_path
 
 
 def test_identity_quarantine_and_additional_receipted_exclusions(tmp_path):
-    from lightsem.experiments.light_layers.training import validate_run_scope,json_hash
+    from lightsem.model.light_layers.training import validate_run_scope,json_hash
     manifest,_,_=observer_scope_fixture(tmp_path)
     scope=validate_run_scope(manifest,TrainConfig(),observer_proxy=True)
     assert scope["usable_train_groups"] == 91 and scope["usable_dev_groups"] == 31
@@ -618,7 +618,7 @@ def test_identity_quarantine_and_additional_receipted_exclusions(tmp_path):
 
 
 def test_observer_source_binding_and_identity_ledger_hash_rejected(tmp_path):
-    from lightsem.experiments.light_layers.training import validate_run_scope
+    from lightsem.model.light_layers.training import validate_run_scope
     manifest,_,_=observer_scope_fixture(tmp_path)
     original=manifest["records"][0]["audio"]["path"]
     manifest["records"][0]["audio"]["path"]="/different/audio.npz"

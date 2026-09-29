@@ -5,7 +5,7 @@ import unittest
 
 import numpy as np
 
-from lightsem.experiments.light_layers.palette_metrics import (
+from lightsem.model.light_layers.palette_metrics import (
     COMPONENTS, HS_DIM, MATH_ID, PaletteTrack, compare_palette_tracks,
     fit_palette_scales, joint_hs_distance, palette_prototypes_hash,
     summarize_palette_track, _empirical_w1, _weighted_iqr,

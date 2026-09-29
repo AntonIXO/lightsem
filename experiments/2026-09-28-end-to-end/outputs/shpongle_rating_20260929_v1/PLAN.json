@@ -1,0 +1,132 @@
+{
+  "schema_version": 1,
+  "audio": "/root/shpongle.flac",
+  "audio_sha256": "95e4388424ef62950bdeae78e47b8e71839ed28c6e01189fe15f9ae6c902b6c0",
+  "source_commit": "67e17a6",
+  "scope": "Recent implemented experiments; full-track rating delivery, no training, no scientific qualification or promotion.",
+  "duration_s": 277.3,
+  "frames": 8319,
+  "width": 1920,
+  "height": 1080,
+  "fps": 30,
+  "codec": "av1",
+  "variants": [
+    {
+      "id": "01",
+      "title": "Original motion-led lighting",
+      "path": "/mnt/lightsem-data/experiments/lightsem/rhythm_companion_20260912T193657Z/full_baseline_1080p_av1.mp4",
+      "description": "Reference before the rhythm-led companion changes.",
+      "sha256": "dee09af87bde02bbea5b16f1e27a1610136d6cf9bb0b4864a0083a5b000c119b",
+      "bytes": 215944139,
+      "status": "verified_existing",
+      "audit": "/mnt/lightsem-data/experiments/lightsem/rhythm_companion_20260912T193657Z/full_baseline_1080p_av1_audit.json",
+      "combined": false,
+      "pcm_sha256": "6d5d8917556e5b7247fef054c758e975b9bf9d8ad206dccae755d4b51d794455"
+    },
+    {
+      "id": "02",
+      "title": "Rhythm-led companion",
+      "path": "/mnt/lightsem-data/experiments/lightsem/rhythm_companion_20260912T193657Z/full_candidate_1080p_av1.mp4",
+      "description": "Audio-driven rhythm phrases with the accepted motion style and brightness dynamics.",
+      "sha256": "983aaa0bef5c49684e0656e9e235967b0b44d554e2d3637ea5557eb3072e9382",
+      "bytes": 210316664,
+      "status": "verified_existing",
+      "audit": "/mnt/lightsem-data/experiments/lightsem/rhythm_companion_20260912T193657Z/full_candidate_1080p_av1_audit.json",
+      "combined": false,
+      "pcm_sha256": "6d5d8917556e5b7247fef054c758e975b9bf9d8ad206dccae755d4b51d794455"
+    },
+    {
+      "id": "03",
+      "title": "Audio-only model",
+      "path": "/root/lightsem/outputs/shpongle_model_comparisons_20260928_v1/media/01_S_none_P0/01_S_none_P0_full_1080p_av1.mp4",
+      "description": "Shared lighting model without visual auxiliary supervision.",
+      "sha256": "d813e3326f1cc891a736a3c1350eb64189d99dd5d29a8c153be7ca0eef253f73",
+      "bytes": 223564696,
+      "status": "verified_existing",
+      "audit": "/root/lightsem/outputs/shpongle_model_comparisons_20260928_v1/media/01_S_none_P0/01_S_none_P0_full_1080p_av1_audit.json",
+      "combined": false,
+      "pcm_sha256": "6d5d8917556e5b7247fef054c758e975b9bf9d8ad206dccae755d4b51d794455"
+    },
+    {
+      "id": "04",
+      "title": "Model with six visual descriptors",
+      "path": "/root/lightsem/outputs/shpongle_model_comparisons_20260928_v1/media/02_S_V6_P0/02_S_V6_P0_full_1080p_av1.mp4",
+      "description": "Shared lighting model trained with the older six-descriptor visual auxiliary.",
+      "sha256": "d643c4bab3c6048d84702cb12ffae1602ee2040db926ece0618cc6f1fbe8c49b",
+      "bytes": 223497715,
+      "status": "verified_existing",
+      "audit": "/root/lightsem/outputs/shpongle_model_comparisons_20260928_v1/media/02_S_V6_P0/02_S_V6_P0_full_1080p_av1_audit.json",
+      "combined": false,
+      "pcm_sha256": "6d5d8917556e5b7247fef054c758e975b9bf9d8ad206dccae755d4b51d794455"
+    },
+    {
+      "id": "05",
+      "title": "Combined: rhythm + rich model + palette history",
+      "path": "/root/lightsem/outputs/shpongle_layers_demo_20260922T161917Z/shpongle_experimental_full_1080p_av1.mp4",
+      "description": "All compatible components: accepted motion style, audio rhythm, brightness dynamics, learned colors and accents, and generated palette history. Shared rich model; other architectures are alternatives.",
+      "sha256": "a78a64342ecb2db36cc6ea614e62552ba1f334c1b524384ff6614b6a4c5256be",
+      "bytes": 223607757,
+      "status": "verified_existing",
+      "audit": "/root/lightsem/outputs/shpongle_layers_demo_20260922T161917Z/shpongle_experimental_full_1080p_av1_audit.json",
+      "combined": true,
+      "pcm_sha256": "6d5d8917556e5b7247fef054c758e975b9bf9d8ad206dccae755d4b51d794455"
+    },
+    {
+      "id": "06",
+      "title": "Independent model with rich visual supervision",
+      "path": "/root/lightsem/outputs/shpongle_model_comparisons_20260928_v1/media/03_I_VR_P0/03_I_VR_P0_full_1080p_av1.mp4",
+      "description": "Separate accent/color architectures trained with rich visual auxiliary supervision.",
+      "sha256": "0656487bce4c490d5d823a93b0c4029b899329cfb643740a749789c538caf317",
+      "bytes": 225382466,
+      "status": "verified_existing",
+      "audit": "/root/lightsem/outputs/shpongle_model_comparisons_20260928_v1/media/03_I_VR_P0/03_I_VR_P0_full_1080p_av1_audit.json",
+      "combined": false,
+      "pcm_sha256": "6d5d8917556e5b7247fef054c758e975b9bf9d8ad206dccae755d4b51d794455"
+    },
+    {
+      "id": "07",
+      "title": "Shuffled-audio training control",
+      "path": "/root/lightsem/outputs/shpongle_model_comparisons_20260928_v1/media/04_S_VR_P0_Ashuf/04_S_VR_P0_Ashuf_full_1080p_av1.mp4",
+      "description": "Negative-control training recipe, played on the actual Shpongle audio.",
+      "sha256": "f86dbfe665418cf35ff2475fdd0a0d55c13f71413aeae6ccc4e08042f63c64f1",
+      "bytes": 227372817,
+      "status": "verified_existing",
+      "audit": "/root/lightsem/outputs/shpongle_model_comparisons_20260928_v1/media/04_S_VR_P0_Ashuf/04_S_VR_P0_Ashuf_full_1080p_av1_audit.json",
+      "combined": false,
+      "pcm_sha256": "6d5d8917556e5b7247fef054c758e975b9bf9d8ad206dccae755d4b51d794455"
+    },
+    {
+      "id": "08",
+      "title": "Learned colors only",
+      "description": "Rich shared model colors with palette history; companion brightness has no learned accent overlay.",
+      "status": "planned",
+      "path": "/root/lightsem/outputs/shpongle_rating_20260929_v1/media/08/08_full_1080p_av1.mp4",
+      "combined": false
+    },
+    {
+      "id": "09",
+      "title": "Learned accents only",
+      "description": "Rich shared model accent overlay; companion colors remain unchanged.",
+      "status": "planned",
+      "path": "/root/lightsem/outputs/shpongle_rating_20260929_v1/media/09/09_full_1080p_av1.mp4",
+      "combined": false
+    },
+    {
+      "id": "10",
+      "title": "Combined with palette history disabled",
+      "description": "Same rich model, cues, rhythm and accents; previous palette is replaced by its trained null state. Deterministic visual ablation, not the stochastic secondary study.",
+      "status": "planned",
+      "path": "/root/lightsem/outputs/shpongle_rating_20260929_v1/media/10/10_full_1080p_av1.mp4",
+      "combined": false
+    }
+  ],
+  "new_data_cap_bytes": 8388608,
+  "new_media_cap_bytes": 1610612736,
+  "minimum_free_bytes": 1073741824,
+  "combined_id": "05",
+  "warnings": [
+    "Alternative model architectures cannot all be active as one unchanged model.",
+    "Existing captions disclose some variant identity; this is not a blinded study.",
+    "No current scientific quality claim is inferred from these demos."
+  ]
+}

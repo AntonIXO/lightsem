@@ -1,0 +1,372 @@
+{
+  "schema": 1,
+  "experiment_id": "exp-dance-pose-stage-20260911",
+  "hypothesis_id": "h-dance-pose-stage-20260911",
+  "artifact_directory": "/mnt/lightsem-data/experiments/lightsem/dance_diagnosis_20260911/pose_stage_01",
+  "claim_scope": "Stateless pose-to-light geometry bundle on fixed saved bodies and simulation mechanics. No new music conditioning, model qualification, preference or hardware claim.",
+  "prior_evidence": "Unpreregistered proper-FK engineering already shows raw anatomical inversions retained by prototype, fixed-lane saturation, millimetre pair overlaps and shared 3D-to-2D nullspace. New prediction concerns emitted axes/visibility after mechanics on recordings, not these already-seen synthetic facts.",
+  "source_review_directory": "/mnt/lightsem-data/experiments/lightsem/dance_diagnosis_20260911/music_physical_revision_01/visual_review_support_revision_01",
+  "source_selection": "Saved prior_native_flow on full Shpongle (not new draw7001); exactly the existing twelve reference mocap review windows as oracle transfer checks. No new inference or selecting among generated models/draws.",
+  "items": [
+    {
+      "audio_offset_s": 0.0,
+      "audio_path": "/mnt/lightsem-data/finedance/finedance/music_wav/083.wav",
+      "category": "holds",
+      "frames": 600,
+      "full_frames": 7321,
+      "id": "holds_083_1200_reference",
+      "key": "083",
+      "start": 1200,
+      "source_review_id": "holds_083_1200",
+      "source_arm": "reference"
+    },
+    {
+      "audio_offset_s": 0.0,
+      "audio_path": "/mnt/lightsem-data/finedance/finedance/music_wav/067.wav",
+      "category": "holds",
+      "frames": 600,
+      "full_frames": 3469,
+      "id": "holds_067_0_reference",
+      "key": "067",
+      "start": 0,
+      "source_review_id": "holds_067_0",
+      "source_arm": "reference"
+    },
+    {
+      "audio_offset_s": 0.0,
+      "audio_path": "/mnt/lightsem-data/finedance/finedance/music_wav/078.wav",
+      "category": "holds",
+      "frames": 600,
+      "full_frames": 4731,
+      "id": "holds_078_0_reference",
+      "key": "078",
+      "start": 0,
+      "source_review_id": "holds_078_0",
+      "source_arm": "reference"
+    },
+    {
+      "audio_offset_s": 0.0,
+      "audio_path": "/mnt/lightsem-data/finedance/finedance/music_wav/005.wav",
+      "category": "holds",
+      "frames": 600,
+      "full_frames": 2882,
+      "id": "holds_005_0_reference",
+      "key": "005",
+      "start": 0,
+      "source_review_id": "holds_005_0",
+      "source_arm": "reference"
+    },
+    {
+      "audio_offset_s": 0.0,
+      "audio_path": "/mnt/lightsem-data/finedance/finedance/music_wav/035.wav",
+      "category": "travel",
+      "frames": 600,
+      "full_frames": 6061,
+      "id": "travel_035_4800_reference",
+      "key": "035",
+      "start": 4800,
+      "source_review_id": "travel_035_4800",
+      "source_arm": "reference"
+    },
+    {
+      "audio_offset_s": 0.0,
+      "audio_path": "/mnt/lightsem-data/finedance/finedance/music_wav/135.wav",
+      "category": "travel",
+      "frames": 600,
+      "full_frames": 6815,
+      "id": "travel_135_3600_reference",
+      "key": "135",
+      "start": 3600,
+      "source_review_id": "travel_135_3600",
+      "source_arm": "reference"
+    },
+    {
+      "audio_offset_s": 0.0,
+      "audio_path": "/mnt/lightsem-data/finedance/finedance/music_wav/127.wav",
+      "category": "travel",
+      "frames": 600,
+      "full_frames": 5549,
+      "id": "travel_127_1200_reference",
+      "key": "127",
+      "start": 1200,
+      "source_review_id": "travel_127_1200",
+      "source_arm": "reference"
+    },
+    {
+      "audio_offset_s": 0.0,
+      "audio_path": "/mnt/lightsem-data/finedance/finedance/music_wav/027.wav",
+      "category": "travel",
+      "frames": 600,
+      "full_frames": 5261,
+      "id": "travel_027_4200_reference",
+      "key": "027",
+      "start": 4200,
+      "source_review_id": "travel_027_4200",
+      "source_arm": "reference"
+    },
+    {
+      "audio_offset_s": 0.0,
+      "audio_path": "/mnt/lightsem-data/finedance/finedance/music_wav/057.wav",
+      "category": "coordination",
+      "frames": 600,
+      "full_frames": 2638,
+      "id": "coordination_057_1200_reference",
+      "key": "057",
+      "start": 1200,
+      "source_review_id": "coordination_057_1200",
+      "source_arm": "reference"
+    },
+    {
+      "audio_offset_s": 0.0,
+      "audio_path": "/mnt/lightsem-data/finedance/finedance/music_wav/085.wav",
+      "category": "coordination",
+      "frames": 600,
+      "full_frames": 1165,
+      "id": "coordination_085_0_reference",
+      "key": "085",
+      "start": 0,
+      "source_review_id": "coordination_085_0",
+      "source_arm": "reference"
+    },
+    {
+      "audio_offset_s": 0.0,
+      "audio_path": "/mnt/lightsem-data/finedance/finedance/music_wav/076.wav",
+      "category": "coordination",
+      "frames": 600,
+      "full_frames": 3771,
+      "id": "coordination_076_2400_reference",
+      "key": "076",
+      "start": 2400,
+      "source_review_id": "coordination_076_2400",
+      "source_arm": "reference"
+    },
+    {
+      "audio_offset_s": 0.0,
+      "audio_path": "/mnt/lightsem-data/finedance/finedance/music_wav/102.wav",
+      "category": "coordination",
+      "frames": 600,
+      "full_frames": 4769,
+      "id": "coordination_102_600_reference",
+      "key": "102",
+      "start": 600,
+      "source_review_id": "coordination_102_600",
+      "source_arm": "reference"
+    },
+    {
+      "audio_offset_s": 0.0,
+      "audio_path": "/root/shpongle.flac",
+      "category": "external diagnostic",
+      "frames": 8319,
+      "full_frames": 8319,
+      "id": "shpongle_prior_flow0",
+      "key": "shpongle",
+      "start": 0,
+      "source_review_id": "full_shpongle_draw7001",
+      "source_arm": "prior_native_flow"
+    }
+  ],
+  "baseline": {
+    "angular_controller": "offline_projection",
+    "angular_feedforward": false,
+    "maximum_acceleration_deg_s2": 360.0,
+    "maximum_speed_deg_s": 90.0,
+    "stage_base_unfolded_m": [
+      7.7,
+      3.2,
+      8.0
+    ],
+    "stage_lean_gain_m": 0.0,
+    "surface_gain": 1.0,
+    "target_smoothing_mode": "causal",
+    "target_smoothing_s": 1e-06,
+    "target_space": "articulated_stage",
+    "torso_gain": 1.0,
+    "tracking_s": 0.18
+  },
+  "candidate_change": {
+    "target_space": "pose_stage"
+  },
+  "renderer": {
+    "frozen_angles": false,
+    "renderer": {
+      "beam_edge_profile": "angular",
+      "beam_edge_softness_deg": 0.6,
+      "beam_flux_reference_deg": 14.0,
+      "cam_orbit": 0.0,
+      "cam_pos": [
+        0.0,
+        6.0,
+        11.0
+      ],
+      "cam_target": [
+        0.0,
+        2.0,
+        -3.0
+      ],
+      "camera_scale": 0.45,
+      "exposure_profile": "fixed",
+      "fixed_exposure_scale": 0.4,
+      "fixed_role_gains": [
+        1.0,
+        0.3,
+        0.03,
+        0.2
+      ],
+      "fps": 30.0,
+      "haze": 0.25,
+      "height": 360,
+      "intensity_gain": 2.4,
+      "width": 640
+    },
+    "zoom": "zero"
+  },
+  "body_display": {
+    "scale_px_m": 60,
+    "origin_world": [
+      0,
+      0,
+      0
+    ],
+    "views": [
+      "front",
+      "oblique"
+    ],
+    "no_recentering": true
+  },
+  "fps": {
+    "mapping": 40,
+    "video": 30
+  },
+  "primary": {
+    "item": "shpongle_prior_flow0",
+    "interval_s": [
+      70,
+      90
+    ],
+    "statistic": "mean across six heads of emitted-axis projected midshaft band RMS / mean projected equivalent half-peak cone-circle radius at midshaft",
+    "band_hz": [
+      0.5,
+      4.0
+    ],
+    "welch_nperseg": 400,
+    "window": "hann",
+    "detrend": "linear",
+    "boundary_samples": 64,
+    "prediction_candidate_over_baseline": 2.0,
+    "supplemental_bands_hz": [
+      [
+        0.5,
+        1
+      ],
+      [
+        1,
+        2
+      ],
+      [
+        2,
+        4
+      ]
+    ],
+    "no_band_selection": true,
+    "integration": "NEW instrument: trapezoid of piecewise-linear Welch PSD including interpolated exact band edges. Integrate .5 through4.0 inclusive; supplementary adjoining bands partition this power. Do not reuse legacy half-open-bin trapz values."
+  },
+  "collapse_instrument": {
+    "statistic": "RMS spread of six emitted first-hit camera-pixel positions about their centroid / mean equivalent relative-half-peak cone radius at the first hits, not midpoint",
+    "threshold_ratio": 1.0,
+    "maximum_fraction_below_threshold": 0.01,
+    "maximum_contiguous_below_threshold_s": 0.5,
+    "scope": "Shpongle active70-90 and each fixed20s reference window; pair convergence is reported but NOT synonymous with all-head collapse. Report x span, intrinsic chart area, camera spread and pair distances separately."
+  },
+  "gates": {
+    "primary": "Shpongle active0.5-4Hz motion/radius candidate>=2*matched stage02. New broadband instrument, not reused1-2Hz number.",
+    "mechanics": "All full-record emitted speed<=90deg/s and acceleration<=360deg/s2, exact decoded DMX; simulator only.",
+    "valid": "At least.99 full-frame head samples have valid finite-stage first hits; report all10s blocks and camera viewport fractions.",
+    "surfaces": "Shpongle active floor and wall first-hit fractions each>=.10.",
+    "quiet": "Shpongle0-20 decoded pan/tilt Euclidean coordinate-speed median over all six heads <=16.3488deg/s (.4*historical40.872). Report matched stage02 quiet speed and difference; this ceiling is not a noninferiority claim.",
+    "nonangle": "All non-angle DMX bytes identical to the matched same-body stage02 stream before common zero-zoom optical override.",
+    "collapse": "All-head cloud criterion above; no minimum inter-pair spacing gate. Report genuine overlaps and cone overlap, do not hide them.",
+    "oracle_transfer": "At least6 of8 fixed travel/coordination reference windows have higher candidate broadband ratio than baseline. Four hold windows are reported but NOT rewarded for more motion. All12 retain mechanics/valid/nonangle/collapse checks and fixed visual selection; no source/seed reselection.",
+    "pixels": "Outside-bulb any-channel>=250 fraction mean<.01,max<.05 in candidate rendered coverage; report white clipping and sourcebulbs separately.",
+    "coverage": "If numerical stages pass: all12 fixed reference clips and fullShpongle with shared-body/baseline/candidate panels, full software decode/audio and chronological1Hz+last review with fixedfastsamples. Silent reviews not human acceptance.",
+    "brightness": "If numerical stages pass: additional fullShpongle globally display-RGB dimmed pair to lower outside-bulb mean; scalars and quantization residuals reported, no framewise matching."
+  },
+  "stages_and_early_stop": [
+    "Synthetic code/IO tests only before freeze; no real candidate mapping.",
+    "After registration and source/input/runtime freeze, map and analyze full Shpongle only. If primary, mechanics,valid,surfaces,quiet,nonangle,collapse fails, stop reference-record candidate evaluation and fullmovie expansion. Preserve failure and render ONLY fixed0-20,70-90,190-210 diagnostic clips; no promotion.",
+    "If Shpongle numerical gates pass, map complete twelve reference records before slicing fixed20s windows. If oracle_transfer/any per-reference mechanical,valid,nonangle,collapse gate fails: retain all results and render only predetermined holds083,travel027,coordination057 plusShpongle70-90 diagnostics. No fullmovie expansion.",
+    "If all numeric stages pass, render all13 planned views, rawpixel controls and globally brightness-matched fullShpongle pair; independent sampled reviews. Any pixel/media gate failure stays a failure; no silent exposure or source changes."
+  ],
+  "fixed_fast_samples": {
+    "reference_local_frames": [
+      270,
+      274,
+      278,
+      282,
+      286,
+      290,
+      294,
+      298,
+      302,
+      306,
+      310,
+      314,
+      318,
+      322,
+      326
+    ],
+    "shpongle_intervals_s": [
+      [
+        0,
+        2
+      ],
+      [
+        80,
+        82
+      ],
+      [
+        196,
+        198
+      ],
+      [
+        270,
+        272
+      ]
+    ],
+    "stride_frames": 4,
+    "actual_hz": 7.5
+  },
+  "rendering": "One shared EGL context, explicit exclusive gpu_lock; software libx264 shared encoding per pair. Raw hashes/metrics and caption provenance. Exact whole-frame audio trim, no silent pose padding.",
+  "unavailable_comparators": "No legacy incumbent3D lighting; no reference body forShpongle. This is mapper testing, not a new matched-generator study.",
+  "defaults_unchanged": true,
+  "test_access": false,
+  "seed1": false,
+  "hardware_output": false,
+  "human_music_fit_acceptance": null,
+  "pipeline_qualified": false,
+  "clarifications": {
+    "valid": "Global full-record valid head-sample fraction is gated at .99; 10s blocks reported, not additional unregistered per-block thresholds.",
+    "primary": "Mean of six per-head ratios (each RMS divided by that head mean radius), not ratio of grand means.",
+    "collapse": "Only Shpongle70-90 and twelve fixed reference20s windows; mechanics/nonangle/valid use complete records.",
+    "quiet": "Use exact surface_revision.mechanics instrument: decoded pan/tilt degree vector first differences at40Hz, Euclidean norm; median over all six heads/all intervals in0-20s, no lit gating. NOT direction/geodesic speed. Baseline40.872 and cap16.3488 refer to this coordinate-speed instrument.",
+    "pair_diagnostics": "Report equivalent-camera-circle separation d/(r_i+r_j), not true projected ellipse/illumination overlap area. Report Euclidean first-hit separation quantiles/min separately. Intrinsic unfolded floor-wall convex-hull area only when all hits floor/wall; report unsupported/truss count and denominator.",
+    "numeric_missingness": "Nonfinite/incomplete primary geometry may not pass. No silent missing-frame deletion or interpolation. Report unassessed coverage separately from actual collapse.",
+    "helper_namespace": "Helpers must not activate old support-review mapper over the new frozen pose-stage source. Verify actual imported mapper/pose_stage paths and hashes are in new frozen source. Use helper context activation only where explicitly safe; fresh-process namespace smoke test.",
+    "registration_contract": "Parent accepts proposed raw registration.json with hypothesis{id,plan:JSON string or dict},experiment{id,config_note:JSON string or dict},registered_by=parent,registered_before_candidate_execution=true, exact plan equality. No real candidate execution before this receipt and freeze.",
+    "spectral_edges": "Accept exact-edge interpolated trapezoid for NEW broadband and subbands; test power partition. Historical optics1-2Hz values used half-open-bin trapz and are not numerically interchangeable.",
+    "selected_geometry_validity": "Require zero missing/nonfinite first-hit/projection/radius samples in primary and collapse selected windows. Failure is unmeasurable coverage, not an assertion that collapse occurred. Global full-record valid>=.99 may tolerate missingness only outside those selected windows.",
+    "pair_denominator": "Valid-pair denominator only for descriptive pair statistics, with explicit invalid counts. No pair spacing gate."
+  },
+  "oracle_transfer_selection": {
+    "categories": [
+      "travel",
+      "coordination"
+    ],
+    "minimum_improved": 6,
+    "total": 8,
+    "comparison": "strictly greater candidate broadband ratio",
+    "holds": "diagnostic only for gain; all other applicable gates retained",
+    "rationale_before_registration": "Requiring more motion in reference holds could reward unwanted activity. This draft correction is before any real candidate outputs."
+  },
+  "plan_status": "FINAL_FOR_TOOLING_REVIEW; parent registration and source freeze still required before real candidate execution",
+  "parent_decisions_final": true
+}

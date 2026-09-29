@@ -6,17 +6,17 @@ from unittest.mock import patch
 
 import numpy as np
 
-from lightsem.experiments.stage11_common import (
+from lightsem.experiments.stage11.stage11_common import (
     artifact_manifest, authenticated_json, digest, json_digest, read_authenticated,
 )
-from lightsem.experiments.stage11_evaluation import (
+from lightsem.experiments.stage11.stage11_evaluation import (
     CORE_SEEDS, GENERATION_SEEDS, SCENE_ARMS, _compute_aggregate, _context,
     _run_directory, _song_values, _test_unlock, _training_report, _validate_rows, _verify_captures,
     aggregate, evaluate_run,
 )
 
 
-MODULE = "lightsem.experiments.stage11_evaluation"
+MODULE = "lightsem.experiments.stage11.stage11_evaluation"
 
 
 def fixture():

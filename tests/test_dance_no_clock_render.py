@@ -2,7 +2,7 @@ import numpy as np
 import unittest
 
 from lightsem.conductor.rig import canonical_rig
-from lightsem.experiments.dance_no_clock_render import REQUIRED, controls_to_dmx
+from lightsem.experiments.dance_no_clock.dance_no_clock_render import REQUIRED, controls_to_dmx
 
 
 def test_constant_controls_produce_exactly_constant_light():

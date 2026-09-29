@@ -8,7 +8,7 @@ from unittest.mock import patch
 
 import numpy as np
 
-import run_light_layers_cohort as c
+import scripts.light_layers.run_light_layers_cohort as c
 
 
 def metadata(rid, cid, partition="train", eligible=True):

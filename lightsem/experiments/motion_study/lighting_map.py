@@ -6,7 +6,7 @@ import numpy as np
 import torch
 
 from .geometry import joints_from_features,rotation_6d_to_matrix
-from ..beat_conditioned_render import _angles
+from ..beat_conditioned.beat_conditioned_render import _angles
 from ...conductor.rig import canonical_rig
 
 

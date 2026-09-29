@@ -9,7 +9,7 @@ import numpy as np
 
 from . import ROOT
 from .geometry import FPS, PARENTS, FEET
-from ..stage11_common import authenticated_json, read_authenticated, digest, gpu_lock
+from ..stage11.stage11_common import authenticated_json, read_authenticated, digest, gpu_lock
 
 VERTEX = '#version 330\nin vec2 pos; void main(){gl_Position=vec4(pos,0,1);}'
 FRAGMENT = '''#version 330

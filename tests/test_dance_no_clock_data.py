@@ -6,7 +6,7 @@ from unittest.mock import patch
 
 import numpy as np
 
-from lightsem.experiments import dance_no_clock_data as data
+from lightsem.experiments.dance_no_clock import dance_no_clock_data as data
 
 
 class NoClockDataTests(unittest.TestCase):

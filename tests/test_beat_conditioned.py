@@ -1,7 +1,7 @@
 import unittest
 import numpy as np
-from lightsem.experiments.beat_conditioned_render import controls_to_dmx,isolate_heads
-from lightsem.experiments.beat_conditioned_data import NAMES,event_targets,X_NAMES
+from lightsem.experiments.beat_conditioned.beat_conditioned_render import controls_to_dmx,isolate_heads
+from lightsem.experiments.beat_conditioned.beat_conditioned_data import NAMES,event_targets,X_NAMES
 from lightsem.experiments.quality_observer import beam_observation
 from lightsem.conductor.rig import canonical_rig
 

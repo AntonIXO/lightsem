@@ -1,24 +1,24 @@
 import unittest
 from dataclasses import replace
 import numpy as np
-from lightsem.experiments.night_render import ExpressionConfig,compose_scene,group_targets
-from lightsem.experiments.night_features import fourier_features,FOURIER_DIM
-from lightsem.experiments.beat_conditioned_data import NAMES
+from lightsem.experiments.night.night_render import ExpressionConfig,compose_scene,group_targets
+from lightsem.experiments.night.night_features import fourier_features,FOURIER_DIM
+from lightsem.experiments.beat_conditioned.beat_conditioned_data import NAMES
 from lightsem.conductor.rig import canonical_rig
 from lightsem.dmx.fixtures import Rig
 
 class ExpressionTests(unittest.TestCase):
     def test_common_initial_weights_match_incumbent(self):
         import torch
-        from lightsem.experiments.night_model import NightModel
-        from lightsem.experiments.beat_conditioned_model import BeatConditionedModel
+        from lightsem.experiments.night.night_model import NightModel
+        from lightsem.experiments.beat_conditioned.beat_conditioned_model import BeatConditionedModel
         torch.manual_seed(17);old=BeatConditionedModel().state_dict()
         for family,architecture,dim in [('base','once',0),('fourier','film',294),('muq','film',1024)]:
             torch.manual_seed(17);new=NightModel(family,architecture,dim).state_dict()
             for k,v in old.items():self.assertTrue(torch.equal(v,new[k]),k)
 
     def test_energy_score_separates_wrong_prediction(self):
-        from lightsem.experiments.night_metrics import energy_score,off_interval_checks
+        from lightsem.experiments.night.night_metrics import energy_score,off_interval_checks
         target=np.ones((160,17));matched=np.repeat(target[None],6,axis=0)
         self.assertEqual(energy_score(matched,target),0.)
         self.assertGreater(energy_score(matched+1,target),.9)
@@ -55,13 +55,13 @@ class ExpressionTests(unittest.TestCase):
         for start in range(0,FOURIER_DIM,49):self.assertLess(float(abs(f[:,start:start+48]).max()),1e-6)
 
     def test_fourier_tracks_a_local_periodic_envelope(self):
-        from lightsem.experiments.beat_conditioned_data import X_NAMES
-        from lightsem.experiments.night_features import FOURIER_CHANNELS,FOURIER_NAMES
+        from lightsem.experiments.beat_conditioned.beat_conditioned_data import X_NAMES
+        from lightsem.experiments.night.night_features import FOURIER_CHANNELS,FOURIER_NAMES
         self.assertEqual(tuple(X_NAMES[i] for i in FOURIER_CHANNELS),FOURIER_NAMES)
         x=np.zeros((1280,92));x[:,X_NAMES.index('flux_lf')]=1+np.sin(2*np.pi*2*np.arange(1280)/40.)
         f=fourier_features(x)
         energy=f[400:-400,49:97:3].mean(0)
-        from lightsem.experiments.night_features import FOURIER_FREQUENCIES
+        from lightsem.experiments.night.night_features import FOURIER_FREQUENCIES
         self.assertLess(abs(FOURIER_FREQUENCIES[energy.argmax()]-2),.3)
 
     def test_mel_only_changes_cannot_be_mislabeled_as_flux_features(self):

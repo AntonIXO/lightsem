@@ -9,9 +9,9 @@ import numpy as np
 import pytest
 import torch
 
-from lightsem.experiments.light_layers import evaluation as ev
-from lightsem.experiments.light_layers.training import ContractError, RHYTHM_COLUMNS, json_hash
-from lightsem.experiments.light_layers.model import LightLayersConfig, SharedLightLayers
+from lightsem.model.light_layers import evaluation as ev
+from lightsem.model.light_layers.training import ContractError, RHYTHM_COLUMNS, json_hash
+from lightsem.model.light_layers.model import LightLayersConfig, SharedLightLayers
 
 
 @pytest.fixture(autouse=True)

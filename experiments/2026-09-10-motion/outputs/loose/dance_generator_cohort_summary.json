@@ -1,0 +1,74 @@
+{
+  "('flow', 'train', 0.0)": {
+    "recordings": 125,
+    "groups": 107,
+    "loss": {
+      "correct": 0.7278080302699704,
+      "donor": 0.8400624372598909,
+      "zero": 0.8345518132607885,
+      "zero_field": 2.056701087506018
+    },
+    "donor_relative_improvement": 0.1336262663476194,
+    "prediction_change_relative_rms": 0.2819334607762714
+  },
+  "('flow', 'train', 0.5)": {
+    "recordings": 125,
+    "groups": 107,
+    "loss": {
+      "correct": 0.5991853820479175,
+      "donor": 0.6246368047604307,
+      "zero": 0.6115720285990528,
+      "zero_field": 2.056701087506018
+    },
+    "donor_relative_improvement": 0.04074595431864553,
+    "prediction_change_relative_rms": 0.14685574830698095
+  },
+  "('flow', 'val', 0.0)": {
+    "recordings": 33,
+    "groups": 28,
+    "loss": {
+      "correct": 0.8676700783627374,
+      "donor": 0.8885884678789547,
+      "zero": 0.8845000160591943,
+      "zero_field": 2.1075920398746217
+    },
+    "donor_relative_improvement": 0.023541144491948243,
+    "prediction_change_relative_rms": 0.27480741351351845
+  },
+  "('flow', 'val', 0.5)": {
+    "recordings": 33,
+    "groups": 28,
+    "loss": {
+      "correct": 0.684409254363605,
+      "donor": 0.6950883886643818,
+      "zero": 0.6814470716885158,
+      "zero_field": 2.1075920398746217
+    },
+    "donor_relative_improvement": 0.015363706939914323,
+    "prediction_change_relative_rms": 0.1467982327643531
+  },
+  "('regression', 'train', 1.0)": {
+    "recordings": 125,
+    "groups": 107,
+    "loss": {
+      "correct": 0.3268693353156806,
+      "donor": 1.0666050793968629,
+      "zero": 0.8483611046339492,
+      "zero_field": 0.7694932755744346
+    },
+    "donor_relative_improvement": 0.6935423038670352,
+    "prediction_change_relative_rms": 1.3377432960980868
+  },
+  "('regression', 'val', 1.0)": {
+    "recordings": 33,
+    "groups": 28,
+    "loss": {
+      "correct": 1.1428891037191664,
+      "donor": 1.1964745478970664,
+      "zero": 0.8886533177324704,
+      "zero_field": 0.8152878358960152
+    },
+    "donor_relative_improvement": 0.04478611289482274,
+    "prediction_change_relative_rms": 1.4067690295774826
+  }
+}

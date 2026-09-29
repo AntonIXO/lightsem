@@ -12,7 +12,7 @@ from .geometry import FPS, joints_from_features
 from .model import CodecConfig, MotionCodec
 from .metrics import compare
 from .training import load_context
-from ..stage11_common import authenticated_json, read_authenticated, digest, gpu_lock
+from ..stage11.stage11_common import authenticated_json, read_authenticated, digest, gpu_lock
 
 SCALARS = ('joint_error_height', 'velocity_nrmse', 'contact_f1', 'kinetic_reference',
            'kinetic_prediction', 'travel_reference_m', 'travel_prediction_m', 'acceleration_rmse')

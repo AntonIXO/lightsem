@@ -1,0 +1,110 @@
+{
+ "n_clips": 39,
+ "split": "val_track",
+ "ckpt": "/mnt/lightsem-data/ckpt/group_decoder_v1.pt",
+ "corpus_id": "jd",
+ "fid_light": {
+  "conductor": 43.81525816472613,
+  "beat_trigger": 5967.742461552043,
+  "decoder": 929.8944381110838,
+  "donor": 927.4056766226572,
+  "engine_only": 1404.8995150611352,
+  "real_vs_block_shuffled": 4142.662458723474,
+  "split_half_floor": {
+   "mean": 6.925774048809775,
+   "sd": 1.3504116021252541,
+   "n_rep": 20
+  }
+ },
+ "bas_minus_null": {
+  "real": {
+   "delta": 0.08043536377677409,
+   "ci95": [
+    0.07128000562758902,
+    0.09101174964252687
+   ],
+   "n_no_events": 0
+  },
+  "conductor": {
+   "delta": 0.12382956498562885,
+   "ci95": [
+    0.11507813923745162,
+    0.13265259547128957
+   ],
+   "n_no_events": 0
+  },
+  "beat_trigger": {
+   "delta": 0.09704148475881479,
+   "ci95": [
+    0.08757260175428758,
+    0.10758328707445881
+   ],
+   "n_no_events": 0
+  },
+  "decoder": {
+   "delta": -0.16640760082193373,
+   "ci95": [
+    -0.1943361672536966,
+    -0.1395599960196224
+   ],
+   "n_no_events": 3
+  },
+  "donor": {
+   "delta": -0.1369632953021743,
+   "ci95": [
+    -0.16156447045062022,
+    -0.11181509716777727
+   ],
+   "n_no_events": 5
+  },
+  "engine_only": {
+   "delta": 0.5253968556925627,
+   "ci95": [
+    0.506084862265308,
+    0.5447443334899126
+   ],
+   "n_no_events": 0
+  }
+ },
+ "events_per_clip": {
+  "real": 888.0769230769231,
+  "conductor": 771.4615384615385,
+  "beat_trigger": 930.974358974359,
+  "decoder": 182.05128205128204,
+  "donor": 194.53846153846155,
+  "engine_only": 419.1025641025641
+ },
+ "brightness_mean": {
+  "real": 0.22775902155698355,
+  "conductor": 0.2049129079523893,
+  "beat_trigger": 0.27785708502094575,
+  "decoder": 0.22778606771785762,
+  "donor": 0.22759328530411366,
+  "engine_only": 0.21887774931835216
+ },
+ "rig_transfer_hist_distance": {
+  "decoder": 0.30195143024693916,
+  "channel_copy": 0.30616498983219775
+ },
+ "bas_decoder_minus_conductor": -0.2884809253595771,
+ "flow": false,
+ "gates": {
+  "G9.3-fid": {
+   "passed": false,
+   "evidence": "FID_light vs real: decoder 929.89, conductor 43.82, donor 927.41, engine-only 1404.90, beat trigger 5967.74; block-shuffle null 4142.66, split-half floor 6.93. Gain over the conductor -886.08 vs donor gain -883.59 (needs > 2x)."
+  },
+  "G9.3-bas": {
+   "passed": false,
+   "evidence": "Light-BAS minus null: decoder -0.1664 CI [-0.1943, -0.1396], conductor +0.1238, real coach +0.0804, beat trigger +0.0970, engine-only +0.5254; events per clip decoder 182.1 conductor 771.5 real 888.1."
+  },
+  "G9.3-ab": {
+   "passed": false,
+   "evidence": "Not measured: the brightness-matched human A/B needs raters (n >= 20 pairs)."
+  },
+  "G9.3-rig": {
+   "passed": true,
+   "evidence": "unseen rig (8 heads, 6 washes, 4 blinders, no strobe): HSV-histogram distance to the canonical render, decoder re-realised 0.302 vs channel-copy 0.306 (L1 per frame, hue + value histograms)."
+  }
+ },
+ "elapsed_s": 446.3912408351898
+}

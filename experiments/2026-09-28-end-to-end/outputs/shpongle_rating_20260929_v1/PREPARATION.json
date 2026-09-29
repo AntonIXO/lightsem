@@ -1,0 +1,39 @@
+{
+  "status": "complete",
+  "variants": [
+    {
+      "id": "08",
+      "streams": "/mnt/lightsem-data/experiments/lightsem/end_to_end_20260928_v1/shpongle_rating_20260929_v1/08_streams.npz",
+      "sha256": "926f050619158cfd1f4b21fa3058f4d7eb9ae13025042f7995ea5e7a6db55776",
+      "dmx_sha256": "d0cfca261945139619c011b5d98c6f4c6d79dd75327c2e66315f05e0faacf057",
+      "protected_slots_unchanged": 469,
+      "changed_bytes_vs_companion": 312805
+    },
+    {
+      "id": "09",
+      "streams": "/mnt/lightsem-data/experiments/lightsem/end_to_end_20260928_v1/shpongle_rating_20260929_v1/09_streams.npz",
+      "sha256": "54c1803cfda61ab5fff688bcafea2ea8e2070171f97ce862e48fc0b635ffc09a",
+      "dmx_sha256": "54ba1a7bcb6624b07151fda46d455d2c3191a3b2fec781bde80485684212a0a4",
+      "protected_slots_unchanged": 469,
+      "changed_bytes_vs_companion": 82
+    },
+    {
+      "id": "10",
+      "streams": "/mnt/lightsem-data/experiments/lightsem/end_to_end_20260928_v1/shpongle_rating_20260929_v1/10_streams.npz",
+      "sha256": "07e0473e7a8957e21246eb8ceb2f23812d07db6a9c5878070ecfb6e31c2c5f29",
+      "dmx_sha256": "0ea5573f9bb07f4aceceeb47620acdc3f9488405e817de13d10a6bf45a6c05dd",
+      "protected_slots_unchanged": 469,
+      "changed_bytes_vs_companion": 301797
+    }
+  ],
+  "full_encoder_forwards": 0,
+  "CPU_palette_head_only": true,
+  "CPU_own_state_exactly_replays_saved_demo": true,
+  "color_cue_times_identical": true,
+  "source_checkpoint_unchanged": true,
+  "color_plus_accent_exactly_reconstructs_combined_demo": true,
+  "history_off_differing_frames10": 560,
+  "checkpoint": "/mnt/lightsem-data/experiments/lightsem/lighting-cue-model-20260922t094347z/observer_fits_v1/03_seed0_S_VR_P0/best.pt",
+  "elapsed_seconds": 0.25358711811713874,
+  "scope": "Deterministic full-track rating ablations, not the stochastic secondary experiment or a quality result."
+}

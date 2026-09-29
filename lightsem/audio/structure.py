@@ -148,7 +148,7 @@ def label_segments(feats: AudioFeatures, bounds: np.ndarray) -> list[Segment]:
     "breakdown" while the track maximum was 0.620, because it sat below the
     0.66 quantile. Range-relative thresholds plus an explicit
     "drop follows build-up" rule fixed the localisation error from 3.2/6.7 s
-    to <1 s (see probe_control_synthetic.py).
+    to <1 s (see scripts/diagnostics/probe_control_synthetic.py).
     """
     raw = []
     for i in range(len(bounds) - 1):

@@ -1,0 +1,104 @@
+{
+ "tag": "jd_none",
+ "steps": 0,
+ "baseline_mse": false,
+ "v2": true,
+ "offline": false,
+ "tensor": "/mnt/lightsem-data/cache/train_tensor_jd_none.npz",
+ "drop_a": "hip_yaw_speed,footfall_rate",
+ "block_a": [
+  "metric_level",
+  "vert_period_s",
+  "vert_bounce_amp",
+  "com_speed"
+ ],
+ "block_c": [
+  "qom",
+  "head_speed",
+  "foot_speed",
+  "weight",
+  "time_eff",
+  "spread",
+  "section_energy",
+  "hand_speed",
+  "hand_spread",
+  "lateral_pos",
+  "travel_speed",
+  "symmetry",
+  "laterality",
+  "space_eff",
+  "flow_eff",
+  "jerk",
+  "vert_bounce"
+ ],
+ "params_m": 9.337424,
+ "causality_leak": 0.0,
+ "train_s": 0.5879430770874023,
+ "splits": {
+  "train": 352,
+  "val_track": 39,
+  "test_genre": 0,
+  "test_dancer": 62
+ },
+ "train": {
+  "r2_block_a": {
+   "metric_level": 0.24483144283294678,
+   "vert_period_s": 0.17540282011032104,
+   "vert_bounce_amp": 0.46317124366760254,
+   "com_speed": 0.13991379737854004
+  },
+  "r2_a_mean": 0.2558298259973526,
+  "event_ap": {
+   "footfall": 0.434233509393668,
+   "footfall_base": 0.25590625,
+   "jump": 0.30027449924826277,
+   "jump_base": 0.12203125,
+   "hit": 0.4514216169035084,
+   "hit_base": 0.25509375
+  },
+  "div_flow_samples": 1.6725419759750366,
+  "div_real_neighbour": 4.711117744445801,
+  "n_windows": 400
+ },
+ "val_track": {
+  "r2_block_a": {
+   "metric_level": -0.36674630641937256,
+   "vert_period_s": -0.2967092990875244,
+   "vert_bounce_amp": -0.19263207912445068,
+   "com_speed": -0.1407766342163086
+  },
+  "r2_a_mean": -0.24921607971191406,
+  "event_ap": {
+   "footfall": 0.31383695261919486,
+   "footfall_base": 0.290640625,
+   "jump": 0.17674035321768294,
+   "jump_base": 0.15690625,
+   "hit": 0.31908143782362475,
+   "hit_base": 0.289984375
+  },
+  "div_flow_samples": 1.6039661169052124,
+  "div_real_neighbour": 5.4409637451171875,
+  "n_windows": 400
+ },
+ "test_genre": null,
+ "test_dancer": {
+  "r2_block_a": {
+   "metric_level": -0.34436070919036865,
+   "vert_period_s": -0.24153363704681396,
+   "vert_bounce_amp": -0.20291244983673096,
+   "com_speed": -0.1118612289428711
+  },
+  "r2_a_mean": -0.22516700625419617,
+  "event_ap": {
+   "footfall": 0.30821908803388176,
+   "footfall_base": 0.283953125,
+   "jump": 0.1412054035531181,
+   "jump_base": 0.127875,
+   "hit": 0.3358836629875386,
+   "hit_base": 0.29228125
+  },
+  "div_flow_samples": 1.6420516967773438,
+  "div_real_neighbour": 4.968267440795898,
+  "n_windows": 400
+ }
+}

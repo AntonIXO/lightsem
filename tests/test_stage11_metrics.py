@@ -4,7 +4,7 @@ import unittest
 import numpy as np
 from scipy.stats import wasserstein_distance
 
-from lightsem.experiments.stage11_metrics import (
+from lightsem.experiments.stage11.stage11_metrics import (
     beat_only_scores, evaluate_conditioning_gate, evaluate_motion_gate,
     evaluate_temporal_gate, event_average_precision, fit_scales, motion_r2,
     normalize_recording_scene, paired_hierarchical_bootstrap, scene_metrics, scene_novelty,

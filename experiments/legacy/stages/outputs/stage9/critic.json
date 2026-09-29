@@ -1,0 +1,79 @@
+{
+ "n_songs": 843,
+ "pair_accuracy": {
+  "vs_beat_trigger": {
+   "acc": 0.89296875,
+   "n": 2560,
+   "ci95_lo": 0.8809928125832001
+  },
+  "vs_shift": {
+   "acc": 0.56328125,
+   "n": 2560,
+   "ci95_lo": 0.5440680521330445
+  },
+  "vs_other_song": {
+   "acc": 0.7296875,
+   "n": 2560,
+   "ci95_lo": 0.7124831762469913
+  },
+  "U_vs_beat_trigger": {
+   "acc": 0.979296875,
+   "n": 2560,
+   "ci95_lo": 0.9737810405219848
+  },
+  "R_vs_beat_trigger": {
+   "acc": 0.98515625,
+   "n": 2560,
+   "ci95_lo": 0.9804717799913346
+  }
+ },
+ "best_of_8": {
+  "n_clips": 39,
+  "fid_light": {
+   "best_of_8": 41.37960616581115,
+   "random_of_8": 43.815258164726096,
+   "null": 4119.784367310199,
+   "floor": 7.873109598761741
+  },
+  "bas_minus_null": {
+   "best": 0.12341895679201481,
+   "rand": 0.1236848453501801,
+   "real": 0.08133723383717471
+  },
+  "additive_projection_r2": 0.8959389974975064,
+  "order_change_frac": 0.41025641025641024
+ },
+ "gates": {
+  "G9.5-bt": {
+   "passed": true,
+   "evidence": "held-out pair accuracy (16-bar windows, 2560 pairs): real vs beat-trigger light on the same audio 0.893 (C_U alone 0.979, C_R alone 0.985), real vs 2+-bar shift 0.563, real vs other song 0.730; chance 0.5."
+  },
+  "G9.5-additive": {
+   "passed": true,
+   "evidence": "an additive model f(audio) + g(light) fitted to the critic's scores over 312 candidates explains R2 0.896; the best-of-8 argmax changes on 41% of clips (gate >= 30%)."
+  },
+  "G9.5-bon": {
+   "passed": false,
+   "evidence": "human 'fits the music' not run (needs raters). Proxies on 39 held-out JD clips: FID_light best-of-8 41.38 vs random-of-8 43.82 (null 4119.78, floor 7.87); BAS minus null best +0.1234 vs random +0.1237 vs real coach +0.0813."
+  }
+ },
+ "measurements": [
+  {
+   "diagnostic_id": "critic-pair-accuracy",
+   "before": 0.5,
+   "after": 0.893
+  },
+  {
+   "diagnostic_id": "light-bas-minus-shift-null",
+   "before": 0.1237,
+   "after": 0.1234
+  }
+ ],
+ "config": {
+  "critic": "train_critic.py: two dual encoders (2-layer Transformer d128 each side) on 16-bar windows; audio = bar-pooled 52-d features, light = bar-pooled scene vector + value std + look-change count; InfoNCE with shift / other-song / beat-trigger negatives; C_R on rms/onset/beat vs value channels only; score = C_U - 0.5 C_R; best-of-8 over the shipped model's flow seeds through the hybrid conductor",
+  "train_corpora": "rpmc,jd",
+  "n_songs": 843
+ },
+ "notes": "H-K critic. held-out pair accuracy (16-bar windows, 2560 pairs): real vs beat-trigger light on the same audio 0.893 (C_U alone 0.979, C_R alone 0.985), real vs 2+-bar shift 0.563, real vs other song 0.730; chance 0.5. an additive model f(audio) + g(light) fitted to the critic's scores over 312 candidates explains R2 0.896; the best-of-8 argmax changes on 41% of clips (gate >= 30%). human 'fits the music' not run (needs raters). Proxies on 39 held-out JD clips: FID_light best-of-8 41.38 vs random-of-8 43.82 (null 4119.78, floor 7.87); BAS minus null best +0.1234 vs random +0.1237 vs real coach +0.0813.",
+ "elapsed_s": 1206.0683991909027
+}

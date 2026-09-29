@@ -8,7 +8,7 @@ from dataclasses import replace
 import torch
 from torch.nn import functional as F
 
-from lightsem.experiments.stage11_models import SceneFlowConfig, SceneFlowModel
+from lightsem.experiments.stage11.stage11_models import SceneFlowConfig, SceneFlowModel
 
 
 def small_config(flow_kind="temporal", **kwargs):

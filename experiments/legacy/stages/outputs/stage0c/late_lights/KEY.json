@@ -1,0 +1,218 @@
+[
+ {
+  "trial_id": "T01",
+  "clip": "gLO_sBM_cAll_d14_mLO0_ch04",
+  "left_system": "delay_40ms",
+  "right_system": "delay_0ms",
+  "left_file": "/root/lightsem/outputs/stage0c/late_lights/gLO_sBM_cAll_d14_mLO0_ch04__d40.mp4",
+  "right_file": "/root/lightsem/outputs/stage0c/late_lights/gLO_sBM_cAll_d14_mLO0_ch04__d0.mp4",
+  "match": {
+   "note": "same renderer, identical content, delay only"
+  },
+  "kind": "comparison"
+ },
+ {
+  "trial_id": "T02",
+  "clip": "gLO_sBM_cAll_d14_mLO0_ch04",
+  "left_system": "delay_0ms",
+  "right_system": "delay_80ms",
+  "left_file": "/root/lightsem/outputs/stage0c/late_lights/gLO_sBM_cAll_d14_mLO0_ch04__d0.mp4",
+  "right_file": "/root/lightsem/outputs/stage0c/late_lights/gLO_sBM_cAll_d14_mLO0_ch04__d80.mp4",
+  "match": {
+   "note": "same renderer, identical content, delay only"
+  },
+  "kind": "comparison"
+ },
+ {
+  "trial_id": "T03",
+  "clip": "gLO_sBM_cAll_d14_mLO0_ch04",
+  "left_system": "delay_0ms",
+  "right_system": "delay_120ms",
+  "left_file": "/root/lightsem/outputs/stage0c/late_lights/gLO_sBM_cAll_d14_mLO0_ch04__d0.mp4",
+  "right_file": "/root/lightsem/outputs/stage0c/late_lights/gLO_sBM_cAll_d14_mLO0_ch04__d120.mp4",
+  "match": {
+   "note": "same renderer, identical content, delay only"
+  },
+  "kind": "comparison"
+ },
+ {
+  "trial_id": "T04",
+  "clip": "gLO_sBM_cAll_d14_mLO0_ch09",
+  "left_system": "delay_40ms",
+  "right_system": "delay_0ms",
+  "left_file": "/root/lightsem/outputs/stage0c/late_lights/gLO_sBM_cAll_d14_mLO0_ch09__d40.mp4",
+  "right_file": "/root/lightsem/outputs/stage0c/late_lights/gLO_sBM_cAll_d14_mLO0_ch09__d0.mp4",
+  "match": {
+   "note": "same renderer, identical content, delay only"
+  },
+  "kind": "comparison"
+ },
+ {
+  "trial_id": "T05",
+  "clip": "gLO_sBM_cAll_d14_mLO0_ch09",
+  "left_system": "delay_80ms",
+  "right_system": "delay_0ms",
+  "left_file": "/root/lightsem/outputs/stage0c/late_lights/gLO_sBM_cAll_d14_mLO0_ch09__d80.mp4",
+  "right_file": "/root/lightsem/outputs/stage0c/late_lights/gLO_sBM_cAll_d14_mLO0_ch09__d0.mp4",
+  "match": {
+   "note": "same renderer, identical content, delay only"
+  },
+  "kind": "comparison"
+ },
+ {
+  "trial_id": "T06",
+  "clip": "gLO_sBM_cAll_d14_mLO0_ch09",
+  "left_system": "delay_120ms",
+  "right_system": "delay_0ms",
+  "left_file": "/root/lightsem/outputs/stage0c/late_lights/gLO_sBM_cAll_d14_mLO0_ch09__d120.mp4",
+  "right_file": "/root/lightsem/outputs/stage0c/late_lights/gLO_sBM_cAll_d14_mLO0_ch09__d0.mp4",
+  "match": {
+   "note": "same renderer, identical content, delay only"
+  },
+  "kind": "comparison"
+ },
+ {
+  "trial_id": "T07",
+  "clip": "gJB_sFM_cAll_d07_mJB3_ch04",
+  "left_system": "delay_0ms",
+  "right_system": "delay_40ms",
+  "left_file": "/root/lightsem/outputs/stage0c/late_lights/gJB_sFM_cAll_d07_mJB3_ch04__d0.mp4",
+  "right_file": "/root/lightsem/outputs/stage0c/late_lights/gJB_sFM_cAll_d07_mJB3_ch04__d40.mp4",
+  "match": {
+   "note": "same renderer, identical content, delay only"
+  },
+  "kind": "comparison"
+ },
+ {
+  "trial_id": "T08",
+  "clip": "gJB_sFM_cAll_d07_mJB3_ch04",
+  "left_system": "delay_0ms",
+  "right_system": "delay_80ms",
+  "left_file": "/root/lightsem/outputs/stage0c/late_lights/gJB_sFM_cAll_d07_mJB3_ch04__d0.mp4",
+  "right_file": "/root/lightsem/outputs/stage0c/late_lights/gJB_sFM_cAll_d07_mJB3_ch04__d80.mp4",
+  "match": {
+   "note": "same renderer, identical content, delay only"
+  },
+  "kind": "comparison"
+ },
+ {
+  "trial_id": "T09",
+  "clip": "gJB_sFM_cAll_d07_mJB3_ch04",
+  "left_system": "delay_120ms",
+  "right_system": "delay_0ms",
+  "left_file": "/root/lightsem/outputs/stage0c/late_lights/gJB_sFM_cAll_d07_mJB3_ch04__d120.mp4",
+  "right_file": "/root/lightsem/outputs/stage0c/late_lights/gJB_sFM_cAll_d07_mJB3_ch04__d0.mp4",
+  "match": {
+   "note": "same renderer, identical content, delay only"
+  },
+  "kind": "comparison"
+ },
+ {
+  "trial_id": "T10",
+  "clip": "gJS_sBM_cAll_d02_mJS0_ch01",
+  "left_system": "delay_40ms",
+  "right_system": "delay_0ms",
+  "left_file": "/root/lightsem/outputs/stage0c/late_lights/gJS_sBM_cAll_d02_mJS0_ch01__d40.mp4",
+  "right_file": "/root/lightsem/outputs/stage0c/late_lights/gJS_sBM_cAll_d02_mJS0_ch01__d0.mp4",
+  "match": {
+   "note": "same renderer, identical content, delay only"
+  },
+  "kind": "comparison"
+ },
+ {
+  "trial_id": "T11",
+  "clip": "gJS_sBM_cAll_d02_mJS0_ch01",
+  "left_system": "delay_0ms",
+  "right_system": "delay_80ms",
+  "left_file": "/root/lightsem/outputs/stage0c/late_lights/gJS_sBM_cAll_d02_mJS0_ch01__d0.mp4",
+  "right_file": "/root/lightsem/outputs/stage0c/late_lights/gJS_sBM_cAll_d02_mJS0_ch01__d80.mp4",
+  "match": {
+   "note": "same renderer, identical content, delay only"
+  },
+  "kind": "comparison"
+ },
+ {
+  "trial_id": "T12",
+  "clip": "gJS_sBM_cAll_d02_mJS0_ch01",
+  "left_system": "delay_120ms",
+  "right_system": "delay_0ms",
+  "left_file": "/root/lightsem/outputs/stage0c/late_lights/gJS_sBM_cAll_d02_mJS0_ch01__d120.mp4",
+  "right_file": "/root/lightsem/outputs/stage0c/late_lights/gJS_sBM_cAll_d02_mJS0_ch01__d0.mp4",
+  "match": {
+   "note": "same renderer, identical content, delay only"
+  },
+  "kind": "comparison"
+ },
+ {
+  "trial_id": "T13",
+  "clip": "gBR_sFM_cAll_d05_mBR1_ch08",
+  "left_system": "delay_0ms",
+  "right_system": "delay_40ms",
+  "left_file": "/root/lightsem/outputs/stage0c/late_lights/gBR_sFM_cAll_d05_mBR1_ch08__d0.mp4",
+  "right_file": "/root/lightsem/outputs/stage0c/late_lights/gBR_sFM_cAll_d05_mBR1_ch08__d40.mp4",
+  "match": {
+   "note": "same renderer, identical content, delay only"
+  },
+  "kind": "comparison"
+ },
+ {
+  "trial_id": "T14",
+  "clip": "gBR_sFM_cAll_d05_mBR1_ch08",
+  "left_system": "delay_80ms",
+  "right_system": "delay_0ms",
+  "left_file": "/root/lightsem/outputs/stage0c/late_lights/gBR_sFM_cAll_d05_mBR1_ch08__d80.mp4",
+  "right_file": "/root/lightsem/outputs/stage0c/late_lights/gBR_sFM_cAll_d05_mBR1_ch08__d0.mp4",
+  "match": {
+   "note": "same renderer, identical content, delay only"
+  },
+  "kind": "comparison"
+ },
+ {
+  "trial_id": "T15",
+  "clip": "gBR_sFM_cAll_d05_mBR1_ch08",
+  "left_system": "delay_120ms",
+  "right_system": "delay_0ms",
+  "left_file": "/root/lightsem/outputs/stage0c/late_lights/gBR_sFM_cAll_d05_mBR1_ch08__d120.mp4",
+  "right_file": "/root/lightsem/outputs/stage0c/late_lights/gBR_sFM_cAll_d05_mBR1_ch08__d0.mp4",
+  "match": {
+   "note": "same renderer, identical content, delay only"
+  },
+  "kind": "comparison"
+ },
+ {
+  "trial_id": "T16",
+  "clip": "gKR_sBM_cAll_d28_mKR0_ch07",
+  "left_system": "delay_0ms",
+  "right_system": "delay_40ms",
+  "left_file": "/root/lightsem/outputs/stage0c/late_lights/gKR_sBM_cAll_d28_mKR0_ch07__d0.mp4",
+  "right_file": "/root/lightsem/outputs/stage0c/late_lights/gKR_sBM_cAll_d28_mKR0_ch07__d40.mp4",
+  "match": {
+   "note": "same renderer, identical content, delay only"
+  },
+  "kind": "comparison"
+ },
+ {
+  "trial_id": "T17",
+  "clip": "gKR_sBM_cAll_d28_mKR0_ch07",
+  "left_system": "delay_80ms",
+  "right_system": "delay_0ms",
+  "left_file": "/root/lightsem/outputs/stage0c/late_lights/gKR_sBM_cAll_d28_mKR0_ch07__d80.mp4",
+  "right_file": "/root/lightsem/outputs/stage0c/late_lights/gKR_sBM_cAll_d28_mKR0_ch07__d0.mp4",
+  "match": {
+   "note": "same renderer, identical content, delay only"
+  },
+  "kind": "comparison"
+ },
+ {
+  "trial_id": "T18",
+  "clip": "gKR_sBM_cAll_d28_mKR0_ch07",
+  "left_system": "delay_0ms",
+  "right_system": "delay_120ms",
+  "left_file": "/root/lightsem/outputs/stage0c/late_lights/gKR_sBM_cAll_d28_mKR0_ch07__d0.mp4",
+  "right_file": "/root/lightsem/outputs/stage0c/late_lights/gKR_sBM_cAll_d28_mKR0_ch07__d120.mp4",
+  "match": {
+   "note": "same renderer, identical content, delay only"
+  },
+  "kind": "comparison"
+ }
+]

@@ -1,0 +1,274 @@
+{
+ "n_trials_rated": 10,
+ "n_foil_rated": 0,
+ "questions": {
+  "on_music": {
+   "hybrid": 5,
+   "beat_trigger": 4,
+   "equal": 1,
+   "winrate_decided": 0.556,
+   "ci95_exact_decided": [
+    0.212,
+    0.863
+   ],
+   "sign_test_p_two_sided": 1.0,
+   "winrate_equal_as_half": 0.55,
+   "ci95_wilson_equal_as_half": [
+    0.274,
+    0.799
+   ],
+   "gate_G2_ci_excludes_0.5": false
+  },
+  "engineer": {
+   "hybrid": 8,
+   "beat_trigger": 1,
+   "equal": 1,
+   "winrate_decided": 0.889,
+   "ci95_exact_decided": [
+    0.518,
+    0.997
+   ],
+   "sign_test_p_two_sided": 0.0391,
+   "winrate_equal_as_half": 0.85,
+   "ci95_wilson_equal_as_half": [
+    0.541,
+    0.965
+   ],
+   "gate_G2_ci_excludes_0.5": true
+  }
+ },
+ "trials": [
+  {
+   "trial": "T01",
+   "clip": "gLO_sBM_cAll_d14_mLO0_ch04",
+   "question": "on_music",
+   "answer": "A",
+   "winner": "dance_derived_hybrid",
+   "confidence": 3,
+   "notes": "",
+   "brightness_mean_ratio": 1.099,
+   "brightness_p95_ratio": 0.882
+  },
+  {
+   "trial": "T01",
+   "clip": "gLO_sBM_cAll_d14_mLO0_ch04",
+   "question": "engineer",
+   "answer": "A",
+   "winner": "dance_derived_hybrid",
+   "confidence": 3,
+   "notes": "",
+   "brightness_mean_ratio": 1.099,
+   "brightness_p95_ratio": 0.882
+  },
+  {
+   "trial": "T03",
+   "clip": "gLO_sBM_cAll_d14_mLO0_ch09",
+   "question": "on_music",
+   "answer": "equal",
+   "winner": "equal",
+   "confidence": 4,
+   "notes": "both bad",
+   "brightness_mean_ratio": 1.084,
+   "brightness_p95_ratio": 0.918
+  },
+  {
+   "trial": "T03",
+   "clip": "gLO_sBM_cAll_d14_mLO0_ch09",
+   "question": "engineer",
+   "answer": "equal",
+   "winner": "equal",
+   "confidence": 5,
+   "notes": "both bad",
+   "brightness_mean_ratio": 1.084,
+   "brightness_p95_ratio": 0.918
+  },
+  {
+   "trial": "T05",
+   "clip": "gJB_sFM_cAll_d07_mJB3_ch04",
+   "question": "on_music",
+   "answer": "B",
+   "winner": "beat_trigger",
+   "confidence": 3,
+   "notes": "but too fast changes for light, but on the music actually",
+   "brightness_mean_ratio": 1.132,
+   "brightness_p95_ratio": 0.888
+  },
+  {
+   "trial": "T05",
+   "clip": "gJB_sFM_cAll_d07_mJB3_ch04",
+   "question": "engineer",
+   "answer": "A",
+   "winner": "dance_derived_hybrid",
+   "confidence": 3,
+   "notes": "",
+   "brightness_mean_ratio": 1.132,
+   "brightness_p95_ratio": 0.888
+  },
+  {
+   "trial": "T07",
+   "clip": "gJS_sBM_cAll_d02_mJS0_ch01",
+   "question": "on_music",
+   "answer": "B",
+   "winner": "beat_trigger",
+   "confidence": 4,
+   "notes": "both bad, A does not moving, B is moving boring",
+   "brightness_mean_ratio": 1.119,
+   "brightness_p95_ratio": 0.887
+  },
+  {
+   "trial": "T07",
+   "clip": "gJS_sBM_cAll_d02_mJS0_ch01",
+   "question": "engineer",
+   "answer": "B",
+   "winner": "beat_trigger",
+   "confidence": 4,
+   "notes": "",
+   "brightness_mean_ratio": 1.119,
+   "brightness_p95_ratio": 0.887
+  },
+  {
+   "trial": "T09",
+   "clip": "gBR_sFM_cAll_d05_mBR1_ch08",
+   "question": "on_music",
+   "answer": "B",
+   "winner": "beat_trigger",
+   "confidence": 3,
+   "notes": "",
+   "brightness_mean_ratio": 1.052,
+   "brightness_p95_ratio": 0.962
+  },
+  {
+   "trial": "T09",
+   "clip": "gBR_sFM_cAll_d05_mBR1_ch08",
+   "question": "engineer",
+   "answer": "A",
+   "winner": "dance_derived_hybrid",
+   "confidence": 3,
+   "notes": "",
+   "brightness_mean_ratio": 1.052,
+   "brightness_p95_ratio": 0.962
+  },
+  {
+   "trial": "T11",
+   "clip": "gKR_sBM_cAll_d28_mKR0_ch07",
+   "question": "on_music",
+   "answer": "A",
+   "winner": "dance_derived_hybrid",
+   "confidence": null,
+   "notes": "",
+   "brightness_mean_ratio": 1.111,
+   "brightness_p95_ratio": 0.886
+  },
+  {
+   "trial": "T11",
+   "clip": "gKR_sBM_cAll_d28_mKR0_ch07",
+   "question": "engineer",
+   "answer": "A",
+   "winner": "dance_derived_hybrid",
+   "confidence": null,
+   "notes": "",
+   "brightness_mean_ratio": 1.111,
+   "brightness_p95_ratio": 0.886
+  },
+  {
+   "trial": "T13",
+   "clip": "gWA_sBM_cAll_d27_mWA2_ch04",
+   "question": "on_music",
+   "answer": "A",
+   "winner": "dance_derived_hybrid",
+   "confidence": null,
+   "notes": "",
+   "brightness_mean_ratio": 1.054,
+   "brightness_p95_ratio": 0.945
+  },
+  {
+   "trial": "T13",
+   "clip": "gWA_sBM_cAll_d27_mWA2_ch04",
+   "question": "engineer",
+   "answer": "A",
+   "winner": "dance_derived_hybrid",
+   "confidence": null,
+   "notes": "",
+   "brightness_mean_ratio": 1.054,
+   "brightness_p95_ratio": 0.945
+  },
+  {
+   "trial": "T15",
+   "clip": "gJB_sBM_cAll_d07_mJB1_ch07",
+   "question": "on_music",
+   "answer": "B",
+   "winner": "beat_trigger",
+   "confidence": null,
+   "notes": "",
+   "brightness_mean_ratio": 1.17,
+   "brightness_p95_ratio": 0.84
+  },
+  {
+   "trial": "T15",
+   "clip": "gJB_sBM_cAll_d07_mJB1_ch07",
+   "question": "engineer",
+   "answer": "A",
+   "winner": "dance_derived_hybrid",
+   "confidence": null,
+   "notes": "",
+   "brightness_mean_ratio": 1.17,
+   "brightness_p95_ratio": 0.84
+  },
+  {
+   "trial": "T17",
+   "clip": "gJS_sFM_cAll_d02_mJS0_ch08",
+   "question": "on_music",
+   "answer": "A",
+   "winner": "dance_derived_hybrid",
+   "confidence": null,
+   "notes": "",
+   "brightness_mean_ratio": 1.028,
+   "brightness_p95_ratio": 0.953
+  },
+  {
+   "trial": "T17",
+   "clip": "gJS_sFM_cAll_d02_mJS0_ch08",
+   "question": "engineer",
+   "answer": "A",
+   "winner": "dance_derived_hybrid",
+   "confidence": null,
+   "notes": "",
+   "brightness_mean_ratio": 1.028,
+   "brightness_p95_ratio": 0.953
+  },
+  {
+   "trial": "T19",
+   "clip": "gMH_sBM_cAll_d23_mMH0_ch04",
+   "question": "on_music",
+   "answer": "A",
+   "winner": "dance_derived_hybrid",
+   "confidence": null,
+   "notes": "",
+   "brightness_mean_ratio": 1.059,
+   "brightness_p95_ratio": 0.925
+  },
+  {
+   "trial": "T19",
+   "clip": "gMH_sBM_cAll_d23_mMH0_ch04",
+   "question": "engineer",
+   "answer": "A",
+   "winner": "dance_derived_hybrid",
+   "confidence": null,
+   "notes": "",
+   "brightness_mean_ratio": 1.059,
+   "brightness_p95_ratio": 0.925
+  }
+ ],
+ "protocol": {
+  "raters": 1,
+  "preregistered_raters": 5,
+  "tracks": 10,
+  "preregistered_tracks": 20,
+  "edm_tracks": 0,
+  "preregistered_edm_tracks": 10,
+  "foil_trials_rated": 0,
+  "foil_trials_offered": 10,
+  "brightness_matched": true,
+  "blinding_caveat": "answers were given by file letter; __A is the hybrid and __B the beat trigger in every trial, so the letter was a constant label across trials even though left/right was randomised in the key"
+ }
+}

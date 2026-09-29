@@ -1,0 +1,10 @@
+{
+ "ckpt": "/mnt/lightsem-data/ckpt/light_trunk_jd_struct.pt",
+ "split": "val_track",
+ "n_clips": 39,
+ "thresholds": {
+  "footfall": 0.6781831085686372,
+  "jump": 0.9021122157576882,
+  "hit": 0.6754290163517271
+ }
+}

@@ -1,0 +1,342 @@
+[
+ {
+  "trial_id": "T01",
+  "clip": "gLO_sBM_cAll_d14_mLO0_ch04",
+  "left_system": "lightsem_model",
+  "right_system": "beat_trigger",
+  "left_file": "/root/lightsem/outputs/stage0c/category_model/gLO_sBM_cAll_d14_mLO0_ch04__A.mp4",
+  "right_file": "/root/lightsem/outputs/stage0c/category_model/gLO_sBM_cAll_d14_mLO0_ch04__B.mp4",
+  "match": {
+   "gain_a": 1.0,
+   "gain_b": 0.6267130143383465,
+   "mean_a": 0.17447959575987257,
+   "mean_b": 0.15909059702312298,
+   "p95_a": 0.24312533640907347,
+   "p95_b": 0.27456582633053217,
+   "combined_a": 0.20596215772718582,
+   "combined_b": 0.20899962017446697,
+   "mean_ratio": 1.0967310389470277,
+   "p95_ratio": 0.8854901560705901,
+   "matched": true
+  },
+  "kind": "comparison"
+ },
+ {
+  "trial_id": "T02",
+  "clip": "gLO_sBM_cAll_d14_mLO0_ch04_FOIL",
+  "left_system": "beat_trigger",
+  "right_system": "beat_trigger_bright",
+  "left_file": "/root/lightsem/outputs/stage0c/category_model/gLO_sBM_cAll_d14_mLO0_ch04__B.mp4",
+  "right_file": "/root/lightsem/outputs/stage0c/category_model/gLO_sBM_cAll_d14_mLO0_ch04__FOIL.mp4",
+  "match": {
+   "note": "identical content, 1.6x brighter"
+  },
+  "kind": "comparison"
+ },
+ {
+  "trial_id": "T03",
+  "clip": "gLO_sBM_cAll_d14_mLO0_ch09",
+  "left_system": "beat_trigger",
+  "right_system": "lightsem_model",
+  "left_file": "/root/lightsem/outputs/stage0c/category_model/gLO_sBM_cAll_d14_mLO0_ch09__B.mp4",
+  "right_file": "/root/lightsem/outputs/stage0c/category_model/gLO_sBM_cAll_d14_mLO0_ch09__A.mp4",
+  "match": {
+   "gain_a": 1.0,
+   "gain_b": 0.6267130143383465,
+   "mean_a": 0.17447959575987257,
+   "mean_b": 0.15909059702312298,
+   "p95_a": 0.24312533640907347,
+   "p95_b": 0.27456582633053217,
+   "combined_a": 0.20596215772718582,
+   "combined_b": 0.20899962017446697,
+   "mean_ratio": 1.0967310389470277,
+   "p95_ratio": 0.8854901560705901,
+   "matched": true
+  },
+  "kind": "comparison"
+ },
+ {
+  "trial_id": "T04",
+  "clip": "gLO_sBM_cAll_d14_mLO0_ch09_FOIL",
+  "left_system": "beat_trigger_bright",
+  "right_system": "beat_trigger",
+  "left_file": "/root/lightsem/outputs/stage0c/category_model/gLO_sBM_cAll_d14_mLO0_ch09__FOIL.mp4",
+  "right_file": "/root/lightsem/outputs/stage0c/category_model/gLO_sBM_cAll_d14_mLO0_ch09__B.mp4",
+  "match": {
+   "note": "identical content, 1.6x brighter"
+  },
+  "kind": "comparison"
+ },
+ {
+  "trial_id": "T05",
+  "clip": "gJB_sFM_cAll_d07_mJB3_ch04",
+  "left_system": "lightsem_model",
+  "right_system": "beat_trigger",
+  "left_file": "/root/lightsem/outputs/stage0c/category_model/gJB_sFM_cAll_d07_mJB3_ch04__A.mp4",
+  "right_file": "/root/lightsem/outputs/stage0c/category_model/gJB_sFM_cAll_d07_mJB3_ch04__B.mp4",
+  "match": {
+   "gain_a": 1.0,
+   "gain_b": 0.9300358022712596,
+   "mean_a": 0.2646083820783215,
+   "mean_b": 0.23161203108694456,
+   "p95_a": 0.35211484593837533,
+   "p95_b": 0.4029908277036304,
+   "combined_a": 0.30524177251731277,
+   "combined_b": 0.30551190502801484,
+   "mean_ratio": 1.142463890310562,
+   "p95_ratio": 0.8737539957046602,
+   "matched": true
+  },
+  "kind": "comparison"
+ },
+ {
+  "trial_id": "T06",
+  "clip": "gJB_sFM_cAll_d07_mJB3_ch04_FOIL",
+  "left_system": "beat_trigger",
+  "right_system": "beat_trigger_bright",
+  "left_file": "/root/lightsem/outputs/stage0c/category_model/gJB_sFM_cAll_d07_mJB3_ch04__B.mp4",
+  "right_file": "/root/lightsem/outputs/stage0c/category_model/gJB_sFM_cAll_d07_mJB3_ch04__FOIL.mp4",
+  "match": {
+   "note": "identical content, 1.6x brighter"
+  },
+  "kind": "comparison"
+ },
+ {
+  "trial_id": "T07",
+  "clip": "gJS_sBM_cAll_d02_mJS0_ch01",
+  "left_system": "lightsem_model",
+  "right_system": "beat_trigger",
+  "left_file": "/root/lightsem/outputs/stage0c/category_model/gJS_sBM_cAll_d02_mJS0_ch01__A.mp4",
+  "right_file": "/root/lightsem/outputs/stage0c/category_model/gJS_sBM_cAll_d02_mJS0_ch01__B.mp4",
+  "match": {
+   "gain_a": 1.0,
+   "gain_b": 0.6384619462824395,
+   "mean_a": 0.16172096240456968,
+   "mean_b": 0.1481070295765365,
+   "p95_a": 0.25883753501400564,
+   "p95_b": 0.28412929093205913,
+   "combined_a": 0.204595833948034,
+   "combined_b": 0.20513786899457356,
+   "mean_ratio": 1.0919195588957376,
+   "p95_ratio": 0.9109850454520676,
+   "matched": true
+  },
+  "kind": "comparison"
+ },
+ {
+  "trial_id": "T08",
+  "clip": "gJS_sBM_cAll_d02_mJS0_ch01_FOIL",
+  "left_system": "beat_trigger_bright",
+  "right_system": "beat_trigger",
+  "left_file": "/root/lightsem/outputs/stage0c/category_model/gJS_sBM_cAll_d02_mJS0_ch01__FOIL.mp4",
+  "right_file": "/root/lightsem/outputs/stage0c/category_model/gJS_sBM_cAll_d02_mJS0_ch01__B.mp4",
+  "match": {
+   "note": "identical content, 1.6x brighter"
+  },
+  "kind": "comparison"
+ },
+ {
+  "trial_id": "T09",
+  "clip": "gBR_sFM_cAll_d05_mBR1_ch08",
+  "left_system": "lightsem_model",
+  "right_system": "beat_trigger",
+  "left_file": "/root/lightsem/outputs/stage0c/category_model/gBR_sFM_cAll_d05_mBR1_ch08__A.mp4",
+  "right_file": "/root/lightsem/outputs/stage0c/category_model/gBR_sFM_cAll_d05_mBR1_ch08__B.mp4",
+  "match": {
+   "gain_a": 1.0,
+   "gain_b": 0.8318532151374866,
+   "mean_a": 0.2244311322568243,
+   "mean_b": 0.20141661174273634,
+   "p95_a": 0.3188547262042072,
+   "p95_b": 0.3471994287911243,
+   "combined_a": 0.2675087423383578,
+   "combined_b": 0.26444608627491867,
+   "mean_ratio": 1.1142632691264003,
+   "p95_ratio": 0.9183618974097756,
+   "matched": true
+  },
+  "kind": "comparison"
+ },
+ {
+  "trial_id": "T10",
+  "clip": "gBR_sFM_cAll_d05_mBR1_ch08_FOIL",
+  "left_system": "beat_trigger",
+  "right_system": "beat_trigger_bright",
+  "left_file": "/root/lightsem/outputs/stage0c/category_model/gBR_sFM_cAll_d05_mBR1_ch08__B.mp4",
+  "right_file": "/root/lightsem/outputs/stage0c/category_model/gBR_sFM_cAll_d05_mBR1_ch08__FOIL.mp4",
+  "match": {
+   "note": "identical content, 1.6x brighter"
+  },
+  "kind": "comparison"
+ },
+ {
+  "trial_id": "T11",
+  "clip": "gKR_sBM_cAll_d28_mKR0_ch07",
+  "left_system": "lightsem_model",
+  "right_system": "beat_trigger",
+  "left_file": "/root/lightsem/outputs/stage0c/category_model/gKR_sBM_cAll_d28_mKR0_ch07__A.mp4",
+  "right_file": "/root/lightsem/outputs/stage0c/category_model/gKR_sBM_cAll_d28_mKR0_ch07__B.mp4",
+  "match": {
+   "gain_a": 1.0,
+   "gain_b": 0.6789361060801866,
+   "mean_a": 0.17698371162190368,
+   "mean_b": 0.15037622205745044,
+   "p95_a": 0.2545433075190862,
+   "p95_b": 0.3087535014005602,
+   "combined_a": 0.21224989831150332,
+   "combined_b": 0.2154743258200985,
+   "mean_ratio": 1.176939473544481,
+   "p95_ratio": 0.8244224158250287,
+   "matched": true
+  },
+  "kind": "comparison"
+ },
+ {
+  "trial_id": "T12",
+  "clip": "gKR_sBM_cAll_d28_mKR0_ch07_FOIL",
+  "left_system": "beat_trigger_bright",
+  "right_system": "beat_trigger",
+  "left_file": "/root/lightsem/outputs/stage0c/category_model/gKR_sBM_cAll_d28_mKR0_ch07__FOIL.mp4",
+  "right_file": "/root/lightsem/outputs/stage0c/category_model/gKR_sBM_cAll_d28_mKR0_ch07__B.mp4",
+  "match": {
+   "note": "identical content, 1.6x brighter"
+  },
+  "kind": "comparison"
+ },
+ {
+  "trial_id": "T13",
+  "clip": "gWA_sBM_cAll_d27_mWA2_ch04",
+  "left_system": "beat_trigger",
+  "right_system": "lightsem_model",
+  "left_file": "/root/lightsem/outputs/stage0c/category_model/gWA_sBM_cAll_d27_mWA2_ch04__B.mp4",
+  "right_file": "/root/lightsem/outputs/stage0c/category_model/gWA_sBM_cAll_d27_mWA2_ch04__A.mp4",
+  "match": {
+   "gain_a": 1.0,
+   "gain_b": 0.6994442074901208,
+   "mean_a": 0.18879626997857968,
+   "mean_b": 0.18264329996704562,
+   "p95_a": 0.27945845004668546,
+   "p95_b": 0.30476190476190473,
+   "combined_a": 0.22969700255512576,
+   "combined_b": 0.2359294809682689,
+   "mean_ratio": 1.0336884518219078,
+   "p95_ratio": 0.9169730392156867,
+   "matched": true
+  },
+  "kind": "comparison"
+ },
+ {
+  "trial_id": "T14",
+  "clip": "gWA_sBM_cAll_d27_mWA2_ch04_FOIL",
+  "left_system": "beat_trigger_bright",
+  "right_system": "beat_trigger",
+  "left_file": "/root/lightsem/outputs/stage0c/category_model/gWA_sBM_cAll_d27_mWA2_ch04__FOIL.mp4",
+  "right_file": "/root/lightsem/outputs/stage0c/category_model/gWA_sBM_cAll_d27_mWA2_ch04__B.mp4",
+  "match": {
+   "note": "identical content, 1.6x brighter"
+  },
+  "kind": "comparison"
+ },
+ {
+  "trial_id": "T15",
+  "clip": "gJB_sBM_cAll_d07_mJB1_ch07",
+  "left_system": "lightsem_model",
+  "right_system": "beat_trigger",
+  "left_file": "/root/lightsem/outputs/stage0c/category_model/gJB_sBM_cAll_d07_mJB1_ch07__A.mp4",
+  "right_file": "/root/lightsem/outputs/stage0c/category_model/gJB_sBM_cAll_d07_mJB1_ch07__B.mp4",
+  "match": {
+   "gain_a": 0.9592375171254435,
+   "gain_b": 1.0,
+   "mean_a": 0.2585644944252211,
+   "mean_b": 0.21610666913824353,
+   "p95_a": 0.36820426209699575,
+   "p95_b": 0.44657071456033387,
+   "combined_a": 0.30855234381595825,
+   "combined_b": 0.3106556126296756,
+   "mean_ratio": 1.1964669829778243,
+   "p95_ratio": 0.824515021007383,
+   "matched": true
+  },
+  "kind": "comparison"
+ },
+ {
+  "trial_id": "T16",
+  "clip": "gJB_sBM_cAll_d07_mJB1_ch07_FOIL",
+  "left_system": "beat_trigger",
+  "right_system": "beat_trigger_bright",
+  "left_file": "/root/lightsem/outputs/stage0c/category_model/gJB_sBM_cAll_d07_mJB1_ch07__B.mp4",
+  "right_file": "/root/lightsem/outputs/stage0c/category_model/gJB_sBM_cAll_d07_mJB1_ch07__FOIL.mp4",
+  "match": {
+   "note": "identical content, 1.6x brighter"
+  },
+  "kind": "comparison"
+ },
+ {
+  "trial_id": "T17",
+  "clip": "gJS_sFM_cAll_d02_mJS0_ch08",
+  "left_system": "lightsem_model",
+  "right_system": "beat_trigger",
+  "left_file": "/root/lightsem/outputs/stage0c/category_model/gJS_sFM_cAll_d02_mJS0_ch08__A.mp4",
+  "right_file": "/root/lightsem/outputs/stage0c/category_model/gJS_sFM_cAll_d02_mJS0_ch08__B.mp4",
+  "match": {
+   "gain_a": 1.0,
+   "gain_b": 0.6384619462824395,
+   "mean_a": 0.16172096240456968,
+   "mean_b": 0.1481070295765365,
+   "p95_a": 0.25883753501400564,
+   "p95_b": 0.28412929093205913,
+   "combined_a": 0.204595833948034,
+   "combined_b": 0.20513786899457356,
+   "mean_ratio": 1.0919195588957376,
+   "p95_ratio": 0.9109850454520676,
+   "matched": true
+  },
+  "kind": "comparison"
+ },
+ {
+  "trial_id": "T18",
+  "clip": "gJS_sFM_cAll_d02_mJS0_ch08_FOIL",
+  "left_system": "beat_trigger",
+  "right_system": "beat_trigger_bright",
+  "left_file": "/root/lightsem/outputs/stage0c/category_model/gJS_sFM_cAll_d02_mJS0_ch08__B.mp4",
+  "right_file": "/root/lightsem/outputs/stage0c/category_model/gJS_sFM_cAll_d02_mJS0_ch08__FOIL.mp4",
+  "match": {
+   "note": "identical content, 1.6x brighter"
+  },
+  "kind": "comparison"
+ },
+ {
+  "trial_id": "T19",
+  "clip": "gMH_sBM_cAll_d23_mMH0_ch04",
+  "left_system": "beat_trigger",
+  "right_system": "lightsem_model",
+  "left_file": "/root/lightsem/outputs/stage0c/category_model/gMH_sBM_cAll_d23_mMH0_ch04__B.mp4",
+  "right_file": "/root/lightsem/outputs/stage0c/category_model/gMH_sBM_cAll_d23_mMH0_ch04__A.mp4",
+  "match": {
+   "gain_a": 1.0,
+   "gain_b": 0.8842458509613922,
+   "mean_a": 0.25250736667215906,
+   "mean_b": 0.22876430768385783,
+   "p95_a": 0.38605042016806723,
+   "p95_b": 0.4285184269786346,
+   "combined_a": 0.3122187934755357,
+   "combined_b": 0.31309698382057777,
+   "mean_ratio": 1.1037883017184353,
+   "p95_ratio": 0.9008957278453633,
+   "matched": true
+  },
+  "kind": "comparison"
+ },
+ {
+  "trial_id": "T20",
+  "clip": "gMH_sBM_cAll_d23_mMH0_ch04_FOIL",
+  "left_system": "beat_trigger_bright",
+  "right_system": "beat_trigger",
+  "left_file": "/root/lightsem/outputs/stage0c/category_model/gMH_sBM_cAll_d23_mMH0_ch04__FOIL.mp4",
+  "right_file": "/root/lightsem/outputs/stage0c/category_model/gMH_sBM_cAll_d23_mMH0_ch04__B.mp4",
+  "match": {
+   "note": "identical content, 1.6x brighter"
+  },
+  "kind": "comparison"
+ }
+]

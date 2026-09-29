@@ -1,0 +1,83 @@
+{
+ "note": "Supersedes the first probe, which was confounded twice and must not be used: 6 of its 10 clips failed on the AV1/OpenCV decode bug fixed in c7c0935, not on pose, and its coverages were measured from frame 0, which is titles and menus with nobody on screen.",
+ "protocol": {
+  "start_s": 40.0,
+  "max_frames": 750,
+  "imgsz": 960,
+  "model": "yolo11m-pose.pt",
+  "decoder": "pyav/libdav1d"
+ },
+ "aist_baseline": {
+  "coverage": 1.0,
+  "n_tracks": 1,
+  "note": "3 clips re-checked after the PyAV rewrite, unchanged"
+ },
+ "throughput_fps_rtx5070": 72.1,
+ "clips": [
+  {
+   "clip": "Despacito 1080p",
+   "coverage": 1.0,
+   "n_tracks": 4,
+   "mean_conf": 0.93
+  },
+  {
+   "clip": "HandClap 720p",
+   "coverage": 1.0,
+   "n_tracks": 3,
+   "mean_conf": 0.948
+  },
+  {
+   "clip": "Havana 1080p",
+   "coverage": 1.0,
+   "n_tracks": 18,
+   "mean_conf": 0.936
+  },
+  {
+   "clip": "Despacito 3 Players",
+   "coverage": 1.0,
+   "n_tracks": 4,
+   "mean_conf": 0.911
+  },
+  {
+   "clip": "U Cant Touch This 480p",
+   "coverage": 0.999,
+   "n_tracks": 5,
+   "mean_conf": 0.906
+  },
+  {
+   "clip": "Move your feet 6P 720p",
+   "coverage": 0.984,
+   "n_tracks": 9,
+   "mean_conf": 0.942
+  },
+  {
+   "clip": "Animals Extreme 720p",
+   "coverage": 0.76,
+   "n_tracks": 6,
+   "mean_conf": 0.917
+  },
+  {
+   "clip": "Wake Me Up (NO AUDIO)",
+   "coverage": 0.717,
+   "n_tracks": 6,
+   "mean_conf": 0.925
+  },
+  {
+   "clip": "Girls And Boys 480p",
+   "coverage": 0.565,
+   "n_tracks": 9,
+   "mean_conf": 0.922
+  },
+  {
+   "clip": "Funkytown 720p",
+   "coverage": 0.313,
+   "n_tracks": 24,
+   "mean_conf": 0.792
+  }
+ ],
+ "open": [
+  "coach selection is max-frames track, not validated for multi-coach",
+  "no mirroring flag; laterality and symmetry are unguarded",
+  "audio content unmeasured (game SFX, Ubisoft cover re-recordings)"
+ ]
+}

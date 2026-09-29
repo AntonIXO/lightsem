@@ -1,0 +1,10 @@
+{
+ "ckpt": "/mnt/lightsem-data/ckpt/light_trunk_v3causal.pt",
+ "split": "val_track",
+ "n_clips": 40,
+ "thresholds": {
+  "footfall": 0.886719316243898,
+  "jump": 0.9165121614937468,
+  "hit": 0.8412901461127602
+ }
+}

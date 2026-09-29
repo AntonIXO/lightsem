@@ -1,0 +1,27 @@
+{
+ "n_songs": 930,
+ "corpora": "rpmc,jd",
+ "cond_dim": 192,
+ "params_m": 2.62577,
+ "random_rig": true,
+ "offline": false,
+ "per_corpus": {
+  "rpmc": {
+   "scene_mse": 0.07319756956814333,
+   "scene_mse_shuffled_donor": 0.07541528179548508,
+   "look_ap_lift": 1.3582103252410889,
+   "look_ap_lift_hazard_ridge": 1.250106930732727,
+   "value_r": 0.06382440295457278,
+   "n_test": 86
+  },
+  "jd": {
+   "scene_mse": 0.07815649487862461,
+   "scene_mse_shuffled_donor": 0.08322831743249767,
+   "look_ap_lift": 2.3864705562591553,
+   "look_ap_lift_hazard_ridge": 1.4812017679214478,
+   "value_r": 0.17521931804331245,
+   "n_test": 38
+  }
+ },
+ "train_s": 679.2133929729462
+}

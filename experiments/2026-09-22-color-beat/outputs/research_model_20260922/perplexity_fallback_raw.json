@@ -1,0 +1,6 @@
+{
+  "status": "failed",
+  "tool": "local_mcp.perplexity.perplexity_ask",
+  "error": "Pro Search has 0 queries remaining",
+  "log": "perplexity_fallback_run.log"
+}

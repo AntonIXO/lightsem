@@ -10,11 +10,11 @@ from . import ROOT as SOURCE
 from .audio_prepare import ROOT
 from .geometry import joints_from_features
 from .music_render import render as render_movie
-from ..night_common import BASE,ROOT as NIGHT
-from ..night_evaluation import generate_groups,normalized_input
-from ..beat_conditioned_model import BeatConditionedModel
-from ..night_probes import PoseDecoder
-from ..stage11_common import read_authenticated,authenticated_json,digest,freeze_sources,verify_sources,gpu_lock,seed_all
+from ..night.night_common import BASE,ROOT as NIGHT
+from ..night.night_evaluation import generate_groups,normalized_input
+from ..beat_conditioned.beat_conditioned_model import BeatConditionedModel
+from ..night.night_probes import PoseDecoder
+from ..stage11.stage11_common import read_authenticated,authenticated_json,digest,freeze_sources,verify_sources,gpu_lock,seed_all
 
 
 def freeze():

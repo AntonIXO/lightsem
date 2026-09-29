@@ -21,7 +21,7 @@ Every design choice below is justified against THIS task's measurements:
 
   CAUSAL mask            -- a lighting desk cannot see the future. Non-causal
       attention would inflate the metric and be unshippable. Enforced by an
-      upper-triangular mask and verified in smoke_model.py by perturbing the
+      upper-triangular mask and verified in scripts/diagnostics/smoke_model.py by perturbing the
       future and asserting bit-identical output.
 
   multi-horizon heads    -- the brief is anticipation: "build-up now, drop in

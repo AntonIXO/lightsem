@@ -14,7 +14,7 @@ import numpy as np
 from .articulated_stage import infer_root_rotation, unfolded_targets
 from .lighting_map import LightingConfig, compose_world_joints, ema, smoothstep
 from .offline_angles import project_angles
-from ..beat_conditioned_render import _angles
+from ..beat_conditioned.beat_conditioned_render import _angles
 from ...conductor.rig import canonical_rig
 
 @dataclass(frozen=True)

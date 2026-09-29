@@ -3,7 +3,7 @@ import tempfile
 import unittest
 from lightsem.experiments.iteration_speed import engineering_inputs
 from lightsem.experiments.training_runtime import TrainingRuntime
-from lightsem.experiments.night_freeze import training_config
+from lightsem.experiments.night.night_freeze import training_config
 
 
 class SetupTests(unittest.TestCase):

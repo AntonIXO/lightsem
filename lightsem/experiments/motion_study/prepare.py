@@ -14,7 +14,7 @@ import torch
 
 from . import DATA, ROOT
 from .geometry import FPS, FEET, BODY_HEIGHT, OFFSETS, prepare_native
-from ..stage11_common import authenticated_json, read_authenticated, digest, json_digest
+from ..stage11.stage11_common import authenticated_json, read_authenticated, digest, json_digest
 
 # Official FineDance@Genre identifiers as published in the LODGE data loader.
 # Preserve known author exclusions, but do NOT copy its variance or intro trims.

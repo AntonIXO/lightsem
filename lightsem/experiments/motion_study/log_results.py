@@ -7,7 +7,7 @@ from pathlib import Path
 
 from . import ROOT
 from .registration import PROBLEM
-from ..stage11_common import authenticated_json, read_authenticated, digest, verify_sources, verify_artifacts
+from ..stage11.stage11_common import authenticated_json, read_authenticated, digest, verify_sources, verify_artifacts
 
 
 def bootstrap(before, after, protocol):

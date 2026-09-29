@@ -1,0 +1,6 @@
+{
+  "status": "failed",
+  "tool": "local_mcp.perplexity.perplexity_research",
+  "error": "Perplexity quota exhausted: Deep Research has 0 queries remaining. The request was not answered because the plan limit for this mode is reached.",
+  "log": "perplexity_run.log"
+}
