@@ -1,0 +1,13 @@
+{
+  "date": "2026-09-29",
+  "source": "direct user message after four-arm review",
+  "raw_user_message": "Переходы и история включена в новый baseline. + закмить все включая изменения сжатия",
+  "selected_review_variant": "C",
+  "model_variant": "06",
+  "palette_history": true,
+  "color_transition_s": 0.3,
+  "transition_curve": "causal smoothstep in DMX channel RGB",
+  "numeric_scores": null,
+  "scope": "Explicit working-baseline decision; no change to historical scientific verdicts.",
+  "reference_video_sha256": "fb06c3f3a951a4f2a12bbc01f4470cec4f8326912a441bd4e25097e275170299"
+}

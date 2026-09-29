@@ -1,0 +1,125 @@
+{
+  "schema_version": 1,
+  "id": "baseline06-history-transition-review-20260929-v1",
+  "base_commit": "d1084a8",
+  "scope": "User-requested engineering rendering comparison, not a new training or statistical experiment",
+  "output_root": "/root/lightsem/experiments/2026-09-29-baseline/outputs/shpongle_baseline_ab_v1",
+  "inputs": {
+    "model_outputs": {
+      "path": "/mnt/lightsem-data/experiments/lightsem/end_to_end_20260928_v1/comparison_demos_v1/03_I_VR_P0/model_outputs.npz",
+      "sha256": "135a02cef71b695cf0faa0370ab6bc602a741e303dee47f4f9ea822776f9fea6",
+      "bytes": 941987
+    },
+    "overlay": {
+      "path": "/mnt/lightsem-data/experiments/lightsem/end_to_end_20260928_v1/comparison_demos_v1/03_I_VR_P0/overlay_dmx.npz",
+      "sha256": "041c0a346a2655507a550a42bfc38b96114fa4232b9a0c68ac829d85ae9c2684",
+      "bytes": 417629
+    },
+    "checkpoint": {
+      "path": "/mnt/lightsem-data/experiments/lightsem/lighting-cue-model-20260922t094347z/observer_fits_v1/04_seed0_I_VR_P0/best.pt",
+      "sha256": "8de865906cfabb49290971eccf6016ab38edebe885eec7e6369f020fb5544b8a"
+    },
+    "audio": {
+      "path": "/root/shpongle.flac",
+      "sha256": "95e4388424ef62950bdeae78e47b8e71839ed28c6e01189fe15f9ae6c902b6c0"
+    },
+    "original_video": {
+      "path": "/root/lightsem/experiments/2026-09-28-end-to-end/outputs/shpongle_model_comparisons_20260928_v1/media/03_I_VR_P0/03_I_VR_P0_full_1080p_av1.mp4",
+      "sha256": "0656487bce4c490d5d823a93b0c4029b899329cfb643740a749789c538caf317"
+    },
+    "inference_receipt": {
+      "path": "/mnt/lightsem-data/experiments/lightsem/end_to_end_20260928_v1/comparison_demos_v1/03_I_VR_P0/inference_saved.json",
+      "sha256": "450e4c5edc65ca7fe59a907be4a4983fe6de3fd8746564f8aff37a1e05472cc7"
+    }
+  },
+  "source_files": {
+    "/root/lightsem/scripts/light_layers/prepare_baseline_review.py": "16e8b720aa3a9ac54a487a2dabdbd3ba21705dfe3b0661f357f1f06f944c7dc6",
+    "/root/lightsem/scripts/light_layers/render_baseline_review.py": "56e289632e2620039a08a39b552bc6715ee5a09b7fa7d67a5a4da9cffb6ae5f1",
+    "/root/lightsem/scripts/rendering/render_light_layers_review.py": "a34b2264e3dc81375f2b3aff40f2f7f8b93351b12649d9aeaa5a6f2046db22ec",
+    "/root/lightsem/scripts/motion/run_rhythm_companion.py": "4fb64616f23ed838708f7a702e2885f398db8e6249e284671b170ae722bcffc8",
+    "/root/lightsem/lightsem/model/light_layers/transitions.py": "3ff90c8899e1609355aae4b8c47638fd1598e305274bfd882e2b4356c80a115b",
+    "/root/lightsem/lightsem/model/light_layers/overlay.py": "fe41686d022d8f9fc5a347bf03c608da8f15dece76bf1aec6efabccfbe8ecc2f",
+    "/root/lightsem/tests/test_light_layers_transitions.py": "eae8bd4965e5cb834ba749ccc09b89678a2a4ceca7e46cc04f29fc5b172df48a",
+    "/root/lightsem/lightsem/sim/renderer.py": "f27753b00028453456f58440d48c0ab35f318a72531ae4e9362d458ecf3e0abe",
+    "/root/lightsem/lightsem/sim/shaders.py": "1663a89c934e224969f1c1df4ee2cbe663f8a39ef8415e4b77c154672428677c",
+    "/root/lightsem/lightsem/conductor/rig.py": "608a7eb9971c2bd583282e4a38f777be96b49e5c1a909baffd47bf76cf28b28a",
+    "/root/lightsem/lightsem/dmx/decode.py": "1cf639d1409283733d919e478c8c27084d3f2db4c076518894a180bfd0bd391b",
+    "/root/lightsem/lightsem/dmx/fixtures.py": "685e8b206d7e6b96288a3b88fb5c543368fbd8bd765d8a96873806e18d48c3d7",
+    "/root/lightsem/lightsem/experiments/stage11/stage11_common.py": "1196cfda2e0a222d85ebd508f8c09636907611edd01a83d0624abef3465f64d3",
+    "/root/lightsem/run_torch.sh": "fa8766599ce7741477aff2035e5e87566fa4ddacacdfbbe39d5bbcba947888f1",
+    "/root/lightsem/configs/light_layers/baseline.json": "ec88a6bf043c01f5023addfc8b61a2d83fb7f205f081afd8010dba9b3769b9b1"
+  },
+  "variants": [
+    {
+      "id": "01",
+      "letter": "A",
+      "history": true,
+      "transition_s": 0,
+      "title": "Baseline 06 - history on - hard cuts",
+      "caption": "A - Baseline 06 - history on - hard cuts",
+      "path": "/root/lightsem/experiments/2026-09-28-end-to-end/outputs/shpongle_model_comparisons_20260928_v1/media/03_I_VR_P0/03_I_VR_P0_full_1080p_av1.mp4",
+      "status": "verified_existing",
+      "sha256": "0656487bce4c490d5d823a93b0c4029b899329cfb643740a749789c538caf317",
+      "audit": "/root/lightsem/experiments/2026-09-28-end-to-end/outputs/shpongle_model_comparisons_20260928_v1/media/03_I_VR_P0/03_I_VR_P0_full_1080p_av1_audit.json"
+    },
+    {
+      "id": "02",
+      "letter": "B",
+      "history": false,
+      "transition_s": 0,
+      "title": "Baseline 06 - history off - hard cuts",
+      "caption": "B - Baseline 06 - history off - hard cuts",
+      "path": "/root/lightsem/experiments/2026-09-29-baseline/outputs/shpongle_baseline_ab_v1/media/B/B_full_1080p_av1.mp4",
+      "status": "planned"
+    },
+    {
+      "id": "03",
+      "letter": "C",
+      "history": true,
+      "transition_s": 0.3,
+      "title": "Baseline 06 - history on - smooth 300ms",
+      "caption": "C - Baseline 06 - history on - smooth 300ms",
+      "path": "/root/lightsem/experiments/2026-09-29-baseline/outputs/shpongle_baseline_ab_v1/media/C/C_full_1080p_av1.mp4",
+      "status": "planned"
+    },
+    {
+      "id": "04",
+      "letter": "D",
+      "history": false,
+      "transition_s": 0.3,
+      "title": "Baseline 06 - history off - smooth 300ms",
+      "caption": "D - Baseline 06 - history off - smooth 300ms",
+      "path": "/root/lightsem/experiments/2026-09-29-baseline/outputs/shpongle_baseline_ab_v1/media/D/D_full_1080p_av1.mp4",
+      "status": "planned"
+    }
+  ],
+  "duration_s": 277.3,
+  "frames": 8319,
+  "fps": 30,
+  "width": 1920,
+  "height": 1080,
+  "codec": "av1",
+  "pcm_sha256": "6d5d8917556e5b7247fef054c758e975b9bf9d8ad206dccae755d4b51d794455",
+  "comparisons": {
+    "history_hard": "A vs B",
+    "history_smooth": "C vs D",
+    "fade_history_on": "A vs C",
+    "fade_history_off": "B vs D"
+  },
+  "fade_policy": "300ms causal smoothstep interpolation in DMX channel RGB; starts at cue, interrupted transitions retarget from instantaneous color; inactive pre-model colors unchanged; no dimmer compensation",
+  "gates": [
+    "Authenticate saved outputs/checkpoint/video/audio",
+    "Replay own-state all-state GPU table exactly including previous IDs",
+    "No model calls or fitting",
+    "Same color cues, accents, motion and all non-RGB DMX bytes",
+    "Native1080p30AV1 full277.3s, full AV decode and identical PCM",
+    "Human preference remains pending for new variants"
+  ],
+  "resources": {
+    "sequential_renders": 3,
+    "memory_max_bytes": 4294967296,
+    "runtime_max_s": 1800,
+    "output_cap_bytes": 1610612736,
+    "minimum_free_bytes": 1073741824
+  }
+}

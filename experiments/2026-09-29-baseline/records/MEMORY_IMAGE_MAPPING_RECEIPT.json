@@ -1,0 +1,33 @@
+{
+  "payload": {
+    "runbook_id": "rb-baseline06-image-supervision-20260929",
+    "prompt": "Investigate richer image supervision from the user-selected baseline06 I_VR_P0, not an assumed pose-only or YOLO-generated model. Existing selected independent architecture has separate audio encoders for accent, chromatic change and palette, Rich96 image auxiliary, pose_aux_dim0. Current image observer uses SAM2 box-prompted person masks with YOLO-derived cached boxes and excludes UI/people; 72 hue-saturation bins+24 quadrant descriptors, brightness-derived accent targets. No full-scene semantic representation or validated independent light labels. User reports strong track/rhythm match on Shpongle but this is one-song informed feedback. Next scoped study should inspect image targets, mask/UI/shot-cut contamination and temporal visual structure, establish independently annotated useful changes on a bounded TRAIN/DEV pilot, and compare current descriptors against a richer image/temporal representation with appropriate audio and visual nulls. Replacing YOLO alone is a separate masking intervention, not a demonstrated route to better lighting. No new fitting, dataset enlargement, test access or claimed advantage is authorized by this queue entry alone; preregister actual controlled pilot before computation. Keep previous observer29/30 null gate and negative palette-history results intact. First review baseline06 history/fade A/B.\n\nAdditional local finding: current demo mapping reduces each palette token to one global RGB and applies it to all color-enabled fixtures; there is no learned fixture-wise color assignment. A richer image representation and a spatial fixture-color output mapping are separate interventions. See updated experiments/2026-09-29-baseline/records/IMAGE_SUPERVISION_NEXT.md. Current inference/model outputs stay unchanged.",
+    "note": "Additional local finding: current demo mapping reduces each palette token to one global RGB and applies it to all color-enabled fixtures; there is no learned fixture-wise color assignment. A richer image representation and a spatial fixture-color output mapping are separate interventions. See updated experiments/2026-09-29-baseline/records/IMAGE_SUPERVISION_NEXT.md. Current inference/model outputs stay unchanged."
+  },
+  "result": {
+    "id": "rb-baseline06-image-supervision-20260929",
+    "problem_id": "dancing-light-generative-20260903",
+    "prompt": "Investigate richer image supervision from the user-selected baseline06 I_VR_P0, not an assumed pose-only or YOLO-generated model. Existing selected independent architecture has separate audio encoders for accent, chromatic change and palette, Rich96 image auxiliary, pose_aux_dim0. Current image observer uses SAM2 box-prompted person masks with YOLO-derived cached boxes and excludes UI/people; 72 hue-saturation bins+24 quadrant descriptors, brightness-derived accent targets. No full-scene semantic representation or validated independent light labels. User reports strong track/rhythm match on Shpongle but this is one-song informed feedback. Next scoped study should inspect image targets, mask/UI/shot-cut contamination and temporal visual structure, establish independently annotated useful changes on a bounded TRAIN/DEV pilot, and compare current descriptors against a richer image/temporal representation with appropriate audio and visual nulls. Replacing YOLO alone is a separate masking intervention, not a demonstrated route to better lighting. No new fitting, dataset enlargement, test access or claimed advantage is authorized by this queue entry alone; preregister actual controlled pilot before computation. Keep previous observer29/30 null gate and negative palette-history results intact. First review baseline06 history/fade A/B.\n\nAdditional local finding: current demo mapping reduces each palette token to one global RGB and applies it to all color-enabled fixtures; there is no learned fixture-wise color assignment. A richer image representation and a spatial fixture-color output mapping are separate interventions. See updated experiments/2026-09-29-baseline/records/IMAGE_SUPERVISION_NEXT.md. Current inference/model outputs stay unchanged.",
+    "preconditions": "Baseline06 selection recorded. Design a bounded image/temporal diagnostic before any new fitting.",
+    "gates": [],
+    "status": "queued",
+    "hypothesis_id": null,
+    "priority": 20,
+    "notes": [
+      {
+        "at": "2026-09-29T15:19:56+00:00",
+        "text": "Additional local finding: current demo mapping reduces each palette token to one global RGB and applies it to all color-enabled fixtures; there is no learned fixture-wise color assignment. A richer image representation and a spatial fixture-color output mapping are separate interventions. See updated experiments/2026-09-29-baseline/records/IMAGE_SUPERVISION_NEXT.md. Current inference/model outputs stay unchanged."
+      }
+    ],
+    "former_ids": [],
+    "topic_tags": [],
+    "created_at": "2026-09-29T15:04:24+00:00",
+    "updated_at": "2026-09-29T15:19:56+00:00"
+  },
+  "preservation_audit": {
+    "/root/lightsem-vault": [
+      "/root/lightsem-vault/runbooks/rb-baseline06-image-supervision-20260929.md"
+    ],
+    "/root/vibescience-vault": []
+  }
+}

@@ -1,5 +1,7 @@
 # September 22 light-layer delivery
 
+For new development, use the [September29 user-selected independent baseline06](../2026-09-29-baseline/README.md). This page describes the earlier shared-model delivery and its training campaign.
+
 **Reference model:** fixed seed-0 `S_VR_P0` Rich96 selected checkpoint at `/mnt/lightsem-data/experiments/lightsem/lighting-cue-model-20260922t094347z/observer_fits_v1/03_seed0_S_VR_P0/best.pt`. Its Python implementation is in `lightsem/model/light_layers/`; maintained drivers are in `scripts/light_layers/`.
 
 **Reference delivery:** [Shpongle demo report](outputs/shpongle_layers_demo_20260922T161917Z/README.md), with its [frozen one-song inference helper](records/source/shpongle_layers_demo_20260922T161917Z/infer_overlay.py) preserved separately from the media. The overlay builds on the saved rhythm-companion lighting stream; its checkpoint and source assets remain under `/mnt/lightsem-data/`.

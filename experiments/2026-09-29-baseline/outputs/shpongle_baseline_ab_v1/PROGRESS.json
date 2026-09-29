@@ -1,0 +1,9 @@
+{
+  "status": "superseded_by_50mb_revision",
+  "completed": [
+    "01"
+  ],
+  "replacement_plan": "/root/lightsem/experiments/2026-09-29-baseline/records/AB_PLAN_V2.json",
+  "partial_variant": "02",
+  "reason": "User requested 50 MB per rendered MP4 while old bitrate render was running"
+}

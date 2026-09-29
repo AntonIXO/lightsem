@@ -297,7 +297,8 @@ class StageRenderer:
         cmd += [
             "-c:v", "av1_nvenc", "-gpu", str(cfg.gpu_device),
             "-preset", "p7", "-tune", "uhq",
-            "-rc", "vbr", "-cq", "18", "-b:v", "0",
+            "-rc", "vbr", "-b:v", "1100k",
+            "-maxrate", "1200k", "-bufsize", "2000k",
             "-multipass", "fullres", "-rc-lookahead", "32",
             "-spatial-aq", "1", "-temporal-aq", "1",
             "-pix_fmt", "yuv420p",
@@ -305,7 +306,7 @@ class StageRenderer:
             "-color_trc", "bt709", "-movflags", "+faststart",
         ]
         if audio_path is not None:
-            cmd += ["-c:a", "aac", "-b:a", "192k", "-shortest"]
+            cmd += ["-c:a", "aac", "-b:a", "128k", "-shortest"]
         cmd += [str(out_path)]
 
         proc = subprocess.Popen(cmd, stdin=subprocess.PIPE, stderr=subprocess.PIPE)

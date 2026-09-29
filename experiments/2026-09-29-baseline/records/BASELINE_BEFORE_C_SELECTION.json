@@ -1,0 +1,24 @@
+{
+  "schema_version": 1,
+  "id": "light-layers-independent-rich96-seed0-20260929",
+  "status": "user_selected_development_baseline",
+  "selected_variant": "06",
+  "recipe": "I_VR_P0",
+  "seed": 0,
+  "checkpoint_role": "selected",
+  "checkpoint": {
+    "path": "/mnt/lightsem-data/experiments/lightsem/lighting-cue-model-20260922t094347z/observer_fits_v1/04_seed0_I_VR_P0/best.pt",
+    "sha256": "8de865906cfabb49290971eccf6016ab38edebe885eec7e6369f020fb5544b8a"
+  },
+  "provenance": "/mnt/lightsem-data/experiments/lightsem/end_to_end_20260928_v1/comparison_demos_v1/03_I_VR_P0/inference_saved.json",
+  "motion_controller": "rhythm_companion (rating variant02), saved accepted motion style",
+  "palette_history": true,
+  "palette_decode": "argmax at fixed saved color cues",
+  "color_transition_s": 0.0,
+  "pending_candidate_transition_s": 0.3,
+  "reference_video": "/root/lightsem/experiments/2026-09-28-end-to-end/outputs/shpongle_model_comparisons_20260928_v1/media/03_I_VR_P0/03_I_VR_P0_full_1080p_av1.mp4",
+  "reference_video_sha256": "0656487bce4c490d5d823a93b0c4029b899329cfb643740a749789c538caf317",
+  "feedback_record": "experiments/2026-09-29-baseline/records/USER_FEEDBACK.json",
+  "review_plan": "experiments/2026-09-29-baseline/records/AB_PLAN_V2.json",
+  "scope": "Default reference for new lighting-layer development and comparisons. Historical causal LightModel API remains a separate implementation."
+}

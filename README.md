@@ -1,6 +1,8 @@
 # LightSem
 
-LightSem turns audio into stage lighting. Start with the [September 22 light-layer delivery](experiments/2026-09-22-color-beat/README.md): it connects the trained Rich96 model, the Shpongle overlay, its source code, and the measured results. That delivery is the current **reference for navigation**, not a promoted runtime default. The normal causal `LightModel` path remains in `lightsem/model/infer.py`.
+LightSem turns audio into stage lighting. The current development baseline is **C: variant06 independent Rich96 (`I_VR_P0`, selected seed0), rhythm companion, palette history on, and300ms smooth color transitions**, explicitly chosen by the user on September29. Start with the [baseline and A/B review](experiments/2026-09-29-baseline/README.md); its exact checkpoint, behavior and accepted video are pinned in [the baseline configuration](configs/light_layers/baseline.json). Reviews use compact native1080p AV1 with AAC128k; the four full-track Shpongle videos are43–44MB each.
+
+The [September22 campaign](experiments/2026-09-22-color-beat/README.md) contains the training implementation and earlier measurements. The user selection is a product-development decision from Shpongle review; previous scientific results retain their recorded scope. The older causal `LightModel` API in `lightsem/model/infer.py` is a separate implementation, not a drop-in loader for the independent light-layer model.
 
 ## Where things live
 

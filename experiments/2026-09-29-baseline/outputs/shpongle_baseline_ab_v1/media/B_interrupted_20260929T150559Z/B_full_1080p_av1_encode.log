@@ -1,0 +1,12 @@
+[in#0/rawvideo @ 0x555ff7d9e200] Packet corrupt (stream = 0, dts = 2395).
+[in#0/rawvideo @ 0x555ff7d9df00] corrupt input packet in stream 0
+[in#0/rawvideo @ 0x555ff7d9df00] Error during demuxing: Immediate exit requested
+[rawvideo @ 0x555ff7ea5600] Invalid buffer size, packet size 1114112 < expected frame_size 6220800
+[vist#0:0/rawvideo @ 0x555ff7d9e600] [dec:rawvideo @ 0x555ff7e01f40] Error submitting packet to decoder: Invalid argument
+[vost#0:0/av1_nvenc @ 0x555ff7db3f80] Error submitting a packet to the muxer: Immediate exit requested
+    Last message repeated 1 times
+[out#0/mp4 @ 0x555ff7db3a80] Error muxing a packet
+[out#0/mp4 @ 0x555ff7db3a80] Task finished with error code: -1414092869 (Immediate exit requested)
+[out#0/mp4 @ 0x555ff7db3a80] Terminating thread with return code -1414092869 (Immediate exit requested)
+[out#0/mp4 @ 0x555ff7db3a80] Error writing trailer: Immediate exit requested
+[out#0/mp4 @ 0x555ff7db3a80] Error closing file: Immediate exit requested

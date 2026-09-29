@@ -1,0 +1,49 @@
+{
+  "status": "PASS_ALL_FOUR_READY_FOR_HUMAN_REVIEW",
+  "variants": [
+    {
+      "arm": "A",
+      "path": "/root/lightsem/experiments/2026-09-29-baseline/outputs/shpongle_baseline_ab_v2/media/A/A_full_1080p_av1.mp4",
+      "bytes": 43586448,
+      "sha256": "32026481f2f6a81f9c7833a0fc1a3efcfd983bcf8da7e98d0ac64be779bd4877",
+      "frames": 8319,
+      "all_non_RGB_slots_unchanged": true,
+      "max_RGB_channel_step_byte": 219
+    },
+    {
+      "arm": "B",
+      "path": "/root/lightsem/experiments/2026-09-29-baseline/outputs/shpongle_baseline_ab_v2/media/B/B_full_1080p_av1.mp4",
+      "bytes": 43030508,
+      "sha256": "333d58f789a17e512b0ba76ed919cf9b46281cd9cc33b94c5b8f8bee53173f0c",
+      "frames": 8319,
+      "all_non_RGB_slots_unchanged": true,
+      "max_RGB_channel_step_byte": 146
+    },
+    {
+      "arm": "C",
+      "path": "/root/lightsem/experiments/2026-09-29-baseline/outputs/shpongle_baseline_ab_v2/media/C/C_full_1080p_av1.mp4",
+      "bytes": 43587650,
+      "sha256": "fb06c3f3a951a4f2a12bbc01f4470cec4f8326912a441bd4e25097e275170299",
+      "frames": 8319,
+      "all_non_RGB_slots_unchanged": true,
+      "max_RGB_channel_step_byte": 28
+    },
+    {
+      "arm": "D",
+      "path": "/root/lightsem/experiments/2026-09-29-baseline/outputs/shpongle_baseline_ab_v2/media/D/D_full_1080p_av1.mp4",
+      "bytes": 43027875,
+      "sha256": "c7b988f145366ed310c197fc5248ba0616eba539e3902a575d873395bc1a42cc",
+      "frames": 8319,
+      "all_non_RGB_slots_unchanged": true,
+      "max_RGB_channel_step_byte": 18
+    }
+  ],
+  "original_model_audio_and_video_unchanged": true,
+  "bound_sources_unchanged": true,
+  "identical_decoded_audio_sha256": "9be221f4e05a2fc92cf798be837ea4d1b392c7f4ebdf71a9edeb68373351442f",
+  "delivery_package_bytes": 187645762,
+  "root_free_bytes": 15557836800,
+  "media_decode_evidence": "Per-file complete software decode/timestamp audits authenticated; ffprobe and hashes independently checked here",
+  "human_preference_for_new_arms": "pending",
+  "baseline_selection": "User previously selected original06"
+}

@@ -1,0 +1,26 @@
+{
+  "status": "PASS",
+  "routes": [
+    {
+      "arm": "A",
+      "range_status": 206,
+      "content_range": "bytes 0-63/43586448"
+    },
+    {
+      "arm": "B",
+      "range_status": 206,
+      "content_range": "bytes 0-63/43030508"
+    },
+    {
+      "arm": "C",
+      "range_status": 206,
+      "content_range": "bytes 0-63/43587650"
+    },
+    {
+      "arm": "D",
+      "range_status": 206,
+      "content_range": "bytes 0-63/43027875"
+    }
+  ],
+  "scope": "Local HTTP/byte seeking and HEAD; browser visual interaction not automated"
+}

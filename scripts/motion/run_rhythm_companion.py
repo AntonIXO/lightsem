@@ -165,12 +165,15 @@ def optical(frames,rig):
 
 
 def encode_command(path,p,width,height,start,n):
+    # Review delivery: 277.3 s at these rates is about 43 MB before VBR overhead.
+    # Keep the lossless FLAC input for all audio analysis and generation stages.
     return ['ffmpeg','-hide_banner','-loglevel','warning','-nostdin','-n','-f','rawvideo','-pix_fmt','rgb24',
         '-s',f'{width}x{height}','-r','30','-i','pipe:0','-ss',str(start/30),'-i',p['audio'],
-        '-map','0:v:0','-map','1:a:0','-frames:v',str(n),'-c:v','av1_nvenc','-gpu','0','-preset','p6',
-        '-tune','hq','-rc','vbr','-cq','20','-b:v','6M','-maxrate','8M','-bufsize','16M',
+        '-map','0:v:0','-map','1:a:0','-frames:v',str(n),'-c:v','av1_nvenc','-gpu','0','-preset','p7',
+        '-tune','uhq','-rc','vbr','-multipass','fullres','-rc-lookahead','32','-b:v','1100k',
+        '-maxrate','1200k','-bufsize','2000k','-spatial-aq','1','-temporal-aq','1',
         '-pix_fmt','yuv420p','-colorspace','bt709','-color_primaries','bt709','-color_trc','bt709',
-        '-c:a','aac','-b:a','192k','-af',f'atrim=duration={n/30},asetpts=PTS-STARTPTS',
+        '-c:a','aac','-b:a','128k','-af',f'atrim=duration={n/30},asetpts=PTS-STARTPTS',
         '-t',str(n/30),'-movflags','+faststart',str(path)]
 
 

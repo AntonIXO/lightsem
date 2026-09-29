@@ -1,0 +1,25 @@
+{
+  "tool": "register_runbook",
+  "payload": {
+    "id": "rb-baseline06-ab-20260929",
+    "problem_id": "dancing-light-generative-20260903",
+    "prompt": "Continue from user-selected baseline06: I_VR_P0 independent Rich96, selected seed0 checkpoint /mnt/lightsem-data/experiments/lightsem/lighting-cue-model-20260922t094347z/observer_fits_v1/04_seed0_I_VR_P0/best.pt SHA256 8de865906cfabb49290971eccf6016ab38edebe885eec7e6369f020fb5544b8a. Retain rhythm companion02 movement and saved source Shpongle. User qualitative feedback 2026-09-29: 02 definitely better than01. 06 I_VR_P0 selected seed0 is the most interesting and best; explicitly selected as new development baseline. User says color fits track and rhythm changes, requests color transitions. User did not understand a significant difference in07; comparator unspecified. 10vs05 mostly one cyan/blue-related change; requests palette-history A/B on06. No numeric scores supplied; this is informed single-track preference, not a scientific confirmation or multi-track result. Exact user wording: /root/lightsem/experiments/2026-09-29-baseline/records/USER_FEEDBACK.json. Current baseline: /root/lightsem/configs/light_layers/baseline.json. Render fixed 2x2: A original06 history on/hard cuts; B history off/hard; C history on/300ms causal smoothstep RGB fades; D history off/same fades. Compare A/B and C/D for history, A/C and B/D for fades. Replay the authenticated saved all-state GPU choices, require own-state palette/previous-ID exact equality, no encoder/head calls, no training. Same fixed cues and accents, all non-RGB bytes exact, full277.3s native1080p30AV1 and identical decoded audio; sequential renders and1GiB free floor. Plan /root/lightsem/experiments/2026-09-29-baseline/records/AB_PLAN_V1.json SHA256 2e6ef5b44bdb94b3e1401d3d6e57400f410543031ca946c0cedfbcaa3f782ee3. Record delivery and then collect user preference for new arms; do not claim that preferences were already collected for these new videos. Preserve all old scientific negative/unqualified verdicts and original records. Memory updates are authorized without separate permission.",
+    "preconditions": "Plan bound before deriving/rendering new variants. Await preparation, native delivery audits, then user A/B preference.",
+    "priority": 1
+  },
+  "result": {
+    "id": "rb-baseline06-ab-20260929",
+    "problem_id": "dancing-light-generative-20260903",
+    "prompt": "Continue from user-selected baseline06: I_VR_P0 independent Rich96, selected seed0 checkpoint /mnt/lightsem-data/experiments/lightsem/lighting-cue-model-20260922t094347z/observer_fits_v1/04_seed0_I_VR_P0/best.pt SHA256 8de865906cfabb49290971eccf6016ab38edebe885eec7e6369f020fb5544b8a. Retain rhythm companion02 movement and saved source Shpongle. User qualitative feedback 2026-09-29: 02 definitely better than01. 06 I_VR_P0 selected seed0 is the most interesting and best; explicitly selected as new development baseline. User says color fits track and rhythm changes, requests color transitions. User did not understand a significant difference in07; comparator unspecified. 10vs05 mostly one cyan/blue-related change; requests palette-history A/B on06. No numeric scores supplied; this is informed single-track preference, not a scientific confirmation or multi-track result. Exact user wording: /root/lightsem/experiments/2026-09-29-baseline/records/USER_FEEDBACK.json. Current baseline: /root/lightsem/configs/light_layers/baseline.json. Render fixed 2x2: A original06 history on/hard cuts; B history off/hard; C history on/300ms causal smoothstep RGB fades; D history off/same fades. Compare A/B and C/D for history, A/C and B/D for fades. Replay the authenticated saved all-state GPU choices, require own-state palette/previous-ID exact equality, no encoder/head calls, no training. Same fixed cues and accents, all non-RGB bytes exact, full277.3s native1080p30AV1 and identical decoded audio; sequential renders and1GiB free floor. Plan /root/lightsem/experiments/2026-09-29-baseline/records/AB_PLAN_V1.json SHA256 2e6ef5b44bdb94b3e1401d3d6e57400f410543031ca946c0cedfbcaa3f782ee3. Record delivery and then collect user preference for new arms; do not claim that preferences were already collected for these new videos. Preserve all old scientific negative/unqualified verdicts and original records. Memory updates are authorized without separate permission.",
+    "preconditions": "Plan bound before deriving/rendering new variants. Await preparation, native delivery audits, then user A/B preference.",
+    "gates": [],
+    "status": "queued",
+    "hypothesis_id": null,
+    "priority": 1,
+    "notes": [],
+    "former_ids": [],
+    "topic_tags": [],
+    "created_at": "2026-09-29T15:04:23+00:00",
+    "updated_at": "2026-09-29T15:04:23+00:00"
+  }
+}

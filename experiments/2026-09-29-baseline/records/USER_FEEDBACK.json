@@ -1,0 +1,17 @@
+{
+  "date": "2026-09-29",
+  "source": "direct user chat feedback; informed one-song review",
+  "raw_user_message": "Точно 2 лучше 1.\nСамая интересная и лучшая это 6, сделай её нашим новым baseline. Только моментик: смена светов без перехода между, его нужно добавить будет. Цвет прямо угадывает в трек! Угадывает смены ритма! Нам нужно посмотреть в сторону разбора не только движений, но и картинки, может ухода от yolo (или как там тренировалась 6?)\nНе понял вообще отличия в седьмой значительного.\n10 vs 5: Разница в цвете только в одном изменении с голубого, а в 5 голубого в принципе нет. нужно на новом baseline a b сравнить.",
+  "preferences": {
+    "02_over_01": "explicit",
+    "best_variant": "06",
+    "baseline_selection": "06 I_VR_P0 selected seed0",
+    "06_music_fit": "User reports colors match the track and rhythm changes",
+    "06_improvement_requested": "Add transitions between abrupt color changes",
+    "07": "User did not perceive a significant difference; comparator unspecified",
+    "10_vs_05": "User noticed a limited blue/cyan-related change; repeat history A/B on 06"
+  },
+  "numeric_scores": null,
+  "blinded": false,
+  "scope": "Development baseline chosen by user. No multi-track generalization or change to historical scientific verdicts."
+}

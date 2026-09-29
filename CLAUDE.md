@@ -2,7 +2,23 @@
 
 This file provides guidance to Claude Code (claude.ai/code) when working with code in this repository.
 
-Current authorization (September 12, 2026): the product is LIGHT. Dance is a
+Current baseline decision (September29, 2026): the user explicitly chose rating
+variant06, independent Rich96 `I_VR_P0`, selected seed0, as the new development
+baseline. Variant02's rhythm-led movement is preferred to01 and stays beneath it.
+Use `configs/light_layers/baseline.json` and
+`experiments/2026-09-29-baseline/README.md` as the starting point for future light
+work. After the A/B review the user explicitly selected **C: palette history on
+and300ms causal smoothstep color transitions** as the new baseline. The config
+pins C's exact video/DMX hashes. Use compact native1080p AV1 reviews (p7 UHQ,
+1100k target/1200k maximum video, AAC128k, at most50MB for this full-track demo).
+Preserve this baseline when evaluating changes. The user
+reports strong color/music and rhythm-change fit; this is informed one-track
+feedback, not a rewrite of previous scientific verdicts. They did not perceive
+a substantial difference in07 (comparator unspecified); the requested history
+comparison on06 is complete and C is selected. Inspect image/temporal supervision next:06 already
+uses SAM2-observed Rich96 image features and has no pose auxiliary (P0).
+
+Standing authorization (September 12, 2026): the product is LIGHT. Dance is a
 visual diagnostic of the intermediate motion representation, not a separate
 product or an optimization target. Implement direct audio rhythm controls for
 lighting timing, using internal motion for spatial style rather than literal
@@ -24,11 +40,12 @@ inference path, and proposing one is a repeat of a mistake already corrected onc
 `docs/archive/PLAN.md` preserves the earlier plan (rev. 5) and section 1.2/1.3 hold measured results that
 constrain it. The **system of record is the vibescience vault**, not this repo.
 
-The first navigation path is now `experiments/2026-09-22-color-beat/README.md`.
-The associated Rich96 implementation is `lightsem/model/light_layers/`. This
-experimental delivery has not been promoted to a runtime default;
-`lightsem/model/infer.py` still selects the causal v3 checkpoint. See the root
-README and `experiments/RELOCATION_MAP.json` for the new tree and old paths.
+The first navigation path is now `experiments/2026-09-29-baseline/README.md`.
+The associated Rich96 implementation is `lightsem/model/light_layers/`; its
+training history is in the September22 campaign. The older
+`lightsem/model/infer.py` still implements the separate causal v3 API. Do not
+silently feed an incompatible independent-model checkpoint into that API. See
+the root README and `experiments/RELOCATION_MAP.json` for the new tree and old paths.
 
 ## Running things
 

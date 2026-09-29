@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="ru">
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>LightSem · Бейзлайн 06</title>
+<style>
+:root{color-scheme:dark;font:16px/1.55 system-ui,sans-serif;background:#11141b;color:#ecedf5}*{box-sizing:border-box}body{max-width:1200px;margin:auto;padding:25px}h1{font-size:28px;margin:0}p{color:#bac2d5}video{width:100%;aspect-ratio:16/9;background:#030507;border:1px solid #343d50;border-radius:12px}.controls,.variants{display:flex;gap:10px;flex-wrap:wrap;margin:14px 0}button,a{font:inherit}button,.download{border:1px solid #526079;border-radius:8px;padding:10px 14px;background:#202b3c;color:#eef1ff;cursor:pointer;text-decoration:none}button[aria-pressed=true]{background:#b8d1ff;color:#11141b}button:disabled{opacity:.45;cursor:wait}button:focus-visible,a:focus-visible,textarea:focus-visible,select:focus-visible{outline:3px solid #b8d1ff;outline-offset:3px}.variant{flex:1;min-width:210px;text-align:left}.variant strong{display:block;font-size:20px}.hint{font-size:14px;color:#b1bcd0}.review{border:1px solid #3b465a;padding:20px;border-radius:12px;margin-top:24px}.choices{display:flex;gap:18px;flex-wrap:wrap}label{display:block}select,textarea{font:inherit;background:#161e2b;color:#ecedf5;border:1px solid #526079;border-radius:6px;padding:10px}select{display:block;margin-top:6px}textarea{width:100%;min-height:90px;margin:8px 0}.saved{font-size:13px;min-height:20px}.status{font-size:13px}h2{font-size:20px}a{color:#b8d1ff}@media(max-width:650px){body{padding:14px}.variant{min-width:45%}}
+</style>
+<h1>Бейзлайн 06 · Цвет и переходы</h1>
+<p>Тот же трек и движение. Сравниваем историю палитры и плавность смен цвета.</p>
+<video id="video" controls playsinline preload="metadata"></video>
+<div class="controls"><button data-time="0">Начало</button><button data-time="70">1:10</button><button data-time="118">1:58 · цвета</button><button data-time="177">2:57</button><button data-time="261">4:21</button><a class="download" id="download">Скачать текущий</a></div>
+<p id="now" aria-live="polite">Загрузка…</p><div class="variants" id="variants"></div>
+<p class="hint">При переключении сохраняется позиция. A ↔ B — история без переходов; C ↔ D — история с переходами. A ↔ C и B ↔ D — эффект плавности. Переход занимает 0,3 секунды и начинается на цветовом событии.</p>
+<div class="review"><h2>Твой выбор</h2>
+<div class="choices"><label>Лучший вариант<select id="favorite"><option value="">Пока не выбрано</option><option>A</option><option>B</option><option>C</option><option>D</option><option value="tie">Нет предпочтения</option></select></label>
+<label>Переходы<select id="fade"><option value="">Пока не выбрано</option value="smooth">Плавные лучше</option><option value="hard">Резкие лучше</option><option value="tie">Нет предпочтения</option><option value="adjust">Нужна другая длительность</option></select></label>
+<label>История палитры<select id="history"><option value="">Пока не выбрано</option value="on">С историей лучше</option><option value="off">Без истории лучше</option><option value="tie">Нет предпочтения</option></select></label></div>
+<label for="notes">Комментарии и моменты трека</label><textarea id="notes" placeholder="Например: переход на 2:01 слишком медленный"></textarea>
+<button id="export">Экспортировать отзыв</button><p class="saved" id="saved" aria-live="polite"></p>
+<p class="hint">Отзыв сохраняется в этом браузере. Экспортируй JSON или напиши выбор в чат. Предыдущий выбор 06 уже записан; новые ответы не заполнены заранее.</p></div>
+<p class="status" id="status"></p>
+<script>
+const $=s=>document.querySelector(s),video=$('#video'),key='lightsem-baseline06-ab-v1';
+const labels={'01':['A','История включена · резкие смены'],'02':['B','История выключена · резкие смены'],'03':['C','История включена · плавные смены'],'04':['D','История выключена · плавные смены']};
+let manifest=null,current=null;
+try{const saved=JSON.parse(localStorage.getItem(key)||'{}');for(const f of ['favorite','fade','history','notes'])$('#'+f).value=saved[f]||''}catch(e){}
+function response(){return {schema:'lightsem.baseline06.human_review.v1',favorite:$('#favorite').value,fade:$('#fade').value,history:$('#history').value,notes:$('#notes').value,updated_at:new Date().toISOString(),blinded:false,video_hashes:manifest?Object.fromEntries(manifest.variants.map(v=>[v.letter,v.sha256])):{}}}
+function save(){try{localStorage.setItem(key,JSON.stringify(response()));$('#saved').textContent='Сохранено в этом браузере'}catch(e){$('#saved').textContent='Сохранение недоступно — экспортируй отзыв'}}
+for(const f of ['favorite','fade','history','notes'])$('#'+f).addEventListener('input',save);
+function ready(v){return v&&['verified_existing','rendered_and_verified'].includes(v.status)}
+function cards(){const box=$('#variants');box.replaceChildren();for(const [id,[letter,title]] of Object.entries(labels)){const v=manifest.variants.find(v=>v.id===id),b=document.createElement('button'),strong=document.createElement('strong'),span=document.createElement('span');b.className='variant';b.disabled=!ready(v);b.setAttribute('aria-pressed',String(current===id));strong.textContent=letter;span.textContent=title+(ready(v)?'':' · рендерится');b.append(strong,span);b.onclick=()=>select(id);box.append(b)}}
+function select(id){const v=manifest.variants.find(v=>v.id===id);if(!ready(v))return;const t=video.currentTime||0,playing=!video.paused;current=id;video.src='/media/'+id+'.mp4';video.onloadedmetadata=()=>{video.currentTime=Math.min(t,video.duration-.1);if(playing)video.play().catch(()=>{})};$('#now').textContent=labels[id].join(' · ');$('#download').href='/media/'+id+'.mp4?download=1';cards()}
+for(const b of document.querySelectorAll('[data-time]'))b.onclick=()=>video.currentTime=Number(b.dataset.time);
+$('#export').onclick=()=>{const data=response();save();const url=URL.createObjectURL(new Blob([JSON.stringify(data,null,2)],{type:'application/json'})),a=document.createElement('a');a.href=url;a.download='baseline06_review.json';a.click();setTimeout(()=>URL.revokeObjectURL(url),1000)};
+video.addEventListener('error',()=>$('#status').textContent='Если AV1 не воспроизводится, скачай видео и открой в плеере.');
+async function refresh(){try{const r=await fetch('/manifest.json',{cache:'no-store'});if(!r.ok)throw Error(r.status);manifest=await r.json();cards();const n=manifest.variants.filter(ready).length;$('#status').textContent=n+' из 4 готовы · полный трек 4:37 · 1080p AV1 · сравнение с открытыми названиями';if(!current)select('01');if(n===4)clearInterval(timer)}catch(e){$('#status').textContent='Ожидаем файлы сравнения'}}
+const timer=setInterval(refresh,5000);refresh();
+</script>
+</html>

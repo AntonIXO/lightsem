@@ -1,0 +1,138 @@
+{
+  "scope": "Engineering 2x2 human review, no new hypothesis test or training",
+  "encoder_forwards": 0,
+  "palette_head_forwards": 0,
+  "saved_GPU_own_state_replay_exact": true,
+  "original_model_outputs_unchanged": true,
+  "cue_times_identical": true,
+  "accent_times_identical": true,
+  "color_cue_count": 262,
+  "accent_count": 30,
+  "history_differing_frames10": 1784,
+  "history_differing_seconds": 178.4,
+  "variants": [
+    {
+      "id": "01",
+      "letter": "A",
+      "history": true,
+      "transition_s": 0,
+      "title": "Baseline 06 - history on - hard cuts",
+      "caption": "A - Baseline 06 - history on - hard cuts",
+      "path": "/root/lightsem/experiments/2026-09-29-baseline/outputs/shpongle_baseline_ab_v2/media/A/A_full_1080p_av1.mp4",
+      "status": "planned",
+      "streams": "/root/lightsem/experiments/2026-09-29-baseline/outputs/shpongle_baseline_ab_v2/streams/01.npz",
+      "streams_sha256": "10ea4541016912c2630fe42a33c1222b303b79866ca0e526da0e281aa7ebbb55",
+      "dmx_sha256": "d2c411b0acb8975d49afb0af9b878a7670c5f5bff85b5df94e26196cd37b885e",
+      "protected_slots_unchanged": 479,
+      "changed_bytes_vs_selected_06": 0,
+      "subsequent_target_palette_changes": 48,
+      "max_RGB_channel_step_byte": 219,
+      "step_metric_scope": "channel discontinuity only; not perceived color distance/quality"
+    },
+    {
+      "id": "02",
+      "letter": "B",
+      "history": false,
+      "transition_s": 0,
+      "title": "Baseline 06 - history off - hard cuts",
+      "caption": "B - Baseline 06 - history off - hard cuts",
+      "path": "/root/lightsem/experiments/2026-09-29-baseline/outputs/shpongle_baseline_ab_v2/media/B/B_full_1080p_av1.mp4",
+      "status": "planned",
+      "streams": "/root/lightsem/experiments/2026-09-29-baseline/outputs/shpongle_baseline_ab_v2/streams/02.npz",
+      "streams_sha256": "f462dc64acf010eba38b63397f1f077cf14c98b3060a4fecc55de1eea1923d4f",
+      "dmx_sha256": "84e64a0f37b6e5bc696d84ef6d9e68cf1c64d2818f7c46be38fd1623e851d1c6",
+      "protected_slots_unchanged": 479,
+      "changed_bytes_vs_selected_06": 220836,
+      "subsequent_target_palette_changes": 55,
+      "max_RGB_channel_step_byte": 146,
+      "step_metric_scope": "channel discontinuity only; not perceived color distance/quality"
+    },
+    {
+      "id": "03",
+      "letter": "C",
+      "history": true,
+      "transition_s": 0.3,
+      "title": "Baseline 06 - history on - smooth 300ms",
+      "caption": "C - Baseline 06 - history on - smooth 300ms",
+      "path": "/root/lightsem/experiments/2026-09-29-baseline/outputs/shpongle_baseline_ab_v2/media/C/C_full_1080p_av1.mp4",
+      "status": "planned",
+      "streams": "/root/lightsem/experiments/2026-09-29-baseline/outputs/shpongle_baseline_ab_v2/streams/03.npz",
+      "streams_sha256": "34ca1d5f2c9a271b9e08536519f4d657e4aa3017a5ac42514b38e8dd07e4829b",
+      "dmx_sha256": "7e5d40f661d7e6569951d51207c86acd506ec4fb7f2eb7aceea1a49992734f6b",
+      "protected_slots_unchanged": 479,
+      "changed_bytes_vs_selected_06": 17506,
+      "subsequent_target_palette_changes": 48,
+      "max_RGB_channel_step_byte": 28,
+      "step_metric_scope": "channel discontinuity only; not perceived color distance/quality"
+    },
+    {
+      "id": "04",
+      "letter": "D",
+      "history": false,
+      "transition_s": 0.3,
+      "title": "Baseline 06 - history off - smooth 300ms",
+      "caption": "D - Baseline 06 - history off - smooth 300ms",
+      "path": "/root/lightsem/experiments/2026-09-29-baseline/outputs/shpongle_baseline_ab_v2/media/D/D_full_1080p_av1.mp4",
+      "status": "planned",
+      "streams": "/root/lightsem/experiments/2026-09-29-baseline/outputs/shpongle_baseline_ab_v2/streams/04.npz",
+      "streams_sha256": "3cb4d9f7cb22c08ab17588b1c96f889ef3605cb3b4c5031f1ac8480fa92e0107",
+      "dmx_sha256": "be571a198ded924e943ed0756aa17453b40036365330f0fabbd0699f8a3f3c79",
+      "protected_slots_unchanged": 479,
+      "changed_bytes_vs_selected_06": 227568,
+      "subsequent_target_palette_changes": 55,
+      "max_RGB_channel_step_byte": 18,
+      "step_metric_scope": "channel discontinuity only; not perceived color distance/quality"
+    }
+  ],
+  "history_difference_intervals_s": [
+    [
+      0.3,
+      119.0
+    ],
+    [
+      119.6,
+      120.3
+    ],
+    [
+      121.3,
+      129.5
+    ],
+    [
+      130.0,
+      139.3
+    ],
+    [
+      140.6,
+      142.0
+    ],
+    [
+      145.3,
+      146.0
+    ],
+    [
+      146.7,
+      147.3
+    ],
+    [
+      157.3,
+      158.0
+    ],
+    [
+      163.3,
+      166.7
+    ],
+    [
+      169.3,
+      170.7
+    ],
+    [
+      177.3,
+      197.3
+    ],
+    [
+      264.0,
+      277.3
+    ]
+  ],
+  "status": "prepared_and_verified"
+}

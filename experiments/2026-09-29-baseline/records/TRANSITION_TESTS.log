@@ -1,0 +1,14 @@
+test_activation_keeps_past_and_blends_first_learned_color (test_light_layers_transitions.ColorTransitions.test_activation_keeps_past_and_blends_first_learned_color) ... ok
+test_fade_overlay_leaves_motion_dimmers_and_other_slots_exact (test_light_layers_transitions.ColorTransitions.test_fade_overlay_leaves_motion_dimmers_and_other_slots_exact) ... ok
+test_future_changes_cannot_change_prefix (test_light_layers_transitions.ColorTransitions.test_future_changes_cannot_change_prefix) ... ok
+test_identity_modes_and_no_black_initialization (test_light_layers_transitions.ColorTransitions.test_identity_modes_and_no_black_initialization) ... ok
+test_invalid_contracts_and_empty (test_light_layers_transitions.ColorTransitions.test_invalid_contracts_and_empty) ... ok
+test_no_anticipation_midpoint_and_completion (test_light_layers_transitions.ColorTransitions.test_no_anticipation_midpoint_and_completion) ... ok
+test_palette_replay_rejects_incomplete_or_invalid_actions (test_light_layers_transitions.ColorTransitions.test_palette_replay_rejects_incomplete_or_invalid_actions) ... ok
+test_palette_state_replay_uses_generated_history_or_null (test_light_layers_transitions.ColorTransitions.test_palette_state_replay_uses_generated_history_or_null) ... ok
+test_retarget_starts_at_current_color (test_light_layers_transitions.ColorTransitions.test_retarget_starts_at_current_color) ... ok
+
+----------------------------------------------------------------------
+Ran 9 tests in 0.003s
+
+OK

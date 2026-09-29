@@ -1,0 +1,7 @@
+{
+  "date": "2026-09-29",
+  "source": "direct response to async format question",
+  "question": "Для новых A/B использовать компактный формат около50МБ, AAC128 вместо192кбит/с?",
+  "answer": "Да, компактные версии около 50 МБ",
+  "applies_to": "All four baseline06 A/B review variants, common encoding/audio"
+}

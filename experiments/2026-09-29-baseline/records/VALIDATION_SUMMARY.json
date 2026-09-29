@@ -1,0 +1,14 @@
+{
+  "transition_and_palette_replay_tests": {
+    "count": 9,
+    "result": "pass",
+    "log": "/root/lightsem/experiments/2026-09-29-baseline/records/TRANSITION_TESTS.log"
+  },
+  "existing_overlay_tests": {
+    "count": 23,
+    "result": "pass",
+    "command": "TORCH_ENV=/root/lightsem/.venv/torch-access PYTHONDONTWRITEBYTECODE=1 bash run_torch.sh -m unittest discover -s tests -p test_light_layers_overlay.py -q"
+  },
+  "first_test_invocation": "Module-name invocation failed because tests is not a package; corrected to unittest discovery. No assertion failures in discovered tests.",
+  "review_page": "JavaScript syntax checked, HTTP root/manifest200, invalid paths404, ready A byte-range206; full four-file route audit pending"
+}

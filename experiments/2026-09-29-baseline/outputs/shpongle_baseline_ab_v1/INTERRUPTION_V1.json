@@ -1,0 +1,16 @@
+{
+  "status": "incomplete_media_preserved",
+  "service": "lightsem-baseline06-review-20260929-v1",
+  "observed": "Systemd deactivated successfully at15:05:59UTC after57.347s; renderer/log stopped atpartialframe2395 without queue completion. Cause not established. No audit or human acceptance claimed.",
+  "partial_directory": "/root/lightsem/experiments/2026-09-29-baseline/outputs/shpongle_baseline_ab_v1/media/B_interrupted_20260929T150559Z",
+  "previous_progress": {
+    "status": "running",
+    "completed": [
+      "01"
+    ],
+    "elapsed_seconds": 0.059371085837483406,
+    "variant": "02",
+    "phase": "render"
+  },
+  "retry": "Same frozen inputs, source and parameters; restart rendering only, no scientific retraining."
+}

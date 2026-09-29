@@ -1,0 +1,23 @@
+{
+  "status": "USER_SELECTED_C_AND_AUTHENTICATED",
+  "baseline_config": "/root/lightsem/configs/light_layers/baseline.json",
+  "baseline_config_sha256": "5e37fd3cad083f4945502ed5df2459806b82ce2b0134382ac9ddf3204d0c8d6b",
+  "previous_config_snapshot": "/root/lightsem/experiments/2026-09-29-baseline/records/BASELINE_BEFORE_C_SELECTION.json",
+  "previous_config_sha256": "976e00986548f68bed18e0f90a912d7a0f6a9e560fea7eea002ea42d51c92c6c",
+  "previous_config_matches_review_binding": true,
+  "chosen_arm": "C",
+  "palette_history": true,
+  "color_transition_s": 0.3,
+  "video": {
+    "path": "/root/lightsem/experiments/2026-09-29-baseline/outputs/shpongle_baseline_ab_v2/media/C/C_full_1080p_av1.mp4",
+    "sha256": "fb06c3f3a951a4f2a12bbc01f4470cec4f8326912a441bd4e25097e275170299",
+    "bytes": 43587650
+  },
+  "streams": {
+    "path": "/root/lightsem/experiments/2026-09-29-baseline/outputs/shpongle_baseline_ab_v2/streams/03.npz",
+    "sha256": "34ca1d5f2c9a271b9e08536519f4d657e4aa3017a5ac42514b38e8dd07e4829b"
+  },
+  "source_model_and_accepted_media_reused": true,
+  "historical_review_manifests_unchanged_by_selection": true,
+  "note": "Current baseline configuration intentionally advances beyond the frozen A/B plan. The exact pre-selection config is preserved above; replaying a new campaign requires a new source binding."
+}

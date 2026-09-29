@@ -1,0 +1,42 @@
+{
+  "payload": {
+    "runbook_id": "rb-shpongle-human-rating-20260929",
+    "status": "abandoned",
+    "preconditions": "Superseded by actual user selection06 as development baseline. Do not require or re-request all ten numeric ratings; qualitative choice is sufficient for the requested baseline decision. New A/B queue is rb-baseline06-ab-20260929.",
+    "note": "Ten-way review fulfilled its practical purpose: user explicitly prefers02to01 and selects06 as best/new baseline. This non-hypothesis review queue is administratively abandoned/superseded rather than marked done with a fabricated hypothesis_id. Original human feedback is retained in records/USER_FEEDBACK.json and prior notes. Continue with06 history/fade A/B; user also explicitly confirmed compact videos around50MB."
+  },
+  "result": {
+    "id": "rb-shpongle-human-rating-20260929",
+    "problem_id": "dancing-light-generative-20260903",
+    "prompt": "Collect the user's ratings for the recent committed lighting experiments on /root/shpongle.flac, source SHA256 95e4388424ef62950bdeae78e47b8e71839ed28c6e01189fe15f9ae6c902b6c0. Rating page http://127.0.0.1:8765; source/manifest/direct-link index and optional CSV are in /root/lightsem/outputs/shpongle_rating_20260929_v1/. Ten versions:01 original motion mapping;02 rhythm companion;03 shared audio-only S_none_P0;04 shared legacy6 S_V6_P0;05 combined rich shared S_VR_P0 with rhythm, motion style, brightness dynamics, colors, accents and generated palette history;06 independent rich I_VR_P0;07 shuffled-audio-training control on recipient audio;08 rich colors only;09 rich accents only;10 rich combined with previous palette replaced by trained null state. Primary selected seed0 models, fixed existing mapping, 277.3s/8319frames, native1080p30AV1 and identical source AAC decode. Seven exact existing renders reused; three new deterministic visual ablations, with CPU own-history palette replay required to match saved IDs, no encoder forward/training/threshold tuning. All469 protectedDMX slots/motion remain unchanged in overlay variants. Request scores1-5 for music fit, deliberate design and overall preference, plus timestamped notes. Browser localStorage and exported JSON are user input, not prefilled evidence. Existing identifying captions mean this is NOT blinded, and one-song preference is NOT broad scientific qualification. Variant10 is not the stochastic64s palette study. Alternative architectures cannot be simultaneously stacked;05 is the compatible rich shared stack, not an invented ensemble. Do not rewrite scientific verdicts or promote defaults from uncollected ratings; preserve previous negative/unqualified study results and all historical media.\n\nLatest user decision: User qualitative feedback 2026-09-29: 02 definitely better than01. 06 I_VR_P0 selected seed0 is the most interesting and best; explicitly selected as new development baseline. User says color fits track and rhythm changes, requests color transitions. User did not understand a significant difference in07; comparator unspecified. 10vs05 mostly one cyan/blue-related change; requests palette-history A/B on06. No numeric scores supplied; this is informed single-track preference, not a scientific confirmation or multi-track result. Exact user wording: /root/lightsem/experiments/2026-09-29-baseline/records/USER_FEEDBACK.json. Current baseline: /root/lightsem/configs/light_layers/baseline.json.",
+    "preconditions": "Superseded by actual user selection06 as development baseline. Do not require or re-request all ten numeric ratings; qualitative choice is sufficient for the requested baseline decision. New A/B queue is rb-baseline06-ab-20260929.",
+    "gates": [],
+    "status": "abandoned",
+    "hypothesis_id": null,
+    "priority": 10,
+    "notes": [
+      {
+        "at": "2026-09-29T08:43:59+00:00",
+        "text": "All10 recent-variant videos are ready:7 authenticated existing full-track renders plus3 new ablations. New render/audit queue exited0 in767.736s. Every video is8319frames/277.3s/native1920x1080/30fps/AV1 with identical decoded source audio SHA2566d5d8917556e5b7247fef054c758e975b9bf9d8ad206dccae755d4b51d794455. Final delivery audit rechecked video hashes, format, durations and saved full decode audits; all10 HTTP byte-range playback routes passed. New media665984232B and new data1267582B; both filesystem1GiBfloors passed. Combined compatible stack is05; no invented architecture ensemble. Viewer http://127.0.0.1:8765, direct file index VIDEOS.md, optional ratings_template.csv; local browser stores ratings and exportsJSON. No human acceptance, training, default promotion or new scientific verdict claimed."
+      },
+      {
+        "at": "2026-09-29T15:04:23+00:00",
+        "text": "User qualitative feedback 2026-09-29: 02 definitely better than01. 06 I_VR_P0 selected seed0 is the most interesting and best; explicitly selected as new development baseline. User says color fits track and rhythm changes, requests color transitions. User did not understand a significant difference in07; comparator unspecified. 10vs05 mostly one cyan/blue-related change; requests palette-history A/B on06. No numeric scores supplied; this is informed single-track preference, not a scientific confirmation or multi-track result. Exact user wording: /root/lightsem/experiments/2026-09-29-baseline/records/USER_FEEDBACK.json. Current baseline: /root/lightsem/configs/light_layers/baseline.json."
+      },
+      {
+        "at": "2026-09-29T15:22:01+00:00",
+        "text": "Ten-way review fulfilled its practical purpose: user explicitly prefers02to01 and selects06 as best/new baseline. This non-hypothesis review queue is administratively abandoned/superseded rather than marked done with a fabricated hypothesis_id. Original human feedback is retained in records/USER_FEEDBACK.json and prior notes. Continue with06 history/fade A/B; user also explicitly confirmed compact videos around50MB."
+      }
+    ],
+    "former_ids": [],
+    "topic_tags": [],
+    "created_at": "2026-09-29T08:37:26+00:00",
+    "updated_at": "2026-09-29T15:22:01+00:00"
+  },
+  "preservation": {
+    "/root/lightsem-vault": [
+      "/root/lightsem-vault/runbooks/rb-shpongle-human-rating-20260929.md"
+    ],
+    "/root/vibescience-vault": []
+  }
+}
