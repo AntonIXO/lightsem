@@ -1,0 +1,411 @@
+{
+  "ruled_out": [
+    {
+      "rule_out_id": "aist-can-supply-block-a-the-shared-audio-f67ca2",
+      "problem_id": "dancing-light-generative-20260903",
+      "claim": "AIST++ can supply block A, the shared audio->movement skeleton. ELIMINATED for this corpus. What varies between AIST++ tracks is the dance GENRE, not the acoustics, and the movement follows the genre.",
+      "method": "Direct replication of Burger et al. 2013's stimulus-level design on all 60 AIST++ tracks: one row per track, movement averaged over every dancer and frame, audio averaged over the track, bootstrap CIs over tracks; then the same correlations with genre and tempo partialled out; then the share of between-track movement variance explained by the genre label alone; then a check of whether audio can recover genre at all.",
+      "evidence": "Not one published correlation replicates, and several invert. Pulse clarity -> quantity of motion: Burger +0.62, here -0.078 (CI [-0.341, +0.169]). Low-band flux -> head speed: +0.73 vs -0.102. High-band flux -> hand speed: +0.65 vs -0.321. High-band flux -> hand spread: +0.57 vs -0.396 (CI excludes zero, wrong sign). The audio features do vary across the corpus (CV 0.16 to 0.68), so this is not a range restriction. The explanation is the corpus design: the genre label alone explains 0.835 of between-track variance in quantity of motion, 0.916 in centre-of-mass speed, 0.879 in vertical bounce amplitude and 0.955 in footfall rate. With genre and tempo partialled out, every audio-movement correlation collapses to between -0.18 and +0.21 with CIs spanning zero. AIST++ is choreographed street dance whose music was chosen to match the style, so the arrow runs genre -> both music and movement; Burger's participants moved freely to varied music, where the arrow runs music -> movement. The shared component is real and highly reliable (split-half up to 0.94 for footfall rate) — it is simply not acoustic. Block A therefore needs free-dancing data; the Oslo club-dancing EDM mocap (Zenodo, CC-BY-4.0) is the corpus for it.",
+      "ruled_out_at": "2026-09-03T22:43:13+00:00",
+      "score": 3.0,
+      "match_reasons": [
+        "same problem"
+      ]
+    },
+    {
+      "rule_out_id": "aist-needs-a-per-track-audio-motion-sync-offset-1aea7d",
+      "problem_id": "dancing-light-generative-20260903",
+      "claim": "AIST++ needs a per-track audio-motion sync offset: the dance is period-locked but phase-random against the music because each track's motion clock is shifted by an unknown constant. ELIMINATED.",
+      "method": "Fit one offset per music id as the R-weighted circular mean of per-clip footfall beat phases, using only half of each track's clips; validate on the held-out half, then test the SAME offset on a channel it was not fitted to (vertical bounce minima). A genuine clock offset shifts every channel of a clip equally, so it must transfer.",
+      "evidence": "The hypothesis looked strong: clips of one track agreed on a phase across different choreographies and dancers (concentration R = 0.59), the per-track estimate was split-half stable (r = 0.83), and on held-out clips the correction lifted footfall beat alignment from +0.019 (CI [-0.006, +0.044], i.e. chance) to +0.128 (CI [+0.103, +0.153]) — above the audio beat-trigger baseline's +0.101. It still fails the transfer test: on vertical bounce minima of held-out clips the raw signal is already aligned (+0.0382, CI [+0.0230, +0.0541]) and applying the footfall-fitted offset DESTROYS that alignment (+0.0081, CI [-0.0068, +0.0228]). There is no missing clock offset. What the corpus actually contains is a channel-specific phase: vertical bounce sits on the beat with no correction (the Toiviainen 2010 / Burger 2013 prediction), while footfall phase belongs to the choreography, which in street dance is routinely off the beat. Provenance: lightsem/data/sync.py, kept as a documented refutation with the fitting code intact.",
+      "ruled_out_at": "2026-09-03T22:29:15+00:00",
+      "score": 3.0,
+      "match_reasons": [
+        "same problem"
+      ]
+    },
+    {
+      "rule_out_id": "a-causal-temporal-encoder-over-openl3-audio-embeddings-can-predict-the-rpmc-l2-s",
+      "problem_id": "audio-to-light-semantic-mapping-20260807",
+      "claim": "A causal temporal encoder over openl3 audio embeddings can predict the RPMC-L2 stage-lighting scene vector (6-dim HSV summary), i.e. a trained macro layer can replace the hand-written rule table by regressing audio -> absolute lighting state.",
+      "method": "Marginal-contribution test on per-song-centred targets, held-out songs. (1) Ridge fits for audio-only, persistence-only (y's own lags 0.1-4.0 s), and AR+audio; the audio claim stands or falls on AR+audio minus AR, not on audio's absolute score. (2) A 2.36M-param causal transformer trained 40 epochs as the strong-model control. (3) A lag-shift control: audio-light correlation recomputed with y shifted +-30 s WITHIN each song, since real frame-level coupling must peak at lag 0 while slow co-drift does not. Split is by song (hash), so no venue appears in both train and test.",
+      "evidence": "Refuted by a marginal-contribution test, not by a weak model.\n\nSETUP: 140 songs, 126,332 frames @10 Hz, split BY SONG (99/23/18). Target is\nthe per-song-CENTRED scene vector (35-65% of raw variance is between-song\nvenue palette, which is given, not predicted). Metric R2_within on held-out songs.\n\nTRAINED MODEL (2,359,769 params, causal, 40 epochs, RTX 5070):\n  test R2_within (now)   = -0.0071\n  best epoch             = 0 (before learning anything)\n  train loss 0.1554 -> 0.0418 while val R2 fell -0.004 -> -0.445 (memorisation)\n\nBASELINES (all below the zero point):\n  per-song mean oracle   = -0.0000  <- zero point\n  best fair linear       = -0.1091\n\nCEILING PROBE (the decisive measurement):\n  audio only             = -0.1091\n  persistence only (AR)  = +0.7083\n  AR + audio             = +0.7035\n  audio's marginal gain  = -0.0049   <- NEGATIVE\n\nLighting is ~71% predictable from its own past 0.1-4.0 s, with NO audio.\nAdding 512 audio dims on top of that does not help.\n\nTIME-SHIFT CONTROL: correlation of audio vs light, y shifted within-song:\n  lag -30s 0.27325 | lag 0s 0.14104 | lag +30s 0.17044\nPeak at lag -30s, MINIMUM near zero. Real frame-level coupling\nmust peak at lag 0. This is slow co-drift over minutes, not coupling.\n\nRETRACTION: the earlier data-audit finding of \"20-36x audio-light correlation\nvs shuffled control\" is withdrawn as evidence. The shuffle destroyed\nwithin-song structure, so it tested the wrong null. The lag-shift control is\nthe correct one and it fails.",
+      "ruled_out_at": "2026-08-07T13:08:41+00:00",
+      "score": 2.0,
+      "match_reasons": [
+        "keyword×4"
+      ]
+    },
+    {
+      "rule_out_id": "the-just-dance-pose-as-free-encoder-hack-works-as-proposed-dancer-kinetic-energy",
+      "problem_id": "audio-to-light-semantic-mapping-20260807",
+      "claim": "The 'Just Dance / pose-as-free-encoder' hack works as proposed: dancer kinetic energy KE(t)=sum_j||dP_j/dt||^2 is a valid dense ground-truth signal for light DIMMER at beat/frame resolution, and jerk peaks are a valid trigger for STROBE/color-snaps, such that a model trained audio->pose->DMX learns choreographer-encoded musical semantics that plain FFT/envelope features do not carry. ALSO ELIMINATED: (a) that the near-zero beat-scale agreement is an artifact of a fixed sync lag between clips; (b) that it is explained by the dancers performing different choreographies; (c) that it is a Pearson amplitude artifact that would disappear if measured as event TIMING instead.",
+      "method": "exp-lightsem-p1p2-20260807. Two pure-CPU probes on AIST++ (real licensed paired 3D motion + music: 1408 sequences, 60 tracks, keypoints3d.zip from google/aistplusplus_dataset v1.0 + AIST audio wav.zip). NO scraping needed -- the sketch's premise that this data must be pirated from YouTube is false.\n\nPROBE 1 (probe1_pose_vs_audio.py, 263 usable sequences, 12 music ids): computed the sketch's exact KE formula on root-relative 3D keypoints; measured (M1) Pearson r vs librosa RMS/onset envelope at 4 smoothing timescales; (M2) RidgeCV R^2 from a 28-dim audio stack (RMS, onset, flux, centroid, flatness, spectral contrast, 20 MFCC) -> KE with GroupKFold BY MUSIC; (M3) THE CEILING -- r(KE_dancerA, KE_dancerB) for the SAME music, different dancer (1574 pairs). M3 upper-bounds any audio->pose model, since audio cannot predict what differs between two dancers hearing the same track.\n\nPROBE 2 (probe2_artifact_controls.py, 231 sequences, 115 same-choreography/different-dancer pairs vs 1373 different-choreography pairs) -- three artifact controls: (A1) replaced zero-lag Pearson with MAX cross-correlation over +-1.0s of lag; (A2) split pairs into SAME-choreography (reproducibility ceiling / noise floor) vs DIFFERENT-choreography; (A3) abandoned Pearson entirely and measured event TIMING -- jerk-peak 'hit' events matched at +-70ms, F1 vs a rate-matched uniform-random null, plus motion-hits vs the librosa beat grid.",
+      "evidence": "M1 r(KE, RMS envelope): 0.031 @0.1s, 0.080 @0.5s, 0.261 @2.0s, 0.653 @8.0s (r_onset nearly identical: 0.031/0.108/0.283/0.667). The 'KE->dimmer' formula IS an audio envelope at phrase scale and is uncorrelated with audio at beat scale.\n\nM2 audio->KE Ridge R^2 (GroupKFold by music, so held-out track): 0.0019 @0.1s, 0.0050 @0.5s, -0.0254 @2.0s, -0.0694 @8.0s. Generalises to a NEW track at essentially zero; negative at the very scale where within-track correlation was 0.65 -- i.e. the 8s correlation is per-track offset structure, not a transferable audio->motion law.\n\nM3 inter-dancer ceiling r (same music, different dancer, n=1574): 0.024 @0.1s, 0.047 @0.5s, 0.132 @2.0s, 0.495 @8.0s => R^2_ceiling 0.0006 / 0.0022 / 0.0174 / 0.2449. At beat scale the ceiling is ~0: two humans dancing the same track do NOT agree on instantaneous kinetic energy.\n\nARTIFACT CONTROLS (probe 2) -- all three rejected:\nA1 lag correction raises absolute values but does not change the conclusion: max-xcorr over +-1s gives 0.313 @0.1s, 0.366 @0.5s, 0.466 @2.0s, 0.812 @8.0s. The zero-lag reading was partly a sync artifact, but the timescale gradient survives.\nA2 THE DECISIVE CONTROL: SAME-choreography vs DIFFERENT-choreography pairs are statistically indistinguishable at every timescale -- 0.313 vs 0.290 @0.1s, 0.366 vs 0.354 @0.5s, 0.466 vs 0.464 @2.0s, 0.812 vs 0.842 @8.0s (n=115 vs 250; gaps far inside the +-0.14-0.36 spreads). Two dancers performing THE SAME choreography to the same music agree no better than two dancers performing DIFFERENT choreographies. So the measured agreement carries no choreography-specific information at all; it is generic 'a human is moving to ~120 BPM music' structure.\nA3 event-timing rescue fails too: motion-hit F1 at +-70ms = 0.250 same-choreo vs 0.191 random null (lift +0.060) and 0.223 vs 0.186 (lift +0.037) diff-choreo. Motion hits vs the librosa BEAT GRID: F1=0.116 vs 0.103 null, lift +0.013, n=209, mean tempo 119.8 BPM -- dancers' sharp movements are barely above chance at landing on the beat.\n\nCONCLUSION: the pose detour is ill-posed at exactly the resolution the light needs (strobe/color-snap at 0.1-0.5s) and redundant with a 3-line librosa envelope at the resolution where it does correlate (8s). Per multimodal-ai lecture 08, cross-modal transfer moves only REDUNDANT information; here the fine-scale component is not redundant, it is dancer-idiosyncratic, so no audio model can recover it and any single dancer is an arbitrary ground truth. Additionally the motivating premise is superseded: Skip-BART (ICLR 2026, arXiv 2506.01482) already learns audio->light from REAL lighting-engineer demonstrations, with dataset RPMC-L2 released CC-BY-4.0 -- strictly better-posed supervision than a dancer proxy, and legally clean versus scraping YouTube (which the ToS prohibits outright).",
+      "ruled_out_at": "2026-08-06T22:34:17+00:00",
+      "score": 0.5,
+      "match_reasons": [
+        "keyword×1"
+      ]
+    },
+    {
+      "rule_out_id": "using-sound-as-a-pivot-modality-rescues-the-mapping-learn-motion-sound-on-aist-w",
+      "problem_id": "audio-to-light-semantic-mapping-20260807",
+      "claim": "Using sound as a PIVOT modality rescues the mapping: learn motion -> sound on AIST (which has motion+audio) and sound -> light on RPMC-L2 (which has audio+light), then compose them to get motion -> light. This is proposed as a way around the absence of any dataset pairing motion with stage lighting.",
+      "method": "Attack the chain at its SECOND link, which is shared with the already-refuted direct mapping, so link 1 never has to be built. By the data processing inequality, motion -> sound -> light makes motion conditionally independent of light given sound; the chain's ceiling is therefore what the MOTION-RECOVERABLE PART of sound explains about light. Prior AIST measurement (probe1_pose_vs_audio.py, 263 sequences) shows motion and audio share only a slow envelope: R2 = 0.0019 at 0.1 s but r = 0.65 at 8 s smoothing. So link 1 was given an ORACLE: assume motion recovers the audio envelope PERFECTLY at timescale w and nothing faster, then band-split audio (centred uniform filter) and measure each band's marginal R2_within over a persistence (AR) baseline on held-out songs. Deliberately generous: the smoothing is CENTRED so it uses the future, and the oracle is perfect within band; a real causal motion->sound model gets strictly less than this bound.",
+      "evidence": "The bound is at or below zero at EVERY timescale, so the chain cannot work.\n\nPersistence baseline (lighting's own past 0.1-4.0 s, no audio): R2_within +0.7083\n\nMarginal contribution of each audio band OVER persistence, held-out songs:\n  full audio (no split)   -0.0049\n  slow band  w=1s         -0.0060\n  slow band  w=2s         -0.0082\n  slow band  w=4s         -0.0099\n  slow band  w=8s         -0.0182   <- the motion-recoverable band, ORACLE link 1\n  slow band  w=16s        -0.0313\n  fast band  w=1s         -0.0027   <- best of ANY band\nBest marginal over all timescales: -0.0027. Every value is NEGATIVE.\n\nNote the ordering: the slow bands are the WORST. The band motion can actually\nreach (34% of audio variance at 8 s) hurts more than the full signal\n(-0.0182 vs -0.0049), and it degrades monotonically as the window widens\n(1s -0.0060 -> 16s -0.0313). The pivot bottleneck selects for\nexactly the component of audio that is least useful about light.\n\nThis is an ORACLE bound on link 1, so it is not a statement about how good a\nmotion->sound model could be made. Even a perfect one inherits -0.0182.\n\nRoot cause is a composition-of-ceilings problem, not two independent bugs:\n  link 1 (motion->sound) passes only a slow envelope  [AIST: 0.0019 @0.1s, r=0.65 @8s]\n  link 2 (sound->light) has zero marginal signal at all timescales  [this probe]\nCross-modal transfer moves only REDUNDANT information (multimodal-ai lecture 08),\nso a pivot chain can only pass information present in BOTH intersections. Here\nthat intersection is empty.",
+      "ruled_out_at": "2026-08-07T13:18:09+00:00",
+      "score": 0.5,
+      "match_reasons": [
+        "keyword×1"
+      ]
+    }
+  ],
+  "do_not_retry": [
+    {
+      "experiment_id": "exp-dance-no-clock-20260908",
+      "hypothesis_id": "h-dance-no-clock-20260908",
+      "verdict": "supports",
+      "item": "Do not use latent distribution/alignment gates alone to call dancing-light output successful.",
+      "score": 4.0,
+      "match_reasons": [
+        "same problem",
+        "keyword×2"
+      ]
+    },
+    {
+      "experiment_id": "exp-dance-no-clock-20260908",
+      "hypothesis_id": "h-dance-no-clock-20260908",
+      "verdict": "supports",
+      "item": "Do not remove beat features as a universal cure; latest user explicitly permits them.",
+      "score": 4.0,
+      "match_reasons": [
+        "same problem",
+        "keyword×2"
+      ]
+    },
+    {
+      "experiment_id": "exp-dance-no-clock-20260908",
+      "hypothesis_id": "h-dance-no-clock-20260908",
+      "verdict": "supports",
+      "item": "Do not widen legacy pan to+-180 without world-coordinate ray/visibility checks.",
+      "score": 4.0,
+      "match_reasons": [
+        "same problem",
+        "keyword×2"
+      ]
+    },
+    {
+      "experiment_id": "exp-motion-codec-20260910",
+      "hypothesis_id": "h-motion-codec-20260910",
+      "verdict": "refutes",
+      "item": "Do not repeat this 20k BF16 codec recipe or extend the same run identity; any revision must be newly frozen.",
+      "score": 4.0,
+      "match_reasons": [
+        "same problem",
+        "keyword×2"
+      ]
+    },
+    {
+      "experiment_id": "exp-motion-codec-temporal128-20260910",
+      "hypothesis_id": "h-motion-codec-20260910",
+      "verdict": "directional_only",
+      "item": "Do not repeat this 20k BF16 codec recipe or extend the same run identity; any revision must be newly frozen.",
+      "score": 4.0,
+      "match_reasons": [
+        "same problem",
+        "keyword×2"
+      ]
+    },
+    {
+      "experiment_id": "exp-motion-native-audio-20260910",
+      "hypothesis_id": "h-motion-native-audio-20260910",
+      "verdict": "directional_only",
+      "item": "Do not promote or extend this native13930k recipe under the same identity. A revision must address physical contact, weak conditionality and short-record handling explicitly.",
+      "score": 4.0,
+      "match_reasons": [
+        "same problem",
+        "keyword×2"
+      ]
+    },
+    {
+      "experiment_id": "exp-motion-native-phase-codec-20260910",
+      "hypothesis_id": "h-motion-native-phase-codec-20260910",
+      "verdict": "refutes",
+      "item": "Do not repeat these truncated independent Haar-band projections expecting native velocity fidelity; any revision needs a new identity.",
+      "score": 4.0,
+      "match_reasons": [
+        "same problem",
+        "keyword×2"
+      ]
+    },
+    {
+      "experiment_id": "exp-night-conditioning-20260909",
+      "hypothesis_id": "h-night-conditioning-20260909",
+      "verdict": "inconclusive",
+      "item": "Do not repeat the identical recipe with a different seed to select a better outcome. A follow-up requires a new fixed protocol and a changed, justified mechanism.",
+      "score": 4.0,
+      "match_reasons": [
+        "same problem",
+        "keyword×2"
+      ]
+    },
+    {
+      "experiment_id": "exp-night-composition-20260909",
+      "hypothesis_id": "h-night-composition-20260909",
+      "verdict": "directional_only",
+      "item": "Do not repeat the identical recipe with a different seed to select a better outcome. A follow-up requires a new fixed protocol and a changed, justified mechanism.",
+      "score": 3.5,
+      "match_reasons": [
+        "same problem",
+        "keyword×1"
+      ]
+    },
+    {
+      "experiment_id": "exp-night-iteration-speed-20260910",
+      "hypothesis_id": "h-night-iteration-speed-20260910",
+      "verdict": "directional_only",
+      "item": "Do not promote this unchanged BF16+compile+prefetch bundle under the3%quality gate or select a favorable seed rerun.",
+      "score": 3.5,
+      "match_reasons": [
+        "same problem",
+        "keyword×1"
+      ]
+    }
+  ],
+  "results": [
+    {
+      "kind": "hypothesis",
+      "hypothesis_id": "h-motion-native-phase-codec-20260910",
+      "problem_id": "dancing-light-generative-20260903",
+      "statement": "A phase-preserving linear codec with explicit root/contact channels can satisfy clean-motion fidelity gates where the 20k nonlinear temporal codec recipe failed.",
+      "status": "refuted",
+      "score": 7.0,
+      "match_reasons": [
+        "same problem",
+        "keyword×3"
+      ],
+      "why_it_failed": "refuted [recipe_conditional]: Pose accuracy alone hides severe temporal distortion from bandwise truncation. Even the largest candidate fails velocity, kinetic energy, planted feet and short-hold gates. Retain full native detail as an explicit uncompressed engineering reference before music generation; do not call it learned compression success.",
+      "is_negative": true
+    },
+    {
+      "kind": "hypothesis",
+      "hypothesis_id": "h-beat-conditioned-visible-motion-20260909",
+      "problem_id": "dancing-light-generative-20260903",
+      "statement": "A beat-conditioned A/B/C sequence model with correct world aiming and independent emitted-light checks will produce more physically valid visible movement than the current no-clock body-v2 prototype while retaining measurable nonbeat audio control.",
+      "status": "inconclusive",
+      "score": 6.5,
+      "match_reasons": [
+        "same problem",
+        "keyword×2"
+      ],
+      "why_it_failed": "inconclusive [recipe_conditional]: World-target geometry repairs emitted-light visibility (1.0 vs 0.0); old weights with the same map also reach 1.0. The new recipe does not establish musical motion control: only 0.025 of40songs pass same-beat spectral-response/noise criteria, and A alignment advantage is -0.2130; report event selectivity's separate pass without hiding these failures. A future motion-control change must be evaluated on emitted trajectories with fixed rhythm and paired noise, retaining local timing checks.",
+      "is_negative": true
+    },
+    {
+      "kind": "hypothesis",
+      "hypothesis_id": "h-motion-codec-20260910",
+      "problem_id": "dancing-light-generative-20260903",
+      "statement": "A temporal continuous motion codec preserves clean dance dynamics better than a framewise 24-channel encoder.",
+      "status": "inconclusive",
+      "score": 6.5,
+      "match_reasons": [
+        "same problem",
+        "keyword×2"
+      ],
+      "why_it_failed": "inconclusive [recipe_conditional]: This codec recipe retains recognizable poses but fails dynamics, physical contact and/or full-track fidelity. Root-relative diagnostics are needed because fixing accumulated root drift alone may not repair limb velocity. Do not start music training from an ineligible representation; freeze a distinct revision with direct short-hold coverage.",
+      "is_negative": true
+    },
+    {
+      "kind": "hypothesis",
+      "hypothesis_id": "h-motion-native-audio-20260910",
+      "problem_id": "dancing-light-generative-20260903",
+      "statement": "A conditional temporal flow on full native motion uses the correct music and preserves coherent dynamics better than a matched deterministic regressor.",
+      "status": "inconclusive",
+      "score": 6.5,
+      "match_reasons": [
+        "same problem",
+        "keyword×2"
+      ],
+      "why_it_failed": "inconclusive [recipe_conditional]: Learning the marginal motion distribution and reducing energy score versus a regressor do not establish music timing. Physical foot constraints are missing from the native quadratic objective; contact labels remain populated while feet slide. Global chunk consistency does not bound generated root travel. Preserve this failed recipe and freeze a distinct targeted revision.",
+      "is_negative": true
+    },
+    {
+      "kind": "hypothesis",
+      "hypothesis_id": "h-night-conditioning-20260909",
+      "problem_id": "dancing-light-generative-20260903",
+      "statement": "Repeated audio FiLM in the temporal flow increases meaningful audio control relative to single-entry conditioning.",
+      "status": "inconclusive",
+      "score": 6.5,
+      "match_reasons": [
+        "same problem",
+        "keyword×2"
+      ],
+      "why_it_failed": "inconclusive [recipe_conditional]: Repeated FiLM changes how audio enters each flow block and adds parameters; the matched factorial comparison tests this recipe rather than a pure parameter-count intervention. Swap response must be accompanied by correct-audio alignment and preserved native/output quality.",
+      "is_negative": true
+    },
+    {
+      "kind": "hypothesis",
+      "hypothesis_id": "a-learned-group-effects-decoder-anton-s-mixture-2b4f62",
+      "problem_id": "dancing-light-generative-20260903",
+      "statement": "A learned group-effects decoder (Anton's mixture of light: a shared type-masked head on the frozen trunk and operator head emitting per-group intensity envelope, palette, effect id, rate in beats, phase spread and density, expanded to DMX by a deterministic effects engine) trained on authored light through a differentiable histogram renderer with random-rig dropout beats the hand-written conductor on Value- and onset-matched held-out songs: FID vs conductor beats a shuffled-donor control by > 2x, BAS is not lower without more onsets, raters prefer it on 'fits the music' with a CI excluding 50% at n >= 20, and it transfers to an unseen patch better than channel-copy.",
+      "status": "refuted",
+      "score": 6.0,
+      "match_reasons": [
+        "same problem",
+        "keyword×1"
+      ],
+      "why_it_failed": "refuted [recipe_conditional]: 2026-09-28 retrospective claim-scope clarification, not a new measurement: Both decoder recipes failed their recorded FID/BAS gates on the39-clip motion-validation render set, which was not held out from the decoder (30train/5validation/4test clips). v1 rig transfer passed; v2 failed. Preserve the separately reported authored-corpus metrics without relabelling them from these39-clip counts. Human A/B was not measured; no new run or preference conclusion follows.",
+      "is_negative": true
+    },
+    {
+      "kind": "hypothesis",
+      "hypothesis_id": "h-night-composition-20260909",
+      "problem_id": "dancing-light-generative-20260903",
+      "statement": "The fixed group-expression adapter yields expressive dimmers and distinguishable conditional fixture groups while preserving mirror geometry and visibility.",
+      "status": "inconclusive",
+      "score": 6.0,
+      "match_reasons": [
+        "same problem",
+        "keyword×1"
+      ],
+      "why_it_failed": "inconclusive [recipe_conditional]: The same incumbent checkpoint isolates the adapter change from retraining. Several conditional draws and a fixed geometric/brightness policy are not a learned fixture-level lighting director; engineering gate outcomes do not override failed musical-control gates or establish human aesthetic preference.",
+      "is_negative": true
+    },
+    {
+      "kind": "hypothesis",
+      "hypothesis_id": "the-model-s-light-flashes-three-times-too-often-73aafb",
+      "problem_id": "dancing-light-generative-20260903",
+      "statement": "The model's light flashes three times too often because its sampled descriptors carry 11x to 452x the corpus's above-6-Hz energy. Filtering the model's output with the same zero-phase 12 Hz Butterworth the targets were built with will bring the light event rate to the corpus value and lower FID, without costing diversity.",
+      "status": "inconclusive",
+      "score": 6.0,
+      "match_reasons": [
+        "same problem",
+        "keyword×1"
+      ],
+      "why_it_failed": "inconclusive [recipe_conditional]: [2026-09-28 retrospective interpretation; no new experiment] On identical checkpoint outputs, fitted per-channel zero-phase smoothing reduced the LIGHT event-rate ratio relative to real-motion-mapped light from 2.84 unfiltered to 1.19 and lowered FID versus the unfiltered arm, with the rate, FID and across-clip diversity gates recorded as passed. The named 12 Hz arm still had a rate ratio of 2.12 against the required maximum 1.3 and worst high-frequency energy of 72.3 times the corpus against the maximum 2; the fitted arm also failed G-smooth-hf at 5.0 times the corpus. Across-seed diversity fell with fitted smoothing and eight channels reached the smoothing cap, so these gains neither confirm the named filter nor establish a unique flashing mechanism or human LIGHT quality.",
+      "is_negative": true
+    },
+    {
+      "kind": "hypothesis",
+      "hypothesis_id": "a-causal-conformer-with-three-heads-b18294",
+      "problem_id": "dancing-light-generative-20260903",
+      "statement": "A causal Conformer with three heads — deterministic block A, event hazard block B, conditional-flow block C — trained on AIST++ produces light that lands on the music like dance-derived light does, with a feature distribution close to it and sampled variety a regression head cannot give.",
+      "status": "refuted",
+      "score": 5.5,
+      "match_reasons": [
+        "same problem"
+      ],
+      "why_it_failed": "refuted [recipe_conditional]: 2026-09-28 retrospective claim-scope clarification, not a new measurement: This frozen AIST++ three-head recipe failed BAS, FID and diversity gates while passing exact model causality. Near-median blockA output and independent-frame jitter are reported failure observations; these data do not isolate one cause of every failed gate or establish an architecture-independent corpus ceiling. Retain the scoped recipe failure and all null comparators.",
+      "is_negative": true
+    },
+    {
+      "kind": "hypothesis",
+      "hypothesis_id": "a-factorised-audio-light-critic-trained-with-a97ada",
+      "problem_id": "dancing-light-generative-20260903",
+      "statement": "A factorised audio-light critic trained with time-shift, other-song AND beat-trigger negatives on bar-synchronous tokens learns something beyond beat and loudness: it separates real authored light from beat-trigger light on held-out songs above chance, its best-of-8 ranking over rectified-flow samples changes when the critic is projected to its nearest additive model, and best-of-8 beats random-of-8 on human 'fits the music'. Without the beat-trigger negative it collapses to a beat detector and rewards the mode the model already occupies.",
+      "status": "inconclusive",
+      "score": 5.5,
+      "match_reasons": [
+        "same problem"
+      ],
+      "why_it_failed": "inconclusive [recipe_conditional]: 2026-09-28 retrospective claim-scope clarification, not a new measurement: The reranking proxies compare39 motion-model-validation clips: FID41.38 versus random43.82 and BAS-minus-shift-null0.1234 versus0.1237. The source does not establish that this set is held out from the independently split critic. Keep the separate critic-split pair-accuracy result and additive projection result; beyond-level understanding and best-of8 human preference remain unestablished.",
+      "is_negative": true
+    }
+  ],
+  "context": [
+    {
+      "kind": "problem",
+      "id": "dancing-light-generative-20260903",
+      "label": "Sound -> light for concerts/festivals, TRAINED ON DANCE datasets (LightSem v2): generative audio -> light on dance-derived targets",
+      "score": 5.0,
+      "match_reasons": [
+        "same problem",
+        "keyword×6"
+      ]
+    },
+    {
+      "kind": "intervention",
+      "id": "visual-next-cutie-masks-v1",
+      "label": "Anchored temporal foreground propagation with Cutie",
+      "score": 2.5,
+      "match_reasons": [
+        "keyword×5"
+      ]
+    },
+    {
+      "kind": "intervention",
+      "id": "visual-next-color-temporal-aux-v1",
+      "label": "Explicit spatial color plus frozen patch and temporal-difference auxiliary targets",
+      "score": 2.0,
+      "match_reasons": [
+        "keyword×4"
+      ]
+    },
+    {
+      "kind": "intervention",
+      "id": "beat-conditioned-abc-world-aim-v1",
+      "label": "beat-conditioned-abc-world-aim-v1",
+      "score": 1.5,
+      "match_reasons": [
+        "keyword×3"
+      ]
+    },
+    {
+      "kind": "intervention",
+      "id": "beat-free-dance-temporal-training",
+      "label": "Train beat-free temporal audio-to-dance descriptor model",
+      "score": 1.5,
+      "match_reasons": [
+        "keyword×3"
+      ]
+    },
+    {
+      "kind": "intervention",
+      "id": "stage11-joint-temporal-flow",
+      "label": "Joint temporal scene-flow velocity field",
+      "score": 1.5,
+      "match_reasons": [
+        "keyword×3"
+      ]
+    },
+    {
+      "kind": "intervention",
+      "id": "visual-next-fixture-oracle-v1",
+      "label": "Constrained four-group palette allocation with matched privileged control",
+      "score": 1.5,
+      "match_reasons": [
+        "keyword×3"
+      ]
+    },
+    {
+      "kind": "problem",
+      "id": "audio-to-light-semantic-mapping-20260807",
+      "label": "Semantic audio->stage-light mapping: does dance pose work as a free intermediate representation?",
+      "score": 1.5,
+      "match_reasons": [
+        "keyword×3"
+      ]
+    },
+    {
+      "kind": "intervention",
+      "id": "motion-audio-20260910",
+      "label": "motion-audio-20260910",
+      "score": 1.0,
+      "match_reasons": [
+        "keyword×2"
+      ]
+    },
+    {
+      "kind": "intervention",
+      "id": "motion-codec-20260910",
+      "label": "motion-codec-20260910",
+      "score": 1.0,
+      "match_reasons": [
+        "keyword×2"
+      ]
+    }
+  ],
+  "calibration_note": null,
+  "guidance": "STOP — 5 claim(s) in `ruled_out` were already ELIMINATED BY MEASUREMENT. Read those first and do not re-test them; if you believe one is wrong, retract it with new evidence rather than quietly re-running it. 10 explicit DO-NOT-RETRY item(s) match this query — they were recorded by a run that already paid for them. Refuted/inconclusive results are ranked first on purpose — do not silently retry a dead end. Propose a NEW hypothesis with a committed prediction, or supersede a prior one. `context` holds related papers/interventions/problems — grounding for the new hypothesis, not evidence."
+}

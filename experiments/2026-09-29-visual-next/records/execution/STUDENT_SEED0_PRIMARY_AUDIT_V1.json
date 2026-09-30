@@ -1,0 +1,80 @@
+{
+  "status": "all7_seed0_full_fits_independently_verified",
+  "queue_sha256": "f1c71f8d91362bd87031cd9dd49710c5a0f8d2e1662087a101b42c2a5af9a075",
+  "cells": [
+    {
+      "arm": "R0",
+      "seed": 0,
+      "REPORT_sha256": "9ee66a51d177686f85f633964857bf9117f502b349e1c4c40afdbde6cee734ac",
+      "checkpoint_sha256": "88f24135043349105ed916b70ab34d64e052af5e613b8f10f549cd661cfd651f",
+      "steps": 6000,
+      "elapsed_s": 214.2104417628143,
+      "state_digest_verified": true,
+      "strict_weights_only_load": true
+    },
+    {
+      "arm": "R1",
+      "seed": 0,
+      "REPORT_sha256": "793a6a6f39bdbbbf80d00d4a4fee2424f47e69a0b42bfa1b6ad327ddedcf6c25",
+      "checkpoint_sha256": "18e7f1ddb494fd624ce060a04efd43a8e3c8a98cbba991dc8ae1e8dd36515c95",
+      "steps": 6000,
+      "elapsed_s": 212.44730462692678,
+      "state_digest_verified": true,
+      "strict_weights_only_load": true
+    },
+    {
+      "arm": "Rrand",
+      "seed": 0,
+      "REPORT_sha256": "267c3dc8ee2f10cc2df51ac503f716ee97852aaf931357fde8280f4be1dc90fa",
+      "checkpoint_sha256": "d512223a5365b2b41476bb5ef7de91c1ab112cba948a413d649aef258def594b",
+      "steps": 6000,
+      "elapsed_s": 216.40220774617046,
+      "state_digest_verified": true,
+      "strict_weights_only_load": true
+    },
+    {
+      "arm": "R2",
+      "seed": 0,
+      "REPORT_sha256": "21aadd9b124d03d21e6609d83f99de390bca2e77b1e9e3190525a9f9b83bd861",
+      "checkpoint_sha256": "e9483b27ceffda0e05fd77ec5bab27b3442a6be6a33810e51dd4698fb93b1a6d",
+      "steps": 6000,
+      "elapsed_s": 208.99679215694778,
+      "state_digest_verified": true,
+      "strict_weights_only_load": true
+    },
+    {
+      "arm": "R3",
+      "seed": 0,
+      "REPORT_sha256": "10127d6cf7df1243a1d7949076759b13e3986868bf963d8e6ed587e566a0ab28",
+      "checkpoint_sha256": "0800289019941ef80ceab89bd9134af515507e8d13bf615391faf7a18b07ee1f",
+      "steps": 6000,
+      "elapsed_s": 212.95165639510378,
+      "state_digest_verified": true,
+      "strict_weights_only_load": true
+    },
+    {
+      "arm": "R3-shuffle",
+      "seed": 0,
+      "REPORT_sha256": "554088f7ce1542ae16e902be37b2158c3a0046776be93c60ef1612ec642945cd",
+      "checkpoint_sha256": "5b2bf4714a2b0331cb51c8d0a35d7f8f4b69b7f9e988b8c259ee56dd6a993511",
+      "steps": 6000,
+      "elapsed_s": 209.72165081417188,
+      "state_digest_verified": true,
+      "strict_weights_only_load": true
+    },
+    {
+      "arm": "R3-reverse",
+      "seed": 0,
+      "REPORT_sha256": "9ab10324f7f079b9f13e07f66725ff0780170ed9c0ba664a03b5d03d963b5939",
+      "checkpoint_sha256": "b98ef2cf239a91f48bf407717586d781d02c173d12ebe3637eca9a7afb26143e",
+      "steps": 6000,
+      "elapsed_s": 210.60233376990072,
+      "state_digest_verified": true,
+      "strict_weights_only_load": true
+    }
+  ],
+  "all21_study_cells_complete": false,
+  "DEV_scored": false,
+  "representation_qualification_pass": false,
+  "scope": "Completion/provenance/finite-training audit only; no efficacy claim or selected seed."
+}

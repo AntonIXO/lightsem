@@ -1,0 +1,54 @@
+{
+  "status": "all91_TRAIN_projected_targets_and_actual_loader_independently_verified",
+  "application_report_sha256": "34b4e9ceae67ef6b39a3df20f412cb0fc436f523e067804259ac7cc3a5923d3f",
+  "freeze_sha256": "e4b5776f79f2fa6441a9195e9dc2af0d2885b1e6788d3ed3de02825aed737404",
+  "input_bindings_verified": 841,
+  "target_artifacts_verified": 91,
+  "common_valid_rows": 54489,
+  "normalized_target_checks": {
+    "R0": {
+      "stored_target_max_abs_mean": 1.9553974871089456e-06,
+      "stored_target_max_variance_error": 5.3106994900797844e-05
+    },
+    "R1": {
+      "stored_target_max_abs_mean": 1.9129165023257365e-06,
+      "stored_target_max_variance_error": 9.15166850923299e-06
+    },
+    "Rrand": {
+      "stored_target_max_abs_mean": 2.3751032722399076e-06,
+      "stored_target_max_variance_error": 9.59873338690631e-06
+    },
+    "R2": {
+      "stored_target_max_abs_mean": 2.362482038753911e-06,
+      "stored_target_max_variance_error": 8.380908885441407e-06
+    },
+    "R3": {
+      "stored_target_max_abs_mean": 2.3326507284404594e-06,
+      "stored_target_max_variance_error": 7.183297010771028e-06
+    },
+    "R3-shuffle": {
+      "stored_target_max_abs_mean": 3.2047377073919476e-06,
+      "stored_target_max_variance_error": 8.706364980959336e-06
+    },
+    "R3-reverse": {
+      "stored_target_max_abs_mean": 2.7697689589371767e-06,
+      "stored_target_max_variance_error": 1.1918462995752499e-05
+    }
+  },
+  "main_target_digests": {
+    "R0": "59be936164e437af195b2b4be8fb8c80c712735582e729d20400d6c699f17098",
+    "R1": "59be936164e437af195b2b4be8fb8c80c712735582e729d20400d6c699f17098",
+    "Rrand": "59be936164e437af195b2b4be8fb8c80c712735582e729d20400d6c699f17098",
+    "R2": "59be936164e437af195b2b4be8fb8c80c712735582e729d20400d6c699f17098",
+    "R3": "59be936164e437af195b2b4be8fb8c80c712735582e729d20400d6c699f17098",
+    "R3-shuffle": "59be936164e437af195b2b4be8fb8c80c712735582e729d20400d6c699f17098",
+    "R3-reverse": "59be936164e437af195b2b4be8fb8c80c712735582e729d20400d6c699f17098"
+  },
+  "main_audio_and_masks_identical_across7arms": true,
+  "real_auxiliary_values_differ": true,
+  "GPU_used": false,
+  "DEV_read": false,
+  "TEST_access": false,
+  "fitting_performed": false,
+  "scope": "Actual projected targets and training loader verified; not a model fit or efficacy result."
+}

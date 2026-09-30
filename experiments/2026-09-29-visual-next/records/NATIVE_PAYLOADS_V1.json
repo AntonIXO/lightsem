@@ -1,0 +1,680 @@
+{
+  "schema_version": 1,
+  "protocol_sha256": "772b9687c992275f020b488edf7524596c3c7f177cd40befbcda3828aa8573b5",
+  "status": "ready_for_native_registration_no_experiments",
+  "papers": [
+    {
+      "id": "paper-dinov3-2508-10104",
+      "title": "DINOv3",
+      "arxiv_id_or_url": "https://arxiv.org/abs/2508.10104v1",
+      "key_claims": [
+        "Dense patch features are more suitable than one global semantic embedding for retaining local layout. The paper separates global discrimination from local consistency using Gram anchoring; this is a reason to inspect patch features, not to train a new foundation model here. The official21M ViT-S/16 is a bounded first candidate. Exact color fidelity and music-to-light transfer are unmeasured. Weights require an access process; verify access and checksum before execution. Preserve explicit HS/color targets and test low-semantic backgrounds, geometry and color perturbations.",
+        "Verified full PDF SHA256 c68dc50b1f73e1641a592f777984fc360759e84b7fe65ac4f6e1377927f20b2e. Read scope: Abstract/introduction; Gram anchoring Sec4.2; distilled family; dense evaluation Sec6.1; official release/preprocessing instructions. Published evidence is outside LightSem; application here is a hypothesis."
+      ],
+      "topic_tags": [
+        "audio-to-light",
+        "cross-modal",
+        "evaluation-metric"
+      ]
+    },
+    {
+      "id": "paper-videoprism-2402-13217",
+      "title": "VideoPrism: A Foundational Visual Encoder for Video Understanding",
+      "arxiv_id_or_url": "https://arxiv.org/abs/2402.13217v3",
+      "key_claims": [
+        "A frozen video encoder retains spatiotemporal outputs and combines semantic global/local distillation. It provides a useful temporal-representation comparator in principle. Its paper explicitly limits long-video understanding: the encoder consumes16 sampled frames. The official implementation currently uses JAX/Flax and lists PyTorch support as a TODO, so it is deferred from the first PyTorch pilot. Large and partly private pretraining data leave overlap and transfer questions; no stage-light or precise chromatic timing result is established.",
+        "Verified full PDF SHA256 dc3958c581b69c7a492f0f7b4d90a5b2acdf1697896be6755b71e38399440066. Read scope: Abstract; architecture and two-stage training Sec2.2–2.3; ablations and limitations Sec3.5–3.6; official code availability. Published evidence is outside LightSem; application here is a hypothesis."
+      ],
+      "topic_tags": [
+        "audio-to-light",
+        "cross-modal",
+        "evaluation-metric"
+      ]
+    },
+    {
+      "id": "paper-vjepa21-2603-14482",
+      "title": "V-JEPA 2.1: Unlocking Dense Features in Video Self-Supervised Learning",
+      "arxiv_id_or_url": "https://arxiv.org/abs/2603.14482",
+      "key_claims": [
+        "Supervising visible as well as masked tokens and intermediate layers improves dense video features alongside global tasks. The released80M ViT-B/16 provides a specific future temporal teacher. Use a frozen model if pursued; do not port its large-scale pretraining recipe into this project. Keep explicit chromatic targets because video understanding scores do not establish color faithfulness. Published robotics/action gains are not LightSem effect sizes. Compare ordered clips with order-destroyed controls, and measure actual VRAM and feature cache cost first.",
+        "Verified full PDF SHA256 b40580916242ade00e2ac177cb01473d511f021d5a25f7552fd17512b3a72bbb. Read scope: Abstract; Sec2.3 dense and deep supervision; Sec3.10 distilled models/Table11; conclusion; official80M Base384 release. Published evidence is outside LightSem; application here is a hypothesis."
+      ],
+      "topic_tags": [
+        "audio-to-light",
+        "cross-modal",
+        "evaluation-metric"
+      ]
+    },
+    {
+      "id": "paper-cutie-2310-12982",
+      "title": "Putting the Object Back into Video Object Segmentation",
+      "arxiv_id_or_url": "https://arxiv.org/abs/2310.12982",
+      "key_claims": [
+        "Object-level memory complements local pixel matching to improve coherent video object masks. This supports testing propagation from fixed SAM2 initialization against independent per-frame SAM2, with identical initial prompts. The paper documents failures for similar objects occluding or approaching one another; coach identity and foreground leakage therefore need independent masks. A segmentation benchmark gain is not a color-observer gain. Test retained-background HS error directly, not just mask smoothness or IoU, and reset at declared shot boundaries.",
+        "Verified full PDF SHA256 90d83bdff858a8408192ac803713c178085d8f3a306e92edad782865221c9837. Read scope: Abstract; object transformer and memory Sec3; runtime/ablation discussion; Sec4.3 and supplementB failure cases; official release. Published evidence is outside LightSem; application here is a hypothesis."
+      ],
+      "topic_tags": [
+        "audio-to-light",
+        "cross-modal",
+        "evaluation-metric"
+      ]
+    },
+    {
+      "id": "paper-raft-2003-12039",
+      "title": "RAFT: Recurrent All-Pairs Field Transforms for Optical Flow",
+      "arxiv_id_or_url": "https://arxiv.org/abs/2003.12039",
+      "key_claims": [
+        "All-pairs correlation and iterative updates offer dense motion estimates; the paper includes a small roughly1M-parameter variant. Flow is useful as a diagnostic for moving background regions or mask consistency, not as unquestioned ground truth. Light flashes, color changes, blank stage areas and cuts may violate its transfer assumptions; this is a LightSem-specific concern, not a result measured by the paper. Include static-image color-change controls and known translations before using flow to veto labels. No first-pilot motion-controller replacement is proposed.",
+        "Verified full PDF SHA256 32526df4111c7521f1b523964594c65e0ccb6885bcb3f5680fb43fe197c4edeb. Read scope: Abstract; feature/correlation/update methods Sec3.1–3.3; timing/parameter comparison Sec4.4. Published evidence is outside LightSem; application here is a hypothesis."
+      ],
+      "topic_tags": [
+        "audio-to-light",
+        "cross-modal",
+        "evaluation-metric"
+      ]
+    },
+    {
+      "id": "paper-regularized-ot-1307-5551",
+      "title": "Regularized Discrete Optimal Transport",
+      "arxiv_id_or_url": "https://arxiv.org/abs/1307.5551",
+      "key_claims": [
+        "Relaxed mass conservation and graph regularization help transfer multimodal color distributions without amplifying noise. This motivates a constrained fixture-assignment oracle and distributional objectives rather than collapsing a palette to its mean RGB. The paper is image recoloring, not a physical lighting controller: fixture gamut, overlap, emitted luminance and temporal transitions must be constrained independently. Histogram matching alone ignores spatial layout. Keep a regional held-out error and palette-permutation control; an oracle improvement establishes output capacity only.",
+        "Verified full PDF SHA256 68962db9b04c14655e82f9eb4d50e68a9d5047f0cff91e8c42c86d1e4c717be2. Read scope: Abstract; relaxed transport and graph regularization Sec3; color transfer Sec4.1–4.2; algorithm/scaling discussion. Published evidence is outside LightSem; application here is a hypothesis."
+      ],
+      "topic_tags": [
+        "audio-to-light",
+        "cross-modal",
+        "evaluation-metric"
+      ]
+    },
+    {
+      "id": "paper-palette-recolor-2015",
+      "title": "Palette-based Photo Recoloring",
+      "arxiv_id_or_url": "https://pixl.cs.princeton.edu/pubs/chang_2015_ppr/index.php",
+      "key_claims": [
+        "The method uses a small editable palette, perceptual color space and gamut-aware transformations with monotonic luminance. This suggests retaining multiple palette components and testing their allocation to fixtures. Its video extension uses one frame palette throughout a sequence and explicitly notes long-sequence limitations. Image-space recoloring and its user study do not validate DMX rendering or music fit. The discussion notes that simple color distances can misrank visible artifacts; retain human inspection and temporal/brightness guards alongside numerical reconstruction.",
+        "Verified full PDF SHA256 84662aed0786d03099b7c1737933a9ffe9a2ba449a482f4e6af1cc96455ac397. Read scope: Official author page; abstract; palette construction Sec3.2; gamut/luminance goals Sec3.3–3.4; user-study discussion; video limitation Sec5.1. Published evidence is outside LightSem; application here is a hypothesis."
+      ],
+      "topic_tags": [
+        "audio-to-light",
+        "cross-modal",
+        "evaluation-metric"
+      ]
+    },
+    {
+      "id": "paper-dreamsim-2306-09344",
+      "title": "DreamSim: Learning New Dimensions of Human Visual Similarity using Synthetic Data",
+      "arxiv_id_or_url": "https://arxiv.org/abs/2306.09344",
+      "key_claims": [
+        "Human similarity supervision makes the embedding sensitive to color/layout beyond purely semantic baselines. However, its analysis emphasizes foreground objects over backgrounds and its synthetic dataset is object-centric; this is a poor match to person-masked lighting backgrounds. Therefore it is a possible secondary diagnostic only after controlled-light perturbation validation, not a primary lighting-quality metric. Do not evaluate a feature teacher with the same embedding and call agreement independent evidence. Actual music-fit/design preference remains a separate human endpoint.",
+        "Verified full PDF SHA256 9d609c8c3430421e1e62478d36f29deed6a83d04356b0c015cee2ef2057c60d4. Read scope: Abstract; metric training Sec4.2; attribute sensitivity Sec5.2; foreground/background discussion; supplementC limitations. Published evidence is outside LightSem; application here is a hypothesis."
+      ],
+      "topic_tags": [
+        "audio-to-light",
+        "cross-modal",
+        "evaluation-metric"
+      ]
+    },
+    {
+      "id": "paper-insid3-2603-28480",
+      "title": "INSID3: Training-Free In-Context Segmentation with DINOv3",
+      "arxiv_id_or_url": "https://arxiv.org/abs/2603.28480",
+      "key_claims": [
+        "The paper shows spurious cross-image matches at similar coordinates in low-semantic regions and suppresses a positional subspace estimated from noise. This directly motivates dark/flat-background and location controls for DINOv3 in LightSem. Do not automatically remove positional information: it may be useful for within-scene spatial composition, and the paper distinguishes those uses. The method needs a reference mask and handles one concept at a time, so it is not an immediately justified YOLO replacement for multiple moving coaches.",
+        "Verified full PDF SHA256 1bcb9b5f6a5d2fc7ed4893edcd97028e725eed42224c91b8d249a7591a54f17b. Read scope: Abstract; Sec3.1 positional subspace; Sec4.2 bias analysis; supplementF limitations. Published evidence is outside LightSem; application here is a hypothesis."
+      ],
+      "topic_tags": [
+        "audio-to-light",
+        "cross-modal",
+        "evaluation-metric"
+      ]
+    },
+    {
+      "id": "paper-transnetv2-2008-04838",
+      "title": "TransNet V2: An effective deep network architecture for fast shot transition detection",
+      "arxiv_id_or_url": "https://arxiv.org/abs/2008.04838v1",
+      "key_claims": [
+        "The detector combines temporal convolutions and learned/RGB-histogram similarities at48x27 resolution. It evaluates centered windows and uses a fixed0.5 threshold; no live-causal claim follows. The paper warns about false hits from abrupt camera/environment/object changes and missed transitions. Use it as an edit candidate detector, not truth: a color flash may be a useful light event. Validate filtering against independent content-event annotations, preserve recall/coverage, and retain cut-coincident events as a separate reported category. Its headline benchmark results do not predict LightSem effect size.",
+        "Verified full PDF SHA256 9e4df222d6754ab4c51047706bed07e9d985abc9e584628b60d79bafb80557f8. Read scope: Four-page paper: introduction, architecture, synthetic/real training, comparison procedure and limitations; official code. Published evidence is outside LightSem; application here is a hypothesis."
+      ],
+      "topic_tags": [
+        "audio-to-light",
+        "cross-modal",
+        "evaluation-metric"
+      ]
+    },
+    {
+      "id": "paper-deva-2309-03903",
+      "title": "Tracking Anything with Decoupled Video Segmentation",
+      "arxiv_id_or_url": "https://arxiv.org/abs/2309.03903",
+      "key_claims": [
+        "Image segmentation and temporal propagation can be decoupled, allowing current image masks to be reused. The paper uses bidirectional consensus and notes delayed discovery of new objects between image-model updates. This motivates an independent mask-stability arm, not detector replacement. It also means future-aware propagation cannot be silently used in a supposedly causal visual forecast. For the first test, bounded Cutie propagation from fixed anchors is simpler; DEVA remains a supported alternative under a distinct recipe, with fresh-object and persistent-false-positive controls.",
+        "Verified full PDF SHA256 30376f8b3d740b9f1a05e65ac5ac2203594f85255d4888cfb458233ec231754d. Read scope: Abstract/introduction; in-clip consensus and propagation; Sec4.6 limitations. Published evidence is outside LightSem; application here is a hypothesis."
+      ],
+      "topic_tags": [
+        "audio-to-light",
+        "cross-modal",
+        "evaluation-metric"
+      ]
+    },
+    {
+      "id": "paper-maskfreevis-2303-15904",
+      "title": "Mask-Free Video Instance Segmentation",
+      "arxiv_id_or_url": "https://arxiv.org/abs/2303.15904",
+      "key_claims": [
+        "Temporal KNN patch correspondences provide mask-consistency supervision with zero, one or several matches, handling ambiguous/no correspondences better than an unconditional one-to-one assumption. Mask-free does not mean annotation-free: the system uses bounding boxes. Its consistency idea motivates a diagnostic only; training a new segmentation model is outside the first pilot. Appearance changes and repeated graphics can invalidate correspondences, so independent foreground masks and retained-background color error remain necessary.",
+        "Verified full PDF SHA256 7c70b88d1d75078396c5b8671a4ee5221c06b06049ff22de94bef39e0e0c676a. Read scope: Abstract; Temporal KNN-patch Loss Sec3.1.1–3.1.2; correspondence/ablation discussion. Published evidence is outside LightSem; application here is a hypothesis."
+      ],
+      "topic_tags": [
+        "audio-to-light",
+        "cross-modal",
+        "evaluation-metric"
+      ]
+    },
+    {
+      "id": "paper-davis-2016",
+      "title": "A Benchmark Dataset and Evaluation Methodology for Video Object Segmentation",
+      "arxiv_id_or_url": "https://openaccess.thecvf.com/content_cvpr_2016/html/Perazzi_A_Benchmark_Dataset_CVPR_2016_paper.html",
+      "key_claims": [
+        "Region IoU, boundary quality and temporal stability measure different failure modes. The paper cautions that occlusions and strong deformations can be mistaken for instability. Thus smoother masks alone cannot qualify LightSem targets. Report independent human-mask IoU/boundaries and errors in the retained color distribution, grouped by source-song family. Borrow the evaluation distinctions without claiming that DAVIS performance transfers to stylized choreography backgrounds or downloading an unrelated dataset.",
+        "Verified full PDF SHA256 5db727294c466c722c9b1fc2409542c00172d21ae7aacc459736f47edbdc650c. Read scope: Abstract; Sec4.1 region, boundary and temporal metrics; validation and decay results. Published evidence is outside LightSem; application here is a hypothesis."
+      ],
+      "topic_tags": [
+        "audio-to-light",
+        "cross-modal",
+        "evaluation-metric"
+      ]
+    },
+    {
+      "id": "paper-dinov2-2304-07193",
+      "title": "DINOv2: Learning Robust Visual Features without Supervision",
+      "arxiv_id_or_url": "https://arxiv.org/abs/2304.07193",
+      "key_claims": [
+        "Released frozen patch features and distilled small models provide a practical baseline for adding visual structure without foundation-model training. Image/global and patch objectives do not guarantee exact chromatic information. Start with ViT-S/14 plus explicit color/layout channels, retain a dimension-matched random-capacity control, and evaluate independent event targets rather than reconstructing supplied statistics. Public pretraining can overlap source imagery; canonical grouping does not prove absence of pretraining exposure.",
+        "Verified full PDF SHA256 3add205547f3ece5fb1ac7a91720aa9fabf02d9cde29a096643ff022449f3e91. Read scope: Abstract; data curation Sec3; DINO/iBOT training Sec4; model distillation and ablation discussion. Published evidence is outside LightSem; application here is a hypothesis."
+      ],
+      "topic_tags": [
+        "audio-to-light",
+        "cross-modal",
+        "evaluation-metric"
+      ]
+    },
+    {
+      "id": "paper-videomae-2203-12602",
+      "title": "VideoMAE: Masked Autoencoders are Data-Efficient Learners for Self-Supervised Video Pre-Training",
+      "arxiv_id_or_url": "https://arxiv.org/abs/2203.12602",
+      "key_claims": [
+        "High-ratio tube masking makes reconstruction less susceptible to copying redundant neighboring frames. The paper emphasizes data quality/domain shift. This motivates order-destroying controls and temporal leakage checks, not a claim that masking inherently preserves color or predicts music-driven light. We defer training this model and use a small released frozen temporal candidate only in a preregistered qualification stage; verify the actual checkpoint terms and runtime before any later acquisition.",
+        "Verified full PDF SHA256 0fff5bdfb88ff8c3dc7de45d5108faf4bd3aa50d287e332a43f5fd664eb427ae. Read scope: Abstract; temporal redundancy/leakage discussion Sec3.2; tube masking; domain-shift and conclusion discussion. Published evidence is outside LightSem; application here is a hypothesis."
+      ],
+      "topic_tags": [
+        "audio-to-light",
+        "cross-modal",
+        "evaluation-metric"
+      ]
+    },
+    {
+      "id": "paper-colorvideovdp-2401-11485",
+      "title": "ColorVideoVDP: A visual difference predictor for image, video and display distortions",
+      "arxiv_id_or_url": "https://arxiv.org/abs/2401.11485",
+      "key_claims": [
+        "This full-reference metric models color and luminance distortions over space/time under specified display/viewing conditions. It is useful for matched-scene encoding or renderer-difference diagnostics when those conditions are explicit. Comparing unrelated source-video and stage compositions is not a valid substitute for perceived design quality. The paper lacks higher-level saliency/annoyance modeling and does not establish music fit. Keep it secondary; a favorable score cannot promote a new lighting baseline.",
+        "Verified full PDF SHA256 ac8a791eac5bb5dbbc3a21e0796104439d5010862de6d3c1e82b4b6d4a0d5449. Read scope: Abstract; display model and opponent/temporal processing Sec3.1–3.2; stated limitations. Published evidence is outside LightSem; application here is a hypothesis."
+      ],
+      "topic_tags": [
+        "audio-to-light",
+        "cross-modal",
+        "evaluation-metric"
+      ]
+    },
+    {
+      "id": "paper-synchformer-2401-16423",
+      "title": "Synchformer: Efficient Synchronization from Sparse Cues",
+      "arxiv_id_or_url": "https://arxiv.org/abs/2401.16423",
+      "key_claims": [
+        "A model trained for natural audiovisual events predicts offset from sparse short segments and separately considers whether a clip can be synchronized at all. This informs a transfer-check design, not a primary stage-light score: abstract illumination is not necessarily a visible physical sound source. Require known shifts, metronome/rate-matched and donor controls before any use. Do not infer designed appearance or genuine music conditioning from an unqualified synchronization model.",
+        "Verified full PDF SHA256 aeccfb5ddab382684792e3bb7c6ac99e56579f47f2a677b1d7f55784730cdf73. Read scope: Abstract; segment-level architecture/multimodal pretraining Sec3; offset/synchronizability evaluation discussion. Published evidence is outside LightSem; application here is a hypothesis."
+      ],
+      "topic_tags": [
+        "audio-to-light",
+        "cross-modal",
+        "evaluation-metric"
+      ]
+    }
+  ],
+  "diagnostics": [
+    {
+      "id": "visual-next-content-recall",
+      "name": "Independent content-color event recall",
+      "unit": "fraction",
+      "direction": "higher_better",
+      "description": "Macro canonical-family recall against independently annotated genuine content color events, including edit-coincident positives; one-to-one matching±.2s on fixed common source/reference support. No change in denominator after prediction; no-event recall undefined and false cues reported separately.",
+      "topic_tags": [
+        "audio-to-light",
+        "evaluation-metric"
+      ],
+      "noise_note": "No noise sigma or powered MDE measured at registration; no numeric noise floor is assumed."
+    },
+    {
+      "id": "visual-next-content-false-cues",
+      "name": "Independent content-color unmatched cues per minute",
+      "unit": "events/min",
+      "direction": "lower_better",
+      "description": "Unmatched color events per independently eligible minute at frozen threshold, macro over all canonical families including no-event families. Content annotations, edit strata and eligibility are frozen independent of method outputs.",
+      "topic_tags": [
+        "audio-to-light",
+        "evaluation-metric"
+      ],
+      "noise_note": "No noise sigma or powered MDE measured at registration; no numeric noise floor is assumed."
+    },
+    {
+      "id": "visual-next-content-event-f1",
+      "name": "Independent content-color event F1",
+      "unit": "fraction",
+      "direction": "higher_better",
+      "requires_control": "visual-next-content-recall",
+      "description": "Macro-family2TP/(2TP+FP+FN) on event-bearing canonical families, maximum-cardinality one-to-one event matching±.2s then minimum timing distance. Same independent human content annotations and fixed support for every arm; zero predictions with positive references give0, genuinely undefined denominators remain undefined. Report all-family false cues separately.",
+      "topic_tags": [
+        "audio-to-light",
+        "evaluation-metric"
+      ],
+      "noise_note": "No noise sigma or powered MDE measured at registration; no numeric noise floor is assumed."
+    },
+    {
+      "id": "visual-next-content-event-ap",
+      "name": "Audio student AP against independent content-color events",
+      "unit": "AP",
+      "direction": "higher_better",
+      "requires_control": "visual-next-content-false-cues",
+      "description": "Tie-correct event AP from ranked chromatic peaks with.2s NMS and one-to-one±.2s matching to independent human content events; average paired seeds within canonical family then macro-family mean. Same source support across all arms and controls; no-event AP undefined, false-cue/minute and coverage mandatory. Conditional historicalDEV pilot, not teacher-observer AP or human preference.",
+      "topic_tags": [
+        "audio-to-light",
+        "evaluation-metric"
+      ],
+      "noise_note": "No noise sigma or powered MDE measured at registration; no numeric noise floor is assumed."
+    },
+    {
+      "id": "visual-next-background-removal",
+      "name": "False removal of genuine background pixels",
+      "unit": "fraction",
+      "direction": "lower_better",
+      "description": "Predicted excluded pixels intersecting independently annotated valid background, divided by reference background pixels; average frames then canonical families. Fixed UI region excluded identically. Denominator is reference-defined, never selected by prediction.",
+      "topic_tags": [
+        "audio-to-light",
+        "evaluation-metric"
+      ],
+      "noise_note": "No noise sigma or powered MDE measured at registration; no numeric noise floor is assumed."
+    },
+    {
+      "id": "visual-next-render-luma-mismatch",
+      "name": "Displayed-luma mismatch to equally privileged global oracle",
+      "unit": "relative_fraction",
+      "direction": "lower_better",
+      "description": "Absolute difference in fixed-mask mean displayed luma versus global-color oracle divided by that oracle luma, averaged over fixed scoring frames then source families. Declare renderer/tone map/visibility mask and positive denominator. Not calibrated physical output.",
+      "topic_tags": [
+        "audio-to-light",
+        "evaluation-metric"
+      ],
+      "noise_note": "No noise sigma or powered MDE measured at registration; no numeric noise floor is assumed."
+    },
+    {
+      "id": "visual-next-spatial-palette-error",
+      "name": "Rendered four-region chromatic distribution error",
+      "unit": "JS_distance",
+      "direction": "lower_better",
+      "requires_control": "visual-next-render-luma-mismatch",
+      "description": "Mean sqrt Jensen-Shannon divergence (base2) between reference and rendered72-bin jointHS histograms over four fixed image quadrants, independent scoring frames then canonical source families. Reference masks and neutral-RGB render visibility support fixed before arms; empty prediction on reference-valid region has distance1. Primary oracle comparator sees identical target information/palette choices. Conditional on frozen C trajectory/camera, not audio predictability or taste.",
+      "topic_tags": [
+        "audio-to-light",
+        "evaluation-metric"
+      ],
+      "noise_note": "No noise sigma or powered MDE measured at registration; no numeric noise floor is assumed."
+    }
+  ],
+  "interventions": [
+    {
+      "id": "visual-next-edit-veto-v1",
+      "name": "Fixed TransNetV2 edit-aware chromatic target veto",
+      "description": "At fixed.5 pretrained cut threshold, veto observer color candidates within±.2s of predicted edit intervals; keep stateless SAM2/YOLO/source and the scoring denominator unchanged. Genuine cut-coincident color events remain independently labeled positives.",
+      "topic_tags": [
+        "audio-to-light",
+        "cross-modal"
+      ]
+    },
+    {
+      "id": "visual-next-cutie-masks-v1",
+      "name": "Anchored temporal foreground propagation with Cutie",
+      "description": "Cutie-base480px propagates SAM2 union-of-people anchors refreshed every2s and reset at frozen edits. Same YOLO prompts/UI exclusions; no detector replacement. Compare stateless SAM2 and held-anchor control on independent masks/background color.",
+      "topic_tags": [
+        "audio-to-light",
+        "cross-modal"
+      ]
+    },
+    {
+      "id": "visual-next-color-temporal-aux-v1",
+      "name": "Explicit spatial color plus frozen patch and temporal-difference auxiliary targets",
+      "description": "Seven fixed96D auxiliary recipes: Rich96,4x4explicitHS layout, layout+untrainedDINOv2, layout+frozenDINOv2-S/14, static+lag differences, shuffled-history differences, reversed-history differences. TRAIN-only PCA/scalers; matched independent audio students,3seeds, fixed final6000 checkpoints. No visual playback input.",
+      "topic_tags": [
+        "audio-to-light",
+        "cross-modal"
+      ]
+    },
+    {
+      "id": "visual-next-fixture-oracle-v1",
+      "name": "Constrained four-group palette allocation with matched privileged control",
+      "description": "RGB-only palette-mode assignment oracle on frozen C110–174s trajectory. Four static fixture groups vs equally informed global-color oracle, two-group/permutation/donor controls, identical reference information/allowed palette/cues/history/fades. No audio-learning or user-preference claim.",
+      "topic_tags": [
+        "audio-to-light",
+        "cross-modal"
+      ]
+    }
+  ],
+  "hypotheses": [
+    {
+      "id": "h-visual-next-cut-targets-20260929",
+      "problem_id": "dancing-light-generative-20260903",
+      "statement": "Edit-aware veto of current observer candidates improves independent content-color event F1 on the frozen historicalDEV pilot while preserving genuine-event recall.",
+      "rationale": "Primary-source methods suggest this distinct intervention; transfer to LIGHT is unmeasured. BaselineC is accepted by informed user review, while the previous observer validity failure and negative shared palette-history study stay intact. See RESEARCH_SYNTHESIS.md for corrections to generated research and PAPERS.json for exact primary-source reading scopes.",
+      "interventions": [
+        "visual-next-edit-veto-v1"
+      ],
+      "predicted_effects": [
+        {
+          "diagnostic_id": "visual-next-content-event-f1",
+          "direction": "up",
+          "magnitude_note": ">=+.05 absolute A1-A0; genuine-event recall loss<=.03; engineering minimum, no powered MDE."
+        }
+      ],
+      "plan": "Frozen protocol: /root/lightsem/experiments/2026-09-29-visual-next/records/PREREGISTRATION_V1.md SHA256 772b9687c992275f020b488edf7524596c3c7f177cd40befbcda3828aa8573b5.\n\nVisual learning after baseline C — prospective protocol V1\n\nStatus: prospective specification; NATIVE_REGISTRATION.json records native registration.\nAll hypotheses and gates must precede any new study output.\nThis document is a research preregistration, not a report of completed experiments.\nBaseline C remains the user-selected product reference. No training, feature-model\ninference, annotation, oracle optimization, TEST reading or new rendering was\nperformed in this research task.\n\n1. Fixed context and scope\n\nParent: master@ff342ff; exact baseline and source hashes are in INPUTS.json.\nC = independent Rich96 I_VR_P0 selected seed0, rhythm companion02, generated\npalette history ON,300ms causal smoothstep transitions. Poses remain the source\nof beam spatial style; audio controls movement time. The new studies address\nvisual supervision/color output and do not replace, retime or retrain motion.\nWhole-track audio processing is allowed; no online-causality claim is made.\n\nHistorical selected DEV is exposed. Shpongle is an exposed demonstration and\nis excluded from statistical method selection. Original31/40 source coverage and\n29/30 qualified-null failures remain failed; the proposed pilot cannot repair\nthem by changing denominators. A successful pilot is conditional on its enrolled\nsource families and is not fresh unseen-song confirmation or product promotion.\n\nThe first Perplexity call timed out at300s. The same56411-character query was\nsuccessfully run through the same configured research MCP with a900s client\nlimit. The answer,498 source results and raw receipts are preserved. All10\nrecommended papers and7 supplementary primary papers were downloaded and read\nin the stated scopes; none establishes a stage-light benefit for these proposals.\n\n2. Cohort, annotation and execution prerequisites\n\nANNOTATION_ENROLLMENT.json prospectively fixes12TRAIN calibration families by\nSHA256(salt+canonical_id) and all31 historicalDEV assessment families, each using\nits existing64s source window. All43 source files exist; their full hashes must\nbe rechecked before extraction. No outcome-dependent replacements. The full91\nTRAIN groups remain the training population for H3; no DEV transforms/fitting.\nAll remasters, duplicate audio, coaches and crops sharing canonical audio identity\nremain one family. An unresolved cross-split identity conflict stops execution.\n\nTwo independent human annotators, blind to method predictions, mark source-video\ncontent color changes, hard/gradual edits, camera-only changes, people/UI leakage,\nambiguous intervals and genuine color changes coincident with edits. Cut-coincident\ncolor changes are NOT automatically labeled false. Judge content from silent video;\nmusic-fit judgments belong to a separate later task. Disagreements are adjudicated\nbefore any scored method outputs are inspected. At offsets0,7,14,21,28,35,42,49,56,63s,\nindependently trace retained-background masks, foreground and fixed UI regions.\n\nCalibration agreement requirements: event matching F1>=.80 at±.2s and median\nforeground IoU>=.85 between annotators; ambiguous time<=20%. These are instrument\neligibility requirements, not measured values. Freeze the manual/independent\nassessment masks and events before scoring. At least30/31DEV families,>=80% of\neach retained family's source duration, and>=10 event-bearing families are needed\nfor event inference. Mask comparisons require>=30DEV families with>=8/10 valid\nindependent mask frames each. Annotator failures, missing support or missing\nmodel weights are unmet prerequisites, not evidence of zero effect.\n\nAll algorithms, feature transforms, code/weight hashes, software environment,\nsource timestamp mapping, grouping and statistical scripts must be frozen in a\nnew execution manifest BEFORE any new predictions. A future implementation may\nfill addresses/hashes and implement this protocol; changing a method, threshold,\nmetric or cohort rule requires a versioned amendment before outcomes, not a silent\nimplementation choice. The annotation, implementation and model-acquisition\nprerequisites are currently PENDING. No noise sigma or powered MDE is asserted.\n\n3. Common inference, controls and statistics\n\nPrimary unit: canonical source-song family. Average frame/event observations\nwithin a family; average paired training seeds within a family before aggregation.\nDo not use frames, events, crops or repeated ratings as independent sample units.\nUse10000 paired family bootstrap draws (seed20260929); report95% intervals and\npaired sign-flip p values. The primary family is fixed to four hypotheses. Interim reports use conservative\nBonferroni-adjusted p=min(1,4p); once all four are evaluated, also report Holm.\nUnexecuted hypotheses remain unmeasured, never assigned fabricated test results.\nUse the conservative four-test adjusted p for early gate decisions; never select\na favorable subset post hoc. H3's additional control contrasts form a separately\nreported Holm family. Pilot intervals are not a prospective power calculation.\n\nEvent matching: one-to-one maximum-cardinality matching within±.2s, then minimum\ntotal timing distance, deterministic timestamp tie-breaking. Candidate peaks use\nthe existing .2s NMS; frozen .5 output threshold for F1/rate summaries. AP groups\ntied scores and remains undefined for reference-nonevent families. Nonevent and\nempty-output cases retain false-cue/minute and recall reporting; no undefined AP\nis replaced by zero. Support is fixed from source/reference quality and shared\nacross arms, not chosen by predictions. Thresholds/scalers fit TRAIN only.\n\nReal-data comparisons require constant/persistence, event-rate-matched random,\nbeat-only and circular-shift controls where relevant. H3 additionally uses\nrecipient-rhythm-preserving donor audio as a limited intervention, not a complete\ncausal isolation. Twenty deterministic admissible circular shifts per group must\nhave genuinely common source/reference support; failure is not repaired by\nrelaxing support after scoring. Numerical tie/endpoint behavior must be tested.\n\nBefore scoring, validate instruments on known hue changes at constant luminance,\nluminance changes at fixed chromaticity, dark/achromatic frames, static backgrounds\nwith moving masks, camera translations, abrupt edits, color flashes, duplicated\nframes, hue wraparound, ties and missing intervals. Report perturbation recovery\nseparately from real-image qualification. Self-distance must be0; constant output\nand wrong spatial assignment must be detectable by the relevant instrument.\n\nRelative improvements require a positive baseline denominator; zero/degenerate\nreferences remain undefined or fail eligibility, never receive an epsilon floor.\n\nThresholds below are committed engineering targets, NOT literature effect-size\nestimates and NOT powered MDEs. A sign-only native verdict never overrides failed\nblocking gates. No hypothesis is started/closed in this task.\n\n4. H1 — edit-aware color targets\n\nID: h-visual-next-cut-targets-20260929. Compare A1 against A0 using identical\ncached YOLO prompts, stateless SAM2 masks, HS targets and source frames.\nA0 is the existing chromatic observer. A1 uses released TransNetV2 at its fixed\n.5 threshold and vetoes candidate color events within±.2s of predicted edit\nintervals. It does not remove those times from the evaluation denominator.\nGradual-transition intervals use the released inference convention, which must\nbe pinned in the execution manifest. No local detector training or threshold sweep.\n\nPrimary: macro-family F1 against the independent CONTENT-color event annotations,\nincluding genuine edit-coincident positives. Prediction: A1-A0>=+.05 absolute.\nBlocking guards: lower95% paired interval>0, four-test adjusted primary p<.05; genuine\ncontent-event recall loss<=.03 absolute; false-cue/minute must not increase; source\nand annotation support unchanged. A veto that deletes real musical color changes\nfails, even if its remaining event precision looks attractive. Report edit-only,\nwithin-shot and edit-coincident strata; none becomes primary after inspection.\n\n8. Resources, dependencies and product gates\n\nSerial execution on one RTX5070 12GB. Pilot cap8GPU-hours total: H1/H2 masks/cuts2h,\nH3 representation extraction1h and student fits3h, H4 oracle/render2h. A stage\ncannot borrow another stage's allowance after a failure without amendment. Peak\nreserved VRAM<=10GiB, per-process RAM<=8GiB, new study cache/checkpoints<=3GiB on\nroot, no scientific cache growth on the nearly full/mnt volume; both filesystems\nretain>=1GiB free. Research PDFs are a separate<=512MiB cache. No foundation-model\ntraining, full decoded-video cache or silent model substitution. A bounded\n16-frame smoke test pins runtime/VRAM and sources before corpus work. Runtime\nnumbers are unmeasured until that test; an OOM abort is not a hypothesis refutation.\n\nAnnotation/source/instrument validity are prerequisites for every affected test.\nH1 and H2 are isolated and can fail independently. H4 needs valid reference masks\nand targets, not a successful foundation encoder. H3's preliminary feature checks\nprecede its conditional audio fits. H4 failure blocks learning a fixture-wise\noutput under that recipe, not all audio/color research. No sealed TEST access.\n\nThe original human-preference-winrate diagnostic requires a separate blinded\nmulti-track panel (>=20raters). A later product trial must have independent music\nfit and designed-appearance questions, equal audio/camera/exposure, brightness\ncontrols, randomized order and song/rater clustering. Sample size/power and rater\nreliability thresholds must be registered from an annotation-only pilot before\ncandidate comparisons. No such panel or power estimate exists now. C remains the\nbaseline; numerical proxy/oracle wins cannot change it automatically. No MDE is\nentered in native gates because power has not been established.\n",
+      "topic_tags": [
+        "audio-to-light",
+        "cross-modal",
+        "evaluation-metric"
+      ],
+      "problem_tags": [
+        "matched-baseline",
+        "metric-gaming"
+      ],
+      "papers": [
+        "paper-transnetv2-2008-04838"
+      ],
+      "ambition_class": "mechanism",
+      "gates": [
+        {
+          "id": "source-and-preregistration",
+          "description": "Exact baseline C, source/audio/pose/annotation/model/code/implementation hashes and canonical split manifest frozen before any new predictions; all old results/source identities preserved. Protocol SHA256 772b9687c992275f020b488edf7524596c3c7f177cd40befbcda3828aa8573b5. No TEST access or Shpongle selection.",
+          "blocking": true
+        },
+        {
+          "id": "independent-instrument",
+          "description": "Two independent annotators and adjudication before predictions; calibration event agreement F1>=.80, mask IoU>=.85, ambiguous time<=20%; instrument passes hue/luminance/cut/mask/tie/missingness controls. Missing truth is unmet prerequisite, never fabricated measurement.",
+          "blocking": true
+        },
+        {
+          "id": "common-support",
+          "description": ">=30/31 historicalDEV families on common independent support,>=80% eligible source time each,>=10event-bearing families for event inference; masks>=8/10 annotated frames each. Freeze support independently of predictions. Old31/40 and29/30 failures remain unchanged.",
+          "blocking": true
+        },
+        {
+          "id": "paired-statistics",
+          "description": "Canonical-family unit; all prescribed arms/seeds/controls;10000paired bootstrap(seed20260929), positive benefit95%CI and conservative four-test corrected primary p<.05; report Holm when all four available. H3 control contrasts separately Holm-corrected. Thresholds are engineering targets, not powered MDEs.",
+          "blocking": true
+        },
+        {
+          "id": "resource-and-scope",
+          "description": "Serial RTX5070;8GPUh total split H1/H2=2,H3features=1,H3fits=3,H4=2;peakreservedVRAM<=10GiB,RAM<=8GiB,newcache<=3GiB on root,>=1GiBfree bothFS. Freeze smoke/source before corpus; no weights/data/training downloaded/run by this registration. No automatic baseline promotion or generalization claim.",
+          "blocking": true
+        },
+        {
+          "id": "cut-benefit",
+          "description": "A1-A0 macro-family F1>=+.05; lower paired95%benefitCI>0; corrected p<.05.",
+          "blocking": true,
+          "diagnostic_id": "visual-next-content-event-f1"
+        },
+        {
+          "id": "cut-recall-and-coverage",
+          "description": "Genuine content-event recall loss<=.03, including edit-coincident positives; false cues/min cannot increase; predictions vetoed but scoring denominator never shrunk.",
+          "blocking": true,
+          "diagnostic_id": "visual-next-content-recall"
+        }
+      ]
+    },
+    {
+      "id": "h-visual-next-temporal-masks-20260929",
+      "problem_id": "dancing-light-generative-20260903",
+      "statement": "Anchored Cutie propagation reduces independently measured background chromatic extraction error versus stateless SAM2 without hiding valid colored background.",
+      "rationale": "Primary-source methods suggest this distinct intervention; transfer to LIGHT is unmeasured. BaselineC is accepted by informed user review, while the previous observer validity failure and negative shared palette-history study stay intact. See RESEARCH_SYNTHESIS.md for corrections to generated research and PAPERS.json for exact primary-source reading scopes.",
+      "interventions": [
+        "visual-next-cutie-masks-v1"
+      ],
+      "predicted_effects": [
+        {
+          "diagnostic_id": "layers-mask-color-error",
+          "direction": "down",
+          "magnitude_note": ">=15% relative and>=.02 absolute JS-distance reduction; pairedCI supports benefit; held-anchor, IoU, leakage and falsecue guards mandatory."
+        }
+      ],
+      "plan": "Frozen protocol: /root/lightsem/experiments/2026-09-29-visual-next/records/PREREGISTRATION_V1.md SHA256 772b9687c992275f020b488edf7524596c3c7f177cd40befbcda3828aa8573b5.\n\nVisual learning after baseline C — prospective protocol V1\n\nStatus: prospective specification; NATIVE_REGISTRATION.json records native registration.\nAll hypotheses and gates must precede any new study output.\nThis document is a research preregistration, not a report of completed experiments.\nBaseline C remains the user-selected product reference. No training, feature-model\ninference, annotation, oracle optimization, TEST reading or new rendering was\nperformed in this research task.\n\n1. Fixed context and scope\n\nParent: master@ff342ff; exact baseline and source hashes are in INPUTS.json.\nC = independent Rich96 I_VR_P0 selected seed0, rhythm companion02, generated\npalette history ON,300ms causal smoothstep transitions. Poses remain the source\nof beam spatial style; audio controls movement time. The new studies address\nvisual supervision/color output and do not replace, retime or retrain motion.\nWhole-track audio processing is allowed; no online-causality claim is made.\n\nHistorical selected DEV is exposed. Shpongle is an exposed demonstration and\nis excluded from statistical method selection. Original31/40 source coverage and\n29/30 qualified-null failures remain failed; the proposed pilot cannot repair\nthem by changing denominators. A successful pilot is conditional on its enrolled\nsource families and is not fresh unseen-song confirmation or product promotion.\n\nThe first Perplexity call timed out at300s. The same56411-character query was\nsuccessfully run through the same configured research MCP with a900s client\nlimit. The answer,498 source results and raw receipts are preserved. All10\nrecommended papers and7 supplementary primary papers were downloaded and read\nin the stated scopes; none establishes a stage-light benefit for these proposals.\n\n2. Cohort, annotation and execution prerequisites\n\nANNOTATION_ENROLLMENT.json prospectively fixes12TRAIN calibration families by\nSHA256(salt+canonical_id) and all31 historicalDEV assessment families, each using\nits existing64s source window. All43 source files exist; their full hashes must\nbe rechecked before extraction. No outcome-dependent replacements. The full91\nTRAIN groups remain the training population for H3; no DEV transforms/fitting.\nAll remasters, duplicate audio, coaches and crops sharing canonical audio identity\nremain one family. An unresolved cross-split identity conflict stops execution.\n\nTwo independent human annotators, blind to method predictions, mark source-video\ncontent color changes, hard/gradual edits, camera-only changes, people/UI leakage,\nambiguous intervals and genuine color changes coincident with edits. Cut-coincident\ncolor changes are NOT automatically labeled false. Judge content from silent video;\nmusic-fit judgments belong to a separate later task. Disagreements are adjudicated\nbefore any scored method outputs are inspected. At offsets0,7,14,21,28,35,42,49,56,63s,\nindependently trace retained-background masks, foreground and fixed UI regions.\n\nCalibration agreement requirements: event matching F1>=.80 at±.2s and median\nforeground IoU>=.85 between annotators; ambiguous time<=20%. These are instrument\neligibility requirements, not measured values. Freeze the manual/independent\nassessment masks and events before scoring. At least30/31DEV families,>=80% of\neach retained family's source duration, and>=10 event-bearing families are needed\nfor event inference. Mask comparisons require>=30DEV families with>=8/10 valid\nindependent mask frames each. Annotator failures, missing support or missing\nmodel weights are unmet prerequisites, not evidence of zero effect.\n\nAll algorithms, feature transforms, code/weight hashes, software environment,\nsource timestamp mapping, grouping and statistical scripts must be frozen in a\nnew execution manifest BEFORE any new predictions. A future implementation may\nfill addresses/hashes and implement this protocol; changing a method, threshold,\nmetric or cohort rule requires a versioned amendment before outcomes, not a silent\nimplementation choice. The annotation, implementation and model-acquisition\nprerequisites are currently PENDING. No noise sigma or powered MDE is asserted.\n\n3. Common inference, controls and statistics\n\nPrimary unit: canonical source-song family. Average frame/event observations\nwithin a family; average paired training seeds within a family before aggregation.\nDo not use frames, events, crops or repeated ratings as independent sample units.\nUse10000 paired family bootstrap draws (seed20260929); report95% intervals and\npaired sign-flip p values. The primary family is fixed to four hypotheses. Interim reports use conservative\nBonferroni-adjusted p=min(1,4p); once all four are evaluated, also report Holm.\nUnexecuted hypotheses remain unmeasured, never assigned fabricated test results.\nUse the conservative four-test adjusted p for early gate decisions; never select\na favorable subset post hoc. H3's additional control contrasts form a separately\nreported Holm family. Pilot intervals are not a prospective power calculation.\n\nEvent matching: one-to-one maximum-cardinality matching within±.2s, then minimum\ntotal timing distance, deterministic timestamp tie-breaking. Candidate peaks use\nthe existing .2s NMS; frozen .5 output threshold for F1/rate summaries. AP groups\ntied scores and remains undefined for reference-nonevent families. Nonevent and\nempty-output cases retain false-cue/minute and recall reporting; no undefined AP\nis replaced by zero. Support is fixed from source/reference quality and shared\nacross arms, not chosen by predictions. Thresholds/scalers fit TRAIN only.\n\nReal-data comparisons require constant/persistence, event-rate-matched random,\nbeat-only and circular-shift controls where relevant. H3 additionally uses\nrecipient-rhythm-preserving donor audio as a limited intervention, not a complete\ncausal isolation. Twenty deterministic admissible circular shifts per group must\nhave genuinely common source/reference support; failure is not repaired by\nrelaxing support after scoring. Numerical tie/endpoint behavior must be tested.\n\nBefore scoring, validate instruments on known hue changes at constant luminance,\nluminance changes at fixed chromaticity, dark/achromatic frames, static backgrounds\nwith moving masks, camera translations, abrupt edits, color flashes, duplicated\nframes, hue wraparound, ties and missing intervals. Report perturbation recovery\nseparately from real-image qualification. Self-distance must be0; constant output\nand wrong spatial assignment must be detectable by the relevant instrument.\n\nRelative improvements require a positive baseline denominator; zero/degenerate\nreferences remain undefined or fail eligibility, never receive an epsilon floor.\n\nThresholds below are committed engineering targets, NOT literature effect-size\nestimates and NOT powered MDEs. A sign-only native verdict never overrides failed\nblocking gates. No hypothesis is started/closed in this task.\n\n5. H2 — stable masks that improve background color observation\n\nID: h-visual-next-temporal-masks-20260929. New temporal recipe, linked as a\nsuccessor of h-layers-20260922-mask; the old SAM2-vs-box claim stays unchanged.\nPrimary comparison A2 vsA0: Cutie-base pretrained propagation at480px shorter side\nfrom SAM2 union-of-registered-people anchors versus the original stateless SAM2.\nKeep original person boxes, fixed UI exclusions and image geometry identical.\nRefresh anchors every2s and reset at the SAME frozen edit boundaries in both\npropagation controls. New-object omissions remain errors, not automatic exclusion.\nNearest-neighbor resize of binary masks back to the original decoded geometry.\n\nControls: anchor-mask zero-order hold with the same refresh/reset schedule;\noriginal box mask as historical context; deliberately time-shifted mask/flow\ncontrols; frozen-background/moving-mask positive/negative fixtures. DEVA is a\nliterature-supported alternative, not an unregistered substitution in this arm.\nA3 (cut veto +A2 masks) is a secondary factorial interaction arm only; it cannot\nreplace either isolated primary contrast. No YOLO replacement in this protocol.\n\nPrimary: existing layers-mask-color-error, Jensen-Shannon DISTANCE (sqrt divergence,\nbase2) between extracted72-bin HS distribution and independent retained-background\nreference; macro over the fixed frames, then equally over families. Prediction:\n>=15% relative and>=.02 absolute reduction from A0. Primary lower95% paired benefit\ninterval>0 and four-test adjusted primary p<.05; improve over held-mask control; independent foreground\nIoU must not drop by>.02; false removal of genuine background regions may not rise\nby>.03 absolute; content-event false-cue rate cannot increase by>5%. Empty predicted\nbackground on reference-valid frames is maximal color error, never a dropped row.\nReference invalidity is fixed independently for all arms. Flow-warped agreement,\nboundary quality and late-shot decay are secondary; smoothing alone is not success.\n\n8. Resources, dependencies and product gates\n\nSerial execution on one RTX5070 12GB. Pilot cap8GPU-hours total: H1/H2 masks/cuts2h,\nH3 representation extraction1h and student fits3h, H4 oracle/render2h. A stage\ncannot borrow another stage's allowance after a failure without amendment. Peak\nreserved VRAM<=10GiB, per-process RAM<=8GiB, new study cache/checkpoints<=3GiB on\nroot, no scientific cache growth on the nearly full/mnt volume; both filesystems\nretain>=1GiB free. Research PDFs are a separate<=512MiB cache. No foundation-model\ntraining, full decoded-video cache or silent model substitution. A bounded\n16-frame smoke test pins runtime/VRAM and sources before corpus work. Runtime\nnumbers are unmeasured until that test; an OOM abort is not a hypothesis refutation.\n\nAnnotation/source/instrument validity are prerequisites for every affected test.\nH1 and H2 are isolated and can fail independently. H4 needs valid reference masks\nand targets, not a successful foundation encoder. H3's preliminary feature checks\nprecede its conditional audio fits. H4 failure blocks learning a fixture-wise\noutput under that recipe, not all audio/color research. No sealed TEST access.\n\nThe original human-preference-winrate diagnostic requires a separate blinded\nmulti-track panel (>=20raters). A later product trial must have independent music\nfit and designed-appearance questions, equal audio/camera/exposure, brightness\ncontrols, randomized order and song/rater clustering. Sample size/power and rater\nreliability thresholds must be registered from an annotation-only pilot before\ncandidate comparisons. No such panel or power estimate exists now. C remains the\nbaseline; numerical proxy/oracle wins cannot change it automatically. No MDE is\nentered in native gates because power has not been established.\n",
+      "topic_tags": [
+        "audio-to-light",
+        "cross-modal",
+        "evaluation-metric"
+      ],
+      "problem_tags": [
+        "matched-baseline",
+        "metric-gaming"
+      ],
+      "papers": [
+        "paper-cutie-2310-12982",
+        "paper-deva-2309-03903",
+        "paper-maskfreevis-2303-15904",
+        "paper-davis-2016",
+        "paper-raft-2003-12039",
+        "paper-insid3-2603-28480"
+      ],
+      "ambition_class": "mechanism",
+      "gates": [
+        {
+          "id": "source-and-preregistration",
+          "description": "Exact baseline C, source/audio/pose/annotation/model/code/implementation hashes and canonical split manifest frozen before any new predictions; all old results/source identities preserved. Protocol SHA256 772b9687c992275f020b488edf7524596c3c7f177cd40befbcda3828aa8573b5. No TEST access or Shpongle selection.",
+          "blocking": true
+        },
+        {
+          "id": "independent-instrument",
+          "description": "Two independent annotators and adjudication before predictions; calibration event agreement F1>=.80, mask IoU>=.85, ambiguous time<=20%; instrument passes hue/luminance/cut/mask/tie/missingness controls. Missing truth is unmet prerequisite, never fabricated measurement.",
+          "blocking": true
+        },
+        {
+          "id": "common-support",
+          "description": ">=30/31 historicalDEV families on common independent support,>=80% eligible source time each,>=10event-bearing families for event inference; masks>=8/10 annotated frames each. Freeze support independently of predictions. Old31/40 and29/30 failures remain unchanged.",
+          "blocking": true
+        },
+        {
+          "id": "paired-statistics",
+          "description": "Canonical-family unit; all prescribed arms/seeds/controls;10000paired bootstrap(seed20260929), positive benefit95%CI and conservative four-test corrected primary p<.05; report Holm when all four available. H3 control contrasts separately Holm-corrected. Thresholds are engineering targets, not powered MDEs.",
+          "blocking": true
+        },
+        {
+          "id": "resource-and-scope",
+          "description": "Serial RTX5070;8GPUh total split H1/H2=2,H3features=1,H3fits=3,H4=2;peakreservedVRAM<=10GiB,RAM<=8GiB,newcache<=3GiB on root,>=1GiBfree bothFS. Freeze smoke/source before corpus; no weights/data/training downloaded/run by this registration. No automatic baseline promotion or generalization claim.",
+          "blocking": true
+        },
+        {
+          "id": "mask-color-benefit",
+          "description": "Background JS-distance reduction>=15%relative and>=.02absolute vsstatelessSAM2; positive paired benefitCI and corrected p<.05; also improve over held-anchor control.",
+          "blocking": true,
+          "diagnostic_id": "layers-mask-color-error"
+        },
+        {
+          "id": "mask-not-just-smooth",
+          "description": "Independent foregroundIoU decline<=.02; false background removal increase<=.03; content falsecue rate increase<=5%; empty mask outputs are errors, never discarded.",
+          "blocking": true,
+          "diagnostic_id": "visual-next-background-removal"
+        }
+      ],
+      "supersedes": "h-layers-20260922-mask"
+    },
+    {
+      "id": "h-visual-next-color-temporal-20260929",
+      "problem_id": "dancing-light-generative-20260903",
+      "statement": "Explicit spatial color and temporally ordered frozen visual auxiliary targets improve an audio-only independent student on separately annotated content-color events beyond Rich96, static, random-capacity and order-destroyed controls.",
+      "rationale": "Primary-source methods suggest this distinct intervention; transfer to LIGHT is unmeasured. BaselineC is accepted by informed user review, while the previous observer validity failure and negative shared palette-history study stay intact. See RESEARCH_SYNTHESIS.md for corrections to generated research and PAPERS.json for exact primary-source reading scopes.",
+      "interventions": [
+        "visual-next-color-temporal-aux-v1"
+      ],
+      "predicted_effects": [
+        {
+          "diagnostic_id": "visual-next-content-event-ap",
+          "direction": "up",
+          "magnitude_note": "R3-R0>=+.03 AP; R3 exceeds random/static/shuffled/reversed controls by>=.01 each with positive paired intervals. All21 paired fits/controls; conditional pilot only."
+        }
+      ],
+      "plan": "Frozen protocol: /root/lightsem/experiments/2026-09-29-visual-next/records/PREREGISTRATION_V1.md SHA256 772b9687c992275f020b488edf7524596c3c7f177cd40befbcda3828aa8573b5.\n\nVisual learning after baseline C — prospective protocol V1\n\nStatus: prospective specification; NATIVE_REGISTRATION.json records native registration.\nAll hypotheses and gates must precede any new study output.\nThis document is a research preregistration, not a report of completed experiments.\nBaseline C remains the user-selected product reference. No training, feature-model\ninference, annotation, oracle optimization, TEST reading or new rendering was\nperformed in this research task.\n\n1. Fixed context and scope\n\nParent: master@ff342ff; exact baseline and source hashes are in INPUTS.json.\nC = independent Rich96 I_VR_P0 selected seed0, rhythm companion02, generated\npalette history ON,300ms causal smoothstep transitions. Poses remain the source\nof beam spatial style; audio controls movement time. The new studies address\nvisual supervision/color output and do not replace, retime or retrain motion.\nWhole-track audio processing is allowed; no online-causality claim is made.\n\nHistorical selected DEV is exposed. Shpongle is an exposed demonstration and\nis excluded from statistical method selection. Original31/40 source coverage and\n29/30 qualified-null failures remain failed; the proposed pilot cannot repair\nthem by changing denominators. A successful pilot is conditional on its enrolled\nsource families and is not fresh unseen-song confirmation or product promotion.\n\nThe first Perplexity call timed out at300s. The same56411-character query was\nsuccessfully run through the same configured research MCP with a900s client\nlimit. The answer,498 source results and raw receipts are preserved. All10\nrecommended papers and7 supplementary primary papers were downloaded and read\nin the stated scopes; none establishes a stage-light benefit for these proposals.\n\n2. Cohort, annotation and execution prerequisites\n\nANNOTATION_ENROLLMENT.json prospectively fixes12TRAIN calibration families by\nSHA256(salt+canonical_id) and all31 historicalDEV assessment families, each using\nits existing64s source window. All43 source files exist; their full hashes must\nbe rechecked before extraction. No outcome-dependent replacements. The full91\nTRAIN groups remain the training population for H3; no DEV transforms/fitting.\nAll remasters, duplicate audio, coaches and crops sharing canonical audio identity\nremain one family. An unresolved cross-split identity conflict stops execution.\n\nTwo independent human annotators, blind to method predictions, mark source-video\ncontent color changes, hard/gradual edits, camera-only changes, people/UI leakage,\nambiguous intervals and genuine color changes coincident with edits. Cut-coincident\ncolor changes are NOT automatically labeled false. Judge content from silent video;\nmusic-fit judgments belong to a separate later task. Disagreements are adjudicated\nbefore any scored method outputs are inspected. At offsets0,7,14,21,28,35,42,49,56,63s,\nindependently trace retained-background masks, foreground and fixed UI regions.\n\nCalibration agreement requirements: event matching F1>=.80 at±.2s and median\nforeground IoU>=.85 between annotators; ambiguous time<=20%. These are instrument\neligibility requirements, not measured values. Freeze the manual/independent\nassessment masks and events before scoring. At least30/31DEV families,>=80% of\neach retained family's source duration, and>=10 event-bearing families are needed\nfor event inference. Mask comparisons require>=30DEV families with>=8/10 valid\nindependent mask frames each. Annotator failures, missing support or missing\nmodel weights are unmet prerequisites, not evidence of zero effect.\n\nAll algorithms, feature transforms, code/weight hashes, software environment,\nsource timestamp mapping, grouping and statistical scripts must be frozen in a\nnew execution manifest BEFORE any new predictions. A future implementation may\nfill addresses/hashes and implement this protocol; changing a method, threshold,\nmetric or cohort rule requires a versioned amendment before outcomes, not a silent\nimplementation choice. The annotation, implementation and model-acquisition\nprerequisites are currently PENDING. No noise sigma or powered MDE is asserted.\n\n3. Common inference, controls and statistics\n\nPrimary unit: canonical source-song family. Average frame/event observations\nwithin a family; average paired training seeds within a family before aggregation.\nDo not use frames, events, crops or repeated ratings as independent sample units.\nUse10000 paired family bootstrap draws (seed20260929); report95% intervals and\npaired sign-flip p values. The primary family is fixed to four hypotheses. Interim reports use conservative\nBonferroni-adjusted p=min(1,4p); once all four are evaluated, also report Holm.\nUnexecuted hypotheses remain unmeasured, never assigned fabricated test results.\nUse the conservative four-test adjusted p for early gate decisions; never select\na favorable subset post hoc. H3's additional control contrasts form a separately\nreported Holm family. Pilot intervals are not a prospective power calculation.\n\nEvent matching: one-to-one maximum-cardinality matching within±.2s, then minimum\ntotal timing distance, deterministic timestamp tie-breaking. Candidate peaks use\nthe existing .2s NMS; frozen .5 output threshold for F1/rate summaries. AP groups\ntied scores and remains undefined for reference-nonevent families. Nonevent and\nempty-output cases retain false-cue/minute and recall reporting; no undefined AP\nis replaced by zero. Support is fixed from source/reference quality and shared\nacross arms, not chosen by predictions. Thresholds/scalers fit TRAIN only.\n\nReal-data comparisons require constant/persistence, event-rate-matched random,\nbeat-only and circular-shift controls where relevant. H3 additionally uses\nrecipient-rhythm-preserving donor audio as a limited intervention, not a complete\ncausal isolation. Twenty deterministic admissible circular shifts per group must\nhave genuinely common source/reference support; failure is not repaired by\nrelaxing support after scoring. Numerical tie/endpoint behavior must be tested.\n\nBefore scoring, validate instruments on known hue changes at constant luminance,\nluminance changes at fixed chromaticity, dark/achromatic frames, static backgrounds\nwith moving masks, camera translations, abrupt edits, color flashes, duplicated\nframes, hue wraparound, ties and missing intervals. Report perturbation recovery\nseparately from real-image qualification. Self-distance must be0; constant output\nand wrong spatial assignment must be detectable by the relevant instrument.\n\nRelative improvements require a positive baseline denominator; zero/degenerate\nreferences remain undefined or fail eligibility, never receive an epsilon floor.\n\nThresholds below are committed engineering targets, NOT literature effect-size\nestimates and NOT powered MDEs. A sign-only native verdict never overrides failed\nblocking gates. No hypothesis is started/closed in this task.\n\n6. H3 — richer color/temporal supervision for the audio student\n\nID: h-visual-next-color-temporal-20260929; successor of the original visual-aux\nhypothesis with a different representation and independent human event endpoint.\nThe student still receives audio only; video features are TRAINING targets.\nNo image input, true palette history or future target labels at playback.\n\nFirst qualify representations on the12TRAIN calibration families. R0=Rich96.\nR1=4x4 grid of the existing72-bin HS histogram plus mean saturation, chromatic\noccupancy and retained fraction per cell. R2 adds frozen DINOv2 ViT-S/14 last-layer\npatch features pooled within the same cells. Resize whole frames to224x224 using\nbilinear interpolation; use official input normalization, no crop/color jitter.\nR3 adds R2 differences at .1s and .5s lags. Exact source timeline is10Hz; boundaries\nwithout required past support are invalid, never padded. Each vector is projected\nto96 components using TRAIN-only deterministic PCA then TRAIN-global coordinate\nnormalization, preserving the student's96-output auxiliary size. No per-song\nnormalization using DEV or whole future targets. Record pre-PCA and deployed\npost-PCA color retention; a loss-only projection cannot hide information loss.\n\nControls: Rrand adds an UNTRAINED DINOv2 of identical architecture to R1 (seed17).\nR3-shuffle and R3-reverse keep the current frame and labels fixed but permute/reverse\nthe five preceding10Hz frames used for differences; shuffle seed is the hash of\ncanonical ID plus20260929. R2 controls static features/context. These are fixed\narms, not a grid from which the best method/seed is reported.\n\nControlled recoloring/layout probes are eligibility checks, not primary quality\nclaims: explicit-summary reconstruction is tautological if the same summaries\nare supplied as input. Require>=90% of R1's baseline-corrected hue/layout probe\nskill to survive projection, monotone response to increasing controlled color\nchanges, and no collapse relative to the random representation. Publish these\nchecks, including dark/flat-background position controls. DINOv3, VideoPrism,\nVideoMAE and V-JEPA2.1 are reviewed alternatives; switching teacher needs a new\npreregistration rather than a post-result fallback.\n\nOnly after annotation/instrument/representation gates, fit all7 arms (R0,R1,\nRrand,R2,R3,R3-shuffle,R3-reverse) with3 paired seeds0/1/2 from matched independent\nstudent initialization. Keep the original91TRAIN groups,94D audio bus,64s feature\ncontext/central8s supervision, main targets, data draws, optimizer,6000 updates,\nbatch4, lr3e-4, weight decay.01, warmup300, gradient clip1, auxiliary weight.1 and\nstate dropout.5 identical. Use FINAL6000-step checkpoints in every arm, without DEV\ncheckpoint selection. Score untrained initializations as an instrument/capacity\ncontrol. C's accepted checkpoint is a separately named product anchor, not the\nmatched training comparator. Main targets are common: H1's cut veto is applied\nto every arm only if H1 passes; otherwise the original observer labels remain\nand this condition is declared before fitting. Original stateless masks stay fixed\nin every H3 arm, isolating representation from H2. Source labels remain proxies;\nassessment uses the separate human event annotations.\n\nPrimary: independent content-color event AP, R3 vsR0, target>=+.03. Blocking:\nlower95% paired interval>0 and four-test adjusted primary p<.05; R3 must exceed Rrand,R2,R3-shuffle and\nR3-reverse each by>=.01 AP with positive paired intervals and corrected control\np<.05. Report R1 separately even if it beats R0 while R3 fails. Correct-audio AP\nmust exceed each beat-only, donor and admissible shift control by>=.02; nonevent\nfalse cues may not increase>5%; all21fits and all controls required. All mask,\nsupport, annotation and source gates apply. No primary R2 on directly supplied\nfeatures, no selected-best seed, and no claim of unseen-song or human preference.\nEvent times may differ in this prediction study; the accepted C rendering is\nuntouched. Any later emitted-light trial requires a separate bound delivery.\n\n8. Resources, dependencies and product gates\n\nSerial execution on one RTX5070 12GB. Pilot cap8GPU-hours total: H1/H2 masks/cuts2h,\nH3 representation extraction1h and student fits3h, H4 oracle/render2h. A stage\ncannot borrow another stage's allowance after a failure without amendment. Peak\nreserved VRAM<=10GiB, per-process RAM<=8GiB, new study cache/checkpoints<=3GiB on\nroot, no scientific cache growth on the nearly full/mnt volume; both filesystems\nretain>=1GiB free. Research PDFs are a separate<=512MiB cache. No foundation-model\ntraining, full decoded-video cache or silent model substitution. A bounded\n16-frame smoke test pins runtime/VRAM and sources before corpus work. Runtime\nnumbers are unmeasured until that test; an OOM abort is not a hypothesis refutation.\n\nAnnotation/source/instrument validity are prerequisites for every affected test.\nH1 and H2 are isolated and can fail independently. H4 needs valid reference masks\nand targets, not a successful foundation encoder. H3's preliminary feature checks\nprecede its conditional audio fits. H4 failure blocks learning a fixture-wise\noutput under that recipe, not all audio/color research. No sealed TEST access.\n\nThe original human-preference-winrate diagnostic requires a separate blinded\nmulti-track panel (>=20raters). A later product trial must have independent music\nfit and designed-appearance questions, equal audio/camera/exposure, brightness\ncontrols, randomized order and song/rater clustering. Sample size/power and rater\nreliability thresholds must be registered from an annotation-only pilot before\ncandidate comparisons. No such panel or power estimate exists now. C remains the\nbaseline; numerical proxy/oracle wins cannot change it automatically. No MDE is\nentered in native gates because power has not been established.\n",
+      "topic_tags": [
+        "audio-to-light",
+        "cross-modal",
+        "evaluation-metric"
+      ],
+      "problem_tags": [
+        "matched-baseline",
+        "metric-gaming"
+      ],
+      "papers": [
+        "paper-dinov2-2304-07193",
+        "paper-dinov3-2508-10104",
+        "paper-vjepa21-2603-14482",
+        "paper-videoprism-2402-13217",
+        "paper-videomae-2203-12602",
+        "paper-dreamsim-2306-09344",
+        "paper-synchformer-2401-16423"
+      ],
+      "ambition_class": "mechanism",
+      "gates": [
+        {
+          "id": "source-and-preregistration",
+          "description": "Exact baseline C, source/audio/pose/annotation/model/code/implementation hashes and canonical split manifest frozen before any new predictions; all old results/source identities preserved. Protocol SHA256 772b9687c992275f020b488edf7524596c3c7f177cd40befbcda3828aa8573b5. No TEST access or Shpongle selection.",
+          "blocking": true
+        },
+        {
+          "id": "independent-instrument",
+          "description": "Two independent annotators and adjudication before predictions; calibration event agreement F1>=.80, mask IoU>=.85, ambiguous time<=20%; instrument passes hue/luminance/cut/mask/tie/missingness controls. Missing truth is unmet prerequisite, never fabricated measurement.",
+          "blocking": true
+        },
+        {
+          "id": "common-support",
+          "description": ">=30/31 historicalDEV families on common independent support,>=80% eligible source time each,>=10event-bearing families for event inference; masks>=8/10 annotated frames each. Freeze support independently of predictions. Old31/40 and29/30 failures remain unchanged.",
+          "blocking": true
+        },
+        {
+          "id": "paired-statistics",
+          "description": "Canonical-family unit; all prescribed arms/seeds/controls;10000paired bootstrap(seed20260929), positive benefit95%CI and conservative four-test corrected primary p<.05; report Holm when all four available. H3 control contrasts separately Holm-corrected. Thresholds are engineering targets, not powered MDEs.",
+          "blocking": true
+        },
+        {
+          "id": "resource-and-scope",
+          "description": "Serial RTX5070;8GPUh total split H1/H2=2,H3features=1,H3fits=3,H4=2;peakreservedVRAM<=10GiB,RAM<=8GiB,newcache<=3GiB on root,>=1GiBfree bothFS. Freeze smoke/source before corpus; no weights/data/training downloaded/run by this registration. No automatic baseline promotion or generalization claim.",
+          "blocking": true
+        },
+        {
+          "id": "representation-retention",
+          "description": "Before audio fits, controlled hue/layout signal retains>=90%R1 baseline-corrected skill after TRAIN-only projection, monotone color response, no collapse vsuntrained/random control; supplied-statistic reconstruction is sanity only.",
+          "blocking": true
+        },
+        {
+          "id": "audio-student-benefit",
+          "description": "R3-R0 independent human-content AP>=+.03, positive pairedCI and corrected primary p<.05; R3 beats Rrand,R2,R3-shuffle,R3-reverse by>=.01AP each with positive pairedCI and corrected control p<.05.",
+          "blocking": true,
+          "diagnostic_id": "visual-next-content-event-ap"
+        },
+        {
+          "id": "audio-conditioning",
+          "description": "Correct audio exceeds beat-only, rhythm-preserving donor and20valid-shift controls each by>=.02AP; common support valid for all; nonevent falsecues increase<=5%. Missing/null-invalid controls block qualification.",
+          "blocking": true
+        },
+        {
+          "id": "complete-matched-fits",
+          "description": "All7arms x3seeds0/1/2 and seed-matched untrained anchors; final6000checkpoint, fixed draws/optimization/architecture96Daux; no bestseed or DEVcheckpoint substitution. No sourceimage or gold palette history at playback.",
+          "blocking": true
+        }
+      ],
+      "supersedes": "h-layers-20260922-visual"
+    },
+    {
+      "id": "h-visual-next-fixture-oracle-20260929",
+      "problem_id": "dancing-light-generative-20260903",
+      "statement": "A constrained four-group color oracle reduces spatial chromatic reconstruction error relative to an equally privileged global-color oracle under fixed C geometry, palette-state, cue and fade constraints.",
+      "rationale": "Primary-source methods suggest this distinct intervention; transfer to LIGHT is unmeasured. BaselineC is accepted by informed user review, while the previous observer validity failure and negative shared palette-history study stay intact. See RESEARCH_SYNTHESIS.md for corrections to generated research and PAPERS.json for exact primary-source reading scopes.",
+      "interventions": [
+        "visual-next-fixture-oracle-v1"
+      ],
+      "predicted_effects": [
+        {
+          "diagnostic_id": "visual-next-spatial-palette-error",
+          "direction": "down",
+          "magnitude_note": ">=20%relative error reduction vs equally informed global oracle;>=80%families improve;>=10%relative gain vs permutation/donor. Oracle capacity only, not music-fit or audio predictability."
+        }
+      ],
+      "plan": "Frozen protocol: /root/lightsem/experiments/2026-09-29-visual-next/records/PREREGISTRATION_V1.md SHA256 772b9687c992275f020b488edf7524596c3c7f177cd40befbcda3828aa8573b5.\n\nVisual learning after baseline C — prospective protocol V1\n\nStatus: prospective specification; NATIVE_REGISTRATION.json records native registration.\nAll hypotheses and gates must precede any new study output.\nThis document is a research preregistration, not a report of completed experiments.\nBaseline C remains the user-selected product reference. No training, feature-model\ninference, annotation, oracle optimization, TEST reading or new rendering was\nperformed in this research task.\n\n1. Fixed context and scope\n\nParent: master@ff342ff; exact baseline and source hashes are in INPUTS.json.\nC = independent Rich96 I_VR_P0 selected seed0, rhythm companion02, generated\npalette history ON,300ms causal smoothstep transitions. Poses remain the source\nof beam spatial style; audio controls movement time. The new studies address\nvisual supervision/color output and do not replace, retime or retrain motion.\nWhole-track audio processing is allowed; no online-causality claim is made.\n\nHistorical selected DEV is exposed. Shpongle is an exposed demonstration and\nis excluded from statistical method selection. Original31/40 source coverage and\n29/30 qualified-null failures remain failed; the proposed pilot cannot repair\nthem by changing denominators. A successful pilot is conditional on its enrolled\nsource families and is not fresh unseen-song confirmation or product promotion.\n\nThe first Perplexity call timed out at300s. The same56411-character query was\nsuccessfully run through the same configured research MCP with a900s client\nlimit. The answer,498 source results and raw receipts are preserved. All10\nrecommended papers and7 supplementary primary papers were downloaded and read\nin the stated scopes; none establishes a stage-light benefit for these proposals.\n\n2. Cohort, annotation and execution prerequisites\n\nANNOTATION_ENROLLMENT.json prospectively fixes12TRAIN calibration families by\nSHA256(salt+canonical_id) and all31 historicalDEV assessment families, each using\nits existing64s source window. All43 source files exist; their full hashes must\nbe rechecked before extraction. No outcome-dependent replacements. The full91\nTRAIN groups remain the training population for H3; no DEV transforms/fitting.\nAll remasters, duplicate audio, coaches and crops sharing canonical audio identity\nremain one family. An unresolved cross-split identity conflict stops execution.\n\nTwo independent human annotators, blind to method predictions, mark source-video\ncontent color changes, hard/gradual edits, camera-only changes, people/UI leakage,\nambiguous intervals and genuine color changes coincident with edits. Cut-coincident\ncolor changes are NOT automatically labeled false. Judge content from silent video;\nmusic-fit judgments belong to a separate later task. Disagreements are adjudicated\nbefore any scored method outputs are inspected. At offsets0,7,14,21,28,35,42,49,56,63s,\nindependently trace retained-background masks, foreground and fixed UI regions.\n\nCalibration agreement requirements: event matching F1>=.80 at±.2s and median\nforeground IoU>=.85 between annotators; ambiguous time<=20%. These are instrument\neligibility requirements, not measured values. Freeze the manual/independent\nassessment masks and events before scoring. At least30/31DEV families,>=80% of\neach retained family's source duration, and>=10 event-bearing families are needed\nfor event inference. Mask comparisons require>=30DEV families with>=8/10 valid\nindependent mask frames each. Annotator failures, missing support or missing\nmodel weights are unmet prerequisites, not evidence of zero effect.\n\nAll algorithms, feature transforms, code/weight hashes, software environment,\nsource timestamp mapping, grouping and statistical scripts must be frozen in a\nnew execution manifest BEFORE any new predictions. A future implementation may\nfill addresses/hashes and implement this protocol; changing a method, threshold,\nmetric or cohort rule requires a versioned amendment before outcomes, not a silent\nimplementation choice. The annotation, implementation and model-acquisition\nprerequisites are currently PENDING. No noise sigma or powered MDE is asserted.\n\n3. Common inference, controls and statistics\n\nPrimary unit: canonical source-song family. Average frame/event observations\nwithin a family; average paired training seeds within a family before aggregation.\nDo not use frames, events, crops or repeated ratings as independent sample units.\nUse10000 paired family bootstrap draws (seed20260929); report95% intervals and\npaired sign-flip p values. The primary family is fixed to four hypotheses. Interim reports use conservative\nBonferroni-adjusted p=min(1,4p); once all four are evaluated, also report Holm.\nUnexecuted hypotheses remain unmeasured, never assigned fabricated test results.\nUse the conservative four-test adjusted p for early gate decisions; never select\na favorable subset post hoc. H3's additional control contrasts form a separately\nreported Holm family. Pilot intervals are not a prospective power calculation.\n\nEvent matching: one-to-one maximum-cardinality matching within±.2s, then minimum\ntotal timing distance, deterministic timestamp tie-breaking. Candidate peaks use\nthe existing .2s NMS; frozen .5 output threshold for F1/rate summaries. AP groups\ntied scores and remains undefined for reference-nonevent families. Nonevent and\nempty-output cases retain false-cue/minute and recall reporting; no undefined AP\nis replaced by zero. Support is fixed from source/reference quality and shared\nacross arms, not chosen by predictions. Thresholds/scalers fit TRAIN only.\n\nReal-data comparisons require constant/persistence, event-rate-matched random,\nbeat-only and circular-shift controls where relevant. H3 additionally uses\nrecipient-rhythm-preserving donor audio as a limited intervention, not a complete\ncausal isolation. Twenty deterministic admissible circular shifts per group must\nhave genuinely common source/reference support; failure is not repaired by\nrelaxing support after scoring. Numerical tie/endpoint behavior must be tested.\n\nBefore scoring, validate instruments on known hue changes at constant luminance,\nluminance changes at fixed chromaticity, dark/achromatic frames, static backgrounds\nwith moving masks, camera translations, abrupt edits, color flashes, duplicated\nframes, hue wraparound, ties and missing intervals. Report perturbation recovery\nseparately from real-image qualification. Self-distance must be0; constant output\nand wrong spatial assignment must be detectable by the relevant instrument.\n\nRelative improvements require a positive baseline denominator; zero/degenerate\nreferences remain undefined or fail eligibility, never receive an epsilon floor.\n\nThresholds below are committed engineering targets, NOT literature effect-size\nestimates and NOT powered MDEs. A sign-only native verdict never overrides failed\nblocking gates. No hypothesis is started/closed in this task.\n\n7. H4 — a fair fixture-color capacity oracle\n\nID: h-visual-next-fixture-oracle-20260929. This is an output-capacity reframe,\nnot a claim that audio predicts the reference picture or that it looks better.\nUse the existing C DMX trajectory from110–174s (64s) as ONE fixed rig/motion\ncontext for each reference family's64s color sequence. Conclusions generalize\nonly over the reference families conditional on that fixed trajectory/camera.\nShpongle audio is not a statistical test unit here. No new pose inference.\n\nCandidate render/color histograms can be reused across reference families because\nthe trajectory and allowed palette schedule are identical; the resource smoke\nmust prove the enumeration fits its fixed cap before any assessment optimization.\nAll oracle arms receive the SAME privileged reference regional color information\nand the SAME palette candidates. Primary comparator O0 is an optimized SINGLE\nGLOBAL-color oracle, not unprivileged baseline C. C is a separate engineering\nanchor. O2 uses left/right groups. O4 uses left-heads, right-heads, left-other and\nright-other RGB fixtures, by fixture x-coordinate<0 vs>=0; the center projector\nbelongs to right-other. Freeze exact fixture names/addresses before optimization.\n\nKeep C's latent palette-token/history sequence, cue times, dimmers, all479non-RGB\nbytes and300ms transition law exact. At each actual C palette-change/adoption time (not repeated cue opportunities), permissible\ncolors comprise C's emitted target RGB and three chromatic representatives of\nthe SAME selected TRAIN palette prototype (weighted farthest-point initialization\nand deterministic weighted k-means,10iterations, lowest-bin-index ties; modes\nordered by weight then index). Palette prototypes with<3 occupied distinct bins\nrepeat available colors explicitly. Each group chooses one permissible color,\nheld until the next cue and blended with the fixed fade. Enumerate all choices\nfor O0/O2/O4; optimize mean per-region chromatic histogram divergence over the\ncue interval using the same fixed1Hz frames, plus .01 times the fraction of\nchanged group assignments. Equal target access and same palette restrictions in\nO0 prevent confounding capacity with privileged information. No adaptive hue\nretuning, beam moves or dimmer compensation.\n\nControls: fixed cyclic permutation of O4 group assignments; canonical-donor\nreference ordering fixed before outcomes; an unrestricted per-pixel palette\nquantization floor reported but never subtracted to fabricate improvement.\nOptimization uses1Hz frames; primary scoring uses the disjoint half-second-offset\nframes. Freeze source/reference mask support and a neutral-RGB rendered visibility\nmask before comparing colors. The renderer, camera and tone mapping are identical.\nThe four regional72-bin HS distributions use the existing chromatic eligibility\nthresholds. Empty predicted chromatic mass on reference-valid support scores the\nmaximal regional distance; darkness is not a free exclusion. Source-invalid regions\nare fixed for all arms. Report source-gamut and geometry limits separately.\n\nPrimary: macro-family mean of four-region JS DISTANCE on independent scoring\nframes. Prediction: O4 error at least20% lower than O0; lower95% benefit interval>0,\nfour-test adjusted primary p<.05;>=80% of eligible reference families improve; O4 beats both permutation\nand donor by>=10% relative; sampled mean displayed luma difference from O0<=5%,\nclipping increase<=.1percentage point. All non-RGB/cue/history/fade checks exact.\nIf equal-luma guards or palette coverage fail, report failure instead of changing\nthe renderer or broadening the palette. The original C global RGB and model state\nare preserved as the product reference irrespective of the oracle result.\n\n8. Resources, dependencies and product gates\n\nSerial execution on one RTX5070 12GB. Pilot cap8GPU-hours total: H1/H2 masks/cuts2h,\nH3 representation extraction1h and student fits3h, H4 oracle/render2h. A stage\ncannot borrow another stage's allowance after a failure without amendment. Peak\nreserved VRAM<=10GiB, per-process RAM<=8GiB, new study cache/checkpoints<=3GiB on\nroot, no scientific cache growth on the nearly full/mnt volume; both filesystems\nretain>=1GiB free. Research PDFs are a separate<=512MiB cache. No foundation-model\ntraining, full decoded-video cache or silent model substitution. A bounded\n16-frame smoke test pins runtime/VRAM and sources before corpus work. Runtime\nnumbers are unmeasured until that test; an OOM abort is not a hypothesis refutation.\n\nAnnotation/source/instrument validity are prerequisites for every affected test.\nH1 and H2 are isolated and can fail independently. H4 needs valid reference masks\nand targets, not a successful foundation encoder. H3's preliminary feature checks\nprecede its conditional audio fits. H4 failure blocks learning a fixture-wise\noutput under that recipe, not all audio/color research. No sealed TEST access.\n\nThe original human-preference-winrate diagnostic requires a separate blinded\nmulti-track panel (>=20raters). A later product trial must have independent music\nfit and designed-appearance questions, equal audio/camera/exposure, brightness\ncontrols, randomized order and song/rater clustering. Sample size/power and rater\nreliability thresholds must be registered from an annotation-only pilot before\ncandidate comparisons. No such panel or power estimate exists now. C remains the\nbaseline; numerical proxy/oracle wins cannot change it automatically. No MDE is\nentered in native gates because power has not been established.\n",
+      "topic_tags": [
+        "audio-to-light",
+        "cross-modal",
+        "evaluation-metric"
+      ],
+      "problem_tags": [
+        "matched-baseline",
+        "metric-gaming"
+      ],
+      "papers": [
+        "paper-regularized-ot-1307-5551",
+        "paper-palette-recolor-2015",
+        "paper-colorvideovdp-2401-11485",
+        "paper-dreamsim-2306-09344"
+      ],
+      "ambition_class": "reframe",
+      "gates": [
+        {
+          "id": "source-and-preregistration",
+          "description": "Exact baseline C, source/audio/pose/annotation/model/code/implementation hashes and canonical split manifest frozen before any new predictions; all old results/source identities preserved. Protocol SHA256 772b9687c992275f020b488edf7524596c3c7f177cd40befbcda3828aa8573b5. No TEST access or Shpongle selection.",
+          "blocking": true
+        },
+        {
+          "id": "independent-instrument",
+          "description": "Two independent annotators and adjudication before predictions; calibration event agreement F1>=.80, mask IoU>=.85, ambiguous time<=20%; instrument passes hue/luminance/cut/mask/tie/missingness controls. Missing truth is unmet prerequisite, never fabricated measurement.",
+          "blocking": true
+        },
+        {
+          "id": "common-support",
+          "description": ">=30/31 historicalDEV families on common independent support,>=80% eligible source time each,>=10event-bearing families for event inference; masks>=8/10 annotated frames each. Freeze support independently of predictions. Old31/40 and29/30 failures remain unchanged.",
+          "blocking": true
+        },
+        {
+          "id": "paired-statistics",
+          "description": "Canonical-family unit; all prescribed arms/seeds/controls;10000paired bootstrap(seed20260929), positive benefit95%CI and conservative four-test corrected primary p<.05; report Holm when all four available. H3 control contrasts separately Holm-corrected. Thresholds are engineering targets, not powered MDEs.",
+          "blocking": true
+        },
+        {
+          "id": "resource-and-scope",
+          "description": "Serial RTX5070;8GPUh total split H1/H2=2,H3features=1,H3fits=3,H4=2;peakreservedVRAM<=10GiB,RAM<=8GiB,newcache<=3GiB on root,>=1GiBfree bothFS. Freeze smoke/source before corpus; no weights/data/training downloaded/run by this registration. No automatic baseline promotion or generalization claim.",
+          "blocking": true
+        },
+        {
+          "id": "oracle-capacity",
+          "description": "O4 regional JS-distance<=.8*O0; positive paired benefitCI, corrected p<.05;>=80%families improve;>=10%relative benefit vsboth permutation and donor. O0 and O4 see equal privileged target/palette information.",
+          "blocking": true,
+          "diagnostic_id": "visual-next-spatial-palette-error"
+        },
+        {
+          "id": "oracle-controls-and-photometry",
+          "description": "Every479non-RGB slot, actual C palette-change/adoption schedule, latent history and300ms transition law preserved; mean displayed-luma mismatch<=5%, clipping increase<=.1percentage point. No cue additions, dimmer changes or color-based support deletion.",
+          "blocking": true,
+          "diagnostic_id": "visual-next-render-luma-mismatch"
+        },
+        {
+          "id": "oracle-interpretation",
+          "description": "Reference families are evaluated conditional on the SINGLE fixed C110–174s trajectory. Score half-second-offset frames disjoint from1Hz optimization. Quantization floor reported not subtracted. A capacity win does not trigger audio learning or replace C.",
+          "blocking": true
+        }
+      ]
+    }
+  ]
+}

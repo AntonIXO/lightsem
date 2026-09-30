@@ -1,0 +1,25 @@
+{
+  "status": "complete",
+  "perplexity_deep_research": "completed via same configured MCP with900s timeout after desktop300s timeout",
+  "papers_verified_fetched_and_read": 17,
+  "perplexity_recommendations_verified": 10,
+  "supplemental_primary_papers": 7,
+  "hypotheses": [
+    "h-visual-next-cut-targets-20260929",
+    "h-visual-next-temporal-masks-20260929",
+    "h-visual-next-color-temporal-20260929",
+    "h-visual-next-fixture-oracle-20260929"
+  ],
+  "native_status": "proposed",
+  "experiments_started": 0,
+  "baseline_C_sources_unchanged": true,
+  "next_step": "Independent source annotation and instrument qualification on the frozen12TRAIN/31historicalDEV enrollment",
+  "pending_prerequisites": [
+    "independent annotations",
+    "metric/harness implementation and synthetic validation",
+    "exact model-weight and executable source bindings",
+    "measured runtime/VRAM/noise",
+    "fresh confirmation/power design before any locked TEST access"
+  ],
+  "records": "NATIVE_REGISTRATION.json"
+}

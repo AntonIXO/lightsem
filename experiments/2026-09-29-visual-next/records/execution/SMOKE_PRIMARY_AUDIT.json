@@ -1,0 +1,34 @@
+{
+  "status": "independently_verified_by_primary",
+  "report_sha256": "ecf5466ca8e03614db7f5488f36816e6573c8203b9a0cb76e349ec60f214916a",
+  "output_sha256": "d3e5564dbd3a49a002fb6030b0d83cbf4847b1cda833a10889b8d98d6cb7ac85",
+  "frozen_files_verified": 374,
+  "shapes": {
+    "transnet_single_many": [
+      16,
+      2
+    ],
+    "sam_anchor": [
+      360,
+      640
+    ],
+    "cutie_masks_packed": [
+      16,
+      360,
+      80
+    ],
+    "dinov2_pretrained": [
+      16,
+      16,
+      384
+    ],
+    "dinov2_random_seed17": [
+      16,
+      16,
+      384
+    ]
+  },
+  "all_arrays_finite": true,
+  "resources_pass": true,
+  "efficacy_not_measured": true
+}

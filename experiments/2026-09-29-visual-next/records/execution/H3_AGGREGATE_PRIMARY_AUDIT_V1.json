@@ -1,0 +1,43 @@
+{
+  "GPU_used": false,
+  "aggregate_sha256": "b0ff42394be7194cbc8eb71afc13f334b2c630b7053f9950565aa525d1f51d9d",
+  "arm_means": {
+    "R0": 0.10213941996978511,
+    "R1": 0.12039595909188601,
+    "R2": 0.10537043812172239,
+    "R3": 0.10274599127468613,
+    "R3-reverse": 0.1071121172191765,
+    "R3-shuffle": 0.10538370998097442,
+    "Rrand": 0.11020838587088604
+  },
+  "bootstrap_and_sign_flip_draws": 10000,
+  "event_families": 29,
+  "formal_original_hypothesis_confirmed": false,
+  "freeze_sha256": "b4c4520cafbf6b2638d0f06a11b640202dfe58d55f2440b976e1c50b24092fce",
+  "gates": {
+    "R3_minus_R2": false,
+    "R3_minus_Rrand": false,
+    "R3_minus_reverse": false,
+    "R3_minus_shuffle": false,
+    "complete21": true,
+    "correct_audio_over_beat_only": false,
+    "correct_audio_over_donor": false,
+    "correct_audio_over_shift": false,
+    "event_bearing_groups": true,
+    "nonevent_false_cues": false,
+    "primary_interval_and_four_test_p": false,
+    "primary_magnitude": false,
+    "qualified_shift_support": false,
+    "source_support": true
+  },
+  "independently_recomputed_contrasts": 9,
+  "main_cells": 21,
+  "nonevent_false_rates": {
+    "R0": 0.3154773171808946,
+    "R3": 0.6309546343617892
+  },
+  "qualified_shift_families": 27,
+  "shift_event_families": 26,
+  "source_eligible_families": 30,
+  "status": "all_paired_family_statistics_and_gates_independently_verified"
+}

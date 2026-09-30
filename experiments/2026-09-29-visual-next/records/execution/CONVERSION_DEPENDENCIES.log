@@ -1,0 +1,65 @@
+Using CPython 3.12.13 interpreter at: .venv/torch-access/bin/python
+Resolved 38 packages in 5.83s
+Downloading pillow (6.6MiB)
+Downloading numpy (15.9MiB)
+Downloading libclang (23.4MiB)
+Downloading pygments (1.2MiB)
+Downloading grpcio (6.8MiB)
+Downloading keras (2.3MiB)
+Downloading tensorboard-data-server (6.3MiB)
+Downloading h5py (5.2MiB)
+Downloading tensorflow-cpu (247.0MiB)
+Downloading tensorboard (5.3MiB)
+ Downloaded pygments
+ Downloaded keras
+ Downloaded tensorboard
+ Downloaded h5py
+ Downloaded tensorboard-data-server
+ Downloaded pillow
+ Downloaded grpcio
+ Downloaded numpy
+ Downloaded libclang
+ Downloaded tensorflow-cpu
+Prepared 38 packages in 47.31s
+warning: Failed to hardlink files; falling back to full copy. This may lead to degraded performance.
+         If the cache and target directories are on different filesystems, hardlinking may not be supported.
+         If this is intentional, set `export UV_LINK_MODE=copy` or use `--link-mode=copy` to suppress this warning.
+Installed 38 packages in 2.49s
+ + absl-py==2.5.0
+ + astunparse==1.6.3
+ + certifi==2026.7.22
+ + charset-normalizer==3.5.1
+ + flatbuffers==25.12.19
+ + gast==0.7.0
+ + google-pasta==0.2.0
+ + grpcio==1.84.0
+ + h5py==3.16.0
+ + idna==3.20
+ + keras==3.15.1
+ + libclang==18.1.1
+ + markdown==3.11
+ + markdown-it-py==4.2.0
+ + markupsafe==3.0.3
+ + mdurl==0.1.2
+ + ml-dtypes==0.6.0
+ + namex==0.1.0
+ + numpy==2.5.3
+ + opt-einsum==3.4.0
+ + optree==0.20.0
+ + packaging==26.3
+ + pillow==12.3.0
+ + protobuf==7.36.2
+ + pygments==2.21.0
+ + requests==2.34.2
+ + rich==15.0.0
+ + setuptools==84.0.0
+ + six==1.17.0
+ + tensorboard==2.20.0
+ + tensorboard-data-server==0.7.2
+ + tensorflow-cpu==2.20.0
+ + termcolor==3.3.0
+ + typing-extensions==4.16.0
+ + urllib3==2.8.0
+ + werkzeug==3.1.9
+ + wheel==0.48.0
+ + wrapt==2.5.0

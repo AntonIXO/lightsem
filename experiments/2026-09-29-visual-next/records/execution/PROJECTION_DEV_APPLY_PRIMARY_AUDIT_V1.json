@@ -1,0 +1,12 @@
+{
+  "status": "all31_DEV_projections_and_full122_inventory_independently_verified",
+  "DEV_report_sha256": "afed4f72db7083b0c1d1ec3b0099f99b59857ee895a8324bb4c482dbfbbf3a03",
+  "consolidated_report_sha256": "0f8494ad3b4fc63bbb4f7ca71400a69f67057740c9fbec5067fc09eb459d02d2",
+  "frozen_bindings_verified": 1183,
+  "DEV_target_files": 31,
+  "TRAIN_files_unchanged": 91,
+  "common_DEV_rows": 18897,
+  "direct_projection_rows_checked": 651,
+  "refitted": false,
+  "TEST_access": false
+}

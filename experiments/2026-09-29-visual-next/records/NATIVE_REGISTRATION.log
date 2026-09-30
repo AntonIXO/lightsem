@@ -1,0 +1,49 @@
+get_problem dancing-light-generative-20260903 verified
+recall  verified
+list_tags  verified
+add_paper paper-dinov3-2508-10104 verified
+add_paper paper-videoprism-2402-13217 verified
+add_paper paper-vjepa21-2603-14482 verified
+add_paper paper-cutie-2310-12982 verified
+add_paper paper-raft-2003-12039 verified
+add_paper paper-regularized-ot-1307-5551 verified
+add_paper paper-palette-recolor-2015 verified
+add_paper paper-dreamsim-2306-09344 verified
+add_paper paper-insid3-2603-28480 verified
+add_paper paper-transnetv2-2008-04838 verified
+add_paper paper-deva-2309-03903 verified
+add_paper paper-maskfreevis-2303-15904 verified
+add_paper paper-davis-2016 verified
+add_paper paper-dinov2-2304-07193 verified
+add_paper paper-videomae-2203-12602 verified
+add_paper paper-colorvideovdp-2401-11485 verified
+add_paper paper-synchformer-2401-16423 verified
+register_diagnostic visual-next-content-recall verified
+register_diagnostic visual-next-content-false-cues verified
+register_diagnostic visual-next-content-event-f1 verified
+register_diagnostic visual-next-content-event-ap verified
+register_diagnostic visual-next-background-removal verified
+register_diagnostic visual-next-render-luma-mismatch verified
+register_diagnostic visual-next-spatial-palette-error verified
+register_intervention visual-next-edit-veto-v1 verified
+register_intervention visual-next-cutie-masks-v1 verified
+register_intervention visual-next-color-temporal-aux-v1 verified
+register_intervention visual-next-fixture-oracle-v1 verified
+propose_hypothesis h-visual-next-cut-targets-20260929 verified
+propose_hypothesis h-visual-next-temporal-masks-20260929 verified
+propose_hypothesis h-visual-next-color-temporal-20260929 verified
+propose_hypothesis h-visual-next-fixture-oracle-20260929 verified
+update_problem dancing-light-generative-20260903 verified
+synthesize_problem  verified
+get_problem dancing-light-generative-20260903 verified
+register_runbook rb-visual-next-cut-targets-20260929 verified
+update_runbook rb-visual-next-cut-targets-20260929 verified
+register_runbook rb-visual-next-temporal-masks-20260929 verified
+update_runbook rb-visual-next-temporal-masks-20260929 verified
+register_runbook rb-visual-next-color-temporal-20260929 verified
+update_runbook rb-visual-next-color-temporal-20260929 verified
+register_runbook rb-visual-next-fixture-oracle-20260929 verified
+update_runbook rb-visual-next-fixture-oracle-20260929 verified
+update_runbook rb-baseline06-image-supervision-20260929 verified
+recall  verified
+PREREGISTERED_AND_READ_BACK ['h-visual-next-cut-targets-20260929', 'h-visual-next-temporal-masks-20260929', 'h-visual-next-color-temporal-20260929', 'h-visual-next-fixture-oracle-20260929']

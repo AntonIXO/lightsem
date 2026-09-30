@@ -1,0 +1,74 @@
+{
+  "checks": {
+    "frozen_inputs": "passed",
+    "generated_media_hashes": "passed",
+    "pack_membership": "passed",
+    "video_streams": "passed"
+  },
+  "freeze": {
+    "actual_sha256": "e913c3b80fa8ca12837000337c3116600e4917eb8c592f5bcd31e775d5945574",
+    "expected_sha256": "e913c3b80fa8ca12837000337c3116600e4917eb8c592f5bcd31e775d5945574",
+    "path": "/root/lightsem/experiments/2026-09-29-visual-next/records/execution/SOURCE_PREPARATION_FREEZE.json"
+  },
+  "frozen_inputs": {
+    "all_unchanged": true,
+    "count": 7,
+    "sha256": {
+      "/root/lightsem/experiments/2026-09-29-visual-next/records/ANNOTATION_ENROLLMENT.json": "ead40b9ddb3b7bf10744c5b2fa2a46f98250325df686ff2e579dbd80cb894d36",
+      "/root/lightsem/experiments/2026-09-29-visual-next/records/INPUTS.json": "3fa7feae9eed886a2f4a213e48e441eb8acb2d56caaffb35376f9252de5847b1",
+      "/root/lightsem/experiments/2026-09-29-visual-next/records/PREREGISTRATION_V1.md": "772b9687c992275f020b488edf7524596c3c7f177cd40befbcda3828aa8573b5",
+      "/root/lightsem/experiments/2026-09-29-visual-next/records/execution/EXECUTION_POLICY_V1.md": "d14bf6cf7acccb5dda58f00b013fe859ba1c73b8c9b90c77fdb2b68d09d27600",
+      "/root/lightsem/lightsem/model/light_layers/targets.py": "4f1e980ed9f62e2ae2a6d53e426cd44c0ed2381835bf4b1382a7fba1e566d6d1",
+      "/root/lightsem/lightsem/model/light_layers/visual.py": "bdc2a264a56543fe7d3f45283a0de82e69587cd30c8112837b50e1b0fc233682",
+      "/root/lightsem/scripts/light_layers/prepare_visual_next_sources.py": "369f27f1993d0972c3ddcc8d32ada7fe2dc3c53b97475a312564646c0118db20"
+    }
+  },
+  "media": {
+    "all_hashes_match_pack": true,
+    "all_videos_audio_streams": 0,
+    "all_videos_width_px": 640,
+    "duration_quantization_tolerance_s": 0.05,
+    "geometry_counts": {
+      "640x360": 41,
+      "640x400": 1,
+      "640x480": 1
+    },
+    "nominal_duration_s": 64.0,
+    "ordered_path_sha256_manifest_sha256": "051b242e0a94ab215d4a0927e40f14a1072575c60a75e0e829d7c3d08f1003e4",
+    "probed_duration_s_max": 64.030633,
+    "probed_duration_s_min": 63.96,
+    "stills": 430,
+    "total_hashed_assets": 473,
+    "videos": 43
+  },
+  "pack": {
+    "enrollment_sha256": "ead40b9ddb3b7bf10744c5b2fa2a46f98250325df686ff2e579dbd80cb894d36",
+    "families": 43,
+    "labels_collected": 0,
+    "membership_matches_enrollment": true,
+    "path": "/root/lightsem/runs/visual_next_20260929/annotations/PACK.json",
+    "predictions_included": false,
+    "role_counts": {
+      "annotation_calibration_TRAIN": 12,
+      "historical_DEV_assessment": 31
+    },
+    "sha256": "37dba022f16b3deb3e46c83a8ac72c9efc14dfeb919052adf44c6ab43af01899",
+    "status": "media_ready_annotations_absent"
+  },
+  "preparation_log": {
+    "path": "/root/lightsem/experiments/2026-09-29-visual-next/records/execution/SOURCE_PREPARATION.log",
+    "sha256": "41bc2e04a0892c2161d0f9b7b9b30ebf28189743c06b01ee70355f554deb6218"
+  },
+  "source_authentication": {
+    "declared_input_records": 228,
+    "families": 43,
+    "path": "/root/lightsem/runs/visual_next_20260929/annotations/SOURCE_AUTHENTICATION.json",
+    "sha256": "b5b1af35a93d4e0f0de62742718cc3c31bf9cce6af7ed836411bf9e6233a973a",
+    "status": "all_inputs_authenticated",
+    "test_access": false
+  },
+  "stage": "source_preparation_curator_audit",
+  "status": "passed",
+  "terminal_process_state": "terminated",
+  "verified_utc": "2026-09-29T17:02:25.886519Z"
+}

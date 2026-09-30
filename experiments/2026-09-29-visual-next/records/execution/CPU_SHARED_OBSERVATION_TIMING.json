@@ -1,0 +1,9 @@
+{
+  "seconds_per_call_32_repeats": {
+    "HSV_once": 0.022411584061046597,
+    "cached_target": 0.012848716964072082,
+    "cached_grid": 0.006563262941199355
+  },
+  "source_equivalence": "exact Rich96/value/grid equality on frozen firstTRAIN source frame",
+  "scope": "engineering timing; no quality score"
+}

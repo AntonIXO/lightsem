@@ -1,0 +1,131 @@
+{
+  "GPU_used": false,
+  "freeze_sha256": "fddc7dff713f84fb9e01fd2b0e4b865459d84cda2dc5a85fba5475d27313d539",
+  "report_hashes": {
+    "/root/lightsem/runs/visual_next_20260929/shpongle_learned_streams_v1/R0_seed0/REPORT.json": "730b4cbec6eb71e9b22b4de9e9f833bbcdca89e98f99a9a6ed166794c6fdfe09",
+    "/root/lightsem/runs/visual_next_20260929/shpongle_learned_streams_v1/R1_seed0/REPORT.json": "fc2f6dc7b7cee114f22ce986524024826dd69a224dcf31104695dc9f8fc1cc3a",
+    "/root/lightsem/runs/visual_next_20260929/shpongle_learned_streams_v1/R2_seed0/REPORT.json": "6288660ca8ccefa5b7db263f8f3c4aea84bb6cb705fc285e73efc11dddecfa0b",
+    "/root/lightsem/runs/visual_next_20260929/shpongle_learned_streams_v1/R3-reverse_seed0/REPORT.json": "7417c5eb24f6e453b11df08c0520a206c42327039bff119dd9f12e0684267a21",
+    "/root/lightsem/runs/visual_next_20260929/shpongle_learned_streams_v1/R3-shuffle_seed0/REPORT.json": "83cfb7027586c13ab96475ed317755a1cf23f5946e13064791919aeedb3469c3",
+    "/root/lightsem/runs/visual_next_20260929/shpongle_learned_streams_v1/R3_seed0/REPORT.json": "a2cb4d9358e5d3c3dfedf15b3e7ffd0e421d1b7142b22826bfb24b25e7b9d097",
+    "/root/lightsem/runs/visual_next_20260929/shpongle_learned_streams_v1/Rrand_seed0/REPORT.json": "2f6e45e0aa5020ecb878e950395c4f395de60b78dfbe1ec049331f871b383f3a",
+    "/root/lightsem/runs/visual_next_20260929/shpongle_learned_streams_v1/combined_seed0/REPORT.json": "5cb243025eabbcbe300f46dd8e1868c9074d056a6d43c5958965f11a79098b5c",
+    "/root/lightsem/runs/visual_next_20260929/shpongle_learned_streams_v1/cut_only_seed0/REPORT.json": "edb10ee67cc03f493bca046fe75597ecb97193e8b332e860a53e1b5270a9b597",
+    "/root/lightsem/runs/visual_next_20260929/shpongle_learned_streams_v1/mask_only_seed0/REPORT.json": "d1d796e8c8fd46e94922b2401e062dee930fdc83640fa2cf9437b1b68c0172dd"
+  },
+  "scope": "All own-state recurrences, saved-head CPU recomputation and independent analytical RGB fades; not an aesthetic or scientific efficacy verdict.",
+  "status": "all10_inferences_and11_streams_independently_verified",
+  "variants": [
+    {
+      "CPU_palette_all_state_argmax_agreement": 1.0,
+      "all_frames_and479_protected_slots_verified": true,
+      "candidate": "R0_seed0",
+      "cue_count": 0,
+      "layout": "global",
+      "learned_color_active": false,
+      "palette_changes": 0,
+      "stream_sha256": "c42ec70fb02d73403b78b7856d51392cfd8a1947237799ed56293f65251e181a"
+    },
+    {
+      "CPU_palette_all_state_argmax_agreement": 1.0,
+      "all_frames_and479_protected_slots_verified": true,
+      "candidate": "R1_seed0",
+      "cue_count": 10,
+      "layout": "global",
+      "learned_color_active": true,
+      "palette_changes": 2,
+      "stream_sha256": "2263e999427db3d1e3ebfb08387292539c1ac44290ce45d2fa27f80b9f063e45"
+    },
+    {
+      "CPU_palette_all_state_argmax_agreement": 1.0,
+      "all_frames_and479_protected_slots_verified": true,
+      "candidate": "Rrand_seed0",
+      "cue_count": 0,
+      "layout": "global",
+      "learned_color_active": false,
+      "palette_changes": 0,
+      "stream_sha256": "c42ec70fb02d73403b78b7856d51392cfd8a1947237799ed56293f65251e181a"
+    },
+    {
+      "CPU_palette_all_state_argmax_agreement": 1.0,
+      "all_frames_and479_protected_slots_verified": true,
+      "candidate": "R2_seed0",
+      "cue_count": 0,
+      "layout": "global",
+      "learned_color_active": false,
+      "palette_changes": 0,
+      "stream_sha256": "c42ec70fb02d73403b78b7856d51392cfd8a1947237799ed56293f65251e181a"
+    },
+    {
+      "CPU_palette_all_state_argmax_agreement": 1.0,
+      "all_frames_and479_protected_slots_verified": true,
+      "candidate": "R3_seed0",
+      "cue_count": 0,
+      "layout": "global",
+      "learned_color_active": false,
+      "palette_changes": 0,
+      "stream_sha256": "c42ec70fb02d73403b78b7856d51392cfd8a1947237799ed56293f65251e181a"
+    },
+    {
+      "CPU_palette_all_state_argmax_agreement": 1.0,
+      "all_frames_and479_protected_slots_verified": true,
+      "candidate": "R3-shuffle_seed0",
+      "cue_count": 0,
+      "layout": "global",
+      "learned_color_active": false,
+      "palette_changes": 0,
+      "stream_sha256": "c42ec70fb02d73403b78b7856d51392cfd8a1947237799ed56293f65251e181a"
+    },
+    {
+      "CPU_palette_all_state_argmax_agreement": 1.0,
+      "all_frames_and479_protected_slots_verified": true,
+      "candidate": "R3-reverse_seed0",
+      "cue_count": 0,
+      "layout": "global",
+      "learned_color_active": false,
+      "palette_changes": 0,
+      "stream_sha256": "c42ec70fb02d73403b78b7856d51392cfd8a1947237799ed56293f65251e181a"
+    },
+    {
+      "CPU_palette_all_state_argmax_agreement": 1.0,
+      "all_frames_and479_protected_slots_verified": true,
+      "candidate": "cut_only_seed0",
+      "cue_count": 0,
+      "layout": "global",
+      "learned_color_active": false,
+      "palette_changes": 0,
+      "stream_sha256": "c42ec70fb02d73403b78b7856d51392cfd8a1947237799ed56293f65251e181a"
+    },
+    {
+      "CPU_palette_all_state_argmax_agreement": 1.0,
+      "all_frames_and479_protected_slots_verified": true,
+      "candidate": "mask_only_seed0",
+      "cue_count": 0,
+      "layout": "global",
+      "learned_color_active": false,
+      "palette_changes": 0,
+      "stream_sha256": "c42ec70fb02d73403b78b7856d51392cfd8a1947237799ed56293f65251e181a"
+    },
+    {
+      "CPU_palette_all_state_argmax_agreement": 1.0,
+      "all_frames_and479_protected_slots_verified": true,
+      "candidate": "combined_seed0",
+      "cue_count": 3,
+      "layout": "global",
+      "learned_color_active": true,
+      "palette_changes": 0,
+      "stream_sha256": "e99feeff70ca719d89288a7bb2efdc1901a31f7133b43bccde6b88e496da883c"
+    },
+    {
+      "CPU_palette_all_state_argmax_agreement": 1.0,
+      "all_frames_and479_protected_slots_verified": true,
+      "candidate": "combined_seed0",
+      "cue_count": 3,
+      "layout": "four_groups",
+      "learned_color_active": true,
+      "palette_changes": 0,
+      "stream_sha256": "797b6ac6ef38d0258fa6b1d8f7a6d3e8a9954f280c1e71f358c00653b8d5a199"
+    }
+  ],
+  "videos_rendered": false
+}

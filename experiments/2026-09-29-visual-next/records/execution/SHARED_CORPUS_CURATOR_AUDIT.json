@@ -1,0 +1,11 @@
+{
+  "artifacts": {"all_hashes_match_reports": true, "all_numeric_values_finite": true, "artifact_count_patterns": {"5_per_family": 43, "6_per_family": 79}, "manifest_sha256": "eb342aee2dd54f9484d213cf9f0b2dff61c8d92f927cf57bf51d2b4686b26a28", "npz_files": 689, "shapes_checked": true},
+  "checks": {"artifact_hashes_arrays": "passed", "freeze_inputs": "passed", "gpu_release": "passed", "membership": "passed", "resources": "passed"},
+  "freeze": {"actual_sha256": "356da8e44940b5ad5d904540c0cccf9911807a3f2501c3aa7d3ef184444489a1", "expected_sha256": "356da8e44940b5ad5d904540c0cccf9911807a3f2501c3aa7d3ef184444489a1", "path": "/root/lightsem/experiments/2026-09-29-visual-next/records/execution/SHARED_CORPUS_FREEZE_V3.json"},
+  "frozen_inputs": {"all_unchanged": true, "count": 1281, "manifest_sha256": "588fe47a8a794e20083afcf1f9a969166390f12ba193e7a928c95c269bd04cd0"},
+  "gpu_compute_processes_after": "none",
+  "log": {"path": "/root/lightsem/experiments/2026-09-29-visual-next/records/execution/SHARED_CORPUS_V3.log", "sha256": "03af4f906dd58fe5766a891eb2e22d290ca0d7dda3468ec691b980b5ac064aca"},
+  "membership": {"families": 122, "matches_freeze": true, "role_counts": {"annotation_calibration_TRAIN": 12, "extraction_TRAIN": 79, "historical_DEV_assessment": 31}},
+  "report": {"original_hypotheses_closed": false, "path": "/root/lightsem/runs/visual_next_20260929/shared_corpus_v2/REPORT.json", "peak_reserved_bytes": 1195376640, "peak_rss_bytes": 2884755456, "sha256": "4821707d55756a650d634a0c6385170bcc8da27cf39b4e1aeaba87f0a98359c2", "stage_seconds": {"H1_H2": 10812.986495946301, "H3_features": 1035.483531440841}, "status": "shared_extraction_complete", "study_cache_bytes": 3302835491, "test_access": false},
+  "stage": "shared_corpus_v3_curator_audit", "status": "passed", "verified_utc": "2026-09-29T21:28:55.209934Z"
+}

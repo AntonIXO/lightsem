@@ -1,0 +1,24 @@
+{
+  "status": "full_track_C_reconstruction_exact",
+  "frames40": 11092,
+  "bytes_compared": 5679104,
+  "new_delivery_matches_C": true,
+  "baseline_sha256": "34ca1d5f2c9a271b9e08536519f4d657e4aa3017a5ac42514b38e8dd07e4829b",
+  "delivery_source_sha256": "4289242efadb7eeeddeb7dc021b7893ca899d3cde7557d02bc4d410408b4d147",
+  "report": {
+    "layout": "global",
+    "protected_nonRGB_slots": 479,
+    "history": "own_generated_state",
+    "fade_s": 0.3,
+    "color_cue_count": 262,
+    "active_color_seconds": 277.0,
+    "subsequent_palette_changes": 48,
+    "fixed_group_mode_indices": [
+      0,
+      0,
+      0,
+      0
+    ],
+    "scope": "RGB-only personal review; C movement and dimmers fixed; source companion RGB before first predicted cue."
+  }
+}

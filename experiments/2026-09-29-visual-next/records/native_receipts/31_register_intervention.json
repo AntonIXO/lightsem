@@ -1,0 +1,21 @@
+{
+  "tool": "register_intervention",
+  "arguments": {
+    "id": "visual-next-fixture-oracle-v1",
+    "name": "Constrained four-group palette allocation with matched privileged control",
+    "description": "RGB-only palette-mode assignment oracle on frozen C110–174s trajectory. Four static fixture groups vs equally informed global-color oracle, two-group/permutation/donor controls, identical reference information/allowed palette/cues/history/fades. No audio-learning or user-preference claim.",
+    "topic_tags": [
+      "audio-to-light",
+      "cross-modal"
+    ]
+  },
+  "result": {
+    "id": "visual-next-fixture-oracle-v1",
+    "name": "Constrained four-group palette allocation with matched privileged control",
+    "description": "RGB-only palette-mode assignment oracle on frozen C110–174s trajectory. Four static fixture groups vs equally informed global-color oracle, two-group/permutation/donor controls, identical reference information/allowed palette/cues/history/fades. No audio-learning or user-preference claim.",
+    "topic_tags": [
+      "audio-to-light",
+      "cross-modal"
+    ]
+  }
+}

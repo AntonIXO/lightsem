@@ -1,0 +1,10 @@
+{
+  "status": "native_renderer_smoke_independently_verified",
+  "report_sha256": "bf5779ee5044463cac32ba7a091dc4e66fb7240194cbd1bcb49aeb62b942231b",
+  "bindings": 17,
+  "samples": 16,
+  "C_replay_exact": true,
+  "renderer": "NVIDIA GeForce RTX 5070/PCIe/SSE2 / 3.3.0 NVIDIA 610.57.04",
+  "seconds": 1.245426697889343,
+  "optimization_performed": false
+}

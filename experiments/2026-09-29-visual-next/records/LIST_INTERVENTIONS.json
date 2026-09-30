@@ -1,0 +1,149 @@
+[
+  {
+    "id": "beat-conditioned-abc-world-aim-v1",
+    "name": "beat-conditioned-abc-world-aim-v1",
+    "description": "Integrated prototype: restore92inputs40Hz; A4 regression B3 weighted events C17 joint temporal flow; crop-level25% beat-block dropout; corrected below-truss world targets and TRAIN-calibrated static visibility. Do not attribute effect solely to beat restoration.",
+    "topic_tags": []
+  },
+  {
+    "id": "beat-free-dance-temporal-training",
+    "name": "Train beat-free temporal audio-to-dance descriptor model",
+    "description": "Train one temporal conditional flow from scratch on aligned JustDance audio/pose descriptors,86 nonclock audio features and20 continuous pose-derived targets. Drop pulse_clarity, five rhythm-clock inputs and music-relative metric_level target. Use an explicit continuous rig mapping with no temporal effect generator and freeze shader time. The comparator is the same seed-matched untrained initialization; this is an end-to-end feasibility pilot, not an isolated attribution across architectures.",
+    "topic_tags": []
+  },
+  {
+    "id": "motion-audio-20260910",
+    "name": "motion-audio-20260910",
+    "description": "Conditional temporal flow generates coherent motion that responds correctly to music beyond mismatched and shifted audio controls.",
+    "topic_tags": []
+  },
+  {
+    "id": "motion-codec-20260910",
+    "name": "motion-codec-20260910",
+    "description": "A temporal continuous motion codec preserves clean dance dynamics better than a framewise 24-channel encoder.",
+    "topic_tags": []
+  },
+  {
+    "id": "motion-coherence-20260910",
+    "name": "motion-coherence-20260910",
+    "description": "Shared body choreography and bounded regional expression reduce excessive rig movement while retaining active choreography.",
+    "topic_tags": []
+  },
+  {
+    "id": "motion-dynamics-20260910",
+    "name": "motion-dynamics-20260910",
+    "description": "Direct audio loudness controls improve visible quiet-to-entry brightness contrast without losing quiet-stage visibility.",
+    "topic_tags": []
+  },
+  {
+    "id": "motion-exposure-20260910",
+    "name": "motion-exposure-20260910",
+    "description": "Fixed calibrated exposure restores visible dimmer response compressed by time-varying total-intensity normalization.",
+    "topic_tags": []
+  },
+  {
+    "id": "motion-fixed-role-radiance-20260910",
+    "name": "motion-fixed-role-radiance-20260910",
+    "description": "Fixed exposure0.4 with static beam/wash/flash/projector radiance gains1/.3/.03/.2. No time-varying intensity normalization; legacy default unchanged.",
+    "topic_tags": []
+  },
+  {
+    "id": "motion-incumbent-euler32-20260910",
+    "name": "motion-incumbent-euler32-20260910",
+    "description": "Increase Euler integration from8 to32 steps without retraining the incumbent BeatConditionedModel or descriptor256 pose decoder. Same full-track audio/noise; twelve fixed FineDance review songs, no TEST.",
+    "topic_tags": []
+  },
+  {
+    "id": "motion-light-surface-bandwidth",
+    "name": "Recover measured surface articulation bandwidth",
+    "description": "Floor-surface anchors, anatomical neutral-relative articulation preserving world turns, height mapped into depth; fixed photometry and motion; compare simple floor reanchor.",
+    "topic_tags": []
+  },
+  {
+    "id": "motion-light-surface-mapping",
+    "name": "Surface-space articulated mapper",
+    "description": "Floor-surface anchors, anatomical neutral-relative articulation preserving world turns, height mapped into depth; fixed photometry and motion; compare simple floor reanchor.",
+    "topic_tags": []
+  },
+  {
+    "id": "motion-native-audio-flow-20260910",
+    "name": "motion-native-audio-flow-20260910",
+    "description": "Matched Base92-to-native139 temporal regression and conditional flow. Uncompressed frozen motion representation,32s contexts,one stationary noise field and global Euler state,30k matched updates,seed0. Six inference draws; direct audio lighting dynamics disabled.",
+    "topic_tags": []
+  },
+  {
+    "id": "motion-native-phase-codec-20260910",
+    "name": "motion-native-phase-codec-20260910",
+    "description": "Four-native-frame orthonormal Haar transform, TRAIN-fitted linear projections per temporal band, explicit generated root/contact latent channels. No interpolation; fixed zero AC offset preserves static motion. Compare native frame24 PCA to phase64/128/256 rotation ranks, counting all side channels.",
+    "topic_tags": []
+  },
+  {
+    "id": "night-expression-composition-20260909",
+    "name": "night-expression-composition-20260909",
+    "description": "The fixed group-expression adapter yields expressive dimmers and distinguishable conditional fixture groups while preserving mirror geometry and visibility. >=.75 of8fixed clips: >=4heads dimmer p95-p05>=.4, actual off intervals; independent unrelated velocity |corr|<.85; mirror targets correct; physical/visible movement preserved. Shpongle ending border brightness>=30%lower under same renderer without a timer/fade.",
+    "topic_tags": []
+  },
+  {
+    "id": "night-expression-conditioning-20260909",
+    "name": "night-expression-conditioning-20260909",
+    "description": "Repeated audio FiLM in the temporal flow increases meaningful audio control relative to single-entry conditioning. Increase>=.25 controlled-song fraction versus matched single-entry arm, absolute>=.75; response>=.15span and>=.5noise response, with independently correct-signed native alignment. FiLM adds a low-rank module; parameter count disclosed.",
+    "topic_tags": []
+  },
+  {
+    "id": "night-expression-fourier-20260909",
+    "name": "night-expression-fourier-20260909",
+    "description": "Local Fourier coordinates of the existing spectral-flux streams improve music-conditioned motion generation. At least5% lower conditional energy score versus Base at matched architecture/exposure; direction agrees in both training seeds. All independent output/conditioning gates remain necessary.",
+    "topic_tags": []
+  },
+  {
+    "id": "night-expression-muq-20260909",
+    "name": "night-expression-muq-20260909",
+    "description": "The pinned released MuQ representation improves native conditional motion beyond the92-feature baseline. At least5% lower conditional energy score versus Base at matched architecture/exposure in both seeds; within-song and donor controls must exclude a song-mean-only benefit. Public MSD weights, not the closed160K-hour model.",
+    "topic_tags": []
+  },
+  {
+    "id": "night-expression-representation-20260909",
+    "name": "night-expression-representation-20260909",
+    "description": "A learned 24-dimensional pose code reconstructs observed 2D joints better than the hand-designed 24 motion/event descriptors. At least20% lower confidence-masked joint error, canonical-song95%CI excludes0; compare descriptor decoder widths128/256 and mean/donor controls. This is reconstruction, not audio-only deployment.",
+    "topic_tags": []
+  },
+  {
+    "id": "night-expression-rhythm-20260909",
+    "name": "night-expression-rhythm-20260909",
+    "description": "Local periodicity recovers annotated beats better than the incumbent constant tempo grid. GuitarSet358 microphone clips after two predefined timing exclusions: F1 gain>=.05, CMLt drop<=.02. Synthetic tempo/meter/syncopation/silence stress tests are separate engineering evidence.",
+    "topic_tags": []
+  },
+  {
+    "id": "night-precision-runtime-20260910",
+    "name": "BF16 execution with benchmark-selected runtime options",
+    "description": "FP32 parameters, losses and optimizer states; deterministic kernels; optional fused AdamW, two-buffer auxiliary prefetch and compiled tensor-only loss; exact sampling and resumable RNG. Select additions using TRAIN engineering timing only, at least5% net speed gain; batch32 unless larger batch improves throughput5% with1GiBheadroom.",
+    "topic_tags": []
+  },
+  {
+    "id": "stage11-expand-jd",
+    "name": "Add verified new Just Dance training families",
+    "description": "Old-only versus expanded, canonical-group-balanced training on one new fixed holdout, identical architecture, initialization seeds, updates, old-training normalizers and postprocessing. New training adds208recordings/345coaches; no old test scores reused.",
+    "topic_tags": [
+      "audio-to-light",
+      "generative-modelling"
+    ]
+  },
+  {
+    "id": "stage11-joint-temporal-flow",
+    "name": "Joint temporal scene-flow velocity field",
+    "description": "Replace actively parameter-matched pointwise target denoiser with six symmetric dilated temporal convolutions over a whole noisy scene sequence; same encoder, targets, flow-time distribution, data and compute exposure. No teacher-forced target history or differentiable DMX proxy loss.",
+    "topic_tags": [
+      "audio-to-light",
+      "generative-modelling"
+    ]
+  },
+  {
+    "id": "stage11-preserve-nonbeat-audio",
+    "name": "Preserve aligned non-beat audio conditioning",
+    "description": "Compare temporal-flow training with aligned52-featureaudio against deterministic other-canonical-song replacement of first48features while preserving recipient's final4beatfeatures. Same model/initialization/dataorder/noise and generationbudget.",
+    "topic_tags": [
+      "audio-to-light",
+      "generative-modelling"
+    ]
+  }
+]

@@ -1,0 +1,31 @@
+{
+  "tool": "add_paper",
+  "arguments": {
+    "id": "paper-palette-recolor-2015",
+    "title": "Palette-based Photo Recoloring",
+    "arxiv_id_or_url": "https://pixl.cs.princeton.edu/pubs/chang_2015_ppr/index.php",
+    "key_claims": [
+      "The method uses a small editable palette, perceptual color space and gamut-aware transformations with monotonic luminance. This suggests retaining multiple palette components and testing their allocation to fixtures. Its video extension uses one frame palette throughout a sequence and explicitly notes long-sequence limitations. Image-space recoloring and its user study do not validate DMX rendering or music fit. The discussion notes that simple color distances can misrank visible artifacts; retain human inspection and temporal/brightness guards alongside numerical reconstruction.",
+      "Verified full PDF SHA256 84662aed0786d03099b7c1737933a9ffe9a2ba449a482f4e6af1cc96455ac397. Read scope: Official author page; abstract; palette construction Sec3.2; gamut/luminance goals Sec3.3–3.4; user-study discussion; video limitation Sec5.1. Published evidence is outside LightSem; application here is a hypothesis."
+    ],
+    "topic_tags": [
+      "audio-to-light",
+      "cross-modal",
+      "evaluation-metric"
+    ]
+  },
+  "result": {
+    "id": "paper-palette-recolor-2015",
+    "title": "Palette-based Photo Recoloring",
+    "arxiv_id_or_url": "https://pixl.cs.princeton.edu/pubs/chang_2015_ppr/index.php",
+    "key_claims": [
+      "The method uses a small editable palette, perceptual color space and gamut-aware transformations with monotonic luminance. This suggests retaining multiple palette components and testing their allocation to fixtures. Its video extension uses one frame palette throughout a sequence and explicitly notes long-sequence limitations. Image-space recoloring and its user study do not validate DMX rendering or music fit. The discussion notes that simple color distances can misrank visible artifacts; retain human inspection and temporal/brightness guards alongside numerical reconstruction.",
+      "Verified full PDF SHA256 84662aed0786d03099b7c1737933a9ffe9a2ba449a482f4e6af1cc96455ac397. Read scope: Official author page; abstract; palette construction Sec3.2; gamut/luminance goals Sec3.3–3.4; user-study discussion; video limitation Sec5.1. Published evidence is outside LightSem; application here is a hypothesis."
+    ],
+    "topic_tags": [
+      "audio-to-light",
+      "cross-modal",
+      "evaluation-metric"
+    ]
+  }
+}

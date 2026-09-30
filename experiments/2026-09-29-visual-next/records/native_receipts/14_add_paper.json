@@ -1,0 +1,31 @@
+{
+  "tool": "add_paper",
+  "arguments": {
+    "id": "paper-deva-2309-03903",
+    "title": "Tracking Anything with Decoupled Video Segmentation",
+    "arxiv_id_or_url": "https://arxiv.org/abs/2309.03903",
+    "key_claims": [
+      "Image segmentation and temporal propagation can be decoupled, allowing current image masks to be reused. The paper uses bidirectional consensus and notes delayed discovery of new objects between image-model updates. This motivates an independent mask-stability arm, not detector replacement. It also means future-aware propagation cannot be silently used in a supposedly causal visual forecast. For the first test, bounded Cutie propagation from fixed anchors is simpler; DEVA remains a supported alternative under a distinct recipe, with fresh-object and persistent-false-positive controls.",
+      "Verified full PDF SHA256 30376f8b3d740b9f1a05e65ac5ac2203594f85255d4888cfb458233ec231754d. Read scope: Abstract/introduction; in-clip consensus and propagation; Sec4.6 limitations. Published evidence is outside LightSem; application here is a hypothesis."
+    ],
+    "topic_tags": [
+      "audio-to-light",
+      "cross-modal",
+      "evaluation-metric"
+    ]
+  },
+  "result": {
+    "id": "paper-deva-2309-03903",
+    "title": "Tracking Anything with Decoupled Video Segmentation",
+    "arxiv_id_or_url": "https://arxiv.org/abs/2309.03903",
+    "key_claims": [
+      "Image segmentation and temporal propagation can be decoupled, allowing current image masks to be reused. The paper uses bidirectional consensus and notes delayed discovery of new objects between image-model updates. This motivates an independent mask-stability arm, not detector replacement. It also means future-aware propagation cannot be silently used in a supposedly causal visual forecast. For the first test, bounded Cutie propagation from fixed anchors is simpler; DEVA remains a supported alternative under a distinct recipe, with fresh-object and persistent-false-positive controls.",
+      "Verified full PDF SHA256 30376f8b3d740b9f1a05e65ac5ac2203594f85255d4888cfb458233ec231754d. Read scope: Abstract/introduction; in-clip consensus and propagation; Sec4.6 limitations. Published evidence is outside LightSem; application here is a hypothesis."
+    ],
+    "topic_tags": [
+      "audio-to-light",
+      "cross-modal",
+      "evaluation-metric"
+    ]
+  }
+}

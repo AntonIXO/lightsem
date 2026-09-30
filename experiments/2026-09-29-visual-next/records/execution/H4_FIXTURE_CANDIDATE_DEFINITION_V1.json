@@ -1,0 +1,158 @@
+{
+  "status": "implementation_definition_before_optimization",
+  "scope": "H4 exactcanonicalfixture partitions and candidate recipe; nooracleoptimization yet",
+  "groups": [
+    {
+      "name": "mh1",
+      "kind": "moving_head",
+      "address": 1,
+      "x": -5.0,
+      "o2": "left",
+      "o4": "left_heads",
+      "rgb_slots_zero_based": [
+        6,
+        7,
+        8
+      ]
+    },
+    {
+      "name": "mh2",
+      "kind": "moving_head",
+      "address": 13,
+      "x": -3.0,
+      "o2": "left",
+      "o4": "left_heads",
+      "rgb_slots_zero_based": [
+        18,
+        19,
+        20
+      ]
+    },
+    {
+      "name": "mh3",
+      "kind": "moving_head",
+      "address": 25,
+      "x": -1.0,
+      "o2": "left",
+      "o4": "left_heads",
+      "rgb_slots_zero_based": [
+        30,
+        31,
+        32
+      ]
+    },
+    {
+      "name": "mh4",
+      "kind": "moving_head",
+      "address": 37,
+      "x": 1.0,
+      "o2": "right",
+      "o4": "right_heads",
+      "rgb_slots_zero_based": [
+        42,
+        43,
+        44
+      ]
+    },
+    {
+      "name": "mh5",
+      "kind": "moving_head",
+      "address": 49,
+      "x": 3.0,
+      "o2": "right",
+      "o4": "right_heads",
+      "rgb_slots_zero_based": [
+        54,
+        55,
+        56
+      ]
+    },
+    {
+      "name": "mh6",
+      "kind": "moving_head",
+      "address": 61,
+      "x": 5.0,
+      "o2": "right",
+      "o4": "right_heads",
+      "rgb_slots_zero_based": [
+        66,
+        67,
+        68
+      ]
+    },
+    {
+      "name": "wash1",
+      "kind": "wash",
+      "address": 73,
+      "x": -3.5,
+      "o2": "left",
+      "o4": "left_other",
+      "rgb_slots_zero_based": [
+        74,
+        75,
+        76
+      ]
+    },
+    {
+      "name": "wash2",
+      "kind": "wash",
+      "address": 80,
+      "x": -1.1666666666666665,
+      "o2": "left",
+      "o4": "left_other",
+      "rgb_slots_zero_based": [
+        81,
+        82,
+        83
+      ]
+    },
+    {
+      "name": "wash3",
+      "kind": "wash",
+      "address": 87,
+      "x": 1.166666666666667,
+      "o2": "right",
+      "o4": "right_other",
+      "rgb_slots_zero_based": [
+        88,
+        89,
+        90
+      ]
+    },
+    {
+      "name": "wash4",
+      "kind": "wash",
+      "address": 94,
+      "x": 3.5,
+      "o2": "right",
+      "o4": "right_other",
+      "rgb_slots_zero_based": [
+        95,
+        96,
+        97
+      ]
+    },
+    {
+      "name": "proj1",
+      "kind": "projector",
+      "address": 108,
+      "x": 0.0,
+      "o2": "right",
+      "o4": "right_other",
+      "rgb_slots_zero_based": [
+        109,
+        110,
+        111
+      ]
+    }
+  ],
+  "protected_nonRGB_slots": 479,
+  "source_files": {
+    "/root/lightsem/lightsem/conductor/rig.py": "608a7eb9971c2bd583282e4a38f777be96b49e5c1a909baffd47bf76cf28b28a",
+    "/root/lightsem/lightsem/dmx/fixtures.py": "685e8b206d7e6b96288a3b88fb5c543368fbd8bd765d8a96873806e18d48c3d7",
+    "/root/lightsem/lightsem/experiments/visual_next/palettes.py": "7e11336e1240d1f1a3bbbbb384515db355950e593e97fbb05349441fc34f77ff"
+  },
+  "candidate_definition": "C emitted targetRGB plus3chromatic modes from SAME TRAINprototype. Modes use weighted farthest initialization then10Lloyd iterations in (s*cos(2pi*h),s*sin(2pi*h),s), occupiedbins s>=.12; largestmass first, lowestbin ties; HSVvalue1, noadaptive luma optimization. Sparse prototypes repeat modes. Nochromaticmass fails eligibility. Exact implementation and tests bound above.",
+  "optimizer_status": "notimplemented_or_run",
+  "scored_results": null
+}

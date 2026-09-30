@@ -1,0 +1,20 @@
+{
+  "status": "baseline_C_full64s_proxy_independently_verified",
+  "report_sha256": "b1c18092a67ec659cfecaa98913585c996354bbd67ab14b513bef5dc403dfec1",
+  "freeze_sha256": "e3f0428be8cb361d770db5e267c8261bd2188b3de4bbbd2d619326a25780943b",
+  "input_bindings_verified": 96,
+  "families": 31,
+  "direct_metric_recomputations": 93,
+  "source_eligible_families": 30,
+  "eligible_event_families": 29,
+  "macro_AP": {
+    "model": 0.11212962480199713,
+    "donor": 0.09947901802070484,
+    "constant": 0.0
+  },
+  "half_open_endpoint_roundoff_corrections": 74,
+  "metric_scope": "automatic observer full64s; selectedC anchor, not paired21cell or independent content accuracy; original center8 numbers are different endpoint",
+  "beat_only": "unmeasured",
+  "unchanged_shift_support_gate": "27/30 fails",
+  "TEST_access": false
+}

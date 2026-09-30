@@ -1,0 +1,1139 @@
+{
+  "stage": "H1_exploratory_cut_traces_v1",
+  "output": "/root/lightsem/runs/visual_next_20260929/cut_traces_v1",
+  "files": {
+    "/root/lightsem/scripts/light_layers/extract_visual_next_cuts.py": "3d801e2e5cf7b39d32388f8cfca47ad2af9ff8008d9c4c90a6195b2fa744aecf",
+    "/root/lightsem/lightsem/experiments/visual_next/models.py": "4f8a81740bb4337b22edd10950deba38b6630a4782d3128ece55200b85eeb77a",
+    "/root/lightsem/lightsem/experiments/visual_next/instruments.py": "67bd47135ca5f6fa79f82e1e0b261a4ca8f87597811023387ba70cebc765b985",
+    "/root/lightsem/lightsem/model/light_layers/evaluation.py": "59f453eefe5a635bc25f0a6051161a2fd96c639aeb094a868809ae37bab38576",
+    "/root/lightsem/lightsem/model/light_layers/metrics.py": "2df0707522bf2be0289164deeaf1cd4e8fdfe8f2bc20838ac0e331cceaaf77c3",
+    "/root/lightsem/lightsem/model/light_layers/targets.py": "4f1e980ed9f62e2ae2a6d53e426cd44c0ed2381835bf4b1382a7fba1e566d6d1",
+    "/root/lightsem/lightsem/model/light_layers/training.py": "534c2d11d458691cfb876211476642f74657a5fa64be4b44b0a528943d1bc8ee",
+    "/root/lightsem/lightsem/model/light_layers/visual.py": "bdc2a264a56543fe7d3f45283a0de82e69587cd30c8112837b50e1b0fc233682",
+    "/root/lightsem/lightsem/experiments/stage11/stage11_common.py": "1196cfda2e0a222d85ebd508f8c09636907611edd01a83d0624abef3465f64d3",
+    "/root/lightsem/tests/test_visual_next_cut_trace.py": "2879c121668499f4b5b8127e4363363038283a758e33fcaea36fe241287f2a1e",
+    "/root/lightsem/experiments/2026-09-29-visual-next/records/execution/EXPLORATORY_EXTENSION_V1.md": "aeb2fc3f0e23cc1ab8f74eb67374b40a5bd3cc4052725ae6f4f14f0daa91034f",
+    "/root/lightsem/experiments/2026-09-29-visual-next/records/PREREGISTRATION_V1.md": "772b9687c992275f020b488edf7524596c3c7f177cd40befbcda3828aa8573b5",
+    "/root/lightsem/experiments/2026-09-29-visual-next/records/ANNOTATION_ENROLLMENT.json": "ead40b9ddb3b7bf10744c5b2fa2a46f98250325df686ff2e579dbd80cb894d36",
+    "/root/lightsem/experiments/2026-09-29-visual-next/records/execution/TRANSNET_CONVERSION.json": "ac5b72347dcd08e79693f8e4080d11b78210a55939fb764a9a19235a0cb9257e",
+    "/root/lightsem/runs/visual_next_20260929/vendor/transnetv2/LICENSE": "a8d7a056688ccedebe89f18fd60f1a47128df94cb82669cd02459934919cbb6f",
+    "/root/lightsem/runs/visual_next_20260929/vendor/transnetv2/README.md": "55ecd732b8ada2a5e8aed06fd9e55d6279451f49976b72054e4577d4044feb43",
+    "/root/lightsem/runs/visual_next_20260929/vendor/transnetv2/inference-pytorch/README.md": "028c25f4aa54b18ee5f02cbc1592c46d10f0004c9b58ddbe02d3574e73da3a7c",
+    "/root/lightsem/runs/visual_next_20260929/vendor/transnetv2/inference-pytorch/convert_weights.py": "3572d76ddccc92e7ccca13ac3c47aaf39c86f56ce4e392d4d0d6a60da05b42fa",
+    "/root/lightsem/runs/visual_next_20260929/vendor/transnetv2/inference-pytorch/transnetv2_pytorch.py": "f7c1d437465579a8ec28a5add19853d2cb2755248ea4a4207678210a609428e1",
+    "/root/lightsem/runs/visual_next_20260929/vendor/transnetv2/inference/README.md": "63124c972748e439dedd7a2e24aca15bae60760c4e626ebaebe1ec54fa44f4a2",
+    "/root/lightsem/runs/visual_next_20260929/vendor/transnetv2/inference/__init__.py": "04c6a43d2380d6a5ac31cc3a476454fb8fb1c3180f90946aa7c7b2a40b3e4ad2",
+    "/root/lightsem/runs/visual_next_20260929/vendor/transnetv2/inference/transnetv2.py": "f55b3a75727d1502438707ac15e8f6257a736817e713e2113e4b84176500ca65",
+    "/root/lightsem/runs/visual_next_20260929/vendor/transnetv2/setup.py": "d019c2c77e263180a1852cc36e152c8d4289bc30596bf7a6430ba488261ecbfa",
+    "/root/lightsem/runs/visual_next_20260929/vendor/transnetv2/training/bi_tempered_loss.py": "8133ec16b1a4c751eb2bc6556e3225d8dda9cfdf7b6531a0ebdfe690ffe76a21",
+    "/root/lightsem/runs/visual_next_20260929/vendor/transnetv2/training/consolidate_datasets.py": "11a9b942dbb9889952a0220882ab67314f6b5970e8f2eed06d1813e173083824",
+    "/root/lightsem/runs/visual_next_20260929/vendor/transnetv2/training/create_dataset.py": "5e470b1533856e44a70df4cabe100477273e8537820f7e185f122780769895dd",
+    "/root/lightsem/runs/visual_next_20260929/vendor/transnetv2/training/evaluate.py": "6ec2a24ecb53ac9655155a7d8f6214abdbb8cd12b5d5ccc8f2268826fe36395e",
+    "/root/lightsem/runs/visual_next_20260929/vendor/transnetv2/training/input_processing.py": "efba9a27b97f511df46df69099e4e8ab4a9a2517c4973a1f73aea7f32027c1ef",
+    "/root/lightsem/runs/visual_next_20260929/vendor/transnetv2/training/metrics_utils.py": "27ebea0435fb6bf976736ac0a4f8cb9a3da539090710a3fc7ff5a0c4aefeb000",
+    "/root/lightsem/runs/visual_next_20260929/vendor/transnetv2/training/models.py": "12cc04eed631d2c088504f50b798afc975feb100c0008c9edafbf3a3d184bf7b",
+    "/root/lightsem/runs/visual_next_20260929/vendor/transnetv2/training/training.py": "fc3dcea929ffb27e2c7536dc276471a6628405ebe23e0a5afa09f97335168616",
+    "/root/lightsem/runs/visual_next_20260929/vendor/transnetv2/training/transnet.py": "42f6b59c47c024e2481984b9f39bdf333323dba19f0663f460856f460dadb97a",
+    "/root/lightsem/runs/visual_next_20260929/vendor/transnetv2/training/video_utils.py": "18659dea23fd1efe2f3764a64a9d879034a02c7c8c3478d67834f200273d27d0",
+    "/root/lightsem/runs/visual_next_20260929/vendor/transnetv2/training/visualization_utils.py": "3666d77a6891ba6f65eeba4bab3f3ada3d8f37974aee22a11fbe8db7278ed37b",
+    "/root/lightsem/runs/visual_next_20260929/vendor/transnetv2/training/weight_decay_optimizers.py": "937d7aad1f693077ffabd9f996fb37ac8bb51373e19569e534086a5723b13e23",
+    "/root/lightsem/runs/visual_next_20260929/weights/transnetv2-pytorch-official.pth": "d8c1a9ddd5dfc77b152f6155b717cd22a237e038eeece5c3f161e1b249d950a5",
+    "/mnt/lightsem-data/experiments/lightsem/lighting-cue-model-20260922t094347z/observer_fits_v1/04_seed0_I_VR_P0/complete.json": "dc428e1ed9976628deea30978779eef4bf51c606e631cea82affb8df1502d5af",
+    "/mnt/lightsem-data/justdance/Just Dance 2019 (Unlimited)\uff1a Break Free [UOn8c9cQvWE].mkv": "d8c440f504fa360f8ff2d6ca5f99628db53a6f06f7817508107ed642c6c778fa",
+    "/mnt/lightsem-data/cache/justdance_pose/UOn8c9cQvWE.npz": "1c1985a39f68108ed48b2e6d9ccb63b5d39a765eec259ef720ce4dd3497cd16a",
+    "/mnt/lightsem-data/experiments/lightsem/lighting-cue-model-20260922t094347z/observer_proxy_features_v1/UOn8c9cQvWE/complete.json": "dfa841002c95e170e880ab870f8a7f0e998b87905fabcd9b2586d6bf48cb6afb",
+    "/mnt/lightsem-data/experiments/lightsem/lighting-cue-model-20260922t094347z/observer_proxy_features_v1/UOn8c9cQvWE/box.npz": "5a59337683a79f5a6fe0feb1a8705f4bc13f394eb07305c31881850175dda5c1",
+    "/mnt/lightsem-data/experiments/lightsem/lighting-cue-model-20260922t094347z/observer_proxy_features_v1/UOn8c9cQvWE/sam2.npz": "651347da22e9797e39415375ad49953a2ed3392eb867c25fd30ebd46785011c8",
+    "/mnt/lightsem-data/justdance/Just Dance Unlimited\uff1a Jungle Dances - Kids by The Sunlight Shakers [12.8k] [suUCZNQJHQw].webm": "8d9a3d54834693fcff9107d8b9897f0b42196f3581283b926e12236b2a5adf9e",
+    "/mnt/lightsem-data/cache/justdance_pose/suUCZNQJHQw.npz": "278e70f2f8eb53415cb5e8e990aea67af4b95579d775f81ece7171f8464ce6a5",
+    "/mnt/lightsem-data/experiments/lightsem/lighting-cue-model-20260922t094347z/observer_proxy_features_v1/suUCZNQJHQw/complete.json": "24cc332cbed6bc0b48716e801f62a40810f6e84d2537506fe14d6572b4dc64bf",
+    "/mnt/lightsem-data/experiments/lightsem/lighting-cue-model-20260922t094347z/observer_proxy_features_v1/suUCZNQJHQw/box.npz": "5e18b44b394d81632bd92b6a5b748560c41a6d5282e568f36b02044be088cb2a",
+    "/mnt/lightsem-data/experiments/lightsem/lighting-cue-model-20260922t094347z/observer_proxy_features_v1/suUCZNQJHQw/sam2.npz": "de4f93b0f144ca7a501e033e6ac6e5039ec21224933cfc2db72d6ea04ce5b106",
+    "/mnt/lightsem-data/justdance/Rihanna - S.O.S. (Just Dance 2) [CdXP-aZLuOI].webm": "77dea6844f44f083e8328fc3d94d80a34486841c960a50ca6142198878231966",
+    "/mnt/lightsem-data/cache/justdance_pose/CdXP-aZLuOI.npz": "f93184525365f4765e59c99925974d9348eb1ce1a13e86a1b29b49a49d0ec169",
+    "/mnt/lightsem-data/experiments/lightsem/lighting-cue-model-20260922t094347z/observer_proxy_features_v1/CdXP-aZLuOI/complete.json": "e2ebac890c5c135a035b91d353335ce630a43a0fe61393467e520339023ab997",
+    "/mnt/lightsem-data/experiments/lightsem/lighting-cue-model-20260922t094347z/observer_proxy_features_v1/CdXP-aZLuOI/box.npz": "c3d698fe9cdb7acdb2bb2da25d49f68d091bccb8e630d8e707e59f78aa413faf",
+    "/mnt/lightsem-data/experiments/lightsem/lighting-cue-model-20260922t094347z/observer_proxy_features_v1/CdXP-aZLuOI/sam2.npz": "4628e8ccd0df279059924325a798195e7798995a9ec7c22894b7502cf1ce58e8",
+    "/mnt/lightsem-data/justdance/Just Dance 2018 (Unlimited)\uff1a Dancing Queen [OQD75k0fHog].webm": "03e439db9051f3d2c105b64a704d1b27c867b45c012c538ba21fcba4bb983207",
+    "/mnt/lightsem-data/cache/justdance_pose/OQD75k0fHog.npz": "05b3a69a4ec201ca466044e5f0bdc94b2d0731cc0b94d8e651b72bc74b240ebd",
+    "/mnt/lightsem-data/experiments/lightsem/lighting-cue-model-20260922t094347z/observer_proxy_features_v1/OQD75k0fHog/complete.json": "c4fa281f98dcaabc5d34f8a822ff6ea401969e2ee7a08c3d6405e3f806cdab18",
+    "/mnt/lightsem-data/experiments/lightsem/lighting-cue-model-20260922t094347z/observer_proxy_features_v1/OQD75k0fHog/box.npz": "d5da315afeb3cdf9322438a5ecb5043473d5b55155847570396a739f82697b15",
+    "/mnt/lightsem-data/experiments/lightsem/lighting-cue-model-20260922t094347z/observer_proxy_features_v1/OQD75k0fHog/sam2.npz": "c0eb139a963fcc97f6e048e894293ff780aabda1ad482a12f5a90a947b5d5237",
+    "/mnt/lightsem-data/justdance/Just Dance Unlimited - Boom (All Perfect) [awVxB4MdMeE].mkv": "4a8e8c25c1de64e9c0d9d48c3dcfed6d2ab9f005ab0b1e5b86e016c08822c056",
+    "/mnt/lightsem-data/cache/justdance_pose/awVxB4MdMeE.npz": "72cb7b57b07f42e7ad1985b7898ccb6d02cfeb76470296ccbc216cbea0d38f68",
+    "/mnt/lightsem-data/experiments/lightsem/lighting-cue-model-20260922t094347z/observer_proxy_features_v1/awVxB4MdMeE/complete.json": "4ef7643bf5922a5d7588f2ca93423af409991f83200275abe818cafe744bb74f",
+    "/mnt/lightsem-data/experiments/lightsem/lighting-cue-model-20260922t094347z/observer_proxy_features_v1/awVxB4MdMeE/box.npz": "1177e1c6226ccf7acdaf2258ff59174cc281cf0d94ece063bec3ca28134c6dc2",
+    "/mnt/lightsem-data/experiments/lightsem/lighting-cue-model-20260922t094347z/observer_proxy_features_v1/awVxB4MdMeE/sam2.npz": "ef91e8f3354436c69671ad3113bb9b63ceb6467e21508b6456c2f62821324de1",
+    "/mnt/lightsem-data/justdance/Just Dance 2020 (China)\uff1a \u6781\u4e50\u6de8\u571f (Gokuraku Joudo) by GARNiDELiA [12.2k] [6Aw7qMFYvd8].mkv": "33dcb4e2ede9575cf53f6592d321b373b061443ddbcb144d661b7e8ba27fca77",
+    "/mnt/lightsem-data/cache/justdance_pose/6Aw7qMFYvd8.npz": "7f0202198cdc7f48b21d8167c47724a648a4f5bd816d6e3b6b1ffc89b8bd9934",
+    "/mnt/lightsem-data/experiments/lightsem/lighting-cue-model-20260922t094347z/observer_proxy_features_v1/6Aw7qMFYvd8/complete.json": "e5158d6ec15f1adbed3e5a867634b228668d7aff59d4a870754e63bac30a5c57",
+    "/mnt/lightsem-data/experiments/lightsem/lighting-cue-model-20260922t094347z/observer_proxy_features_v1/6Aw7qMFYvd8/box.npz": "fffbb73dfd68174e02674293d0a4baa23dbcceba5dd6e7901d9af51f56f4a0d8",
+    "/mnt/lightsem-data/experiments/lightsem/lighting-cue-model-20260922t094347z/observer_proxy_features_v1/6Aw7qMFYvd8/sam2.npz": "801856e39f6a6ef502b64380cf5c187f6bcc4d87ddde70f09d38962672b8e61d",
+    "/mnt/lightsem-data/justdance/Just Dance Greatest Hits - Viva Las Vegas \uff5c 5 Stars \uff5c Full Gameplay [n8GguUJtOa4].mkv": "db0fba80aee49094013a8dcaf305f40d79e35c79501529a3ec2c1303330900e9",
+    "/mnt/lightsem-data/cache/justdance_pose/n8GguUJtOa4.npz": "a2ae947047388fb217ae2045db688a87b42263d1d5aa668ab3bc70061ee66652",
+    "/mnt/lightsem-data/experiments/lightsem/lighting-cue-model-20260922t094347z/observer_proxy_features_v1/n8GguUJtOa4/complete.json": "c163f5f69de51a1fcdb73de83271de6be5ef2f8222471ff0b8f43b0305a499e5",
+    "/mnt/lightsem-data/experiments/lightsem/lighting-cue-model-20260922t094347z/observer_proxy_features_v1/n8GguUJtOa4/box.npz": "87899276febba35df602c1e127c110bf6f4356741833742d29783a0434799a40",
+    "/mnt/lightsem-data/experiments/lightsem/lighting-cue-model-20260922t094347z/observer_proxy_features_v1/n8GguUJtOa4/sam2.npz": "1731e92d3508c6330ac1cd4ac35a1c4c6dce5fa03c528b9d8e950dd51e50ae44",
+    "/mnt/lightsem-data/justdance/Just Dance 2014-Follow the Leader (Sweat Version)-5 Stars [3HN1Y3VGXGI].mkv": "2639d307cf62669b9b3deae7bfc6f523fe13ae3595bdd4115c6fe5837c4e529b",
+    "/mnt/lightsem-data/cache/justdance_pose/3HN1Y3VGXGI.npz": "b764d222e50440ec3f1cd63374079223c11db712a9152448df9a85e419582731",
+    "/mnt/lightsem-data/experiments/lightsem/lighting-cue-model-20260922t094347z/observer_proxy_features_v1/3HN1Y3VGXGI/complete.json": "5e2f10970d5431667284c8ac74a39e675c17f7228f9c725ea69d879ef9723b1e",
+    "/mnt/lightsem-data/experiments/lightsem/lighting-cue-model-20260922t094347z/observer_proxy_features_v1/3HN1Y3VGXGI/box.npz": "4f47b068c15087b595034866a12cb79a2723df521084cbd2772f03ab5b3d3992",
+    "/mnt/lightsem-data/experiments/lightsem/lighting-cue-model-20260922t094347z/observer_proxy_features_v1/3HN1Y3VGXGI/sam2.npz": "c17b551705da2d328ad4f01befa5d0fe0dec6e406fc330331a04ddecc79b91b6",
+    "/mnt/lightsem-data/justdance/Just Dance 2015 - Till I Find You [xV3dqkP1RrY].webm": "bbef20fe15591abf6aa965f67a2c14811f1d1aae7634fda4e4406791ece673c4",
+    "/mnt/lightsem-data/cache/justdance_pose/xV3dqkP1RrY.npz": "b23d2be8acba44fd895eb1261db5be26c129cddbefc58f02fdf95740fdfc41f3",
+    "/mnt/lightsem-data/experiments/lightsem/lighting-cue-model-20260922t094347z/observer_proxy_features_v1/xV3dqkP1RrY/complete.json": "a367f184380c3a84744109010c931dcf60517e8bb6aab06a6e4e0a10d37ae194",
+    "/mnt/lightsem-data/experiments/lightsem/lighting-cue-model-20260922t094347z/observer_proxy_features_v1/xV3dqkP1RrY/box.npz": "e1ae565ece653cc763d7541f272f77f4477129d9ccf9d662de46dbea7ed34347",
+    "/mnt/lightsem-data/experiments/lightsem/lighting-cue-model-20260922t094347z/observer_proxy_features_v1/xV3dqkP1RrY/sam2.npz": "f8a9c29e71495652c8edb97c5db97f9872d850ec04a6ad7d1de066a2d9bf16a9",
+    "/mnt/lightsem-data/justdance/Just Dance 2020 (Unlimited) \uff5c Troublemaker [2ABEKrS4cWI].mkv": "336a5b1b11c4e186a6679e072820dcd90bd21be80762af62a6f128c56bacc813",
+    "/mnt/lightsem-data/cache/justdance_pose/2ABEKrS4cWI.npz": "fccd3485abff3c41af93dfd54a14978974286756bde0e2921cfd7029e4011d56",
+    "/mnt/lightsem-data/experiments/lightsem/lighting-cue-model-20260922t094347z/observer_proxy_features_v1/2ABEKrS4cWI/complete.json": "9d754b6d4c92019cda2f69dd7bcba6faee0a6aa7d06bab8e58512ba9670486d8",
+    "/mnt/lightsem-data/experiments/lightsem/lighting-cue-model-20260922t094347z/observer_proxy_features_v1/2ABEKrS4cWI/box.npz": "32f40634ed5d1339dd71901d84d1fed36290d84ec73f5463d57564d5ababcf45",
+    "/mnt/lightsem-data/experiments/lightsem/lighting-cue-model-20260922t094347z/observer_proxy_features_v1/2ABEKrS4cWI/sam2.npz": "f8978d3c1d4f84210dd5b3cd2678f1874765587f8d9795bf658ce2b3991275ff",
+    "/mnt/lightsem-data/justdance/Just Dance 2016 - Heartbeat Song [SAM13SzjLfo].mkv": "43e40ab994a864083f24c97a6a3bb598f842f46bf1da60077bbe139dc0059219",
+    "/mnt/lightsem-data/cache/justdance_pose/SAM13SzjLfo.npz": "4a5612f7cc8e780eed283785cda4f5e1e8138b7c7a5c4f2bcd59a88380827a48",
+    "/mnt/lightsem-data/experiments/lightsem/lighting-cue-model-20260922t094347z/observer_proxy_features_v1/SAM13SzjLfo/complete.json": "cbc77e7d2aa66db4313f88749ec06f5dcd139eda778f7d0f84e09388d7f61f70",
+    "/mnt/lightsem-data/experiments/lightsem/lighting-cue-model-20260922t094347z/observer_proxy_features_v1/SAM13SzjLfo/box.npz": "2ff1bb589beaf09a0f03b27f11ae0ec99cb41423c1c101ab0dc315508080adfc",
+    "/mnt/lightsem-data/experiments/lightsem/lighting-cue-model-20260922t094347z/observer_proxy_features_v1/SAM13SzjLfo/sam2.npz": "43c3f489fc8cb5331d4d5f607a11a4990641687d7bc41405e0e7c69b0fccb71c",
+    "/mnt/lightsem-data/justdance/Just Dance 2020 - Con Altura by ROSAL\u00cdA, J Balvin & El Guincho \uff5c 2K Full HD NO HUD [EbE_NJWIOtg].webm": "b5196f4516f1a2f55db30c8c835b6daa420ffaf2c83f5a9c12f875b4ce4fea4e",
+    "/mnt/lightsem-data/cache/justdance_pose/EbE_NJWIOtg.npz": "1fa595900fbe27c5e082336882c6160bd863acc424170c4314ecda719325121f",
+    "/mnt/lightsem-data/experiments/lightsem/lighting-cue-model-20260922t094347z/observer_proxy_features_v1/EbE_NJWIOtg/complete.json": "7a8cd9af60aa3b9cd0f37336c604f09cbbb3fc7569dad93bbcef5057271d37af",
+    "/mnt/lightsem-data/experiments/lightsem/lighting-cue-model-20260922t094347z/observer_proxy_features_v1/EbE_NJWIOtg/box.npz": "8473de4f4d23b119142ce88125157472979181ac64dd6820578bb20d353bc305",
+    "/mnt/lightsem-data/experiments/lightsem/lighting-cue-model-20260922t094347z/observer_proxy_features_v1/EbE_NJWIOtg/sam2.npz": "63711c57ae0c5a50904c812ac0bf9ea805b4e046227a4b1227350f5a034fb487",
+    "/mnt/lightsem-data/justdance/Just Dance 2022 - Jopping [E3Af6_rVeSQ].mkv": "b47e69952c25236186229f34e00d913fac80fdf6420af6dc289db4d5d0e3384b",
+    "/mnt/lightsem-data/cache/justdance_pose/E3Af6_rVeSQ.npz": "ca68afd27206f7e7d9b59c4367155c2eaae65ccbeaa0c958ee8fc93be7ee5e98",
+    "/mnt/lightsem-data/experiments/lightsem/lighting-cue-model-20260922t094347z/observer_proxy_features_v1/E3Af6_rVeSQ/complete.json": "39d5c0b1a68307513a91eff7ec4bcc9c8873df865a71484966883ffb9a3facdc",
+    "/mnt/lightsem-data/experiments/lightsem/lighting-cue-model-20260922t094347z/observer_proxy_features_v1/E3Af6_rVeSQ/box.npz": "4e51136409d1f1d124f32ae6626e57c0977c5f361ce8ae67cee69a064e33f98a",
+    "/mnt/lightsem-data/experiments/lightsem/lighting-cue-model-20260922t094347z/observer_proxy_features_v1/E3Af6_rVeSQ/sam2.npz": "962f88e17e94ff1343688f026ce95124c835b72f9901b913976185a91320ccd8",
+    "/mnt/lightsem-data/justdance/Gorgeous Diva - Monki \uff5c Just Dance China [WxPy_sHLpCM].mkv": "785fe913fb5b45bad397dfb38fd0a8ddc695060947b01cabeda3c9628c00f776",
+    "/mnt/lightsem-data/cache/justdance_pose/WxPy_sHLpCM.npz": "4f9fdfb92f903ece6a0c09f83816e269d1b4b35a4fa9d68d924803f53477b000",
+    "/mnt/lightsem-data/experiments/lightsem/lighting-cue-model-20260922t094347z/observer_proxy_features_v1/WxPy_sHLpCM/complete.json": "d213a946390419258e9ffc3794cc92d7a3c5f07a970287bed7663f129db11e77",
+    "/mnt/lightsem-data/experiments/lightsem/lighting-cue-model-20260922t094347z/observer_proxy_features_v1/WxPy_sHLpCM/box.npz": "a5d9f1db96ffe562124a8ebaa2c63f127ad904ca60d355cf03dc0e245e520d62",
+    "/mnt/lightsem-data/experiments/lightsem/lighting-cue-model-20260922t094347z/observer_proxy_features_v1/WxPy_sHLpCM/sam2.npz": "5b95212e8429e2b6a666e24729f242144c5a7fceedc4d531aa6e0c692316ff37",
+    "/mnt/lightsem-data/justdance/Just Dance Unlimited\uff1a 1999 by Charli XCX & Troye Sivan [13.1k] [T4NAdlh-suQ].mkv": "4091adf2494526786a527b780edad57a26178febeeeb1f6f9c46e3b72db5a97f",
+    "/mnt/lightsem-data/cache/justdance_pose/T4NAdlh-suQ.npz": "23acd9d17138012bae01b9f1d61960a47a2f03266f908ccd5edc31334b546514",
+    "/mnt/lightsem-data/experiments/lightsem/lighting-cue-model-20260922t094347z/observer_proxy_features_v1/T4NAdlh-suQ/complete.json": "6360f8c1bc628a4f096e19da278f2158a335855fd0097e0ea6ed38c6026f2770",
+    "/mnt/lightsem-data/experiments/lightsem/lighting-cue-model-20260922t094347z/observer_proxy_features_v1/T4NAdlh-suQ/box.npz": "19f8edc08d39124ce73095e002a8c1bdcd63d992ea910f5908475cfdd0134f4d",
+    "/mnt/lightsem-data/experiments/lightsem/lighting-cue-model-20260922t094347z/observer_proxy_features_v1/T4NAdlh-suQ/sam2.npz": "ba31c66e6b392cf492f5083a5ca850d7bc8b038587fd9b50f15fb51e3943af2c",
+    "/mnt/lightsem-data/justdance/Just Dance Now - Baby Shark by Pinkfong- Megastar Just Dance 2020 [8hDff6PV2KA].webm": "bb57ca55f655470b19a963749dfacd60350391fbe1db10a51796ce990bf2e6ac",
+    "/mnt/lightsem-data/cache/justdance_pose/8hDff6PV2KA.npz": "08ae4bc9f825070941bdfe0c8c67ce0ac586c943747710c3f51cd3cf4b12647d",
+    "/mnt/lightsem-data/experiments/lightsem/lighting-cue-model-20260922t094347z/observer_proxy_features_v1/8hDff6PV2KA/complete.json": "2ef701dbea2a8c9ee03636e4ffdd8ef2bb1b2e90b5ead01c56225b71c1a9c769",
+    "/mnt/lightsem-data/experiments/lightsem/lighting-cue-model-20260922t094347z/observer_proxy_features_v1/8hDff6PV2KA/box.npz": "1bedaf9558eab57f7a62f6b31164eeb60494e41b376f56c2ab4b9adcf0723d95",
+    "/mnt/lightsem-data/experiments/lightsem/lighting-cue-model-20260922t094347z/observer_proxy_features_v1/8hDff6PV2KA/sam2.npz": "d71811c15adfa966f099fafaa774d694622e78a2bab0ea42b425e1c596b66c95",
+    "/mnt/lightsem-data/justdance/Just Dance Unlimited\uff1a Crayon (\ud06c\ub808\uc6a9) by G-Dragon [12.9k] [uFcIni6A3P0].mkv": "677f9727fa82586ea09d8471ff75813b994a762391e088f9dab7317ccb3a0841",
+    "/mnt/lightsem-data/cache/justdance_pose/uFcIni6A3P0.npz": "22085d44e43357936c78587480da4e1c0dec0c88ebe3a539c74adffb1e14744e",
+    "/mnt/lightsem-data/experiments/lightsem/lighting-cue-model-20260922t094347z/observer_proxy_features_v1/uFcIni6A3P0/complete.json": "a0403c715e06933bf8d6bf83545ae99f48799eb8e90f65112140ff71d1f2744b",
+    "/mnt/lightsem-data/experiments/lightsem/lighting-cue-model-20260922t094347z/observer_proxy_features_v1/uFcIni6A3P0/box.npz": "36b28748b35c1b85a3e5475c7adb6aed8f89b9c68251b7aa7265321e8af35192",
+    "/mnt/lightsem-data/experiments/lightsem/lighting-cue-model-20260922t094347z/observer_proxy_features_v1/uFcIni6A3P0/sam2.npz": "6e514ad32560f6e712046fb1c929b94e0f78a4a760d3056f65790b4c4f099c29",
+    "/mnt/lightsem-data/justdance/Just Dance Unlimited\uff1a La Respuesta by Becky G Ft. Maluma [12.8k] [uCxcK7PhvBY].webm": "4adc3c2e4997408a879b4d0c4b4683289096b00b854ff980a4237e791452876e",
+    "/mnt/lightsem-data/cache/justdance_pose/uCxcK7PhvBY.npz": "29eb471dc23cb035f3559ba3a6f58041a698629f7c717a75bd152848e9d3b253",
+    "/mnt/lightsem-data/experiments/lightsem/lighting-cue-model-20260922t094347z/observer_proxy_features_v1/uCxcK7PhvBY/complete.json": "ecef0de744226f497cef8b8260ec6ac93e7e6f83bdc2433dc74f4812a169f0cf",
+    "/mnt/lightsem-data/experiments/lightsem/lighting-cue-model-20260922t094347z/observer_proxy_features_v1/uCxcK7PhvBY/box.npz": "48e8591a44eff0cc1104b06040523715bc66b496f330dcb3c75d69221d5bcba9",
+    "/mnt/lightsem-data/experiments/lightsem/lighting-cue-model-20260922t094347z/observer_proxy_features_v1/uCxcK7PhvBY/sam2.npz": "e76b9f65ec97ab44765cc7895b46ab6e95dc55aa2c5be7b9e7b0b93c570b46c6",
+    "/mnt/lightsem-data/justdance/Just Dance 2021 (Unlimited) - Intoxicated [V2yuC5yLxws].mkv": "36287ab998c2a4a7ea433d8672b25553df3e0cd76cf6db38007999a6b78c300e",
+    "/mnt/lightsem-data/cache/justdance_pose/V2yuC5yLxws.npz": "5e2ce7d6a36f827c420690f48cfd8246a8bd772cd5f99e4bef9c65451abbaeab",
+    "/mnt/lightsem-data/experiments/lightsem/lighting-cue-model-20260922t094347z/observer_proxy_features_v1/V2yuC5yLxws/complete.json": "e7d9e1dc953b9f3b59c7232a4c966bb8808d327d18fc6142fa054920a1f49de2",
+    "/mnt/lightsem-data/experiments/lightsem/lighting-cue-model-20260922t094347z/observer_proxy_features_v1/V2yuC5yLxws/box.npz": "e7bf7120830a47cd5dc64e5912b19e3c75a5c9d9373efd041304e2ec8999b7b4",
+    "/mnt/lightsem-data/experiments/lightsem/lighting-cue-model-20260922t094347z/observer_proxy_features_v1/V2yuC5yLxws/sam2.npz": "91ca2dd1247d7c2ac064867c6f50f69c5f0159a9e2408c77fe3360f629f380be",
+    "/mnt/lightsem-data/justdance/Just Dance 2024 Edition (Plus) \uff5c Fit But You Know It [RPTeAkorooA].mkv": "4538db1db43c925eff39aeddfffdbe4d9faab070c31286c6e1528fd4543f614b",
+    "/mnt/lightsem-data/cache/justdance_pose/RPTeAkorooA.npz": "91d93972f226823a63d472ef1c24f0bf29cb6c063ee8efc8e3eeaa526c456341",
+    "/mnt/lightsem-data/experiments/lightsem/lighting-cue-model-20260922t094347z/observer_proxy_features_v1/RPTeAkorooA/complete.json": "ce278ddf592ba14862b3d1f7ec5e8b9bf1bbff07e74aa68118ecd844eeeb7461",
+    "/mnt/lightsem-data/experiments/lightsem/lighting-cue-model-20260922t094347z/observer_proxy_features_v1/RPTeAkorooA/box.npz": "1f4c0ba2bc5c1a4de0983fc01c4e6b88277159b75b80ccb8bd4e2c5fdf3721a1",
+    "/mnt/lightsem-data/experiments/lightsem/lighting-cue-model-20260922t094347z/observer_proxy_features_v1/RPTeAkorooA/sam2.npz": "0ff6cfbafcdef413c0fe4106460a3a8c9f6953346f245c85f6b773ce04e591ac",
+    "/mnt/lightsem-data/justdance/Just Dance 2019\uff1a Sweet Sensation [jkGH7JIHDSk].webm": "e1ff33d8ff9ecebe662894fcec650e5d7aa88ad1ed2cc54231449449820cdd23",
+    "/mnt/lightsem-data/cache/justdance_pose/jkGH7JIHDSk.npz": "dbaa38b25eb1993ec925c8688928b71916a96a461334e34b602c5d852ec091fa",
+    "/mnt/lightsem-data/experiments/lightsem/lighting-cue-model-20260922t094347z/observer_proxy_features_v1/jkGH7JIHDSk/complete.json": "a2961a09abb74b9c861a8b1648d020663f92730c221c35ddb9401306b1000929",
+    "/mnt/lightsem-data/experiments/lightsem/lighting-cue-model-20260922t094347z/observer_proxy_features_v1/jkGH7JIHDSk/box.npz": "c7cb2faa3eac79a7d3564e3b1c2487238c8e29090f059afb86e4ebe1a3d0ad8d",
+    "/mnt/lightsem-data/experiments/lightsem/lighting-cue-model-20260922t094347z/observer_proxy_features_v1/jkGH7JIHDSk/sam2.npz": "0c3294d25834705649d0a37d32b084771a4b8e04252f82e142b682b6e0272bd5",
+    "/mnt/lightsem-data/justdance/What Lovers Do \uff5c Just Dance 2018 [J21d603A7T4].mkv": "9117e56d677be0a8f1f0565eed614374dde85abd4d79df8bc2bb230135752f6e",
+    "/mnt/lightsem-data/cache/justdance_pose/J21d603A7T4.npz": "ec7dc45d6c559ea4b21d02c27de9b06cb3abec4b572e1f1ce1230605cad805a4",
+    "/mnt/lightsem-data/experiments/lightsem/lighting-cue-model-20260922t094347z/observer_proxy_features_v1/J21d603A7T4/complete.json": "746e44eeee5de9dc8c0cd9a0720f6090495fd5d682e2bfc4a966489e4243da74",
+    "/mnt/lightsem-data/experiments/lightsem/lighting-cue-model-20260922t094347z/observer_proxy_features_v1/J21d603A7T4/box.npz": "a846f5768a0743951533b882799d5e04bf94a7e7c999f96bf0c088ba169ef260",
+    "/mnt/lightsem-data/experiments/lightsem/lighting-cue-model-20260922t094347z/observer_proxy_features_v1/J21d603A7T4/sam2.npz": "d071b7ba41553c234c436e95cd238e0b25334f711a3b74502ae335c31b980249",
+    "/mnt/lightsem-data/justdance/Blinding Lights \uff5c The Weeknd \uff5c MEGASTAR \uff5c Just Dance 2021 [hnVwwzCVoqg].webm": "95e9d64983a20a6f8b4c8bb8f947c53e3da22db8bea6f63b0834c49daa1c4985",
+    "/mnt/lightsem-data/cache/justdance_pose/hnVwwzCVoqg.npz": "d02995869d46796a73d6e5c98bad9ca91e02d22162c1d8d59d190c86a78be3de",
+    "/mnt/lightsem-data/experiments/lightsem/lighting-cue-model-20260922t094347z/observer_proxy_features_v1/hnVwwzCVoqg/complete.json": "3d3bcbc8dbadaec749e16e8df38484146167410899114fa448c3c9a5be6f4d7a",
+    "/mnt/lightsem-data/experiments/lightsem/lighting-cue-model-20260922t094347z/observer_proxy_features_v1/hnVwwzCVoqg/box.npz": "1d51294d23dc8e7429185c6eee0e983415758a367e1925d38b2f8618d75037f3",
+    "/mnt/lightsem-data/experiments/lightsem/lighting-cue-model-20260922t094347z/observer_proxy_features_v1/hnVwwzCVoqg/sam2.npz": "4c76e0da3d89195b0c780b0fa42aaad751b5a0ce0ca32e8ebcda7d299ca6c505",
+    "/mnt/lightsem-data/justdance/Just Dance Unlimited\uff1a Woman Like Me by Little Mix Ft. Nicki Minaj [12.8k] [Ub3Cc9DLhK4].webm": "9bd09506b9abc4a7b3bf755557aa0082e02d0d7bfd08257f46cacb603c142399",
+    "/mnt/lightsem-data/cache/justdance_pose/Ub3Cc9DLhK4.npz": "a332aa612dc8413b93b02f43c637d9d1e80eeadf5c9ea3b8f5b0a78c916502ee",
+    "/mnt/lightsem-data/experiments/lightsem/lighting-cue-model-20260922t094347z/observer_proxy_features_v1/Ub3Cc9DLhK4/complete.json": "4663289cbddcdefa799a90f01859ddce7712abc0d74d063f272fb23f94124bb2",
+    "/mnt/lightsem-data/experiments/lightsem/lighting-cue-model-20260922t094347z/observer_proxy_features_v1/Ub3Cc9DLhK4/box.npz": "d1b321fcdfc0ef480d8cb567faebe57125680d0e975e6653b311aeac8737b846",
+    "/mnt/lightsem-data/experiments/lightsem/lighting-cue-model-20260922t094347z/observer_proxy_features_v1/Ub3Cc9DLhK4/sam2.npz": "7a0600242aca6002bc09f531889d6c3cd72c42b305eee36dbce61acd5567ee69",
+    "/mnt/lightsem-data/justdance/Just Dance 2021 \uff5c Here Comes The Spy - Kids Mode [ApisF-hdoZg].mkv": "bb92ede02d9574e2daedba428ff9853c85b7a4913553e04f2016986bc80773bf",
+    "/mnt/lightsem-data/cache/justdance_pose/ApisF-hdoZg.npz": "e564780bb8458dcdbe0af5914aac0b9f7e117b7cff01533467441173ef7451e2",
+    "/mnt/lightsem-data/experiments/lightsem/lighting-cue-model-20260922t094347z/observer_proxy_features_v1/ApisF-hdoZg/complete.json": "51aee78a8c6cd9ae191545025e028499346ec0a99a0ac366f04b7972ea3c5734",
+    "/mnt/lightsem-data/experiments/lightsem/lighting-cue-model-20260922t094347z/observer_proxy_features_v1/ApisF-hdoZg/box.npz": "f28b991e4a29c41459e254eab477a82d8a2ed2885d3aaf34b3a5318a72a668fc",
+    "/mnt/lightsem-data/experiments/lightsem/lighting-cue-model-20260922t094347z/observer_proxy_features_v1/ApisF-hdoZg/sam2.npz": "d467f976e8fd760b00d63a63cbc812c07e20e26a6b81acea97b82a74d3f8ec1a",
+    "/mnt/lightsem-data/justdance/Just Dance Unlimited\uff1a Talk by Khalid [12.4k] [Z9Got5FyrXI].mkv": "3d368b6b9c8d353a3fc9621f5fd2716fbd42476073ce86ed87de255c2f68fcd2",
+    "/mnt/lightsem-data/cache/justdance_pose/Z9Got5FyrXI.npz": "0cdd2040bdf189c88116c54f5c8bd402f58531bd4c7387deec69985e4ec2fb70",
+    "/mnt/lightsem-data/experiments/lightsem/lighting-cue-model-20260922t094347z/observer_proxy_features_v1/Z9Got5FyrXI/complete.json": "f08e68cd3807add27074eaa4ace202defca100c4bea2ec9ad7cafba4c6cc4e9d",
+    "/mnt/lightsem-data/experiments/lightsem/lighting-cue-model-20260922t094347z/observer_proxy_features_v1/Z9Got5FyrXI/box.npz": "e00faba42d598b6b0bf393816d95105a0d27d7fdd02948c64dcd42fabab2907e",
+    "/mnt/lightsem-data/experiments/lightsem/lighting-cue-model-20260922t094347z/observer_proxy_features_v1/Z9Got5FyrXI/sam2.npz": "8f8622ac633bc95a015cf8641ce3d872d039bdf3e57b8f215cf823b332abfdb1",
+    "/mnt/lightsem-data/justdance/Just Dance Unlimited - Heart of Glass (All Perfect) [wnw4_ZfVmrA].mkv": "e7d72d8d9642eeb025291ed153497bdfc97546b9998a2429cf4b943f58537671",
+    "/mnt/lightsem-data/cache/justdance_pose/wnw4_ZfVmrA.npz": "a9478d15c6fbab318810b489ff8bfc137fc5737207be04bd5ac23f31379daa5a",
+    "/mnt/lightsem-data/experiments/lightsem/lighting-cue-model-20260922t094347z/observer_proxy_features_v1/wnw4_ZfVmrA/complete.json": "c4a4be18bf20843b81cbb373c6ff085a4a5f3e7830ffaf8f0a24b528a6d5da97",
+    "/mnt/lightsem-data/experiments/lightsem/lighting-cue-model-20260922t094347z/observer_proxy_features_v1/wnw4_ZfVmrA/box.npz": "79ce0d76e8eababcdc660531412c7fff8bc79dd4c1d2165a7b845abad512b5b6",
+    "/mnt/lightsem-data/experiments/lightsem/lighting-cue-model-20260922t094347z/observer_proxy_features_v1/wnw4_ZfVmrA/sam2.npz": "15fa30981475cadd6b1b65e08dc9760199ca9278cfb10b25d36f3449665be226",
+    "/mnt/lightsem-data/justdance/Just Dance Unlimited\uff1a Panini by Lil Nas X [12.9k] [SQu7mn2LFxI].webm": "2c7a410d19e279034c228eae47c7c5c1804023136893f6d4e2075666cb68b67c",
+    "/mnt/lightsem-data/cache/justdance_pose/SQu7mn2LFxI.npz": "e78212f61dd292c26f54d5ffb7f8d97241101142bb1563ebd999f51ab0ebbc2e",
+    "/mnt/lightsem-data/experiments/lightsem/lighting-cue-model-20260922t094347z/observer_proxy_features_v1/SQu7mn2LFxI/complete.json": "3d52e44cb20db26c7474f0e0a208f9975479c3a1747e482c280d6c436884d248",
+    "/mnt/lightsem-data/experiments/lightsem/lighting-cue-model-20260922t094347z/observer_proxy_features_v1/SQu7mn2LFxI/box.npz": "ca05b480c58223f7bc7122b300234c8253e5ff012d4aa49d0f7d035b68db5d39",
+    "/mnt/lightsem-data/experiments/lightsem/lighting-cue-model-20260922t094347z/observer_proxy_features_v1/SQu7mn2LFxI/sam2.npz": "1e0d241b7eafe5f4462c418653317a61cc8e902c5fb505f2e48146e0214b0fcd",
+    "/mnt/lightsem-data/justdance/Just Dance 2021 - Bailando [OeYSabCXfjU].mkv": "588be3bcd22f2f5262198e31092ec8045883f0d2ae95a8780a787141c2c17504",
+    "/mnt/lightsem-data/cache/justdance_pose/OeYSabCXfjU.npz": "252eee18d04c9fefa80089927e48e20198755f0d0b9cd9d76287b09a0f52fb20",
+    "/mnt/lightsem-data/experiments/lightsem/lighting-cue-model-20260922t094347z/observer_proxy_features_v1/OeYSabCXfjU/complete.json": "475f820822ff745bb357f4da2551a939580f4f9ad9a2ccb1a93db910198df11c",
+    "/mnt/lightsem-data/experiments/lightsem/lighting-cue-model-20260922t094347z/observer_proxy_features_v1/OeYSabCXfjU/box.npz": "2b74c60343014ae405df06985592abe38ff96b80adfe4bafe786032c3f0cf536",
+    "/mnt/lightsem-data/experiments/lightsem/lighting-cue-model-20260922t094347z/observer_proxy_features_v1/OeYSabCXfjU/sam2.npz": "c69935ae8a411ff278e226479751dec0cd29b6fc2b18b97f410d7f8d33a9a887",
+    "/mnt/lightsem-data/justdance/MEGASTAR - Work Work - Just Dance 2019 - Kinect [NA7shs-6IYo].webm": "689d5fc41241b9b99fc60600e7b89800429e7d058b60944839684c8c750c27c1",
+    "/mnt/lightsem-data/cache/justdance_pose/NA7shs-6IYo.npz": "c5ea37a2a0e41782bb5d9ac1a91315ff5a8c31f61bdb4cada07a083dbc77fd61",
+    "/mnt/lightsem-data/experiments/lightsem/lighting-cue-model-20260922t094347z/observer_proxy_features_v1/NA7shs-6IYo/complete.json": "a989b6e4327e3b8c9af6402c0318fd4076d344389024e77a4590a92444f3d9f9",
+    "/mnt/lightsem-data/experiments/lightsem/lighting-cue-model-20260922t094347z/observer_proxy_features_v1/NA7shs-6IYo/box.npz": "c48c8c923a9d97cc772053efaa9c7cfc1441712b8e07f429f393e155e028b380",
+    "/mnt/lightsem-data/experiments/lightsem/lighting-cue-model-20260922t094347z/observer_proxy_features_v1/NA7shs-6IYo/sam2.npz": "b6ff67210bd00947471dd8b385595ce5b8864806d0ba568e7a0f74dc23ec3ce6",
+    "/mnt/lightsem-data/justdance/Just Dance 2020 - Bangarang \uff5c 5\uff0a Megastar \uff5c 13000+ [5pb-txxfRDk].webm": "9cc72438a01f70d3b391da531da26a6665000bda7f6e56fc3e4b38821b02bb05",
+    "/mnt/lightsem-data/cache/justdance_pose/5pb-txxfRDk.npz": "d4249cbd9324bb8956ae0131e75762793a598da322112b685d66b2320b32fb24",
+    "/mnt/lightsem-data/experiments/lightsem/lighting-cue-model-20260922t094347z/observer_proxy_features_v1/5pb-txxfRDk/complete.json": "3cf022de4c657e4fbddb1cd66b6bed63346a86b6071d5bfcdeab025fdb074136",
+    "/mnt/lightsem-data/experiments/lightsem/lighting-cue-model-20260922t094347z/observer_proxy_features_v1/5pb-txxfRDk/box.npz": "c1b10024ff76c0355e5bb49962b1d6eda3fe050be8a4d29d91e6f7d90c465aa4",
+    "/mnt/lightsem-data/experiments/lightsem/lighting-cue-model-20260922t094347z/observer_proxy_features_v1/5pb-txxfRDk/sam2.npz": "31201267a404e32d74ec183d8a441d9156402130209354c9ddff0abe9ddc6de8",
+    "/mnt/lightsem-data/justdance/Just Dance Unlimited\uff1a Djadja by Aya Nakamura [12.7k] [9_htm1JQxBg].mkv": "1bfc663519f3a69d8f04200a656e6df97b7e4f98b80647e2ae4c345070b3d38f",
+    "/mnt/lightsem-data/cache/justdance_pose/9_htm1JQxBg.npz": "a35582cc068dec88f5fdd6e7db21d16f1e8f6406f493c14a81cc17b1a08adf22",
+    "/mnt/lightsem-data/experiments/lightsem/lighting-cue-model-20260922t094347z/observer_proxy_features_v1/9_htm1JQxBg/complete.json": "199b44cfb2d92378bb859861c7530767608dcc8d8960ee14e49e9ba4aa598a01",
+    "/mnt/lightsem-data/experiments/lightsem/lighting-cue-model-20260922t094347z/observer_proxy_features_v1/9_htm1JQxBg/box.npz": "19711be8b82550e212f63a94b0a83dc62c794aede6906290df94ab31e360840a",
+    "/mnt/lightsem-data/experiments/lightsem/lighting-cue-model-20260922t094347z/observer_proxy_features_v1/9_htm1JQxBg/sam2.npz": "ecb7d8157dc03d1a87f8e60f3beb041fb163a413cc93e40730ec6361712e4a0a",
+    "/mnt/lightsem-data/justdance/Just Dance 2020 - Vodovorot \uff5c 5\uff0a Megastar \uff5c 13000+ [Vf2s-fakSIo].webm": "63834c604d04045ba4fff0293f00d5ce1991bb14a78821c4f4dc2cc537dabdd8",
+    "/mnt/lightsem-data/cache/justdance_pose/Vf2s-fakSIo.npz": "b42f7c0b4a86d6d4a2df9802c65a3ee2f853544dd4971db4e5464f12fa7b5c76",
+    "/mnt/lightsem-data/experiments/lightsem/lighting-cue-model-20260922t094347z/observer_parallel_shard_0_features_v1/Vf2s-fakSIo/complete.json": "6e2cf0785f392688208f1a61b8cfd279385cc6033b715cdb1d4109b8de6903b6",
+    "/mnt/lightsem-data/experiments/lightsem/lighting-cue-model-20260922t094347z/observer_parallel_shard_0_features_v1/Vf2s-fakSIo/box.npz": "9eb01e808de21f05dacbee8ff1e71fd0ffa934d1fc5950efe4350ece7a5b2e8b",
+    "/mnt/lightsem-data/experiments/lightsem/lighting-cue-model-20260922t094347z/observer_parallel_shard_0_features_v1/Vf2s-fakSIo/sam2.npz": "d03283a472e4dfea9b8beb2cb80036ca49a874151d139f2c0c26fe15fa5e0af5",
+    "/mnt/lightsem-data/justdance/Just Dance 2021\uff1a Volar by Lele Pons Ft. Susan Diaz and Victor Cardenas [12.8k] [NBw54DXeVw8].mkv": "3a26cab8c4ab27738d100f16ed2da5a49860b9101ba03391d2d5120d77a62c88",
+    "/mnt/lightsem-data/cache/justdance_pose/NBw54DXeVw8.npz": "87d518413adff1f6ea97d7d80fce7ff33e1e66de23f6253d33b56eee1762adf0",
+    "/mnt/lightsem-data/experiments/lightsem/lighting-cue-model-20260922t094347z/observer_parallel_shard_1_features_v1/NBw54DXeVw8/complete.json": "183901c0882d138e7e8af0ef3beaaa1d61fdf952337518dbcc1017efc087f43d",
+    "/mnt/lightsem-data/experiments/lightsem/lighting-cue-model-20260922t094347z/observer_parallel_shard_1_features_v1/NBw54DXeVw8/box.npz": "0aa06a018c5cddbbe47781c14139d0145a3d3783186770b1e03f67fc5b83ed2b",
+    "/mnt/lightsem-data/experiments/lightsem/lighting-cue-model-20260922t094347z/observer_parallel_shard_1_features_v1/NBw54DXeVw8/sam2.npz": "554d676fdf1b2812c6bc3cef1cd6f5b5e97522cb576fa872f2bb92a4215c3506",
+    "/mnt/lightsem-data/justdance/Just Dance 2021\uff1a All the good girls go to hell  - Gameplay ( PlayStation Camera ) MEGASTAR [ARQwK8P1hkg].mkv": "481d9255b7a76669fc05f3a62ec6f59932fdf8eff04f5c6fb665e97b7b707c11",
+    "/mnt/lightsem-data/cache/justdance_pose/ARQwK8P1hkg.npz": "b0eb110b1f438777c8bd5a7b2cac5771dd2e2d9c1b4168f36270c60e9f790b39",
+    "/mnt/lightsem-data/experiments/lightsem/lighting-cue-model-20260922t094347z/observer_parallel_shard_0_features_v1/ARQwK8P1hkg/complete.json": "1b19935a25ecc7f7e9806c5cb84e2beff3be9066818b37cae2aceb297307459f",
+    "/mnt/lightsem-data/experiments/lightsem/lighting-cue-model-20260922t094347z/observer_parallel_shard_0_features_v1/ARQwK8P1hkg/box.npz": "95c4f0cd86a4c2761dfb4d644dd8a8f52d3e38f97e16b461414d85af339bcb48",
+    "/mnt/lightsem-data/experiments/lightsem/lighting-cue-model-20260922t094347z/observer_parallel_shard_0_features_v1/ARQwK8P1hkg/sam2.npz": "196469a96af80faca6218afdd03cec5a28f625e749b9994b6ccab4c31e21de89",
+    "/mnt/lightsem-data/justdance/Just Dance 2018 (Unlimited)\uff1a Juju On That Beat (TZ Anthem) [TIfHV-Xq9VI].mkv": "7b0743ab8b1733966d4c39c4a7fa4b73c163b0c14a227c9463fc4687a19503e7",
+    "/mnt/lightsem-data/cache/justdance_pose/TIfHV-Xq9VI.npz": "2e60959f19646d74088bbabe73b8841afec0d888b45d0206fbe0241a52b57b0f",
+    "/mnt/lightsem-data/experiments/lightsem/lighting-cue-model-20260922t094347z/observer_parallel_shard_1_features_v1/TIfHV-Xq9VI/complete.json": "66c309e8dd0208eb1d6bb05d230c23b33d6035ad939c1499160b3e47430a4bfb",
+    "/mnt/lightsem-data/experiments/lightsem/lighting-cue-model-20260922t094347z/observer_parallel_shard_1_features_v1/TIfHV-Xq9VI/box.npz": "f04ef49eea66bfb0aaa6039bad221f4b8d29d0f8690ce0f98566f31282cefa3a",
+    "/mnt/lightsem-data/experiments/lightsem/lighting-cue-model-20260922t094347z/observer_parallel_shard_1_features_v1/TIfHV-Xq9VI/sam2.npz": "1c65c92e883bdeee2c252d5b26b07154d8c7d21c44174e9049815cd6febb80dc",
+    "/mnt/lightsem-data/justdance/Just Dance 2019\uff1a Finesse (Vers\u00e3o extrema) [2sYjdIN6rv0].mkv": "b3fd216c9ce8c38c069f9309da970ca0c520b223dd64d95f8430fc987ca5f0ec",
+    "/mnt/lightsem-data/cache/justdance_pose/2sYjdIN6rv0.npz": "2108c40adbffd371982523c8d999bbc79db2c73088240ecf089f71965d8c5a32",
+    "/mnt/lightsem-data/experiments/lightsem/lighting-cue-model-20260922t094347z/observer_parallel_shard_0_features_v1/2sYjdIN6rv0/complete.json": "33e26c626a17c3b91d7a1994c73b6b5bb8fe238941bcc892c497aeacd74053a6",
+    "/mnt/lightsem-data/experiments/lightsem/lighting-cue-model-20260922t094347z/observer_parallel_shard_0_features_v1/2sYjdIN6rv0/box.npz": "b9c33ca48b2a10c78efc5a6c58d050b077754d20eca340d313993315396b02dc",
+    "/mnt/lightsem-data/experiments/lightsem/lighting-cue-model-20260922t094347z/observer_parallel_shard_0_features_v1/2sYjdIN6rv0/sam2.npz": "af4e234bfb12c80d3729be76c415a7cee64e953eaabb1c7159f7aa899a3eef13",
+    "/mnt/lightsem-data/justdance/Just Dance Plus (+)\uff1a I Feel It Coming by The Weeknd Ft. Daft Punk [13.1k] [1ozcUaAXJV8].mkv": "bb377e69a5321b9d1a369405788dfa5391a532970f1734424f4f4ac9eefc55b9",
+    "/mnt/lightsem-data/cache/justdance_pose/1ozcUaAXJV8.npz": "f8128aab5fc43ee8f3516d9938d5042a0f322e3f2e9c6deb719e441988701cb1",
+    "/mnt/lightsem-data/experiments/lightsem/lighting-cue-model-20260922t094347z/observer_parallel_shard_1_features_v1/1ozcUaAXJV8/complete.json": "9552e4b00dfa248eb6013cb5017d25f24f1a3ad19233e2e358dbd460614dc47f",
+    "/mnt/lightsem-data/experiments/lightsem/lighting-cue-model-20260922t094347z/observer_parallel_shard_1_features_v1/1ozcUaAXJV8/box.npz": "54b20377c0d6945ee8a56335de369fc1fef20555b9f8742fda83d8bfeaaaf885",
+    "/mnt/lightsem-data/experiments/lightsem/lighting-cue-model-20260922t094347z/observer_parallel_shard_1_features_v1/1ozcUaAXJV8/sam2.npz": "d90599ad4875c3cb74a28254d957b1a387014730c090a273a96b9c756bcaf478",
+    "/mnt/lightsem-data/justdance/Just Dance Unlimited\uff1a Juice - Yummy Version by Lizzo [12.8k] [FUDKBgik9uU].webm": "ef12c6fc11b546aeadcb9945ffacf89d3f4145b2cb6f12cd25046983f4845080",
+    "/mnt/lightsem-data/cache/justdance_pose/FUDKBgik9uU.npz": "2650c83966844396006995890c5b8e371b7d091f7d8ce7b5537557c6d6360b63",
+    "/mnt/lightsem-data/experiments/lightsem/lighting-cue-model-20260922t094347z/observer_parallel_shard_0_features_v1/FUDKBgik9uU/complete.json": "88df172d739bb2a07a6a0c26e1951126c7e75b961fc3d0a1ff1e9c6779f49869",
+    "/mnt/lightsem-data/experiments/lightsem/lighting-cue-model-20260922t094347z/observer_parallel_shard_0_features_v1/FUDKBgik9uU/box.npz": "5f9a9d96de727e7ee8898548299fe22db8b13a5a44520f91c451da30d89b5ec5",
+    "/mnt/lightsem-data/experiments/lightsem/lighting-cue-model-20260922t094347z/observer_parallel_shard_0_features_v1/FUDKBgik9uU/sam2.npz": "33832587cb292500822255c0d6a629438829569f60b99a2afddf8187d0cc27fc",
+    "/mnt/lightsem-data/justdance/Just Dance 2021\uff1a Rare Alternate by Selena Gomez - Gameplay ( PlayStation Camera ) All Perfect [8UTvmHbgc5w].mkv": "74626aa4647ca9accf99ab0ea6450d2e578eb9d82111c90172434cfed1a7d112",
+    "/mnt/lightsem-data/cache/justdance_pose/8UTvmHbgc5w.npz": "ae5fbf66692f05003e396c88b0c53650a5a75ddb9ba7ee7d53f9add661fa48b4",
+    "/mnt/lightsem-data/experiments/lightsem/lighting-cue-model-20260922t094347z/observer_parallel_shard_1_features_v1/8UTvmHbgc5w/complete.json": "af64cf07d795aedbfd044494117f32b48c2afa6436ab7ba871695b77b852812c",
+    "/mnt/lightsem-data/experiments/lightsem/lighting-cue-model-20260922t094347z/observer_parallel_shard_1_features_v1/8UTvmHbgc5w/box.npz": "6deef0ca738dcbc60a14a1492dfa75569c7ba34b7864104778356ea9ae790256",
+    "/mnt/lightsem-data/experiments/lightsem/lighting-cue-model-20260922t094347z/observer_parallel_shard_1_features_v1/8UTvmHbgc5w/sam2.npz": "b06e766506b948de071d9579b6a971ea068f6ba06fc237cdf2eb29dbeaf828dc",
+    "/mnt/lightsem-data/justdance/Just Dance 2022 - Boss Witch [3M9VrJLQDhU].webm": "f7efa4554fa34988a83c45c51f9f968af9fcdd28ab4b4dfd88da44206ebd47ae",
+    "/mnt/lightsem-data/cache/justdance_pose/3M9VrJLQDhU.npz": "bbc9d3d96c2b9f9cb3c4be6fb5920cd5afac34eec1c332a8ed7dedc8b093c4c7",
+    "/mnt/lightsem-data/experiments/lightsem/lighting-cue-model-20260922t094347z/observer_parallel_shard_0_features_v1/3M9VrJLQDhU/complete.json": "a893d27fce613c2469ed5b8731df7c9f3b9d7ff0ec7f6a207fb3b59e9c0051c3",
+    "/mnt/lightsem-data/experiments/lightsem/lighting-cue-model-20260922t094347z/observer_parallel_shard_0_features_v1/3M9VrJLQDhU/box.npz": "a093ba74b3234309214a961baca7f7238be7caf45b8d7236dd3903563ab5d0d0",
+    "/mnt/lightsem-data/experiments/lightsem/lighting-cue-model-20260922t094347z/observer_parallel_shard_0_features_v1/3M9VrJLQDhU/sam2.npz": "65c83c00cbb0a9765ef453d7b3395fb6af88108dbfef7da9f0aea3ab41f65c52",
+    "/mnt/lightsem-data/justdance/Just Dance Unlimited\uff1a Skibidi by Little Big [12.6k] [vsW87yPjmSs].mkv": "39a5b73a0b673b8620442d0fc09a675a8e985b1ba85feb3546d14c275fc15cda",
+    "/mnt/lightsem-data/cache/justdance_pose/vsW87yPjmSs.npz": "17943a55e116c23b456fa4408d5322260cf15347add3516c121d47400f4bdadd",
+    "/mnt/lightsem-data/experiments/lightsem/lighting-cue-model-20260922t094347z/observer_parallel_shard_1_features_v1/vsW87yPjmSs/complete.json": "cf841909b39cc58f3c8c19a786983e121413f7038e8f2b4c13c51f6f3417bc0e",
+    "/mnt/lightsem-data/experiments/lightsem/lighting-cue-model-20260922t094347z/observer_parallel_shard_1_features_v1/vsW87yPjmSs/box.npz": "220e3feece39f4a6fdf1af163c0cf92bb686fcf42ed540cd8bde61f2b4cf1c42",
+    "/mnt/lightsem-data/experiments/lightsem/lighting-cue-model-20260922t094347z/observer_parallel_shard_1_features_v1/vsW87yPjmSs/sam2.npz": "fb89107f847eda75e3a5b3a780fa639fb295bc1f3d87fbbf93e375a8bf563186",
+    "/mnt/lightsem-data/justdance/Just Dance Unlimited\uff1a Taki Taki by DJ Snake Ft. Selena Gomez, Ozuna, Cardi B [13.0k] [ZyE3xcxZHnw].mkv": "aa5b09edb4feb99bc8782b934a90d37cf4bfc9bcecf96a1503659a52bfb72397",
+    "/mnt/lightsem-data/cache/justdance_pose/ZyE3xcxZHnw.npz": "0e56e6b82cabb53667ce511b05a684aa0ce047b7044c8af7fdcb349b021c28c4",
+    "/mnt/lightsem-data/experiments/lightsem/lighting-cue-model-20260922t094347z/observer_parallel_shard_2_features_v1/ZyE3xcxZHnw/complete.json": "54db95d5437b8049e55e8a3d2d835782da982a09bb652755e9e6fbd94effc267",
+    "/mnt/lightsem-data/experiments/lightsem/lighting-cue-model-20260922t094347z/observer_parallel_shard_2_features_v1/ZyE3xcxZHnw/box.npz": "51468489d81249947f1b45cf5ec2e170fad251db05fb86402a660c8b83063186",
+    "/mnt/lightsem-data/experiments/lightsem/lighting-cue-model-20260922t094347z/observer_parallel_shard_2_features_v1/ZyE3xcxZHnw/sam2.npz": "7fcbd232135548430d66caba95d6cdc8f58df29551796578af610c2f60c9ca50"
+  },
+  "records": [
+    {
+      "canonical_id": "jd-5fc36e07dfcc022631ff",
+      "recording_id": "UOn8c9cQvWE",
+      "role": "annotation_calibration_TRAIN",
+      "source_video": {
+        "path": "/mnt/lightsem-data/justdance/Just Dance 2019 (Unlimited)\uff1a Break Free [UOn8c9cQvWE].mkv",
+        "sha256": "d8c440f504fa360f8ff2d6ca5f99628db53a6f06f7817508107ed642c6c778fa"
+      },
+      "source_pose": {
+        "path": "/mnt/lightsem-data/cache/justdance_pose/UOn8c9cQvWE.npz",
+        "sha256": "1c1985a39f68108ed48b2e6d9ccb63b5d39a765eec259ef720ce4dd3497cd16a"
+      },
+      "capture_receipt": {
+        "path": "/mnt/lightsem-data/experiments/lightsem/lighting-cue-model-20260922t094347z/observer_proxy_features_v1/UOn8c9cQvWE/complete.json",
+        "sha256": "dfa841002c95e170e880ab870f8a7f0e998b87905fabcd9b2586d6bf48cb6afb"
+      },
+      "start_s": 86.0,
+      "duration_s": 64.0,
+      "source_exists_now": true
+    },
+    {
+      "canonical_id": "jd-b932c8c85bd6f2576073",
+      "recording_id": "suUCZNQJHQw",
+      "role": "annotation_calibration_TRAIN",
+      "source_video": {
+        "path": "/mnt/lightsem-data/justdance/Just Dance Unlimited\uff1a Jungle Dances - Kids by The Sunlight Shakers [12.8k] [suUCZNQJHQw].webm",
+        "sha256": "8d9a3d54834693fcff9107d8b9897f0b42196f3581283b926e12236b2a5adf9e"
+      },
+      "source_pose": {
+        "path": "/mnt/lightsem-data/cache/justdance_pose/suUCZNQJHQw.npz",
+        "sha256": "278e70f2f8eb53415cb5e8e990aea67af4b95579d775f81ece7171f8464ce6a5"
+      },
+      "capture_receipt": {
+        "path": "/mnt/lightsem-data/experiments/lightsem/lighting-cue-model-20260922t094347z/observer_proxy_features_v1/suUCZNQJHQw/complete.json",
+        "sha256": "24cc332cbed6bc0b48716e801f62a40810f6e84d2537506fe14d6572b4dc64bf"
+      },
+      "start_s": 43.1,
+      "duration_s": 64.0,
+      "source_exists_now": true
+    },
+    {
+      "canonical_id": "jd-7c97b126862e58f1d563",
+      "recording_id": "CdXP-aZLuOI",
+      "role": "annotation_calibration_TRAIN",
+      "source_video": {
+        "path": "/mnt/lightsem-data/justdance/Rihanna - S.O.S. (Just Dance 2) [CdXP-aZLuOI].webm",
+        "sha256": "77dea6844f44f083e8328fc3d94d80a34486841c960a50ca6142198878231966"
+      },
+      "source_pose": {
+        "path": "/mnt/lightsem-data/cache/justdance_pose/CdXP-aZLuOI.npz",
+        "sha256": "f93184525365f4765e59c99925974d9348eb1ce1a13e86a1b29b49a49d0ec169"
+      },
+      "capture_receipt": {
+        "path": "/mnt/lightsem-data/experiments/lightsem/lighting-cue-model-20260922t094347z/observer_proxy_features_v1/CdXP-aZLuOI/complete.json",
+        "sha256": "e2ebac890c5c135a035b91d353335ce630a43a0fe61393467e520339023ab997"
+      },
+      "start_s": 99.3,
+      "duration_s": 64.0,
+      "source_exists_now": true
+    },
+    {
+      "canonical_id": "jd-6a5d1bfe68d703300533",
+      "recording_id": "OQD75k0fHog",
+      "role": "annotation_calibration_TRAIN",
+      "source_video": {
+        "path": "/mnt/lightsem-data/justdance/Just Dance 2018 (Unlimited)\uff1a Dancing Queen [OQD75k0fHog].webm",
+        "sha256": "03e439db9051f3d2c105b64a704d1b27c867b45c012c538ba21fcba4bb983207"
+      },
+      "source_pose": {
+        "path": "/mnt/lightsem-data/cache/justdance_pose/OQD75k0fHog.npz",
+        "sha256": "05b3a69a4ec201ca466044e5f0bdc94b2d0731cc0b94d8e651b72bc74b240ebd"
+      },
+      "capture_receipt": {
+        "path": "/mnt/lightsem-data/experiments/lightsem/lighting-cue-model-20260922t094347z/observer_proxy_features_v1/OQD75k0fHog/complete.json",
+        "sha256": "c4fa281f98dcaabc5d34f8a822ff6ea401969e2ee7a08c3d6405e3f806cdab18"
+      },
+      "start_s": 91.4,
+      "duration_s": 64.0,
+      "source_exists_now": true
+    },
+    {
+      "canonical_id": "jd-1066f38acdaf08271fa6",
+      "recording_id": "awVxB4MdMeE",
+      "role": "annotation_calibration_TRAIN",
+      "source_video": {
+        "path": "/mnt/lightsem-data/justdance/Just Dance Unlimited - Boom (All Perfect) [awVxB4MdMeE].mkv",
+        "sha256": "4a8e8c25c1de64e9c0d9d48c3dcfed6d2ab9f005ab0b1e5b86e016c08822c056"
+      },
+      "source_pose": {
+        "path": "/mnt/lightsem-data/cache/justdance_pose/awVxB4MdMeE.npz",
+        "sha256": "72cb7b57b07f42e7ad1985b7898ccb6d02cfeb76470296ccbc216cbea0d38f68"
+      },
+      "capture_receipt": {
+        "path": "/mnt/lightsem-data/experiments/lightsem/lighting-cue-model-20260922t094347z/observer_proxy_features_v1/awVxB4MdMeE/complete.json",
+        "sha256": "4ef7643bf5922a5d7588f2ca93423af409991f83200275abe818cafe744bb74f"
+      },
+      "start_s": 45.6,
+      "duration_s": 64.0,
+      "source_exists_now": true
+    },
+    {
+      "canonical_id": "jd-e6ddbe5382bc260e3e6c",
+      "recording_id": "6Aw7qMFYvd8",
+      "role": "annotation_calibration_TRAIN",
+      "source_video": {
+        "path": "/mnt/lightsem-data/justdance/Just Dance 2020 (China)\uff1a \u6781\u4e50\u6de8\u571f (Gokuraku Joudo) by GARNiDELiA [12.2k] [6Aw7qMFYvd8].mkv",
+        "sha256": "33dcb4e2ede9575cf53f6592d321b373b061443ddbcb144d661b7e8ba27fca77"
+      },
+      "source_pose": {
+        "path": "/mnt/lightsem-data/cache/justdance_pose/6Aw7qMFYvd8.npz",
+        "sha256": "7f0202198cdc7f48b21d8167c47724a648a4f5bd816d6e3b6b1ffc89b8bd9934"
+      },
+      "capture_receipt": {
+        "path": "/mnt/lightsem-data/experiments/lightsem/lighting-cue-model-20260922t094347z/observer_proxy_features_v1/6Aw7qMFYvd8/complete.json",
+        "sha256": "e5158d6ec15f1adbed3e5a867634b228668d7aff59d4a870754e63bac30a5c57"
+      },
+      "start_s": 83.4,
+      "duration_s": 64.0,
+      "source_exists_now": true
+    },
+    {
+      "canonical_id": "jd-48e07715df8f7d372d26",
+      "recording_id": "n8GguUJtOa4",
+      "role": "annotation_calibration_TRAIN",
+      "source_video": {
+        "path": "/mnt/lightsem-data/justdance/Just Dance Greatest Hits - Viva Las Vegas \uff5c 5 Stars \uff5c Full Gameplay [n8GguUJtOa4].mkv",
+        "sha256": "db0fba80aee49094013a8dcaf305f40d79e35c79501529a3ec2c1303330900e9"
+      },
+      "source_pose": {
+        "path": "/mnt/lightsem-data/cache/justdance_pose/n8GguUJtOa4.npz",
+        "sha256": "a2ae947047388fb217ae2045db688a87b42263d1d5aa668ab3bc70061ee66652"
+      },
+      "capture_receipt": {
+        "path": "/mnt/lightsem-data/experiments/lightsem/lighting-cue-model-20260922t094347z/observer_proxy_features_v1/n8GguUJtOa4/complete.json",
+        "sha256": "c163f5f69de51a1fcdb73de83271de6be5ef2f8222471ff0b8f43b0305a499e5"
+      },
+      "start_s": 43.0,
+      "duration_s": 64.0,
+      "source_exists_now": true
+    },
+    {
+      "canonical_id": "jd-4041f5000909d780f8de",
+      "recording_id": "3HN1Y3VGXGI",
+      "role": "annotation_calibration_TRAIN",
+      "source_video": {
+        "path": "/mnt/lightsem-data/justdance/Just Dance 2014-Follow the Leader (Sweat Version)-5 Stars [3HN1Y3VGXGI].mkv",
+        "sha256": "2639d307cf62669b9b3deae7bfc6f523fe13ae3595bdd4115c6fe5837c4e529b"
+      },
+      "source_pose": {
+        "path": "/mnt/lightsem-data/cache/justdance_pose/3HN1Y3VGXGI.npz",
+        "sha256": "b764d222e50440ec3f1cd63374079223c11db712a9152448df9a85e419582731"
+      },
+      "capture_receipt": {
+        "path": "/mnt/lightsem-data/experiments/lightsem/lighting-cue-model-20260922t094347z/observer_proxy_features_v1/3HN1Y3VGXGI/complete.json",
+        "sha256": "5e2f10970d5431667284c8ac74a39e675c17f7228f9c725ea69d879ef9723b1e"
+      },
+      "start_s": 87.9,
+      "duration_s": 64.0,
+      "source_exists_now": true
+    },
+    {
+      "canonical_id": "jd-f396b09e25bec38321a3",
+      "recording_id": "xV3dqkP1RrY",
+      "role": "annotation_calibration_TRAIN",
+      "source_video": {
+        "path": "/mnt/lightsem-data/justdance/Just Dance 2015 - Till I Find You [xV3dqkP1RrY].webm",
+        "sha256": "bbef20fe15591abf6aa965f67a2c14811f1d1aae7634fda4e4406791ece673c4"
+      },
+      "source_pose": {
+        "path": "/mnt/lightsem-data/cache/justdance_pose/xV3dqkP1RrY.npz",
+        "sha256": "b23d2be8acba44fd895eb1261db5be26c129cddbefc58f02fdf95740fdfc41f3"
+      },
+      "capture_receipt": {
+        "path": "/mnt/lightsem-data/experiments/lightsem/lighting-cue-model-20260922t094347z/observer_proxy_features_v1/xV3dqkP1RrY/complete.json",
+        "sha256": "a367f184380c3a84744109010c931dcf60517e8bb6aab06a6e4e0a10d37ae194"
+      },
+      "start_s": 58.8,
+      "duration_s": 64.0,
+      "source_exists_now": true
+    },
+    {
+      "canonical_id": "jd-464511233c6a6428a9a5",
+      "recording_id": "2ABEKrS4cWI",
+      "role": "annotation_calibration_TRAIN",
+      "source_video": {
+        "path": "/mnt/lightsem-data/justdance/Just Dance 2020 (Unlimited) \uff5c Troublemaker [2ABEKrS4cWI].mkv",
+        "sha256": "336a5b1b11c4e186a6679e072820dcd90bd21be80762af62a6f128c56bacc813"
+      },
+      "source_pose": {
+        "path": "/mnt/lightsem-data/cache/justdance_pose/2ABEKrS4cWI.npz",
+        "sha256": "fccd3485abff3c41af93dfd54a14978974286756bde0e2921cfd7029e4011d56"
+      },
+      "capture_receipt": {
+        "path": "/mnt/lightsem-data/experiments/lightsem/lighting-cue-model-20260922t094347z/observer_proxy_features_v1/2ABEKrS4cWI/complete.json",
+        "sha256": "9d754b6d4c92019cda2f69dd7bcba6faee0a6aa7d06bab8e58512ba9670486d8"
+      },
+      "start_s": 70.5,
+      "duration_s": 64.0,
+      "source_exists_now": true
+    },
+    {
+      "canonical_id": "jd-8fbf5474b581bac86286",
+      "recording_id": "SAM13SzjLfo",
+      "role": "annotation_calibration_TRAIN",
+      "source_video": {
+        "path": "/mnt/lightsem-data/justdance/Just Dance 2016 - Heartbeat Song [SAM13SzjLfo].mkv",
+        "sha256": "43e40ab994a864083f24c97a6a3bb598f842f46bf1da60077bbe139dc0059219"
+      },
+      "source_pose": {
+        "path": "/mnt/lightsem-data/cache/justdance_pose/SAM13SzjLfo.npz",
+        "sha256": "4a5612f7cc8e780eed283785cda4f5e1e8138b7c7a5c4f2bcd59a88380827a48"
+      },
+      "capture_receipt": {
+        "path": "/mnt/lightsem-data/experiments/lightsem/lighting-cue-model-20260922t094347z/observer_proxy_features_v1/SAM13SzjLfo/complete.json",
+        "sha256": "cbc77e7d2aa66db4313f88749ec06f5dcd139eda778f7d0f84e09388d7f61f70"
+      },
+      "start_s": 76.1,
+      "duration_s": 64.0,
+      "source_exists_now": true
+    },
+    {
+      "canonical_id": "jd-a1060383db4600ff501b",
+      "recording_id": "EbE_NJWIOtg",
+      "role": "annotation_calibration_TRAIN",
+      "source_video": {
+        "path": "/mnt/lightsem-data/justdance/Just Dance 2020 - Con Altura by ROSAL\u00cdA, J Balvin & El Guincho \uff5c 2K Full HD NO HUD [EbE_NJWIOtg].webm",
+        "sha256": "b5196f4516f1a2f55db30c8c835b6daa420ffaf2c83f5a9c12f875b4ce4fea4e"
+      },
+      "source_pose": {
+        "path": "/mnt/lightsem-data/cache/justdance_pose/EbE_NJWIOtg.npz",
+        "sha256": "1fa595900fbe27c5e082336882c6160bd863acc424170c4314ecda719325121f"
+      },
+      "capture_receipt": {
+        "path": "/mnt/lightsem-data/experiments/lightsem/lighting-cue-model-20260922t094347z/observer_proxy_features_v1/EbE_NJWIOtg/complete.json",
+        "sha256": "7a8cd9af60aa3b9cd0f37336c604f09cbbb3fc7569dad93bbcef5057271d37af"
+      },
+      "start_s": 49.2,
+      "duration_s": 64.0,
+      "source_exists_now": true
+    },
+    {
+      "canonical_id": "jd-747150134cf9e99c3c3c",
+      "recording_id": "E3Af6_rVeSQ",
+      "role": "historical_DEV_assessment",
+      "source_video": {
+        "path": "/mnt/lightsem-data/justdance/Just Dance 2022 - Jopping [E3Af6_rVeSQ].mkv",
+        "sha256": "b47e69952c25236186229f34e00d913fac80fdf6420af6dc289db4d5d0e3384b"
+      },
+      "source_pose": {
+        "path": "/mnt/lightsem-data/cache/justdance_pose/E3Af6_rVeSQ.npz",
+        "sha256": "ca68afd27206f7e7d9b59c4367155c2eaae65ccbeaa0c958ee8fc93be7ee5e98"
+      },
+      "capture_receipt": {
+        "path": "/mnt/lightsem-data/experiments/lightsem/lighting-cue-model-20260922t094347z/observer_proxy_features_v1/E3Af6_rVeSQ/complete.json",
+        "sha256": "39d5c0b1a68307513a91eff7ec4bcc9c8873df865a71484966883ffb9a3facdc"
+      },
+      "start_s": 98.6,
+      "duration_s": 64.0,
+      "source_exists_now": true
+    },
+    {
+      "canonical_id": "jd-2c77ae090404e55f756a",
+      "recording_id": "WxPy_sHLpCM",
+      "role": "historical_DEV_assessment",
+      "source_video": {
+        "path": "/mnt/lightsem-data/justdance/Gorgeous Diva - Monki \uff5c Just Dance China [WxPy_sHLpCM].mkv",
+        "sha256": "785fe913fb5b45bad397dfb38fd0a8ddc695060947b01cabeda3c9628c00f776"
+      },
+      "source_pose": {
+        "path": "/mnt/lightsem-data/cache/justdance_pose/WxPy_sHLpCM.npz",
+        "sha256": "4f9fdfb92f903ece6a0c09f83816e269d1b4b35a4fa9d68d924803f53477b000"
+      },
+      "capture_receipt": {
+        "path": "/mnt/lightsem-data/experiments/lightsem/lighting-cue-model-20260922t094347z/observer_proxy_features_v1/WxPy_sHLpCM/complete.json",
+        "sha256": "d213a946390419258e9ffc3794cc92d7a3c5f07a970287bed7663f129db11e77"
+      },
+      "start_s": 72.8,
+      "duration_s": 64.0,
+      "source_exists_now": true
+    },
+    {
+      "canonical_id": "jd-fafcdb519fee22dbc70c",
+      "recording_id": "T4NAdlh-suQ",
+      "role": "historical_DEV_assessment",
+      "source_video": {
+        "path": "/mnt/lightsem-data/justdance/Just Dance Unlimited\uff1a 1999 by Charli XCX & Troye Sivan [13.1k] [T4NAdlh-suQ].mkv",
+        "sha256": "4091adf2494526786a527b780edad57a26178febeeeb1f6f9c46e3b72db5a97f"
+      },
+      "source_pose": {
+        "path": "/mnt/lightsem-data/cache/justdance_pose/T4NAdlh-suQ.npz",
+        "sha256": "23acd9d17138012bae01b9f1d61960a47a2f03266f908ccd5edc31334b546514"
+      },
+      "capture_receipt": {
+        "path": "/mnt/lightsem-data/experiments/lightsem/lighting-cue-model-20260922t094347z/observer_proxy_features_v1/T4NAdlh-suQ/complete.json",
+        "sha256": "6360f8c1bc628a4f096e19da278f2158a335855fd0097e0ea6ed38c6026f2770"
+      },
+      "start_s": 71.9,
+      "duration_s": 64.0,
+      "source_exists_now": true
+    },
+    {
+      "canonical_id": "jd-f4c8176fa3a91973b592",
+      "recording_id": "8hDff6PV2KA",
+      "role": "historical_DEV_assessment",
+      "source_video": {
+        "path": "/mnt/lightsem-data/justdance/Just Dance Now - Baby Shark by Pinkfong- Megastar Just Dance 2020 [8hDff6PV2KA].webm",
+        "sha256": "bb57ca55f655470b19a963749dfacd60350391fbe1db10a51796ce990bf2e6ac"
+      },
+      "source_pose": {
+        "path": "/mnt/lightsem-data/cache/justdance_pose/8hDff6PV2KA.npz",
+        "sha256": "08ae4bc9f825070941bdfe0c8c67ce0ac586c943747710c3f51cd3cf4b12647d"
+      },
+      "capture_receipt": {
+        "path": "/mnt/lightsem-data/experiments/lightsem/lighting-cue-model-20260922t094347z/observer_proxy_features_v1/8hDff6PV2KA/complete.json",
+        "sha256": "2ef701dbea2a8c9ee03636e4ffdd8ef2bb1b2e90b5ead01c56225b71c1a9c769"
+      },
+      "start_s": 21.3,
+      "duration_s": 64.0,
+      "source_exists_now": true
+    },
+    {
+      "canonical_id": "jd-3befa145e6969e6c9a95",
+      "recording_id": "uFcIni6A3P0",
+      "role": "historical_DEV_assessment",
+      "source_video": {
+        "path": "/mnt/lightsem-data/justdance/Just Dance Unlimited\uff1a Crayon (\ud06c\ub808\uc6a9) by G-Dragon [12.9k] [uFcIni6A3P0].mkv",
+        "sha256": "677f9727fa82586ea09d8471ff75813b994a762391e088f9dab7317ccb3a0841"
+      },
+      "source_pose": {
+        "path": "/mnt/lightsem-data/cache/justdance_pose/uFcIni6A3P0.npz",
+        "sha256": "22085d44e43357936c78587480da4e1c0dec0c88ebe3a539c74adffb1e14744e"
+      },
+      "capture_receipt": {
+        "path": "/mnt/lightsem-data/experiments/lightsem/lighting-cue-model-20260922t094347z/observer_proxy_features_v1/uFcIni6A3P0/complete.json",
+        "sha256": "a0403c715e06933bf8d6bf83545ae99f48799eb8e90f65112140ff71d1f2744b"
+      },
+      "start_s": 74.3,
+      "duration_s": 64.0,
+      "source_exists_now": true
+    },
+    {
+      "canonical_id": "jd-74e48db9c68c3ba7518c",
+      "recording_id": "uCxcK7PhvBY",
+      "role": "historical_DEV_assessment",
+      "source_video": {
+        "path": "/mnt/lightsem-data/justdance/Just Dance Unlimited\uff1a La Respuesta by Becky G Ft. Maluma [12.8k] [uCxcK7PhvBY].webm",
+        "sha256": "4adc3c2e4997408a879b4d0c4b4683289096b00b854ff980a4237e791452876e"
+      },
+      "source_pose": {
+        "path": "/mnt/lightsem-data/cache/justdance_pose/uCxcK7PhvBY.npz",
+        "sha256": "29eb471dc23cb035f3559ba3a6f58041a698629f7c717a75bd152848e9d3b253"
+      },
+      "capture_receipt": {
+        "path": "/mnt/lightsem-data/experiments/lightsem/lighting-cue-model-20260922t094347z/observer_proxy_features_v1/uCxcK7PhvBY/complete.json",
+        "sha256": "ecef0de744226f497cef8b8260ec6ac93e7e6f83bdc2433dc74f4812a169f0cf"
+      },
+      "start_s": 68.2,
+      "duration_s": 64.0,
+      "source_exists_now": true
+    },
+    {
+      "canonical_id": "jd-ea120a8bdace51e8b6f6",
+      "recording_id": "V2yuC5yLxws",
+      "role": "historical_DEV_assessment",
+      "source_video": {
+        "path": "/mnt/lightsem-data/justdance/Just Dance 2021 (Unlimited) - Intoxicated [V2yuC5yLxws].mkv",
+        "sha256": "36287ab998c2a4a7ea433d8672b25553df3e0cd76cf6db38007999a6b78c300e"
+      },
+      "source_pose": {
+        "path": "/mnt/lightsem-data/cache/justdance_pose/V2yuC5yLxws.npz",
+        "sha256": "5e2ce7d6a36f827c420690f48cfd8246a8bd772cd5f99e4bef9c65451abbaeab"
+      },
+      "capture_receipt": {
+        "path": "/mnt/lightsem-data/experiments/lightsem/lighting-cue-model-20260922t094347z/observer_proxy_features_v1/V2yuC5yLxws/complete.json",
+        "sha256": "e7d9e1dc953b9f3b59c7232a4c966bb8808d327d18fc6142fa054920a1f49de2"
+      },
+      "start_s": 78.3,
+      "duration_s": 64.0,
+      "source_exists_now": true
+    },
+    {
+      "canonical_id": "jd-86d4dcca00cd5d4c8660",
+      "recording_id": "RPTeAkorooA",
+      "role": "historical_DEV_assessment",
+      "source_video": {
+        "path": "/mnt/lightsem-data/justdance/Just Dance 2024 Edition (Plus) \uff5c Fit But You Know It [RPTeAkorooA].mkv",
+        "sha256": "4538db1db43c925eff39aeddfffdbe4d9faab070c31286c6e1528fd4543f614b"
+      },
+      "source_pose": {
+        "path": "/mnt/lightsem-data/cache/justdance_pose/RPTeAkorooA.npz",
+        "sha256": "91d93972f226823a63d472ef1c24f0bf29cb6c063ee8efc8e3eeaa526c456341"
+      },
+      "capture_receipt": {
+        "path": "/mnt/lightsem-data/experiments/lightsem/lighting-cue-model-20260922t094347z/observer_proxy_features_v1/RPTeAkorooA/complete.json",
+        "sha256": "ce278ddf592ba14862b3d1f7ec5e8b9bf1bbff07e74aa68118ecd844eeeb7461"
+      },
+      "start_s": 88.4,
+      "duration_s": 64.0,
+      "source_exists_now": true
+    },
+    {
+      "canonical_id": "jd-e1da76a76ac38851fb95",
+      "recording_id": "jkGH7JIHDSk",
+      "role": "historical_DEV_assessment",
+      "source_video": {
+        "path": "/mnt/lightsem-data/justdance/Just Dance 2019\uff1a Sweet Sensation [jkGH7JIHDSk].webm",
+        "sha256": "e1ff33d8ff9ecebe662894fcec650e5d7aa88ad1ed2cc54231449449820cdd23"
+      },
+      "source_pose": {
+        "path": "/mnt/lightsem-data/cache/justdance_pose/jkGH7JIHDSk.npz",
+        "sha256": "dbaa38b25eb1993ec925c8688928b71916a96a461334e34b602c5d852ec091fa"
+      },
+      "capture_receipt": {
+        "path": "/mnt/lightsem-data/experiments/lightsem/lighting-cue-model-20260922t094347z/observer_proxy_features_v1/jkGH7JIHDSk/complete.json",
+        "sha256": "a2961a09abb74b9c861a8b1648d020663f92730c221c35ddb9401306b1000929"
+      },
+      "start_s": 78.8,
+      "duration_s": 64.0,
+      "source_exists_now": true
+    },
+    {
+      "canonical_id": "jd-669b916cd15af69ae82c",
+      "recording_id": "J21d603A7T4",
+      "role": "historical_DEV_assessment",
+      "source_video": {
+        "path": "/mnt/lightsem-data/justdance/What Lovers Do \uff5c Just Dance 2018 [J21d603A7T4].mkv",
+        "sha256": "9117e56d677be0a8f1f0565eed614374dde85abd4d79df8bc2bb230135752f6e"
+      },
+      "source_pose": {
+        "path": "/mnt/lightsem-data/cache/justdance_pose/J21d603A7T4.npz",
+        "sha256": "ec7dc45d6c559ea4b21d02c27de9b06cb3abec4b572e1f1ce1230605cad805a4"
+      },
+      "capture_receipt": {
+        "path": "/mnt/lightsem-data/experiments/lightsem/lighting-cue-model-20260922t094347z/observer_proxy_features_v1/J21d603A7T4/complete.json",
+        "sha256": "746e44eeee5de9dc8c0cd9a0720f6090495fd5d682e2bfc4a966489e4243da74"
+      },
+      "start_s": 77.5,
+      "duration_s": 64.0,
+      "source_exists_now": true
+    },
+    {
+      "canonical_id": "jd-e23374aa3965d47673e4",
+      "recording_id": "hnVwwzCVoqg",
+      "role": "historical_DEV_assessment",
+      "source_video": {
+        "path": "/mnt/lightsem-data/justdance/Blinding Lights \uff5c The Weeknd \uff5c MEGASTAR \uff5c Just Dance 2021 [hnVwwzCVoqg].webm",
+        "sha256": "95e9d64983a20a6f8b4c8bb8f947c53e3da22db8bea6f63b0834c49daa1c4985"
+      },
+      "source_pose": {
+        "path": "/mnt/lightsem-data/cache/justdance_pose/hnVwwzCVoqg.npz",
+        "sha256": "d02995869d46796a73d6e5c98bad9ca91e02d22162c1d8d59d190c86a78be3de"
+      },
+      "capture_receipt": {
+        "path": "/mnt/lightsem-data/experiments/lightsem/lighting-cue-model-20260922t094347z/observer_proxy_features_v1/hnVwwzCVoqg/complete.json",
+        "sha256": "3d3bcbc8dbadaec749e16e8df38484146167410899114fa448c3c9a5be6f4d7a"
+      },
+      "start_s": 80.9,
+      "duration_s": 64.0,
+      "source_exists_now": true
+    },
+    {
+      "canonical_id": "jd-f6d8aa9c97422610fd37",
+      "recording_id": "Ub3Cc9DLhK4",
+      "role": "historical_DEV_assessment",
+      "source_video": {
+        "path": "/mnt/lightsem-data/justdance/Just Dance Unlimited\uff1a Woman Like Me by Little Mix Ft. Nicki Minaj [12.8k] [Ub3Cc9DLhK4].webm",
+        "sha256": "9bd09506b9abc4a7b3bf755557aa0082e02d0d7bfd08257f46cacb603c142399"
+      },
+      "source_pose": {
+        "path": "/mnt/lightsem-data/cache/justdance_pose/Ub3Cc9DLhK4.npz",
+        "sha256": "a332aa612dc8413b93b02f43c637d9d1e80eeadf5c9ea3b8f5b0a78c916502ee"
+      },
+      "capture_receipt": {
+        "path": "/mnt/lightsem-data/experiments/lightsem/lighting-cue-model-20260922t094347z/observer_proxy_features_v1/Ub3Cc9DLhK4/complete.json",
+        "sha256": "4663289cbddcdefa799a90f01859ddce7712abc0d74d063f272fb23f94124bb2"
+      },
+      "start_s": 84.9,
+      "duration_s": 64.0,
+      "source_exists_now": true
+    },
+    {
+      "canonical_id": "jd-55b5e12d13bb65af40c4",
+      "recording_id": "ApisF-hdoZg",
+      "role": "historical_DEV_assessment",
+      "source_video": {
+        "path": "/mnt/lightsem-data/justdance/Just Dance 2021 \uff5c Here Comes The Spy - Kids Mode [ApisF-hdoZg].mkv",
+        "sha256": "bb92ede02d9574e2daedba428ff9853c85b7a4913553e04f2016986bc80773bf"
+      },
+      "source_pose": {
+        "path": "/mnt/lightsem-data/cache/justdance_pose/ApisF-hdoZg.npz",
+        "sha256": "e564780bb8458dcdbe0af5914aac0b9f7e117b7cff01533467441173ef7451e2"
+      },
+      "capture_receipt": {
+        "path": "/mnt/lightsem-data/experiments/lightsem/lighting-cue-model-20260922t094347z/observer_proxy_features_v1/ApisF-hdoZg/complete.json",
+        "sha256": "51aee78a8c6cd9ae191545025e028499346ec0a99a0ac366f04b7972ea3c5734"
+      },
+      "start_s": 23.4,
+      "duration_s": 64.0,
+      "source_exists_now": true
+    },
+    {
+      "canonical_id": "jd-3c5e68ae33c47c290479",
+      "recording_id": "Z9Got5FyrXI",
+      "role": "historical_DEV_assessment",
+      "source_video": {
+        "path": "/mnt/lightsem-data/justdance/Just Dance Unlimited\uff1a Talk by Khalid [12.4k] [Z9Got5FyrXI].mkv",
+        "sha256": "3d368b6b9c8d353a3fc9621f5fd2716fbd42476073ce86ed87de255c2f68fcd2"
+      },
+      "source_pose": {
+        "path": "/mnt/lightsem-data/cache/justdance_pose/Z9Got5FyrXI.npz",
+        "sha256": "0cdd2040bdf189c88116c54f5c8bd402f58531bd4c7387deec69985e4ec2fb70"
+      },
+      "capture_receipt": {
+        "path": "/mnt/lightsem-data/experiments/lightsem/lighting-cue-model-20260922t094347z/observer_proxy_features_v1/Z9Got5FyrXI/complete.json",
+        "sha256": "f08e68cd3807add27074eaa4ace202defca100c4bea2ec9ad7cafba4c6cc4e9d"
+      },
+      "start_s": 73.2,
+      "duration_s": 64.0,
+      "source_exists_now": true
+    },
+    {
+      "canonical_id": "jd-0928ee4d1de962b531b9",
+      "recording_id": "wnw4_ZfVmrA",
+      "role": "historical_DEV_assessment",
+      "source_video": {
+        "path": "/mnt/lightsem-data/justdance/Just Dance Unlimited - Heart of Glass (All Perfect) [wnw4_ZfVmrA].mkv",
+        "sha256": "e7d72d8d9642eeb025291ed153497bdfc97546b9998a2429cf4b943f58537671"
+      },
+      "source_pose": {
+        "path": "/mnt/lightsem-data/cache/justdance_pose/wnw4_ZfVmrA.npz",
+        "sha256": "a9478d15c6fbab318810b489ff8bfc137fc5737207be04bd5ac23f31379daa5a"
+      },
+      "capture_receipt": {
+        "path": "/mnt/lightsem-data/experiments/lightsem/lighting-cue-model-20260922t094347z/observer_proxy_features_v1/wnw4_ZfVmrA/complete.json",
+        "sha256": "c4a4be18bf20843b81cbb373c6ff085a4a5f3e7830ffaf8f0a24b528a6d5da97"
+      },
+      "start_s": 88.4,
+      "duration_s": 64.0,
+      "source_exists_now": true
+    },
+    {
+      "canonical_id": "jd-8a679ca83b209ec3b56d",
+      "recording_id": "SQu7mn2LFxI",
+      "role": "historical_DEV_assessment",
+      "source_video": {
+        "path": "/mnt/lightsem-data/justdance/Just Dance Unlimited\uff1a Panini by Lil Nas X [12.9k] [SQu7mn2LFxI].webm",
+        "sha256": "2c7a410d19e279034c228eae47c7c5c1804023136893f6d4e2075666cb68b67c"
+      },
+      "source_pose": {
+        "path": "/mnt/lightsem-data/cache/justdance_pose/SQu7mn2LFxI.npz",
+        "sha256": "e78212f61dd292c26f54d5ffb7f8d97241101142bb1563ebd999f51ab0ebbc2e"
+      },
+      "capture_receipt": {
+        "path": "/mnt/lightsem-data/experiments/lightsem/lighting-cue-model-20260922t094347z/observer_proxy_features_v1/SQu7mn2LFxI/complete.json",
+        "sha256": "3d52e44cb20db26c7474f0e0a208f9975479c3a1747e482c280d6c436884d248"
+      },
+      "start_s": 33.8,
+      "duration_s": 64.0,
+      "source_exists_now": true
+    },
+    {
+      "canonical_id": "jd-9853154cde288d120418",
+      "recording_id": "OeYSabCXfjU",
+      "role": "historical_DEV_assessment",
+      "source_video": {
+        "path": "/mnt/lightsem-data/justdance/Just Dance 2021 - Bailando [OeYSabCXfjU].mkv",
+        "sha256": "588be3bcd22f2f5262198e31092ec8045883f0d2ae95a8780a787141c2c17504"
+      },
+      "source_pose": {
+        "path": "/mnt/lightsem-data/cache/justdance_pose/OeYSabCXfjU.npz",
+        "sha256": "252eee18d04c9fefa80089927e48e20198755f0d0b9cd9d76287b09a0f52fb20"
+      },
+      "capture_receipt": {
+        "path": "/mnt/lightsem-data/experiments/lightsem/lighting-cue-model-20260922t094347z/observer_proxy_features_v1/OeYSabCXfjU/complete.json",
+        "sha256": "475f820822ff745bb357f4da2551a939580f4f9ad9a2ccb1a93db910198df11c"
+      },
+      "start_s": 77.8,
+      "duration_s": 64.0,
+      "source_exists_now": true
+    },
+    {
+      "canonical_id": "jd-e41ede5dd92ce64a6170",
+      "recording_id": "NA7shs-6IYo",
+      "role": "historical_DEV_assessment",
+      "source_video": {
+        "path": "/mnt/lightsem-data/justdance/MEGASTAR - Work Work - Just Dance 2019 - Kinect [NA7shs-6IYo].webm",
+        "sha256": "689d5fc41241b9b99fc60600e7b89800429e7d058b60944839684c8c750c27c1"
+      },
+      "source_pose": {
+        "path": "/mnt/lightsem-data/cache/justdance_pose/NA7shs-6IYo.npz",
+        "sha256": "c5ea37a2a0e41782bb5d9ac1a91315ff5a8c31f61bdb4cada07a083dbc77fd61"
+      },
+      "capture_receipt": {
+        "path": "/mnt/lightsem-data/experiments/lightsem/lighting-cue-model-20260922t094347z/observer_proxy_features_v1/NA7shs-6IYo/complete.json",
+        "sha256": "a989b6e4327e3b8c9af6402c0318fd4076d344389024e77a4590a92444f3d9f9"
+      },
+      "start_s": 84.5,
+      "duration_s": 64.0,
+      "source_exists_now": true
+    },
+    {
+      "canonical_id": "jd-456e07ff2d55abce6615",
+      "recording_id": "5pb-txxfRDk",
+      "role": "historical_DEV_assessment",
+      "source_video": {
+        "path": "/mnt/lightsem-data/justdance/Just Dance 2020 - Bangarang \uff5c 5\uff0a Megastar \uff5c 13000+ [5pb-txxfRDk].webm",
+        "sha256": "9cc72438a01f70d3b391da531da26a6665000bda7f6e56fc3e4b38821b02bb05"
+      },
+      "source_pose": {
+        "path": "/mnt/lightsem-data/cache/justdance_pose/5pb-txxfRDk.npz",
+        "sha256": "d4249cbd9324bb8956ae0131e75762793a598da322112b685d66b2320b32fb24"
+      },
+      "capture_receipt": {
+        "path": "/mnt/lightsem-data/experiments/lightsem/lighting-cue-model-20260922t094347z/observer_proxy_features_v1/5pb-txxfRDk/complete.json",
+        "sha256": "3cf022de4c657e4fbddb1cd66b6bed63346a86b6071d5bfcdeab025fdb074136"
+      },
+      "start_s": 85.1,
+      "duration_s": 64.0,
+      "source_exists_now": true
+    },
+    {
+      "canonical_id": "jd-95ce22181d5e92287572",
+      "recording_id": "9_htm1JQxBg",
+      "role": "historical_DEV_assessment",
+      "source_video": {
+        "path": "/mnt/lightsem-data/justdance/Just Dance Unlimited\uff1a Djadja by Aya Nakamura [12.7k] [9_htm1JQxBg].mkv",
+        "sha256": "1bfc663519f3a69d8f04200a656e6df97b7e4f98b80647e2ae4c345070b3d38f"
+      },
+      "source_pose": {
+        "path": "/mnt/lightsem-data/cache/justdance_pose/9_htm1JQxBg.npz",
+        "sha256": "a35582cc068dec88f5fdd6e7db21d16f1e8f6406f493c14a81cc17b1a08adf22"
+      },
+      "capture_receipt": {
+        "path": "/mnt/lightsem-data/experiments/lightsem/lighting-cue-model-20260922t094347z/observer_proxy_features_v1/9_htm1JQxBg/complete.json",
+        "sha256": "199b44cfb2d92378bb859861c7530767608dcc8d8960ee14e49e9ba4aa598a01"
+      },
+      "start_s": 63.2,
+      "duration_s": 64.0,
+      "source_exists_now": true
+    },
+    {
+      "canonical_id": "jd-efebde221c7bbf18bf6a",
+      "recording_id": "Vf2s-fakSIo",
+      "role": "historical_DEV_assessment",
+      "source_video": {
+        "path": "/mnt/lightsem-data/justdance/Just Dance 2020 - Vodovorot \uff5c 5\uff0a Megastar \uff5c 13000+ [Vf2s-fakSIo].webm",
+        "sha256": "63834c604d04045ba4fff0293f00d5ce1991bb14a78821c4f4dc2cc537dabdd8"
+      },
+      "source_pose": {
+        "path": "/mnt/lightsem-data/cache/justdance_pose/Vf2s-fakSIo.npz",
+        "sha256": "b42f7c0b4a86d6d4a2df9802c65a3ee2f853544dd4971db4e5464f12fa7b5c76"
+      },
+      "capture_receipt": {
+        "path": "/mnt/lightsem-data/experiments/lightsem/lighting-cue-model-20260922t094347z/observer_parallel_shard_0_features_v1/Vf2s-fakSIo/complete.json",
+        "sha256": "6e2cf0785f392688208f1a61b8cfd279385cc6033b715cdb1d4109b8de6903b6"
+      },
+      "start_s": 67.4,
+      "duration_s": 64.0,
+      "source_exists_now": true
+    },
+    {
+      "canonical_id": "jd-3b9ff4e655382e86d13e",
+      "recording_id": "NBw54DXeVw8",
+      "role": "historical_DEV_assessment",
+      "source_video": {
+        "path": "/mnt/lightsem-data/justdance/Just Dance 2021\uff1a Volar by Lele Pons Ft. Susan Diaz and Victor Cardenas [12.8k] [NBw54DXeVw8].mkv",
+        "sha256": "3a26cab8c4ab27738d100f16ed2da5a49860b9101ba03391d2d5120d77a62c88"
+      },
+      "source_pose": {
+        "path": "/mnt/lightsem-data/cache/justdance_pose/NBw54DXeVw8.npz",
+        "sha256": "87d518413adff1f6ea97d7d80fce7ff33e1e66de23f6253d33b56eee1762adf0"
+      },
+      "capture_receipt": {
+        "path": "/mnt/lightsem-data/experiments/lightsem/lighting-cue-model-20260922t094347z/observer_parallel_shard_1_features_v1/NBw54DXeVw8/complete.json",
+        "sha256": "183901c0882d138e7e8af0ef3beaaa1d61fdf952337518dbcc1017efc087f43d"
+      },
+      "start_s": 65.5,
+      "duration_s": 64.0,
+      "source_exists_now": true
+    },
+    {
+      "canonical_id": "jd-a93d208ad804d0dcaf1a",
+      "recording_id": "ARQwK8P1hkg",
+      "role": "historical_DEV_assessment",
+      "source_video": {
+        "path": "/mnt/lightsem-data/justdance/Just Dance 2021\uff1a All the good girls go to hell  - Gameplay ( PlayStation Camera ) MEGASTAR [ARQwK8P1hkg].mkv",
+        "sha256": "481d9255b7a76669fc05f3a62ec6f59932fdf8eff04f5c6fb665e97b7b707c11"
+      },
+      "source_pose": {
+        "path": "/mnt/lightsem-data/cache/justdance_pose/ARQwK8P1hkg.npz",
+        "sha256": "b0eb110b1f438777c8bd5a7b2cac5771dd2e2d9c1b4168f36270c60e9f790b39"
+      },
+      "capture_receipt": {
+        "path": "/mnt/lightsem-data/experiments/lightsem/lighting-cue-model-20260922t094347z/observer_parallel_shard_0_features_v1/ARQwK8P1hkg/complete.json",
+        "sha256": "1b19935a25ecc7f7e9806c5cb84e2beff3be9066818b37cae2aceb297307459f"
+      },
+      "start_s": 53.9,
+      "duration_s": 64.0,
+      "source_exists_now": true
+    },
+    {
+      "canonical_id": "jd-91a59e9979e5c8c83a4b",
+      "recording_id": "TIfHV-Xq9VI",
+      "role": "historical_DEV_assessment",
+      "source_video": {
+        "path": "/mnt/lightsem-data/justdance/Just Dance 2018 (Unlimited)\uff1a Juju On That Beat (TZ Anthem) [TIfHV-Xq9VI].mkv",
+        "sha256": "7b0743ab8b1733966d4c39c4a7fa4b73c163b0c14a227c9463fc4687a19503e7"
+      },
+      "source_pose": {
+        "path": "/mnt/lightsem-data/cache/justdance_pose/TIfHV-Xq9VI.npz",
+        "sha256": "2e60959f19646d74088bbabe73b8841afec0d888b45d0206fbe0241a52b57b0f"
+      },
+      "capture_receipt": {
+        "path": "/mnt/lightsem-data/experiments/lightsem/lighting-cue-model-20260922t094347z/observer_parallel_shard_1_features_v1/TIfHV-Xq9VI/complete.json",
+        "sha256": "66c309e8dd0208eb1d6bb05d230c23b33d6035ad939c1499160b3e47430a4bfb"
+      },
+      "start_s": 53.8,
+      "duration_s": 64.0,
+      "source_exists_now": true
+    },
+    {
+      "canonical_id": "jd-97b196cd3a7f8f8c644e",
+      "recording_id": "2sYjdIN6rv0",
+      "role": "historical_DEV_assessment",
+      "source_video": {
+        "path": "/mnt/lightsem-data/justdance/Just Dance 2019\uff1a Finesse (Vers\u00e3o extrema) [2sYjdIN6rv0].mkv",
+        "sha256": "b3fd216c9ce8c38c069f9309da970ca0c520b223dd64d95f8430fc987ca5f0ec"
+      },
+      "source_pose": {
+        "path": "/mnt/lightsem-data/cache/justdance_pose/2sYjdIN6rv0.npz",
+        "sha256": "2108c40adbffd371982523c8d999bbc79db2c73088240ecf089f71965d8c5a32"
+      },
+      "capture_receipt": {
+        "path": "/mnt/lightsem-data/experiments/lightsem/lighting-cue-model-20260922t094347z/observer_parallel_shard_0_features_v1/2sYjdIN6rv0/complete.json",
+        "sha256": "33e26c626a17c3b91d7a1994c73b6b5bb8fe238941bcc892c497aeacd74053a6"
+      },
+      "start_s": 85.3,
+      "duration_s": 64.0,
+      "source_exists_now": true
+    },
+    {
+      "canonical_id": "jd-700bceaf8b0e9265bafe",
+      "recording_id": "1ozcUaAXJV8",
+      "role": "historical_DEV_assessment",
+      "source_video": {
+        "path": "/mnt/lightsem-data/justdance/Just Dance Plus (+)\uff1a I Feel It Coming by The Weeknd Ft. Daft Punk [13.1k] [1ozcUaAXJV8].mkv",
+        "sha256": "bb377e69a5321b9d1a369405788dfa5391a532970f1734424f4f4ac9eefc55b9"
+      },
+      "source_pose": {
+        "path": "/mnt/lightsem-data/cache/justdance_pose/1ozcUaAXJV8.npz",
+        "sha256": "f8128aab5fc43ee8f3516d9938d5042a0f322e3f2e9c6deb719e441988701cb1"
+      },
+      "capture_receipt": {
+        "path": "/mnt/lightsem-data/experiments/lightsem/lighting-cue-model-20260922t094347z/observer_parallel_shard_1_features_v1/1ozcUaAXJV8/complete.json",
+        "sha256": "9552e4b00dfa248eb6013cb5017d25f24f1a3ad19233e2e358dbd460614dc47f"
+      },
+      "start_s": 115.5,
+      "duration_s": 64.0,
+      "source_exists_now": true
+    },
+    {
+      "canonical_id": "jd-41ab77f7b47086034bdd",
+      "recording_id": "FUDKBgik9uU",
+      "role": "historical_DEV_assessment",
+      "source_video": {
+        "path": "/mnt/lightsem-data/justdance/Just Dance Unlimited\uff1a Juice - Yummy Version by Lizzo [12.8k] [FUDKBgik9uU].webm",
+        "sha256": "ef12c6fc11b546aeadcb9945ffacf89d3f4145b2cb6f12cd25046983f4845080"
+      },
+      "source_pose": {
+        "path": "/mnt/lightsem-data/cache/justdance_pose/FUDKBgik9uU.npz",
+        "sha256": "2650c83966844396006995890c5b8e371b7d091f7d8ce7b5537557c6d6360b63"
+      },
+      "capture_receipt": {
+        "path": "/mnt/lightsem-data/experiments/lightsem/lighting-cue-model-20260922t094347z/observer_parallel_shard_0_features_v1/FUDKBgik9uU/complete.json",
+        "sha256": "88df172d739bb2a07a6a0c26e1951126c7e75b961fc3d0a1ff1e9c6779f49869"
+      },
+      "start_s": 76.9,
+      "duration_s": 64.0,
+      "source_exists_now": true
+    },
+    {
+      "canonical_id": "jd-d79d29aa3c0f14c7e4f8",
+      "recording_id": "8UTvmHbgc5w",
+      "role": "historical_DEV_assessment",
+      "source_video": {
+        "path": "/mnt/lightsem-data/justdance/Just Dance 2021\uff1a Rare Alternate by Selena Gomez - Gameplay ( PlayStation Camera ) All Perfect [8UTvmHbgc5w].mkv",
+        "sha256": "74626aa4647ca9accf99ab0ea6450d2e578eb9d82111c90172434cfed1a7d112"
+      },
+      "source_pose": {
+        "path": "/mnt/lightsem-data/cache/justdance_pose/8UTvmHbgc5w.npz",
+        "sha256": "ae5fbf66692f05003e396c88b0c53650a5a75ddb9ba7ee7d53f9add661fa48b4"
+      },
+      "capture_receipt": {
+        "path": "/mnt/lightsem-data/experiments/lightsem/lighting-cue-model-20260922t094347z/observer_parallel_shard_1_features_v1/8UTvmHbgc5w/complete.json",
+        "sha256": "af64cf07d795aedbfd044494117f32b48c2afa6436ab7ba871695b77b852812c"
+      },
+      "start_s": 84.6,
+      "duration_s": 64.0,
+      "source_exists_now": true
+    },
+    {
+      "canonical_id": "jd-f19a7edfa3a9eca671bf",
+      "recording_id": "3M9VrJLQDhU",
+      "role": "historical_DEV_assessment",
+      "source_video": {
+        "path": "/mnt/lightsem-data/justdance/Just Dance 2022 - Boss Witch [3M9VrJLQDhU].webm",
+        "sha256": "f7efa4554fa34988a83c45c51f9f968af9fcdd28ab4b4dfd88da44206ebd47ae"
+      },
+      "source_pose": {
+        "path": "/mnt/lightsem-data/cache/justdance_pose/3M9VrJLQDhU.npz",
+        "sha256": "bbc9d3d96c2b9f9cb3c4be6fb5920cd5afac34eec1c332a8ed7dedc8b093c4c7"
+      },
+      "capture_receipt": {
+        "path": "/mnt/lightsem-data/experiments/lightsem/lighting-cue-model-20260922t094347z/observer_parallel_shard_0_features_v1/3M9VrJLQDhU/complete.json",
+        "sha256": "a893d27fce613c2469ed5b8731df7c9f3b9d7ff0ec7f6a207fb3b59e9c0051c3"
+      },
+      "start_s": 45.7,
+      "duration_s": 64.0,
+      "source_exists_now": true
+    },
+    {
+      "canonical_id": "jd-d3581d2b1eb7b0beb7d1",
+      "recording_id": "vsW87yPjmSs",
+      "role": "historical_DEV_assessment",
+      "source_video": {
+        "path": "/mnt/lightsem-data/justdance/Just Dance Unlimited\uff1a Skibidi by Little Big [12.6k] [vsW87yPjmSs].mkv",
+        "sha256": "39a5b73a0b673b8620442d0fc09a675a8e985b1ba85feb3546d14c275fc15cda"
+      },
+      "source_pose": {
+        "path": "/mnt/lightsem-data/cache/justdance_pose/vsW87yPjmSs.npz",
+        "sha256": "17943a55e116c23b456fa4408d5322260cf15347add3516c121d47400f4bdadd"
+      },
+      "capture_receipt": {
+        "path": "/mnt/lightsem-data/experiments/lightsem/lighting-cue-model-20260922t094347z/observer_parallel_shard_1_features_v1/vsW87yPjmSs/complete.json",
+        "sha256": "cf841909b39cc58f3c8c19a786983e121413f7038e8f2b4c13c51f6f3417bc0e"
+      },
+      "start_s": 56.7,
+      "duration_s": 64.0,
+      "source_exists_now": true
+    },
+    {
+      "canonical_id": "jd-2d5d5defd33a5ae0bdc3",
+      "recording_id": "ZyE3xcxZHnw",
+      "role": "historical_DEV_assessment",
+      "source_video": {
+        "path": "/mnt/lightsem-data/justdance/Just Dance Unlimited\uff1a Taki Taki by DJ Snake Ft. Selena Gomez, Ozuna, Cardi B [13.0k] [ZyE3xcxZHnw].mkv",
+        "sha256": "aa5b09edb4feb99bc8782b934a90d37cf4bfc9bcecf96a1503659a52bfb72397"
+      },
+      "source_pose": {
+        "path": "/mnt/lightsem-data/cache/justdance_pose/ZyE3xcxZHnw.npz",
+        "sha256": "0e56e6b82cabb53667ce511b05a684aa0ce047b7044c8af7fdcb349b021c28c4"
+      },
+      "capture_receipt": {
+        "path": "/mnt/lightsem-data/experiments/lightsem/lighting-cue-model-20260922t094347z/observer_parallel_shard_2_features_v1/ZyE3xcxZHnw/complete.json",
+        "sha256": "54db95d5437b8049e55e8a3d2d835782da982a09bb652755e9e6fbd94effc267"
+      },
+      "start_s": 84.1,
+      "duration_s": 64.0,
+      "source_exists_now": true
+    }
+  ],
+  "observer_novelty_threshold": 0.391357421875,
+  "observer_threshold_provenance": "/mnt/lightsem-data/experiments/lightsem/lighting-cue-model-20260922t094347z/observer_fits_v1/04_seed0_I_VR_P0/complete.json",
+  "precision": "float32_no_autocast",
+  "max_seconds": 1800,
+  "shared_H1_H2_budget_seconds": 7200,
+  "method": {
+    "source_frames": "all original nativePTS frames in the same64s sourcewindow, no rate conversion; RGB48x27; released100frame50output endpoint padding",
+    "detector": "official convertedTransNetV2 single-frame head>.5; contiguouspositive frame runs inclusivefirst/lastPTS. many_hot intervals storedsecondary, neverusedtoaddvetoes. This pins released predictions_to_scenes single-head convention.",
+    "A0": "currentcachedSAM2chromaticnovelty; existing evaluation.candidate_peaks interior plateauearliest, NMS.2s onobserver available intervals; noquota",
+    "confidence": "novelty*.5/frozenTRAINthreshold, unclipped and explicitly notprobability; fixed operatingpoint>=.5",
+    "A1": "veto A0candidates withininclusive\u00b1.2sof single-headeditintervals; independent-reference support/denominator unchanged",
+    "absence_of_truth": "NoF1/recall/AP/falsecueaccuracy; emitted/veto counts only. Vetoeddoesnotmeanfalse.",
+    "source_artifact_role": "candidateavailabilityonly; it isnotmanualassessment support"
+  },
+  "commands": [
+    "TORCH_ENV=/root/lightsem/.venv/torch-access bash run_torch.sh -u -m scripts.light_layers.extract_visual_next_cuts --freeze /root/lightsem/experiments/2026-09-29-visual-next/records/execution/CUT_TRACE_FREEZE_V1.json"
+  ],
+  "retries": "none_after_outcomes; preserveincomplete; primarydecidesexternalinterruptionrecovery",
+  "test_access": false
+}

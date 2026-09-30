@@ -1,0 +1,335 @@
+{
+  "tool": "list_tags",
+  "arguments": {},
+  "result": [
+    {
+      "id": "audio-to-light",
+      "axis": "topic",
+      "description": "Mapping music/audio to stage lighting control (DMX, hue/value/intensity, strobe, beam). Covers rule-based sound-to-light (FFT/beatgrid triggers) and learned/generative approaches (Skip-BART, SeqLight).\n\n*Axis:* `topic`",
+      "aliases": [
+        "sound-to-light",
+        "dmx",
+        "stage-lighting",
+        "lighting-control"
+      ],
+      "n_uses": 213,
+      "kinds": {
+        "diagnostic": 21,
+        "experiment": 71,
+        "hypothesis": 71,
+        "intervention": 3,
+        "paper": 25,
+        "problem": 2,
+        "rule_out": 4,
+        "runbook": 16
+      },
+      "orphan": false
+    },
+    {
+      "id": "evaluation-metric",
+      "axis": "topic",
+      "description": "Design and validation of metrics: Light-BAS (beat alignment of light kinematics), FID over light features, diversity, collapse rate, human pairwise preference, and the nulls (metronome, circular shift, split-half) each one must be priced against.\n\n*Axis:* `topic`",
+      "aliases": [
+        "metrics",
+        "beat-alignment",
+        "fid",
+        "human-eval",
+        "null-model"
+      ],
+      "n_uses": 192,
+      "kinds": {
+        "diagnostic": 30,
+        "experiment": 68,
+        "hypothesis": 68,
+        "paper": 21,
+        "problem": 2,
+        "rule_out": 1,
+        "runbook": 2
+      },
+      "orphan": false
+    },
+    {
+      "id": "generative-modelling",
+      "axis": "topic",
+      "description": "Treating the target as a distribution to SAMPLE from (diffusion, flow matching, diffusion forcing, VQ+AR) rather than a function to regress. Use when p(y|x) is multi-modal and per-frame MSE collapses to the conditional mean.\n\n*Axis:* `topic`",
+      "aliases": [
+        "generation",
+        "diffusion",
+        "flow-matching",
+        "diffusion-forcing",
+        "sampling",
+        "generative"
+      ],
+      "n_uses": 161,
+      "kinds": {
+        "diagnostic": 1,
+        "experiment": 68,
+        "hypothesis": 68,
+        "intervention": 3,
+        "paper": 16,
+        "problem": 1,
+        "runbook": 4
+      },
+      "orphan": false
+    },
+    {
+      "id": "music-to-dance",
+      "axis": "topic",
+      "description": "Music-conditioned dance/motion generation (EDGE, FlowerDance, InfiniteDance, DiscoForcing) and its datasets (AIST++, FineDance, InfiniteDance). In LightSem the generated dancer is a LATENT intermediate: present at train time, sampled at test time.\n\n*Axis:* `topic`",
+      "aliases": [
+        "dance-generation",
+        "latent-dancer",
+        "choreography-generation",
+        "m2d",
+        "music2dance"
+      ],
+      "n_uses": 159,
+      "kinds": {
+        "experiment": 68,
+        "hypothesis": 68,
+        "paper": 13,
+        "problem": 1,
+        "runbook": 9
+      },
+      "orphan": false
+    },
+    {
+      "id": "pose",
+      "axis": "topic",
+      "description": "Human pose / skeletal keypoint time series as a modality (2D/3D keypoints, kinetic energy, jerk, motion events). Includes dance motion and pose used as an intermediate representation.\n\n*Axis:* `topic`",
+      "aliases": [
+        "pose-estimation",
+        "motion-capture",
+        "dance-motion",
+        "keypoints"
+      ],
+      "n_uses": 157,
+      "kinds": {
+        "experiment": 71,
+        "hypothesis": 71,
+        "paper": 10,
+        "problem": 2,
+        "rule_out": 2,
+        "runbook": 1
+      },
+      "orphan": false
+    },
+    {
+      "id": "cross-modal",
+      "axis": "topic",
+      "description": "*Axis:* `topic`",
+      "aliases": [],
+      "n_uses": 155,
+      "kinds": {
+        "diagnostic": 1,
+        "experiment": 71,
+        "hypothesis": 71,
+        "paper": 5,
+        "problem": 2,
+        "rule_out": 4,
+        "runbook": 1
+      },
+      "orphan": false
+    },
+    {
+      "id": "music-induced-movement",
+      "axis": "topic",
+      "description": "Empirical music-psychology literature on how audio features drive spontaneous body movement across many people (Burger/Toiviainen/Luck Jyvaskyla mocap, Solberg & Jensenius club EDM, groove research). Source of the shared-vs-personal split that defines LightSem's target blocks.\n\n*Axis:* `topic`",
+      "aliases": [
+        "embodied-meter",
+        "groove",
+        "music-psychology",
+        "spontaneous-dance",
+        "jyvaskyla"
+      ],
+      "n_uses": 151,
+      "kinds": {
+        "diagnostic": 1,
+        "experiment": 68,
+        "hypothesis": 68,
+        "paper": 8,
+        "problem": 1,
+        "rule_out": 2,
+        "runbook": 3
+      },
+      "orphan": false
+    },
+    {
+      "id": "ill-posed-ground-truth",
+      "axis": "problem",
+      "description": "The chosen supervision target is not a function of the available input: multiple equally valid targets exist for the same input (one-to-many mapping), so any single recorded target is an arbitrary draw. Training against it caps achievable performance at the inter-annotator/inter-performer agreement ceiling, and a model appearing to 'fail' may simply be hitting that ceiling. Diagnosed by measuring agreement between independent targets for identical input before modelling.\n\n*Axis:* `problem`",
+      "aliases": [
+        "one-to-many-mapping",
+        "arbitrary-ground-truth",
+        "ill-posed-target",
+        "supervision-validity"
+      ],
+      "n_uses": 144,
+      "kinds": {
+        "experiment": 71,
+        "hypothesis": 71,
+        "problem": 2
+      },
+      "orphan": false
+    },
+    {
+      "id": "matched-baseline",
+      "axis": "problem",
+      "description": "*Axis:* `problem`",
+      "aliases": [],
+      "n_uses": 144,
+      "kinds": {
+        "experiment": 71,
+        "hypothesis": 71,
+        "problem": 2
+      },
+      "orphan": false
+    },
+    {
+      "id": "real-time",
+      "axis": "topic",
+      "description": "Strictly causal, bounded-latency streaming inference (audio-in to DMX-out). Covers online beat tracking, causal audio encoders, diffusion forcing, teacher->causal-student distillation, lookahead/delay-line trade-offs.\n\n*Axis:* `topic`",
+      "aliases": [
+        "streaming",
+        "causal",
+        "latency",
+        "online",
+        "live"
+      ],
+      "n_uses": 144,
+      "kinds": {
+        "experiment": 68,
+        "hypothesis": 68,
+        "paper": 6,
+        "problem": 1,
+        "runbook": 1
+      },
+      "orphan": false
+    },
+    {
+      "id": "motion-to-light",
+      "axis": "topic",
+      "description": "Mapping body kinematics (speed, jerk, spread, verticality, laterality, Laban effort) to fixture parameters (dimmer, pan/tilt, zoom, strobe, colour). The conductor layer.\n\n*Axis:* `topic`",
+      "aliases": [
+        "pose-to-dmx",
+        "laban",
+        "kinematics-to-light",
+        "conductor",
+        "mapping"
+      ],
+      "n_uses": 142,
+      "kinds": {
+        "diagnostic": 2,
+        "experiment": 68,
+        "hypothesis": 68,
+        "paper": 1,
+        "problem": 1,
+        "rule_out": 2
+      },
+      "orphan": false
+    },
+    {
+      "id": "metric-gaming",
+      "axis": "problem",
+      "description": "A trivial or degenerate policy attains the metric's optimum (a metronome maximises beat alignment; persistence maximises level R2; jitter aligns to beats). The metric then cannot separate a working system from a trivial one. Guard: report the trivial policy's score alongside, use the metric as a constraint, carry the claim on a distributional or human metric.\n\n*Axis:* `problem`",
+      "aliases": [
+        "metronome-baseline",
+        "bas-saturation",
+        "degenerate-optimum",
+        "goodhart"
+      ],
+      "n_uses": 138,
+      "kinds": {
+        "experiment": 68,
+        "hypothesis": 68,
+        "problem": 2
+      },
+      "orphan": false
+    },
+    {
+      "id": "conditional-mean-collapse",
+      "axis": "problem",
+      "description": "Using a regression/MSE objective where p(target|input) is multi-modal: the optimal predictor is the conditional mean, a blurred low-energy average no real sample looks like, so held-out R2 is ~0 even when every draw from the true conditional would be acceptable. Diagnosed by an inter-annotator/inter-performer ceiling near zero at the target resolution. Remedy is a generative objective and distributional evaluation, not a different regression target.\n\n*Axis:* `problem`",
+      "aliases": [
+        "mode-averaging",
+        "regression-on-multimodal-target",
+        "mse-collapse",
+        "mean-prediction"
+      ],
+      "n_uses": 137,
+      "kinds": {
+        "experiment": 68,
+        "hypothesis": 68,
+        "problem": 1
+      },
+      "orphan": false
+    },
+    {
+      "id": "offline-vs-online",
+      "axis": "topic",
+      "description": "Where a result sits on the lookahead axis: strictly causal, bounded lookahead bought with a delay line, or whole-track offline. A score is only comparable to another score at the same point on this axis.\n\n*Axis:* `topic`",
+      "aliases": [],
+      "n_uses": 35,
+      "kinds": {
+        "experiment": 16,
+        "hypothesis": 16,
+        "runbook": 3
+      },
+      "orphan": false
+    },
+    {
+      "id": "learned-conductor",
+      "axis": "topic",
+      "description": "replacing hand-written descriptor-to-fixture rules with a learned decoder\n\n*Axis:* `topic`",
+      "aliases": [],
+      "n_uses": 13,
+      "kinds": {
+        "diagnostic": 2,
+        "experiment": 4,
+        "hypothesis": 4,
+        "paper": 1,
+        "runbook": 2
+      },
+      "orphan": false
+    },
+    {
+      "id": "leaked-future",
+      "axis": "problem",
+      "description": "A number was produced with information the deployed system cannot have at that instant. Covers library defaults that read ahead (centred STFT frames, centred median filters, global top_db clamps), interpolating onto a control grid from a later analysis frame, and any offline fit quoted as if it were online. Distinct from matched-baseline: the baseline may be fine and the FEATURE still illegal.\n\n*Axis:* `problem`",
+      "aliases": [],
+      "n_uses": 10,
+      "kinds": {
+        "experiment": 5,
+        "hypothesis": 5
+      },
+      "orphan": false
+    },
+    {
+      "id": "baseline",
+      "axis": "topic",
+      "description": "*Axis:* `topic`",
+      "aliases": [],
+      "n_uses": 9,
+      "kinds": {
+        "experiment": 3,
+        "hypothesis": 3,
+        "problem": 1,
+        "rule_out": 2
+      },
+      "orphan": false
+    },
+    {
+      "id": "source-separation",
+      "axis": "topic",
+      "description": "stems, per-stem features and their use as conditioning\n\n*Axis:* `topic`",
+      "aliases": [],
+      "n_uses": 3,
+      "kinds": {
+        "experiment": 1,
+        "hypothesis": 1,
+        "runbook": 1
+      },
+      "orphan": false
+    }
+  ]
+}

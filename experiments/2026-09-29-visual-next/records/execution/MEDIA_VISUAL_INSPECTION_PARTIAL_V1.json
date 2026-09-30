@@ -1,0 +1,28 @@
+{
+  "status": "first2unique_new_videos_sampled_visually",
+  "sample_times_s": [
+    0,
+    70,
+    118,
+    130,
+    177,
+    261
+  ],
+  "rows": [
+    {
+      "variant": "R0",
+      "video_sha256": "487a6f1b25626c18b3c22a97ad05a3a5643470a4f29ae1e4295672e14e5d2666",
+      "contact_sheet": "/root/lightsem/runs/visual_next_20260929/media_inspection_v1/R0_contact.png",
+      "contact_sha256": "0f6ea0e197e40252bbe02a7273878bf64087c82458826da9294e10b174f3d2da",
+      "observed": "Neutral shared-output caption is legible. Preserved companion colors vary from blue/cyan to purple; scene and beam trajectories are present at all sampled times."
+    },
+    {
+      "variant": "R1",
+      "video_sha256": "1e34328e64727c0bb56cf898e92678b4eec60ef590ae20a435e1612f5dcfe1a8",
+      "contact_sheet": "/root/lightsem/runs/visual_next_20260929/media_inspection_v1/R1_contact.png",
+      "contact_sha256": "5c04c99489dbc9cd3a67f3d5d728401f1394e38b913df74b6ed396b56d36a3fa",
+      "observed": "Same scene and sampled beam trajectories. Sampled colors match companion before activation, warm pale color at130s and pale purple at177/261s. No blank/corrupt sampled frames seen."
+    }
+  ],
+  "scope": "Visual inspection of sampled decoded frames, not full-playback aesthetic judgment or user preference. Remaining unique videos still require inspection."
+}

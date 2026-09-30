@@ -1,0 +1,105 @@
+{
+  "budget_stage": "H4 delivery, included in its2h cap; record actual render and audit elapsed time",
+  "encoding": "Same native1080p30 AV1p7UHQ1100k/max1200k/AAC128k as C",
+  "expected_pcm_sha256": "9be221f4e05a2fc92cf798be837ea4d1b392c7f4ebdf71a9edeb68373351442f",
+  "input_hashes": {
+    "/mnt/lightsem-data/experiments/lightsem/end_to_end_20260928_v1/comparison_demos_v1/03_I_VR_P0/model_outputs.npz": "135a02cef71b695cf0faa0370ab6bc602a741e303dee47f4f9ea822776f9fea6",
+    "/mnt/lightsem-data/experiments/lightsem/lighting-cue-model-20260922t094347z/observer_fits_v1/04_seed0_I_VR_P0/complete.json": "dc428e1ed9976628deea30978779eef4bf51c606e631cea82affb8df1502d5af",
+    "/mnt/lightsem-data/experiments/lightsem/rhythm_companion_20260912T193657Z/streams.npz": "f19c5721f350dbe56cafba4c26eb152fdfab6cb1627b310f16345de795812052",
+    "/root/lightsem/experiments/2026-09-29-baseline/outputs/shpongle_baseline_ab_v2/streams/03.npz": "34ca1d5f2c9a271b9e08536519f4d657e4aa3017a5ac42514b38e8dd07e4829b",
+    "/root/shpongle.flac": "95e4388424ef62950bdeae78e47b8e71839ed28c6e01189fe15f9ae6c902b6c0"
+  },
+  "max_bytes_per_full_video": 50000000,
+  "output_root": "/root/lightsem/runs/visual_next_20260929/shpongle_palette_previews_v1",
+  "scope": "Engineering palette-layout previews from unchanged baseline C model/cues/history; no new training and not the privileged H4 oracle. Full four-study campaign still pending.",
+  "source_audio": "/root/shpongle.flac",
+  "source_hashes": {
+    "/root/lightsem/lightsem/conductor/rig.py": "608a7eb9971c2bd583282e4a38f777be96b49e5c1a909baffd47bf76cf28b28a",
+    "/root/lightsem/lightsem/dmx/fixtures.py": "685e8b206d7e6b96288a3b88fb5c543368fbd8bd765d8a96873806e18d48c3d7",
+    "/root/lightsem/lightsem/experiments/visual_next/delivery.py": "4289242efadb7eeeddeb7dc021b7893ca899d3cde7557d02bc4d410408b4d147",
+    "/root/lightsem/lightsem/experiments/visual_next/oracle.py": "37e46205a4f0c44a76574dce6fbe3b2fc05ee9d819561cd599504db5eb7002ba",
+    "/root/lightsem/lightsem/experiments/visual_next/palettes.py": "7e11336e1240d1f1a3bbbbb384515db355950e593e97fbb05349441fc34f77ff",
+    "/root/lightsem/lightsem/model/light_layers/overlay.py": "fe41686d022d8f9fc5a347bf03c608da8f15dece76bf1aec6efabccfbe8ecc2f",
+    "/root/lightsem/lightsem/model/light_layers/transitions.py": "3ff90c8899e1609355aae4b8c47638fd1598e305274bfd882e2b4356c80a115b",
+    "/root/lightsem/lightsem/sim/renderer.py": "3e0cb928108ad0ffad0cd5558fb7047099a2241adc026e18c04551afa53a0621",
+    "/root/lightsem/lightsem/sim/shaders.py": "1663a89c934e224969f1c1df4ee2cbe663f8a39ef8415e4b77c154672428677c",
+    "/root/lightsem/scripts/motion/run_rhythm_companion.py": "22ee050ffc404d7107de37556776ad50c058ae3163d977e3a3124a56721fb63a",
+    "/root/lightsem/scripts/rendering/render_light_layers_review.py": "5d8df73283f223da89b3626ddac195e1a894f865af58423f7b320405b56615b9"
+  },
+  "status": "RGB_streams_prepared_not_rendered",
+  "variants": [
+    {
+      "audit": "/root/lightsem/experiments/2026-09-29-baseline/outputs/shpongle_baseline_ab_v2/media/C/C_full_1080p_av1_audit.json",
+      "duration_s": 277.3,
+      "id": "01",
+      "letter": "C",
+      "path": "/root/lightsem/experiments/2026-09-29-baseline/outputs/shpongle_baseline_ab_v2/media/C/C_full_1080p_av1.mp4",
+      "sha256": "fb06c3f3a951a4f2a12bbc01f4470cec4f8326912a441bd4e25097e275170299",
+      "start_s": 0.0,
+      "status": "verified_existing",
+      "streams": "/root/lightsem/experiments/2026-09-29-baseline/outputs/shpongle_baseline_ab_v2/streams/03.npz",
+      "streams_sha256": "34ca1d5f2c9a271b9e08536519f4d657e4aa3017a5ac42514b38e8dd07e4829b",
+      "title": "Accepted baseline C"
+    },
+    {
+      "caption": "P2 - C palette design preview - 300ms",
+      "changed_RGB_bytes_vs_C": 263010,
+      "delivery_invariants": {
+        "active_color_seconds": 277.0,
+        "color_cue_count": 262,
+        "fade_s": 0.3,
+        "fixed_group_mode_indices": [
+          1,
+          2,
+          1,
+          2
+        ],
+        "history": "own_generated_state",
+        "layout": "two_groups",
+        "protected_nonRGB_slots": 479,
+        "scope": "RGB-only personal review; C movement and dimmers fixed; source companion RGB before first predicted cue.",
+        "subsequent_palette_changes": 48
+      },
+      "duration_s": 277.3,
+      "id": "02",
+      "layout": "two_groups",
+      "letter": "P2",
+      "path": "/root/lightsem/runs/visual_next_20260929/shpongle_palette_previews_v1/media/P2/P2_full_1080p_av1.mp4",
+      "start_s": 0.0,
+      "status": "planned",
+      "streams": "/root/lightsem/runs/visual_next_20260929/shpongle_palette_previews_v1/P2.npz",
+      "streams_sha256": "d704d75fb9be47483f3ea55ec3d2cf259e42aedfa6bc670645d2c9fa3c2d62e5",
+      "title": "C palette split across left and right"
+    },
+    {
+      "caption": "P4 - C palette design preview - 300ms",
+      "changed_RGB_bytes_vs_C": 242945,
+      "delivery_invariants": {
+        "active_color_seconds": 277.0,
+        "color_cue_count": 262,
+        "fade_s": 0.3,
+        "fixed_group_mode_indices": [
+          1,
+          2,
+          0,
+          3
+        ],
+        "history": "own_generated_state",
+        "layout": "four_groups",
+        "protected_nonRGB_slots": 479,
+        "scope": "RGB-only personal review; C movement and dimmers fixed; source companion RGB before first predicted cue.",
+        "subsequent_palette_changes": 48
+      },
+      "duration_s": 277.3,
+      "id": "03",
+      "layout": "four_groups",
+      "letter": "P4",
+      "path": "/root/lightsem/runs/visual_next_20260929/shpongle_palette_previews_v1/media/P4/P4_full_1080p_av1.mp4",
+      "start_s": 0.0,
+      "status": "planned",
+      "streams": "/root/lightsem/runs/visual_next_20260929/shpongle_palette_previews_v1/P4.npz",
+      "streams_sha256": "2a6632fc6f824ce1f74a80c002a83664e69e6d964678029602d9faa717dff65d",
+      "title": "C palette split across four fixture groups"
+    }
+  ]
+}

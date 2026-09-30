@@ -1,0 +1,186 @@
+{
+  "mode": "smoke",
+  "output": "/root/lightsem/runs/visual_next_20260929/oracle_smoke_v1",
+  "max_seconds": 120,
+  "baseline_stream": {
+    "path": "/root/lightsem/experiments/2026-09-29-baseline/outputs/shpongle_baseline_ab_v2/streams/03.npz",
+    "sha256": "34ca1d5f2c9a271b9e08536519f4d657e4aa3017a5ac42514b38e8dd07e4829b"
+  },
+  "original_overlay": {
+    "path": "/mnt/lightsem-data/experiments/lightsem/end_to_end_20260928_v1/comparison_demos_v1/03_I_VR_P0/overlay_dmx.npz",
+    "sha256": "041c0a346a2655507a550a42bfc38b96114fa4232b9a0c68ac829d85ae9c2684",
+    "bytes": 417629
+  },
+  "baseline_fit_report": {
+    "path": "/mnt/lightsem-data/experiments/lightsem/lighting-cue-model-20260922t094347z/observer_fits_v1/04_seed0_I_VR_P0/complete.json",
+    "sha256": "dc428e1ed9976628deea30978779eef4bf51c606e631cea82affb8df1502d5af"
+  },
+  "fixture_groups": [
+    {
+      "name": "mh1",
+      "kind": "moving_head",
+      "address": 1,
+      "x": -5.0,
+      "o2": "left",
+      "o4": "left_heads",
+      "rgb_slots_zero_based": [
+        6,
+        7,
+        8
+      ]
+    },
+    {
+      "name": "mh2",
+      "kind": "moving_head",
+      "address": 13,
+      "x": -3.0,
+      "o2": "left",
+      "o4": "left_heads",
+      "rgb_slots_zero_based": [
+        18,
+        19,
+        20
+      ]
+    },
+    {
+      "name": "mh3",
+      "kind": "moving_head",
+      "address": 25,
+      "x": -1.0,
+      "o2": "left",
+      "o4": "left_heads",
+      "rgb_slots_zero_based": [
+        30,
+        31,
+        32
+      ]
+    },
+    {
+      "name": "mh4",
+      "kind": "moving_head",
+      "address": 37,
+      "x": 1.0,
+      "o2": "right",
+      "o4": "right_heads",
+      "rgb_slots_zero_based": [
+        42,
+        43,
+        44
+      ]
+    },
+    {
+      "name": "mh5",
+      "kind": "moving_head",
+      "address": 49,
+      "x": 3.0,
+      "o2": "right",
+      "o4": "right_heads",
+      "rgb_slots_zero_based": [
+        54,
+        55,
+        56
+      ]
+    },
+    {
+      "name": "mh6",
+      "kind": "moving_head",
+      "address": 61,
+      "x": 5.0,
+      "o2": "right",
+      "o4": "right_heads",
+      "rgb_slots_zero_based": [
+        66,
+        67,
+        68
+      ]
+    },
+    {
+      "name": "wash1",
+      "kind": "wash",
+      "address": 73,
+      "x": -3.5,
+      "o2": "left",
+      "o4": "left_other",
+      "rgb_slots_zero_based": [
+        74,
+        75,
+        76
+      ]
+    },
+    {
+      "name": "wash2",
+      "kind": "wash",
+      "address": 80,
+      "x": -1.1666666666666665,
+      "o2": "left",
+      "o4": "left_other",
+      "rgb_slots_zero_based": [
+        81,
+        82,
+        83
+      ]
+    },
+    {
+      "name": "wash3",
+      "kind": "wash",
+      "address": 87,
+      "x": 1.166666666666667,
+      "o2": "right",
+      "o4": "right_other",
+      "rgb_slots_zero_based": [
+        88,
+        89,
+        90
+      ]
+    },
+    {
+      "name": "wash4",
+      "kind": "wash",
+      "address": 94,
+      "x": 3.5,
+      "o2": "right",
+      "o4": "right_other",
+      "rgb_slots_zero_based": [
+        95,
+        96,
+        97
+      ]
+    },
+    {
+      "name": "proj1",
+      "kind": "projector",
+      "address": 108,
+      "x": 0.0,
+      "o2": "right",
+      "o4": "right_other",
+      "rgb_slots_zero_based": [
+        109,
+        110,
+        111
+      ]
+    }
+  ],
+  "families": [],
+  "donors": {},
+  "files": {
+    "/root/lightsem/experiments/2026-09-29-baseline/outputs/shpongle_baseline_ab_v2/streams/03.npz": "34ca1d5f2c9a271b9e08536519f4d657e4aa3017a5ac42514b38e8dd07e4829b",
+    "/mnt/lightsem-data/experiments/lightsem/end_to_end_20260928_v1/comparison_demos_v1/03_I_VR_P0/overlay_dmx.npz": "041c0a346a2655507a550a42bfc38b96114fa4232b9a0c68ac829d85ae9c2684",
+    "/mnt/lightsem-data/experiments/lightsem/lighting-cue-model-20260922t094347z/observer_fits_v1/04_seed0_I_VR_P0/complete.json": "dc428e1ed9976628deea30978779eef4bf51c606e631cea82affb8df1502d5af",
+    "/root/lightsem/scripts/light_layers/run_visual_next_oracle.py": "d4aab0257e063639390f16f43b4e86dca6b9f03d32c8b83bd26b0a4dadfab1d5",
+    "/root/lightsem/lightsem/experiments/visual_next/oracle.py": "4feac9c1000699301c43da922bbaa057579b428086dac101b276940450c4d3cd",
+    "/root/lightsem/lightsem/experiments/visual_next/palettes.py": "7e11336e1240d1f1a3bbbbb384515db355950e593e97fbb05349441fc34f77ff",
+    "/root/lightsem/lightsem/experiments/visual_next/observation.py": "686a4d2879c6c298978ae44be02da99324d833e2c9d01e3df455e83a88033e77",
+    "/root/lightsem/lightsem/experiments/visual_next/instruments.py": "67bd47135ca5f6fa79f82e1e0b261a4ca8f87597811023387ba70cebc765b985",
+    "/root/lightsem/lightsem/sim/renderer.py": "3e0cb928108ad0ffad0cd5558fb7047099a2241adc026e18c04551afa53a0621",
+    "/root/lightsem/lightsem/sim/shaders.py": "1663a89c934e224969f1c1df4ee2cbe663f8a39ef8415e4b77c154672428677c",
+    "/root/lightsem/lightsem/conductor/rig.py": "608a7eb9971c2bd583282e4a38f777be96b49e5c1a909baffd47bf76cf28b28a",
+    "/root/lightsem/lightsem/dmx/fixtures.py": "685e8b206d7e6b96288a3b88fb5c543368fbd8bd765d8a96873806e18d48c3d7",
+    "/root/lightsem/lightsem/dmx/__init__.py": "523d12af2ae6e6af02b37bcf025062362f9467cc3a2a856ffd73abecffc0a38f",
+    "/root/lightsem/lightsem/model/light_layers/transitions.py": "3ff90c8899e1609355aae4b8c47638fd1598e305274bfd882e2b4356c80a115b",
+    "/root/lightsem/lightsem/model/light_layers/targets.py": "4f1e980ed9f62e2ae2a6d53e426cd44c0ed2381835bf4b1382a7fba1e566d6d1",
+    "/root/lightsem/scripts/motion/run_rhythm_companion.py": "22ee050ffc404d7107de37556776ad50c058ae3163d977e3a3124a56721fb63a",
+    "/root/lightsem/tests/test_visual_next_oracle.py": "9790dc3e9442082cc905e7710c5eb2b4c5091558db31aae8cc4241cc96c01bf8"
+  },
+  "scope": "16-timepoint native1080p renderer feasibility and exactC replay; no oracle optimization or quality scoring",
+  "observation": "Native1920x1080 fixed baseline renderer; fixed every-third-pixel lattice produces640x360 observer samples. NeutralRGB visibility uses maxchannel>=21bytes. Luma/clipping use entire fixed lattice. Same camera/tonemap/optical zoom convention as C."
+}

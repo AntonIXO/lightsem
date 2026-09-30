@@ -1,0 +1,31 @@
+{
+  "tool": "add_paper",
+  "arguments": {
+    "id": "paper-dreamsim-2306-09344",
+    "title": "DreamSim: Learning New Dimensions of Human Visual Similarity using Synthetic Data",
+    "arxiv_id_or_url": "https://arxiv.org/abs/2306.09344",
+    "key_claims": [
+      "Human similarity supervision makes the embedding sensitive to color/layout beyond purely semantic baselines. However, its analysis emphasizes foreground objects over backgrounds and its synthetic dataset is object-centric; this is a poor match to person-masked lighting backgrounds. Therefore it is a possible secondary diagnostic only after controlled-light perturbation validation, not a primary lighting-quality metric. Do not evaluate a feature teacher with the same embedding and call agreement independent evidence. Actual music-fit/design preference remains a separate human endpoint.",
+      "Verified full PDF SHA256 9d609c8c3430421e1e62478d36f29deed6a83d04356b0c015cee2ef2057c60d4. Read scope: Abstract; metric training Sec4.2; attribute sensitivity Sec5.2; foreground/background discussion; supplementC limitations. Published evidence is outside LightSem; application here is a hypothesis."
+    ],
+    "topic_tags": [
+      "audio-to-light",
+      "cross-modal",
+      "evaluation-metric"
+    ]
+  },
+  "result": {
+    "id": "paper-dreamsim-2306-09344",
+    "title": "DreamSim: Learning New Dimensions of Human Visual Similarity using Synthetic Data",
+    "arxiv_id_or_url": "https://arxiv.org/abs/2306.09344",
+    "key_claims": [
+      "Human similarity supervision makes the embedding sensitive to color/layout beyond purely semantic baselines. However, its analysis emphasizes foreground objects over backgrounds and its synthetic dataset is object-centric; this is a poor match to person-masked lighting backgrounds. Therefore it is a possible secondary diagnostic only after controlled-light perturbation validation, not a primary lighting-quality metric. Do not evaluate a feature teacher with the same embedding and call agreement independent evidence. Actual music-fit/design preference remains a separate human endpoint.",
+      "Verified full PDF SHA256 9d609c8c3430421e1e62478d36f29deed6a83d04356b0c015cee2ef2057c60d4. Read scope: Abstract; metric training Sec4.2; attribute sensitivity Sec5.2; foreground/background discussion; supplementC limitations. Published evidence is outside LightSem; application here is a hypothesis."
+    ],
+    "topic_tags": [
+      "audio-to-light",
+      "cross-modal",
+      "evaluation-metric"
+    ]
+  }
+}

@@ -1,0 +1,351 @@
+{
+  "status": "frozen_before_student_DEV_scores_and_Shpongle_inference",
+  "commands": [
+    {
+      "stage": "evaluation",
+      "id": "R0_seed0",
+      "freeze": "/root/lightsem/experiments/2026-09-29-visual-next/records/execution/EVALUATION_FREEZE_V1.json",
+      "freeze_sha256": "50555c2bbdc06f40a78ed516be87808e6bfce1b405dae0a503265fffb7e32329",
+      "command": "TORCH_ENV=/root/lightsem/.venv/torch-access OPENBLAS_NUM_THREADS=2 bash run_torch.sh -u -m scripts.light_layers.evaluate_visual_next --freeze /root/lightsem/experiments/2026-09-29-visual-next/records/execution/EVALUATION_FREEZE_V1.json --checkpoint-id R0_seed0",
+      "output": "/root/lightsem/runs/visual_next_20260929/evaluations_v1/R0_seed0",
+      "max_seconds": 180
+    },
+    {
+      "stage": "evaluation",
+      "id": "R1_seed0",
+      "freeze": "/root/lightsem/experiments/2026-09-29-visual-next/records/execution/EVALUATION_FREEZE_V1.json",
+      "freeze_sha256": "50555c2bbdc06f40a78ed516be87808e6bfce1b405dae0a503265fffb7e32329",
+      "command": "TORCH_ENV=/root/lightsem/.venv/torch-access OPENBLAS_NUM_THREADS=2 bash run_torch.sh -u -m scripts.light_layers.evaluate_visual_next --freeze /root/lightsem/experiments/2026-09-29-visual-next/records/execution/EVALUATION_FREEZE_V1.json --checkpoint-id R1_seed0",
+      "output": "/root/lightsem/runs/visual_next_20260929/evaluations_v1/R1_seed0",
+      "max_seconds": 180
+    },
+    {
+      "stage": "evaluation",
+      "id": "Rrand_seed0",
+      "freeze": "/root/lightsem/experiments/2026-09-29-visual-next/records/execution/EVALUATION_FREEZE_V1.json",
+      "freeze_sha256": "50555c2bbdc06f40a78ed516be87808e6bfce1b405dae0a503265fffb7e32329",
+      "command": "TORCH_ENV=/root/lightsem/.venv/torch-access OPENBLAS_NUM_THREADS=2 bash run_torch.sh -u -m scripts.light_layers.evaluate_visual_next --freeze /root/lightsem/experiments/2026-09-29-visual-next/records/execution/EVALUATION_FREEZE_V1.json --checkpoint-id Rrand_seed0",
+      "output": "/root/lightsem/runs/visual_next_20260929/evaluations_v1/Rrand_seed0",
+      "max_seconds": 180
+    },
+    {
+      "stage": "evaluation",
+      "id": "R2_seed0",
+      "freeze": "/root/lightsem/experiments/2026-09-29-visual-next/records/execution/EVALUATION_FREEZE_V1.json",
+      "freeze_sha256": "50555c2bbdc06f40a78ed516be87808e6bfce1b405dae0a503265fffb7e32329",
+      "command": "TORCH_ENV=/root/lightsem/.venv/torch-access OPENBLAS_NUM_THREADS=2 bash run_torch.sh -u -m scripts.light_layers.evaluate_visual_next --freeze /root/lightsem/experiments/2026-09-29-visual-next/records/execution/EVALUATION_FREEZE_V1.json --checkpoint-id R2_seed0",
+      "output": "/root/lightsem/runs/visual_next_20260929/evaluations_v1/R2_seed0",
+      "max_seconds": 180
+    },
+    {
+      "stage": "evaluation",
+      "id": "R3_seed0",
+      "freeze": "/root/lightsem/experiments/2026-09-29-visual-next/records/execution/EVALUATION_FREEZE_V1.json",
+      "freeze_sha256": "50555c2bbdc06f40a78ed516be87808e6bfce1b405dae0a503265fffb7e32329",
+      "command": "TORCH_ENV=/root/lightsem/.venv/torch-access OPENBLAS_NUM_THREADS=2 bash run_torch.sh -u -m scripts.light_layers.evaluate_visual_next --freeze /root/lightsem/experiments/2026-09-29-visual-next/records/execution/EVALUATION_FREEZE_V1.json --checkpoint-id R3_seed0",
+      "output": "/root/lightsem/runs/visual_next_20260929/evaluations_v1/R3_seed0",
+      "max_seconds": 180
+    },
+    {
+      "stage": "evaluation",
+      "id": "R3-shuffle_seed0",
+      "freeze": "/root/lightsem/experiments/2026-09-29-visual-next/records/execution/EVALUATION_FREEZE_V1.json",
+      "freeze_sha256": "50555c2bbdc06f40a78ed516be87808e6bfce1b405dae0a503265fffb7e32329",
+      "command": "TORCH_ENV=/root/lightsem/.venv/torch-access OPENBLAS_NUM_THREADS=2 bash run_torch.sh -u -m scripts.light_layers.evaluate_visual_next --freeze /root/lightsem/experiments/2026-09-29-visual-next/records/execution/EVALUATION_FREEZE_V1.json --checkpoint-id R3-shuffle_seed0",
+      "output": "/root/lightsem/runs/visual_next_20260929/evaluations_v1/R3-shuffle_seed0",
+      "max_seconds": 180
+    },
+    {
+      "stage": "evaluation",
+      "id": "R3-reverse_seed0",
+      "freeze": "/root/lightsem/experiments/2026-09-29-visual-next/records/execution/EVALUATION_FREEZE_V1.json",
+      "freeze_sha256": "50555c2bbdc06f40a78ed516be87808e6bfce1b405dae0a503265fffb7e32329",
+      "command": "TORCH_ENV=/root/lightsem/.venv/torch-access OPENBLAS_NUM_THREADS=2 bash run_torch.sh -u -m scripts.light_layers.evaluate_visual_next --freeze /root/lightsem/experiments/2026-09-29-visual-next/records/execution/EVALUATION_FREEZE_V1.json --checkpoint-id R3-reverse_seed0",
+      "output": "/root/lightsem/runs/visual_next_20260929/evaluations_v1/R3-reverse_seed0",
+      "max_seconds": 180
+    },
+    {
+      "stage": "evaluation",
+      "id": "R0_seed1",
+      "freeze": "/root/lightsem/experiments/2026-09-29-visual-next/records/execution/EVALUATION_FREEZE_V1.json",
+      "freeze_sha256": "50555c2bbdc06f40a78ed516be87808e6bfce1b405dae0a503265fffb7e32329",
+      "command": "TORCH_ENV=/root/lightsem/.venv/torch-access OPENBLAS_NUM_THREADS=2 bash run_torch.sh -u -m scripts.light_layers.evaluate_visual_next --freeze /root/lightsem/experiments/2026-09-29-visual-next/records/execution/EVALUATION_FREEZE_V1.json --checkpoint-id R0_seed1",
+      "output": "/root/lightsem/runs/visual_next_20260929/evaluations_v1/R0_seed1",
+      "max_seconds": 180
+    },
+    {
+      "stage": "evaluation",
+      "id": "R1_seed1",
+      "freeze": "/root/lightsem/experiments/2026-09-29-visual-next/records/execution/EVALUATION_FREEZE_V1.json",
+      "freeze_sha256": "50555c2bbdc06f40a78ed516be87808e6bfce1b405dae0a503265fffb7e32329",
+      "command": "TORCH_ENV=/root/lightsem/.venv/torch-access OPENBLAS_NUM_THREADS=2 bash run_torch.sh -u -m scripts.light_layers.evaluate_visual_next --freeze /root/lightsem/experiments/2026-09-29-visual-next/records/execution/EVALUATION_FREEZE_V1.json --checkpoint-id R1_seed1",
+      "output": "/root/lightsem/runs/visual_next_20260929/evaluations_v1/R1_seed1",
+      "max_seconds": 180
+    },
+    {
+      "stage": "evaluation",
+      "id": "Rrand_seed1",
+      "freeze": "/root/lightsem/experiments/2026-09-29-visual-next/records/execution/EVALUATION_FREEZE_V1.json",
+      "freeze_sha256": "50555c2bbdc06f40a78ed516be87808e6bfce1b405dae0a503265fffb7e32329",
+      "command": "TORCH_ENV=/root/lightsem/.venv/torch-access OPENBLAS_NUM_THREADS=2 bash run_torch.sh -u -m scripts.light_layers.evaluate_visual_next --freeze /root/lightsem/experiments/2026-09-29-visual-next/records/execution/EVALUATION_FREEZE_V1.json --checkpoint-id Rrand_seed1",
+      "output": "/root/lightsem/runs/visual_next_20260929/evaluations_v1/Rrand_seed1",
+      "max_seconds": 180
+    },
+    {
+      "stage": "evaluation",
+      "id": "R2_seed1",
+      "freeze": "/root/lightsem/experiments/2026-09-29-visual-next/records/execution/EVALUATION_FREEZE_V1.json",
+      "freeze_sha256": "50555c2bbdc06f40a78ed516be87808e6bfce1b405dae0a503265fffb7e32329",
+      "command": "TORCH_ENV=/root/lightsem/.venv/torch-access OPENBLAS_NUM_THREADS=2 bash run_torch.sh -u -m scripts.light_layers.evaluate_visual_next --freeze /root/lightsem/experiments/2026-09-29-visual-next/records/execution/EVALUATION_FREEZE_V1.json --checkpoint-id R2_seed1",
+      "output": "/root/lightsem/runs/visual_next_20260929/evaluations_v1/R2_seed1",
+      "max_seconds": 180
+    },
+    {
+      "stage": "evaluation",
+      "id": "R3_seed1",
+      "freeze": "/root/lightsem/experiments/2026-09-29-visual-next/records/execution/EVALUATION_FREEZE_V1.json",
+      "freeze_sha256": "50555c2bbdc06f40a78ed516be87808e6bfce1b405dae0a503265fffb7e32329",
+      "command": "TORCH_ENV=/root/lightsem/.venv/torch-access OPENBLAS_NUM_THREADS=2 bash run_torch.sh -u -m scripts.light_layers.evaluate_visual_next --freeze /root/lightsem/experiments/2026-09-29-visual-next/records/execution/EVALUATION_FREEZE_V1.json --checkpoint-id R3_seed1",
+      "output": "/root/lightsem/runs/visual_next_20260929/evaluations_v1/R3_seed1",
+      "max_seconds": 180
+    },
+    {
+      "stage": "evaluation",
+      "id": "R3-shuffle_seed1",
+      "freeze": "/root/lightsem/experiments/2026-09-29-visual-next/records/execution/EVALUATION_FREEZE_V1.json",
+      "freeze_sha256": "50555c2bbdc06f40a78ed516be87808e6bfce1b405dae0a503265fffb7e32329",
+      "command": "TORCH_ENV=/root/lightsem/.venv/torch-access OPENBLAS_NUM_THREADS=2 bash run_torch.sh -u -m scripts.light_layers.evaluate_visual_next --freeze /root/lightsem/experiments/2026-09-29-visual-next/records/execution/EVALUATION_FREEZE_V1.json --checkpoint-id R3-shuffle_seed1",
+      "output": "/root/lightsem/runs/visual_next_20260929/evaluations_v1/R3-shuffle_seed1",
+      "max_seconds": 180
+    },
+    {
+      "stage": "evaluation",
+      "id": "R3-reverse_seed1",
+      "freeze": "/root/lightsem/experiments/2026-09-29-visual-next/records/execution/EVALUATION_FREEZE_V1.json",
+      "freeze_sha256": "50555c2bbdc06f40a78ed516be87808e6bfce1b405dae0a503265fffb7e32329",
+      "command": "TORCH_ENV=/root/lightsem/.venv/torch-access OPENBLAS_NUM_THREADS=2 bash run_torch.sh -u -m scripts.light_layers.evaluate_visual_next --freeze /root/lightsem/experiments/2026-09-29-visual-next/records/execution/EVALUATION_FREEZE_V1.json --checkpoint-id R3-reverse_seed1",
+      "output": "/root/lightsem/runs/visual_next_20260929/evaluations_v1/R3-reverse_seed1",
+      "max_seconds": 180
+    },
+    {
+      "stage": "evaluation",
+      "id": "R0_seed2",
+      "freeze": "/root/lightsem/experiments/2026-09-29-visual-next/records/execution/EVALUATION_FREEZE_V1.json",
+      "freeze_sha256": "50555c2bbdc06f40a78ed516be87808e6bfce1b405dae0a503265fffb7e32329",
+      "command": "TORCH_ENV=/root/lightsem/.venv/torch-access OPENBLAS_NUM_THREADS=2 bash run_torch.sh -u -m scripts.light_layers.evaluate_visual_next --freeze /root/lightsem/experiments/2026-09-29-visual-next/records/execution/EVALUATION_FREEZE_V1.json --checkpoint-id R0_seed2",
+      "output": "/root/lightsem/runs/visual_next_20260929/evaluations_v1/R0_seed2",
+      "max_seconds": 180
+    },
+    {
+      "stage": "evaluation",
+      "id": "R1_seed2",
+      "freeze": "/root/lightsem/experiments/2026-09-29-visual-next/records/execution/EVALUATION_FREEZE_V1.json",
+      "freeze_sha256": "50555c2bbdc06f40a78ed516be87808e6bfce1b405dae0a503265fffb7e32329",
+      "command": "TORCH_ENV=/root/lightsem/.venv/torch-access OPENBLAS_NUM_THREADS=2 bash run_torch.sh -u -m scripts.light_layers.evaluate_visual_next --freeze /root/lightsem/experiments/2026-09-29-visual-next/records/execution/EVALUATION_FREEZE_V1.json --checkpoint-id R1_seed2",
+      "output": "/root/lightsem/runs/visual_next_20260929/evaluations_v1/R1_seed2",
+      "max_seconds": 180
+    },
+    {
+      "stage": "evaluation",
+      "id": "Rrand_seed2",
+      "freeze": "/root/lightsem/experiments/2026-09-29-visual-next/records/execution/EVALUATION_FREEZE_V1.json",
+      "freeze_sha256": "50555c2bbdc06f40a78ed516be87808e6bfce1b405dae0a503265fffb7e32329",
+      "command": "TORCH_ENV=/root/lightsem/.venv/torch-access OPENBLAS_NUM_THREADS=2 bash run_torch.sh -u -m scripts.light_layers.evaluate_visual_next --freeze /root/lightsem/experiments/2026-09-29-visual-next/records/execution/EVALUATION_FREEZE_V1.json --checkpoint-id Rrand_seed2",
+      "output": "/root/lightsem/runs/visual_next_20260929/evaluations_v1/Rrand_seed2",
+      "max_seconds": 180
+    },
+    {
+      "stage": "evaluation",
+      "id": "R2_seed2",
+      "freeze": "/root/lightsem/experiments/2026-09-29-visual-next/records/execution/EVALUATION_FREEZE_V1.json",
+      "freeze_sha256": "50555c2bbdc06f40a78ed516be87808e6bfce1b405dae0a503265fffb7e32329",
+      "command": "TORCH_ENV=/root/lightsem/.venv/torch-access OPENBLAS_NUM_THREADS=2 bash run_torch.sh -u -m scripts.light_layers.evaluate_visual_next --freeze /root/lightsem/experiments/2026-09-29-visual-next/records/execution/EVALUATION_FREEZE_V1.json --checkpoint-id R2_seed2",
+      "output": "/root/lightsem/runs/visual_next_20260929/evaluations_v1/R2_seed2",
+      "max_seconds": 180
+    },
+    {
+      "stage": "evaluation",
+      "id": "R3_seed2",
+      "freeze": "/root/lightsem/experiments/2026-09-29-visual-next/records/execution/EVALUATION_FREEZE_V1.json",
+      "freeze_sha256": "50555c2bbdc06f40a78ed516be87808e6bfce1b405dae0a503265fffb7e32329",
+      "command": "TORCH_ENV=/root/lightsem/.venv/torch-access OPENBLAS_NUM_THREADS=2 bash run_torch.sh -u -m scripts.light_layers.evaluate_visual_next --freeze /root/lightsem/experiments/2026-09-29-visual-next/records/execution/EVALUATION_FREEZE_V1.json --checkpoint-id R3_seed2",
+      "output": "/root/lightsem/runs/visual_next_20260929/evaluations_v1/R3_seed2",
+      "max_seconds": 180
+    },
+    {
+      "stage": "evaluation",
+      "id": "R3-shuffle_seed2",
+      "freeze": "/root/lightsem/experiments/2026-09-29-visual-next/records/execution/EVALUATION_FREEZE_V1.json",
+      "freeze_sha256": "50555c2bbdc06f40a78ed516be87808e6bfce1b405dae0a503265fffb7e32329",
+      "command": "TORCH_ENV=/root/lightsem/.venv/torch-access OPENBLAS_NUM_THREADS=2 bash run_torch.sh -u -m scripts.light_layers.evaluate_visual_next --freeze /root/lightsem/experiments/2026-09-29-visual-next/records/execution/EVALUATION_FREEZE_V1.json --checkpoint-id R3-shuffle_seed2",
+      "output": "/root/lightsem/runs/visual_next_20260929/evaluations_v1/R3-shuffle_seed2",
+      "max_seconds": 180
+    },
+    {
+      "stage": "evaluation",
+      "id": "R3-reverse_seed2",
+      "freeze": "/root/lightsem/experiments/2026-09-29-visual-next/records/execution/EVALUATION_FREEZE_V1.json",
+      "freeze_sha256": "50555c2bbdc06f40a78ed516be87808e6bfce1b405dae0a503265fffb7e32329",
+      "command": "TORCH_ENV=/root/lightsem/.venv/torch-access OPENBLAS_NUM_THREADS=2 bash run_torch.sh -u -m scripts.light_layers.evaluate_visual_next --freeze /root/lightsem/experiments/2026-09-29-visual-next/records/execution/EVALUATION_FREEZE_V1.json --checkpoint-id R3-reverse_seed2",
+      "output": "/root/lightsem/runs/visual_next_20260929/evaluations_v1/R3-reverse_seed2",
+      "max_seconds": 180
+    },
+    {
+      "stage": "evaluation",
+      "id": "cut_only_seed0",
+      "freeze": "/root/lightsem/experiments/2026-09-29-visual-next/records/execution/EVALUATION_FREEZE_V1.json",
+      "freeze_sha256": "50555c2bbdc06f40a78ed516be87808e6bfce1b405dae0a503265fffb7e32329",
+      "command": "TORCH_ENV=/root/lightsem/.venv/torch-access OPENBLAS_NUM_THREADS=2 bash run_torch.sh -u -m scripts.light_layers.evaluate_visual_next --freeze /root/lightsem/experiments/2026-09-29-visual-next/records/execution/EVALUATION_FREEZE_V1.json --checkpoint-id cut_only_seed0",
+      "output": "/root/lightsem/runs/visual_next_20260929/evaluations_v1/cut_only_seed0",
+      "max_seconds": 180
+    },
+    {
+      "stage": "evaluation",
+      "id": "mask_only_seed0",
+      "freeze": "/root/lightsem/experiments/2026-09-29-visual-next/records/execution/EVALUATION_FREEZE_V1.json",
+      "freeze_sha256": "50555c2bbdc06f40a78ed516be87808e6bfce1b405dae0a503265fffb7e32329",
+      "command": "TORCH_ENV=/root/lightsem/.venv/torch-access OPENBLAS_NUM_THREADS=2 bash run_torch.sh -u -m scripts.light_layers.evaluate_visual_next --freeze /root/lightsem/experiments/2026-09-29-visual-next/records/execution/EVALUATION_FREEZE_V1.json --checkpoint-id mask_only_seed0",
+      "output": "/root/lightsem/runs/visual_next_20260929/evaluations_v1/mask_only_seed0",
+      "max_seconds": 180
+    },
+    {
+      "stage": "evaluation",
+      "id": "combined_seed0",
+      "freeze": "/root/lightsem/experiments/2026-09-29-visual-next/records/execution/EVALUATION_FREEZE_V1.json",
+      "freeze_sha256": "50555c2bbdc06f40a78ed516be87808e6bfce1b405dae0a503265fffb7e32329",
+      "command": "TORCH_ENV=/root/lightsem/.venv/torch-access OPENBLAS_NUM_THREADS=2 bash run_torch.sh -u -m scripts.light_layers.evaluate_visual_next --freeze /root/lightsem/experiments/2026-09-29-visual-next/records/execution/EVALUATION_FREEZE_V1.json --checkpoint-id combined_seed0",
+      "output": "/root/lightsem/runs/visual_next_20260929/evaluations_v1/combined_seed0",
+      "max_seconds": 180
+    },
+    {
+      "stage": "evaluation",
+      "id": "untrained_seed0",
+      "freeze": "/root/lightsem/experiments/2026-09-29-visual-next/records/execution/EVALUATION_FREEZE_V1.json",
+      "freeze_sha256": "50555c2bbdc06f40a78ed516be87808e6bfce1b405dae0a503265fffb7e32329",
+      "command": "TORCH_ENV=/root/lightsem/.venv/torch-access OPENBLAS_NUM_THREADS=2 bash run_torch.sh -u -m scripts.light_layers.evaluate_visual_next --freeze /root/lightsem/experiments/2026-09-29-visual-next/records/execution/EVALUATION_FREEZE_V1.json --checkpoint-id untrained_seed0",
+      "output": "/root/lightsem/runs/visual_next_20260929/evaluations_v1/untrained_seed0",
+      "max_seconds": 180
+    },
+    {
+      "stage": "evaluation",
+      "id": "untrained_seed1",
+      "freeze": "/root/lightsem/experiments/2026-09-29-visual-next/records/execution/EVALUATION_FREEZE_V1.json",
+      "freeze_sha256": "50555c2bbdc06f40a78ed516be87808e6bfce1b405dae0a503265fffb7e32329",
+      "command": "TORCH_ENV=/root/lightsem/.venv/torch-access OPENBLAS_NUM_THREADS=2 bash run_torch.sh -u -m scripts.light_layers.evaluate_visual_next --freeze /root/lightsem/experiments/2026-09-29-visual-next/records/execution/EVALUATION_FREEZE_V1.json --checkpoint-id untrained_seed1",
+      "output": "/root/lightsem/runs/visual_next_20260929/evaluations_v1/untrained_seed1",
+      "max_seconds": 180
+    },
+    {
+      "stage": "evaluation",
+      "id": "untrained_seed2",
+      "freeze": "/root/lightsem/experiments/2026-09-29-visual-next/records/execution/EVALUATION_FREEZE_V1.json",
+      "freeze_sha256": "50555c2bbdc06f40a78ed516be87808e6bfce1b405dae0a503265fffb7e32329",
+      "command": "TORCH_ENV=/root/lightsem/.venv/torch-access OPENBLAS_NUM_THREADS=2 bash run_torch.sh -u -m scripts.light_layers.evaluate_visual_next --freeze /root/lightsem/experiments/2026-09-29-visual-next/records/execution/EVALUATION_FREEZE_V1.json --checkpoint-id untrained_seed2",
+      "output": "/root/lightsem/runs/visual_next_20260929/evaluations_v1/untrained_seed2",
+      "max_seconds": 180
+    },
+    {
+      "stage": "Shpongle_inference",
+      "id": "R0_seed0",
+      "freeze": "/root/lightsem/experiments/2026-09-29-visual-next/records/execution/LEARNED_DEMO_FREEZE_V1.json",
+      "freeze_sha256": "fddc7dff713f84fb9e01fd2b0e4b865459d84cda2dc5a85fba5475d27313d539",
+      "command": "TORCH_ENV=/root/lightsem/.venv/torch-access OPENBLAS_NUM_THREADS=2 bash run_torch.sh -u -m scripts.light_layers.prepare_visual_next_demo --freeze /root/lightsem/experiments/2026-09-29-visual-next/records/execution/LEARNED_DEMO_FREEZE_V1.json --candidate-id R0_seed0",
+      "output": "/root/lightsem/runs/visual_next_20260929/shpongle_learned_streams_v1/R0_seed0",
+      "max_seconds": 180
+    },
+    {
+      "stage": "Shpongle_inference",
+      "id": "R1_seed0",
+      "freeze": "/root/lightsem/experiments/2026-09-29-visual-next/records/execution/LEARNED_DEMO_FREEZE_V1.json",
+      "freeze_sha256": "fddc7dff713f84fb9e01fd2b0e4b865459d84cda2dc5a85fba5475d27313d539",
+      "command": "TORCH_ENV=/root/lightsem/.venv/torch-access OPENBLAS_NUM_THREADS=2 bash run_torch.sh -u -m scripts.light_layers.prepare_visual_next_demo --freeze /root/lightsem/experiments/2026-09-29-visual-next/records/execution/LEARNED_DEMO_FREEZE_V1.json --candidate-id R1_seed0",
+      "output": "/root/lightsem/runs/visual_next_20260929/shpongle_learned_streams_v1/R1_seed0",
+      "max_seconds": 180
+    },
+    {
+      "stage": "Shpongle_inference",
+      "id": "Rrand_seed0",
+      "freeze": "/root/lightsem/experiments/2026-09-29-visual-next/records/execution/LEARNED_DEMO_FREEZE_V1.json",
+      "freeze_sha256": "fddc7dff713f84fb9e01fd2b0e4b865459d84cda2dc5a85fba5475d27313d539",
+      "command": "TORCH_ENV=/root/lightsem/.venv/torch-access OPENBLAS_NUM_THREADS=2 bash run_torch.sh -u -m scripts.light_layers.prepare_visual_next_demo --freeze /root/lightsem/experiments/2026-09-29-visual-next/records/execution/LEARNED_DEMO_FREEZE_V1.json --candidate-id Rrand_seed0",
+      "output": "/root/lightsem/runs/visual_next_20260929/shpongle_learned_streams_v1/Rrand_seed0",
+      "max_seconds": 180
+    },
+    {
+      "stage": "Shpongle_inference",
+      "id": "R2_seed0",
+      "freeze": "/root/lightsem/experiments/2026-09-29-visual-next/records/execution/LEARNED_DEMO_FREEZE_V1.json",
+      "freeze_sha256": "fddc7dff713f84fb9e01fd2b0e4b865459d84cda2dc5a85fba5475d27313d539",
+      "command": "TORCH_ENV=/root/lightsem/.venv/torch-access OPENBLAS_NUM_THREADS=2 bash run_torch.sh -u -m scripts.light_layers.prepare_visual_next_demo --freeze /root/lightsem/experiments/2026-09-29-visual-next/records/execution/LEARNED_DEMO_FREEZE_V1.json --candidate-id R2_seed0",
+      "output": "/root/lightsem/runs/visual_next_20260929/shpongle_learned_streams_v1/R2_seed0",
+      "max_seconds": 180
+    },
+    {
+      "stage": "Shpongle_inference",
+      "id": "R3_seed0",
+      "freeze": "/root/lightsem/experiments/2026-09-29-visual-next/records/execution/LEARNED_DEMO_FREEZE_V1.json",
+      "freeze_sha256": "fddc7dff713f84fb9e01fd2b0e4b865459d84cda2dc5a85fba5475d27313d539",
+      "command": "TORCH_ENV=/root/lightsem/.venv/torch-access OPENBLAS_NUM_THREADS=2 bash run_torch.sh -u -m scripts.light_layers.prepare_visual_next_demo --freeze /root/lightsem/experiments/2026-09-29-visual-next/records/execution/LEARNED_DEMO_FREEZE_V1.json --candidate-id R3_seed0",
+      "output": "/root/lightsem/runs/visual_next_20260929/shpongle_learned_streams_v1/R3_seed0",
+      "max_seconds": 180
+    },
+    {
+      "stage": "Shpongle_inference",
+      "id": "R3-shuffle_seed0",
+      "freeze": "/root/lightsem/experiments/2026-09-29-visual-next/records/execution/LEARNED_DEMO_FREEZE_V1.json",
+      "freeze_sha256": "fddc7dff713f84fb9e01fd2b0e4b865459d84cda2dc5a85fba5475d27313d539",
+      "command": "TORCH_ENV=/root/lightsem/.venv/torch-access OPENBLAS_NUM_THREADS=2 bash run_torch.sh -u -m scripts.light_layers.prepare_visual_next_demo --freeze /root/lightsem/experiments/2026-09-29-visual-next/records/execution/LEARNED_DEMO_FREEZE_V1.json --candidate-id R3-shuffle_seed0",
+      "output": "/root/lightsem/runs/visual_next_20260929/shpongle_learned_streams_v1/R3-shuffle_seed0",
+      "max_seconds": 180
+    },
+    {
+      "stage": "Shpongle_inference",
+      "id": "R3-reverse_seed0",
+      "freeze": "/root/lightsem/experiments/2026-09-29-visual-next/records/execution/LEARNED_DEMO_FREEZE_V1.json",
+      "freeze_sha256": "fddc7dff713f84fb9e01fd2b0e4b865459d84cda2dc5a85fba5475d27313d539",
+      "command": "TORCH_ENV=/root/lightsem/.venv/torch-access OPENBLAS_NUM_THREADS=2 bash run_torch.sh -u -m scripts.light_layers.prepare_visual_next_demo --freeze /root/lightsem/experiments/2026-09-29-visual-next/records/execution/LEARNED_DEMO_FREEZE_V1.json --candidate-id R3-reverse_seed0",
+      "output": "/root/lightsem/runs/visual_next_20260929/shpongle_learned_streams_v1/R3-reverse_seed0",
+      "max_seconds": 180
+    },
+    {
+      "stage": "Shpongle_inference",
+      "id": "cut_only_seed0",
+      "freeze": "/root/lightsem/experiments/2026-09-29-visual-next/records/execution/LEARNED_DEMO_FREEZE_V1.json",
+      "freeze_sha256": "fddc7dff713f84fb9e01fd2b0e4b865459d84cda2dc5a85fba5475d27313d539",
+      "command": "TORCH_ENV=/root/lightsem/.venv/torch-access OPENBLAS_NUM_THREADS=2 bash run_torch.sh -u -m scripts.light_layers.prepare_visual_next_demo --freeze /root/lightsem/experiments/2026-09-29-visual-next/records/execution/LEARNED_DEMO_FREEZE_V1.json --candidate-id cut_only_seed0",
+      "output": "/root/lightsem/runs/visual_next_20260929/shpongle_learned_streams_v1/cut_only_seed0",
+      "max_seconds": 180
+    },
+    {
+      "stage": "Shpongle_inference",
+      "id": "mask_only_seed0",
+      "freeze": "/root/lightsem/experiments/2026-09-29-visual-next/records/execution/LEARNED_DEMO_FREEZE_V1.json",
+      "freeze_sha256": "fddc7dff713f84fb9e01fd2b0e4b865459d84cda2dc5a85fba5475d27313d539",
+      "command": "TORCH_ENV=/root/lightsem/.venv/torch-access OPENBLAS_NUM_THREADS=2 bash run_torch.sh -u -m scripts.light_layers.prepare_visual_next_demo --freeze /root/lightsem/experiments/2026-09-29-visual-next/records/execution/LEARNED_DEMO_FREEZE_V1.json --candidate-id mask_only_seed0",
+      "output": "/root/lightsem/runs/visual_next_20260929/shpongle_learned_streams_v1/mask_only_seed0",
+      "max_seconds": 180
+    },
+    {
+      "stage": "Shpongle_inference",
+      "id": "combined_seed0",
+      "freeze": "/root/lightsem/experiments/2026-09-29-visual-next/records/execution/LEARNED_DEMO_FREEZE_V1.json",
+      "freeze_sha256": "fddc7dff713f84fb9e01fd2b0e4b865459d84cda2dc5a85fba5475d27313d539",
+      "command": "TORCH_ENV=/root/lightsem/.venv/torch-access OPENBLAS_NUM_THREADS=2 bash run_torch.sh -u -m scripts.light_layers.prepare_visual_next_demo --freeze /root/lightsem/experiments/2026-09-29-visual-next/records/execution/LEARNED_DEMO_FREEZE_V1.json --candidate-id combined_seed0",
+      "output": "/root/lightsem/runs/visual_next_20260929/shpongle_learned_streams_v1/combined_seed0",
+      "max_seconds": 180
+    }
+  ],
+  "order": "all27evaluation checkpoints in fixed order,thenall10seed0inferences",
+  "H3_total_seconds": 10800,
+  "prior_H3_conservative_seconds": 5140.408098899759,
+  "remaining_H3_seconds": 5659.591901100241,
+  "prior_fit_audit": {
+    "path": "/root/lightsem/experiments/2026-09-29-visual-next/records/execution/STUDENT_FIT_CURATOR_AUDIT_V1.json",
+    "sha256": "1047ef3241987b1e37091a29d335b4912a366fee130b1be4fbde455b28697195"
+  },
+  "primary_fit_audit": {
+    "path": "/root/lightsem/experiments/2026-09-29-visual-next/records/execution/STUDENT_FITS_PRIMARY_AUDIT_V1.json",
+    "sha256": "f972c39a874431acaddf806d24a01ddb6040c8bfdaf33acf960130271a1cc645"
+  },
+  "stop_rule": "One GPU pipeline; preserve all outputs; no quality-selected retry,source edit,TEST or baseline promotion. Stop on integrity/resource/nonfinite/interference failure. Stop after37 commands before aggregation or rendering. Charge command walls conservatively against remainingH3 time."
+}

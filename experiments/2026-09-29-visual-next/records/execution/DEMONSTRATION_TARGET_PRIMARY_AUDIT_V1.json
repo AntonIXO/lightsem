@@ -1,0 +1,35 @@
+{
+  "status": "all3_demonstration_main_target_digests_independently_reconstructed",
+  "preparation_report_sha256": "31ddf64ca469dafb4166dda2e86357454fc8a5367369717f278720376480a1db",
+  "freeze_sha256": "69596bfd0c19875e0e9ddfd027d117a6253e05ac051551ae84f0accfdfc0a98c",
+  "input_bindings_verified": 1142,
+  "TRAIN_families": 91,
+  "arms": {
+    "cut_only": {
+      "main_targets_sha256": "6d77b8d393af7220a6f45c41c6e47eff4ad68419799f9c439e597461ed277d84",
+      "full64_positive": 680,
+      "supervised_center8_positive": 84,
+      "supervised_center8_eligible": 6927
+    },
+    "mask_only": {
+      "main_targets_sha256": "b8aa3c20ffa50304299dd01cff173c586aff2542b0362e5d8bd5ff7fadd5d3f1",
+      "full64_positive": 836,
+      "supervised_center8_positive": 102,
+      "supervised_center8_eligible": 6927
+    },
+    "combined": {
+      "main_targets_sha256": "892f175fb9b79bc925af9b9d661f82e11ebe65a81deba61b3054980a0d67472f",
+      "full64_positive": 672,
+      "supervised_center8_positive": 85,
+      "supervised_center8_eligible": 6927
+    }
+  },
+  "original_supervised_center8_positive": 101,
+  "original_supervised_center8_eligible": 6927,
+  "source_support_independently_recomputed": true,
+  "training_performed": false,
+  "GPU_used": false,
+  "DEV_read": false,
+  "TEST_access": false,
+  "scope": "Label interventions and counts; fewer positives do not establish fewer false cues or better lighting."
+}

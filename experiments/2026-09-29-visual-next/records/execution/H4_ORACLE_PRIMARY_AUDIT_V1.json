@@ -1,0 +1,40 @@
+{
+  "status": "full31_fixture_oracle_independently_verified",
+  "report_sha256": "8cec7472098ad908df735a060d3d94dd9f725875f998bf654eb5e25dabd8f7b5",
+  "frozen_bindings_verified": 117,
+  "families": 31,
+  "optimization_decisions_recomputed": 3906,
+  "scoring_arm_errors_recomputed": 186,
+  "relative_error_improvement": 0.00847384417247926,
+  "relative_improvement_required": 0.2,
+  "control_advantages": {
+    "donor": 0.04746047733750358,
+    "permuted": 0.013469866175095602
+  },
+  "family_win_fraction": 0.8387096774193549,
+  "paired_benefit_mean": 0.007386475830951239,
+  "paired_ci95": [
+    0.004377547946116495,
+    0.010510167030816078
+  ],
+  "p": 9.999000099990002e-05,
+  "gates": {
+    "source_support": true,
+    "relative_error_improvement": false,
+    "paired_interval_and_corrected_p": true,
+    "families_improving": true,
+    "permutation_control": false,
+    "donor_control": false,
+    "display_luma": true,
+    "clipping_increase": true
+  },
+  "all_proxy_gates_pass": false,
+  "elapsed_s": 865.999641061062,
+  "independent_manual_truth": "unmeasured",
+  "scope": "Small conditional automatic-reference capacity gain; magnitude/control gates failed. No audio-predictability, aesthetic or original-confirmation claim.",
+  "reference_histograms_reconstructed_from_raw_R1": 31,
+  "source_support_file_verified": true,
+  "scored_points_bound_to_exact_RGB_schedule_and_render_cache": 11904,
+  "reference_support_sha256": "bfbff2194cc3b5469db7b1cb7adb9dc9b717547ef869d7ec3a781e95b1fda46c",
+  "cache_sha256": "ed939b658bcccab079184bb4a6a13e7134021b926b07467a2dbc511ae17a166e"
+}

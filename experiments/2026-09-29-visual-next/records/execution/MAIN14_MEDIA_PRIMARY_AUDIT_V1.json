@@ -1,0 +1,184 @@
+{
+  "GPU_used": false,
+  "exact_duplicate_links": 7,
+  "existing_media": 3,
+  "existing_media_basis": "C/P2/P4 bytes match immutable previously independently audited delivery. Their technical audit receipts reauthenticated.",
+  "full_video_decode_basis": "Source renderer receipts bind each media hash; matching audit receipts document full8319frame softwaredecode,PTS and AV decode. Aliases have exact same inode/media hash and fullDMXclock.",
+  "new_unique_audio_independently_decoded": {
+    "02": {
+      "pcm_sha256": "9be221f4e05a2fc92cf798be837ea4d1b392c7f4ebdf71a9edeb68373351442f",
+      "samples_per_channel": 12228930
+    },
+    "05": {
+      "pcm_sha256": "9be221f4e05a2fc92cf798be837ea4d1b392c7f4ebdf71a9edeb68373351442f",
+      "samples_per_channel": 12228930
+    },
+    "08": {
+      "pcm_sha256": "9be221f4e05a2fc92cf798be837ea4d1b392c7f4ebdf71a9edeb68373351442f",
+      "samples_per_channel": 12228930
+    },
+    "09": {
+      "pcm_sha256": "9be221f4e05a2fc92cf798be837ea4d1b392c7f4ebdf71a9edeb68373351442f",
+      "samples_per_channel": 12228930
+    }
+  },
+  "new_unique_encodes": 4,
+  "remaining_oracle_entries": 5,
+  "status": "first14_review_entries_independently_verified",
+  "variants": [
+    {
+      "audit_sha256": "e2713cabafc0fb16ebef1733434a11559e8bb2e1c0d7fd8abeadc6961c03aefa",
+      "bytes": 43587650,
+      "id": "01",
+      "letter": "C",
+      "path": "/root/lightsem/experiments/2026-09-29-baseline/outputs/shpongle_baseline_ab_v2/media/C/C_full_1080p_av1.mp4",
+      "render_receipt_sha256": "fa8e8b2425818a794c3c0bafd775f74233a2a7ea8b20ea76c49b2eb025557375",
+      "same_render_as": null,
+      "sha256": "fb06c3f3a951a4f2a12bbc01f4470cec4f8326912a441bd4e25097e275170299",
+      "stream_sha256": "34ca1d5f2c9a271b9e08536519f4d657e4aa3017a5ac42514b38e8dd07e4829b"
+    },
+    {
+      "audit_sha256": "c276b064d6eb6d61f8bbeac8588739d58a1866b6a821fc1fa36297071896c4ca",
+      "bytes": 42403012,
+      "id": "02",
+      "letter": "R0",
+      "path": "/root/lightsem/runs/visual_next_20260929/shpongle_full_review_v1/media/02/R0_full_1080p_av1.mp4",
+      "render_receipt_sha256": "f7554054894adc92b546129e3bb1370a3619ae5ec3365bdc56e92f9820322924",
+      "same_render_as": null,
+      "sha256": "487a6f1b25626c18b3c22a97ad05a3a5643470a4f29ae1e4295672e14e5d2666",
+      "stream_sha256": "c42ec70fb02d73403b78b7856d51392cfd8a1947237799ed56293f65251e181a"
+    },
+    {
+      "audit_sha256": "c276b064d6eb6d61f8bbeac8588739d58a1866b6a821fc1fa36297071896c4ca",
+      "bytes": 42403012,
+      "id": "03",
+      "letter": "H1",
+      "path": "/root/lightsem/runs/visual_next_20260929/shpongle_full_review_v1/media/03/H1_full_1080p_av1.mp4",
+      "render_receipt_sha256": "f7554054894adc92b546129e3bb1370a3619ae5ec3365bdc56e92f9820322924",
+      "same_render_as": "02",
+      "sha256": "487a6f1b25626c18b3c22a97ad05a3a5643470a4f29ae1e4295672e14e5d2666",
+      "stream_sha256": "c42ec70fb02d73403b78b7856d51392cfd8a1947237799ed56293f65251e181a"
+    },
+    {
+      "audit_sha256": "c276b064d6eb6d61f8bbeac8588739d58a1866b6a821fc1fa36297071896c4ca",
+      "bytes": 42403012,
+      "id": "04",
+      "letter": "H2",
+      "path": "/root/lightsem/runs/visual_next_20260929/shpongle_full_review_v1/media/04/H2_full_1080p_av1.mp4",
+      "render_receipt_sha256": "f7554054894adc92b546129e3bb1370a3619ae5ec3365bdc56e92f9820322924",
+      "same_render_as": "02",
+      "sha256": "487a6f1b25626c18b3c22a97ad05a3a5643470a4f29ae1e4295672e14e5d2666",
+      "stream_sha256": "c42ec70fb02d73403b78b7856d51392cfd8a1947237799ed56293f65251e181a"
+    },
+    {
+      "audit_sha256": "69b524b812fac386dc71919e167296e53a33a9a1f6df63535c87ddc99c83ca93",
+      "bytes": 42573711,
+      "id": "05",
+      "letter": "R1",
+      "path": "/root/lightsem/runs/visual_next_20260929/shpongle_full_review_v1/media/05/R1_full_1080p_av1.mp4",
+      "render_receipt_sha256": "7619ff4ec72859c01c493e86672e1726dfaabd07128a7486f29bd3342ae411c1",
+      "same_render_as": null,
+      "sha256": "1e34328e64727c0bb56cf898e92678b4eec60ef590ae20a435e1612f5dcfe1a8",
+      "stream_sha256": "2263e999427db3d1e3ebfb08387292539c1ac44290ce45d2fa27f80b9f063e45"
+    },
+    {
+      "audit_sha256": "c276b064d6eb6d61f8bbeac8588739d58a1866b6a821fc1fa36297071896c4ca",
+      "bytes": 42403012,
+      "id": "06",
+      "letter": "R2",
+      "path": "/root/lightsem/runs/visual_next_20260929/shpongle_full_review_v1/media/06/R2_full_1080p_av1.mp4",
+      "render_receipt_sha256": "f7554054894adc92b546129e3bb1370a3619ae5ec3365bdc56e92f9820322924",
+      "same_render_as": "02",
+      "sha256": "487a6f1b25626c18b3c22a97ad05a3a5643470a4f29ae1e4295672e14e5d2666",
+      "stream_sha256": "c42ec70fb02d73403b78b7856d51392cfd8a1947237799ed56293f65251e181a"
+    },
+    {
+      "audit_sha256": "c276b064d6eb6d61f8bbeac8588739d58a1866b6a821fc1fa36297071896c4ca",
+      "bytes": 42403012,
+      "id": "07",
+      "letter": "R3",
+      "path": "/root/lightsem/runs/visual_next_20260929/shpongle_full_review_v1/media/07/R3_full_1080p_av1.mp4",
+      "render_receipt_sha256": "f7554054894adc92b546129e3bb1370a3619ae5ec3365bdc56e92f9820322924",
+      "same_render_as": "02",
+      "sha256": "487a6f1b25626c18b3c22a97ad05a3a5643470a4f29ae1e4295672e14e5d2666",
+      "stream_sha256": "c42ec70fb02d73403b78b7856d51392cfd8a1947237799ed56293f65251e181a"
+    },
+    {
+      "audit_sha256": "2a912b47357efb846322c14567bc9b70be5cfc9fa671bd96d471be219daf6122",
+      "bytes": 42649504,
+      "id": "08",
+      "letter": "ALL",
+      "path": "/root/lightsem/runs/visual_next_20260929/shpongle_full_review_v1/media/08/ALL_full_1080p_av1.mp4",
+      "render_receipt_sha256": "cd351066ba81fc37b579f8a28ed2d9d960d4ffe5bca6a3c07316ae206b9277fb",
+      "same_render_as": null,
+      "sha256": "a08986a5b38b906184e0960c4af2788a8bfffaf76a786fa96844e17a18244448",
+      "stream_sha256": "e99feeff70ca719d89288a7bb2efdc1901a31f7133b43bccde6b88e496da883c"
+    },
+    {
+      "audit_sha256": "0935af607540304f87dbfd4cf6426576fd318fd065d6b7f8fc73d251850e1e10",
+      "bytes": 42625483,
+      "id": "09",
+      "letter": "ALL4",
+      "path": "/root/lightsem/runs/visual_next_20260929/shpongle_full_review_v1/media/09/ALL4_full_1080p_av1.mp4",
+      "render_receipt_sha256": "918d78e0d729a3ba19b97bfe70290275101c9432abd8b34d6804cae7160de846",
+      "same_render_as": null,
+      "sha256": "b5c10ec6a8b628584ce96b33bfb456bc2e1f4cc669ef1b9f27059f899a9fbc2e",
+      "stream_sha256": "797b6ac6ef38d0258fa6b1d8f7a6d3e8a9954f280c1e71f358c00653b8d5a199"
+    },
+    {
+      "audit_sha256": "a3127faddcb1155cd8b12e2a766154fdbd8ef3f87dcb6f3673df9d4793122a64",
+      "bytes": 43565799,
+      "id": "10",
+      "letter": "P2",
+      "path": "/root/lightsem/runs/visual_next_20260929/shpongle_palette_previews_v1/media/P2/P2_full_1080p_av1.mp4",
+      "render_receipt_sha256": "1cc70fcdf0f47b85fe659c2b35c19ec58b88f6acd1b043205b831afaf9479739",
+      "same_render_as": null,
+      "sha256": "7ff0360ebb3d304e80f9e949d280d91fd17bd83fd86285def620de97e0b5c300",
+      "stream_sha256": "d704d75fb9be47483f3ea55ec3d2cf259e42aedfa6bc670645d2c9fa3c2d62e5"
+    },
+    {
+      "audit_sha256": "3562a1b3734bf675a283b71858ab6914b6e60e6cd8e59a9fb0e15d4f90cb185e",
+      "bytes": 43548159,
+      "id": "11",
+      "letter": "P4",
+      "path": "/root/lightsem/runs/visual_next_20260929/shpongle_palette_previews_v1/media/P4/P4_full_1080p_av1.mp4",
+      "render_receipt_sha256": "762e80dd42ef2f211ab7fe920fb98324549f110cc1e9321ea26eb6ddee776ec2",
+      "same_render_as": null,
+      "sha256": "11a0f0db04c535d784c8fd167d9369a1bfae21e407b03b854890960aa9252af0",
+      "stream_sha256": "2a6632fc6f824ce1f74a80c002a83664e69e6d964678029602d9faa717dff65d"
+    },
+    {
+      "audit_sha256": "c276b064d6eb6d61f8bbeac8588739d58a1866b6a821fc1fa36297071896c4ca",
+      "bytes": 42403012,
+      "id": "12",
+      "letter": "Rrand",
+      "path": "/root/lightsem/runs/visual_next_20260929/shpongle_full_review_v1/media/12/Rrand_full_1080p_av1.mp4",
+      "render_receipt_sha256": "f7554054894adc92b546129e3bb1370a3619ae5ec3365bdc56e92f9820322924",
+      "same_render_as": "02",
+      "sha256": "487a6f1b25626c18b3c22a97ad05a3a5643470a4f29ae1e4295672e14e5d2666",
+      "stream_sha256": "c42ec70fb02d73403b78b7856d51392cfd8a1947237799ed56293f65251e181a"
+    },
+    {
+      "audit_sha256": "c276b064d6eb6d61f8bbeac8588739d58a1866b6a821fc1fa36297071896c4ca",
+      "bytes": 42403012,
+      "id": "13",
+      "letter": "R3-S",
+      "path": "/root/lightsem/runs/visual_next_20260929/shpongle_full_review_v1/media/13/R3-S_full_1080p_av1.mp4",
+      "render_receipt_sha256": "f7554054894adc92b546129e3bb1370a3619ae5ec3365bdc56e92f9820322924",
+      "same_render_as": "02",
+      "sha256": "487a6f1b25626c18b3c22a97ad05a3a5643470a4f29ae1e4295672e14e5d2666",
+      "stream_sha256": "c42ec70fb02d73403b78b7856d51392cfd8a1947237799ed56293f65251e181a"
+    },
+    {
+      "audit_sha256": "c276b064d6eb6d61f8bbeac8588739d58a1866b6a821fc1fa36297071896c4ca",
+      "bytes": 42403012,
+      "id": "14",
+      "letter": "R3-R",
+      "path": "/root/lightsem/runs/visual_next_20260929/shpongle_full_review_v1/media/14/R3-R_full_1080p_av1.mp4",
+      "render_receipt_sha256": "f7554054894adc92b546129e3bb1370a3619ae5ec3365bdc56e92f9820322924",
+      "same_render_as": "02",
+      "sha256": "487a6f1b25626c18b3c22a97ad05a3a5643470a4f29ae1e4295672e14e5d2666",
+      "stream_sha256": "c42ec70fb02d73403b78b7856d51392cfd8a1947237799ed56293f65251e181a"
+    }
+  ]
+}

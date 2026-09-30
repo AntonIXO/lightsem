@@ -1,0 +1,23 @@
+{
+  "GPU_used": false,
+  "TRAIN_families": 91,
+  "artificial_auxiliary_values": [
+    0,
+    1
+  ],
+  "artificial_files_removed": true,
+  "auxiliary_masks_paired": true,
+  "batch_shape": [
+    4,
+    2560,
+    94
+  ],
+  "initialization_report_sha256": "a361f6a4d8c624bb5cd5f5106269efdcde2352a00628b8636eb47afbf64b2388",
+  "main_labels_and_audio_unchanged_when_auxiliary_changes": true,
+  "model_fitting": false,
+  "scope": "Engineering test of actual TRAIN loader paths; these artificial auxiliary targets are never study data.",
+  "script_sha256": "319e5cfb669cc401ac9bb1043a2ab095899aa236f2125d9244afe1d1b5729a28",
+  "seconds": 2.541506276000291,
+  "source_main_targets_sha256": "59be936164e437af195b2b4be8fb8c80c712735582e729d20400d6c699f17098",
+  "status": "passed"
+}

@@ -1,0 +1,74 @@
+{
+  "GPU_used": false,
+  "delivery_sha256": "bfd2c2f28d7752572aaf5f8ecb49bc3f81dcbf24bcedf8d3401925cad9e90443",
+  "manifest_sha256": "5475c34b219958c31031edfe7651de0bfa0cd2d9a9eb6e0d1f16a212c5e7fbd4",
+  "new_unique_audio_independently_decoded_total": 9,
+  "oracle_media": [
+    {
+      "audit_sha256": "a31cc9488881795df61abf43569ce7fe33961173c180e3651e439e8a3c135c8c",
+      "bytes": 43007223,
+      "id": "15",
+      "independently_decoded_pcm_sha256": "9be221f4e05a2fc92cf798be837ea4d1b392c7f4ebdf71a9edeb68373351442f",
+      "letter": "O0",
+      "path": "/root/lightsem/runs/visual_next_20260929/shpongle_full_review_v1/media/15/O0_full_1080p_av1.mp4",
+      "render_receipt_sha256": "d057575519bd6458a905dfd31612876e3bbb1cb385f9aa5a29bd823d529911ea",
+      "sha256": "77e8bb955bcc9fff450b2bca83bace33a4536bfbc0338ea2c89f60c08425d1db",
+      "stream_sha256": "af8ab0262283fc30683290482e5ed978affde632219e0faffd2a7b33aaa6428b"
+    },
+    {
+      "audit_sha256": "4149d0608e1d3b7f83412a2ae08025036f65c38d1e20411fa001896e2afcf86e",
+      "bytes": 43023041,
+      "id": "16",
+      "independently_decoded_pcm_sha256": "9be221f4e05a2fc92cf798be837ea4d1b392c7f4ebdf71a9edeb68373351442f",
+      "letter": "O2",
+      "path": "/root/lightsem/runs/visual_next_20260929/shpongle_full_review_v1/media/16/O2_full_1080p_av1.mp4",
+      "render_receipt_sha256": "129bfd3d7d53ad6ed1b7562a8f44b08e5804453b19424c14ebadc4810156f859",
+      "sha256": "232de5fde32d39ebc3be20ae7867fcb11c7f166fab8e59f007c34a17ac8483cb",
+      "stream_sha256": "47e9234f581e5a857d53019d9df1d5fe1d9616e1a4cc8d3463d7e8122f37150d"
+    },
+    {
+      "audit_sha256": "381150ce382b06f8867552fee517d21195f808fa1e3f7dea88acd5312dbf9d0c",
+      "bytes": 43024046,
+      "id": "17",
+      "independently_decoded_pcm_sha256": "9be221f4e05a2fc92cf798be837ea4d1b392c7f4ebdf71a9edeb68373351442f",
+      "letter": "O4",
+      "path": "/root/lightsem/runs/visual_next_20260929/shpongle_full_review_v1/media/17/O4_full_1080p_av1.mp4",
+      "render_receipt_sha256": "9982009079605788750d0f74c0b17da1aeccd72cab5c56028ac6b78c96f83ccc",
+      "sha256": "3a0b170b7d0b0a4eec35c7019f0a21abae98285d494c0f80aeef32c8f02cb9c0",
+      "stream_sha256": "a4dd83e3fc0ac30f4c63e8c915e50333dccc76933a8efe81a751b222103ef460"
+    },
+    {
+      "audit_sha256": "68084bf538cb1776085e9a6a601a033f44fcb14c6c43468b255b51d0e926e485",
+      "bytes": 43030804,
+      "id": "18",
+      "independently_decoded_pcm_sha256": "9be221f4e05a2fc92cf798be837ea4d1b392c7f4ebdf71a9edeb68373351442f",
+      "letter": "O4-P",
+      "path": "/root/lightsem/runs/visual_next_20260929/shpongle_full_review_v1/media/18/O4-P_full_1080p_av1.mp4",
+      "render_receipt_sha256": "963730d763b3303e817e36115ef36fd3f7d5e8d4a720702cbd661f954b4ab514",
+      "sha256": "064298d647e9caee26d439019500ce7c7ab19e12e1473ead7cc74df337146b8d",
+      "stream_sha256": "f54d372f2a4df66de3315d6f3db26654c8294fbd7d003af87556320ba25fdfbe"
+    },
+    {
+      "audit_sha256": "393aac23e955eebac0719e9a534b6f96ece6f2d38301a04776eeebb6d587190c",
+      "bytes": 42977896,
+      "id": "19",
+      "independently_decoded_pcm_sha256": "9be221f4e05a2fc92cf798be837ea4d1b392c7f4ebdf71a9edeb68373351442f",
+      "letter": "O4-D",
+      "path": "/root/lightsem/runs/visual_next_20260929/shpongle_full_review_v1/media/19/O4-D_full_1080p_av1.mp4",
+      "render_receipt_sha256": "7f5e54731cbf3176192ae7fc80fb8487b139652528ce43b934a654935a9c954b",
+      "sha256": "7a4d0cc111b501aab8a8ffd9e9352d391cbc070458ee7ea4c27fbed1f9d2fbac",
+      "stream_sha256": "63fcd5fc103a4d120ea49c3d022ed77bfc22d558180218d232d9892ce64d7ac1"
+    }
+  ],
+  "prior14_media_and_receipts_unchanged": true,
+  "prior_main14_audit_sha256": "833dcc274a368c3b915c8c624766b95402b3dcaa0b64b10762151106382ef312",
+  "render_freeze_sha256": "5567f68aef4724bd52d921eb98051a55127416d340714cfa7cf886bc40d6390c",
+  "same_decoded_audio_all19": true,
+  "scope": "All19files/streams/codec/size/audit lineage;4learned+5oracle new unique PCM independently redecoded,7exactaliases and3previouslyverified media. Fullsoftware video/PTS audits authenticated by media hash.",
+  "source_bindings_verified": 58,
+  "stage_seconds": {
+    "H3": 912.1575749157928,
+    "H4": 1152.733839288121
+  },
+  "status": "all19_review_entries_independently_verified"
+}

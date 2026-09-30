@@ -1,0 +1,8 @@
+Traceback (most recent call last):
+  File "<frozen runpy>", line 198, in _run_module_as_main
+  File "<frozen runpy>", line 88, in _run_code
+  File "/root/lightsem/scripts/light_layers/score_visual_next_baseline.py", line 92, in <module>
+    main()
+  File "/root/lightsem/scripts/light_layers/score_visual_next_baseline.py", line 66, in main
+    raise RuntimeError('Original TRAIN constant differs')
+RuntimeError: Original TRAIN constant differs

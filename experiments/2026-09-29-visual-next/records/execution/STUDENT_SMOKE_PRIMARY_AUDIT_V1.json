@@ -1,0 +1,10 @@
+{
+  "status": "32_update_student_engineering_smoke_independently_verified",
+  "report_sha256": "8174fe5ebd0033b4e48a08b59b0c9b24c1c6e8c1ab5bbac680dca03372aa9a33",
+  "bindings": 1127,
+  "steps": 32,
+  "steady_update_mean_seconds": 0.029373417042994072,
+  "GPU_seconds": 2.6196510740555823,
+  "checkpoint_saved": false,
+  "scope": "Engineering timing/finite-gradient evidence only; no full fit or efficacy result."
+}

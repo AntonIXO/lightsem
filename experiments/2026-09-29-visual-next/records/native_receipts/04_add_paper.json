@@ -1,0 +1,31 @@
+{
+  "tool": "add_paper",
+  "arguments": {
+    "id": "paper-dinov3-2508-10104",
+    "title": "DINOv3",
+    "arxiv_id_or_url": "https://arxiv.org/abs/2508.10104v1",
+    "key_claims": [
+      "Dense patch features are more suitable than one global semantic embedding for retaining local layout. The paper separates global discrimination from local consistency using Gram anchoring; this is a reason to inspect patch features, not to train a new foundation model here. The official21M ViT-S/16 is a bounded first candidate. Exact color fidelity and music-to-light transfer are unmeasured. Weights require an access process; verify access and checksum before execution. Preserve explicit HS/color targets and test low-semantic backgrounds, geometry and color perturbations.",
+      "Verified full PDF SHA256 c68dc50b1f73e1641a592f777984fc360759e84b7fe65ac4f6e1377927f20b2e. Read scope: Abstract/introduction; Gram anchoring Sec4.2; distilled family; dense evaluation Sec6.1; official release/preprocessing instructions. Published evidence is outside LightSem; application here is a hypothesis."
+    ],
+    "topic_tags": [
+      "audio-to-light",
+      "cross-modal",
+      "evaluation-metric"
+    ]
+  },
+  "result": {
+    "id": "paper-dinov3-2508-10104",
+    "title": "DINOv3",
+    "arxiv_id_or_url": "https://arxiv.org/abs/2508.10104v1",
+    "key_claims": [
+      "Dense patch features are more suitable than one global semantic embedding for retaining local layout. The paper separates global discrimination from local consistency using Gram anchoring; this is a reason to inspect patch features, not to train a new foundation model here. The official21M ViT-S/16 is a bounded first candidate. Exact color fidelity and music-to-light transfer are unmeasured. Weights require an access process; verify access and checksum before execution. Preserve explicit HS/color targets and test low-semantic backgrounds, geometry and color perturbations.",
+      "Verified full PDF SHA256 c68dc50b1f73e1641a592f777984fc360759e84b7fe65ac4f6e1377927f20b2e. Read scope: Abstract/introduction; Gram anchoring Sec4.2; distilled family; dense evaluation Sec6.1; official release/preprocessing instructions. Published evidence is outside LightSem; application here is a hypothesis."
+    ],
+    "topic_tags": [
+      "audio-to-light",
+      "cross-modal",
+      "evaluation-metric"
+    ]
+  }
+}

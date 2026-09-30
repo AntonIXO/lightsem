@@ -1,0 +1,31 @@
+{
+  "tool": "add_paper",
+  "arguments": {
+    "id": "paper-colorvideovdp-2401-11485",
+    "title": "ColorVideoVDP: A visual difference predictor for image, video and display distortions",
+    "arxiv_id_or_url": "https://arxiv.org/abs/2401.11485",
+    "key_claims": [
+      "This full-reference metric models color and luminance distortions over space/time under specified display/viewing conditions. It is useful for matched-scene encoding or renderer-difference diagnostics when those conditions are explicit. Comparing unrelated source-video and stage compositions is not a valid substitute for perceived design quality. The paper lacks higher-level saliency/annoyance modeling and does not establish music fit. Keep it secondary; a favorable score cannot promote a new lighting baseline.",
+      "Verified full PDF SHA256 ac8a791eac5bb5dbbc3a21e0796104439d5010862de6d3c1e82b4b6d4a0d5449. Read scope: Abstract; display model and opponent/temporal processing Sec3.1–3.2; stated limitations. Published evidence is outside LightSem; application here is a hypothesis."
+    ],
+    "topic_tags": [
+      "audio-to-light",
+      "cross-modal",
+      "evaluation-metric"
+    ]
+  },
+  "result": {
+    "id": "paper-colorvideovdp-2401-11485",
+    "title": "ColorVideoVDP: A visual difference predictor for image, video and display distortions",
+    "arxiv_id_or_url": "https://arxiv.org/abs/2401.11485",
+    "key_claims": [
+      "This full-reference metric models color and luminance distortions over space/time under specified display/viewing conditions. It is useful for matched-scene encoding or renderer-difference diagnostics when those conditions are explicit. Comparing unrelated source-video and stage compositions is not a valid substitute for perceived design quality. The paper lacks higher-level saliency/annoyance modeling and does not establish music fit. Keep it secondary; a favorable score cannot promote a new lighting baseline.",
+      "Verified full PDF SHA256 ac8a791eac5bb5dbbc3a21e0796104439d5010862de6d3c1e82b4b6d4a0d5449. Read scope: Abstract; display model and opponent/temporal processing Sec3.1–3.2; stated limitations. Published evidence is outside LightSem; application here is a hypothesis."
+    ],
+    "topic_tags": [
+      "audio-to-light",
+      "cross-modal",
+      "evaluation-metric"
+    ]
+  }
+}

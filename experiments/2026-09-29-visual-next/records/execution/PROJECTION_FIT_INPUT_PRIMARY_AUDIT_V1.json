@@ -1,0 +1,560 @@
+{
+  "status": "all91_TRAIN_projection_inputs_independently_verified",
+  "freeze_sha256": "d90aa44d20c1c28f124a6e7f354390bff74a44852a346213fec24409c87985f8",
+  "bindings": 823,
+  "families": [
+    {
+      "canonical_id": "jd-5fc36e07dfcc022631ff",
+      "common_valid_rows": 531,
+      "color_comparison_frames": 613,
+      "max_global_HS_reconstruction_error": 0.000160370319386538
+    },
+    {
+      "canonical_id": "jd-b932c8c85bd6f2576073",
+      "common_valid_rows": 635,
+      "color_comparison_frames": 640,
+      "max_global_HS_reconstruction_error": 9.148967931157936e-05
+    },
+    {
+      "canonical_id": "jd-7c97b126862e58f1d563",
+      "common_valid_rows": 554,
+      "color_comparison_frames": 621,
+      "max_global_HS_reconstruction_error": 0.00010223237350370784
+    },
+    {
+      "canonical_id": "jd-6a5d1bfe68d703300533",
+      "common_valid_rows": 598,
+      "color_comparison_frames": 623,
+      "max_global_HS_reconstruction_error": 0.00012396132182052044
+    },
+    {
+      "canonical_id": "jd-1066f38acdaf08271fa6",
+      "common_valid_rows": 617,
+      "color_comparison_frames": 637,
+      "max_global_HS_reconstruction_error": 0.00015734975801351414
+    },
+    {
+      "canonical_id": "jd-e6ddbe5382bc260e3e6c",
+      "common_valid_rows": 538,
+      "color_comparison_frames": 605,
+      "max_global_HS_reconstruction_error": 0.00010011042513094481
+    },
+    {
+      "canonical_id": "jd-48e07715df8f7d372d26",
+      "common_valid_rows": 482,
+      "color_comparison_frames": 581,
+      "max_global_HS_reconstruction_error": 0.00014019825799022057
+    },
+    {
+      "canonical_id": "jd-4041f5000909d780f8de",
+      "common_valid_rows": 635,
+      "color_comparison_frames": 640,
+      "max_global_HS_reconstruction_error": 0.00015570357478589258
+    },
+    {
+      "canonical_id": "jd-f396b09e25bec38321a3",
+      "common_valid_rows": 635,
+      "color_comparison_frames": 640,
+      "max_global_HS_reconstruction_error": 0.0001481611074277689
+    },
+    {
+      "canonical_id": "jd-464511233c6a6428a9a5",
+      "common_valid_rows": 635,
+      "color_comparison_frames": 640,
+      "max_global_HS_reconstruction_error": 0.00014323139968147602
+    },
+    {
+      "canonical_id": "jd-8fbf5474b581bac86286",
+      "common_valid_rows": 629,
+      "color_comparison_frames": 639,
+      "max_global_HS_reconstruction_error": 0.00015316659623831885
+    },
+    {
+      "canonical_id": "jd-a1060383db4600ff501b",
+      "common_valid_rows": 635,
+      "color_comparison_frames": 640,
+      "max_global_HS_reconstruction_error": 0.0001170408730881145
+    },
+    {
+      "canonical_id": "jd-028ab6040c49812e3570",
+      "common_valid_rows": 622,
+      "color_comparison_frames": 637,
+      "max_global_HS_reconstruction_error": 0.00013033260311828831
+    },
+    {
+      "canonical_id": "jd-06128ffd8a34479c213d",
+      "common_valid_rows": 506,
+      "color_comparison_frames": 601,
+      "max_global_HS_reconstruction_error": 0.0001458674375671154
+    },
+    {
+      "canonical_id": "jd-0764efe56dd9156e2cb7",
+      "common_valid_rows": 635,
+      "color_comparison_frames": 640,
+      "max_global_HS_reconstruction_error": 0.00014117489000575745
+    },
+    {
+      "canonical_id": "jd-13137f2fbb381b505079",
+      "common_valid_rows": 635,
+      "color_comparison_frames": 640,
+      "max_global_HS_reconstruction_error": 0.0001844667958671442
+    },
+    {
+      "canonical_id": "jd-13c2e985646cec0fac50",
+      "common_valid_rows": 602,
+      "color_comparison_frames": 631,
+      "max_global_HS_reconstruction_error": 0.00014662967780348923
+    },
+    {
+      "canonical_id": "jd-16f02b3fa2a77915e962",
+      "common_valid_rows": 635,
+      "color_comparison_frames": 640,
+      "max_global_HS_reconstruction_error": 0.00018286671792178133
+    },
+    {
+      "canonical_id": "jd-1cc8ff283f821a17791f",
+      "common_valid_rows": 635,
+      "color_comparison_frames": 640,
+      "max_global_HS_reconstruction_error": 0.00015007140052308854
+    },
+    {
+      "canonical_id": "jd-2799077214c5b2fa8db3",
+      "common_valid_rows": 607,
+      "color_comparison_frames": 635,
+      "max_global_HS_reconstruction_error": 0.00013337015799341767
+    },
+    {
+      "canonical_id": "jd-294ec281f938d4c5d404",
+      "common_valid_rows": 534,
+      "color_comparison_frames": 616,
+      "max_global_HS_reconstruction_error": 0.00016803942728771393
+    },
+    {
+      "canonical_id": "jd-2d5452f764f52ec3ebdc",
+      "common_valid_rows": 635,
+      "color_comparison_frames": 640,
+      "max_global_HS_reconstruction_error": 0.00011081165028459239
+    },
+    {
+      "canonical_id": "jd-2ed10b6d9cd7ed829ba5",
+      "common_valid_rows": 585,
+      "color_comparison_frames": 619,
+      "max_global_HS_reconstruction_error": 0.00019065810693430496
+    },
+    {
+      "canonical_id": "jd-2fa38950ca9db99f9b45",
+      "common_valid_rows": 627,
+      "color_comparison_frames": 638,
+      "max_global_HS_reconstruction_error": 0.00015794187121775938
+    },
+    {
+      "canonical_id": "jd-34a5112b3b2b85195612",
+      "common_valid_rows": 635,
+      "color_comparison_frames": 640,
+      "max_global_HS_reconstruction_error": 0.00015202618445298022
+    },
+    {
+      "canonical_id": "jd-34b4687e478cb0b2902e",
+      "common_valid_rows": 618,
+      "color_comparison_frames": 637,
+      "max_global_HS_reconstruction_error": 0.0001424676723974505
+    },
+    {
+      "canonical_id": "jd-38676dcc4068a2f5a72b",
+      "common_valid_rows": 629,
+      "color_comparison_frames": 639,
+      "max_global_HS_reconstruction_error": 0.00010713024673425497
+    },
+    {
+      "canonical_id": "jd-3d9e26ba335d7748476e",
+      "common_valid_rows": 614,
+      "color_comparison_frames": 634,
+      "max_global_HS_reconstruction_error": 0.0001680984944784636
+    },
+    {
+      "canonical_id": "jd-43589bfbe6f72c566376",
+      "common_valid_rows": 601,
+      "color_comparison_frames": 628,
+      "max_global_HS_reconstruction_error": 0.00010566273862133713
+    },
+    {
+      "canonical_id": "jd-46abc7776350962df0ca",
+      "common_valid_rows": 628,
+      "color_comparison_frames": 638,
+      "max_global_HS_reconstruction_error": 0.00011476962226214527
+    },
+    {
+      "canonical_id": "jd-4707aa0c6a679fe1c0d3",
+      "common_valid_rows": 570,
+      "color_comparison_frames": 617,
+      "max_global_HS_reconstruction_error": 0.00013510898100910218
+    },
+    {
+      "canonical_id": "jd-472c26d7febbca1adc33",
+      "common_valid_rows": 628,
+      "color_comparison_frames": 638,
+      "max_global_HS_reconstruction_error": 0.00017479286980182085
+    },
+    {
+      "canonical_id": "jd-4b91baf4d71564e679cc",
+      "common_valid_rows": 635,
+      "color_comparison_frames": 640,
+      "max_global_HS_reconstruction_error": 0.00015831842169877763
+    },
+    {
+      "canonical_id": "jd-4ba3d78e3fa39a3b279a",
+      "common_valid_rows": 635,
+      "color_comparison_frames": 640,
+      "max_global_HS_reconstruction_error": 0.00015152292364484232
+    },
+    {
+      "canonical_id": "jd-519d12cca2cf6c022fc5",
+      "common_valid_rows": 635,
+      "color_comparison_frames": 640,
+      "max_global_HS_reconstruction_error": 0.00016749186623121748
+    },
+    {
+      "canonical_id": "jd-54dce53f1d8b2c203d45",
+      "common_valid_rows": 629,
+      "color_comparison_frames": 639,
+      "max_global_HS_reconstruction_error": 0.0001423969676641601
+    },
+    {
+      "canonical_id": "jd-56b605d8da41a4c0d307",
+      "common_valid_rows": 635,
+      "color_comparison_frames": 640,
+      "max_global_HS_reconstruction_error": 0.00016390616548511705
+    },
+    {
+      "canonical_id": "jd-59a6b7631315a99bcf7d",
+      "common_valid_rows": 617,
+      "color_comparison_frames": 637,
+      "max_global_HS_reconstruction_error": 0.00010741857280077705
+    },
+    {
+      "canonical_id": "jd-59e438adb482707da4f9",
+      "common_valid_rows": 635,
+      "color_comparison_frames": 640,
+      "max_global_HS_reconstruction_error": 0.00016023215490423848
+    },
+    {
+      "canonical_id": "jd-5a9ccc1f5f5ce962caa1",
+      "common_valid_rows": 629,
+      "color_comparison_frames": 639,
+      "max_global_HS_reconstruction_error": 0.00014260002056942778
+    },
+    {
+      "canonical_id": "jd-5c083de860bb487606b1",
+      "common_valid_rows": 617,
+      "color_comparison_frames": 637,
+      "max_global_HS_reconstruction_error": 0.00017259287375059884
+    },
+    {
+      "canonical_id": "jd-5ce04ab61b66c2e7a8e7",
+      "common_valid_rows": 618,
+      "color_comparison_frames": 636,
+      "max_global_HS_reconstruction_error": 0.00012051200554274999
+    },
+    {
+      "canonical_id": "jd-66235a14b0c941f21fc4",
+      "common_valid_rows": 635,
+      "color_comparison_frames": 640,
+      "max_global_HS_reconstruction_error": 9.046896986125708e-05
+    },
+    {
+      "canonical_id": "jd-66dfcf8e314729b7610c",
+      "common_valid_rows": 635,
+      "color_comparison_frames": 640,
+      "max_global_HS_reconstruction_error": 0.00014154812979821907
+    },
+    {
+      "canonical_id": "jd-6c6bd0476b188c5748de",
+      "common_valid_rows": 635,
+      "color_comparison_frames": 640,
+      "max_global_HS_reconstruction_error": 0.00017416538171999285
+    },
+    {
+      "canonical_id": "jd-6fd91b3633c6964f4c77",
+      "common_valid_rows": 560,
+      "color_comparison_frames": 621,
+      "max_global_HS_reconstruction_error": 0.00011915975965398617
+    },
+    {
+      "canonical_id": "jd-74dc6c1c0ca23b2cc58e",
+      "common_valid_rows": 609,
+      "color_comparison_frames": 624,
+      "max_global_HS_reconstruction_error": 8.031645144807031e-05
+    },
+    {
+      "canonical_id": "jd-7563de6855d84e0404a0",
+      "common_valid_rows": 528,
+      "color_comparison_frames": 594,
+      "max_global_HS_reconstruction_error": 0.00010761580990792385
+    },
+    {
+      "canonical_id": "jd-78d63035054399e750dd",
+      "common_valid_rows": 629,
+      "color_comparison_frames": 639,
+      "max_global_HS_reconstruction_error": 0.00015236491863251933
+    },
+    {
+      "canonical_id": "jd-7e41fba35a39421075a8",
+      "common_valid_rows": 559,
+      "color_comparison_frames": 611,
+      "max_global_HS_reconstruction_error": 0.00014832930933500466
+    },
+    {
+      "canonical_id": "jd-7e85377a39d68d2c636b",
+      "common_valid_rows": 635,
+      "color_comparison_frames": 640,
+      "max_global_HS_reconstruction_error": 0.00015941286768750285
+    },
+    {
+      "canonical_id": "jd-7f36a589fe039ce3409d",
+      "common_valid_rows": 482,
+      "color_comparison_frames": 597,
+      "max_global_HS_reconstruction_error": 0.00014952474073903765
+    },
+    {
+      "canonical_id": "jd-830a5c4281377a13f1cd",
+      "common_valid_rows": 635,
+      "color_comparison_frames": 640,
+      "max_global_HS_reconstruction_error": 0.00012164101860667742
+    },
+    {
+      "canonical_id": "jd-86a533e6cb8ee0658d04",
+      "common_valid_rows": 635,
+      "color_comparison_frames": 640,
+      "max_global_HS_reconstruction_error": 0.00012825087274864755
+    },
+    {
+      "canonical_id": "jd-8909604cc2942fa3c168",
+      "common_valid_rows": 629,
+      "color_comparison_frames": 639,
+      "max_global_HS_reconstruction_error": 0.00014800321218833012
+    },
+    {
+      "canonical_id": "jd-8d47dfa2ad1b150183f8",
+      "common_valid_rows": 635,
+      "color_comparison_frames": 640,
+      "max_global_HS_reconstruction_error": 0.0001506058978762992
+    },
+    {
+      "canonical_id": "jd-968552bceaa4ded4b40d",
+      "common_valid_rows": 635,
+      "color_comparison_frames": 640,
+      "max_global_HS_reconstruction_error": 0.00015750565968941643
+    },
+    {
+      "canonical_id": "jd-a1256b27ae9c4027c22d",
+      "common_valid_rows": 587,
+      "color_comparison_frames": 627,
+      "max_global_HS_reconstruction_error": 0.0001353954263810242
+    },
+    {
+      "canonical_id": "jd-a3ad434481fd55c1aa13",
+      "common_valid_rows": 616,
+      "color_comparison_frames": 636,
+      "max_global_HS_reconstruction_error": 0.00012632596328321366
+    },
+    {
+      "canonical_id": "jd-a56fb00bedbaf42ef4be",
+      "common_valid_rows": 608,
+      "color_comparison_frames": 634,
+      "max_global_HS_reconstruction_error": 8.817626041277005e-05
+    },
+    {
+      "canonical_id": "jd-aa943be707bf08750567",
+      "common_valid_rows": 611,
+      "color_comparison_frames": 631,
+      "max_global_HS_reconstruction_error": 0.00015356340588490447
+    },
+    {
+      "canonical_id": "jd-b5e1298be68162d1c1ba",
+      "common_valid_rows": 598,
+      "color_comparison_frames": 627,
+      "max_global_HS_reconstruction_error": 0.00013702705768281476
+    },
+    {
+      "canonical_id": "jd-b5eb71b2d267a98141c7",
+      "common_valid_rows": 629,
+      "color_comparison_frames": 639,
+      "max_global_HS_reconstruction_error": 8.374453190174158e-05
+    },
+    {
+      "canonical_id": "jd-b6cf43d102b9f0df0a19",
+      "common_valid_rows": 494,
+      "color_comparison_frames": 586,
+      "max_global_HS_reconstruction_error": 0.000179353384775649
+    },
+    {
+      "canonical_id": "jd-bfb7534bbe00c5a9b28a",
+      "common_valid_rows": 450,
+      "color_comparison_frames": 579,
+      "max_global_HS_reconstruction_error": 0.00012095950370061281
+    },
+    {
+      "canonical_id": "jd-c4b32de4426bb437d5ab",
+      "common_valid_rows": 530,
+      "color_comparison_frames": 611,
+      "max_global_HS_reconstruction_error": 0.00015340808941838313
+    },
+    {
+      "canonical_id": "jd-c508041a8aaa1ed552ab",
+      "common_valid_rows": 605,
+      "color_comparison_frames": 629,
+      "max_global_HS_reconstruction_error": 0.00015001696566746547
+    },
+    {
+      "canonical_id": "jd-c55da5ff338345d0904c",
+      "common_valid_rows": 635,
+      "color_comparison_frames": 640,
+      "max_global_HS_reconstruction_error": 0.00014356663031656058
+    },
+    {
+      "canonical_id": "jd-c8c0ad99c0f31567c844",
+      "common_valid_rows": 635,
+      "color_comparison_frames": 640,
+      "max_global_HS_reconstruction_error": 0.000100565242315942
+    },
+    {
+      "canonical_id": "jd-cb532b22146825171991",
+      "common_valid_rows": 635,
+      "color_comparison_frames": 640,
+      "max_global_HS_reconstruction_error": 0.00014632945667514274
+    },
+    {
+      "canonical_id": "jd-cdf72d6db62e0bbf46c4",
+      "common_valid_rows": 635,
+      "color_comparison_frames": 640,
+      "max_global_HS_reconstruction_error": 0.0001876085435407182
+    },
+    {
+      "canonical_id": "jd-d23d6216bb73f198e203",
+      "common_valid_rows": 604,
+      "color_comparison_frames": 628,
+      "max_global_HS_reconstruction_error": 0.0001276669124016805
+    },
+    {
+      "canonical_id": "jd-d471800e945d34009b49",
+      "common_valid_rows": 635,
+      "color_comparison_frames": 640,
+      "max_global_HS_reconstruction_error": 0.00014777856927705724
+    },
+    {
+      "canonical_id": "jd-d656bc56cf55b7648a7a",
+      "common_valid_rows": 548,
+      "color_comparison_frames": 613,
+      "max_global_HS_reconstruction_error": 0.000126066164933325
+    },
+    {
+      "canonical_id": "jd-d7dd97e70d5342e47cd7",
+      "common_valid_rows": 617,
+      "color_comparison_frames": 637,
+      "max_global_HS_reconstruction_error": 0.00010726256128942846
+    },
+    {
+      "canonical_id": "jd-d9de2660680dbe80b144",
+      "common_valid_rows": 616,
+      "color_comparison_frames": 636,
+      "max_global_HS_reconstruction_error": 0.00014761558286841003
+    },
+    {
+      "canonical_id": "jd-ddd8a41abd2dcdd26fd9",
+      "common_valid_rows": 598,
+      "color_comparison_frames": 614,
+      "max_global_HS_reconstruction_error": 0.00017281428755067108
+    },
+    {
+      "canonical_id": "jd-e063ba9ab014d8134266",
+      "common_valid_rows": 534,
+      "color_comparison_frames": 601,
+      "max_global_HS_reconstruction_error": 0.0001588570936434941
+    },
+    {
+      "canonical_id": "jd-e1818f38aaa8ce9fe0c7",
+      "common_valid_rows": 462,
+      "color_comparison_frames": 583,
+      "max_global_HS_reconstruction_error": 0.00012423652130050256
+    },
+    {
+      "canonical_id": "jd-e2a85e0ad3e69e54bff0",
+      "common_valid_rows": 590,
+      "color_comparison_frames": 622,
+      "max_global_HS_reconstruction_error": 0.00010719753212437566
+    },
+    {
+      "canonical_id": "jd-e2f5b12c308078551a15",
+      "common_valid_rows": 498,
+      "color_comparison_frames": 600,
+      "max_global_HS_reconstruction_error": 0.0001515494556161845
+    },
+    {
+      "canonical_id": "jd-ebdb71f0c075f60116d7",
+      "common_valid_rows": 476,
+      "color_comparison_frames": 590,
+      "max_global_HS_reconstruction_error": 0.00015579822002076416
+    },
+    {
+      "canonical_id": "jd-ed4567d227e0c30131ce",
+      "common_valid_rows": 589,
+      "color_comparison_frames": 632,
+      "max_global_HS_reconstruction_error": 0.000135092696489425
+    },
+    {
+      "canonical_id": "jd-ee39e2be289f6ae8e14f",
+      "common_valid_rows": 589,
+      "color_comparison_frames": 621,
+      "max_global_HS_reconstruction_error": 0.00013934399942217013
+    },
+    {
+      "canonical_id": "jd-ef1727a65d18b37d00cf",
+      "common_valid_rows": 629,
+      "color_comparison_frames": 639,
+      "max_global_HS_reconstruction_error": 9.343088782531872e-05
+    },
+    {
+      "canonical_id": "jd-f41fe777d26f78dfc6e6",
+      "common_valid_rows": 588,
+      "color_comparison_frames": 628,
+      "max_global_HS_reconstruction_error": 0.00010623707609380695
+    },
+    {
+      "canonical_id": "jd-f51288c36dc42f436e87",
+      "common_valid_rows": 635,
+      "color_comparison_frames": 640,
+      "max_global_HS_reconstruction_error": 0.0001537632450810955
+    },
+    {
+      "canonical_id": "jd-f5edaf92f7800767483a",
+      "common_valid_rows": 576,
+      "color_comparison_frames": 606,
+      "max_global_HS_reconstruction_error": 0.00011847672293319178
+    },
+    {
+      "canonical_id": "jd-fbc1c0d56f92405b476f",
+      "common_valid_rows": 602,
+      "color_comparison_frames": 630,
+      "max_global_HS_reconstruction_error": 0.00014239151641814995
+    },
+    {
+      "canonical_id": "jd-fc065f98256f8cc4328c",
+      "common_valid_rows": 596,
+      "color_comparison_frames": 621,
+      "max_global_HS_reconstruction_error": 0.00015993462640295775
+    },
+    {
+      "canonical_id": "jd-fed25d25737a6483babb",
+      "common_valid_rows": 573,
+      "color_comparison_frames": 627,
+      "max_global_HS_reconstruction_error": 0.00014223860336204375
+    }
+  ],
+  "common_valid_rows": 54489,
+  "max_global_HS_reconstruction_error": 0.00019065810693430496,
+  "numerical_tolerance": 0.002,
+  "DEV_read": false,
+  "PCA_fitted": false,
+  "scope": "Cohort/artifact authentication and numerical feature consistency, not representation retention or efficacy.",
+  "seconds": 0.5888043779414147
+}

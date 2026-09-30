@@ -1,0 +1,248 @@
+{
+  "schema": "lightsem.visual_next.review_inventory.v1",
+  "scope": "All requested methods, controls and combined changes. Display selection fixed before trained-model DEV scores or Shpongle outputs. Seed0 is fixed, never chosen by results.",
+  "groups": [
+    {
+      "id": "main",
+      "title": "Main comparisons",
+      "collapsed": false
+    },
+    {
+      "id": "layouts",
+      "title": "Palette layouts on C",
+      "collapsed": false
+    },
+    {
+      "id": "controls",
+      "title": "Representation controls",
+      "collapsed": true
+    },
+    {
+      "id": "oracles",
+      "title": "Reference-guided capacity examples",
+      "description": "These use a separate video reference. Compare their color distribution; they do not test whether a model follows Shpongle.",
+      "collapsed": true
+    }
+  ],
+  "variants": [
+    {
+      "id": "01",
+      "letter": "C",
+      "title": "Accepted baseline C",
+      "group": "main",
+      "kind": "existing",
+      "arm": "C",
+      "layout": "global",
+      "description": "Your selected Rich96 baseline with generated palette history and 0.3-second transitions.",
+      "seed": null
+    },
+    {
+      "id": "02",
+      "letter": "R0",
+      "title": "Fresh Rich96 control",
+      "group": "main",
+      "kind": "learned",
+      "arm": "R0",
+      "layout": "global",
+      "description": "Retrained alongside the new methods using the original visual descriptor. Use this to separate a method change from a fresh training run.",
+      "seed": 0
+    },
+    {
+      "id": "03",
+      "letter": "H1",
+      "title": "Camera-cut filtering",
+      "group": "main",
+      "kind": "learned",
+      "arm": "cut_only",
+      "layout": "global",
+      "description": "Training ignores color events near detected camera edits. The visual descriptor stays unchanged.",
+      "seed": 0
+    },
+    {
+      "id": "04",
+      "letter": "H2",
+      "title": "Tracked person masks",
+      "group": "main",
+      "kind": "learned",
+      "arm": "mask_only",
+      "layout": "global",
+      "description": "Training color targets use Cutie person masks, reducing the influence of people moving across the picture.",
+      "seed": 0
+    },
+    {
+      "id": "05",
+      "letter": "R1",
+      "title": "Spatial color grid",
+      "group": "main",
+      "kind": "learned",
+      "arm": "R1",
+      "layout": "global",
+      "description": "Training describes where colors appear in the picture, using an explicit spatial grid.",
+      "seed": 0
+    },
+    {
+      "id": "06",
+      "letter": "R2",
+      "title": "Image-model features",
+      "group": "main",
+      "kind": "learned",
+      "arm": "R2",
+      "layout": "global",
+      "description": "Training adds pretrained DINOv2 image features to the spatial color description.",
+      "seed": 0
+    },
+    {
+      "id": "07",
+      "letter": "R3",
+      "title": "Image features through time",
+      "group": "main",
+      "kind": "learned",
+      "arm": "R3",
+      "layout": "global",
+      "description": "Training adds a short history of image features, intended to describe how the picture develops.",
+      "seed": 0
+    },
+    {
+      "id": "08",
+      "letter": "ALL",
+      "title": "Combined training changes",
+      "group": "main",
+      "kind": "learned",
+      "arm": "combined",
+      "layout": "global",
+      "description": "Combines camera-cut filtering, Cutie color targets, and the R3 temporal visual descriptor. R3 auxiliary features still use the original SAM masks.",
+      "seed": 0
+    },
+    {
+      "id": "09",
+      "letter": "ALL4",
+      "title": "Combined + four color groups",
+      "group": "main",
+      "kind": "learned",
+      "arm": "combined",
+      "layout": "four_groups",
+      "description": "The combined trained model with a fixed palette split across four fixture groups. Group allocation is a design rule.",
+      "seed": 0
+    },
+    {
+      "id": "10",
+      "letter": "P2",
+      "title": "C with two color groups",
+      "group": "layouts",
+      "kind": "existing",
+      "arm": "P2",
+      "layout": "two_groups",
+      "description": "The same baseline C decisions, with its palette distributed between left and right fixture groups.",
+      "seed": null
+    },
+    {
+      "id": "11",
+      "letter": "P4",
+      "title": "C with four color groups",
+      "group": "layouts",
+      "kind": "existing",
+      "arm": "P4",
+      "layout": "four_groups",
+      "description": "The same baseline C decisions, with its palette distributed across four fixture groups.",
+      "seed": null
+    },
+    {
+      "id": "12",
+      "letter": "Rrand",
+      "title": "Random image-feature control",
+      "group": "controls",
+      "kind": "learned",
+      "arm": "Rrand",
+      "layout": "global",
+      "description": "The audio model is trained, but its auxiliary image encoder has random weights. Tests the contribution of pretrained image features.",
+      "seed": 0
+    },
+    {
+      "id": "13",
+      "letter": "R3-S",
+      "title": "Shuffled-history control",
+      "group": "controls",
+      "kind": "learned",
+      "arm": "R3-shuffle",
+      "layout": "global",
+      "description": "Uses a fixed shuffled visual-history control during training.",
+      "seed": 0
+    },
+    {
+      "id": "14",
+      "letter": "R3-R",
+      "title": "Reversed-coordinate control",
+      "group": "controls",
+      "kind": "learned",
+      "arm": "R3-reverse",
+      "layout": "global",
+      "description": "Reverses a fixed ordering of descriptor coordinates. It preserves information, so this is not a decisive test of temporal understanding.",
+      "seed": 0
+    },
+    {
+      "id": "15",
+      "letter": "O0",
+      "title": "Reference-guided global color",
+      "group": "oracles",
+      "kind": "oracle",
+      "arm": "O0",
+      "layout": "oracle",
+      "description": "One shared color assignment chosen using a separate reference video.",
+      "seed": null,
+      "notice": "Reference-guided illustration, not an audio-learned model. Only 1:50\u20132:54 was optimized; the first/last group choices are carried outside that interval while C supplies palette changes."
+    },
+    {
+      "id": "16",
+      "letter": "O2",
+      "title": "Reference-guided two groups",
+      "group": "oracles",
+      "kind": "oracle",
+      "arm": "O2",
+      "layout": "oracle",
+      "description": "Two color-group assignments chosen using the same reference information.",
+      "seed": null,
+      "notice": "Reference-guided illustration, not an audio-learned model. Only 1:50\u20132:54 was optimized; the first/last group choices are carried outside that interval while C supplies palette changes."
+    },
+    {
+      "id": "17",
+      "letter": "O4",
+      "title": "Reference-guided four groups",
+      "group": "oracles",
+      "kind": "oracle",
+      "arm": "O4",
+      "layout": "oracle",
+      "description": "Four color-group assignments chosen using the same reference information.",
+      "seed": null,
+      "notice": "Reference-guided illustration, not an audio-learned model. Only 1:50\u20132:54 was optimized; the first/last group choices are carried outside that interval while C supplies palette changes."
+    },
+    {
+      "id": "18",
+      "letter": "O4-P",
+      "title": "Permuted-group control",
+      "group": "oracles",
+      "kind": "oracle",
+      "arm": "permuted",
+      "layout": "oracle",
+      "description": "Reassigns the reference-guided O4 schedule across fixture groups.",
+      "seed": null,
+      "notice": "Reference-guided illustration, not an audio-learned model. Only 1:50\u20132:54 was optimized; the first/last group choices are carried outside that interval while C supplies palette changes."
+    },
+    {
+      "id": "19",
+      "letter": "O4-D",
+      "title": "Different-reference control",
+      "group": "oracles",
+      "kind": "oracle",
+      "arm": "donor",
+      "layout": "oracle",
+      "description": "Uses a schedule optimized for a different source video.",
+      "seed": null,
+      "notice": "Reference-guided illustration, not an audio-learned model. Only 1:50\u20132:54 was optimized; the first/last group choices are carried outside that interval while C supplies palette changes."
+    }
+  ],
+  "required_total": 19,
+  "required_new_learned_videos": 11,
+  "required_new_oracle_videos": 5,
+  "reused_existing_videos": 3,
+  "baseline_promotion": "Only after a later user choice; this inventory does not change baseline C."
+}

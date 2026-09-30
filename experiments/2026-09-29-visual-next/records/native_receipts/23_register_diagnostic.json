@@ -1,0 +1,33 @@
+{
+  "tool": "register_diagnostic",
+  "arguments": {
+    "id": "visual-next-content-event-f1",
+    "name": "Independent content-color event F1",
+    "unit": "fraction",
+    "direction": "higher_better",
+    "requires_control": "visual-next-content-recall",
+    "description": "Macro-family2TP/(2TP+FP+FN) on event-bearing canonical families, maximum-cardinality one-to-one event matching±.2s then minimum timing distance. Same independent human content annotations and fixed support for every arm; zero predictions with positive references give0, genuinely undefined denominators remain undefined. Report all-family false cues separately.",
+    "topic_tags": [
+      "audio-to-light",
+      "evaluation-metric"
+    ],
+    "noise_note": "No noise sigma or powered MDE measured at registration; no numeric noise floor is assumed."
+  },
+  "result": {
+    "id": "visual-next-content-event-f1",
+    "name": "Independent content-color event F1",
+    "unit": "fraction",
+    "direction": "higher_better",
+    "description": "Macro-family2TP/(2TP+FP+FN) on event-bearing canonical families, maximum-cardinality one-to-one event matching±.2s then minimum timing distance. Same independent human content annotations and fixed support for every arm; zero predictions with positive references give0, genuinely undefined denominators remain undefined. Report all-family false cues separately.",
+    "topic_tags": [
+      "audio-to-light",
+      "evaluation-metric"
+    ],
+    "requires_control": "visual-next-content-recall",
+    "noise_sigma": null,
+    "noise_source": null,
+    "noise_n": null,
+    "noise_note": "No noise sigma or powered MDE measured at registration; no numeric noise floor is assumed.",
+    "noise_k": 2.0
+  }
+}

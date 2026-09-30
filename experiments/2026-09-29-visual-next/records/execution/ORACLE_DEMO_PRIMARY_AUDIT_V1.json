@@ -1,0 +1,43 @@
+{
+  "GPU_used": false,
+  "display_family": "jd-669b916cd15af69ae82c",
+  "freeze_sha256": "285dbe0626d5094c30731d3dff029b3329e91cf953dc5f6c470dcdcd86515fcb",
+  "inputs_verified": 126,
+  "method": "Independent piecewise analytical smoothstep reconstruction at every fixture/frame from saved oracle assignments and C palette timeline.",
+  "report_sha256": "aefb9e4438200db41a3f13cd77d64d587129ec3a13fe1a9df53b0250b650ca4e",
+  "selection_by_identity_not_score": true,
+  "status": "five_full_track_oracle_streams_independently_verified",
+  "variants": [
+    {
+      "all11092_frames_RGB_reconstructed": true,
+      "all479_nonRGB_slots_exact": true,
+      "arm": "O0",
+      "sha256": "af8ab0262283fc30683290482e5ed978affde632219e0faffd2a7b33aaa6428b"
+    },
+    {
+      "all11092_frames_RGB_reconstructed": true,
+      "all479_nonRGB_slots_exact": true,
+      "arm": "O2",
+      "sha256": "47e9234f581e5a857d53019d9df1d5fe1d9616e1a4cc8d3463d7e8122f37150d"
+    },
+    {
+      "all11092_frames_RGB_reconstructed": true,
+      "all479_nonRGB_slots_exact": true,
+      "arm": "O4",
+      "sha256": "a4dd83e3fc0ac30f4c63e8c915e50333dccc76933a8efe81a751b222103ef460"
+    },
+    {
+      "all11092_frames_RGB_reconstructed": true,
+      "all479_nonRGB_slots_exact": true,
+      "arm": "permuted",
+      "sha256": "f54d372f2a4df66de3315d6f3db26654c8294fbd7d003af87556320ba25fdfbe"
+    },
+    {
+      "all11092_frames_RGB_reconstructed": true,
+      "all479_nonRGB_slots_exact": true,
+      "arm": "donor",
+      "sha256": "63fcd5fc103a4d120ea49c3d022ed77bfc22d558180218d232d9892ce64d7ac1"
+    }
+  ],
+  "videos_rendered": false
+}

@@ -1,0 +1,22 @@
+{
+  "scope": "Conservative stage runtime before final media rendering. Primary CPU-only audits do not use the GPU. Render stages retain their remaining frozen limits.",
+  "spent_seconds": {
+    "H3": 5338.301722280681,
+    "H4": 1324.551615551114
+  },
+  "H4_components": {
+    "oracle_smoke": 1.245426697889343,
+    "palette_previews": 457.30654779216275,
+    "full_oracle": 865.999641061062
+  },
+  "remaining_seconds": {
+    "H3": 5461.698277719319,
+    "H4": 5875.448384448886
+  },
+  "source_receipts": {
+    "/root/lightsem/experiments/2026-09-29-visual-next/records/execution/POSTFIT_CURATOR_AUDIT_V1.json": "c4f5de4e82405b9de72c7e1362756f78fd0d303c48e2fe8ff647f1098b633fc9",
+    "/root/lightsem/runs/visual_next_20260929/oracle_smoke_v1/REPORT.json": "bf5779ee5044463cac32ba7a091dc4e66fb7240194cbd1bcb49aeb62b942231b",
+    "/root/lightsem/runs/visual_next_20260929/shpongle_palette_previews_v1/DELIVERY.json": "b72261e8e0346521452d8e9039f8199731c8f13c356772682ffd0e16093949df",
+    "/root/lightsem/runs/visual_next_20260929/oracle_v1/REPORT.json": "8cec7472098ad908df735a060d3d94dd9f725875f998bf654eb5e25dabd8f7b5"
+  }
+}

@@ -1,0 +1,31 @@
+{
+  "tool": "add_paper",
+  "arguments": {
+    "id": "paper-transnetv2-2008-04838",
+    "title": "TransNet V2: An effective deep network architecture for fast shot transition detection",
+    "arxiv_id_or_url": "https://arxiv.org/abs/2008.04838v1",
+    "key_claims": [
+      "The detector combines temporal convolutions and learned/RGB-histogram similarities at48x27 resolution. It evaluates centered windows and uses a fixed0.5 threshold; no live-causal claim follows. The paper warns about false hits from abrupt camera/environment/object changes and missed transitions. Use it as an edit candidate detector, not truth: a color flash may be a useful light event. Validate filtering against independent content-event annotations, preserve recall/coverage, and retain cut-coincident events as a separate reported category. Its headline benchmark results do not predict LightSem effect size.",
+      "Verified full PDF SHA256 9e4df222d6754ab4c51047706bed07e9d985abc9e584628b60d79bafb80557f8. Read scope: Four-page paper: introduction, architecture, synthetic/real training, comparison procedure and limitations; official code. Published evidence is outside LightSem; application here is a hypothesis."
+    ],
+    "topic_tags": [
+      "audio-to-light",
+      "cross-modal",
+      "evaluation-metric"
+    ]
+  },
+  "result": {
+    "id": "paper-transnetv2-2008-04838",
+    "title": "TransNet V2: An effective deep network architecture for fast shot transition detection",
+    "arxiv_id_or_url": "https://arxiv.org/abs/2008.04838v1",
+    "key_claims": [
+      "The detector combines temporal convolutions and learned/RGB-histogram similarities at48x27 resolution. It evaluates centered windows and uses a fixed0.5 threshold; no live-causal claim follows. The paper warns about false hits from abrupt camera/environment/object changes and missed transitions. Use it as an edit candidate detector, not truth: a color flash may be a useful light event. Validate filtering against independent content-event annotations, preserve recall/coverage, and retain cut-coincident events as a separate reported category. Its headline benchmark results do not predict LightSem effect size.",
+      "Verified full PDF SHA256 9e4df222d6754ab4c51047706bed07e9d985abc9e584628b60d79bafb80557f8. Read scope: Four-page paper: introduction, architecture, synthetic/real training, comparison procedure and limitations; official code. Published evidence is outside LightSem; application here is a hypothesis."
+    ],
+    "topic_tags": [
+      "audio-to-light",
+      "cross-modal",
+      "evaluation-metric"
+    ]
+  }
+}

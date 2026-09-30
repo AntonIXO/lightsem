@@ -4,6 +4,8 @@ LightSem turns audio into stage lighting. The current development baseline is **
 
 The [September22 campaign](experiments/2026-09-22-color-beat/README.md) contains the training implementation and earlier measurements. The user selection is a product-development decision from Shpongle review; previous scientific results retain their recorded scope. The older causal `LightModel` API in `lightsem/model/infer.py` is a separate implementation, not a drop-in loader for the independent light-layer model.
 
+The [visual-learning studies](experiments/2026-09-29-visual-next/README.md) are complete under the automated exploratory scope: [19 Shpongle review videos](experiments/2026-09-29-visual-next/records/REVIEW.md) and [measured results](experiments/2026-09-29-visual-next/records/RESULTS_EXPLORATORY.md). Source annotation is optional; original independent-label hypotheses remain unconfirmed. Baseline C remains unchanged.
+
 ## Where things live
 
 The [festival scene](docs/FESTIVAL_SCENE.md) adds a complete Blender venue and a

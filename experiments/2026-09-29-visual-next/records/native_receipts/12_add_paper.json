@@ -1,0 +1,31 @@
+{
+  "tool": "add_paper",
+  "arguments": {
+    "id": "paper-insid3-2603-28480",
+    "title": "INSID3: Training-Free In-Context Segmentation with DINOv3",
+    "arxiv_id_or_url": "https://arxiv.org/abs/2603.28480",
+    "key_claims": [
+      "The paper shows spurious cross-image matches at similar coordinates in low-semantic regions and suppresses a positional subspace estimated from noise. This directly motivates dark/flat-background and location controls for DINOv3 in LightSem. Do not automatically remove positional information: it may be useful for within-scene spatial composition, and the paper distinguishes those uses. The method needs a reference mask and handles one concept at a time, so it is not an immediately justified YOLO replacement for multiple moving coaches.",
+      "Verified full PDF SHA256 1bcb9b5f6a5d2fc7ed4893edcd97028e725eed42224c91b8d249a7591a54f17b. Read scope: Abstract; Sec3.1 positional subspace; Sec4.2 bias analysis; supplementF limitations. Published evidence is outside LightSem; application here is a hypothesis."
+    ],
+    "topic_tags": [
+      "audio-to-light",
+      "cross-modal",
+      "evaluation-metric"
+    ]
+  },
+  "result": {
+    "id": "paper-insid3-2603-28480",
+    "title": "INSID3: Training-Free In-Context Segmentation with DINOv3",
+    "arxiv_id_or_url": "https://arxiv.org/abs/2603.28480",
+    "key_claims": [
+      "The paper shows spurious cross-image matches at similar coordinates in low-semantic regions and suppresses a positional subspace estimated from noise. This directly motivates dark/flat-background and location controls for DINOv3 in LightSem. Do not automatically remove positional information: it may be useful for within-scene spatial composition, and the paper distinguishes those uses. The method needs a reference mask and handles one concept at a time, so it is not an immediately justified YOLO replacement for multiple moving coaches.",
+      "Verified full PDF SHA256 1bcb9b5f6a5d2fc7ed4893edcd97028e725eed42224c91b8d249a7591a54f17b. Read scope: Abstract; Sec3.1 positional subspace; Sec4.2 bias analysis; supplementF limitations. Published evidence is outside LightSem; application here is a hypothesis."
+    ],
+    "topic_tags": [
+      "audio-to-light",
+      "cross-modal",
+      "evaluation-metric"
+    ]
+  }
+}

@@ -1,0 +1,717 @@
+[
+  {
+    "id": "rb-ls2-infra",
+    "problem_id": "dancing-light-generative-20260903",
+    "prompt": "INFRA for LightSem v2 (context: /root/lightsem/PLAN.md section 7; root disk 89% full, /mnt has 325 GB).\n1. Create a dedicated torch venv on /mnt: `UV_CACHE_DIR=/mnt/lightsem-data/uv-cache uv venv /mnt/lightsem-data/venv-torch --python 3.12` then install torch (cu130, sm_120 for the RTX 5070), numpy, librosa, h5py, smplx, huggingface_hub. Stop borrowing /root/optiHealth-EiV/.venv via run_gpu.sh (works today; couples two separate projects). Add a `run_torch.sh` wrapper (never invoke the venv python binary directly from the shell tool: 'embedded null byte' pitfall).\n2. Download to /mnt/lightsem-data/: full RPMC-L2 (HF RS2002/RPMC-L2, data/RPMC_L2_parts/ 4 parts ~42.5 GB; CC-BY-4.0); InfiniteDance data+weights (HF huuuuuuuuu/InfiniteDance, 15-27 GB + 2.15 GB checkpoint; non-commercial academic); FineDance public 7.7 h (Google Drive, manual); MuQ and MERT-v1-95M checkpoints. AIST++ motions.zip (SMPL) is already at /mnt/lightsem-data/aistpp/.\n3. Verify each download by checksum/size and by loading one sample; record paths in /mnt/lightsem-data/README.md.\nGate: one SMPL sequence from motions.zip forward-kinematics to joints that match the keypoints3d_optim file for the same sequence to < 5 cm mean error after alignment.",
+    "preconditions": "",
+    "gates": [
+      "torch venv on /mnt loads on GPU",
+      "FK of motions.zip matches keypoints3d_optim within 5 cm"
+    ],
+    "status": "queued",
+    "hypothesis_id": null,
+    "priority": 0,
+    "notes": [],
+    "former_ids": [],
+    "topic_tags": [
+      "audio-to-light",
+      "music-to-dance"
+    ],
+    "created_at": "2026-09-03T20:56:14+00:00",
+    "updated_at": "2026-09-03T20:56:14+00:00"
+  },
+  {
+    "id": "rb-ls2-00-oracle-dancer",
+    "problem_id": "dancing-light-generative-20260903",
+    "prompt": "STAGE 0a — DESCRIPTORS, LIGHT TARGETS, METRICS, ORACLE RENDERS (context: PLAN.md rev. 3 sections 3, 5, 6 Stage 0a). Dance is the training set; no dancer at inference. This stage builds the descriptor extractor (mocap AND video paths), the fixed motion->light mapping, the metrics, and renders REAL dance mapped to light.\nBuild: (a) lightsem/motion/: SMPL forward kinematics from /mnt/lightsem-data/aistpp/motions.zip; a 2D pose path (YOLO11-pose or RTMPose, torso-length normalised, multi-person/occluded frames rejected) run on AIST multi-view video (research licence; https://storage.repository.aist.go.jp/1095/v1.0.0/video/10M/ reachable) and validated against the mocap descriptors (gate: speed/laterality/spread descriptors from 2D within r > 0.8 of mocap on 50 clips); descriptor blocks per PLAN.md section 3: A shared skeleton (QoM, CoM/head/foot speed, vertical bounce amplitude + period at tactus, metrical level, Laban Weight/Time proxies, footfall rate, section energy), B events (footfalls, jumps, hits), C style residual (hands, laterality sign/phase, travel, symmetry, spread residual, Space/Flow, jerk); all root-relative, mirror-aware, 40 fps, beat-synchronised; never average dancers except shared per-bar scalars. (b) lightsem/conductor/v0.py: the body-following rig table (QoM/Weight -> intensity/haze/saturation; vertical bounce -> dimmer/tilt bounce at the beat; sway at 2-beat/bar -> pan sweep; head/torso <- LF flux -> big slow fixtures; hands <- HF flux -> small fast fixtures; footfalls/jumps -> strobe/tilt snaps; spread -> zoom; Laban Time -> crossfade) on a canonical rig with slew limits. (c) lightsem/eval/: Light-BAS reported as delta vs metronome (plus circular-shift null), FID_light on DELTA features (onsets, colour jumps, velocities; never levels), Div_light among samples of one track, split-half floor.\nRun: targets for all 1408 AIST++ clips; render 5 clips (different genres) real dance -> light -> MP4, and the same 5 through the old structure->scene rules.\nPREREGISTER gates: G1 Light-BAS(real-dance light) >= 0.9 x metronome; G2 FID_light(split-half real) x 3 < FID_light(circular-shift vs real); G3 2D-pose descriptors match mocap r > 0.8; G4 Anton's blind look: >= 4/5 real-dance renders read as dancing (if not, fix the mapping, not the idea). Diagnostics: light-bas, fid-light-kinetic, light-diversity-kinetic.",
+    "preconditions": "",
+    "gates": [
+      "G1 Light-BAS(real) >= 0.9 x metronome",
+      "G2 split-half FID x3 < shift-null FID",
+      "G3 >= 4/5 real-dance renders read as dancing"
+    ],
+    "status": "queued",
+    "hypothesis_id": null,
+    "priority": 1,
+    "notes": [
+      {
+        "at": "2026-09-03T21:03:45+00:00",
+        "text": "rev. 2 2026-09-03: dance = training set; no dance generator at inference"
+      },
+      {
+        "at": "2026-09-03T21:32:48+00:00",
+        "text": "rev. 3 2026-09-04: three-block targets, two-path latency, video->pose data path"
+      },
+      {
+        "at": "2026-09-03T22:29:15+00:00",
+        "text": "2026-09-04 RUN. G2 passed, G1 unreachable as written and restated as G1b, G1b failed for the motion-only oracle and passed for the hybrid. G3 (2D pose vs mocap) not yet run. G4 (Anton's blind look) pending: 15 renders in /root/lightsem/outputs/stage0a/."
+      }
+    ],
+    "former_ids": [],
+    "topic_tags": [
+      "audio-to-light",
+      "music-to-dance"
+    ],
+    "created_at": "2026-09-03T20:56:14+00:00",
+    "updated_at": "2026-09-03T22:29:15+00:00"
+  },
+  {
+    "id": "rb-ls2-07-offline-prerendered",
+    "problem_id": "dancing-light-generative-20260903",
+    "prompt": "STAGE 7 -- OFFLINE PRE-RENDERED SHOW: the look-ahead axis as a designed variable (PLAN.md rev. 6 sections 0.1 and 6.7). 2026-09-04, Anton's call: the product is a pre-rendered show for a known track, not a live desk. Consequences, in order.\n1. Look-ahead is legal and must be labelled. Every number carries its position on the axis: L=0 causal, L=250 ms (a house delay line; IMAG already forces 50-150 ms), or whole track. A score is comparable only to a score at the same L; an offline number quoted without its L=0 counterpart on the same splits is not a result.\n2. extract_bus(causal=False) is the offline feature path and already exists.\n3. The five ORACLE_CHANNELS stop being a debt; a whole-track comb beat grid is correct offline and flags['oracle_beat'] marks a property, not a compromise.\n4. Stage 4's latency budget is no longer a product gate; it stays as the L=0 characterisation.\n5. Four hypotheses, in this order, do not reorder: H-A look-ahead ceiling (same 9.3 M Conformer, mask and causal padding off, causal=False bus; gates: offline block A R2 >= +0.04, offline Light-BAS >= +0.105, both next to their L=0 values); H-B zero-phase spectral matching (no retraining; diversity must not fall); H-C whole-track structure conditioning with a label-shuffle control; H-D operator head with anticipation (AP lift at +4 s > +0.05, CI excluding zero, shift control at 0). H-A decides whether the other three are worth running: if an offline model with the whole track cannot clear +0.105, the corpus binds and the next move is data (Stage 8), not architecture.",
+    "preconditions": "",
+    "gates": [
+      "G7-A offline block A R2 >= +0.04 and offline Light-BAS >= +0.105, each quoted next to its L=0 counterpart",
+      "G7-B light-event-rate-ratio within 1.3 of real-mapped, no channel above 2x corpus HF energy, FID below and diversity not below the unfiltered arm",
+      "G7-C structure-conditioned Light-BAS above unconditioned with paired-bootstrap CI excluding zero; shuffled labels destroy the gain",
+      "G7-D event AP lift at +4 s > +0.05 with CI excluding zero; offline lift above the causal +0.3145; shift control within 2 s of zero"
+    ],
+    "status": "queued",
+    "hypothesis_id": null,
+    "priority": 1,
+    "notes": [],
+    "former_ids": [],
+    "topic_tags": [
+      "audio-to-light",
+      "offline-vs-online",
+      "real-time",
+      "generative-modelling"
+    ],
+    "created_at": "2026-09-04T11:15:15+00:00",
+    "updated_at": "2026-09-04T11:15:15+00:00"
+  },
+  {
+    "id": "rb-ls2-09-designed-light",
+    "problem_id": "dancing-light-generative-20260903",
+    "prompt": "STAGE 9 -- FROM DECENT TO DESIGNED: authored light as the target, the conductor as the model (PLAN.md rev. 8 section 6.9). Diagnosis after Stage 8 (held-out JD: BAS +0.135 vs coach +0.087 vs beat trigger +0.092; FID 36.5 vs floor 8.1; block A R2 -0.22; inter-coach r 0.22-0.42): the bottleneck is the target (dance is a weak proxy, coaches disagree), the hand-written conductor (owns every artistic decision) and the absence of human preference -- not the trunk, causality or the amount of dance. Five outside passes (one deep research, four reasoning, full brief attached) and two papers read in full (Skip-BART arXiv:2506.01482, SeqLight arXiv:2605.03660) agree.\nTargets, one format (group-level event stream + per-group intensity/colour envelopes at 40 fps): RPMC-L2 699/699 (cache/rpmc_all, CC-BY-4.0, 10 Hz OpenL3 + scene vector, NO waveform); Just Dance visual (332 captures, wav on disk; exp-016 lift 3.17x vs shift 1.48x); xLights free .xsq sequences (~556 free, ~25-40 h, effects on groups at 25 ms, audio NOT included, research only, only where the song is on disk); Beat Saber lightshow maps (BeatSaver API ?tags=lightshow, v3 lightColorEventBoxGroups = group events with phase-spread filters, exact BPM grid, audio in zip, research only). Console show files (grandMA XML + MVR) exist only by contract: business development, not scraping. Not targets: Rock Band VENUE, lasers, pyro, fountains, SoundSwitch.\nSteps and gates: 9.2 corpus predictability gate (H-H) before any training -- AP_audio - AP_shift >= +0.15 AND AP_audio >= AP_beat-trigger + 0.05 on events and on group-envelope R2, causal and offline together. 9.3 group-effects decoder (H-I, Anton's mixture of light in SeqLight's form): shared 0.5-2 M head with type masks on the frozen trunk + operator head emitting per-group intensity envelope, palette, effect id, rate in beats, phase spread, density, look-change hazard; deterministic effects engine binds groups to any patch (sorted by type and stage x) and keeps the H-B one-pole; loss on a rig-invariant observable via a cheap differentiable histogram renderer against RPMC-L2 / JD visual / gated corpora; random-rig dropout; no conductor-DMX distillation; no pan/tilt learning. Gate G9.3 (Value- and onset-matched): FID vs conductor beats a shuffled-donor control by > 2x; BAS not below the conductor without raising onset density; brightness-matched A/B 'fits the music' CI excluding 50% at n >= 20; rig transfer beats channel-copy. Miss any two: the conductor was not the bottleneck. 9.4 section planner writing conductor knobs (H-J), audio-only, one bar ahead allowed, vs a shuffled-section-plan control and a causal planner; time-to-drop never an input. 9.5 factorised critic (H-K): bar-synchronous dual encoder, negatives = time-shift, other-song AND beat-trigger light; heads C_R/C_U; best-of-8 over flow samples through the conductor; gate = real-vs-beat-trigger accuracy above chance, additive projection changes the ranking, best-of-8 beats random-of-8 on human 'fits the music'; only then a reward, and then on conductor knobs, never the flow head. 9.6 Bradley-Terry over <= 12 knobs from 200-400 brightness-matched pairs (H-L), two questions fitted separately; gate held-out accuracy > 60% at n=200, no BAS drift toward the metronome. 9.7 audio decomposition (H-G) gated by song-split beat-synchronous audits against the 92-ch bus with shuffled donor and L=0 counterpart: HTDemucs 4-stem envelopes/onsets/flux (threshold +0.02 AP on JD visual with a source-specific head/hands split), per-stem Burger flux, vocal activity (no lyrics), bar phase (no section labels), one frozen embedding layer group vs a same-width random projection and a song-ID leak probe (H-M). Not in Stage 9: AR light LM decoder, RL/DPO on the flow head before G9.5, type-MoE in the trunk, section/chord/LRA/timbre bus channels, Jukebox/CLAP, fixture-token decoder before console data, more dance as a first lever, product training on any of the research corpora, scraping. Oslo stays the concert test. Order: week 1 H-G audit || H-H pull+audit; week 2 H-I MVP; week 3 H-J, H-K; open: H-L (needs raters), H-M, console partnership.",
+    "preconditions": "",
+    "gates": [
+      "G9.2 corpus gate: AP_audio - AP_shift >= +0.15 and AP_audio >= AP_beat-trigger + 0.05 on events and group-envelope R2, causal and offline",
+      "G9.3 decoder gate (Value- and onset-matched): FID vs conductor beats shuffled donor by > 2x; BAS not below conductor without more onsets; A/B 'fits the music' CI excludes 50% at n >= 20; rig transfer beats channel-copy",
+      "G9.4 planner gate: paired BAS not below no-planner; FID and 'feels structured' beat the shuffled-section plan and the causal planner",
+      "G9.5 critic gate: real-vs-beat-trigger accuracy above chance; additive projection changes best-of-8 order; best-of-8 beats random-of-8 on human 'fits the music'",
+      "G9.6 preference gate: held-out Bradley-Terry accuracy > 60% at n = 200; fitted knobs do not raise BAS toward the metronome; fresh batch prefers them to defaults",
+      "G9.7 feature gate: each family beats the 92-ch bus by >= +0.02 AP (events) or >= +0.02 R2 on a song split with shuffled donor and L = 0 counterpart, else it stays out of the trunk"
+    ],
+    "status": "queued",
+    "hypothesis_id": null,
+    "priority": 1,
+    "notes": [
+      {
+        "at": "2026-09-04T19:52:15+00:00",
+        "text": "2026-09-04 late: corpora on disk -- BeatSaver lightshow maps pulled (pull_beatsaver.py: 300 usable of 317 inspected top-rated maps, 16.3 h of audio, 2.2 GB, /mnt/lightsem-data/beatsaver; most are v2 five-lane _events maps, some with Chroma colour data, a few v3 event-box maps; Vivify asset-bundle shows are skipped because their lighting is not in the map data); Raveform (1,423 expert-annotated EDM tracks with beat/downbeat/section per beat, 4,902 mix records) at /mnt/lightsem-data/raveform; Skip-BART weights at /mnt/lightsem-data/models/skip-bart; demucs 4.1 installed in the torch venv, htdemucs weights fetched (~30 s of audio per second on the 5070); xLights sequence downloads need a login (403) and are parked. ARCHITECTURE PASS (PLAN.md 6.9.9, docs/research/stage9/05_transformer_architectures.md): the decoder runs on the BEAT GRID (8th/16th notes, 4-8 Hz), never at 40 fps -- 40 fps is the engine's render rate; Beat Saber event boxes are trained as discrete CE (effect id, group, beat-time, palette/brightness bins, phase spread, density) on the same type-masked head whose continuous channels train through the histogram renderer on RPMC-L2 / Just Dance; conditioning = AdaLN/FiLM from the planner's slow knobs + a Skip-BART-style skip of the time-aligned audio frame; a 4-bin tempo gate on the head (TempoMoE) is the legitimate routing axis, fixture-type experts are not; the frozen Conformer stays (no Mamba: the sequence is a few thousand beat tokens); no masked-AR, flow only if the operator vector is multimodal after conditioning (NLL of 2-step MeanFlow must beat L2 + circular palette loss); symmetry handled by generate-the-look-then-assign (SeqLight, MEGAMI), not an equivariant CNF over fixture permutations (Hayes 2506.07199 is the diagnosis, not the prescription). Recommended stack, ~7 M trainable: planner 4 layers d=256 at 1 token/bar, RoPE on bar index, 8 knobs per section + boundary logit (3-6 h); decoder 3 layers d=256 beat-relative RoPE at 4-8 Hz, ~2.5 M, renderer KL + event-box CE + look-change BCE, random-rig dropout, RSTC-style clamps at inference; critic 2 layers d=128 bar-synchronous, InfoNCE with time-shift / other-song / beat-trigger negatives, best-of-8 reranker only (2-4 h). Falsifiers unchanged from G9.3-G9.5, plus: decoder must beat the ENGINE-ONLY baseline (planner knobs + beat-trigger effects, no learned effect id) and the offline-vs-L=0 gap must be reported."
+      },
+      {
+        "at": "2026-09-04T23:06:45+00:00",
+        "text": "2026-09-05 STAGE 9 RUN, one overnight pass (PLAN.md rev. 9 section 6.9.10; exp-017..023). H-H Beat Saber (298 maps, song split): scene-change AP audio 0.170 vs shifted null 0.131 vs beat trigger 0.150 (margins +0.039 / +0.020 against gates +0.15 / +0.05; offline 0.210); Conformer head 1.65x vs rhythm 1.30x -> a tempo corpus with a small authored residual, EXCLUDED from every loss. H-G stems: four full stems +0.0185 AP audio-only (CI [0.015, 0.0219]), donor +0.0002, bar phase -0.0000; the Conformer head with stems 2.99x vs 3.17x without; coach split absent. H-M MERT-330M layer groups: +0.0192 raw, +0.0180 after song-mean subtraction, random projection -0.0000, song-ID probe 83%. H-I decoder: v1 regressed parameters collapse to per-song constants; v2 sampled look (rectified flow, look-then-assign) has variance but r~0.04 with the target; G9.3 FID_light v1 930 / v2 6211 vs conductor 43.8 (donors 927 / 5403), BAS-null v1 -0.166 / v2 -0.055 vs conductor +0.124; rig transfer v1 0.302 vs copy 0.306. REFUTED AS BUILT (two light-level gates missed twice). Engine diagnostic (zero phase spread, 30 clips): BAS-null +0.505, FID 1107. H-J planner: bar knobs unpredictable within songs (pooled R2 ~0); on v2 FID plan 597 vs shuffled-section 610 vs no planner 6211, BAS plan -0.061 vs no planner -0.055 (G9.4-bas failed). H-K critic: real vs beat-trigger 0.893 (C_R alone 0.985), vs other song 0.730, vs 2+-bar shift 0.563; additive projection R2 0.90, best-of-8 order changes on 41% of clips; best-of-8 vs random-of-8 FID 41 vs 44, BAS +0.123 vs +0.124. H-L not run (needs raters). WHAT IT SETTLES: every authored corpus carries cue TIMING (look-change lifts 1.4-3.2x), not LEVELS (frame value r <= 0.18, bar knobs R2 ~0, sampled look = donor); feature engineering has a +0.02 AP ceiling here and the Conformer head converts none of it; FID_light against dance-derived light is the wrong metric for a look sampler. NEXT LEVER: a cue-based renderer (calibrated look-change hazard firing look transitions drawn from the corpus look distribution, scored on cue timing and transition statistics against authored corpora) and the H-L human study; console show files remain the only route to level design."
+      },
+      {
+        "at": "2026-09-07T21:16:39+00:00",
+        "text": "2026-09-08 H-L PILOT INTAKE AND ANALYSIS (not a confirmation experiment). Anton uploaded all 39 original ratings in /root/lightsem/outputs/stage9/hl_pairs/ratings.jsonl; SHA256 def1baf86ef8d0d924d88d532352994e5902a0f1204d4a90d3ee37e16894501e, unchanged. One rater, 29 registered song groups, no ties and no brightness foils; questions agree 33/39, defaults win 8/18 defaults-vs-perturbation pairs on each question. Fixed original analysis before fitting (logs/hl_analysis_protocol_2026-09-08.json): log-knob BT, ridge lambda 1, five folds grouped by song, seed 0. Corrected per-rater resume, answer validation, foil exclusion, song identity conflict checks and grouped CV; 16 CPU tests pass. Held-out music-fit accuracy 22/39=0.5641 (conditional fixed-OOF song bootstrap interval 0.4286–0.7059; training-fold majority baseline also 0.5641), designed appearance 23/39=0.5897 (0.4474–0.7382; majority baseline 0.4103). These are preference prediction accuracies, not lighting win rates. G9.6-acc fails at n=39; G9.6-bas and G9.6-fresh unmeasured; keep H-L open/proposed, no computed confirmation/refutation claimed. Candidate knobs saved only, defaults unchanged. Important material audit: saved-video screen-luma pair gap median 16.1% despite DMX metric gap median 0.67%; screen-brighter chosen 20/39 on each question, not evidence of simple brightness preference. Verified blinder decoder uses dimmer twice, renderer linear dimmer with fixed warm RGB. Five same-title train counterparts covering nine pairs remain UNVERIFIED audio identity candidates. Fix matching and verify identities before fresh comparisons. These pairs vary old ConductorHybrid knobs, not GroupEngine waves/colour. Artifacts: docs/HL_RATINGS_2026-09-08.md; outputs/stage9/hl_pairs/bradley_terry.json (individual predictions, fold memberships, hashes); logs/hl_pair_materials_audit_2026-09-08.json. GPU remains occupied by existing Just Dance extraction; analysis used CPU."
+      }
+    ],
+    "former_ids": [],
+    "topic_tags": [
+      "audio-to-light",
+      "learned-conductor",
+      "source-separation",
+      "cross-modal",
+      "generative-modelling",
+      "evaluation-metric",
+      "offline-vs-online"
+    ],
+    "created_at": "2026-09-04T19:19:32+00:00",
+    "updated_at": "2026-09-07T21:16:39+00:00"
+  },
+  {
+    "id": "rb-ls2-10-cue-renderer",
+    "problem_id": "dancing-light-generative-20260903",
+    "prompt": "STAGE 10 -- THE CUE-BASED RENDERER (PLAN.md rev. 10 section 6.10). Stage 9 measured that every authored corpus on disk carries cue TIMING (look-change AP lifts 1.4x RPMC, 2.4x JD, 1.65x Beat Saber) and the corpus's look statistics, but not per-frame or per-bar light LEVELS (frame value r <= 0.18, bar knobs R2 ~ 0, a sampled look no better than a donor). A decoder that owns the look must therefore be a sampler over looks with learned cue timing. Two hypotheses. H-N: hold the sampled look between cues fired by the calibrated look-change hazard (refractory 2 s, threshold matched to the corpus cue rate) -- scored on cue-timing AP lift, on the new cue-transition-distance against the authored corpora with a split-half floor and a shuffled-donor null, and on the JD light protocol (Light-BAS minus null not below the conductor at no higher onset density). H-O: the with-hazard operator head (3.17x) beats the audio-only decoder (2.35x) because the rhythm of the operator's OWN past cues carries information; feeding the decoder the hazard features of its own emitted cues (teacher-forced in training, autoregressive at inference in 1 s blocks) must recover part of that margin on held-out songs, priced against the same decoder with the TRUE hazard (the ceiling) and without it (the floor); a size sweep (d 192/256/384, 3/6 blocks) reports whether capacity moves the cue lift at all. Nothing in this stage regresses a level; nothing enters a loss from Beat Saber; every number carries its shuffled-donor and split-half counterparts.",
+    "preconditions": "",
+    "gates": [
+      "G10.1-cue: cue-held sampler's cue-transition distance below the per-frame sampler's and below the shuffled-donor null, above the split-half floor",
+      "G10.1-bas: Light-BAS minus null not below the conductor without a higher onset density",
+      "G10.2-self: self-hazard decoder's held-out cue lift above the audio-only decoder's with CI excluding 0 (JD and RPMC)",
+      "G10.2-size: size sweep reported, lift vs parameters, causal only"
+    ],
+    "status": "queued",
+    "hypothesis_id": null,
+    "priority": 1,
+    "notes": [
+      {
+        "at": "2026-09-05T05:54:04+00:00",
+        "text": "2026-09-05 HUMAN OBSERVATION (Anton, Shpongle demos, outputs/stage9/demo_songs): (1) the colour almost never changes -- use it more; (2) decoder v1 / v2 / v2+plan (the arms with the chase phase spread and per-frame sampling) fit the music BETTER to the eye than every on-beat arm (decoder_v1_onbeat, engine_only, cue_held), because the light moves in waves like the track does, whereas the on-beat arms feel like every lamp is on at once and 'louder = brighter' with a fixed colour; (3) cue_held is decent but its movement is monotonous. This is the first human signal of Stage 10 and it contradicts Light-BAS: the on-beat engine scores +0.59 vs +0.12 and is judged worse. Pre-registered consequence (PLAN 6.9.10 point 5): BAS is not the metric for a look sampler; the 'too metronomic' question is. Engine response: GroupEngine gains a slow travelling intensity wave under the beat effects (period 2 bars, role-specific phase), a hue spread across the stage, a slow hue drift, and the cue-held demo enforces a hue change of >= 1/6 turn at every cue (arm cue_held_waves in render_stage9_demo.py), to be judged by eye and in the H-L pairs."
+      }
+    ],
+    "former_ids": [],
+    "topic_tags": [
+      "audio-to-light",
+      "generative-modelling",
+      "learned-conductor"
+    ],
+    "created_at": "2026-09-05T05:12:04+00:00",
+    "updated_at": "2026-09-05T05:54:04+00:00"
+  },
+  {
+    "id": "rb-light-layers-20260922",
+    "problem_id": "dancing-light-generative-20260903",
+    "prompt": "User-authorized campaign lighting-cue-model-20260922t094347z. Execute all nine preregistered h-layers-20260922-* families subject to their prerequisites. Exact design /root/lightsem/docs/research/2026-09-22-color-beat/CAMPAIGN_DESIGN.json SHA256 1d3819baecc70cb9f4d62a19e4ef1eea0e825e2256760f8b86f505d298760935. Freeze verified data/exposure/config/source hashes before execution; source mount just restored. Same accepted motion, only RGB/dimmer overlays. Nine student recipes seeds0/1/2; no dormant GPU after prerequisites pass. Start with learned rhythm feature extraction and TRAIN-only extraction/runtime smoke, then target quality and matched student fits. No missing-label accuracy claims; record blocked stages honestly. Record all outcomes and keep failed gates.",
+    "preconditions": "Verified dedicated Torch environment and data mount; >=1GiBfree; limitedartifact budget; independentlabels foraccuracy claims; noholdoutleakage; each family requires frozenrunmanifest beforestart.",
+    "gates": [
+      "prerun-provenance",
+      "valid-common-instrument",
+      "scope-and-output"
+    ],
+    "status": "queued",
+    "hypothesis_id": null,
+    "priority": 1,
+    "notes": [],
+    "former_ids": [],
+    "topic_tags": [
+      "audio-to-light",
+      "offline-vs-online"
+    ],
+    "created_at": "2026-09-22T10:06:10+00:00",
+    "updated_at": "2026-09-22T10:06:10+00:00"
+  },
+  {
+    "id": "rb-baseline06-ab-20260929",
+    "problem_id": "dancing-light-generative-20260903",
+    "prompt": "COMPLETED USER REVIEW: C IS THE ACCEPTED DEVELOPMENT BASELINE. User explicitly selected history ON and transitions ON for the new baseline after four-arm review, and requested committing all changes including compression. This selects armC: variant06 independent Rich96 I_VR_P0 selected seed0, rhythm companion02, generated palette history, 300ms causal smoothstep channel-RGB transitions. Current config /root/lightsem/configs/light_layers/baseline.json now points to C video SHA256 fb06c3f3a951a4f2a12bbc01f4470cec4f8326912a441bd4e25097e275170299 and C streams SHA25634ca1d5f2c9a271b9e08536519f4d657e4aa3017a5ac42514b38e8dd07e4829b. Full C video43587650bytes,1080p30AV1,277.3s. Compact encoding is AV1 NVENC p7/UHQ1100k target1200k max2000k buffer, AAC128k, maximum50MB for full Shpongle reviews. Source FLAC remains unchanged. Exact user message /root/lightsem/experiments/2026-09-29-baseline/records/USER_BASELINE_C_SELECTION.json. Old configuration preserved in BASELINE_BEFORE_C_SELECTION.json and matches the frozen review binding; historical manifests/audits retained. The new baseline is accepted by the user; no further selection/permission or numerical ratings required. This is product preference, not changed scientific verdicts. The non-hypothesis review queue is administratively superseded/abandoned because the API requires a hypothesis for done; this is not rejection of C. Continue future work from C, next queue rb-baseline06-image-supervision-20260929. Original delivery context follows for provenance:\n\nContinue from user-selected baseline06: I_VR_P0 independent Rich96, selected seed0 checkpoint /mnt/lightsem-data/experiments/lightsem/lighting-cue-model-20260922t094347z/observer_fits_v1/04_seed0_I_VR_P0/best.pt SHA256 8de865906cfabb49290971eccf6016ab38edebe885eec7e6369f020fb5544b8a. Retain rhythm companion02 movement and saved source Shpongle. User qualitative feedback 2026-09-29: 02 definitely better than01. 06 I_VR_P0 selected seed0 is the most interesting and best; explicitly selected as new development baseline. User says color fits track and rhythm changes, requests color transitions. User did not understand a significant difference in07; comparator unspecified. 10vs05 mostly one cyan/blue-related change; requests palette-history A/B on06. No numeric scores supplied; this is informed single-track preference, not a scientific confirmation or multi-track result. Exact user wording: /root/lightsem/experiments/2026-09-29-baseline/records/USER_FEEDBACK.json. Current baseline: /root/lightsem/configs/light_layers/baseline.json. Render fixed 2x2: A original06 history on/hard cuts; B history off/hard; C history on/300ms causal smoothstep RGB fades; D history off/same fades. Compare A/B and C/D for history, A/C and B/D for fades. Replay the authenticated saved all-state GPU choices, require own-state palette/previous-ID exact equality, no encoder/head calls, no training. Same fixed cues and accents, all non-RGB bytes exact, full277.3s native1080p30AV1 and identical decoded audio; sequential renders and1GiB free floor. Plan /root/lightsem/experiments/2026-09-29-baseline/records/AB_PLAN_V1.json SHA256 2e6ef5b44bdb94b3e1401d3d6e57400f410543031ca946c0cedfbcaa3f782ee3. Record delivery and then collect user preference for new arms; do not claim that preferences were already collected for these new videos. Preserve all old scientific negative/unqualified verdicts and original records. Memory updates are authorized without separate permission.\n\nCurrent delivery revision: Engineering delivery revision V2: concurrent workspace work changed review encoding to AV1 NVENC p7 UHQ1240k, AAC128k from original FLAC and maximum50,000,000bytes per MP4. Source plan /root/lightsem/experiments/2026-09-29-baseline/records/AB_PLAN_V2.json SHA256 f9e11c6103a4318ecafaa7d7fc7b94e9bde42ef7828fb9f3ae4c54ec31f7ec0c. All FOUR arms are now newly rendered with common compression/audio; A retains exact selected06 DMX, original old06 video is preserved. V1 preparation passed, first render was interrupted before completion and same-plan restart correctly rejected changed source hashes. Partial files/receipts retained in V1. V2 was prepared/launched by concurrent workspace work; this native format-revision note is retrospective after its preparation/render start, not a prospective scientific preregistration. Original user feedback, accepted06, own-history replay equality, fixed cues/accents and479 preserved non-RGB slots remain. Working output root /root/lightsem/experiments/2026-09-29-baseline/outputs/shpongle_baseline_ab_v2; review http://127.0.0.1:8766. Await completed audits and actual user preference for A/B/C/D.\n\nCompleted delivery: Delivered all four compact baseline06 reviews after explicit user confirmation of~50MB files. Each8319frames,277.3s,1920x1080@30fps AV1, original-FLAC-derived AAC128k. Sizes A43586448B,B43030508B,C43587650B,D43027875B. Identical decoded audio SHA2569be221f4e05a2fc92cf798be837ea4d1b392c7f4ebdf71a9edeb68373351442f. A history on/hard; B history off/hard; C history on/300ms smoothstep; D history off/same fade. Compare A/B or C/D for history; A/C or B/D for fades. All479 non-RGB slots, motion, dimmers,262color cue opportunities and30accents preserved; original06DMX exactly matches A, original model/audio/video source hashes unchanged. No model calls or training; saved all-state GPU table reproduces original palette/previous IDs exactly. History changes IDs for178.4s; max RGB byte jump219->28 with history and146->18 without; these are engineering descriptions, not human quality scores.9 transition/state-replay tests and23 existing overlay tests passed. Full media audits plus independent hashes/format/preservation audit PASS. Four local byte-range routes206/HEAD pass; sampled stills inspected, no automated browser interaction or human music-fit claim for new arms. Evidence /root/lightsem/experiments/2026-09-29-baseline/outputs/shpongle_baseline_ab_v2/INDEPENDENT_DELIVERY_AUDIT.json. Player http://127.0.0.1:8766 and direct links in /root/lightsem/experiments/2026-09-29-baseline/outputs/shpongle_baseline_ab_v2/README.md. User-selected06 remains the development baseline; preference among new A/B/C/D is pending. Next research queue examines richer image/temporal supervision and separate fixture-color mapping. All earlier scientific verdicts remain intact.",
+    "preconditions": "Review completed. User selected C (history on +300ms transitions); do not requeue renders or ask the baseline choice again.",
+    "gates": [],
+    "status": "abandoned",
+    "hypothesis_id": null,
+    "priority": 1,
+    "notes": [
+      {
+        "at": "2026-09-29T15:12:48+00:00",
+        "text": "Engineering delivery revision V2: concurrent workspace work changed review encoding to AV1 NVENC p7 UHQ1240k, AAC128k from original FLAC and maximum50,000,000bytes per MP4. Source plan /root/lightsem/experiments/2026-09-29-baseline/records/AB_PLAN_V2.json SHA256 f9e11c6103a4318ecafaa7d7fc7b94e9bde42ef7828fb9f3ae4c54ec31f7ec0c. All FOUR arms are now newly rendered with common compression/audio; A retains exact selected06 DMX, original old06 video is preserved. V1 preparation passed, first render was interrupted before completion and same-plan restart correctly rejected changed source hashes. Partial files/receipts retained in V1. V2 was prepared/launched by concurrent workspace work; this native format-revision note is retrospective after its preparation/render start, not a prospective scientific preregistration. Original user feedback, accepted06, own-history replay equality, fixed cues/accents and479 preserved non-RGB slots remain. Working output root /root/lightsem/experiments/2026-09-29-baseline/outputs/shpongle_baseline_ab_v2; review http://127.0.0.1:8766. Await completed audits and actual user preference for A/B/C/D."
+      },
+      {
+        "at": "2026-09-29T15:26:38+00:00",
+        "text": "Delivered all four compact baseline06 reviews after explicit user confirmation of~50MB files. Each8319frames,277.3s,1920x1080@30fps AV1, original-FLAC-derived AAC128k. Sizes A43586448B,B43030508B,C43587650B,D43027875B. Identical decoded audio SHA2569be221f4e05a2fc92cf798be837ea4d1b392c7f4ebdf71a9edeb68373351442f. A history on/hard; B history off/hard; C history on/300ms smoothstep; D history off/same fade. Compare A/B or C/D for history; A/C or B/D for fades. All479 non-RGB slots, motion, dimmers,262color cue opportunities and30accents preserved; original06DMX exactly matches A, original model/audio/video source hashes unchanged. No model calls or training; saved all-state GPU table reproduces original palette/previous IDs exactly. History changes IDs for178.4s; max RGB byte jump219->28 with history and146->18 without; these are engineering descriptions, not human quality scores.9 transition/state-replay tests and23 existing overlay tests passed. Full media audits plus independent hashes/format/preservation audit PASS. Four local byte-range routes206/HEAD pass; sampled stills inspected, no automated browser interaction or human music-fit claim for new arms. Evidence /root/lightsem/experiments/2026-09-29-baseline/outputs/shpongle_baseline_ab_v2/INDEPENDENT_DELIVERY_AUDIT.json. Player http://127.0.0.1:8766 and direct links in /root/lightsem/experiments/2026-09-29-baseline/outputs/shpongle_baseline_ab_v2/README.md. User-selected06 remains the development baseline; preference among new A/B/C/D is pending. Next research queue examines richer image/temporal supervision and separate fixture-color mapping. All earlier scientific verdicts remain intact."
+      },
+      {
+        "at": "2026-09-29T15:33:23+00:00",
+        "text": "User explicitly selected history ON and transitions ON for the new baseline after four-arm review, and requested committing all changes including compression. This selects armC: variant06 independent Rich96 I_VR_P0 selected seed0, rhythm companion02, generated palette history, 300ms causal smoothstep channel-RGB transitions. Current config /root/lightsem/configs/light_layers/baseline.json now points to C video SHA256 fb06c3f3a951a4f2a12bbc01f4470cec4f8326912a441bd4e25097e275170299 and C streams SHA25634ca1d5f2c9a271b9e08536519f4d657e4aa3017a5ac42514b38e8dd07e4829b. Full C video43587650bytes,1080p30AV1,277.3s. Compact encoding is AV1 NVENC p7/UHQ1100k target1200k max2000k buffer, AAC128k, maximum50MB for full Shpongle reviews. Source FLAC remains unchanged. Exact user message /root/lightsem/experiments/2026-09-29-baseline/records/USER_BASELINE_C_SELECTION.json. Old configuration preserved in BASELINE_BEFORE_C_SELECTION.json and matches the frozen review binding; historical manifests/audits retained. The new baseline is accepted by the user; no further selection/permission or numerical ratings required. This is product preference, not changed scientific verdicts. Administratively superseded this non-hypothesis review queue; no fabricated hypothesis_id."
+      }
+    ],
+    "former_ids": [],
+    "topic_tags": [],
+    "created_at": "2026-09-29T15:04:23+00:00",
+    "updated_at": "2026-09-29T15:33:23+00:00"
+  },
+  {
+    "id": "rb-visual-next-cut-targets-20260929",
+    "problem_id": "dancing-light-generative-20260903",
+    "prompt": "Execute ONLY the prospective study h-visual-next-cut-targets-20260929 after its prerequisite gates. Its prediction is already native/proposed; do not create a duplicate hypothesis. Start a new experiment with lineage to the relevant preserved parent only after the annotation, instrument and implementation/source/weight bindings are valid. No new experiment was run during preregistration.\n\nFrozen protocol: /root/lightsem/experiments/2026-09-29-visual-next/records/PREREGISTRATION_V1.md SHA256 772b9687c992275f020b488edf7524596c3c7f177cd40befbcda3828aa8573b5.\n\nVisual learning after baseline C — prospective protocol V1\n\nStatus: prospective specification; NATIVE_REGISTRATION.json records native registration.\nAll hypotheses and gates must precede any new study output.\nThis document is a research preregistration, not a report of completed experiments.\nBaseline C remains the user-selected product reference. No training, feature-model\ninference, annotation, oracle optimization, TEST reading or new rendering was\nperformed in this research task.\n\n1. Fixed context and scope\n\nParent: master@ff342ff; exact baseline and source hashes are in INPUTS.json.\nC = independent Rich96 I_VR_P0 selected seed0, rhythm companion02, generated\npalette history ON,300ms causal smoothstep transitions. Poses remain the source\nof beam spatial style; audio controls movement time. The new studies address\nvisual supervision/color output and do not replace, retime or retrain motion.\nWhole-track audio processing is allowed; no online-causality claim is made.\n\nHistorical selected DEV is exposed. Shpongle is an exposed demonstration and\nis excluded from statistical method selection. Original31/40 source coverage and\n29/30 qualified-null failures remain failed; the proposed pilot cannot repair\nthem by changing denominators. A successful pilot is conditional on its enrolled\nsource families and is not fresh unseen-song confirmation or product promotion.\n\nThe first Perplexity call timed out at300s. The same56411-character query was\nsuccessfully run through the same configured research MCP with a900s client\nlimit. The answer,498 source results and raw receipts are preserved. All10\nrecommended papers and7 supplementary primary papers were downloaded and read\nin the stated scopes; none establishes a stage-light benefit for these proposals.\n\n2. Cohort, annotation and execution prerequisites\n\nANNOTATION_ENROLLMENT.json prospectively fixes12TRAIN calibration families by\nSHA256(salt+canonical_id) and all31 historicalDEV assessment families, each using\nits existing64s source window. All43 source files exist; their full hashes must\nbe rechecked before extraction. No outcome-dependent replacements. The full91\nTRAIN groups remain the training population for H3; no DEV transforms/fitting.\nAll remasters, duplicate audio, coaches and crops sharing canonical audio identity\nremain one family. An unresolved cross-split identity conflict stops execution.\n\nTwo independent human annotators, blind to method predictions, mark source-video\ncontent color changes, hard/gradual edits, camera-only changes, people/UI leakage,\nambiguous intervals and genuine color changes coincident with edits. Cut-coincident\ncolor changes are NOT automatically labeled false. Judge content from silent video;\nmusic-fit judgments belong to a separate later task. Disagreements are adjudicated\nbefore any scored method outputs are inspected. At offsets0,7,14,21,28,35,42,49,56,63s,\nindependently trace retained-background masks, foreground and fixed UI regions.\n\nCalibration agreement requirements: event matching F1>=.80 at±.2s and median\nforeground IoU>=.85 between annotators; ambiguous time<=20%. These are instrument\neligibility requirements, not measured values. Freeze the manual/independent\nassessment masks and events before scoring. At least30/31DEV families,>=80% of\neach retained family's source duration, and>=10 event-bearing families are needed\nfor event inference. Mask comparisons require>=30DEV families with>=8/10 valid\nindependent mask frames each. Annotator failures, missing support or missing\nmodel weights are unmet prerequisites, not evidence of zero effect.\n\nAll algorithms, feature transforms, code/weight hashes, software environment,\nsource timestamp mapping, grouping and statistical scripts must be frozen in a\nnew execution manifest BEFORE any new predictions. A future implementation may\nfill addresses/hashes and implement this protocol; changing a method, threshold,\nmetric or cohort rule requires a versioned amendment before outcomes, not a silent\nimplementation choice. The annotation, implementation and model-acquisition\nprerequisites are currently PENDING. No noise sigma or powered MDE is asserted.\n\n3. Common inference, controls and statistics\n\nPrimary unit: canonical source-song family. Average frame/event observations\nwithin a family; average paired training seeds within a family before aggregation.\nDo not use frames, events, crops or repeated ratings as independent sample units.\nUse10000 paired family bootstrap draws (seed20260929); report95% intervals and\npaired sign-flip p values. The primary family is fixed to four hypotheses. Interim reports use conservative\nBonferroni-adjusted p=min(1,4p); once all four are evaluated, also report Holm.\nUnexecuted hypotheses remain unmeasured, never assigned fabricated test results.\nUse the conservative four-test adjusted p for early gate decisions; never select\na favorable subset post hoc. H3's additional control contrasts form a separately\nreported Holm family. Pilot intervals are not a prospective power calculation.\n\nEvent matching: one-to-one maximum-cardinality matching within±.2s, then minimum\ntotal timing distance, deterministic timestamp tie-breaking. Candidate peaks use\nthe existing .2s NMS; frozen .5 output threshold for F1/rate summaries. AP groups\ntied scores and remains undefined for reference-nonevent families. Nonevent and\nempty-output cases retain false-cue/minute and recall reporting; no undefined AP\nis replaced by zero. Support is fixed from source/reference quality and shared\nacross arms, not chosen by predictions. Thresholds/scalers fit TRAIN only.\n\nReal-data comparisons require constant/persistence, event-rate-matched random,\nbeat-only and circular-shift controls where relevant. H3 additionally uses\nrecipient-rhythm-preserving donor audio as a limited intervention, not a complete\ncausal isolation. Twenty deterministic admissible circular shifts per group must\nhave genuinely common source/reference support; failure is not repaired by\nrelaxing support after scoring. Numerical tie/endpoint behavior must be tested.\n\nBefore scoring, validate instruments on known hue changes at constant luminance,\nluminance changes at fixed chromaticity, dark/achromatic frames, static backgrounds\nwith moving masks, camera translations, abrupt edits, color flashes, duplicated\nframes, hue wraparound, ties and missing intervals. Report perturbation recovery\nseparately from real-image qualification. Self-distance must be0; constant output\nand wrong spatial assignment must be detectable by the relevant instrument.\n\nRelative improvements require a positive baseline denominator; zero/degenerate\nreferences remain undefined or fail eligibility, never receive an epsilon floor.\n\nThresholds below are committed engineering targets, NOT literature effect-size\nestimates and NOT powered MDEs. A sign-only native verdict never overrides failed\nblocking gates. No hypothesis is started/closed in this task.\n\n4. H1 — edit-aware color targets\n\nID: h-visual-next-cut-targets-20260929. Compare A1 against A0 using identical\ncached YOLO prompts, stateless SAM2 masks, HS targets and source frames.\nA0 is the existing chromatic observer. A1 uses released TransNetV2 at its fixed\n.5 threshold and vetoes candidate color events within±.2s of predicted edit\nintervals. It does not remove those times from the evaluation denominator.\nGradual-transition intervals use the released inference convention, which must\nbe pinned in the execution manifest. No local detector training or threshold sweep.\n\nPrimary: macro-family F1 against the independent CONTENT-color event annotations,\nincluding genuine edit-coincident positives. Prediction: A1-A0>=+.05 absolute.\nBlocking guards: lower95% paired interval>0, four-test adjusted primary p<.05; genuine\ncontent-event recall loss<=.03 absolute; false-cue/minute must not increase; source\nand annotation support unchanged. A veto that deletes real musical color changes\nfails, even if its remaining event precision looks attractive. Report edit-only,\nwithin-shot and edit-coincident strata; none becomes primary after inspection.\n\n8. Resources, dependencies and product gates\n\nSerial execution on one RTX5070 12GB. Pilot cap8GPU-hours total: H1/H2 masks/cuts2h,\nH3 representation extraction1h and student fits3h, H4 oracle/render2h. A stage\ncannot borrow another stage's allowance after a failure without amendment. Peak\nreserved VRAM<=10GiB, per-process RAM<=8GiB, new study cache/checkpoints<=3GiB on\nroot, no scientific cache growth on the nearly full/mnt volume; both filesystems\nretain>=1GiB free. Research PDFs are a separate<=512MiB cache. No foundation-model\ntraining, full decoded-video cache or silent model substitution. A bounded\n16-frame smoke test pins runtime/VRAM and sources before corpus work. Runtime\nnumbers are unmeasured until that test; an OOM abort is not a hypothesis refutation.\n\nAnnotation/source/instrument validity are prerequisites for every affected test.\nH1 and H2 are isolated and can fail independently. H4 needs valid reference masks\nand targets, not a successful foundation encoder. H3's preliminary feature checks\nprecede its conditional audio fits. H4 failure blocks learning a fixture-wise\noutput under that recipe, not all audio/color research. No sealed TEST access.\n\nThe original human-preference-winrate diagnostic requires a separate blinded\nmulti-track panel (>=20raters). A later product trial must have independent music\nfit and designed-appearance questions, equal audio/camera/exposure, brightness\ncontrols, randomized order and song/rater clustering. Sample size/power and rater\nreliability thresholds must be registered from an annotation-only pilot before\ncandidate comparisons. No such panel or power estimate exists now. C remains the\nbaseline; numerical proxy/oracle wins cannot change it automatically. No MDE is\nentered in native gates because power has not been established.",
+    "preconditions": "Independent annotations, eligible support, instrument validation and exact executable/weight bindings are PENDING. Baseline C/source artifacts are fixed; do not infer readiness or confirmation from this queued record.",
+    "gates": [
+      "source-and-preregistration",
+      "independent-instrument",
+      "common-support",
+      "paired-statistics",
+      "resource-and-scope",
+      "cut-benefit",
+      "cut-recall-and-coverage"
+    ],
+    "status": "queued",
+    "hypothesis_id": "h-visual-next-cut-targets-20260929",
+    "priority": 1,
+    "notes": [
+      {
+        "at": "2026-09-29T16:26:57+00:00",
+        "text": "Literature and prospective protocol registered before computation; prerequisites pending."
+      }
+    ],
+    "former_ids": [],
+    "topic_tags": [
+      "audio-to-light",
+      "evaluation-metric"
+    ],
+    "created_at": "2026-09-29T16:26:56+00:00",
+    "updated_at": "2026-09-29T16:26:57+00:00"
+  },
+  {
+    "id": "rb-ls2-00b-predictability-audit",
+    "problem_id": "dancing-light-generative-20260903",
+    "prompt": "STAGE 0b — PREDICTABILITY AUDIT: which motion descriptors does audio determine? (context: PLAN.md rev. 3 section 2-3 and Stage 0b; requires rb-ls2-00 descriptors). This audit assigns every descriptor to block A (deterministic), B (event), C (sampled) or noise BEFORE any training, so the model never regresses what is personal.\nBackground: prior probes measured only kinetic energy (inter-dancer r 0.024 @0.1 s, 0.13 @2 s, 0.50 @8 s; held-out audio R2 ~0). Music-induced-movement science predicts which channels ARE shared: pulse clarity -> quantity of motion / CoM speed / feet / hips (r 0.55-0.67), low-frequency flux -> head speed (r 0.73), high-frequency flux -> hands (0.65, large residual), vertical bounce period-locked to the tactus, horizontal sway to 2-beat/bar, energy contrast at drops (Burger 2013/2014, Toiviainen 2010, Solberg & Jensenius 2017). Period is shared; phase is personal.\nDo, on AIST++ (30 dancers x 60 tracks) AND FineDance (27 dancers): for every descriptor (QoM; CoM/head/hand/foot speed; vertical bounce amplitude; laterality amplitude and sign; travel; spread; symmetry; jerk; Laban Weight/Time/Space/Flow proxies; footfall rate) at 0.1/0.5/2/8 s smoothing: (i) inter-dancer r for same music; (ii) held-out-TRACK R2 of a ridge/GBM on causal audio features (log-mel, RMS, LF/HF flux, onset, pulse clarity, beat phase); (iii) R2 of a dancer-identity baseline (one-hot dancer, per-dancer mean); (iv) period-locking strength of the vertical channel at the tactus and of horizontal channels at 2-beat/bar (autocorrelation peak vs a shuffled-beat null). Split by track; GroupKFold by music; bootstrap CIs over tracks.\nAssign: block A if audio R2 beats identity by > 0.1 with CI excluding 0 at some timescale; block B if the channel is event-like (footfalls, jumps) and its event times beat a rate-matched random null; block C if inter-dancer r is small but the audio-conditioned spread/scale is stable; else noise.\nPREREGISTER gate (propose_hypothesis): at least QoM, vertical bounce amplitude, head speed and the metrical-level indicator beat the identity baseline with audio R2 > 0.3 at 2-8 s, and vertical period-locking at the tactus exceeds the shuffled-beat null with z > 3. If no channel passes, the dance-derived skeleton is dead and only events survive from dance. Diagnostic: descriptor-audio-r2-over-identity (record per channel in config_note/key_numbers).",
+    "preconditions": "",
+    "gates": [
+      "QoM, vertical bounce, head speed, metrical level beat dancer identity with audio R2 > 0.3 at 2-8 s",
+      "vertical period-locking at tactus beats shuffled-beat null z > 3"
+    ],
+    "status": "queued",
+    "hypothesis_id": null,
+    "priority": 2,
+    "notes": [
+      {
+        "at": "2026-09-03T22:43:14+00:00",
+        "text": "2026-09-04 RUN. Gate FAILED on AIST++. Burger 2013 does not replicate here (every predicted correlation zero or inverted); genre explains 0.65-0.96 of between-track movement variance. Within-track shared dynamics R2 0.09-0.19. Re-run required on free-dancing data (Oslo EDM mocap) before block A can be called dead or alive in general."
+      }
+    ],
+    "former_ids": [],
+    "topic_tags": [
+      "audio-to-light",
+      "music-induced-movement"
+    ],
+    "created_at": "2026-09-03T21:32:48+00:00",
+    "updated_at": "2026-09-03T22:43:14+00:00"
+  },
+  {
+    "id": "rb-ls2-08-justdance",
+    "problem_id": "dancing-light-generative-20260903",
+    "prompt": "STAGE 8 -- JUST DANCE CORPUS: coach motion, designed background visuals, full-song structure (PLAN.md rev. 7 section 6.8). Corpus: 338 YouTube gameplay captures of Just Dance 1-2020, 22.0 h, full commercial songs (median 236 s), one filmed and stylised coach per routine (5 multi-coach files), 720p/1080p, coach video at 30 fps whatever the capture rate, audio on all files (6 silent), some tracks Ubisoft in-house covers. Manifest at /mnt/lightsem-data/cache/justdance_manifest.json. RESEARCH ONLY (YouTube-sourced, Ubisoft choreography and art); usable for a paper, not a product training set.\nWhy it is different from AIST++: full songs with verses, choruses and drops, and choreography made to that song section by section -- a designed response to structure, which is what H-C (rb-ls2-07) needs and AIST++'s structure-less loops cannot give. Why it might not be: if between-song movement is explained by genre or the wiki's Difficulty/Effort rating rather than by audio, it trains a genre prior like AIST++ did.\nThree signals, tested in order: (1) coach motion -> block A/C targets through the 2D pose path (vertical/energy family only: vert_bounce_amp, vert_period_s, com_speed, qom, head_speed, spread; hip_yaw_speed and footfall_rate masked from the loss); (2) background visuals with coach and UI masked -> per-frame brightness and HSV histograms in RPMC-L2's format, scene-change and palette events, the operator-head test unchanged (Ubisoft's video artists hand-animate the lighting to the music; Gold Move flashes mark chorus/drop starts in JD2015-2018); (3) whole-song structure labels for H-C, with the coach's chorus/verse energy contrast and the background's brightness contrast as two independent readings of the sections.\nSteps: 8.1 usability manifest (drop 6 silent files; song-key dedupe -- 15 duplicate groups, 30 files; per-file fps, start_s, coverage, n_coaches; resample 60 fps captures to 30; mask pictogram strip, score band, lyrics, star meter before detection; Gold Move frames low-confidence; multi-coach files skipped). 8.2 predictability audit on held-out SONGS, the rb-ls2-00b recipe unchanged, plus genre/effort partialled out and chorus/verse ratio. 8.3 sync check: vertical-bounce phase against the beat grid should sit at one phase across files; a fitted offset must transfer to a channel it was not fitted on. 8.4 visual-show test on held-out songs. 8.5 train the offline trunk on AIST++ + Just Dance with a corpus token, Oslo held out entirely as the concert-domain test. Cost: pose at 72 frames/s on the RTX 5070 at imgsz 960 -> 1 h screening pass, ~9 h full extraction; neither starts without Anton's word. Split of labour: the parallel session owns video -> descriptors; this session owns the audio bus on the captures, structure labels, the audit, the trunk and the vault.",
+    "preconditions": "",
+    "gates": [
+      "G8.1 >= 250 usable single-coach songs with coverage >= 0.8 after masking",
+      "G8.2 held-out-song audio R2 >= +0.20 on the vertical/energy family at 2 s; genre/effort-partialled correlation not within +/-0.1 of zero; chorus/verse movement ratio CI clear of 1",
+      "G8.4 visual-show event AP lift >= +0.09, z > 3, shift control peaking at 0",
+      "G8.5 held-out-song block A R2 above the AIST++-only model AND Oslo shared-movement R2 not below it"
+    ],
+    "status": "queued",
+    "hypothesis_id": null,
+    "priority": 2,
+    "notes": [],
+    "former_ids": [],
+    "topic_tags": [
+      "music-to-dance",
+      "pose",
+      "audio-to-light",
+      "music-induced-movement"
+    ],
+    "created_at": "2026-09-04T11:14:33+00:00",
+    "updated_at": "2026-09-04T11:14:33+00:00"
+  },
+  {
+    "id": "rb-visual-next-temporal-masks-20260929",
+    "problem_id": "dancing-light-generative-20260903",
+    "prompt": "Execute ONLY the prospective study h-visual-next-temporal-masks-20260929 after its prerequisite gates. Its prediction is already native/proposed; do not create a duplicate hypothesis. Start a new experiment with lineage to the relevant preserved parent only after the annotation, instrument and implementation/source/weight bindings are valid. No new experiment was run during preregistration.\n\nFrozen protocol: /root/lightsem/experiments/2026-09-29-visual-next/records/PREREGISTRATION_V1.md SHA256 772b9687c992275f020b488edf7524596c3c7f177cd40befbcda3828aa8573b5.\n\nVisual learning after baseline C — prospective protocol V1\n\nStatus: prospective specification; NATIVE_REGISTRATION.json records native registration.\nAll hypotheses and gates must precede any new study output.\nThis document is a research preregistration, not a report of completed experiments.\nBaseline C remains the user-selected product reference. No training, feature-model\ninference, annotation, oracle optimization, TEST reading or new rendering was\nperformed in this research task.\n\n1. Fixed context and scope\n\nParent: master@ff342ff; exact baseline and source hashes are in INPUTS.json.\nC = independent Rich96 I_VR_P0 selected seed0, rhythm companion02, generated\npalette history ON,300ms causal smoothstep transitions. Poses remain the source\nof beam spatial style; audio controls movement time. The new studies address\nvisual supervision/color output and do not replace, retime or retrain motion.\nWhole-track audio processing is allowed; no online-causality claim is made.\n\nHistorical selected DEV is exposed. Shpongle is an exposed demonstration and\nis excluded from statistical method selection. Original31/40 source coverage and\n29/30 qualified-null failures remain failed; the proposed pilot cannot repair\nthem by changing denominators. A successful pilot is conditional on its enrolled\nsource families and is not fresh unseen-song confirmation or product promotion.\n\nThe first Perplexity call timed out at300s. The same56411-character query was\nsuccessfully run through the same configured research MCP with a900s client\nlimit. The answer,498 source results and raw receipts are preserved. All10\nrecommended papers and7 supplementary primary papers were downloaded and read\nin the stated scopes; none establishes a stage-light benefit for these proposals.\n\n2. Cohort, annotation and execution prerequisites\n\nANNOTATION_ENROLLMENT.json prospectively fixes12TRAIN calibration families by\nSHA256(salt+canonical_id) and all31 historicalDEV assessment families, each using\nits existing64s source window. All43 source files exist; their full hashes must\nbe rechecked before extraction. No outcome-dependent replacements. The full91\nTRAIN groups remain the training population for H3; no DEV transforms/fitting.\nAll remasters, duplicate audio, coaches and crops sharing canonical audio identity\nremain one family. An unresolved cross-split identity conflict stops execution.\n\nTwo independent human annotators, blind to method predictions, mark source-video\ncontent color changes, hard/gradual edits, camera-only changes, people/UI leakage,\nambiguous intervals and genuine color changes coincident with edits. Cut-coincident\ncolor changes are NOT automatically labeled false. Judge content from silent video;\nmusic-fit judgments belong to a separate later task. Disagreements are adjudicated\nbefore any scored method outputs are inspected. At offsets0,7,14,21,28,35,42,49,56,63s,\nindependently trace retained-background masks, foreground and fixed UI regions.\n\nCalibration agreement requirements: event matching F1>=.80 at±.2s and median\nforeground IoU>=.85 between annotators; ambiguous time<=20%. These are instrument\neligibility requirements, not measured values. Freeze the manual/independent\nassessment masks and events before scoring. At least30/31DEV families,>=80% of\neach retained family's source duration, and>=10 event-bearing families are needed\nfor event inference. Mask comparisons require>=30DEV families with>=8/10 valid\nindependent mask frames each. Annotator failures, missing support or missing\nmodel weights are unmet prerequisites, not evidence of zero effect.\n\nAll algorithms, feature transforms, code/weight hashes, software environment,\nsource timestamp mapping, grouping and statistical scripts must be frozen in a\nnew execution manifest BEFORE any new predictions. A future implementation may\nfill addresses/hashes and implement this protocol; changing a method, threshold,\nmetric or cohort rule requires a versioned amendment before outcomes, not a silent\nimplementation choice. The annotation, implementation and model-acquisition\nprerequisites are currently PENDING. No noise sigma or powered MDE is asserted.\n\n3. Common inference, controls and statistics\n\nPrimary unit: canonical source-song family. Average frame/event observations\nwithin a family; average paired training seeds within a family before aggregation.\nDo not use frames, events, crops or repeated ratings as independent sample units.\nUse10000 paired family bootstrap draws (seed20260929); report95% intervals and\npaired sign-flip p values. The primary family is fixed to four hypotheses. Interim reports use conservative\nBonferroni-adjusted p=min(1,4p); once all four are evaluated, also report Holm.\nUnexecuted hypotheses remain unmeasured, never assigned fabricated test results.\nUse the conservative four-test adjusted p for early gate decisions; never select\na favorable subset post hoc. H3's additional control contrasts form a separately\nreported Holm family. Pilot intervals are not a prospective power calculation.\n\nEvent matching: one-to-one maximum-cardinality matching within±.2s, then minimum\ntotal timing distance, deterministic timestamp tie-breaking. Candidate peaks use\nthe existing .2s NMS; frozen .5 output threshold for F1/rate summaries. AP groups\ntied scores and remains undefined for reference-nonevent families. Nonevent and\nempty-output cases retain false-cue/minute and recall reporting; no undefined AP\nis replaced by zero. Support is fixed from source/reference quality and shared\nacross arms, not chosen by predictions. Thresholds/scalers fit TRAIN only.\n\nReal-data comparisons require constant/persistence, event-rate-matched random,\nbeat-only and circular-shift controls where relevant. H3 additionally uses\nrecipient-rhythm-preserving donor audio as a limited intervention, not a complete\ncausal isolation. Twenty deterministic admissible circular shifts per group must\nhave genuinely common source/reference support; failure is not repaired by\nrelaxing support after scoring. Numerical tie/endpoint behavior must be tested.\n\nBefore scoring, validate instruments on known hue changes at constant luminance,\nluminance changes at fixed chromaticity, dark/achromatic frames, static backgrounds\nwith moving masks, camera translations, abrupt edits, color flashes, duplicated\nframes, hue wraparound, ties and missing intervals. Report perturbation recovery\nseparately from real-image qualification. Self-distance must be0; constant output\nand wrong spatial assignment must be detectable by the relevant instrument.\n\nRelative improvements require a positive baseline denominator; zero/degenerate\nreferences remain undefined or fail eligibility, never receive an epsilon floor.\n\nThresholds below are committed engineering targets, NOT literature effect-size\nestimates and NOT powered MDEs. A sign-only native verdict never overrides failed\nblocking gates. No hypothesis is started/closed in this task.\n\n5. H2 — stable masks that improve background color observation\n\nID: h-visual-next-temporal-masks-20260929. New temporal recipe, linked as a\nsuccessor of h-layers-20260922-mask; the old SAM2-vs-box claim stays unchanged.\nPrimary comparison A2 vsA0: Cutie-base pretrained propagation at480px shorter side\nfrom SAM2 union-of-registered-people anchors versus the original stateless SAM2.\nKeep original person boxes, fixed UI exclusions and image geometry identical.\nRefresh anchors every2s and reset at the SAME frozen edit boundaries in both\npropagation controls. New-object omissions remain errors, not automatic exclusion.\nNearest-neighbor resize of binary masks back to the original decoded geometry.\n\nControls: anchor-mask zero-order hold with the same refresh/reset schedule;\noriginal box mask as historical context; deliberately time-shifted mask/flow\ncontrols; frozen-background/moving-mask positive/negative fixtures. DEVA is a\nliterature-supported alternative, not an unregistered substitution in this arm.\nA3 (cut veto +A2 masks) is a secondary factorial interaction arm only; it cannot\nreplace either isolated primary contrast. No YOLO replacement in this protocol.\n\nPrimary: existing layers-mask-color-error, Jensen-Shannon DISTANCE (sqrt divergence,\nbase2) between extracted72-bin HS distribution and independent retained-background\nreference; macro over the fixed frames, then equally over families. Prediction:\n>=15% relative and>=.02 absolute reduction from A0. Primary lower95% paired benefit\ninterval>0 and four-test adjusted primary p<.05; improve over held-mask control; independent foreground\nIoU must not drop by>.02; false removal of genuine background regions may not rise\nby>.03 absolute; content-event false-cue rate cannot increase by>5%. Empty predicted\nbackground on reference-valid frames is maximal color error, never a dropped row.\nReference invalidity is fixed independently for all arms. Flow-warped agreement,\nboundary quality and late-shot decay are secondary; smoothing alone is not success.\n\n8. Resources, dependencies and product gates\n\nSerial execution on one RTX5070 12GB. Pilot cap8GPU-hours total: H1/H2 masks/cuts2h,\nH3 representation extraction1h and student fits3h, H4 oracle/render2h. A stage\ncannot borrow another stage's allowance after a failure without amendment. Peak\nreserved VRAM<=10GiB, per-process RAM<=8GiB, new study cache/checkpoints<=3GiB on\nroot, no scientific cache growth on the nearly full/mnt volume; both filesystems\nretain>=1GiB free. Research PDFs are a separate<=512MiB cache. No foundation-model\ntraining, full decoded-video cache or silent model substitution. A bounded\n16-frame smoke test pins runtime/VRAM and sources before corpus work. Runtime\nnumbers are unmeasured until that test; an OOM abort is not a hypothesis refutation.\n\nAnnotation/source/instrument validity are prerequisites for every affected test.\nH1 and H2 are isolated and can fail independently. H4 needs valid reference masks\nand targets, not a successful foundation encoder. H3's preliminary feature checks\nprecede its conditional audio fits. H4 failure blocks learning a fixture-wise\noutput under that recipe, not all audio/color research. No sealed TEST access.\n\nThe original human-preference-winrate diagnostic requires a separate blinded\nmulti-track panel (>=20raters). A later product trial must have independent music\nfit and designed-appearance questions, equal audio/camera/exposure, brightness\ncontrols, randomized order and song/rater clustering. Sample size/power and rater\nreliability thresholds must be registered from an annotation-only pilot before\ncandidate comparisons. No such panel or power estimate exists now. C remains the\nbaseline; numerical proxy/oracle wins cannot change it automatically. No MDE is\nentered in native gates because power has not been established.",
+    "preconditions": "Independent annotations, eligible support, instrument validation and exact executable/weight bindings are PENDING. Baseline C/source artifacts are fixed; do not infer readiness or confirmation from this queued record.",
+    "gates": [
+      "source-and-preregistration",
+      "independent-instrument",
+      "common-support",
+      "paired-statistics",
+      "resource-and-scope",
+      "mask-color-benefit",
+      "mask-not-just-smooth"
+    ],
+    "status": "queued",
+    "hypothesis_id": "h-visual-next-temporal-masks-20260929",
+    "priority": 2,
+    "notes": [
+      {
+        "at": "2026-09-29T16:26:58+00:00",
+        "text": "Literature and prospective protocol registered before computation; prerequisites pending."
+      }
+    ],
+    "former_ids": [],
+    "topic_tags": [
+      "audio-to-light",
+      "evaluation-metric"
+    ],
+    "created_at": "2026-09-29T16:26:57+00:00",
+    "updated_at": "2026-09-29T16:26:58+00:00"
+  },
+  {
+    "id": "rb-ls2-00c-late-lights-and-category-test",
+    "problem_id": "dancing-light-generative-20260903",
+    "prompt": "STAGE 0c — TWO CHEAP HUMAN TESTS THAT SHAPE THE ARCHITECTURE (context: PLAN.md rev. 3 sections 4, 6 Stage 0c, 8; requires rb-ls2-00 renders). Both are blind, on screen + headphones, with the existing renderer.\n(i) LATE LIGHTS. Take the working beat-trigger layer (HEAD C rules) and delay its output by 0 / 40 / 80 / 120 ms relative to the audio. Pairwise A/B, >= 5 raters, 20 clips of 8 s: 'which is on the music?'. Background: ITU-R BT.1359-1 detectability +45 ms when sound leads; flash-tone JND 20-70 ms. Gate G1: report the delay at which the win rate vs 0 ms drops below 0.4 with CI; if 80 ms already loses, every transient (strobe/hit/snap) must run on a 10-20 ms DSP path and the learned model may only paint channels slower than ~150 ms.\n(ii) CATEGORY ERROR (dance != light). 20 tracks (10 dance genres, 10 club/EDM): oracle dance-derived DMX (real AIST++/FineDance motion through conductor v0) vs a 30-line beat-trigger (onset -> strobe, RMS -> dimmer, MFCC jump -> colour). Brightness-match every pair (mean and 95th-percentile LUT); >= 5 raters; two questions: 'which is on the music?' and 'which looks like a lighting engineer?'. Gate G2: oracle wins > 0.5 with CI excluding 0.5 on at least one question; if the beat-trigger wins both, dance keeps only blocks A/B (energy + events) and block C (sampled style residual) leaves the product; if the oracle wins, proceed to rb-ls2-01. Diagnostic: human-preference-winrate.",
+    "preconditions": "",
+    "gates": [
+      "G1 delay at which beat-trigger loses is reported; transient path architecture decided",
+      "G2 oracle dance-derived DMX beats beat-trigger on >= 1 question with CI excluding 0.5, else block C is dropped"
+    ],
+    "status": "queued",
+    "hypothesis_id": null,
+    "priority": 3,
+    "notes": [
+      {
+        "at": "2026-09-04T11:06:17+00:00",
+        "text": "2026-09-04 part (ii) rated by Anton, one sitting, 10 AIST++ pairs, FOIL skipped. 'lighting engineer': hybrid 8, beat trigger 1, equal 1 (CI excludes 0.5). 'on the music': 5-4-1, chance, as the shared audio phasing predicts. G2 passes on one question at a reduced protocol; block C stays. Part (i) late lights (outputs/stage0c/late_lights, 18 pairs) is still unrated."
+      }
+    ],
+    "former_ids": [],
+    "topic_tags": [
+      "audio-to-light",
+      "music-induced-movement"
+    ],
+    "created_at": "2026-09-03T21:32:48+00:00",
+    "updated_at": "2026-09-04T11:06:17+00:00"
+  },
+  {
+    "id": "rb-visual-next-fixture-oracle-20260929",
+    "problem_id": "dancing-light-generative-20260903",
+    "prompt": "Execute ONLY the prospective study h-visual-next-fixture-oracle-20260929 after its prerequisite gates. Its prediction is already native/proposed; do not create a duplicate hypothesis. Start a new experiment with lineage to the relevant preserved parent only after the annotation, instrument and implementation/source/weight bindings are valid. No new experiment was run during preregistration.\n\nFrozen protocol: /root/lightsem/experiments/2026-09-29-visual-next/records/PREREGISTRATION_V1.md SHA256 772b9687c992275f020b488edf7524596c3c7f177cd40befbcda3828aa8573b5.\n\nVisual learning after baseline C — prospective protocol V1\n\nStatus: prospective specification; NATIVE_REGISTRATION.json records native registration.\nAll hypotheses and gates must precede any new study output.\nThis document is a research preregistration, not a report of completed experiments.\nBaseline C remains the user-selected product reference. No training, feature-model\ninference, annotation, oracle optimization, TEST reading or new rendering was\nperformed in this research task.\n\n1. Fixed context and scope\n\nParent: master@ff342ff; exact baseline and source hashes are in INPUTS.json.\nC = independent Rich96 I_VR_P0 selected seed0, rhythm companion02, generated\npalette history ON,300ms causal smoothstep transitions. Poses remain the source\nof beam spatial style; audio controls movement time. The new studies address\nvisual supervision/color output and do not replace, retime or retrain motion.\nWhole-track audio processing is allowed; no online-causality claim is made.\n\nHistorical selected DEV is exposed. Shpongle is an exposed demonstration and\nis excluded from statistical method selection. Original31/40 source coverage and\n29/30 qualified-null failures remain failed; the proposed pilot cannot repair\nthem by changing denominators. A successful pilot is conditional on its enrolled\nsource families and is not fresh unseen-song confirmation or product promotion.\n\nThe first Perplexity call timed out at300s. The same56411-character query was\nsuccessfully run through the same configured research MCP with a900s client\nlimit. The answer,498 source results and raw receipts are preserved. All10\nrecommended papers and7 supplementary primary papers were downloaded and read\nin the stated scopes; none establishes a stage-light benefit for these proposals.\n\n2. Cohort, annotation and execution prerequisites\n\nANNOTATION_ENROLLMENT.json prospectively fixes12TRAIN calibration families by\nSHA256(salt+canonical_id) and all31 historicalDEV assessment families, each using\nits existing64s source window. All43 source files exist; their full hashes must\nbe rechecked before extraction. No outcome-dependent replacements. The full91\nTRAIN groups remain the training population for H3; no DEV transforms/fitting.\nAll remasters, duplicate audio, coaches and crops sharing canonical audio identity\nremain one family. An unresolved cross-split identity conflict stops execution.\n\nTwo independent human annotators, blind to method predictions, mark source-video\ncontent color changes, hard/gradual edits, camera-only changes, people/UI leakage,\nambiguous intervals and genuine color changes coincident with edits. Cut-coincident\ncolor changes are NOT automatically labeled false. Judge content from silent video;\nmusic-fit judgments belong to a separate later task. Disagreements are adjudicated\nbefore any scored method outputs are inspected. At offsets0,7,14,21,28,35,42,49,56,63s,\nindependently trace retained-background masks, foreground and fixed UI regions.\n\nCalibration agreement requirements: event matching F1>=.80 at±.2s and median\nforeground IoU>=.85 between annotators; ambiguous time<=20%. These are instrument\neligibility requirements, not measured values. Freeze the manual/independent\nassessment masks and events before scoring. At least30/31DEV families,>=80% of\neach retained family's source duration, and>=10 event-bearing families are needed\nfor event inference. Mask comparisons require>=30DEV families with>=8/10 valid\nindependent mask frames each. Annotator failures, missing support or missing\nmodel weights are unmet prerequisites, not evidence of zero effect.\n\nAll algorithms, feature transforms, code/weight hashes, software environment,\nsource timestamp mapping, grouping and statistical scripts must be frozen in a\nnew execution manifest BEFORE any new predictions. A future implementation may\nfill addresses/hashes and implement this protocol; changing a method, threshold,\nmetric or cohort rule requires a versioned amendment before outcomes, not a silent\nimplementation choice. The annotation, implementation and model-acquisition\nprerequisites are currently PENDING. No noise sigma or powered MDE is asserted.\n\n3. Common inference, controls and statistics\n\nPrimary unit: canonical source-song family. Average frame/event observations\nwithin a family; average paired training seeds within a family before aggregation.\nDo not use frames, events, crops or repeated ratings as independent sample units.\nUse10000 paired family bootstrap draws (seed20260929); report95% intervals and\npaired sign-flip p values. The primary family is fixed to four hypotheses. Interim reports use conservative\nBonferroni-adjusted p=min(1,4p); once all four are evaluated, also report Holm.\nUnexecuted hypotheses remain unmeasured, never assigned fabricated test results.\nUse the conservative four-test adjusted p for early gate decisions; never select\na favorable subset post hoc. H3's additional control contrasts form a separately\nreported Holm family. Pilot intervals are not a prospective power calculation.\n\nEvent matching: one-to-one maximum-cardinality matching within±.2s, then minimum\ntotal timing distance, deterministic timestamp tie-breaking. Candidate peaks use\nthe existing .2s NMS; frozen .5 output threshold for F1/rate summaries. AP groups\ntied scores and remains undefined for reference-nonevent families. Nonevent and\nempty-output cases retain false-cue/minute and recall reporting; no undefined AP\nis replaced by zero. Support is fixed from source/reference quality and shared\nacross arms, not chosen by predictions. Thresholds/scalers fit TRAIN only.\n\nReal-data comparisons require constant/persistence, event-rate-matched random,\nbeat-only and circular-shift controls where relevant. H3 additionally uses\nrecipient-rhythm-preserving donor audio as a limited intervention, not a complete\ncausal isolation. Twenty deterministic admissible circular shifts per group must\nhave genuinely common source/reference support; failure is not repaired by\nrelaxing support after scoring. Numerical tie/endpoint behavior must be tested.\n\nBefore scoring, validate instruments on known hue changes at constant luminance,\nluminance changes at fixed chromaticity, dark/achromatic frames, static backgrounds\nwith moving masks, camera translations, abrupt edits, color flashes, duplicated\nframes, hue wraparound, ties and missing intervals. Report perturbation recovery\nseparately from real-image qualification. Self-distance must be0; constant output\nand wrong spatial assignment must be detectable by the relevant instrument.\n\nRelative improvements require a positive baseline denominator; zero/degenerate\nreferences remain undefined or fail eligibility, never receive an epsilon floor.\n\nThresholds below are committed engineering targets, NOT literature effect-size\nestimates and NOT powered MDEs. A sign-only native verdict never overrides failed\nblocking gates. No hypothesis is started/closed in this task.\n\n7. H4 — a fair fixture-color capacity oracle\n\nID: h-visual-next-fixture-oracle-20260929. This is an output-capacity reframe,\nnot a claim that audio predicts the reference picture or that it looks better.\nUse the existing C DMX trajectory from110–174s (64s) as ONE fixed rig/motion\ncontext for each reference family's64s color sequence. Conclusions generalize\nonly over the reference families conditional on that fixed trajectory/camera.\nShpongle audio is not a statistical test unit here. No new pose inference.\n\nCandidate render/color histograms can be reused across reference families because\nthe trajectory and allowed palette schedule are identical; the resource smoke\nmust prove the enumeration fits its fixed cap before any assessment optimization.\nAll oracle arms receive the SAME privileged reference regional color information\nand the SAME palette candidates. Primary comparator O0 is an optimized SINGLE\nGLOBAL-color oracle, not unprivileged baseline C. C is a separate engineering\nanchor. O2 uses left/right groups. O4 uses left-heads, right-heads, left-other and\nright-other RGB fixtures, by fixture x-coordinate<0 vs>=0; the center projector\nbelongs to right-other. Freeze exact fixture names/addresses before optimization.\n\nKeep C's latent palette-token/history sequence, cue times, dimmers, all479non-RGB\nbytes and300ms transition law exact. At each actual C palette-change/adoption time (not repeated cue opportunities), permissible\ncolors comprise C's emitted target RGB and three chromatic representatives of\nthe SAME selected TRAIN palette prototype (weighted farthest-point initialization\nand deterministic weighted k-means,10iterations, lowest-bin-index ties; modes\nordered by weight then index). Palette prototypes with<3 occupied distinct bins\nrepeat available colors explicitly. Each group chooses one permissible color,\nheld until the next cue and blended with the fixed fade. Enumerate all choices\nfor O0/O2/O4; optimize mean per-region chromatic histogram divergence over the\ncue interval using the same fixed1Hz frames, plus .01 times the fraction of\nchanged group assignments. Equal target access and same palette restrictions in\nO0 prevent confounding capacity with privileged information. No adaptive hue\nretuning, beam moves or dimmer compensation.\n\nControls: fixed cyclic permutation of O4 group assignments; canonical-donor\nreference ordering fixed before outcomes; an unrestricted per-pixel palette\nquantization floor reported but never subtracted to fabricate improvement.\nOptimization uses1Hz frames; primary scoring uses the disjoint half-second-offset\nframes. Freeze source/reference mask support and a neutral-RGB rendered visibility\nmask before comparing colors. The renderer, camera and tone mapping are identical.\nThe four regional72-bin HS distributions use the existing chromatic eligibility\nthresholds. Empty predicted chromatic mass on reference-valid support scores the\nmaximal regional distance; darkness is not a free exclusion. Source-invalid regions\nare fixed for all arms. Report source-gamut and geometry limits separately.\n\nPrimary: macro-family mean of four-region JS DISTANCE on independent scoring\nframes. Prediction: O4 error at least20% lower than O0; lower95% benefit interval>0,\nfour-test adjusted primary p<.05;>=80% of eligible reference families improve; O4 beats both permutation\nand donor by>=10% relative; sampled mean displayed luma difference from O0<=5%,\nclipping increase<=.1percentage point. All non-RGB/cue/history/fade checks exact.\nIf equal-luma guards or palette coverage fail, report failure instead of changing\nthe renderer or broadening the palette. The original C global RGB and model state\nare preserved as the product reference irrespective of the oracle result.\n\n8. Resources, dependencies and product gates\n\nSerial execution on one RTX5070 12GB. Pilot cap8GPU-hours total: H1/H2 masks/cuts2h,\nH3 representation extraction1h and student fits3h, H4 oracle/render2h. A stage\ncannot borrow another stage's allowance after a failure without amendment. Peak\nreserved VRAM<=10GiB, per-process RAM<=8GiB, new study cache/checkpoints<=3GiB on\nroot, no scientific cache growth on the nearly full/mnt volume; both filesystems\nretain>=1GiB free. Research PDFs are a separate<=512MiB cache. No foundation-model\ntraining, full decoded-video cache or silent model substitution. A bounded\n16-frame smoke test pins runtime/VRAM and sources before corpus work. Runtime\nnumbers are unmeasured until that test; an OOM abort is not a hypothesis refutation.\n\nAnnotation/source/instrument validity are prerequisites for every affected test.\nH1 and H2 are isolated and can fail independently. H4 needs valid reference masks\nand targets, not a successful foundation encoder. H3's preliminary feature checks\nprecede its conditional audio fits. H4 failure blocks learning a fixture-wise\noutput under that recipe, not all audio/color research. No sealed TEST access.\n\nThe original human-preference-winrate diagnostic requires a separate blinded\nmulti-track panel (>=20raters). A later product trial must have independent music\nfit and designed-appearance questions, equal audio/camera/exposure, brightness\ncontrols, randomized order and song/rater clustering. Sample size/power and rater\nreliability thresholds must be registered from an annotation-only pilot before\ncandidate comparisons. No such panel or power estimate exists now. C remains the\nbaseline; numerical proxy/oracle wins cannot change it automatically. No MDE is\nentered in native gates because power has not been established.",
+    "preconditions": "Independent annotations, eligible support, instrument validation and exact executable/weight bindings are PENDING. Baseline C/source artifacts are fixed; do not infer readiness or confirmation from this queued record.",
+    "gates": [
+      "source-and-preregistration",
+      "independent-instrument",
+      "common-support",
+      "paired-statistics",
+      "resource-and-scope",
+      "oracle-capacity",
+      "oracle-controls-and-photometry",
+      "oracle-interpretation"
+    ],
+    "status": "queued",
+    "hypothesis_id": "h-visual-next-fixture-oracle-20260929",
+    "priority": 3,
+    "notes": [
+      {
+        "at": "2026-09-29T16:27:00+00:00",
+        "text": "Literature and prospective protocol registered before computation; prerequisites pending."
+      }
+    ],
+    "former_ids": [],
+    "topic_tags": [
+      "audio-to-light",
+      "evaluation-metric"
+    ],
+    "created_at": "2026-09-29T16:26:59+00:00",
+    "updated_at": "2026-09-29T16:27:00+00:00"
+  },
+  {
+    "id": "rb-ls2-01-latent-dancer-offline",
+    "problem_id": "dancing-light-generative-20260903",
+    "prompt": "STAGE 1 — TRAIN THE THREE-BLOCK AUDIO -> LIGHT MODEL ON AIST++ + FineDance (context: PLAN.md rev. 3 sections 3-4, Stage 1; requires rb-ls2-00, 00b, 00c). No dancer, pose or dance generator at inference.\nTargets from rb-ls2-00 with block assignment from rb-ls2-00b. Trunk: causal Conformer, 6-8 blocks, d_model 256-384, 15-40 M params, 40 fps, KV cache 3-4 s. Heads: A shared skeleton (MSE/L1 on z-scored features + periodicity head), B events (Bernoulli/hazard, AP/F1 at 0.2 and 1 s), C style residual (conditional rectified flow / CFM on the residual after subtracting A, 1-4 Euler steps, genre token). Aux: beat-gated L1 on hit channels, velocity penalty on wash channels. No VQ tokenizer. Conditioning (causal only): 40-64 log-mel or MFCC + RMS + LF and HF spectral flux + onset + online beat phase (PLP/BeatNet: sin/cos phi, IBI, stability); no bidirectional Jukebox/MERT/MuQ.\nBaselines that MUST run: (a) MSE on all 24 dims with the same trunk (expected: Div_light < 0.5 x real — the conditional-mean collapse, documented); (b) HEAD C beat-trigger rules; (c) the Stage-F macro-encoder harness.\nSplits: held-out TRACK, held-out GENRE and held-out DANCER (AIST++ same-song-different-dancer is a choreography leak). Also run on 10 club/EDM tracks Anton owns for the collapse rate.\nPREREGISTER gates: G1 block A held-out R2 >= 0.8 x the rb-ls2-00b audit ceiling per channel; G2 block B AP at 0.2 s beats the rhythm-of-past-events baseline with z > 3 vs circular shift; G3 Light-BAS(model) >= 0.9 x real-mapped, reported next to the metronome value; G4 FID_light(delta, model vs held-out real) < 0.5 x shift null; G5 Div_light(model) >= 0.7 x real while the MSE baseline's Div < 0.5 x real; G6 edm-collapse-rate < 0.10 (AIST++/FineDance alone will probably fail G6 — that is the case for Stage 2, not a stop). Diagnostics: light-bas, fid-light-kinetic, light-diversity-kinetic, edm-collapse-rate, descriptor-audio-r2-over-identity.",
+    "preconditions": "",
+    "gates": [
+      "G1 BAS(gen) >= 0.9 x BAS(real)",
+      "G2 FID(gen) < 0.5 x FID(shift-null)",
+      "G3 EDM collapse rate < 0.10",
+      "G4 Div(gen) >= 0.7 x Div(real)"
+    ],
+    "status": "queued",
+    "hypothesis_id": null,
+    "priority": 4,
+    "notes": [
+      {
+        "at": "2026-09-03T21:03:45+00:00",
+        "text": "rev. 2 2026-09-03: dance = training set; no dance generator at inference"
+      },
+      {
+        "at": "2026-09-03T21:32:48+00:00",
+        "text": "rev. 3 2026-09-04: three-block targets, two-path latency, video->pose data path"
+      },
+      {
+        "at": "2026-09-03T23:28:01+00:00",
+        "text": "2026-09-04 RUN as the three-block model (not a latent dancer). Causality gate passed exactly; BAS/FID/diversity gates failed with a single identified mechanism (over-smoothed block A -> uniformly dense light -> high shift null). MSE collapse control behaved as predicted (diversity 0.000 vs 2.03). v2: move unpredictable channels from the regressed block to the sampled one and make the flow head autoregressive."
+      },
+      {
+        "at": "2026-09-04T10:43:43+00:00",
+        "text": "2026-09-04 REPAIR. The Stage 1 audio bus read up to 375 ms of the future through librosa defaults; fixed, caches rebuilt, model retrained. Held-out block A R2 +0.0438 -> +0.0192, which is the size of the artefact. Block-B thresholds are now fitted to the corpus event rate on the validation split and stored in the checkpoint; that helped FID and diversity and slightly hurt Light-BAS, so the mechanism predicted for it was wrong. The surplus light events come from the block A/C envelopes, whose above-6-Hz energy is 11x to 452x the corpus value."
+      }
+    ],
+    "former_ids": [],
+    "topic_tags": [
+      "audio-to-light",
+      "music-to-dance"
+    ],
+    "created_at": "2026-09-03T20:56:14+00:00",
+    "updated_at": "2026-09-04T10:43:43+00:00"
+  },
+  {
+    "id": "rb-visual-next-color-temporal-20260929",
+    "problem_id": "dancing-light-generative-20260903",
+    "prompt": "Execute ONLY the prospective study h-visual-next-color-temporal-20260929 after its prerequisite gates. Its prediction is already native/proposed; do not create a duplicate hypothesis. Start a new experiment with lineage to the relevant preserved parent only after the annotation, instrument and implementation/source/weight bindings are valid. No new experiment was run during preregistration.\n\nFrozen protocol: /root/lightsem/experiments/2026-09-29-visual-next/records/PREREGISTRATION_V1.md SHA256 772b9687c992275f020b488edf7524596c3c7f177cd40befbcda3828aa8573b5.\n\nVisual learning after baseline C — prospective protocol V1\n\nStatus: prospective specification; NATIVE_REGISTRATION.json records native registration.\nAll hypotheses and gates must precede any new study output.\nThis document is a research preregistration, not a report of completed experiments.\nBaseline C remains the user-selected product reference. No training, feature-model\ninference, annotation, oracle optimization, TEST reading or new rendering was\nperformed in this research task.\n\n1. Fixed context and scope\n\nParent: master@ff342ff; exact baseline and source hashes are in INPUTS.json.\nC = independent Rich96 I_VR_P0 selected seed0, rhythm companion02, generated\npalette history ON,300ms causal smoothstep transitions. Poses remain the source\nof beam spatial style; audio controls movement time. The new studies address\nvisual supervision/color output and do not replace, retime or retrain motion.\nWhole-track audio processing is allowed; no online-causality claim is made.\n\nHistorical selected DEV is exposed. Shpongle is an exposed demonstration and\nis excluded from statistical method selection. Original31/40 source coverage and\n29/30 qualified-null failures remain failed; the proposed pilot cannot repair\nthem by changing denominators. A successful pilot is conditional on its enrolled\nsource families and is not fresh unseen-song confirmation or product promotion.\n\nThe first Perplexity call timed out at300s. The same56411-character query was\nsuccessfully run through the same configured research MCP with a900s client\nlimit. The answer,498 source results and raw receipts are preserved. All10\nrecommended papers and7 supplementary primary papers were downloaded and read\nin the stated scopes; none establishes a stage-light benefit for these proposals.\n\n2. Cohort, annotation and execution prerequisites\n\nANNOTATION_ENROLLMENT.json prospectively fixes12TRAIN calibration families by\nSHA256(salt+canonical_id) and all31 historicalDEV assessment families, each using\nits existing64s source window. All43 source files exist; their full hashes must\nbe rechecked before extraction. No outcome-dependent replacements. The full91\nTRAIN groups remain the training population for H3; no DEV transforms/fitting.\nAll remasters, duplicate audio, coaches and crops sharing canonical audio identity\nremain one family. An unresolved cross-split identity conflict stops execution.\n\nTwo independent human annotators, blind to method predictions, mark source-video\ncontent color changes, hard/gradual edits, camera-only changes, people/UI leakage,\nambiguous intervals and genuine color changes coincident with edits. Cut-coincident\ncolor changes are NOT automatically labeled false. Judge content from silent video;\nmusic-fit judgments belong to a separate later task. Disagreements are adjudicated\nbefore any scored method outputs are inspected. At offsets0,7,14,21,28,35,42,49,56,63s,\nindependently trace retained-background masks, foreground and fixed UI regions.\n\nCalibration agreement requirements: event matching F1>=.80 at±.2s and median\nforeground IoU>=.85 between annotators; ambiguous time<=20%. These are instrument\neligibility requirements, not measured values. Freeze the manual/independent\nassessment masks and events before scoring. At least30/31DEV families,>=80% of\neach retained family's source duration, and>=10 event-bearing families are needed\nfor event inference. Mask comparisons require>=30DEV families with>=8/10 valid\nindependent mask frames each. Annotator failures, missing support or missing\nmodel weights are unmet prerequisites, not evidence of zero effect.\n\nAll algorithms, feature transforms, code/weight hashes, software environment,\nsource timestamp mapping, grouping and statistical scripts must be frozen in a\nnew execution manifest BEFORE any new predictions. A future implementation may\nfill addresses/hashes and implement this protocol; changing a method, threshold,\nmetric or cohort rule requires a versioned amendment before outcomes, not a silent\nimplementation choice. The annotation, implementation and model-acquisition\nprerequisites are currently PENDING. No noise sigma or powered MDE is asserted.\n\n3. Common inference, controls and statistics\n\nPrimary unit: canonical source-song family. Average frame/event observations\nwithin a family; average paired training seeds within a family before aggregation.\nDo not use frames, events, crops or repeated ratings as independent sample units.\nUse10000 paired family bootstrap draws (seed20260929); report95% intervals and\npaired sign-flip p values. The primary family is fixed to four hypotheses. Interim reports use conservative\nBonferroni-adjusted p=min(1,4p); once all four are evaluated, also report Holm.\nUnexecuted hypotheses remain unmeasured, never assigned fabricated test results.\nUse the conservative four-test adjusted p for early gate decisions; never select\na favorable subset post hoc. H3's additional control contrasts form a separately\nreported Holm family. Pilot intervals are not a prospective power calculation.\n\nEvent matching: one-to-one maximum-cardinality matching within±.2s, then minimum\ntotal timing distance, deterministic timestamp tie-breaking. Candidate peaks use\nthe existing .2s NMS; frozen .5 output threshold for F1/rate summaries. AP groups\ntied scores and remains undefined for reference-nonevent families. Nonevent and\nempty-output cases retain false-cue/minute and recall reporting; no undefined AP\nis replaced by zero. Support is fixed from source/reference quality and shared\nacross arms, not chosen by predictions. Thresholds/scalers fit TRAIN only.\n\nReal-data comparisons require constant/persistence, event-rate-matched random,\nbeat-only and circular-shift controls where relevant. H3 additionally uses\nrecipient-rhythm-preserving donor audio as a limited intervention, not a complete\ncausal isolation. Twenty deterministic admissible circular shifts per group must\nhave genuinely common source/reference support; failure is not repaired by\nrelaxing support after scoring. Numerical tie/endpoint behavior must be tested.\n\nBefore scoring, validate instruments on known hue changes at constant luminance,\nluminance changes at fixed chromaticity, dark/achromatic frames, static backgrounds\nwith moving masks, camera translations, abrupt edits, color flashes, duplicated\nframes, hue wraparound, ties and missing intervals. Report perturbation recovery\nseparately from real-image qualification. Self-distance must be0; constant output\nand wrong spatial assignment must be detectable by the relevant instrument.\n\nRelative improvements require a positive baseline denominator; zero/degenerate\nreferences remain undefined or fail eligibility, never receive an epsilon floor.\n\nThresholds below are committed engineering targets, NOT literature effect-size\nestimates and NOT powered MDEs. A sign-only native verdict never overrides failed\nblocking gates. No hypothesis is started/closed in this task.\n\n6. H3 — richer color/temporal supervision for the audio student\n\nID: h-visual-next-color-temporal-20260929; successor of the original visual-aux\nhypothesis with a different representation and independent human event endpoint.\nThe student still receives audio only; video features are TRAINING targets.\nNo image input, true palette history or future target labels at playback.\n\nFirst qualify representations on the12TRAIN calibration families. R0=Rich96.\nR1=4x4 grid of the existing72-bin HS histogram plus mean saturation, chromatic\noccupancy and retained fraction per cell. R2 adds frozen DINOv2 ViT-S/14 last-layer\npatch features pooled within the same cells. Resize whole frames to224x224 using\nbilinear interpolation; use official input normalization, no crop/color jitter.\nR3 adds R2 differences at .1s and .5s lags. Exact source timeline is10Hz; boundaries\nwithout required past support are invalid, never padded. Each vector is projected\nto96 components using TRAIN-only deterministic PCA then TRAIN-global coordinate\nnormalization, preserving the student's96-output auxiliary size. No per-song\nnormalization using DEV or whole future targets. Record pre-PCA and deployed\npost-PCA color retention; a loss-only projection cannot hide information loss.\n\nControls: Rrand adds an UNTRAINED DINOv2 of identical architecture to R1 (seed17).\nR3-shuffle and R3-reverse keep the current frame and labels fixed but permute/reverse\nthe five preceding10Hz frames used for differences; shuffle seed is the hash of\ncanonical ID plus20260929. R2 controls static features/context. These are fixed\narms, not a grid from which the best method/seed is reported.\n\nControlled recoloring/layout probes are eligibility checks, not primary quality\nclaims: explicit-summary reconstruction is tautological if the same summaries\nare supplied as input. Require>=90% of R1's baseline-corrected hue/layout probe\nskill to survive projection, monotone response to increasing controlled color\nchanges, and no collapse relative to the random representation. Publish these\nchecks, including dark/flat-background position controls. DINOv3, VideoPrism,\nVideoMAE and V-JEPA2.1 are reviewed alternatives; switching teacher needs a new\npreregistration rather than a post-result fallback.\n\nOnly after annotation/instrument/representation gates, fit all7 arms (R0,R1,\nRrand,R2,R3,R3-shuffle,R3-reverse) with3 paired seeds0/1/2 from matched independent\nstudent initialization. Keep the original91TRAIN groups,94D audio bus,64s feature\ncontext/central8s supervision, main targets, data draws, optimizer,6000 updates,\nbatch4, lr3e-4, weight decay.01, warmup300, gradient clip1, auxiliary weight.1 and\nstate dropout.5 identical. Use FINAL6000-step checkpoints in every arm, without DEV\ncheckpoint selection. Score untrained initializations as an instrument/capacity\ncontrol. C's accepted checkpoint is a separately named product anchor, not the\nmatched training comparator. Main targets are common: H1's cut veto is applied\nto every arm only if H1 passes; otherwise the original observer labels remain\nand this condition is declared before fitting. Original stateless masks stay fixed\nin every H3 arm, isolating representation from H2. Source labels remain proxies;\nassessment uses the separate human event annotations.\n\nPrimary: independent content-color event AP, R3 vsR0, target>=+.03. Blocking:\nlower95% paired interval>0 and four-test adjusted primary p<.05; R3 must exceed Rrand,R2,R3-shuffle and\nR3-reverse each by>=.01 AP with positive paired intervals and corrected control\np<.05. Report R1 separately even if it beats R0 while R3 fails. Correct-audio AP\nmust exceed each beat-only, donor and admissible shift control by>=.02; nonevent\nfalse cues may not increase>5%; all21fits and all controls required. All mask,\nsupport, annotation and source gates apply. No primary R2 on directly supplied\nfeatures, no selected-best seed, and no claim of unseen-song or human preference.\nEvent times may differ in this prediction study; the accepted C rendering is\nuntouched. Any later emitted-light trial requires a separate bound delivery.\n\n8. Resources, dependencies and product gates\n\nSerial execution on one RTX5070 12GB. Pilot cap8GPU-hours total: H1/H2 masks/cuts2h,\nH3 representation extraction1h and student fits3h, H4 oracle/render2h. A stage\ncannot borrow another stage's allowance after a failure without amendment. Peak\nreserved VRAM<=10GiB, per-process RAM<=8GiB, new study cache/checkpoints<=3GiB on\nroot, no scientific cache growth on the nearly full/mnt volume; both filesystems\nretain>=1GiB free. Research PDFs are a separate<=512MiB cache. No foundation-model\ntraining, full decoded-video cache or silent model substitution. A bounded\n16-frame smoke test pins runtime/VRAM and sources before corpus work. Runtime\nnumbers are unmeasured until that test; an OOM abort is not a hypothesis refutation.\n\nAnnotation/source/instrument validity are prerequisites for every affected test.\nH1 and H2 are isolated and can fail independently. H4 needs valid reference masks\nand targets, not a successful foundation encoder. H3's preliminary feature checks\nprecede its conditional audio fits. H4 failure blocks learning a fixture-wise\noutput under that recipe, not all audio/color research. No sealed TEST access.\n\nThe original human-preference-winrate diagnostic requires a separate blinded\nmulti-track panel (>=20raters). A later product trial must have independent music\nfit and designed-appearance questions, equal audio/camera/exposure, brightness\ncontrols, randomized order and song/rater clustering. Sample size/power and rater\nreliability thresholds must be registered from an annotation-only pilot before\ncandidate comparisons. No such panel or power estimate exists now. C remains the\nbaseline; numerical proxy/oracle wins cannot change it automatically. No MDE is\nentered in native gates because power has not been established.",
+    "preconditions": "Independent annotations, eligible support, instrument validation and exact executable/weight bindings are PENDING. Baseline C/source artifacts are fixed; do not infer readiness or confirmation from this queued record.",
+    "gates": [
+      "source-and-preregistration",
+      "independent-instrument",
+      "common-support",
+      "paired-statistics",
+      "resource-and-scope",
+      "representation-retention",
+      "audio-student-benefit",
+      "audio-conditioning",
+      "complete-matched-fits"
+    ],
+    "status": "queued",
+    "hypothesis_id": "h-visual-next-color-temporal-20260929",
+    "priority": 4,
+    "notes": [
+      {
+        "at": "2026-09-29T16:26:59+00:00",
+        "text": "Literature and prospective protocol registered before computation; prerequisites pending."
+      }
+    ],
+    "former_ids": [],
+    "topic_tags": [
+      "audio-to-light",
+      "evaluation-metric"
+    ],
+    "created_at": "2026-09-29T16:26:58+00:00",
+    "updated_at": "2026-09-29T16:26:59+00:00"
+  },
+  {
+    "id": "rb-ls2-02-operator-head-699",
+    "problem_id": "dancing-light-generative-20260903",
+    "prompt": "STAGE 2 — SCALE THE DANCE DATA (VIDEO -> DESCRIPTORS) AND ADD THE OPERATOR HEAD (context: PLAN.md rev. 3 section 5 and Stage 2; requires rb-ls2-01). Two halves, two hypotheses.\n(A) DATA SCALE VIA POSE EXTRACTION (Anton's YOLO idea) + Oslo EDM mocap. Run the validated 2D/3D pose -> descriptor pipeline (YOLO11-pose/RTMPose 2D; GVHMR/SMPLest-X 3D where jumps/contacts are needed) over legally usable dance video: InfiniteDance (HF huuuuuuuuu/InfiniteDance, non-commercial academic, ships SMPL-X + MuQ), OpenDanceSet (poses + URLs), PopDanceSet, Let's Dance, BRACE, and own event footage (consent). Add the Oslo club-dancing mocap (Zenodo 21945706, 21810782, 21945721; CC-BY-4.0; head/wrist markers; DJ-mixed EDM; music withheld — source the tracks, align on the provided break/build/drop timing) for block A on concert music. Target ~100-200 h. No YouTube scraping. Retrain. Gates G1: edm-collapse-rate < 0.10 on the 10 club/EDM tracks and FID_light on them within 1.5x the AIST++ held-out value; G2 no regression of Stage-1 gates; G3 the Oslo drop/break QoM contrast is reproduced by block A on held-out mixes (drop QoM surge > breakdown by the same sign with CI excluding 0).\n(B) OPERATOR HEAD on full RPMC-L2 (699 songs, 42.5 GB, HF RS2002/RPMC-L2/data/RPMC_L2_parts/ to /mnt/lightsem-data/rpmc_l2). Background: on 140 songs marginal AP lift +0.0909, z +2.83; MFCC z +4.98, spectral z +4.21, energy z +0.66; reactive. Train the block-B/hue-value head on the shared trunk: p(scene change in 0.2/0.5/1.0 s) and hue (180 bins)/value distributions (KL, per-song centred). 5-fold by song, 40-rep circular-shift null, per-family ablation. Gates G4: marginal AP lift at 1.0 s >= +0.09 with z > 3 on 699 songs; G5 held-out hue KL < per-song-mean baseline; G6 (guard) absolute lift at 4 s reported; anticipation claimable only if > +0.05 with CI excluding 0.",
+    "preconditions": "",
+    "gates": [
+      "G1 marginal AP lift @1 s >= +0.09, z > 3, 699 songs",
+      "G2 held-out hue KL < per-song-mean baseline",
+      "G3 no anticipation claim unless lift@4 s > +0.05 with CI excluding 0"
+    ],
+    "status": "queued",
+    "hypothesis_id": null,
+    "priority": 5,
+    "notes": [
+      {
+        "at": "2026-09-03T21:03:45+00:00",
+        "text": "rev. 2 2026-09-03: dance = training set; no dance generator at inference"
+      },
+      {
+        "at": "2026-09-03T21:32:48+00:00",
+        "text": "rev. 3 2026-09-04: three-block targets, two-path latency, video->pose data path"
+      },
+      {
+        "at": "2026-09-03T23:44:49+00:00",
+        "text": "2026-09-04 part B RUN on all 699 songs. Gate PASSED: audio marginal lift +0.3145x, z 3.66, CI [+0.149,+0.479], shift control peaks at 0 s. Part A (video->descriptor scaling) not run."
+      }
+    ],
+    "former_ids": [],
+    "topic_tags": [
+      "audio-to-light",
+      "music-to-dance"
+    ],
+    "created_at": "2026-09-03T20:56:14+00:00",
+    "updated_at": "2026-09-03T23:44:49+00:00"
+  },
+  {
+    "id": "rb-ls2-11-sequential-campaign-20260908",
+    "problem_id": "dancing-light-generative-20260903",
+    "prompt": "Execute the approved Stage11 campaign under /mnt/lightsem-data/experiments/lightsem/stage11_20260908 using /root/lightsem/docs/STAGE11_CAMPAIGN.md and frozen protocol.json. One systemd supervisor, one GPU child, CPU diagnostics may overlap. Core D_old/D_full seeds0..4×12000steps,batch48; S_pointwise/S_temporal/S_swapped seeds0..4×32000steps,batch32×600frames. New JD-only data; recording-relative targets, train-only normalizers; audio-only inference; no RPMC frozen conditioning. Hypotheses h11-d-expanded-jd-20260908, h11-t-temporal-scene-flow-20260908, h11-a-nonbeat-audio-dependence-20260908 already commit predictions/gates. All runs retained; no metric-based retries. Core target≥10GPUhours, wholecampaign≤24h; strict-settings measured core estimate16–17h. Optional complete scene seed5triplet only if measuredtraining<10hand2hevaluationreservefitsdeadline. Authenticate allreports/checkpoints, aggregatevalidation, stopatprimaryreview. Primary independently audits thenunlocks onlyeligiblefamilies for40newlockedtestsongs;otherwise keep testsealed andproducevalidationdiagnostics. Finish40blindpairs+8controls andfullsongexamples; humanpreferencepending. Preserveold39ratings/checkpoints; no defaults changed. Actualsystemdunit/PIDs andfrozenhasheswillbeattachedatlaunch; usecampaign_status.json forresume, notlegacy Stage9 scripts.",
+    "preconditions": "Versioned preparation and40+40canonical heldouts verified; all Stage11CPU tests and training-only GPU integration smoke pass; frozen source/protocol/data/normalizer hashes; registered h11-d/h11-t/h11-a hypotheses. No concurrent accelerator experiment.",
+    "gates": [
+      "integrity",
+      "validation",
+      "locked_confirmation"
+    ],
+    "status": "done",
+    "hypothesis_id": "h11-t-temporal-scene-flow-20260908",
+    "priority": 5,
+    "notes": [
+      {
+        "at": "2026-09-08T00:11:44+00:00",
+        "text": "Source/protocol/data/normalizers frozen and independently checked; 111CPUtests plus realGPU engineering integration and chunk-equivalence checks pass. Scientific experiments exp-stage11-d/t/a-20260908 started; supervised sequential GPU launch follows immediately. Frozen binding: {\"protocol_sha256\":\"5201c1137277e701d35a9d2577aa0f372ac729666eac7a0d76bc6030955740f4\",\"source_sha256\":\"ba97443ae63ab6042fe629a9770b6088429a14fb9324e95dcb06aece3aa948c9\",\"data_sha256\":\"3d7b9d3a8489ee9f7624bba5668a3551f9307ac153fe4a75a233d17cd818d649\",\"normalizers_sha256\":\"e06bae83872f7e31a56a53ec9e4b4a80fc161abfda4dbdac65a78515b2ab51d1\"}"
+      },
+      {
+        "at": "2026-09-08T19:33:03+00:00",
+        "text": "Stage11 campaign is completed:25trainings, authenticated validation, scene-only locked confirmation, computed H11-T/A supports and H11-D directional_only, full numerical qualification,48blindpairs+2fullsongs and independent final delivery audit passed (533artifacts,max actual luma gap1.89306%). Supervisor reverified/reused all17 completed test/delivery jobs with no new child work and recordedcompleted. Full result/CSV/plots docs: /root/lightsem/docs/STAGE11_RESULTS_20260908.md. This closes the bounded experiment, NOT the product problem. Anton rejected algorithmic beat pulses/oscillators as contrary to the original dance-trained music-to-light goal; requirements are corrected, defaults not promoted, human preference unmeasured. The separately authorized continuation is ONE beat-free temporal dance model plus immediate Shpongle GPU demo, recorded under h-dance-no-clock-20260908; the proposed4-trainingcomparison was canceled before any such run."
+      }
+    ],
+    "former_ids": [],
+    "topic_tags": [
+      "audio-to-light",
+      "generative-modelling",
+      "evaluation-metric"
+    ],
+    "created_at": "2026-09-07T23:49:33+00:00",
+    "updated_at": "2026-09-08T19:33:03+00:00"
+  },
+  {
+    "id": "rb-ls2-03-conductor-ab",
+    "problem_id": "dancing-light-generative-20260903",
+    "prompt": "STAGE 3 — CONDUCTOR v0 END-TO-END + BLIND BRIGHTNESS-MATCHED HUMAN A/B (context: PLAN.md rev. 3 sections 4, 6 Stage 3, 7; requires rb-ls2-01 and rb-ls2-02). First result that may be CALLED 'dancing light'.\nBuild: trunk heads A/B/C + HEAD B operator outputs + HEAD C transient rules through conductor v0 (body-following rig table; multiplicative strobe gate accent x hit/drop; slew limits) into DMX on the canonical rig, then the rig adaptor to the club rig in lightsem/dmx. Two-path timing even offline: transients from the DSP path, slow channels from the model.\nRender 20 tracks (10 dance genres, 10 club/EDM) in four conditions with the SAME rig, renderer and audio: (i) beat-trigger only (HEAD C), (ii) hue/value-only Skip-BART/SeqLight reproduction (no kinematics), (iii) LightSem v2 (A+B+C), (iv) light derived from REAL dance (upper reference; dance tracks only).\nStudy: >= 20 raters; pairwise blind; BRIGHTNESS-MATCH every pair (mean and 95th-percentile LUT); 4-8 s clips; include a too-bright foil; order/side randomised; two forced choices: 'which is on the music?' and 'which looks like a lighting engineer?'; bootstrap 95% CI over tracks x raters. Diagnostic: human-preference-winrate.\nPREREGISTER gates: G1 v2 vs (i) win rate > 0.60 with CI excluding 0.5 on 'on the music'; G2 v2 vs (ii) > 0.50 with CI excluding 0.5 on 'lighting engineer'; G3 v2 vs (iv) not significantly below 0.40; G4 the too-bright foil does not beat v2 (raters-prefer-brightness check). Report Light-BAS delta vs metronome and FID_light(delta) per condition to calibrate the proxies against the human result. Name the failure mode in the close: if (i) wins, kinematics are too busy -> sparsify; if (ii) ties, check beam visibility/haze before concluding kinematics add nothing.",
+    "preconditions": "",
+    "gates": [
+      "G1 win rate vs beat-trigger > 0.60, CI excludes 0.5",
+      "G2 win rate vs hue/value-only > 0.50, CI excludes 0.5",
+      "G3 not significantly below 0.40 vs real-dance reference"
+    ],
+    "status": "queued",
+    "hypothesis_id": null,
+    "priority": 6,
+    "notes": [
+      {
+        "at": "2026-09-03T21:03:45+00:00",
+        "text": "rev. 2 2026-09-03: dance = training set; no dance generator at inference"
+      },
+      {
+        "at": "2026-09-03T21:32:48+00:00",
+        "text": "rev. 3 2026-09-04: three-block targets, two-path latency, video->pose data path"
+      }
+    ],
+    "former_ids": [],
+    "topic_tags": [
+      "audio-to-light",
+      "music-to-dance"
+    ],
+    "created_at": "2026-09-03T20:56:14+00:00",
+    "updated_at": "2026-09-03T21:32:48+00:00"
+  },
+  {
+    "id": "rb-ls2-04-causal-student-latency",
+    "problem_id": "dancing-light-generative-20260903",
+    "prompt": "STAGE 4 — LIVE: TWO-PATH DEPLOYMENT, LATENCY, CAUSALITY, REAL RIGS (context: PLAN.md rev. 3 section 4 and Stage 4; requires rb-ls2-01). The model is already causal; this stage proves it under concert/festival constraints.\nBackground: ITU-R BT.1359-1 detectability +45 ms when sound leads light; flash-tone JND 20-70 ms; Art-Net/sACN sub-10 ms on a managed LAN; fixture internal smoothing 5-50 ms; online beat trackers: PLP 11.6 ms, BeatNet ~20 ms, ~6 s of past needed for stable phase; a 100-250 ms PA delay line is viable in the house feed, never in monitors.\nDo: (1) transient path: onset/beat-phase -> strobe/hit/snap channels on a DSP path, target <= 20 ms; (2) learned path: trunk + heads at 40 fps, FP16, 1-2 flow steps, KV cache; (3) lookahead sweep L in {0, 40, 80, 250} ms as an audio delay line; (4) causality verified mechanically: future-perturbation (splice a click / +6 dB at t+50/100/250 ms; output at t bit-identical, fp16 max |dy| < 1e-4), gradient probe dy_t/daudio_{t+k} = 0, shuffled-future buffer; (5) end-to-end latency with a click-track impulse: scope on audio-in, photodiode on a fixture (or LED), Art-Net timestamps; report p50/p99 over 60 s at 40 fps and at 120 BPM; (6) Art-Net/sACN to a real node or BlenderDMX, verified by an independent receiver; (7) rig adaptor for a multi-universe festival patch in BlenderDMX.\nPREREGISTER gates: G1 transient path <= 20 ms p99; G2 learned path <= 65 ms p50 audio-in -> DMX-out at L = 0 (12 ms audio block + 8 ms model + 5 ms net + fixture); G3 Light-BAS delta vs metronome at L = 0 >= 0.9 x offline; G4 causality tests pass bit-identically; G5 Art-Net frames decoded by an independent receiver; G6 the MSE baseline still shows Div_light < 0.5 x real live. Diagnostics: light-bas, fid-light-kinetic, light-diversity-kinetic, audio-to-dmx-latency-ms.",
+    "preconditions": "",
+    "gates": [
+      "G1 student BAS >= 0.9 x teacher",
+      "G2 student FID <= 1.5 x teacher",
+      "G3 latency < 100 ms + L",
+      "G4 regression baseline collapses (Div < 0.5 x real)",
+      "G5 Art-Net verified on hardware/BlenderDMX"
+    ],
+    "status": "queued",
+    "hypothesis_id": null,
+    "priority": 7,
+    "notes": [
+      {
+        "at": "2026-09-03T21:03:45+00:00",
+        "text": "rev. 2 2026-09-03: dance = training set; no dance generator at inference"
+      },
+      {
+        "at": "2026-09-03T21:32:48+00:00",
+        "text": "rev. 3 2026-09-04: three-block targets, two-path latency, video->pose data path"
+      },
+      {
+        "at": "2026-09-04T00:04:43+00:00",
+        "text": "2026-09-04 software half RUN. Transient 10.8 ms, learned p99 62.5 ms, causality leak exactly 0.0. Receptive field is 26 s, not the 3-4 s the plan assumed. Hardware half (photodiode, Art-Net node, lookahead sweep) not run."
+      }
+    ],
+    "former_ids": [],
+    "topic_tags": [
+      "audio-to-light",
+      "music-to-dance"
+    ],
+    "created_at": "2026-09-03T20:56:14+00:00",
+    "updated_at": "2026-09-04T00:04:43+00:00"
+  },
+  {
+    "id": "rb-ls2-05-learned-conductor",
+    "problem_id": "dancing-light-generative-20260903",
+    "prompt": "STAGE 5 — LEARNED CONDUCTOR AND PREFERENCE FINE-TUNING (context: PLAN.md rev. 2 Stage 5; optional research stage after rb-ls2-03 passes). One hypothesis per idea, never bundled: (A) SeqLight-style goal-conditioned decomposition of HEAD B's hue/value distribution across the rig's fixtures plus a small policy (HEAD A control vector, cue, structure, beat phase) -> fixture parameters, trained by imitation of conductor v0 + real-dance-derived light and fine-tuned on Stage 3/4 preference pairs (GRPO/DPO); audit every learned fusion term by projecting to the nearest additive model (Hessel & Lee), credit only multiplicative terms that survive. (B) multi-group choreography: independent samples of HEAD A (different seeds / genre tokens) assigned to fixture groups (left truss, centre, right truss, floor) so a festival rig gets several coordinated 'voices'.\nPREREGISTER gates per hypothesis: G1 beats conductor v0 in a fresh blind A/B with win-rate CI excluding 0.5 (human-preference-winrate); G2 for (A) the additive projection loses >= 2 points of win rate, else ship the additive model; G3 for (B) Div_light rises >= 20% without FID_light worsening > 20%.",
+    "preconditions": "",
+    "gates": [
+      "G1 beats conductor v0 in blind A/B, CI excludes 0.5",
+      "G2 additive projection loses >= 2 pts else ship additive",
+      "G3 group version: Div +20% with FID not worse than +20%"
+    ],
+    "status": "queued",
+    "hypothesis_id": null,
+    "priority": 8,
+    "notes": [
+      {
+        "at": "2026-09-03T21:03:45+00:00",
+        "text": "rev. 2 2026-09-03: dance = training set; no dance generator at inference"
+      },
+      {
+        "at": "2026-09-03T21:32:48+00:00",
+        "text": "rev. 3 2026-09-04: three-block targets, two-path latency, video->pose data path"
+      }
+    ],
+    "former_ids": [],
+    "topic_tags": [
+      "audio-to-light",
+      "music-to-dance"
+    ],
+    "created_at": "2026-09-03T20:56:14+00:00",
+    "updated_at": "2026-09-03T21:32:48+00:00"
+  },
+  {
+    "id": "rb-ls2-06-edm-anticipation",
+    "problem_id": "dancing-light-generative-20260903",
+    "prompt": "STAGE 6 — EDM ANTICIPATION, CONDITIONAL ON DATA (context: PLAN.md Stage 6). The claim 'light that LEADS the build-up by 4-8 s' is refuted on RPMC-L2 (rock/punk/metal; lift ~0 by 4 s) and validated only on synthetic EDM (precision 1.0, lead 2.78 +- 0.08 s, z +2.4 vs random). It remains UNTESTED on real EDM lighting ground truth, and no such corpus exists publicly (EDM-98 has structure labels only; EDM-CUE is metadata only, no audio).\nPreconditions: obtain either (a) a small EDM show corpus with a lighting operator (grandMA/Chamsys show files or DMX capture + audio, >= 20 tracks), or (b) at minimum EDM-98 audio + annotations to validate the structure labeller. Without (a), do NOT reopen the anticipation hypothesis; the tension/time-to-drop layer ships as a feature labelled 'heuristic, validated on synthetic EDM'.\nIf (a) exists: PREREGISTER absolute marginal lift at horizons 2/4/8 s over the rhythm baseline with circular-shift nulls; gate = lift at 4 s > +0.05 with CI excluding 0 (effect size, never z alone — the horizon-sweep script's z-based verdict was wrong once already).",
+    "preconditions": "",
+    "gates": [
+      "precondition: real EDM lighting ground truth (>= 20 tracks) or EDM-98 audio",
+      "gate: absolute lift @4 s > +0.05 with CI excluding 0"
+    ],
+    "status": "queued",
+    "hypothesis_id": null,
+    "priority": 9,
+    "notes": [
+      {
+        "at": "2026-09-03T21:32:48+00:00",
+        "text": "rev. 3 2026-09-04: three-block targets, two-path latency, video->pose data path"
+      }
+    ],
+    "former_ids": [],
+    "topic_tags": [
+      "audio-to-light",
+      "music-to-dance"
+    ],
+    "created_at": "2026-09-03T20:56:14+00:00",
+    "updated_at": "2026-09-03T21:32:48+00:00"
+  },
+  {
+    "id": "rb-shpongle-human-rating-20260929",
+    "problem_id": "dancing-light-generative-20260903",
+    "prompt": "Collect the user's ratings for the recent committed lighting experiments on /root/shpongle.flac, source SHA256 95e4388424ef62950bdeae78e47b8e71839ed28c6e01189fe15f9ae6c902b6c0. Rating page http://127.0.0.1:8765; source/manifest/direct-link index and optional CSV are in /root/lightsem/outputs/shpongle_rating_20260929_v1/. Ten versions:01 original motion mapping;02 rhythm companion;03 shared audio-only S_none_P0;04 shared legacy6 S_V6_P0;05 combined rich shared S_VR_P0 with rhythm, motion style, brightness dynamics, colors, accents and generated palette history;06 independent rich I_VR_P0;07 shuffled-audio-training control on recipient audio;08 rich colors only;09 rich accents only;10 rich combined with previous palette replaced by trained null state. Primary selected seed0 models, fixed existing mapping, 277.3s/8319frames, native1080p30AV1 and identical source AAC decode. Seven exact existing renders reused; three new deterministic visual ablations, with CPU own-history palette replay required to match saved IDs, no encoder forward/training/threshold tuning. All469 protectedDMX slots/motion remain unchanged in overlay variants. Request scores1-5 for music fit, deliberate design and overall preference, plus timestamped notes. Browser localStorage and exported JSON are user input, not prefilled evidence. Existing identifying captions mean this is NOT blinded, and one-song preference is NOT broad scientific qualification. Variant10 is not the stochastic64s palette study. Alternative architectures cannot be simultaneously stacked;05 is the compatible rich shared stack, not an invented ensemble. Do not rewrite scientific verdicts or promote defaults from uncollected ratings; preserve previous negative/unqualified study results and all historical media.\n\nLatest user decision: User qualitative feedback 2026-09-29: 02 definitely better than01. 06 I_VR_P0 selected seed0 is the most interesting and best; explicitly selected as new development baseline. User says color fits track and rhythm changes, requests color transitions. User did not understand a significant difference in07; comparator unspecified. 10vs05 mostly one cyan/blue-related change; requests palette-history A/B on06. No numeric scores supplied; this is informed single-track preference, not a scientific confirmation or multi-track result. Exact user wording: /root/lightsem/experiments/2026-09-29-baseline/records/USER_FEEDBACK.json. Current baseline: /root/lightsem/configs/light_layers/baseline.json.",
+    "preconditions": "Superseded by actual user selection06 as development baseline. Do not require or re-request all ten numeric ratings; qualitative choice is sufficient for the requested baseline decision. New A/B queue is rb-baseline06-ab-20260929.",
+    "gates": [],
+    "status": "abandoned",
+    "hypothesis_id": null,
+    "priority": 10,
+    "notes": [
+      {
+        "at": "2026-09-29T08:43:59+00:00",
+        "text": "All10 recent-variant videos are ready:7 authenticated existing full-track renders plus3 new ablations. New render/audit queue exited0 in767.736s. Every video is8319frames/277.3s/native1920x1080/30fps/AV1 with identical decoded source audio SHA2566d5d8917556e5b7247fef054c758e975b9bf9d8ad206dccae755d4b51d794455. Final delivery audit rechecked video hashes, format, durations and saved full decode audits; all10 HTTP byte-range playback routes passed. New media665984232B and new data1267582B; both filesystem1GiBfloors passed. Combined compatible stack is05; no invented architecture ensemble. Viewer http://127.0.0.1:8765, direct file index VIDEOS.md, optional ratings_template.csv; local browser stores ratings and exportsJSON. No human acceptance, training, default promotion or new scientific verdict claimed."
+      },
+      {
+        "at": "2026-09-29T15:04:23+00:00",
+        "text": "User qualitative feedback 2026-09-29: 02 definitely better than01. 06 I_VR_P0 selected seed0 is the most interesting and best; explicitly selected as new development baseline. User says color fits track and rhythm changes, requests color transitions. User did not understand a significant difference in07; comparator unspecified. 10vs05 mostly one cyan/blue-related change; requests palette-history A/B on06. No numeric scores supplied; this is informed single-track preference, not a scientific confirmation or multi-track result. Exact user wording: /root/lightsem/experiments/2026-09-29-baseline/records/USER_FEEDBACK.json. Current baseline: /root/lightsem/configs/light_layers/baseline.json."
+      },
+      {
+        "at": "2026-09-29T15:22:01+00:00",
+        "text": "Ten-way review fulfilled its practical purpose: user explicitly prefers02to01 and selects06 as best/new baseline. This non-hypothesis review queue is administratively abandoned/superseded rather than marked done with a fabricated hypothesis_id. Original human feedback is retained in records/USER_FEEDBACK.json and prior notes. Continue with06 history/fade A/B; user also explicitly confirmed compact videos around50MB."
+      }
+    ],
+    "former_ids": [],
+    "topic_tags": [],
+    "created_at": "2026-09-29T08:37:26+00:00",
+    "updated_at": "2026-09-29T15:22:01+00:00"
+  },
+  {
+    "id": "rb-baseline06-image-supervision-20260929",
+    "problem_id": "dancing-light-generative-20260903",
+    "prompt": "CURRENT ACCEPTED BASELINE: C (06 I_VR_P0 + history ON +300ms smoothstep transitions). User explicitly selected history ON and transitions ON for the new baseline after four-arm review, and requested committing all changes including compression. This selects armC: variant06 independent Rich96 I_VR_P0 selected seed0, rhythm companion02, generated palette history, 300ms causal smoothstep channel-RGB transitions. Current config /root/lightsem/configs/light_layers/baseline.json now points to C video SHA256 fb06c3f3a951a4f2a12bbc01f4470cec4f8326912a441bd4e25097e275170299 and C streams SHA25634ca1d5f2c9a271b9e08536519f4d657e4aa3017a5ac42514b38e8dd07e4829b. Full C video43587650bytes,1080p30AV1,277.3s. Compact encoding is AV1 NVENC p7/UHQ1100k target1200k max2000k buffer, AAC128k, maximum50MB for full Shpongle reviews. Source FLAC remains unchanged. Exact user message /root/lightsem/experiments/2026-09-29-baseline/records/USER_BASELINE_C_SELECTION.json. Old configuration preserved in BASELINE_BEFORE_C_SELECTION.json and matches the frozen review binding; historical manifests/audits retained. The new baseline is accepted by the user; no further selection/permission or numerical ratings required. This is product preference, not changed scientific verdicts.\n\nResearch intent:\nInvestigate richer image supervision from the user-selected baseline06 I_VR_P0, not an assumed pose-only or YOLO-generated model. Existing selected independent architecture has separate audio encoders for accent, chromatic change and palette, Rich96 image auxiliary, pose_aux_dim0. Current image observer uses SAM2 box-prompted person masks with YOLO-derived cached boxes and excludes UI/people; 72 hue-saturation bins+24 quadrant descriptors, brightness-derived accent targets. No full-scene semantic representation or validated independent light labels. User reports strong track/rhythm match on Shpongle but this is one-song informed feedback. Next scoped study should inspect image targets, mask/UI/shot-cut contamination and temporal visual structure, establish independently annotated useful changes on a bounded TRAIN/DEV pilot, and compare current descriptors against a richer image/temporal representation with appropriate audio and visual nulls. Replacing YOLO alone is a separate masking intervention, not a demonstrated route to better lighting. No new fitting, dataset enlargement, test access or claimed advantage is authorized by this queue entry alone; preregister actual controlled pilot before computation. Keep previous observer29/30 null gate and negative palette-history results intact. First review baseline06 history/fade A/B.\n\nAdditional local finding: current demo mapping reduces each palette token to one global RGB and applies it to all color-enabled fixtures; there is no learned fixture-wise color assignment. A richer image representation and a spatial fixture-color output mapping are separate interventions. See updated experiments/2026-09-29-baseline/records/IMAGE_SUPERVISION_NEXT.md. Current inference/model outputs stay unchanged.",
+    "preconditions": "Research/preregistration completed; four specific queued runbooks now carry execution. Independent annotations and experiments remain pending.",
+    "gates": [],
+    "status": "done",
+    "hypothesis_id": "h-visual-next-cut-targets-20260929",
+    "priority": 20,
+    "notes": [
+      {
+        "at": "2026-09-29T15:19:56+00:00",
+        "text": "Additional local finding: current demo mapping reduces each palette token to one global RGB and applies it to all color-enabled fixtures; there is no learned fixture-wise color assignment. A richer image representation and a spatial fixture-color output mapping are separate interventions. See updated experiments/2026-09-29-baseline/records/IMAGE_SUPERVISION_NEXT.md. Current inference/model outputs stay unchanged."
+      },
+      {
+        "at": "2026-09-29T15:33:23+00:00",
+        "text": "User explicitly selected history ON and transitions ON for the new baseline after four-arm review, and requested committing all changes including compression. This selects armC: variant06 independent Rich96 I_VR_P0 selected seed0, rhythm companion02, generated palette history, 300ms causal smoothstep channel-RGB transitions. Current config /root/lightsem/configs/light_layers/baseline.json now points to C video SHA256 fb06c3f3a951a4f2a12bbc01f4470cec4f8326912a441bd4e25097e275170299 and C streams SHA25634ca1d5f2c9a271b9e08536519f4d657e4aa3017a5ac42514b38e8dd07e4829b. Full C video43587650bytes,1080p30AV1,277.3s. Compact encoding is AV1 NVENC p7/UHQ1100k target1200k max2000k buffer, AAC128k, maximum50MB for full Shpongle reviews. Source FLAC remains unchanged. Exact user message /root/lightsem/experiments/2026-09-29-baseline/records/USER_BASELINE_C_SELECTION.json. Old configuration preserved in BASELINE_BEFORE_C_SELECTION.json and matches the frozen review binding; historical manifests/audits retained. The new baseline is accepted by the user; no further selection/permission or numerical ratings required. This is product preference, not changed scientific verdicts."
+      },
+      {
+        "at": "2026-09-29T16:27:00+00:00",
+        "text": "Completed the requested full-context Perplexity research,17primary-paper verification/reading, and four native prospective hypotheses: h-visual-next-cut-targets-20260929, h-visual-next-temporal-masks-20260929, h-visual-next-color-temporal-20260929, h-visual-next-fixture-oracle-20260929. This closes only the research-planning intent, not the experiments. Baseline C remains accepted."
+      }
+    ],
+    "former_ids": [],
+    "topic_tags": [],
+    "created_at": "2026-09-29T15:04:24+00:00",
+    "updated_at": "2026-09-29T16:27:00+00:00"
+  },
+  {
+    "id": "rb-ls2-lossless-format-readiness-20260929",
+    "problem_id": "dancing-light-generative-20260903",
+    "prompt": "Engineering readiness and subsequent CPU-only format feasibility, not a new scientific hypothesis or evidence. Source: /root/lightsem/outputs/legacy_struct_intensity_20260928_v1/measure_lossless_archive_v1.py SHA256 2c068d0062ae0b9dd24d88b848c80201dffd284221ae4e25d84a5da8d8febf39; tests: test_measure_lossless_archive_v1.py SHA256 79866d5de485812d3b6483a3f0073774fa139772a2d4667622a493358fd1eaa1; 67 authored methods. Run those pure synthetic tests through existing run_torch.sh and /root/lightsem/.venv/torch-access under actual 512MiB memory, no swap, PrivateDevices, hidden CUDA, configured 50s and whole-job <=60s; combined log <=32768B. Require zero failures/errors/skips/expected failures/unexpected successes, preserve any failed attempt. Capture Python/NumPy/zlib versions and cached _lzma path; linked_liblzma_version stays null, no binary identity or future size invariance claim. Runtime changes require fresh validation. This readiness step reads sibling driver source and synthetic fixtures only. Separately, AFTER a plain test pass and fresh admission/accounting, the existing handoff defines two prospective measurements in fixed order (deflate9 then standard LZMA), all40 clips/120 integer members and strict+NumPy readback. Keep all160 float32 arrays uncompressed and retain every rejected row/section. No automatic candidate selection, V6 amendment, scientific/GPU execution or storage-fit claim. Keep 12582912B row8 and 1020054732B global caps, all previous files/failures, both 1GiB free floors, >=1MiB unspent future code/control reserve and distinct64KiB GPU-ledger allocation. Existing templates are not authorization/enforcement. Full format measurement remains future work until separately admitted; native test completion alone completes only engineering test readiness.",
+    "preconditions": "Engineering readiness is complete: native 67/67 plain test pass, no failures/errors/skips, verified same-process 512MiB/no-swap/PrivateDevices/50s envelope and 0.361432273s whole job. Receipt: /root/lightsem/outputs/legacy_struct_intensity_20260928_v1/NATIVE_LOSSLESS_ARCHIVE_TEST_RESULT_V1.json. Two-record repair passed all20 body/metadata/interpretation checks in /root/lightsem/docs/research/2026-09-28-end-to-end/interpretation_debt_20260928_v1/repair_v1/REPAIR_AUDIT_V1.json. Before the separately queued full40 format measurement: fresh total accounting, exact source/command/runtime binding and actual external limits are still required; existing templates remain invalid.",
+    "gates": [],
+    "status": "queued",
+    "hypothesis_id": null,
+    "priority": 100,
+    "notes": [
+      {
+        "at": "2026-09-29T08:07:29+00:00",
+        "text": "2026-09-29: explicit user correction supersedes earlier permission blocker: memory changes do NOT require separate permission within the task. Restored only the missing Notes text in exp-dance-physical-objective-20260911 and exp-dance-optics-full-20260911 through a dedicated two-target MCP using the existing Client. Exact candidate hashes match; whole current frontmatter/interpretation timestamps and all20 original bodies preserved; 406 other LightSem Markdown and756 foreign files unchanged in the repair audit. Installed server and Client source unchanged, so the custom-heading writer defect remains and must be avoided on future rewrites. Repair fixture attempt1 failed a boundary check before any vault change; fixed and preserved; attempt2 passed11/11. Frozen archive driver/tests unchanged, native67/67 plain pass under enforced CPU envelope. Runtime Python3.12.13/NumPy2.5.2/zlib1.3.1; cached_lzma_path=null and linked_liblzma_version=null, no binary identity or future size invariance. Source readiness and two-record recovery are complete. This runbook stays queued ONLY for the separate full40 two-codec format measurement; no such measurement, storage-fit result, scientific experiment or GPU admission is claimed."
+      }
+    ],
+    "former_ids": [],
+    "topic_tags": [],
+    "created_at": "2026-09-29T08:03:31+00:00",
+    "updated_at": "2026-09-29T08:07:29+00:00"
+  }
+]

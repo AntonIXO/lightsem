@@ -1,0 +1,17 @@
+{
+  "transnetv2": {
+    "repo": "soCzech/TransNetV2",
+    "revision": "85cef72af9a916bdfd7cc94a670c9cdfbf12d1ed",
+    "source": "https://github.com/soCzech/TransNetV2"
+  },
+  "cutie": {
+    "repo": "hkchengrex/Cutie",
+    "revision": "ec5cdd4cf16f75c73ad785a2f96fb97dbad4125a",
+    "source": "https://github.com/hkchengrex/Cutie"
+  },
+  "dinov2": {
+    "repo": "facebookresearch/dinov2",
+    "revision": "7764ea0f912e53c92e82eb78a2a1631e92725fc8",
+    "source": "https://github.com/facebookresearch/dinov2"
+  }
+}

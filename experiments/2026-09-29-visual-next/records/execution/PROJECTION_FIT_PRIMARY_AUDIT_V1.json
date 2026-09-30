@@ -1,0 +1,71 @@
+{
+  "status": "all7_TRAIN_PCA_states_independently_verified",
+  "fit_report_sha256": "d2110acec8f7e583e7125ef6326bdc0bb813b96ec50e09e738973ff5577bdf5c",
+  "freeze_sha256": "d90aa44d20c1c28f124a6e7f354390bff74a44852a346213fec24409c87985f8",
+  "frozen_inputs_verified": 823,
+  "arms": {
+    "R0": {
+      "count": 54489,
+      "orthonormality_max_error": 5.37856061910702e-08,
+      "retained_variance_fraction": 0.9999999930813465,
+      "pre_normalization_effective_rank": 6.963749664456576,
+      "standardizer_recomputed": true,
+      "states_sha256": "6341702687db30bdb977b417b0b2d851b9e149b79ff2e7d640c4258b50bd2e3b"
+    },
+    "R1": {
+      "count": 54489,
+      "orthonormality_max_error": 1.5855543905596292e-08,
+      "retained_variance_fraction": 0.8707033234627864,
+      "pre_normalization_effective_rank": 33.66801621596235,
+      "standardizer_recomputed": true,
+      "states_sha256": "1c8e5a25d8b0226aec3138a830585769b4b190afaf8d411387c849afc6b34d41"
+    },
+    "Rrand": {
+      "count": 54489,
+      "orthonormality_max_error": 3.4031637508036283e-09,
+      "retained_variance_fraction": 0.9781582619134361,
+      "pre_normalization_effective_rank": 5.918098121445769,
+      "standardizer_recomputed": true,
+      "states_sha256": "be359783fddcb3c72c7ed30242fe42ce5c53d82a68322f1d01a615fa18d8140e"
+    },
+    "R2": {
+      "count": 54489,
+      "orthonormality_max_error": 4.3485972600620926e-09,
+      "retained_variance_fraction": 0.7337391269026899,
+      "pre_normalization_effective_rank": 54.13782275922533,
+      "standardizer_recomputed": true,
+      "states_sha256": "f77b5732b3a3abe14b4fddf9b283655b908c94d10a00fbe6090daabdeff86d6f"
+    },
+    "R3": {
+      "count": 54489,
+      "orthonormality_max_error": 3.86536669338966e-09,
+      "retained_variance_fraction": 0.49987469448822963,
+      "pre_normalization_effective_rank": 59.237559400525505,
+      "standardizer_recomputed": true,
+      "states_sha256": "c258f0943b1459d8e42f3eaafe717d31f41742feda41d25aa89b0410d88e5d26"
+    },
+    "R3-shuffle": {
+      "count": 54489,
+      "orthonormality_max_error": 4.166042621989163e-09,
+      "retained_variance_fraction": 0.49126640354281426,
+      "pre_normalization_effective_rank": 59.731115870228194,
+      "standardizer_recomputed": true,
+      "states_sha256": "fe52e0d0717913508d9ff02dd732afbbeda79be874db11173ac78a69ef73a442"
+    },
+    "R3-reverse": {
+      "count": 54489,
+      "orthonormality_max_error": 4.275761744665374e-09,
+      "retained_variance_fraction": 0.49995339261496363,
+      "pre_normalization_effective_rank": 59.25276456183544,
+      "standardizer_recomputed": true,
+      "states_sha256": "2fcf738fb4220179611cbbb9e34ebd96a986af74121ba9419b332556db20aa75"
+    }
+  },
+  "TRAIN_families": 91,
+  "common_rows": 54489,
+  "DEV_read": false,
+  "test_access": false,
+  "seconds": 44.05867727496661,
+  "peak_rss_bytes": 393523200,
+  "scope": "Verified numerical transform fitting; retention and model-quality gates remain unmeasured."
+}

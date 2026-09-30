@@ -1,0 +1,56 @@
+{
+  "checks": {
+    "engineering_scope": "passed",
+    "freeze_inputs": "passed",
+    "gpu_released": "passed",
+    "report_output_hash": "passed",
+    "resource_limits": "passed"
+  },
+  "freeze": {
+    "actual_sha256": "76fc30f29269764c5fcf2d1a1629a2256ef2aa3a0c0c239e112ab03d0b726313",
+    "expected_sha256": "76fc30f29269764c5fcf2d1a1629a2256ef2aa3a0c0c239e112ab03d0b726313",
+    "path": "/root/lightsem/experiments/2026-09-29-visual-next/records/execution/SMOKE_FREEZE_V1.json"
+  },
+  "frozen_inputs": {
+    "all_unchanged": true,
+    "count": 374,
+    "ordered_path_sha256_manifest_sha256": "d508c8431170041be954df65fba06407976f8f55eb48d4745bc400da33e91423"
+  },
+  "gpu_compute_processes_after": "none",
+  "resources": {
+    "peak_reserved_bytes_max": 627048448,
+    "peak_reserved_limit_bytes": 10737418240,
+    "process_peak_rss_bytes_max": 2872049664,
+    "process_peak_rss_limit_bytes": 8589934592
+  },
+  "smoke": {
+    "annotation_scores": null,
+    "canonical_id": "jd-5fc36e07dfcc022631ff",
+    "frames": 16,
+    "model_order": [
+      "transnetv2_official_converted",
+      "same_sam2_union_anchor",
+      "cutie_base_mega_480",
+      "dinov2_pretrained",
+      "dinov2_random_seed17"
+    ],
+    "original_hypotheses_closed": false,
+    "outputs_path": "/root/lightsem/runs/visual_next_20260929/smoke_v1/outputs.npz",
+    "outputs_sha256": "d3e5564dbd3a49a002fb6030b0d83cbf4847b1cda833a10889b8d98d6cb7ac85",
+    "precision": "float32_no_autocast",
+    "report_output_sha256_matches": true,
+    "report_path": "/root/lightsem/runs/visual_next_20260929/smoke_v1/REPORT.json",
+    "report_sha256": "ecf5466ca8e03614db7f5488f36816e6573c8203b9a0cb76e349ec60f214916a",
+    "role": "annotation_calibration_TRAIN",
+    "status": "engineering_smoke_passed",
+    "test_access": false
+  },
+  "smoke_log": {
+    "path": "/root/lightsem/experiments/2026-09-29-visual-next/records/execution/SMOKE_V1.log",
+    "sha256": "d5e8fa88c35eed6ab3e10b19db582f8e4eaddef6f46456bca384e584dbce8ded"
+  },
+  "stage": "smoke_v1_curator_audit",
+  "status": "passed",
+  "terminal_process_state": "terminated",
+  "verified_utc": "2026-09-29T17:05:02.783867Z"
+}

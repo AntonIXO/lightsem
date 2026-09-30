@@ -1,0 +1,11 @@
+{
+  "status": "PASS",
+  "protocol_sha256": "772b9687c992275f020b488edf7524596c3c7f177cd40befbcda3828aa8573b5",
+  "payload_sha256": "579982184294baf40d1697e6ecb06c5a1783b7736488bc019c9d7029118ae22f",
+  "hypotheses": 4,
+  "papers": 17,
+  "blocking_gates": 31,
+  "no_unmeasured_noise_or_power_values": true,
+  "native_plan_headings_flattened_to_avoid_known_serializer_loss": true,
+  "no_experiments_started": true
+}

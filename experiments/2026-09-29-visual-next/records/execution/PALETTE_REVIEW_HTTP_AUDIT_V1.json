@@ -1,0 +1,21 @@
+{
+  "index_status": 200,
+  "manifest_status": 200,
+  "C": {
+    "range_status": 206,
+    "bytes": 1024,
+    "content_range": "bytes 0-1023/43587650"
+  },
+  "P2": {
+    "range_status": 206,
+    "bytes": 1024,
+    "content_range": "bytes 0-1023/43565799"
+  },
+  "P4": {
+    "range_status": 206,
+    "bytes": 1024,
+    "content_range": "bytes 0-1023/43548159"
+  },
+  "rating_page_url": "http://127.0.0.1:8768",
+  "scope": "HTTP/page/media byte-range verification; no claim of a completed browser interaction test."
+}

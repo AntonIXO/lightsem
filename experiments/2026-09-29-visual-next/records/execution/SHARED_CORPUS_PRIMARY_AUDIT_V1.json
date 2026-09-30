@@ -1,0 +1,640 @@
+{
+  "status": "full122_shared_corpus_independently_verified",
+  "report_sha256": "4821707d55756a650d634a0c6385170bcc8da27cf39b4e1aeaba87f0a98359c2",
+  "freeze_sha256": "356da8e44940b5ad5d904540c0cccf9911807a3f2501c3aa7d3ef184444489a1",
+  "input_bindings_verified": 1281,
+  "families": 122,
+  "TRAIN": 91,
+  "historical_DEV": 31,
+  "artifact_NPZ_hashes_verified": 689,
+  "finite_numeric_arrays_verified": 15810,
+  "common_support": [
+    {
+      "canonical_id": "jd-5fc36e07dfcc022631ff",
+      "partition": "train",
+      "common_valid_rows": 531
+    },
+    {
+      "canonical_id": "jd-b932c8c85bd6f2576073",
+      "partition": "train",
+      "common_valid_rows": 635
+    },
+    {
+      "canonical_id": "jd-7c97b126862e58f1d563",
+      "partition": "train",
+      "common_valid_rows": 554
+    },
+    {
+      "canonical_id": "jd-6a5d1bfe68d703300533",
+      "partition": "train",
+      "common_valid_rows": 598
+    },
+    {
+      "canonical_id": "jd-1066f38acdaf08271fa6",
+      "partition": "train",
+      "common_valid_rows": 617
+    },
+    {
+      "canonical_id": "jd-e6ddbe5382bc260e3e6c",
+      "partition": "train",
+      "common_valid_rows": 538
+    },
+    {
+      "canonical_id": "jd-48e07715df8f7d372d26",
+      "partition": "train",
+      "common_valid_rows": 482
+    },
+    {
+      "canonical_id": "jd-4041f5000909d780f8de",
+      "partition": "train",
+      "common_valid_rows": 635
+    },
+    {
+      "canonical_id": "jd-f396b09e25bec38321a3",
+      "partition": "train",
+      "common_valid_rows": 635
+    },
+    {
+      "canonical_id": "jd-464511233c6a6428a9a5",
+      "partition": "train",
+      "common_valid_rows": 635
+    },
+    {
+      "canonical_id": "jd-8fbf5474b581bac86286",
+      "partition": "train",
+      "common_valid_rows": 629
+    },
+    {
+      "canonical_id": "jd-a1060383db4600ff501b",
+      "partition": "train",
+      "common_valid_rows": 635
+    },
+    {
+      "canonical_id": "jd-028ab6040c49812e3570",
+      "partition": "train",
+      "common_valid_rows": 622
+    },
+    {
+      "canonical_id": "jd-06128ffd8a34479c213d",
+      "partition": "train",
+      "common_valid_rows": 506
+    },
+    {
+      "canonical_id": "jd-0764efe56dd9156e2cb7",
+      "partition": "train",
+      "common_valid_rows": 635
+    },
+    {
+      "canonical_id": "jd-13137f2fbb381b505079",
+      "partition": "train",
+      "common_valid_rows": 635
+    },
+    {
+      "canonical_id": "jd-13c2e985646cec0fac50",
+      "partition": "train",
+      "common_valid_rows": 602
+    },
+    {
+      "canonical_id": "jd-16f02b3fa2a77915e962",
+      "partition": "train",
+      "common_valid_rows": 635
+    },
+    {
+      "canonical_id": "jd-1cc8ff283f821a17791f",
+      "partition": "train",
+      "common_valid_rows": 635
+    },
+    {
+      "canonical_id": "jd-2799077214c5b2fa8db3",
+      "partition": "train",
+      "common_valid_rows": 607
+    },
+    {
+      "canonical_id": "jd-294ec281f938d4c5d404",
+      "partition": "train",
+      "common_valid_rows": 534
+    },
+    {
+      "canonical_id": "jd-2d5452f764f52ec3ebdc",
+      "partition": "train",
+      "common_valid_rows": 635
+    },
+    {
+      "canonical_id": "jd-2ed10b6d9cd7ed829ba5",
+      "partition": "train",
+      "common_valid_rows": 585
+    },
+    {
+      "canonical_id": "jd-2fa38950ca9db99f9b45",
+      "partition": "train",
+      "common_valid_rows": 627
+    },
+    {
+      "canonical_id": "jd-34a5112b3b2b85195612",
+      "partition": "train",
+      "common_valid_rows": 635
+    },
+    {
+      "canonical_id": "jd-34b4687e478cb0b2902e",
+      "partition": "train",
+      "common_valid_rows": 618
+    },
+    {
+      "canonical_id": "jd-38676dcc4068a2f5a72b",
+      "partition": "train",
+      "common_valid_rows": 629
+    },
+    {
+      "canonical_id": "jd-3d9e26ba335d7748476e",
+      "partition": "train",
+      "common_valid_rows": 614
+    },
+    {
+      "canonical_id": "jd-43589bfbe6f72c566376",
+      "partition": "train",
+      "common_valid_rows": 601
+    },
+    {
+      "canonical_id": "jd-46abc7776350962df0ca",
+      "partition": "train",
+      "common_valid_rows": 628
+    },
+    {
+      "canonical_id": "jd-4707aa0c6a679fe1c0d3",
+      "partition": "train",
+      "common_valid_rows": 570
+    },
+    {
+      "canonical_id": "jd-472c26d7febbca1adc33",
+      "partition": "train",
+      "common_valid_rows": 628
+    },
+    {
+      "canonical_id": "jd-4b91baf4d71564e679cc",
+      "partition": "train",
+      "common_valid_rows": 635
+    },
+    {
+      "canonical_id": "jd-4ba3d78e3fa39a3b279a",
+      "partition": "train",
+      "common_valid_rows": 635
+    },
+    {
+      "canonical_id": "jd-519d12cca2cf6c022fc5",
+      "partition": "train",
+      "common_valid_rows": 635
+    },
+    {
+      "canonical_id": "jd-54dce53f1d8b2c203d45",
+      "partition": "train",
+      "common_valid_rows": 629
+    },
+    {
+      "canonical_id": "jd-56b605d8da41a4c0d307",
+      "partition": "train",
+      "common_valid_rows": 635
+    },
+    {
+      "canonical_id": "jd-59a6b7631315a99bcf7d",
+      "partition": "train",
+      "common_valid_rows": 617
+    },
+    {
+      "canonical_id": "jd-59e438adb482707da4f9",
+      "partition": "train",
+      "common_valid_rows": 635
+    },
+    {
+      "canonical_id": "jd-5a9ccc1f5f5ce962caa1",
+      "partition": "train",
+      "common_valid_rows": 629
+    },
+    {
+      "canonical_id": "jd-5c083de860bb487606b1",
+      "partition": "train",
+      "common_valid_rows": 617
+    },
+    {
+      "canonical_id": "jd-5ce04ab61b66c2e7a8e7",
+      "partition": "train",
+      "common_valid_rows": 618
+    },
+    {
+      "canonical_id": "jd-66235a14b0c941f21fc4",
+      "partition": "train",
+      "common_valid_rows": 635
+    },
+    {
+      "canonical_id": "jd-66dfcf8e314729b7610c",
+      "partition": "train",
+      "common_valid_rows": 635
+    },
+    {
+      "canonical_id": "jd-6c6bd0476b188c5748de",
+      "partition": "train",
+      "common_valid_rows": 635
+    },
+    {
+      "canonical_id": "jd-6fd91b3633c6964f4c77",
+      "partition": "train",
+      "common_valid_rows": 560
+    },
+    {
+      "canonical_id": "jd-74dc6c1c0ca23b2cc58e",
+      "partition": "train",
+      "common_valid_rows": 609
+    },
+    {
+      "canonical_id": "jd-7563de6855d84e0404a0",
+      "partition": "train",
+      "common_valid_rows": 528
+    },
+    {
+      "canonical_id": "jd-78d63035054399e750dd",
+      "partition": "train",
+      "common_valid_rows": 629
+    },
+    {
+      "canonical_id": "jd-7e41fba35a39421075a8",
+      "partition": "train",
+      "common_valid_rows": 559
+    },
+    {
+      "canonical_id": "jd-7e85377a39d68d2c636b",
+      "partition": "train",
+      "common_valid_rows": 635
+    },
+    {
+      "canonical_id": "jd-7f36a589fe039ce3409d",
+      "partition": "train",
+      "common_valid_rows": 482
+    },
+    {
+      "canonical_id": "jd-830a5c4281377a13f1cd",
+      "partition": "train",
+      "common_valid_rows": 635
+    },
+    {
+      "canonical_id": "jd-86a533e6cb8ee0658d04",
+      "partition": "train",
+      "common_valid_rows": 635
+    },
+    {
+      "canonical_id": "jd-8909604cc2942fa3c168",
+      "partition": "train",
+      "common_valid_rows": 629
+    },
+    {
+      "canonical_id": "jd-8d47dfa2ad1b150183f8",
+      "partition": "train",
+      "common_valid_rows": 635
+    },
+    {
+      "canonical_id": "jd-968552bceaa4ded4b40d",
+      "partition": "train",
+      "common_valid_rows": 635
+    },
+    {
+      "canonical_id": "jd-a1256b27ae9c4027c22d",
+      "partition": "train",
+      "common_valid_rows": 587
+    },
+    {
+      "canonical_id": "jd-a3ad434481fd55c1aa13",
+      "partition": "train",
+      "common_valid_rows": 616
+    },
+    {
+      "canonical_id": "jd-a56fb00bedbaf42ef4be",
+      "partition": "train",
+      "common_valid_rows": 608
+    },
+    {
+      "canonical_id": "jd-aa943be707bf08750567",
+      "partition": "train",
+      "common_valid_rows": 611
+    },
+    {
+      "canonical_id": "jd-b5e1298be68162d1c1ba",
+      "partition": "train",
+      "common_valid_rows": 598
+    },
+    {
+      "canonical_id": "jd-b5eb71b2d267a98141c7",
+      "partition": "train",
+      "common_valid_rows": 629
+    },
+    {
+      "canonical_id": "jd-b6cf43d102b9f0df0a19",
+      "partition": "train",
+      "common_valid_rows": 494
+    },
+    {
+      "canonical_id": "jd-bfb7534bbe00c5a9b28a",
+      "partition": "train",
+      "common_valid_rows": 450
+    },
+    {
+      "canonical_id": "jd-c4b32de4426bb437d5ab",
+      "partition": "train",
+      "common_valid_rows": 530
+    },
+    {
+      "canonical_id": "jd-c508041a8aaa1ed552ab",
+      "partition": "train",
+      "common_valid_rows": 605
+    },
+    {
+      "canonical_id": "jd-c55da5ff338345d0904c",
+      "partition": "train",
+      "common_valid_rows": 635
+    },
+    {
+      "canonical_id": "jd-c8c0ad99c0f31567c844",
+      "partition": "train",
+      "common_valid_rows": 635
+    },
+    {
+      "canonical_id": "jd-cb532b22146825171991",
+      "partition": "train",
+      "common_valid_rows": 635
+    },
+    {
+      "canonical_id": "jd-cdf72d6db62e0bbf46c4",
+      "partition": "train",
+      "common_valid_rows": 635
+    },
+    {
+      "canonical_id": "jd-d23d6216bb73f198e203",
+      "partition": "train",
+      "common_valid_rows": 604
+    },
+    {
+      "canonical_id": "jd-d471800e945d34009b49",
+      "partition": "train",
+      "common_valid_rows": 635
+    },
+    {
+      "canonical_id": "jd-d656bc56cf55b7648a7a",
+      "partition": "train",
+      "common_valid_rows": 548
+    },
+    {
+      "canonical_id": "jd-d7dd97e70d5342e47cd7",
+      "partition": "train",
+      "common_valid_rows": 617
+    },
+    {
+      "canonical_id": "jd-d9de2660680dbe80b144",
+      "partition": "train",
+      "common_valid_rows": 616
+    },
+    {
+      "canonical_id": "jd-ddd8a41abd2dcdd26fd9",
+      "partition": "train",
+      "common_valid_rows": 598
+    },
+    {
+      "canonical_id": "jd-e063ba9ab014d8134266",
+      "partition": "train",
+      "common_valid_rows": 534
+    },
+    {
+      "canonical_id": "jd-e1818f38aaa8ce9fe0c7",
+      "partition": "train",
+      "common_valid_rows": 462
+    },
+    {
+      "canonical_id": "jd-e2a85e0ad3e69e54bff0",
+      "partition": "train",
+      "common_valid_rows": 590
+    },
+    {
+      "canonical_id": "jd-e2f5b12c308078551a15",
+      "partition": "train",
+      "common_valid_rows": 498
+    },
+    {
+      "canonical_id": "jd-ebdb71f0c075f60116d7",
+      "partition": "train",
+      "common_valid_rows": 476
+    },
+    {
+      "canonical_id": "jd-ed4567d227e0c30131ce",
+      "partition": "train",
+      "common_valid_rows": 589
+    },
+    {
+      "canonical_id": "jd-ee39e2be289f6ae8e14f",
+      "partition": "train",
+      "common_valid_rows": 589
+    },
+    {
+      "canonical_id": "jd-ef1727a65d18b37d00cf",
+      "partition": "train",
+      "common_valid_rows": 629
+    },
+    {
+      "canonical_id": "jd-f41fe777d26f78dfc6e6",
+      "partition": "train",
+      "common_valid_rows": 588
+    },
+    {
+      "canonical_id": "jd-f51288c36dc42f436e87",
+      "partition": "train",
+      "common_valid_rows": 635
+    },
+    {
+      "canonical_id": "jd-f5edaf92f7800767483a",
+      "partition": "train",
+      "common_valid_rows": 576
+    },
+    {
+      "canonical_id": "jd-fbc1c0d56f92405b476f",
+      "partition": "train",
+      "common_valid_rows": 602
+    },
+    {
+      "canonical_id": "jd-fc065f98256f8cc4328c",
+      "partition": "train",
+      "common_valid_rows": 596
+    },
+    {
+      "canonical_id": "jd-fed25d25737a6483babb",
+      "partition": "train",
+      "common_valid_rows": 573
+    },
+    {
+      "canonical_id": "jd-747150134cf9e99c3c3c",
+      "partition": "val",
+      "common_valid_rows": 613
+    },
+    {
+      "canonical_id": "jd-2c77ae090404e55f756a",
+      "partition": "val",
+      "common_valid_rows": 635
+    },
+    {
+      "canonical_id": "jd-fafcdb519fee22dbc70c",
+      "partition": "val",
+      "common_valid_rows": 608
+    },
+    {
+      "canonical_id": "jd-f4c8176fa3a91973b592",
+      "partition": "val",
+      "common_valid_rows": 628
+    },
+    {
+      "canonical_id": "jd-3befa145e6969e6c9a95",
+      "partition": "val",
+      "common_valid_rows": 635
+    },
+    {
+      "canonical_id": "jd-74e48db9c68c3ba7518c",
+      "partition": "val",
+      "common_valid_rows": 635
+    },
+    {
+      "canonical_id": "jd-ea120a8bdace51e8b6f6",
+      "partition": "val",
+      "common_valid_rows": 635
+    },
+    {
+      "canonical_id": "jd-86d4dcca00cd5d4c8660",
+      "partition": "val",
+      "common_valid_rows": 635
+    },
+    {
+      "canonical_id": "jd-e1da76a76ac38851fb95",
+      "partition": "val",
+      "common_valid_rows": 522
+    },
+    {
+      "canonical_id": "jd-669b916cd15af69ae82c",
+      "partition": "val",
+      "common_valid_rows": 614
+    },
+    {
+      "canonical_id": "jd-e23374aa3965d47673e4",
+      "partition": "val",
+      "common_valid_rows": 635
+    },
+    {
+      "canonical_id": "jd-f6d8aa9c97422610fd37",
+      "partition": "val",
+      "common_valid_rows": 605
+    },
+    {
+      "canonical_id": "jd-55b5e12d13bb65af40c4",
+      "partition": "val",
+      "common_valid_rows": 635
+    },
+    {
+      "canonical_id": "jd-3c5e68ae33c47c290479",
+      "partition": "val",
+      "common_valid_rows": 635
+    },
+    {
+      "canonical_id": "jd-0928ee4d1de962b531b9",
+      "partition": "val",
+      "common_valid_rows": 635
+    },
+    {
+      "canonical_id": "jd-8a679ca83b209ec3b56d",
+      "partition": "val",
+      "common_valid_rows": 635
+    },
+    {
+      "canonical_id": "jd-9853154cde288d120418",
+      "partition": "val",
+      "common_valid_rows": 629
+    },
+    {
+      "canonical_id": "jd-e41ede5dd92ce64a6170",
+      "partition": "val",
+      "common_valid_rows": 629
+    },
+    {
+      "canonical_id": "jd-456e07ff2d55abce6615",
+      "partition": "val",
+      "common_valid_rows": 589
+    },
+    {
+      "canonical_id": "jd-95ce22181d5e92287572",
+      "partition": "val",
+      "common_valid_rows": 635
+    },
+    {
+      "canonical_id": "jd-efebde221c7bbf18bf6a",
+      "partition": "val",
+      "common_valid_rows": 635
+    },
+    {
+      "canonical_id": "jd-3b9ff4e655382e86d13e",
+      "partition": "val",
+      "common_valid_rows": 635
+    },
+    {
+      "canonical_id": "jd-a93d208ad804d0dcaf1a",
+      "partition": "val",
+      "common_valid_rows": 578
+    },
+    {
+      "canonical_id": "jd-91a59e9979e5c8c83a4b",
+      "partition": "val",
+      "common_valid_rows": 629
+    },
+    {
+      "canonical_id": "jd-97b196cd3a7f8f8c644e",
+      "partition": "val",
+      "common_valid_rows": 635
+    },
+    {
+      "canonical_id": "jd-700bceaf8b0e9265bafe",
+      "partition": "val",
+      "common_valid_rows": 635
+    },
+    {
+      "canonical_id": "jd-41ab77f7b47086034bdd",
+      "partition": "val",
+      "common_valid_rows": 537
+    },
+    {
+      "canonical_id": "jd-d79d29aa3c0f14c7e4f8",
+      "partition": "val",
+      "common_valid_rows": 465
+    },
+    {
+      "canonical_id": "jd-f19a7edfa3a9eca671bf",
+      "partition": "val",
+      "common_valid_rows": 586
+    },
+    {
+      "canonical_id": "jd-d3581d2b1eb7b0beb7d1",
+      "partition": "val",
+      "common_valid_rows": 573
+    },
+    {
+      "canonical_id": "jd-2d5d5defd33a5ae0bdc3",
+      "partition": "val",
+      "common_valid_rows": 567
+    }
+  ],
+  "max_R1_global_HS_reconstruction_error": 0.0002021577907563854,
+  "numerical_tolerance": 0.002,
+  "stage_seconds": {
+    "H1_H2": 10812.986495946301,
+    "H3_features": 1035.483531440841
+  },
+  "prior_plus_current_seconds": {
+    "H1_H2": 12073.13409999176,
+    "H3_features": 1036.5830298461951
+  },
+  "peak_reserved_bytes": 1195376640,
+  "peak_rss_bytes": 2884755456,
+  "reported_study_bytes": 3302835491,
+  "audit_seconds": 19.11259731114842,
+  "original_independent_endpoints": "unmeasured",
+  "TEST_access": false,
+  "scope": "Source/feature/mask extraction provenance, numerical integrity and resource audit; not scientific efficacy or baseline promotion."
+}

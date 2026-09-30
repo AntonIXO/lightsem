@@ -1,0 +1,192 @@
+{
+  "stale_days": 21,
+  "counts": {
+    "problems": 3,
+    "hypotheses": 75,
+    "experiments": 71,
+    "runbooks": 24,
+    "tags": 18,
+    "findings": 28
+  },
+  "by_kind": {
+    "problem_answered_but_open": 1,
+    "problem_without_hypothesis": 1,
+    "hypothesis_stale_testing": 1,
+    "hypothesis_stale_proposed": 1,
+    "experiment_open": 1,
+    "duplicate_experiment": 2,
+    "runbook_stale": 14,
+    "diagnostic_no_noise_floor": 7
+  },
+  "findings": [
+    {
+      "kind": "problem_answered_but_open",
+      "id": "audio-to-light-semantic-mapping-20260807",
+      "detail": "has 3 CONFIRMED hypothesis/es and no live work, but is still 'open'",
+      "fix": "update_problem(id='audio-to-light-semantic-mapping-20260807', status='resolved')"
+    },
+    {
+      "kind": "problem_without_hypothesis",
+      "id": "lightsem-vault-unqualified-closure-20260922",
+      "detail": "open with no hypothesis, runbook or rule-out attached",
+      "fix": "propose_hypothesis(problem_id='lightsem-vault-unqualified-closure-20260922', ...) or status='parked'"
+    },
+    {
+      "kind": "hypothesis_stale_testing",
+      "id": "descriptors-extracted-from-ordinary-video-with-3fc5b9",
+      "detail": "testing for 25d; 1 experiment(s), 1 still open",
+      "fix": "close_experiment/abort_experiment on its runs, or supersede it with propose_hypothesis(supersedes=...)"
+    },
+    {
+      "kind": "hypothesis_stale_proposed",
+      "id": "two-to-four-hundred-brightness-matched-pairwise-87b2b3",
+      "detail": "proposed for 24d; 0 experiment(s), 0 still open",
+      "fix": "close_experiment/abort_experiment on its runs, or supersede it with propose_hypothesis(supersedes=...)"
+    },
+    {
+      "kind": "experiment_open",
+      "id": "exp-007-descriptors-extracted-from-936a48",
+      "detail": "open for 25d, 0 diagnostic(s) recorded",
+      "fix": "close_experiment('exp-007-descriptors-extracted-from-936a48') if it ran, abort_experiment('exp-007-descriptors-extracted-from-936a48', crash_reason=...) if it died"
+    },
+    {
+      "kind": "duplicate_experiment",
+      "id": "exp-021-a-learned-group-effects-decoder-1eac54",
+      "detail": "started 1s after 'exp-020-a-learned-group-effects-decoder-1eac54' on the same hypothesis 'a-learned-group-effects-decoder-anton-s-mixture-2b4f62' \u2014 almost certainly a double call",
+      "fix": "keep the one with measurements; abort_experiment the other with crash_reason='duplicate record'"
+    },
+    {
+      "kind": "duplicate_experiment",
+      "id": "exp-layers-20260922-mask-features-v2",
+      "detail": "started 92s after 'exp-layers-20260922-mask-features' on the same hypothesis 'h-layers-20260922-mask' \u2014 almost certainly a double call",
+      "fix": "keep the one with measurements; abort_experiment the other with crash_reason='duplicate record'"
+    },
+    {
+      "kind": "runbook_stale",
+      "id": "rb-ls2-00-oracle-dancer",
+      "detail": "queued for 25d and never started",
+      "fix": "run it, re-prioritise it, or update_runbook('rb-ls2-00-oracle-dancer', status='abandoned', note='...')"
+    },
+    {
+      "kind": "runbook_stale",
+      "id": "rb-ls2-00b-predictability-audit",
+      "detail": "queued for 25d and never started",
+      "fix": "run it, re-prioritise it, or update_runbook('rb-ls2-00b-predictability-audit', status='abandoned', note='...')"
+    },
+    {
+      "kind": "runbook_stale",
+      "id": "rb-ls2-00c-late-lights-and-category-test",
+      "detail": "queued for 25d and never started",
+      "fix": "run it, re-prioritise it, or update_runbook('rb-ls2-00c-late-lights-and-category-test', status='abandoned', note='...')"
+    },
+    {
+      "kind": "runbook_stale",
+      "id": "rb-ls2-01-latent-dancer-offline",
+      "detail": "queued for 25d and never started",
+      "fix": "run it, re-prioritise it, or update_runbook('rb-ls2-01-latent-dancer-offline', status='abandoned', note='...')"
+    },
+    {
+      "kind": "runbook_stale",
+      "id": "rb-ls2-02-operator-head-699",
+      "detail": "queued for 25d and never started",
+      "fix": "run it, re-prioritise it, or update_runbook('rb-ls2-02-operator-head-699', status='abandoned', note='...')"
+    },
+    {
+      "kind": "runbook_stale",
+      "id": "rb-ls2-03-conductor-ab",
+      "detail": "queued for 25d and never started",
+      "fix": "run it, re-prioritise it, or update_runbook('rb-ls2-03-conductor-ab', status='abandoned', note='...')"
+    },
+    {
+      "kind": "runbook_stale",
+      "id": "rb-ls2-04-causal-student-latency",
+      "detail": "queued for 25d and never started",
+      "fix": "run it, re-prioritise it, or update_runbook('rb-ls2-04-causal-student-latency', status='abandoned', note='...')"
+    },
+    {
+      "kind": "runbook_stale",
+      "id": "rb-ls2-05-learned-conductor",
+      "detail": "queued for 25d and never started",
+      "fix": "run it, re-prioritise it, or update_runbook('rb-ls2-05-learned-conductor', status='abandoned', note='...')"
+    },
+    {
+      "kind": "runbook_stale",
+      "id": "rb-ls2-06-edm-anticipation",
+      "detail": "queued for 25d and never started",
+      "fix": "run it, re-prioritise it, or update_runbook('rb-ls2-06-edm-anticipation', status='abandoned', note='...')"
+    },
+    {
+      "kind": "runbook_stale",
+      "id": "rb-ls2-07-offline-prerendered",
+      "detail": "queued for 25d and never started",
+      "fix": "run it, re-prioritise it, or update_runbook('rb-ls2-07-offline-prerendered', status='abandoned', note='...')"
+    },
+    {
+      "kind": "runbook_stale",
+      "id": "rb-ls2-08-justdance",
+      "detail": "queued for 25d and never started",
+      "fix": "run it, re-prioritise it, or update_runbook('rb-ls2-08-justdance', status='abandoned', note='...')"
+    },
+    {
+      "kind": "runbook_stale",
+      "id": "rb-ls2-09-designed-light",
+      "detail": "queued for 24d and never started",
+      "fix": "run it, re-prioritise it, or update_runbook('rb-ls2-09-designed-light', status='abandoned', note='...')"
+    },
+    {
+      "kind": "runbook_stale",
+      "id": "rb-ls2-10-cue-renderer",
+      "detail": "queued for 24d and never started",
+      "fix": "run it, re-prioritise it, or update_runbook('rb-ls2-10-cue-renderer', status='abandoned', note='...')"
+    },
+    {
+      "kind": "runbook_stale",
+      "id": "rb-ls2-infra",
+      "detail": "queued for 25d and never started",
+      "fix": "run it, re-prioritise it, or update_runbook('rb-ls2-infra', status='abandoned', note='...')"
+    },
+    {
+      "kind": "diagnostic_no_noise_floor",
+      "id": "descriptor-audio-r2-over-identity",
+      "detail": "6 evaluations ride on this diagnostic but no noise floor is registered \u2014 every 'supports' on it is sign-only and may be draw luck",
+      "fix": "measure repeat-run sigma, then register_diagnostic(id='descriptor-audio-r2-over-identity', ..., noise_sigma=<\u03c3>, noise_source='measured')"
+    },
+    {
+      "kind": "diagnostic_no_noise_floor",
+      "id": "event-ap-lift-audio-marginal",
+      "detail": "7 evaluations ride on this diagnostic but no noise floor is registered \u2014 every 'supports' on it is sign-only and may be draw luck",
+      "fix": "measure repeat-run sigma, then register_diagnostic(id='event-ap-lift-audio-marginal', ..., noise_sigma=<\u03c3>, noise_source='measured')"
+    },
+    {
+      "kind": "diagnostic_no_noise_floor",
+      "id": "event-ap-lift-by-feature-family",
+      "detail": "3 evaluations ride on this diagnostic but no noise floor is registered \u2014 every 'supports' on it is sign-only and may be draw luck",
+      "fix": "measure repeat-run sigma, then register_diagnostic(id='event-ap-lift-by-feature-family', ..., noise_sigma=<\u03c3>, noise_source='measured')"
+    },
+    {
+      "kind": "diagnostic_no_noise_floor",
+      "id": "fid-light-kinetic",
+      "detail": "8 evaluations ride on this diagnostic but no noise floor is registered \u2014 every 'supports' on it is sign-only and may be draw luck",
+      "fix": "measure repeat-run sigma, then register_diagnostic(id='fid-light-kinetic', ..., noise_sigma=<\u03c3>, noise_source='measured')"
+    },
+    {
+      "kind": "diagnostic_no_noise_floor",
+      "id": "human-preference-winrate",
+      "detail": "5 evaluations ride on this diagnostic but no noise floor is registered \u2014 every 'supports' on it is sign-only and may be draw luck",
+      "fix": "measure repeat-run sigma, then register_diagnostic(id='human-preference-winrate', ..., noise_sigma=<\u03c3>, noise_source='measured')"
+    },
+    {
+      "kind": "diagnostic_no_noise_floor",
+      "id": "light-bas-minus-shift-null",
+      "detail": "10 evaluations ride on this diagnostic but no noise floor is registered \u2014 every 'supports' on it is sign-only and may be draw luck",
+      "fix": "measure repeat-run sigma, then register_diagnostic(id='light-bas-minus-shift-null', ..., noise_sigma=<\u03c3>, noise_source='measured')"
+    },
+    {
+      "kind": "diagnostic_no_noise_floor",
+      "id": "motion-codec-velocity-nrmse",
+      "detail": "3 evaluations ride on this diagnostic but no noise floor is registered \u2014 every 'supports' on it is sign-only and may be draw luck",
+      "fix": "measure repeat-run sigma, then register_diagnostic(id='motion-codec-velocity-nrmse', ..., noise_sigma=<\u03c3>, noise_source='measured')"
+    }
+  ],
+  "guidance": "Advisory only \u2014 nothing was changed. Each finding names the tool that fixes it. Status rot is not cosmetic: recall hands a future session the framing these records assert, so an 'open' problem that was answered months ago actively misleads it."
+}

@@ -1,0 +1,19 @@
+{
+  "status": "full_fit_metadata_changes_do_not_change_training_math",
+  "unchanged_functions": [
+    "state_digest",
+    "main_target_digest",
+    "prepared_data",
+    "checkpoint"
+  ],
+  "optimizer_update_loop_identical_except_completed_counter": true,
+  "old_source_sha256": "f36111c9fb1824a63d9b1c75932b972a7ae8ac15314297639222a6f6c15972cc",
+  "new_source_sha256": "97614d9926822449345b4a678d06680dafa3d771b05b6b559fbce74806870053",
+  "changes": [
+    "Carry bound failed representation qualification into every fit/checkpoint",
+    "Use plain version strings compatible with weights_only loading",
+    "Report completed optimizer updates accurately on interruption"
+  ],
+  "compatibility_test_log": "CHECKPOINT_COMPATIBILITY_TEST_V1.log",
+  "scientific_fits_observed": 0
+}

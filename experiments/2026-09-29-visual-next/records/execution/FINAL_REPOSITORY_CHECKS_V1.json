@@ -1,0 +1,26 @@
+{
+  "status": "intended_source_and_documentation_whitespace_check_passed",
+  "command": [
+    "git",
+    "diff",
+    "--cached",
+    "--check",
+    "--",
+    ".",
+    ":!experiments/2026-09-29-visual-next/records/PERPLEXITY_REPORT.md",
+    ":!experiments/2026-09-29-visual-next/records/execution/EVALUATION_PREPARATION_AUDIT_SERIALIZATION_V1.partial"
+  ],
+  "raw_capture_exceptions": [
+    {
+      "path": "experiments/2026-09-29-visual-next/records/PERPLEXITY_REPORT.md",
+      "sha256": "8e7c3cbae86edf4bbf776f195a0647b36e1db065513f1c93cf19225c4ff0b5cb"
+    },
+    {
+      "path": "experiments/2026-09-29-visual-next/records/execution/EVALUATION_PREPARATION_AUDIT_SERIALIZATION_V1.partial",
+      "sha256": "fb5bad5f54ecb9f28ba23802dbd0036741d13db8837f8a3a07004df221480507"
+    }
+  ],
+  "reason": "Preserve the captured research Markdown with intentional two-space line breaks and the original failed-serialization partial artifact verbatim. They are historical evidence, not executable source. No frozen capture was rewritten to satisfy whitespace lint.",
+  "preexisting_parent": "2eff936f906fa7afe7c3d4b7180684a6fb1df5fe",
+  "scope": "Only intended visual-next study paths and their navigation updates staged; concurrent festival commit preserved."
+}

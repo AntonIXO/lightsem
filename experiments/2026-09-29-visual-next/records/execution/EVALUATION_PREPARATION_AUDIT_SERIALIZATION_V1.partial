@@ -1,0 +1,10 @@
+{
+  "status": "independently_verified_source_only_evaluation_preparation",
+  "report_sha256": "a55a6ed22c64e9664104e03f515fcf0db531befb65340db2c7a44399f923eeff",
+  "input_hashes_verified": 325,
+  "reference_artifacts_verified": 31,
+  "TRAIN_prevalence": 0.01458062653385304,
+  "TRAIN_positive_bins": 101,
+  "TRAIN_eligible_bins": 6927,
+  "donor_pairs_recomputed": 31,
+  "source_eligible_families": 

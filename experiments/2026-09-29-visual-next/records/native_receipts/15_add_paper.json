@@ -1,0 +1,31 @@
+{
+  "tool": "add_paper",
+  "arguments": {
+    "id": "paper-maskfreevis-2303-15904",
+    "title": "Mask-Free Video Instance Segmentation",
+    "arxiv_id_or_url": "https://arxiv.org/abs/2303.15904",
+    "key_claims": [
+      "Temporal KNN patch correspondences provide mask-consistency supervision with zero, one or several matches, handling ambiguous/no correspondences better than an unconditional one-to-one assumption. Mask-free does not mean annotation-free: the system uses bounding boxes. Its consistency idea motivates a diagnostic only; training a new segmentation model is outside the first pilot. Appearance changes and repeated graphics can invalidate correspondences, so independent foreground masks and retained-background color error remain necessary.",
+      "Verified full PDF SHA256 7c70b88d1d75078396c5b8671a4ee5221c06b06049ff22de94bef39e0e0c676a. Read scope: Abstract; Temporal KNN-patch Loss Sec3.1.1–3.1.2; correspondence/ablation discussion. Published evidence is outside LightSem; application here is a hypothesis."
+    ],
+    "topic_tags": [
+      "audio-to-light",
+      "cross-modal",
+      "evaluation-metric"
+    ]
+  },
+  "result": {
+    "id": "paper-maskfreevis-2303-15904",
+    "title": "Mask-Free Video Instance Segmentation",
+    "arxiv_id_or_url": "https://arxiv.org/abs/2303.15904",
+    "key_claims": [
+      "Temporal KNN patch correspondences provide mask-consistency supervision with zero, one or several matches, handling ambiguous/no correspondences better than an unconditional one-to-one assumption. Mask-free does not mean annotation-free: the system uses bounding boxes. Its consistency idea motivates a diagnostic only; training a new segmentation model is outside the first pilot. Appearance changes and repeated graphics can invalidate correspondences, so independent foreground masks and retained-background color error remain necessary.",
+      "Verified full PDF SHA256 7c70b88d1d75078396c5b8671a4ee5221c06b06049ff22de94bef39e0e0c676a. Read scope: Abstract; Temporal KNN-patch Loss Sec3.1.1–3.1.2; correspondence/ablation discussion. Published evidence is outside LightSem; application here is a hypothesis."
+    ],
+    "topic_tags": [
+      "audio-to-light",
+      "cross-modal",
+      "evaluation-metric"
+    ]
+  }
+}

@@ -1,0 +1,32 @@
+{
+  "tool": "register_diagnostic",
+  "arguments": {
+    "id": "visual-next-content-false-cues",
+    "name": "Independent content-color unmatched cues per minute",
+    "unit": "events/min",
+    "direction": "lower_better",
+    "description": "Unmatched color events per independently eligible minute at frozen threshold, macro over all canonical families including no-event families. Content annotations, edit strata and eligibility are frozen independent of method outputs.",
+    "topic_tags": [
+      "audio-to-light",
+      "evaluation-metric"
+    ],
+    "noise_note": "No noise sigma or powered MDE measured at registration; no numeric noise floor is assumed."
+  },
+  "result": {
+    "id": "visual-next-content-false-cues",
+    "name": "Independent content-color unmatched cues per minute",
+    "unit": "events/min",
+    "direction": "lower_better",
+    "description": "Unmatched color events per independently eligible minute at frozen threshold, macro over all canonical families including no-event families. Content annotations, edit strata and eligibility are frozen independent of method outputs.",
+    "topic_tags": [
+      "audio-to-light",
+      "evaluation-metric"
+    ],
+    "requires_control": null,
+    "noise_sigma": null,
+    "noise_source": null,
+    "noise_n": null,
+    "noise_note": "No noise sigma or powered MDE measured at registration; no numeric noise floor is assumed.",
+    "noise_k": 2.0
+  }
+}

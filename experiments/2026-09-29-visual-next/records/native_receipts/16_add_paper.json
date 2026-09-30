@@ -1,0 +1,31 @@
+{
+  "tool": "add_paper",
+  "arguments": {
+    "id": "paper-davis-2016",
+    "title": "A Benchmark Dataset and Evaluation Methodology for Video Object Segmentation",
+    "arxiv_id_or_url": "https://openaccess.thecvf.com/content_cvpr_2016/html/Perazzi_A_Benchmark_Dataset_CVPR_2016_paper.html",
+    "key_claims": [
+      "Region IoU, boundary quality and temporal stability measure different failure modes. The paper cautions that occlusions and strong deformations can be mistaken for instability. Thus smoother masks alone cannot qualify LightSem targets. Report independent human-mask IoU/boundaries and errors in the retained color distribution, grouped by source-song family. Borrow the evaluation distinctions without claiming that DAVIS performance transfers to stylized choreography backgrounds or downloading an unrelated dataset.",
+      "Verified full PDF SHA256 5db727294c466c722c9b1fc2409542c00172d21ae7aacc459736f47edbdc650c. Read scope: Abstract; Sec4.1 region, boundary and temporal metrics; validation and decay results. Published evidence is outside LightSem; application here is a hypothesis."
+    ],
+    "topic_tags": [
+      "audio-to-light",
+      "cross-modal",
+      "evaluation-metric"
+    ]
+  },
+  "result": {
+    "id": "paper-davis-2016",
+    "title": "A Benchmark Dataset and Evaluation Methodology for Video Object Segmentation",
+    "arxiv_id_or_url": "https://openaccess.thecvf.com/content_cvpr_2016/html/Perazzi_A_Benchmark_Dataset_CVPR_2016_paper.html",
+    "key_claims": [
+      "Region IoU, boundary quality and temporal stability measure different failure modes. The paper cautions that occlusions and strong deformations can be mistaken for instability. Thus smoother masks alone cannot qualify LightSem targets. Report independent human-mask IoU/boundaries and errors in the retained color distribution, grouped by source-song family. Borrow the evaluation distinctions without claiming that DAVIS performance transfers to stylized choreography backgrounds or downloading an unrelated dataset.",
+      "Verified full PDF SHA256 5db727294c466c722c9b1fc2409542c00172d21ae7aacc459736f47edbdc650c. Read scope: Abstract; Sec4.1 region, boundary and temporal metrics; validation and decay results. Published evidence is outside LightSem; application here is a hypothesis."
+    ],
+    "topic_tags": [
+      "audio-to-light",
+      "cross-modal",
+      "evaluation-metric"
+    ]
+  }
+}

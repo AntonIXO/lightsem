@@ -1,0 +1,31 @@
+{
+  "tool": "add_paper",
+  "arguments": {
+    "id": "paper-videomae-2203-12602",
+    "title": "VideoMAE: Masked Autoencoders are Data-Efficient Learners for Self-Supervised Video Pre-Training",
+    "arxiv_id_or_url": "https://arxiv.org/abs/2203.12602",
+    "key_claims": [
+      "High-ratio tube masking makes reconstruction less susceptible to copying redundant neighboring frames. The paper emphasizes data quality/domain shift. This motivates order-destroying controls and temporal leakage checks, not a claim that masking inherently preserves color or predicts music-driven light. We defer training this model and use a small released frozen temporal candidate only in a preregistered qualification stage; verify the actual checkpoint terms and runtime before any later acquisition.",
+      "Verified full PDF SHA256 0fff5bdfb88ff8c3dc7de45d5108faf4bd3aa50d287e332a43f5fd664eb427ae. Read scope: Abstract; temporal redundancy/leakage discussion Sec3.2; tube masking; domain-shift and conclusion discussion. Published evidence is outside LightSem; application here is a hypothesis."
+    ],
+    "topic_tags": [
+      "audio-to-light",
+      "cross-modal",
+      "evaluation-metric"
+    ]
+  },
+  "result": {
+    "id": "paper-videomae-2203-12602",
+    "title": "VideoMAE: Masked Autoencoders are Data-Efficient Learners for Self-Supervised Video Pre-Training",
+    "arxiv_id_or_url": "https://arxiv.org/abs/2203.12602",
+    "key_claims": [
+      "High-ratio tube masking makes reconstruction less susceptible to copying redundant neighboring frames. The paper emphasizes data quality/domain shift. This motivates order-destroying controls and temporal leakage checks, not a claim that masking inherently preserves color or predicts music-driven light. We defer training this model and use a small released frozen temporal candidate only in a preregistered qualification stage; verify the actual checkpoint terms and runtime before any later acquisition.",
+      "Verified full PDF SHA256 0fff5bdfb88ff8c3dc7de45d5108faf4bd3aa50d287e332a43f5fd664eb427ae. Read scope: Abstract; temporal redundancy/leakage discussion Sec3.2; tube masking; domain-shift and conclusion discussion. Published evidence is outside LightSem; application here is a hypothesis."
+    ],
+    "topic_tags": [
+      "audio-to-light",
+      "cross-modal",
+      "evaluation-metric"
+    ]
+  }
+}

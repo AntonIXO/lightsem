@@ -1,0 +1,207 @@
+{
+  "TEST_access": false,
+  "baseline_C_changed": false,
+  "browser_interactions": "notautomated; liveHTTPmedia plusJSsyntax anddirectfiles verified",
+  "formal_original_confirmation": "notclaimed; original qualification/magnitude/support failures preserved",
+  "independent_source_labels": "unmeasured andoptional byusersteering",
+  "original_hypotheses_confirmed": false,
+  "requirements": [
+    {
+      "evidence": [
+        {
+          "path": "/root/lightsem/experiments/2026-09-29-visual-next/records/NATIVE_REGISTRATION.json",
+          "sha256": "07ba1c423ca0951e9c10b761b6aa24c63bdccaaf192b25e0f676393580867cd4"
+        },
+        {
+          "path": "/root/lightsem/experiments/2026-09-29-visual-next/records/PREREGISTRATION_V1.md",
+          "sha256": "772b9687c992275f020b488edf7524596c3c7f177cd40befbcda3828aa8573b5"
+        },
+        {
+          "path": "/root/lightsem/experiments/2026-09-29-visual-next/records/PAPERS.json",
+          "sha256": "6221846523d53be72b5f9f95f9add0512a2e6c2350b742f4107a8949f869aa48"
+        }
+      ],
+      "requirement": "Research and preregistration preserved",
+      "status": "verified"
+    },
+    {
+      "evidence": [
+        {
+          "path": "/root/lightsem/experiments/2026-09-29-visual-next/records/execution/USER_SCOPE_CORRECTION_20260929.md",
+          "sha256": "86a7f8d4a37d55cd6faa9152d39a9e209d0ad70066054b165bdcef5d877a316b"
+        },
+        {
+          "path": "/root/lightsem/experiments/2026-09-29-visual-next/records/execution/EXPLORATORY_EXTENSION_V1.md",
+          "sha256": "aeb2fc3f0e23cc1ab8f74eb67374b40a5bd3cc4052725ae6f4f14f0daa91034f"
+        },
+        {
+          "path": "/root/lightsem/experiments/2026-09-29-visual-next/records/execution/DIAGNOSTIC_FIT_CONTINUATION_V1.md",
+          "sha256": "4b45dd1d3cdc1afcd60c33b715110586194007591d5ff0fa00b8613a56c74e83"
+        }
+      ],
+      "requirement": "Authorized automatic scope;source labels optional",
+      "status": "verified"
+    },
+    {
+      "evidence": [
+        {
+          "path": "/root/lightsem/experiments/2026-09-29-visual-next/records/execution/H1_EXPLORATORY_RESULTS_V1.json",
+          "sha256": "8e92ab7714e46b1c38423f9571e416b9224c3f3560fc73fcfc94bb5f1ca8382e"
+        }
+      ],
+      "requirement": "H1cut-filter computation and all43trace lineage",
+      "status": "verified"
+    },
+    {
+      "evidence": [
+        {
+          "path": "/root/lightsem/experiments/2026-09-29-visual-next/records/execution/H2_EXPLORATORY_RESULTS_V1.json",
+          "sha256": "25ce054edaba563b23c3c39170263cf27a5a323d2860667ded1dfa9c52df234f"
+        },
+        {
+          "path": "/root/lightsem/experiments/2026-09-29-visual-next/records/execution/H2_EXPLORATORY_PRIMARY_AUDIT_V1.json",
+          "sha256": "cf72f1fef5c4d9c70c8b284ff9038e7025a51bd080bd8c8bc2cb4dbfa09562a5"
+        }
+      ],
+      "requirement": "H2all31mask/control comparisons independently checked",
+      "status": "verified"
+    },
+    {
+      "evidence": [
+        {
+          "path": "/root/lightsem/experiments/2026-09-29-visual-next/records/execution/SHARED_CORPUS_PRIMARY_AUDIT_V1.json",
+          "sha256": "534ce0bc30d3bb3a87b2a2b35565c7fc2ed5ef13ea845220fef0e616e73f6314"
+        },
+        {
+          "path": "/root/lightsem/experiments/2026-09-29-visual-next/records/execution/PROJECTION_FIT_PRIMARY_AUDIT_V1.json",
+          "sha256": "f8598ad532c8103d81acfc7b8cb545ce828d61d7d17b2f2ec972f87e59865650"
+        }
+      ],
+      "requirement": "All122source artifacts andTRAIN-only projections",
+      "status": "verified"
+    },
+    {
+      "evidence": [
+        {
+          "path": "/root/lightsem/experiments/2026-09-29-visual-next/records/execution/RETENTION_PROBE_PRIMARY_AUDIT_V1.json",
+          "sha256": "7ff969ff3ace75c50a08248e71666a1f179d6ceadbb2b92aa523959acc59f226"
+        },
+        {
+          "path": "/root/lightsem/experiments/2026-09-29-visual-next/records/execution/STUDENT_FITS_PRIMARY_AUDIT_V1.json",
+          "sha256": "f972c39a874431acaddf806d24a01ddb6040c8bfdaf33acf960130271a1cc645"
+        }
+      ],
+      "requirement": "H3retention failure retained;all24fits independentlyverified",
+      "status": "verified"
+    },
+    {
+      "evidence": [
+        {
+          "path": "/root/lightsem/experiments/2026-09-29-visual-next/records/execution/EVALUATION_PRIMARY_AUDIT_V1.json",
+          "sha256": "443778851bee33b8e732bc9f1d3b30775659fe89e8b5f125f0d7a26ee55e45c4"
+        }
+      ],
+      "requirement": "All27checkpoints and837familyscores/controls independentlyrecomputed",
+      "status": "verified"
+    },
+    {
+      "evidence": [
+        {
+          "path": "/root/lightsem/experiments/2026-09-29-visual-next/records/execution/H3_AGGREGATE_PRIMARY_AUDIT_V1.json",
+          "sha256": "e1fbc8e3a41b0cc41569e687eca90efedd566ba7b664fbeba1fc61e746f4ab8d"
+        }
+      ],
+      "requirement": "All21paired-cell statistics/controlgates independentlyrecomputed",
+      "status": "verified"
+    },
+    {
+      "evidence": [
+        {
+          "path": "/root/lightsem/experiments/2026-09-29-visual-next/records/execution/H4_ORACLE_PRIMARY_AUDIT_V1.json",
+          "sha256": "9b24a91bfb2e2aac4adbd00a4154dd70ab40fa97f7aa064e30cdc96cd8b632da"
+        }
+      ],
+      "requirement": "H4all31reference-oracle cases andcontrols independentlyaudited",
+      "status": "verified"
+    },
+    {
+      "evidence": [
+        {
+          "path": "/root/lightsem/experiments/2026-09-29-visual-next/records/execution/LEARNED_DEMO_PRIMARY_AUDIT_V1.json",
+          "sha256": "f53e43c9e6d67d6173639951d4b202207086775ad278d977dfc0c5f3a69471e7"
+        },
+        {
+          "path": "/root/lightsem/experiments/2026-09-29-visual-next/records/execution/ORACLE_DEMO_PRIMARY_AUDIT_V1.json",
+          "sha256": "bd4862c1afdbedf1b5875f47ee6835f69298b0aef0355655afeeb1f6a9a72b61"
+        }
+      ],
+      "requirement": "Actual10Shpongleinferences/11learnedstreams plus5oraclestreams",
+      "status": "verified"
+    },
+    {
+      "evidence": [
+        {
+          "path": "/root/lightsem/experiments/2026-09-29-visual-next/records/execution/FULL19_MEDIA_PRIMARY_AUDIT_V1.json",
+          "sha256": "cae05aca4fd9afd6b10e1e897b1be095c4166206e4826474594ccb4e0ed63952"
+        },
+        {
+          "path": "/root/lightsem/experiments/2026-09-29-visual-next/records/execution/FULL_REVIEW_CURATOR_AUDIT_V1.json",
+          "sha256": "ab329dee0b3d1d12e4a0d430094f986ead438429c38eebfb5da3b9fea66d8d01"
+        }
+      ],
+      "requirement": "All19mediaentries,16newfilenames,exactaliases,audio/codec/size/streamchecks",
+      "status": "verified"
+    },
+    {
+      "evidence": [
+        {
+          "path": "/root/lightsem/experiments/2026-09-29-visual-next/records/execution/MAIN14_MEDIA_VISUAL_INSPECTION_V1.json",
+          "sha256": "2f27d62d8ef925fc2a85040024f94cdd914568ed720b4329a68438be412bf545"
+        },
+        {
+          "path": "/root/lightsem/experiments/2026-09-29-visual-next/records/execution/ORACLE_MEDIA_VISUAL_INSPECTION_V1.json",
+          "sha256": "2ebe59adba51dc2522b0e55e2c9a2645e39c94174134ac49b830e71204136e33"
+        }
+      ],
+      "requirement": "All9newuniquevideos visuallyinspected atfixedcommontimes",
+      "status": "verified"
+    },
+    {
+      "evidence": [
+        {
+          "path": "/root/lightsem/experiments/2026-09-29-visual-next/records/execution/FULL19_REVIEW_HTTP_AUDIT_V1.json",
+          "sha256": "c708bd3e20ecad7ea47a933dcd67a015b555d282e5e9162fa21e907d1b73a4b0"
+        }
+      ],
+      "requirement": "Live ratingpage andall19seek/downloadroutes",
+      "status": "verified"
+    },
+    {
+      "evidence": [
+        {
+          "path": "/root/lightsem/experiments/2026-09-29-visual-next/records/execution/FINAL_DELIVERY_RESOURCE_AUDIT_V1.json",
+          "sha256": "83ba1378f44a7e57371cd6ae93ecb465db505c496f26c8cb7fa553c67d8574e5"
+        }
+      ],
+      "requirement": "Allstagebudgets,finalstorage/free-space,andunchangedCconfig",
+      "status": "verified"
+    },
+    {
+      "evidence": [
+        {
+          "path": "/root/lightsem/experiments/2026-09-29-visual-next/records/REVIEW.md",
+          "sha256": "739e18a8060e024216e55884fb1f1b56d0f0e49733bc870bd7fbd6178811252e"
+        },
+        {
+          "path": "/root/lightsem/experiments/2026-09-29-visual-next/records/RESULTS_EXPLORATORY.md",
+          "sha256": "b1cbe9b279eca335bcef3494a0b05784d5e9d97af3dfa4b300adf866b4ba8295"
+        }
+      ],
+      "requirement": "Accessiblefileguide andhonestmeasuredoutcomes",
+      "status": "verified"
+    }
+  ],
+  "scope": "Complete authorized automated exploratory methods/controls andpersonalShpongledelivery. No claim of independent-label confirmation or subjective acceptance.",
+  "status": "authorized_exploratory_scope_and_all19_media_deliverables_verified",
+  "user_ratings": "pending user; videosandratinginterface delivered"
+}

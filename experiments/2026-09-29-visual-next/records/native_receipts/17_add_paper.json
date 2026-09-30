@@ -1,0 +1,31 @@
+{
+  "tool": "add_paper",
+  "arguments": {
+    "id": "paper-dinov2-2304-07193",
+    "title": "DINOv2: Learning Robust Visual Features without Supervision",
+    "arxiv_id_or_url": "https://arxiv.org/abs/2304.07193",
+    "key_claims": [
+      "Released frozen patch features and distilled small models provide a practical baseline for adding visual structure without foundation-model training. Image/global and patch objectives do not guarantee exact chromatic information. Start with ViT-S/14 plus explicit color/layout channels, retain a dimension-matched random-capacity control, and evaluate independent event targets rather than reconstructing supplied statistics. Public pretraining can overlap source imagery; canonical grouping does not prove absence of pretraining exposure.",
+      "Verified full PDF SHA256 3add205547f3ece5fb1ac7a91720aa9fabf02d9cde29a096643ff022449f3e91. Read scope: Abstract; data curation Sec3; DINO/iBOT training Sec4; model distillation and ablation discussion. Published evidence is outside LightSem; application here is a hypothesis."
+    ],
+    "topic_tags": [
+      "audio-to-light",
+      "cross-modal",
+      "evaluation-metric"
+    ]
+  },
+  "result": {
+    "id": "paper-dinov2-2304-07193",
+    "title": "DINOv2: Learning Robust Visual Features without Supervision",
+    "arxiv_id_or_url": "https://arxiv.org/abs/2304.07193",
+    "key_claims": [
+      "Released frozen patch features and distilled small models provide a practical baseline for adding visual structure without foundation-model training. Image/global and patch objectives do not guarantee exact chromatic information. Start with ViT-S/14 plus explicit color/layout channels, retain a dimension-matched random-capacity control, and evaluate independent event targets rather than reconstructing supplied statistics. Public pretraining can overlap source imagery; canonical grouping does not prove absence of pretraining exposure.",
+      "Verified full PDF SHA256 3add205547f3ece5fb1ac7a91720aa9fabf02d9cde29a096643ff022449f3e91. Read scope: Abstract; data curation Sec3; DINO/iBOT training Sec4; model distillation and ablation discussion. Published evidence is outside LightSem; application here is a hypothesis."
+    ],
+    "topic_tags": [
+      "audio-to-light",
+      "cross-modal",
+      "evaluation-metric"
+    ]
+  }
+}

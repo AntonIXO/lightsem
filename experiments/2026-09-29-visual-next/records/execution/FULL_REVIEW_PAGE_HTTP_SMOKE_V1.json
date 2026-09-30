@@ -1,0 +1,40 @@
+{
+  "status": "full_review_page_HTTP_contract_verified",
+  "created_utc": "2026-09-29T23:20:23.387537+00:00",
+  "inventory_count": 19,
+  "verified_media_routes": 3,
+  "planned_media_routes_rejected": 16,
+  "routes": [
+    {
+      "route": "/",
+      "status": 200,
+      "bytes": 8735
+    },
+    {
+      "route": "/manifest.json",
+      "status": 200,
+      "bytes": 9140
+    },
+    {
+      "variant": "C",
+      "media_id": "01",
+      "status": 206,
+      "bytes_matched": 512
+    },
+    {
+      "variant": "P2",
+      "media_id": "10",
+      "status": 206,
+      "bytes_matched": 512
+    },
+    {
+      "variant": "P4",
+      "media_id": "11",
+      "status": 206,
+      "bytes_matched": 512
+    }
+  ],
+  "browser_interaction_tested": false,
+  "new_videos_created": false,
+  "test_service_stopped": true
+}

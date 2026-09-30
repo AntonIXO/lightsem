@@ -1,0 +1,8 @@
+{
+  "cumulative_H3_seconds": 5338.301722280681,
+  "index": 36,
+  "report_sha256": "5cb243025eabbcbe300f46dd8e1868c9074d056a6d43c5958965f11a79098b5c",
+  "stage": "Shpongle_inference",
+  "status": "passed",
+  "wall_seconds": 3.0083233690820634
+}

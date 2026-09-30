@@ -1,0 +1,31 @@
+{
+  "tool": "add_paper",
+  "arguments": {
+    "id": "paper-synchformer-2401-16423",
+    "title": "Synchformer: Efficient Synchronization from Sparse Cues",
+    "arxiv_id_or_url": "https://arxiv.org/abs/2401.16423",
+    "key_claims": [
+      "A model trained for natural audiovisual events predicts offset from sparse short segments and separately considers whether a clip can be synchronized at all. This informs a transfer-check design, not a primary stage-light score: abstract illumination is not necessarily a visible physical sound source. Require known shifts, metronome/rate-matched and donor controls before any use. Do not infer designed appearance or genuine music conditioning from an unqualified synchronization model.",
+      "Verified full PDF SHA256 aeccfb5ddab382684792e3bb7c6ac99e56579f47f2a677b1d7f55784730cdf73. Read scope: Abstract; segment-level architecture/multimodal pretraining Sec3; offset/synchronizability evaluation discussion. Published evidence is outside LightSem; application here is a hypothesis."
+    ],
+    "topic_tags": [
+      "audio-to-light",
+      "cross-modal",
+      "evaluation-metric"
+    ]
+  },
+  "result": {
+    "id": "paper-synchformer-2401-16423",
+    "title": "Synchformer: Efficient Synchronization from Sparse Cues",
+    "arxiv_id_or_url": "https://arxiv.org/abs/2401.16423",
+    "key_claims": [
+      "A model trained for natural audiovisual events predicts offset from sparse short segments and separately considers whether a clip can be synchronized at all. This informs a transfer-check design, not a primary stage-light score: abstract illumination is not necessarily a visible physical sound source. Require known shifts, metronome/rate-matched and donor controls before any use. Do not infer designed appearance or genuine music conditioning from an unqualified synchronization model.",
+      "Verified full PDF SHA256 aeccfb5ddab382684792e3bb7c6ac99e56579f47f2a677b1d7f55784730cdf73. Read scope: Abstract; segment-level architecture/multimodal pretraining Sec3; offset/synchronizability evaluation discussion. Published evidence is outside LightSem; application here is a hypothesis."
+    ],
+    "topic_tags": [
+      "audio-to-light",
+      "cross-modal",
+      "evaluation-metric"
+    ]
+  }
+}

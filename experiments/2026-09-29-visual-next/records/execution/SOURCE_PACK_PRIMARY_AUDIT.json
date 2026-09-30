@@ -1,0 +1,10 @@
+{
+  "status": "independently_verified_by_primary",
+  "pack_sha256": "37dba022f16b3deb3e46c83a8ac72c9efc14dfeb919052adf44c6ab43af01899",
+  "families": 43,
+  "source_videos_authenticated": 43,
+  "source_stills_authenticated": 430,
+  "prediction_blind": true,
+  "labels_collected": 0,
+  "nominal_window_seconds": 64
+}

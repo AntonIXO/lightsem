@@ -1,0 +1,44 @@
+{
+  "status": "all31_automatic_mask_comparisons_independently_verified",
+  "report_sha256": "25ce054edaba563b23c3c39170263cf27a5a323d2860667ded1dfa9c52df234f",
+  "bindings": 260,
+  "families": 31,
+  "modes": 5,
+  "color_distances_recomputed": 155,
+  "event_counts_recomputed": 155,
+  "sampled_mask_agreement_recomputed": 93,
+  "macro_family_summary": {
+    "box": {
+      "color_valid_frames": 632.1612903225806,
+      "mask_changed_pixel_fraction": 0.026150118920110887,
+      "mean_HS_distance_to_incumbent": 0.1116343250010979,
+      "observer_event_count_own_support": 13.129032258064516
+    },
+    "cutie": {
+      "color_valid_frames": 639.9354838709677,
+      "mask_changed_pixel_fraction": 0.018695585189327117,
+      "mean_HS_distance_to_incumbent": 0.009872694301328208,
+      "observer_event_count_own_support": 11.64516129032258
+    },
+    "hold": {
+      "color_valid_frames": 639.9354838709677,
+      "mask_changed_pixel_fraction": 0.0029167667511970767,
+      "mean_HS_distance_to_incumbent": 0.06181100351485164,
+      "observer_event_count_own_support": 10.67741935483871
+    },
+    "lag_cutie": {
+      "color_valid_frames": 629.9354838709677,
+      "mask_changed_pixel_fraction": 0.01871305896389869,
+      "mean_HS_distance_to_incumbent": 0.08394645873318034,
+      "observer_event_count_own_support": 10.419354838709678
+    },
+    "sam2": {
+      "color_valid_frames": 632.1612903225806,
+      "mask_changed_pixel_fraction": 0.01918423560357863,
+      "mean_HS_distance_to_incumbent": 0.0,
+      "observer_event_count_own_support": 11.32258064516129
+    }
+  },
+  "original_independent_error_reduction_gate": "unmeasured",
+  "scope": "Agreement/activity only. Counts use each observer own support; held-mask smoothness is not accuracy. No original hypothesis confirmation."
+}

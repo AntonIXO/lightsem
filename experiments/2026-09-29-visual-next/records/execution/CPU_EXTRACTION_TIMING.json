@@ -1,0 +1,7 @@
+{
+  "seconds_per_call_32_repeats": {
+    "full_color_targets": 0.032139250375621486,
+    "grid_4x4": 0.029845739249140024
+  },
+  "scope": "engineering timing on firstTRAIN source still and frozenSAMmask; not a quality score or corpus runtime guarantee"
+}

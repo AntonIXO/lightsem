@@ -1,0 +1,12 @@
+{
+  "GPU_used": false,
+  "new_model_predictions_observed": false,
+  "real_full_track_streams_verified": [
+    "C",
+    "P2",
+    "P4"
+  ],
+  "source_sha256": "83c6a9f43fbc7b0263877d5dbb6ed1a63aef2c6f043a693114b78128824da8b6",
+  "status": "analytical_verifier_checked_before_new_inference",
+  "synthetic_activation_and_interruption_cases": 4
+}

@@ -1,0 +1,14 @@
+Traceback (most recent call last):
+  File "<frozen runpy>", line 198, in _run_module_as_main
+  File "<frozen runpy>", line 88, in _run_code
+  File "/root/lightsem/scripts/light_layers/score_visual_next_baseline.py", line 96, in <module>
+    main()
+  File "/root/lightsem/scripts/light_layers/score_visual_next_baseline.py", line 71, in main
+    result = score_color_window(labels, curves)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/lightsem/lightsem/experiments/visual_next/scoring.py", line 45, in score_color_window
+    plan=shift_plan(requested,intervals,10);shifted=shifted_candidates(*candidates['model'],plan)
+                                                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/lightsem/lightsem/model/light_layers/evaluation.py", line 516, in shifted_candidates
+    raise ContractError("Circular shift escaped its valid segment")
+lightsem.model.light_layers.training.ContractError: Circular shift escaped its valid segment

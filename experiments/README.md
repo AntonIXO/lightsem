@@ -5,6 +5,7 @@ Campaign directories group preserved `records/` and any repository-local `output
 | Campaign | Start here |
 | --- | --- |
 | **Current baseline C: independent06, history on,300ms transitions** | [2026-09-29-baseline](2026-09-29-baseline/README.md) |
+| **Visual-learning studies: four hypotheses, measured exploratory results, and Shpongle comparisons** | [2026-09-29-visual-next](2026-09-29-visual-next/README.md) |
 | September 22 light layers and Shpongle delivery | [2026-09-22-color-beat](2026-09-22-color-beat/README.md) |
 | September 28 end-to-end review and comparisons | [2026-09-28-end-to-end](2026-09-28-end-to-end/README.md) |
 | September 10 motion and rhythm companion | [2026-09-10-motion](2026-09-10-motion/README.md) |

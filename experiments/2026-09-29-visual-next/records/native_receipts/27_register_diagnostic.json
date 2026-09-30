@@ -1,0 +1,33 @@
+{
+  "tool": "register_diagnostic",
+  "arguments": {
+    "id": "visual-next-spatial-palette-error",
+    "name": "Rendered four-region chromatic distribution error",
+    "unit": "JS_distance",
+    "direction": "lower_better",
+    "requires_control": "visual-next-render-luma-mismatch",
+    "description": "Mean sqrt Jensen-Shannon divergence (base2) between reference and rendered72-bin jointHS histograms over four fixed image quadrants, independent scoring frames then canonical source families. Reference masks and neutral-RGB render visibility support fixed before arms; empty prediction on reference-valid region has distance1. Primary oracle comparator sees identical target information/palette choices. Conditional on frozen C trajectory/camera, not audio predictability or taste.",
+    "topic_tags": [
+      "audio-to-light",
+      "evaluation-metric"
+    ],
+    "noise_note": "No noise sigma or powered MDE measured at registration; no numeric noise floor is assumed."
+  },
+  "result": {
+    "id": "visual-next-spatial-palette-error",
+    "name": "Rendered four-region chromatic distribution error",
+    "unit": "JS_distance",
+    "direction": "lower_better",
+    "description": "Mean sqrt Jensen-Shannon divergence (base2) between reference and rendered72-bin jointHS histograms over four fixed image quadrants, independent scoring frames then canonical source families. Reference masks and neutral-RGB render visibility support fixed before arms; empty prediction on reference-valid region has distance1. Primary oracle comparator sees identical target information/palette choices. Conditional on frozen C trajectory/camera, not audio predictability or taste.",
+    "topic_tags": [
+      "audio-to-light",
+      "evaluation-metric"
+    ],
+    "requires_control": "visual-next-render-luma-mismatch",
+    "noise_sigma": null,
+    "noise_source": null,
+    "noise_n": null,
+    "noise_note": "No noise sigma or powered MDE measured at registration; no numeric noise floor is assumed.",
+    "noise_k": 2.0
+  }
+}

@@ -1,0 +1,21 @@
+{
+  "tool": "register_intervention",
+  "arguments": {
+    "id": "visual-next-edit-veto-v1",
+    "name": "Fixed TransNetV2 edit-aware chromatic target veto",
+    "description": "At fixed.5 pretrained cut threshold, veto observer color candidates within±.2s of predicted edit intervals; keep stateless SAM2/YOLO/source and the scoring denominator unchanged. Genuine cut-coincident color events remain independently labeled positives.",
+    "topic_tags": [
+      "audio-to-light",
+      "cross-modal"
+    ]
+  },
+  "result": {
+    "id": "visual-next-edit-veto-v1",
+    "name": "Fixed TransNetV2 edit-aware chromatic target veto",
+    "description": "At fixed.5 pretrained cut threshold, veto observer color candidates within±.2s of predicted edit intervals; keep stateless SAM2/YOLO/source and the scoring denominator unchanged. Genuine cut-coincident color events remain independently labeled positives.",
+    "topic_tags": [
+      "audio-to-light",
+      "cross-modal"
+    ]
+  }
+}

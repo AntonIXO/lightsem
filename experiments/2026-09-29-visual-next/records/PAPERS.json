@@ -1,0 +1,827 @@
+[
+  {
+    "key": "dinov3",
+    "pdf_url": "https://arxiv.org/pdf/2508.10104v1",
+    "pdf_resolved_url": "https://arxiv.org/pdf/2508.10104v1",
+    "abstract_url": "https://arxiv.org/abs/2508.10104v1",
+    "abstract_resolved_url": "https://arxiv.org/abs/2508.10104v1",
+    "pdf_path": "/root/lightsem/runs/visual_next_20260929/papers/dinov3.pdf",
+    "text_path": "/root/lightsem/runs/visual_next_20260929/papers/dinov3.txt",
+    "bytes": 15823906,
+    "pdf_sha256": "c68dc50b1f73e1641a592f777984fc360759e84b7fe65ac4f6e1377927f20b2e",
+    "text_sha256": "aba4b208349d2519505b48200d73ae8c51e240592401931298374b3a714d9e78",
+    "metadata": {
+      "citation_title": [
+        "DINOv3"
+      ],
+      "citation_author": [
+        "Siméoni, Oriane",
+        "Vo, Huy V.",
+        "Seitzer, Maximilian",
+        "Baldassarre, Federico",
+        "Oquab, Maxime",
+        "Jose, Cijo",
+        "Khalidov, Vasil",
+        "Szafraniec, Marc",
+        "Yi, Seungeun",
+        "Ramamonjisoa, Michaël",
+        "Massa, Francisco",
+        "Haziza, Daniel",
+        "Wehrstedt, Luca",
+        "Wang, Jianyuan",
+        "Darcet, Timothée",
+        "Moutakanni, Théo",
+        "Sentana, Leonel",
+        "Roberts, Claire",
+        "Vedaldi, Andrea",
+        "Tolan, Jamie",
+        "Brandt, John",
+        "Couprie, Camille",
+        "Mairal, Julien",
+        "Jégou, Hervé",
+        "Labatut, Patrick",
+        "Bojanowski, Piotr"
+      ],
+      "citation_date": [
+        "2025/08/13"
+      ],
+      "citation_online_date": [
+        "2025/08/13"
+      ],
+      "citation_pdf_url": [
+        "https://arxiv.org/pdf/2508.10104"
+      ],
+      "citation_arxiv_id": [
+        "2508.10104"
+      ]
+    },
+    "pdfinfo": "Title:           DINOv3\nAuthor:          Oriane Siméoni; Huy V. Vo; Maximilian Seitzer; Federico Baldassarre; Maxime Oquab; Cijo Jose; Vasil Khalidov; Marc Szafraniec; Seungeun Yi; Michaël Ramamonjisoa; Francisco Massa; Daniel Haziza; Luca Wehrstedt; Jianyuan Wang; Timothée Darcet; Théo Moutakanni; Leonel Sentana; Claire Roberts; Andrea Vedaldi; Jamie Tolan; John Brandt; Camille Couprie; Julien Mairal; Hervé Jégou; Patrick Labatut; Piotr Bojanowski\nCreator:         arXiv GenPDF (tex2pdf:)\nProducer:        pikepdf 8.15.1\nCustom Metadata: yes\nMetadata Stream: yes\nTagged:          no\nUserProperties:  no\nSuspects:        no\nForm:            none\nJavaScript:      no\nPages:           67\nEncrypted:       no\nPage size:       612 x 792 pts (letter)\nPage rot:        0\nFile size:       15823906 bytes\nOptimized:       no\nPDF version:     1.5\n",
+    "fetched": true,
+    "read_status": "relevant_full_text_sections_read",
+    "id": "paper-dinov3-2508-10104",
+    "title": "DINOv3",
+    "official_code_or_project": "https://github.com/facebookresearch/dinov3",
+    "read_scope": "Abstract/introduction; Gram anchoring Sec4.2; distilled family; dense evaluation Sec6.1; official release/preprocessing instructions.",
+    "reading_notes": "Dense patch features are more suitable than one global semantic embedding for retaining local layout. The paper separates global discrimination from local consistency using Gram anchoring; this is a reason to inspect patch features, not to train a new foundation model here. The official21M ViT-S/16 is a bounded first candidate. Exact color fidelity and music-to-light transfer are unmeasured. Weights require an access process; verify access and checksum before execution. Preserve explicit HS/color targets and test low-semantic backgrounds, geometry and color perturbations.",
+    "identity_verified": true,
+    "perplexity_recommended": false
+  },
+  {
+    "key": "videoprism",
+    "pdf_url": "https://arxiv.org/pdf/2402.13217v3",
+    "pdf_resolved_url": "https://arxiv.org/pdf/2402.13217v3",
+    "abstract_url": "https://arxiv.org/abs/2402.13217v3",
+    "abstract_resolved_url": "https://arxiv.org/abs/2402.13217v3",
+    "pdf_path": "/root/lightsem/runs/visual_next_20260929/papers/videoprism.pdf",
+    "text_path": "/root/lightsem/runs/visual_next_20260929/papers/videoprism.txt",
+    "bytes": 5267039,
+    "pdf_sha256": "dc3958c581b69c7a492f0f7b4d90a5b2acdf1697896be6755b71e38399440066",
+    "text_sha256": "d03726eac2c2997a4605512a414187037468f5ac2368c65f56dde4cec779b139",
+    "metadata": {
+      "citation_title": [
+        "VideoPrism: A Foundational Visual Encoder for Video Understanding"
+      ],
+      "citation_author": [
+        "Zhao, Long",
+        "Gundavarapu, Nitesh B.",
+        "Yuan, Liangzhe",
+        "Zhou, Hao",
+        "Yan, Shen",
+        "Sun, Jennifer J.",
+        "Friedman, Luke",
+        "Qian, Rui",
+        "Weyand, Tobias",
+        "Zhao, Yue",
+        "Hornung, Rachel",
+        "Schroff, Florian",
+        "Yang, Ming-Hsuan",
+        "Ross, David A.",
+        "Wang, Huisheng",
+        "Adam, Hartwig",
+        "Sirotenko, Mikhail",
+        "Liu, Ting",
+        "Gong, Boqing"
+      ],
+      "citation_date": [
+        "2024/02/20"
+      ],
+      "citation_online_date": [
+        "2025/06/07"
+      ],
+      "citation_pdf_url": [
+        "https://arxiv.org/pdf/2402.13217"
+      ],
+      "citation_arxiv_id": [
+        "2402.13217"
+      ]
+    },
+    "pdfinfo": "Title:           VideoPrism: A Foundational Visual Encoder for Video Understanding\nAuthor:          Long Zhao; Nitesh B. Gundavarapu; Liangzhe Yuan; Hao Zhou; Shen Yan; Jennifer J. Sun; Luke Friedman; Rui Qian; Tobias Weyand; Yue Zhao; Rachel Hornung; Florian Schroff; Ming-Hsuan Yang; David A. Ross; Huisheng Wang; Hartwig Adam; Mikhail Sirotenko; Ting Liu; Boqing Gong\nCreator:         arXiv GenPDF (tex2pdf:)\nProducer:        pikepdf 8.15.1\nCustom Metadata: yes\nMetadata Stream: yes\nTagged:          no\nUserProperties:  no\nSuspects:        no\nForm:            none\nJavaScript:      no\nPages:           27\nEncrypted:       no\nPage size:       612 x 792 pts (letter)\nPage rot:        0\nFile size:       5267039 bytes\nOptimized:       no\nPDF version:     1.5\n",
+    "fetched": true,
+    "read_status": "relevant_full_text_sections_read",
+    "id": "paper-videoprism-2402-13217",
+    "title": "VideoPrism: A Foundational Visual Encoder for Video Understanding",
+    "official_code_or_project": "https://github.com/google-deepmind/videoprism",
+    "read_scope": "Abstract; architecture and two-stage training Sec2.2–2.3; ablations and limitations Sec3.5–3.6; official code availability.",
+    "reading_notes": "A frozen video encoder retains spatiotemporal outputs and combines semantic global/local distillation. It provides a useful temporal-representation comparator in principle. Its paper explicitly limits long-video understanding: the encoder consumes16 sampled frames. The official implementation currently uses JAX/Flax and lists PyTorch support as a TODO, so it is deferred from the first PyTorch pilot. Large and partly private pretraining data leave overlap and transfer questions; no stage-light or precise chromatic timing result is established.",
+    "identity_verified": true,
+    "perplexity_recommended": false
+  },
+  {
+    "key": "vjepa21",
+    "pdf_url": "https://arxiv.org/pdf/2603.14482",
+    "pdf_resolved_url": "https://arxiv.org/pdf/2603.14482",
+    "abstract_url": "https://arxiv.org/abs/2603.14482",
+    "abstract_resolved_url": "https://arxiv.org/abs/2603.14482",
+    "pdf_path": "/root/lightsem/runs/visual_next_20260929/papers/vjepa21.pdf",
+    "text_path": "/root/lightsem/runs/visual_next_20260929/papers/vjepa21.txt",
+    "bytes": 37389706,
+    "pdf_sha256": "b40580916242ade00e2ac177cb01473d511f021d5a25f7552fd17512b3a72bbb",
+    "text_sha256": "454bb040fde8fe01db40589e48c19da04fb7c706ae1fd6684a93fd45c6d3d495",
+    "metadata": {
+      "citation_title": [
+        "V-JEPA 2.1: Unlocking Dense Features in Video Self-Supervised Learning"
+      ],
+      "citation_author": [
+        "Mur-Labadia, Lorenzo",
+        "Muckley, Matthew",
+        "Bar, Amir",
+        "Assran, Mido",
+        "Sinha, Koustuv",
+        "Rabbat, Mike",
+        "LeCun, Yann",
+        "Ballas, Nicolas",
+        "Bardes, Adrien"
+      ],
+      "citation_date": [
+        "2026/03/15"
+      ],
+      "citation_online_date": [
+        "2026/06/11"
+      ],
+      "citation_pdf_url": [
+        "https://arxiv.org/pdf/2603.14482"
+      ],
+      "citation_arxiv_id": [
+        "2603.14482"
+      ]
+    },
+    "pdfinfo": "Title:           V-JEPA 2.1: Unlocking Dense Features in Video Self-Supervised Learning\nAuthor:          Lorenzo Mur-Labadia; Matthew Muckley; Amir Bar; Mido Assran; Koustuv Sinha; Mike Rabbat; Yann LeCun; Nicolas Ballas; Adrien Bardes\nCreator:         arXiv GenPDF (tex2pdf:a6404ea)\nProducer:        pikepdf 8.15.1\nCustom Metadata: yes\nMetadata Stream: yes\nTagged:          no\nUserProperties:  no\nSuspects:        no\nForm:            none\nJavaScript:      no\nPages:           37\nEncrypted:       no\nPage size:       612 x 792 pts (letter)\nPage rot:        0\nFile size:       37389706 bytes\nOptimized:       no\nPDF version:     1.7\n",
+    "fetched": true,
+    "read_status": "relevant_full_text_sections_read",
+    "id": "paper-vjepa21-2603-14482",
+    "title": "V-JEPA 2.1: Unlocking Dense Features in Video Self-Supervised Learning",
+    "official_code_or_project": "https://github.com/facebookresearch/vjepa2",
+    "read_scope": "Abstract; Sec2.3 dense and deep supervision; Sec3.10 distilled models/Table11; conclusion; official80M Base384 release.",
+    "reading_notes": "Supervising visible as well as masked tokens and intermediate layers improves dense video features alongside global tasks. The released80M ViT-B/16 provides a specific future temporal teacher. Use a frozen model if pursued; do not port its large-scale pretraining recipe into this project. Keep explicit chromatic targets because video understanding scores do not establish color faithfulness. Published robotics/action gains are not LightSem effect sizes. Compare ordered clips with order-destroyed controls, and measure actual VRAM and feature cache cost first.",
+    "identity_verified": true,
+    "perplexity_recommended": false
+  },
+  {
+    "key": "cutie",
+    "pdf_url": "https://arxiv.org/pdf/2310.12982",
+    "pdf_resolved_url": "https://arxiv.org/pdf/2310.12982",
+    "abstract_url": "https://arxiv.org/abs/2310.12982",
+    "abstract_resolved_url": "https://arxiv.org/abs/2310.12982",
+    "pdf_path": "/root/lightsem/runs/visual_next_20260929/papers/cutie.pdf",
+    "text_path": "/root/lightsem/runs/visual_next_20260929/papers/cutie.txt",
+    "bytes": 6619719,
+    "pdf_sha256": "90d83bdff858a8408192ac803713c178085d8f3a306e92edad782865221c9837",
+    "text_sha256": "66b484abf6fe399a779d3128c779a6185c63b73ebe1429779452dfdfecba6634",
+    "metadata": {
+      "citation_title": [
+        "Putting the Object Back into Video Object Segmentation"
+      ],
+      "citation_author": [
+        "Cheng, Ho Kei",
+        "Oh, Seoung Wug",
+        "Price, Brian",
+        "Lee, Joon-Young",
+        "Schwing, Alexander"
+      ],
+      "citation_date": [
+        "2023/10/19"
+      ],
+      "citation_online_date": [
+        "2024/04/11"
+      ],
+      "citation_pdf_url": [
+        "https://arxiv.org/pdf/2310.12982"
+      ],
+      "citation_arxiv_id": [
+        "2310.12982"
+      ]
+    },
+    "pdfinfo": "Title:           Putting the Object Back into Video Object Segmentation\nSubject:         \nKeywords:        \nAuthor:          \nCreator:         LaTeX with hyperref\nProducer:        pdfTeX-1.40.25\nCreationDate:    Mon Apr 15 03:12:11 2024 MSK\nModDate:         Mon Apr 15 03:12:11 2024 MSK\nCustom Metadata: yes\nMetadata Stream: no\nTagged:          no\nUserProperties:  no\nSuspects:        no\nForm:            none\nJavaScript:      no\nPages:           22\nEncrypted:       no\nPage size:       612 x 792 pts (letter)\nPage rot:        0\nFile size:       6619719 bytes\nOptimized:       no\nPDF version:     1.5\n",
+    "fetched": true,
+    "read_status": "relevant_full_text_sections_read",
+    "id": "paper-cutie-2310-12982",
+    "title": "Putting the Object Back into Video Object Segmentation",
+    "official_code_or_project": "https://github.com/hkchengrex/Cutie",
+    "read_scope": "Abstract; object transformer and memory Sec3; runtime/ablation discussion; Sec4.3 and supplementB failure cases; official release.",
+    "reading_notes": "Object-level memory complements local pixel matching to improve coherent video object masks. This supports testing propagation from fixed SAM2 initialization against independent per-frame SAM2, with identical initial prompts. The paper documents failures for similar objects occluding or approaching one another; coach identity and foreground leakage therefore need independent masks. A segmentation benchmark gain is not a color-observer gain. Test retained-background HS error directly, not just mask smoothness or IoU, and reset at declared shot boundaries.",
+    "identity_verified": true,
+    "perplexity_recommended": true
+  },
+  {
+    "key": "raft",
+    "pdf_url": "https://arxiv.org/pdf/2003.12039",
+    "pdf_resolved_url": "https://arxiv.org/pdf/2003.12039",
+    "abstract_url": "https://arxiv.org/abs/2003.12039",
+    "abstract_resolved_url": "https://arxiv.org/abs/2003.12039",
+    "pdf_path": "/root/lightsem/runs/visual_next_20260929/papers/raft.pdf",
+    "text_path": "/root/lightsem/runs/visual_next_20260929/papers/raft.txt",
+    "bytes": 7373749,
+    "pdf_sha256": "32526df4111c7521f1b523964594c65e0ccb6885bcb3f5680fb43fe197c4edeb",
+    "text_sha256": "ed6f0f2a658a8745f3409f6a8f3267e841a83e5fb8095f7200163f22840427ae",
+    "metadata": {
+      "citation_title": [
+        "RAFT: Recurrent All-Pairs Field Transforms for Optical Flow"
+      ],
+      "citation_author": [
+        "Teed, Zachary",
+        "Deng, Jia"
+      ],
+      "citation_date": [
+        "2020/03/26"
+      ],
+      "citation_online_date": [
+        "2020/08/25"
+      ],
+      "citation_pdf_url": [
+        "https://arxiv.org/pdf/2003.12039"
+      ],
+      "citation_arxiv_id": [
+        "2003.12039"
+      ]
+    },
+    "pdfinfo": "Title:           \nSubject:         \nKeywords:        \nAuthor:          \nCreator:         LaTeX with hyperref package\nProducer:        pdfTeX-1.40.17\nCreationDate:    Wed Aug 26 03:22:08 2020 MSK\nModDate:         Wed Aug 26 03:22:08 2020 MSK\nCustom Metadata: yes\nMetadata Stream: no\nTagged:          no\nUserProperties:  no\nSuspects:        no\nForm:            none\nJavaScript:      no\nPages:           21\nEncrypted:       no\nPage size:       413.858 x 615.118 pts\nPage rot:        0\nFile size:       7373749 bytes\nOptimized:       no\nPDF version:     1.5\n",
+    "fetched": true,
+    "read_status": "relevant_full_text_sections_read",
+    "id": "paper-raft-2003-12039",
+    "title": "RAFT: Recurrent All-Pairs Field Transforms for Optical Flow",
+    "official_code_or_project": "https://github.com/princeton-vl/RAFT",
+    "read_scope": "Abstract; feature/correlation/update methods Sec3.1–3.3; timing/parameter comparison Sec4.4.",
+    "reading_notes": "All-pairs correlation and iterative updates offer dense motion estimates; the paper includes a small roughly1M-parameter variant. Flow is useful as a diagnostic for moving background regions or mask consistency, not as unquestioned ground truth. Light flashes, color changes, blank stage areas and cuts may violate its transfer assumptions; this is a LightSem-specific concern, not a result measured by the paper. Include static-image color-change controls and known translations before using flow to veto labels. No first-pilot motion-controller replacement is proposed.",
+    "identity_verified": true,
+    "perplexity_recommended": true
+  },
+  {
+    "key": "regularized_ot",
+    "pdf_url": "https://arxiv.org/pdf/1307.5551",
+    "pdf_resolved_url": "https://arxiv.org/pdf/1307.5551",
+    "abstract_url": "https://arxiv.org/abs/1307.5551",
+    "abstract_resolved_url": "https://arxiv.org/abs/1307.5551",
+    "pdf_path": "/root/lightsem/runs/visual_next_20260929/papers/regularized_ot.pdf",
+    "text_path": "/root/lightsem/runs/visual_next_20260929/papers/regularized_ot.txt",
+    "bytes": 4278566,
+    "pdf_sha256": "68962db9b04c14655e82f9eb4d50e68a9d5047f0cff91e8c42c86d1e4c717be2",
+    "text_sha256": "e1bf94ceab509d6d760039c3408a18c04de50ff773b751f06c098dfca05b09b8",
+    "metadata": {
+      "citation_title": [
+        "Regularized Discrete Optimal Transport"
+      ],
+      "citation_author": [
+        "Ferradans, Sira",
+        "Papadakis, Nicolas",
+        "Peyré, Gabriel",
+        "Aujol, Jean-François"
+      ],
+      "citation_date": [
+        "2013/07/21"
+      ],
+      "citation_online_date": [
+        "2013/07/21"
+      ],
+      "citation_pdf_url": [
+        "https://arxiv.org/pdf/1307.5551"
+      ],
+      "citation_arxiv_id": [
+        "1307.5551"
+      ]
+    },
+    "pdfinfo": "Title:           Regularized Optimal Transport\nSubject:         Regularized Optimal Transport\nKeywords:        \nAuthor:          S. Ferradans et al.\nCreator:         LaTeX with hyperref package\nProducer:        pdfTeX-1.40.12\nCreationDate:    Tue Jul 23 04:57:24 2013 MSK\nModDate:         Tue Jul 23 04:57:24 2013 MSK\nCustom Metadata: yes\nMetadata Stream: no\nTagged:          no\nUserProperties:  no\nSuspects:        no\nForm:            none\nJavaScript:      no\nPages:           25\nEncrypted:       no\nPage size:       612 x 792 pts (letter)\nPage rot:        0\nFile size:       4278566 bytes\nOptimized:       no\nPDF version:     1.5\n",
+    "fetched": true,
+    "read_status": "relevant_full_text_sections_read",
+    "id": "paper-regularized-ot-1307-5551",
+    "title": "Regularized Discrete Optimal Transport",
+    "official_code_or_project": "https://arxiv.org/abs/1307.5551",
+    "read_scope": "Abstract; relaxed transport and graph regularization Sec3; color transfer Sec4.1–4.2; algorithm/scaling discussion.",
+    "reading_notes": "Relaxed mass conservation and graph regularization help transfer multimodal color distributions without amplifying noise. This motivates a constrained fixture-assignment oracle and distributional objectives rather than collapsing a palette to its mean RGB. The paper is image recoloring, not a physical lighting controller: fixture gamut, overlap, emitted luminance and temporal transitions must be constrained independently. Histogram matching alone ignores spatial layout. Keep a regional held-out error and palette-permutation control; an oracle improvement establishes output capacity only.",
+    "identity_verified": true,
+    "perplexity_recommended": false
+  },
+  {
+    "key": "palette_recolor",
+    "pdf_url": "https://gfx.cs.princeton.edu/pubs/Chang_2015_PPR/chang2015-palette.pdf",
+    "pdf_resolved_url": "https://gfx.cs.princeton.edu/pubs/Chang_2015_PPR/chang2015-palette.pdf",
+    "abstract_url": "https://pixl.cs.princeton.edu/pubs/chang_2015_ppr/index.php",
+    "abstract_resolved_url": "https://pixl.cs.princeton.edu/pubs/chang_2015_ppr/index.php",
+    "pdf_path": "/root/lightsem/runs/visual_next_20260929/papers/palette_recolor.pdf",
+    "text_path": "/root/lightsem/runs/visual_next_20260929/papers/palette_recolor.txt",
+    "bytes": 35150038,
+    "pdf_sha256": "84662aed0786d03099b7c1737933a9ffe9a2ba449a482f4e6af1cc96455ac397",
+    "text_sha256": "3def3f3ada403aff4590aead59dfa0ffa038504cfafc8f46e8012ee35b21fc6c",
+    "metadata": {},
+    "pdfinfo": "Title:           Palette-based Photo Recoloring\nSubject:         \nKeywords:        photo recoloring, color transformation, palette\nAuthor:          Huiwen Chang, Ohad Fried, Yiming Liu, Stephen DiVerdi, Adam Finkelstein\nCreator:         LaTeX acmsiggraph.cls (2014)\nProducer:        pdfTeX-1.40.13\nCreationDate:    Mon May 18 15:42:06 2015 MSK\nModDate:         Mon May 18 15:45:34 2015 MSK\nCustom Metadata: yes\nMetadata Stream: yes\nTagged:          no\nUserProperties:  no\nSuspects:        no\nForm:            none\nJavaScript:      no\nPages:           11\nEncrypted:       no\nPage size:       612 x 792 pts (letter)\nPage rot:        0\nFile size:       35150038 bytes\nOptimized:       yes\nPDF version:     1.5\n",
+    "fetched": true,
+    "read_status": "relevant_full_text_sections_read",
+    "id": "paper-palette-recolor-2015",
+    "title": "Palette-based Photo Recoloring",
+    "official_code_or_project": "https://pixl.cs.princeton.edu/pubs/chang_2015_ppr/index.php",
+    "read_scope": "Official author page; abstract; palette construction Sec3.2; gamut/luminance goals Sec3.3–3.4; user-study discussion; video limitation Sec5.1.",
+    "reading_notes": "The method uses a small editable palette, perceptual color space and gamut-aware transformations with monotonic luminance. This suggests retaining multiple palette components and testing their allocation to fixtures. Its video extension uses one frame palette throughout a sequence and explicitly notes long-sequence limitations. Image-space recoloring and its user study do not validate DMX rendering or music fit. The discussion notes that simple color distances can misrank visible artifacts; retain human inspection and temporal/brightness guards alongside numerical reconstruction.",
+    "identity_verified": true,
+    "identity_note": "Title/authors verified against the official Princeton author page and PDF first page; page has no citation meta tags.",
+    "perplexity_recommended": false
+  },
+  {
+    "key": "dreamsim",
+    "pdf_url": "https://arxiv.org/pdf/2306.09344",
+    "pdf_resolved_url": "https://arxiv.org/pdf/2306.09344",
+    "abstract_url": "https://arxiv.org/abs/2306.09344",
+    "abstract_resolved_url": "https://arxiv.org/abs/2306.09344",
+    "pdf_path": "/root/lightsem/runs/visual_next_20260929/papers/dreamsim.pdf",
+    "text_path": "/root/lightsem/runs/visual_next_20260929/papers/dreamsim.txt",
+    "bytes": 41676386,
+    "pdf_sha256": "9d609c8c3430421e1e62478d36f29deed6a83d04356b0c015cee2ef2057c60d4",
+    "text_sha256": "f0193d14affc430164f68231fbc7b6a5941d201487bfff1e5fc11baa24302ff6",
+    "metadata": {
+      "citation_title": [
+        "DreamSim: Learning New Dimensions of Human Visual Similarity using Synthetic Data"
+      ],
+      "citation_author": [
+        "Fu, Stephanie",
+        "Tamir, Netanel",
+        "Sundaram, Shobhita",
+        "Chai, Lucy",
+        "Zhang, Richard",
+        "Dekel, Tali",
+        "Isola, Phillip"
+      ],
+      "citation_doi": [
+        "10.5555/3666122.3668330"
+      ],
+      "citation_date": [
+        "2023/06/15"
+      ],
+      "citation_online_date": [
+        "2023/12/08"
+      ],
+      "citation_pdf_url": [
+        "https://arxiv.org/pdf/2306.09344"
+      ],
+      "citation_arxiv_id": [
+        "2306.09344"
+      ]
+    },
+    "pdfinfo": "Title:           \nSubject:         \nKeywords:        \nAuthor:          \nCreator:         LaTeX with hyperref\nProducer:        pdfTeX-1.40.25\nCreationDate:    Tue Dec 12 04:13:35 2023 MSK\nModDate:         Tue Dec 12 04:13:35 2023 MSK\nCustom Metadata: yes\nMetadata Stream: no\nTagged:          no\nUserProperties:  no\nSuspects:        no\nForm:            none\nJavaScript:      no\nPages:           27\nEncrypted:       no\nPage size:       612 x 792 pts (letter)\nPage rot:        0\nFile size:       41676386 bytes\nOptimized:       no\nPDF version:     1.5\n",
+    "fetched": true,
+    "read_status": "relevant_full_text_sections_read",
+    "id": "paper-dreamsim-2306-09344",
+    "title": "DreamSim: Learning New Dimensions of Human Visual Similarity using Synthetic Data",
+    "official_code_or_project": "https://github.com/ssundaram21/dreamsim",
+    "read_scope": "Abstract; metric training Sec4.2; attribute sensitivity Sec5.2; foreground/background discussion; supplementC limitations.",
+    "reading_notes": "Human similarity supervision makes the embedding sensitive to color/layout beyond purely semantic baselines. However, its analysis emphasizes foreground objects over backgrounds and its synthetic dataset is object-centric; this is a poor match to person-masked lighting backgrounds. Therefore it is a possible secondary diagnostic only after controlled-light perturbation validation, not a primary lighting-quality metric. Do not evaluate a feature teacher with the same embedding and call agreement independent evidence. Actual music-fit/design preference remains a separate human endpoint.",
+    "identity_verified": true,
+    "perplexity_recommended": false
+  },
+  {
+    "key": "insid3",
+    "pdf_url": "https://arxiv.org/pdf/2603.28480",
+    "pdf_resolved_url": "https://arxiv.org/pdf/2603.28480",
+    "abstract_url": "https://arxiv.org/abs/2603.28480",
+    "abstract_resolved_url": "https://arxiv.org/abs/2603.28480",
+    "pdf_path": "/root/lightsem/runs/visual_next_20260929/papers/insid3.pdf",
+    "text_path": "/root/lightsem/runs/visual_next_20260929/papers/insid3.txt",
+    "bytes": 38792117,
+    "pdf_sha256": "1bcb9b5f6a5d2fc7ed4893edcd97028e725eed42224c91b8d249a7591a54f17b",
+    "text_sha256": "69979c699a13fb77c8cc2fcabe542da6b0f454cbc6a12206a302c1163314c689",
+    "metadata": {
+      "citation_title": [
+        "INSID3: Training-Free In-Context Segmentation with DINOv3"
+      ],
+      "citation_author": [
+        "Cuttano, Claudia",
+        "Trivigno, Gabriele",
+        "Reich, Christoph",
+        "Cremers, Daniel",
+        "Masone, Carlo",
+        "Roth, Stefan"
+      ],
+      "citation_date": [
+        "2026/03/30"
+      ],
+      "citation_online_date": [
+        "2026/03/30"
+      ],
+      "citation_pdf_url": [
+        "https://arxiv.org/pdf/2603.28480"
+      ],
+      "citation_arxiv_id": [
+        "2603.28480"
+      ]
+    },
+    "pdfinfo": "Title:           INSID3: Training-Free In-Context Segmentation with DINOv3\nAuthor:          Claudia Cuttano; Gabriele Trivigno; Christoph Reich; Daniel Cremers; Carlo Masone; Stefan Roth\nCreator:         arXiv GenPDF (tex2pdf:a6404ea)\nProducer:        pikepdf 8.15.1\nCustom Metadata: yes\nMetadata Stream: yes\nTagged:          no\nUserProperties:  no\nSuspects:        no\nForm:            none\nJavaScript:      no\nPages:           19\nEncrypted:       no\nPage size:       612 x 792 pts (letter)\nPage rot:        0\nFile size:       38792117 bytes\nOptimized:       no\nPDF version:     1.7\n",
+    "fetched": true,
+    "read_status": "relevant_full_text_sections_read",
+    "id": "paper-insid3-2603-28480",
+    "title": "INSID3: Training-Free In-Context Segmentation with DINOv3",
+    "official_code_or_project": "https://github.com/visinf/INSID3",
+    "read_scope": "Abstract; Sec3.1 positional subspace; Sec4.2 bias analysis; supplementF limitations.",
+    "reading_notes": "The paper shows spurious cross-image matches at similar coordinates in low-semantic regions and suppresses a positional subspace estimated from noise. This directly motivates dark/flat-background and location controls for DINOv3 in LightSem. Do not automatically remove positional information: it may be useful for within-scene spatial composition, and the paper distinguishes those uses. The method needs a reference mask and handles one concept at a time, so it is not an immediately justified YOLO replacement for multiple moving coaches.",
+    "identity_verified": true,
+    "perplexity_recommended": false
+  },
+  {
+    "key": "transnetv2",
+    "pdf_url": "https://arxiv.org/pdf/2008.04838v1",
+    "pdf_resolved_url": "https://arxiv.org/pdf/2008.04838v1",
+    "abstract_url": "https://arxiv.org/abs/2008.04838v1",
+    "abstract_resolved_url": "https://arxiv.org/abs/2008.04838v1",
+    "pdf_path": "/root/lightsem/runs/visual_next_20260929/papers/transnetv2.pdf",
+    "text_path": "/root/lightsem/runs/visual_next_20260929/papers/transnetv2.txt",
+    "bytes": 891005,
+    "pdf_sha256": "9e4df222d6754ab4c51047706bed07e9d985abc9e584628b60d79bafb80557f8",
+    "text_sha256": "d15e0df33d3365778a94d84a31457aeab7752f37ab3c5945f7097d22c9be7052",
+    "metadata": {
+      "citation_title": [
+        "TransNet V2: An effective deep network architecture for fast shot transition detection"
+      ],
+      "citation_author": [
+        "Souček, Tomáš",
+        "Lokoč, Jakub"
+      ],
+      "citation_date": [
+        "2020/08/11"
+      ],
+      "citation_online_date": [
+        "2020/08/11"
+      ],
+      "citation_pdf_url": [
+        "https://arxiv.org/pdf/2008.04838"
+      ],
+      "citation_arxiv_id": [
+        "2008.04838"
+      ]
+    },
+    "pdfinfo": "Title:           TransNet V2: An effective deep network architecture for fast shot transition detection\nSubject:         \nKeywords:        video processing, neural networks, shot boundary detection\nAuthor:          Tomáš Souček and Jakub Lokoč\nCreator:         LaTeX with acmart 2020/04/30 v1.71 Typesetting articles for the Association for Computing Machinery and hyperref 2016/06/24 v6.83q Hypertext links for LaTeX\nProducer:        pdfTeX-1.40.17\nCreationDate:    Wed Aug 12 04:06:02 2020 MSK\nModDate:         Wed Aug 12 04:06:02 2020 MSK\nCustom Metadata: yes\nMetadata Stream: no\nTagged:          no\nUserProperties:  no\nSuspects:        no\nForm:            none\nJavaScript:      no\nPages:           4\nEncrypted:       no\nPage size:       612 x 792 pts (letter)\nPage rot:        0\nFile size:       891005 bytes\nOptimized:       no\nPDF version:     1.5\n",
+    "fetched": true,
+    "read_status": "relevant_full_text_sections_read",
+    "id": "paper-transnetv2-2008-04838",
+    "title": "TransNet V2: An effective deep network architecture for fast shot transition detection",
+    "official_code_or_project": "https://github.com/soCzech/TransNetV2",
+    "read_scope": "Four-page paper: introduction, architecture, synthetic/real training, comparison procedure and limitations; official code.",
+    "reading_notes": "The detector combines temporal convolutions and learned/RGB-histogram similarities at48x27 resolution. It evaluates centered windows and uses a fixed0.5 threshold; no live-causal claim follows. The paper warns about false hits from abrupt camera/environment/object changes and missed transitions. Use it as an edit candidate detector, not truth: a color flash may be a useful light event. Validate filtering against independent content-event annotations, preserve recall/coverage, and retain cut-coincident events as a separate reported category. Its headline benchmark results do not predict LightSem effect size.",
+    "identity_verified": true,
+    "perplexity_recommended": true
+  },
+  {
+    "key": "deva",
+    "pdf_url": "https://arxiv.org/pdf/2309.03903",
+    "pdf_resolved_url": "https://arxiv.org/pdf/2309.03903",
+    "abstract_url": "https://arxiv.org/abs/2309.03903",
+    "abstract_resolved_url": "https://arxiv.org/abs/2309.03903",
+    "pdf_path": "/root/lightsem/runs/visual_next_20260929/papers/deva.pdf",
+    "text_path": "/root/lightsem/runs/visual_next_20260929/papers/deva.txt",
+    "bytes": 8457102,
+    "pdf_sha256": "30376f8b3d740b9f1a05e65ac5ac2203594f85255d4888cfb458233ec231754d",
+    "text_sha256": "5814ca8142a5e8ad5647f224296cab1094f0c3919787b713c3b3deeee1c3ae66",
+    "metadata": {
+      "citation_title": [
+        "Tracking Anything with Decoupled Video Segmentation"
+      ],
+      "citation_author": [
+        "Cheng, Ho Kei",
+        "Oh, Seoung Wug",
+        "Price, Brian",
+        "Schwing, Alexander",
+        "Lee, Joon-Young"
+      ],
+      "citation_date": [
+        "2023/09/07"
+      ],
+      "citation_online_date": [
+        "2023/09/07"
+      ],
+      "citation_pdf_url": [
+        "https://arxiv.org/pdf/2309.03903"
+      ],
+      "citation_arxiv_id": [
+        "2309.03903"
+      ]
+    },
+    "pdfinfo": "Title:           Tracking Anything with Decoupled Video Segmentation\nSubject:         \nKeywords:        \nAuthor:          \nCreator:         LaTeX with hyperref\nProducer:        pdfTeX-1.40.25\nCreationDate:    Fri Sep  8 04:00:59 2023 MSK\nModDate:         Fri Sep  8 04:00:59 2023 MSK\nCustom Metadata: yes\nMetadata Stream: no\nTagged:          no\nUserProperties:  no\nSuspects:        no\nForm:            none\nJavaScript:      no\nPages:           19\nEncrypted:       no\nPage size:       612 x 792 pts (letter)\nPage rot:        0\nFile size:       8457102 bytes\nOptimized:       no\nPDF version:     1.6\n",
+    "fetched": true,
+    "read_status": "relevant_full_text_sections_read",
+    "id": "paper-deva-2309-03903",
+    "title": "Tracking Anything with Decoupled Video Segmentation",
+    "official_code_or_project": "https://github.com/hkchengrex/Tracking-Anything-with-DEVA",
+    "read_scope": "Abstract/introduction; in-clip consensus and propagation; Sec4.6 limitations.",
+    "reading_notes": "Image segmentation and temporal propagation can be decoupled, allowing current image masks to be reused. The paper uses bidirectional consensus and notes delayed discovery of new objects between image-model updates. This motivates an independent mask-stability arm, not detector replacement. It also means future-aware propagation cannot be silently used in a supposedly causal visual forecast. For the first test, bounded Cutie propagation from fixed anchors is simpler; DEVA remains a supported alternative under a distinct recipe, with fresh-object and persistent-false-positive controls.",
+    "identity_verified": true,
+    "perplexity_recommended": true
+  },
+  {
+    "key": "maskfreevis",
+    "pdf_url": "https://arxiv.org/pdf/2303.15904",
+    "pdf_resolved_url": "https://arxiv.org/pdf/2303.15904",
+    "abstract_url": "https://arxiv.org/abs/2303.15904",
+    "abstract_resolved_url": "https://arxiv.org/abs/2303.15904",
+    "pdf_path": "/root/lightsem/runs/visual_next_20260929/papers/maskfreevis.pdf",
+    "text_path": "/root/lightsem/runs/visual_next_20260929/papers/maskfreevis.txt",
+    "bytes": 10596059,
+    "pdf_sha256": "7c70b88d1d75078396c5b8671a4ee5221c06b06049ff22de94bef39e0e0c676a",
+    "text_sha256": "661581e1203203086060dfde29c05b1c23274fd8952ff9e2fbfc16bfaa858e2a",
+    "metadata": {
+      "citation_title": [
+        "Mask-Free Video Instance Segmentation"
+      ],
+      "citation_author": [
+        "Ke, Lei",
+        "Danelljan, Martin",
+        "Ding, Henghui",
+        "Tai, Yu-Wing",
+        "Tang, Chi-Keung",
+        "Yu, Fisher"
+      ],
+      "citation_date": [
+        "2023/03/28"
+      ],
+      "citation_online_date": [
+        "2023/03/28"
+      ],
+      "citation_pdf_url": [
+        "https://arxiv.org/pdf/2303.15904"
+      ],
+      "citation_arxiv_id": [
+        "2303.15904"
+      ]
+    },
+    "pdfinfo": "Title:           \nSubject:         \nKeywords:        \nAuthor:          \nCreator:         LaTeX with hyperref\nProducer:        pdfTeX-1.40.21\nCreationDate:    Wed Mar 29 03:48:42 2023 MSK\nModDate:         Wed Mar 29 03:48:42 2023 MSK\nCustom Metadata: yes\nMetadata Stream: no\nTagged:          no\nUserProperties:  no\nSuspects:        no\nForm:            none\nJavaScript:      no\nPages:           14\nEncrypted:       no\nPage size:       612 x 792 pts (letter)\nPage rot:        0\nFile size:       10596059 bytes\nOptimized:       no\nPDF version:     1.5\n",
+    "fetched": true,
+    "read_status": "relevant_full_text_sections_read",
+    "id": "paper-maskfreevis-2303-15904",
+    "title": "Mask-Free Video Instance Segmentation",
+    "official_code_or_project": "https://github.com/SysCV/MaskFreeVis",
+    "read_scope": "Abstract; Temporal KNN-patch Loss Sec3.1.1–3.1.2; correspondence/ablation discussion.",
+    "reading_notes": "Temporal KNN patch correspondences provide mask-consistency supervision with zero, one or several matches, handling ambiguous/no correspondences better than an unconditional one-to-one assumption. Mask-free does not mean annotation-free: the system uses bounding boxes. Its consistency idea motivates a diagnostic only; training a new segmentation model is outside the first pilot. Appearance changes and repeated graphics can invalidate correspondences, so independent foreground masks and retained-background color error remain necessary.",
+    "identity_verified": true,
+    "perplexity_recommended": true
+  },
+  {
+    "key": "davis2016",
+    "pdf_url": "https://openaccess.thecvf.com/content_cvpr_2016/papers/Perazzi_A_Benchmark_Dataset_CVPR_2016_paper.pdf",
+    "pdf_resolved_url": "https://openaccess.thecvf.com/content_cvpr_2016/papers/Perazzi_A_Benchmark_Dataset_CVPR_2016_paper.pdf",
+    "abstract_url": "https://openaccess.thecvf.com/content_cvpr_2016/html/Perazzi_A_Benchmark_Dataset_CVPR_2016_paper.html",
+    "abstract_resolved_url": "https://openaccess.thecvf.com/content_cvpr_2016/html/Perazzi_A_Benchmark_Dataset_CVPR_2016_paper.html",
+    "pdf_path": "/root/lightsem/runs/visual_next_20260929/papers/davis2016.pdf",
+    "text_path": "/root/lightsem/runs/visual_next_20260929/papers/davis2016.txt",
+    "bytes": 2152156,
+    "pdf_sha256": "5db727294c466c722c9b1fc2409542c00172d21ae7aacc459736f47edbdc650c",
+    "text_sha256": "a5e0f522fe8766e655f0f476efb49035a5ef7bb5638f55e93316614423eefdf8",
+    "metadata": {
+      "citation_title": [
+        "A Benchmark Dataset and Evaluation Methodology for Video Object Segmentation"
+      ],
+      "citation_author": [
+        "Perazzi, Federico",
+        "Pont-Tuset, Jordi",
+        "McWilliams, Brian",
+        "Van Gool, Luc",
+        "Gross, Markus",
+        "Sorkine-Hornung, Alexander"
+      ],
+      "citation_publication_date": [
+        "2016"
+      ],
+      "citation_conference_title": [
+        "Proceedings of the IEEE Conference on Computer Vision and Pattern Recognition"
+      ],
+      "citation_firstpage": [
+        "724"
+      ],
+      "citation_lastpage": [
+        "732"
+      ],
+      "citation_pdf_url": [
+        "http://www.cv-foundation.org/openaccess/content_cvpr_2016/papers/Perazzi_A_Benchmark_Dataset_CVPR_2016_paper.pdf"
+      ]
+    },
+    "pdfinfo": "Title:           A Benchmark Dataset and Evaluation Methodology for Video Object Segmentation\nSubject:         2016 IEEE Conference on Computer Vision and Pattern Recognition\nAuthor:          Federico Perazzi, Jordi Pont-Tuset, Brian McWilliams, Luc Van Gool, Markus Gross, Alexander Sorkine-Hornung\nProducer:        PyPDF2\nCustom Metadata: no\nMetadata Stream: no\nTagged:          no\nUserProperties:  no\nSuspects:        no\nForm:            none\nJavaScript:      no\nPages:           9\nEncrypted:       no\nPage size:       612 x 792 pts (letter)\nPage rot:        0\nFile size:       2152156 bytes\nOptimized:       no\nPDF version:     1.3\n",
+    "fetched": true,
+    "read_status": "relevant_full_text_sections_read",
+    "id": "paper-davis-2016",
+    "title": "A Benchmark Dataset and Evaluation Methodology for Video Object Segmentation",
+    "official_code_or_project": "https://github.com/davisvideochallenge/davis-matlab",
+    "read_scope": "Abstract; Sec4.1 region, boundary and temporal metrics; validation and decay results.",
+    "reading_notes": "Region IoU, boundary quality and temporal stability measure different failure modes. The paper cautions that occlusions and strong deformations can be mistaken for instability. Thus smoother masks alone cannot qualify LightSem targets. Report independent human-mask IoU/boundaries and errors in the retained color distribution, grouped by source-song family. Borrow the evaluation distinctions without claiming that DAVIS performance transfers to stylized choreography backgrounds or downloading an unrelated dataset.",
+    "identity_verified": true,
+    "perplexity_recommended": true
+  },
+  {
+    "key": "dinov2",
+    "pdf_url": "https://arxiv.org/pdf/2304.07193",
+    "pdf_resolved_url": "https://arxiv.org/pdf/2304.07193",
+    "abstract_url": "https://arxiv.org/abs/2304.07193",
+    "abstract_resolved_url": "https://arxiv.org/abs/2304.07193",
+    "pdf_path": "/root/lightsem/runs/visual_next_20260929/papers/dinov2.pdf",
+    "text_path": "/root/lightsem/runs/visual_next_20260929/papers/dinov2.txt",
+    "bytes": 8049044,
+    "pdf_sha256": "3add205547f3ece5fb1ac7a91720aa9fabf02d9cde29a096643ff022449f3e91",
+    "text_sha256": "39492f106201fc1faebe7b4253e1cc733824deb04a00bd630ca88079d7d9db0e",
+    "metadata": {
+      "citation_title": [
+        "DINOv2: Learning Robust Visual Features without Supervision"
+      ],
+      "citation_author": [
+        "Oquab, Maxime",
+        "Darcet, Timothée",
+        "Moutakanni, Théo",
+        "Vo, Huy",
+        "Szafraniec, Marc",
+        "Khalidov, Vasil",
+        "Fernandez, Pierre",
+        "Haziza, Daniel",
+        "Massa, Francisco",
+        "El-Nouby, Alaaeldin",
+        "Assran, Mahmoud",
+        "Ballas, Nicolas",
+        "Galuba, Wojciech",
+        "Howes, Russell",
+        "Huang, Po-Yao",
+        "Li, Shang-Wen",
+        "Misra, Ishan",
+        "Rabbat, Michael",
+        "Sharma, Vasu",
+        "Synnaeve, Gabriel",
+        "Xu, Hu",
+        "Jegou, Hervé",
+        "Mairal, Julien",
+        "Labatut, Patrick",
+        "Joulin, Armand",
+        "Bojanowski, Piotr"
+      ],
+      "citation_date": [
+        "2023/04/14"
+      ],
+      "citation_online_date": [
+        "2024/02/02"
+      ],
+      "citation_pdf_url": [
+        "https://arxiv.org/pdf/2304.07193"
+      ],
+      "citation_arxiv_id": [
+        "2304.07193"
+      ]
+    },
+    "pdfinfo": "Title:           \nSubject:         \nKeywords:        \nAuthor:          \nCreator:         LaTeX with hyperref\nProducer:        pdfTeX-1.40.25\nCreationDate:    Mon Feb  5 05:06:22 2024 MSK\nModDate:         Mon Feb  5 05:06:22 2024 MSK\nCustom Metadata: yes\nMetadata Stream: no\nTagged:          no\nUserProperties:  no\nSuspects:        no\nForm:            none\nJavaScript:      no\nPages:           32\nEncrypted:       no\nPage size:       612 x 792 pts (letter)\nPage rot:        0\nFile size:       8049044 bytes\nOptimized:       no\nPDF version:     1.5\n",
+    "fetched": true,
+    "read_status": "relevant_full_text_sections_read",
+    "id": "paper-dinov2-2304-07193",
+    "title": "DINOv2: Learning Robust Visual Features without Supervision",
+    "official_code_or_project": "https://github.com/facebookresearch/dinov2",
+    "read_scope": "Abstract; data curation Sec3; DINO/iBOT training Sec4; model distillation and ablation discussion.",
+    "reading_notes": "Released frozen patch features and distilled small models provide a practical baseline for adding visual structure without foundation-model training. Image/global and patch objectives do not guarantee exact chromatic information. Start with ViT-S/14 plus explicit color/layout channels, retain a dimension-matched random-capacity control, and evaluate independent event targets rather than reconstructing supplied statistics. Public pretraining can overlap source imagery; canonical grouping does not prove absence of pretraining exposure.",
+    "identity_verified": true,
+    "perplexity_recommended": true
+  },
+  {
+    "key": "videomae",
+    "pdf_url": "https://arxiv.org/pdf/2203.12602",
+    "pdf_resolved_url": "https://arxiv.org/pdf/2203.12602",
+    "abstract_url": "https://arxiv.org/abs/2203.12602",
+    "abstract_resolved_url": "https://arxiv.org/abs/2203.12602",
+    "pdf_path": "/root/lightsem/runs/visual_next_20260929/papers/videomae.pdf",
+    "text_path": "/root/lightsem/runs/visual_next_20260929/papers/videomae.txt",
+    "bytes": 6487986,
+    "pdf_sha256": "0fff5bdfb88ff8c3dc7de45d5108faf4bd3aa50d287e332a43f5fd664eb427ae",
+    "text_sha256": "88fd74198b0d02dc7b3049716dbc38ad2cd4ff4c6ddfb478780e4297a612dfd3",
+    "metadata": {
+      "citation_title": [
+        "VideoMAE: Masked Autoencoders are Data-Efficient Learners for Self-Supervised Video Pre-Training"
+      ],
+      "citation_author": [
+        "Tong, Zhan",
+        "Song, Yibing",
+        "Wang, Jue",
+        "Wang, Limin"
+      ],
+      "citation_date": [
+        "2022/03/23"
+      ],
+      "citation_online_date": [
+        "2022/10/18"
+      ],
+      "citation_pdf_url": [
+        "https://arxiv.org/pdf/2203.12602"
+      ],
+      "citation_arxiv_id": [
+        "2203.12602"
+      ]
+    },
+    "pdfinfo": "Title:           \nSubject:         \nKeywords:        \nAuthor:          \nCreator:         LaTeX with hyperref\nProducer:        pdfTeX-1.40.21\nCreationDate:    Wed Oct 19 03:23:12 2022 MSK\nModDate:         Wed Oct 19 03:23:12 2022 MSK\nCustom Metadata: yes\nMetadata Stream: no\nTagged:          no\nUserProperties:  no\nSuspects:        no\nForm:            none\nJavaScript:      no\nPages:           25\nEncrypted:       no\nPage size:       612 x 792 pts (letter)\nPage rot:        0\nFile size:       6487986 bytes\nOptimized:       no\nPDF version:     1.5\n",
+    "fetched": true,
+    "read_status": "relevant_full_text_sections_read",
+    "id": "paper-videomae-2203-12602",
+    "title": "VideoMAE: Masked Autoencoders are Data-Efficient Learners for Self-Supervised Video Pre-Training",
+    "official_code_or_project": "https://github.com/MCG-NJU/VideoMAE",
+    "read_scope": "Abstract; temporal redundancy/leakage discussion Sec3.2; tube masking; domain-shift and conclusion discussion.",
+    "reading_notes": "High-ratio tube masking makes reconstruction less susceptible to copying redundant neighboring frames. The paper emphasizes data quality/domain shift. This motivates order-destroying controls and temporal leakage checks, not a claim that masking inherently preserves color or predicts music-driven light. We defer training this model and use a small released frozen temporal candidate only in a preregistered qualification stage; verify the actual checkpoint terms and runtime before any later acquisition.",
+    "identity_verified": true,
+    "perplexity_recommended": true
+  },
+  {
+    "key": "colorvideovdp",
+    "pdf_url": "https://arxiv.org/pdf/2401.11485",
+    "pdf_resolved_url": "https://arxiv.org/pdf/2401.11485",
+    "abstract_url": "https://arxiv.org/abs/2401.11485",
+    "abstract_resolved_url": "https://arxiv.org/abs/2401.11485",
+    "pdf_path": "/root/lightsem/runs/visual_next_20260929/papers/colorvideovdp.pdf",
+    "text_path": "/root/lightsem/runs/visual_next_20260929/papers/colorvideovdp.txt",
+    "bytes": 29429430,
+    "pdf_sha256": "ac8a791eac5bb5dbbc3a21e0796104439d5010862de6d3c1e82b4b6d4a0d5449",
+    "text_sha256": "069e5202718e4eaa2e3944d1e6ed0cf46a9727cfa8cea007903ebd7d41914368",
+    "metadata": {
+      "citation_title": [
+        "ColorVideoVDP: A visual difference predictor for image, video and display distortions"
+      ],
+      "citation_author": [
+        "Mantiuk, Rafal K.",
+        "Hanji, Param",
+        "Ashraf, Maliha",
+        "Asano, Yuta",
+        "Chapiro, Alexandre"
+      ],
+      "citation_doi": [
+        "10.1145/3658144"
+      ],
+      "citation_date": [
+        "2024/01/21"
+      ],
+      "citation_online_date": [
+        "2024/07/02"
+      ],
+      "citation_pdf_url": [
+        "https://arxiv.org/pdf/2401.11485"
+      ],
+      "citation_arxiv_id": [
+        "2401.11485"
+      ]
+    },
+    "pdfinfo": "Title:           \nSubject:         \nKeywords:        \nAuthor:          \nCreator:         LaTeX with hyperref\nProducer:        pdfTeX-1.40.25\nCreationDate:    Thu Jul  4 03:09:05 2024 MSK\nModDate:         Thu Jul  4 03:09:05 2024 MSK\nCustom Metadata: yes\nMetadata Stream: no\nTagged:          no\nUserProperties:  no\nSuspects:        no\nForm:            none\nJavaScript:      no\nPages:           30\nEncrypted:       no\nPage size:       612 x 792 pts (letter)\nPage rot:        0\nFile size:       29429430 bytes\nOptimized:       no\nPDF version:     1.5\n",
+    "fetched": true,
+    "read_status": "relevant_full_text_sections_read",
+    "id": "paper-colorvideovdp-2401-11485",
+    "title": "ColorVideoVDP: A visual difference predictor for image, video and display distortions",
+    "official_code_or_project": "https://github.com/gfxdisp/ColorVideoVDP",
+    "read_scope": "Abstract; display model and opponent/temporal processing Sec3.1–3.2; stated limitations.",
+    "reading_notes": "This full-reference metric models color and luminance distortions over space/time under specified display/viewing conditions. It is useful for matched-scene encoding or renderer-difference diagnostics when those conditions are explicit. Comparing unrelated source-video and stage compositions is not a valid substitute for perceived design quality. The paper lacks higher-level saliency/annoyance modeling and does not establish music fit. Keep it secondary; a favorable score cannot promote a new lighting baseline.",
+    "identity_verified": true,
+    "perplexity_recommended": true
+  },
+  {
+    "key": "synchformer",
+    "pdf_url": "https://arxiv.org/pdf/2401.16423",
+    "pdf_resolved_url": "https://arxiv.org/pdf/2401.16423",
+    "abstract_url": "https://arxiv.org/abs/2401.16423",
+    "abstract_resolved_url": "https://arxiv.org/abs/2401.16423",
+    "pdf_path": "/root/lightsem/runs/visual_next_20260929/papers/synchformer.pdf",
+    "text_path": "/root/lightsem/runs/visual_next_20260929/papers/synchformer.txt",
+    "bytes": 868583,
+    "pdf_sha256": "aeccfb5ddab382684792e3bb7c6ac99e56579f47f2a677b1d7f55784730cdf73",
+    "text_sha256": "cbe24a099e67a6a411f6640903c5df391e2cecdc011e507d47d224836ba99bdd",
+    "metadata": {
+      "citation_title": [
+        "Synchformer: Efficient Synchronization from Sparse Cues"
+      ],
+      "citation_author": [
+        "Iashin, Vladimir",
+        "Xie, Weidi",
+        "Rahtu, Esa",
+        "Zisserman, Andrew"
+      ],
+      "citation_date": [
+        "2024/01/29"
+      ],
+      "citation_online_date": [
+        "2024/01/29"
+      ],
+      "citation_pdf_url": [
+        "https://arxiv.org/pdf/2401.16423"
+      ],
+      "citation_arxiv_id": [
+        "2401.16423"
+      ]
+    },
+    "pdfinfo": "Title:           \nSubject:         \nKeywords:        \nAuthor:          \nCreator:         LaTeX with hyperref\nProducer:        pdfTeX-1.40.25\nCreationDate:    Tue Jan 30 05:50:44 2024 MSK\nModDate:         Tue Jan 30 05:50:44 2024 MSK\nCustom Metadata: yes\nMetadata Stream: no\nTagged:          no\nUserProperties:  no\nSuspects:        no\nForm:            none\nJavaScript:      no\nPages:           8\nEncrypted:       no\nPage size:       612 x 792 pts (letter)\nPage rot:        0\nFile size:       868583 bytes\nOptimized:       no\nPDF version:     1.5\n",
+    "fetched": true,
+    "read_status": "relevant_full_text_sections_read",
+    "id": "paper-synchformer-2401-16423",
+    "title": "Synchformer: Efficient Synchronization from Sparse Cues",
+    "official_code_or_project": "https://github.com/v-iashin/Synchformer",
+    "read_scope": "Abstract; segment-level architecture/multimodal pretraining Sec3; offset/synchronizability evaluation discussion.",
+    "reading_notes": "A model trained for natural audiovisual events predicts offset from sparse short segments and separately considers whether a clip can be synchronized at all. This informs a transfer-check design, not a primary stage-light score: abstract illumination is not necessarily a visible physical sound source. Require known shifts, metronome/rate-matched and donor controls before any use. Do not infer designed appearance or genuine music conditioning from an unqualified synchronization model.",
+    "identity_verified": true,
+    "perplexity_recommended": true
+  }
+]

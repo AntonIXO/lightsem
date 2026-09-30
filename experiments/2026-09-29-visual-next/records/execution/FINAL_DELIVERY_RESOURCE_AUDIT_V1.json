@@ -1,0 +1,38 @@
+{
+  "H3_H4_caps_seconds": {
+    "H3": 10800,
+    "H4": 7200
+  },
+  "H3_H4_conservative_seconds": {
+    "H3": 6250.459297196474,
+    "H4": 2477.285454839235
+  },
+  "artifact_cap_bytes": 5368709120,
+  "artifact_logical_bytes_excluding_papers_including_duplicate_links": 4488473963,
+  "baseline_config_matches_previous_commit": true,
+  "delivery_manifest_sha256": "5475c34b219958c31031edfe7651de0bfa0cd2d9a9eb6e0d1f16a212c5e7fbd4",
+  "free_bytes": {
+    "/mnt": 1244852224,
+    "/root/lightsem": 11140100096
+  },
+  "status": "final_media_stage_budgets_and_storage_pass",
+  "all_stage_accounting_seconds": {
+    "H1_H2": 12073.13409999176,
+    "H3_features": 1102.6703146803193,
+    "H3": 6250.459297196474,
+    "H4": 2477.285454839235
+  },
+  "stage_caps_seconds": {
+    "H1_H2": 14400,
+    "H3_features": 3600,
+    "H3": 10800,
+    "H4": 7200
+  },
+  "total_accounted_seconds": 21903.549166707788,
+  "total_cap_seconds": 36000,
+  "accounting_sources": {
+    "/root/lightsem/experiments/2026-09-29-visual-next/records/execution/SHARED_CORPUS_FREEZE_V3.json": "356da8e44940b5ad5d904540c0cccf9911807a3f2501c3aa7d3ef184444489a1",
+    "/root/lightsem/runs/visual_next_20260929/shared_corpus_v2/REPORT.json": "4821707d55756a650d634a0c6385170bcc8da27cf39b4e1aeaba87f0a98359c2",
+    "/root/lightsem/experiments/2026-09-29-visual-next/records/execution/RETENTION_PROBE_PRIMARY_AUDIT_V1.json": "7ff969ff3ace75c50a08248e71666a1f179d6ceadbb2b92aa523959acc59f226"
+  }
+}

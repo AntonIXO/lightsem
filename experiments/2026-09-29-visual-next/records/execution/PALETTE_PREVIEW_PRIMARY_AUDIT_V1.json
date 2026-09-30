@@ -1,0 +1,37 @@
+{
+  "status": "C_P2_P4_delivery_independently_authenticated",
+  "manifest_sha256": "3d138048e1926a6ea760c5d2b67c8a44c49907ae8a23cbddd21ad3b597d04420",
+  "DELIVERY_sha256": "b72261e8e0346521452d8e9039f8199731c8f13c356772682ffd0e16093949df",
+  "frozen_input_bindings": 21,
+  "variants": [
+    {
+      "variant": "C",
+      "video_sha256": "fb06c3f3a951a4f2a12bbc01f4470cec4f8326912a441bd4e25097e275170299",
+      "bytes": 43587650,
+      "PCM_sha256_recomputed": "9be221f4e05a2fc92cf798be837ea4d1b392c7f4ebdf71a9edeb68373351442f",
+      "nonRGB_slots_exact": 479,
+      "changed_RGB_bytes": 0,
+      "audit_sha256": "e2713cabafc0fb16ebef1733434a11559e8bb2e1c0d7fd8abeadc6961c03aefa"
+    },
+    {
+      "variant": "P2",
+      "video_sha256": "7ff0360ebb3d304e80f9e949d280d91fd17bd83fd86285def620de97e0b5c300",
+      "bytes": 43565799,
+      "PCM_sha256_recomputed": "9be221f4e05a2fc92cf798be837ea4d1b392c7f4ebdf71a9edeb68373351442f",
+      "nonRGB_slots_exact": 479,
+      "changed_RGB_bytes": 263010,
+      "audit_sha256": "a3127faddcb1155cd8b12e2a766154fdbd8ef3f87dcb6f3673df9d4793122a64"
+    },
+    {
+      "variant": "P4",
+      "video_sha256": "11a0f0db04c535d784c8fd167d9369a1bfae21e407b03b854890960aa9252af0",
+      "bytes": 43548159,
+      "PCM_sha256_recomputed": "9be221f4e05a2fc92cf798be837ea4d1b392c7f4ebdf71a9edeb68373351442f",
+      "nonRGB_slots_exact": 479,
+      "changed_RGB_bytes": 242945,
+      "audit_sha256": "3562a1b3734bf675a283b71858ab6914b6e60e6cd8e59a9fb0e15d4f90cb185e"
+    }
+  ],
+  "full_decode_evidence": "Original audit_movie executed ffprobe full-frame timestamp decode and ffmpeg -hwaccel none -xerror video/audio decode; code and media hash bindings verified. Primary independently reprobed streams and redecoded full PCM.",
+  "scope": "Palette-layout design previews using unchanged C model/cues/history/fades; not newly trained models or oracle evidence."
+}

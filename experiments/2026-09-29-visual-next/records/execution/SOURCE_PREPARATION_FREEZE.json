@@ -1,0 +1,24 @@
+{
+  "stage": "source_authentication_and_prediction_blind_media",
+  "created_utc": "2026-09-29T16:41:38.891714+00:00",
+  "command": [
+    "/root/lightsem/.venv/bin/python",
+    "-m",
+    "scripts.light_layers.prepare_visual_next_sources"
+  ],
+  "files": {
+    "/root/lightsem/scripts/light_layers/prepare_visual_next_sources.py": "369f27f1993d0972c3ddcc8d32ada7fe2dc3c53b97475a312564646c0118db20",
+    "/root/lightsem/lightsem/model/light_layers/visual.py": "bdc2a264a56543fe7d3f45283a0de82e69587cd30c8112837b50e1b0fc233682",
+    "/root/lightsem/lightsem/model/light_layers/targets.py": "4f1e980ed9f62e2ae2a6d53e426cd44c0ed2381835bf4b1382a7fba1e566d6d1",
+    "/root/lightsem/experiments/2026-09-29-visual-next/records/PREREGISTRATION_V1.md": "772b9687c992275f020b488edf7524596c3c7f177cd40befbcda3828aa8573b5",
+    "/root/lightsem/experiments/2026-09-29-visual-next/records/ANNOTATION_ENROLLMENT.json": "ead40b9ddb3b7bf10744c5b2fa2a46f98250325df686ff2e579dbd80cb894d36",
+    "/root/lightsem/experiments/2026-09-29-visual-next/records/INPUTS.json": "3fa7feae9eed886a2f4a213e48e441eb8acb2d56caaffb35376f9252de5847b1",
+    "/root/lightsem/experiments/2026-09-29-visual-next/records/execution/EXECUTION_POLICY_V1.md": "d14bf6cf7acccb5dda58f00b013fe859ba1c73b8c9b90c77fdb2b68d09d27600"
+  },
+  "models": null,
+  "inference": false,
+  "gpu": false,
+  "labels_collected": 0,
+  "output_root": "/root/lightsem/runs/visual_next_20260929/annotations",
+  "families": 43
+}

@@ -1,0 +1,6 @@
+{
+  "source": "/root/lightsem/scripts/light_layers/train_visual_next.py",
+  "source_sha256": "f36111c9fb1824a63d9b1c75932b972a7ae8ac15314297639222a6f6c15972cc",
+  "archive": "/root/lightsem/experiments/2026-09-29-visual-next/records/execution/source_archives/train_visual_next_before_fit_metadata_v1.py.gz",
+  "reason": "Preserve source used by completed initializations/loader checks/smoke before metadata-only fixes for full diagnostic fits. Training mathematics and target loaders remain unchanged."
+}

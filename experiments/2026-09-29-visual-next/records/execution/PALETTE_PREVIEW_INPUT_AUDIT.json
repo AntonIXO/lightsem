@@ -1,0 +1,12 @@
+{
+  "status": "matched_original_baseline_inputs",
+  "expected_hashes": {
+    "/root/lightsem/experiments/2026-09-29-baseline/outputs/shpongle_baseline_ab_v2/streams/03.npz": "34ca1d5f2c9a271b9e08536519f4d657e4aa3017a5ac42514b38e8dd07e4829b",
+    "/mnt/lightsem-data/experiments/lightsem/rhythm_companion_20260912T193657Z/streams.npz": "f19c5721f350dbe56cafba4c26eb152fdfab6cb1627b310f16345de795812052",
+    "/root/shpongle.flac": "95e4388424ef62950bdeae78e47b8e71839ed28c6e01189fe15f9ae6c902b6c0",
+    "/mnt/lightsem-data/experiments/lightsem/end_to_end_20260928_v1/comparison_demos_v1/03_I_VR_P0/model_outputs.npz": "135a02cef71b695cf0faa0370ab6bc602a741e303dee47f4f9ea822776f9fea6",
+    "/mnt/lightsem-data/experiments/lightsem/lighting-cue-model-20260922t094347z/observer_fits_v1/04_seed0_I_VR_P0/complete.json": "dc428e1ed9976628deea30978779eef4bf51c606e631cea82affb8df1502d5af"
+  },
+  "plan_sha256": "edc48c7d1481aca93ed8a7323f865d7a8137931b29fd6f58176c617687e8fc0c",
+  "new_videos_rendered": 0
+}

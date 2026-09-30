@@ -1,0 +1,32 @@
+{
+  "tool": "register_diagnostic",
+  "arguments": {
+    "id": "visual-next-content-recall",
+    "name": "Independent content-color event recall",
+    "unit": "fraction",
+    "direction": "higher_better",
+    "description": "Macro canonical-family recall against independently annotated genuine content color events, including edit-coincident positives; one-to-one matching±.2s on fixed common source/reference support. No change in denominator after prediction; no-event recall undefined and false cues reported separately.",
+    "topic_tags": [
+      "audio-to-light",
+      "evaluation-metric"
+    ],
+    "noise_note": "No noise sigma or powered MDE measured at registration; no numeric noise floor is assumed."
+  },
+  "result": {
+    "id": "visual-next-content-recall",
+    "name": "Independent content-color event recall",
+    "unit": "fraction",
+    "direction": "higher_better",
+    "description": "Macro canonical-family recall against independently annotated genuine content color events, including edit-coincident positives; one-to-one matching±.2s on fixed common source/reference support. No change in denominator after prediction; no-event recall undefined and false cues reported separately.",
+    "topic_tags": [
+      "audio-to-light",
+      "evaluation-metric"
+    ],
+    "requires_control": null,
+    "noise_sigma": null,
+    "noise_source": null,
+    "noise_n": null,
+    "noise_note": "No noise sigma or powered MDE measured at registration; no numeric noise floor is assumed.",
+    "noise_k": 2.0
+  }
+}

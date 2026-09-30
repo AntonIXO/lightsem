@@ -1,0 +1,1243 @@
+{
+  "scope": "Fixed12TRAIN controlled color/layout retention and flat-image controls; synthetic perturbations of realframes, no efficacy/DEV/TEST scoring",
+  "files": {
+    "/root/lightsem/experiments/2026-09-29-visual-next/records/execution/SHARED_CORPUS_FREEZE_V3.json": "356da8e44940b5ad5d904540c0cccf9911807a3f2501c3aa7d3ef184444489a1",
+    "/root/lightsem/runs/visual_next_20260929/annotations/PACK.json": "37dba022f16b3deb3e46c83a8ac72c9efc14dfeb919052adf44c6ab43af01899",
+    "/root/lightsem/runs/visual_next_20260929/projections_v1/FIT_REPORT.json": "d2110acec8f7e583e7125ef6326bdc0bb813b96ec50e09e738973ff5577bdf5c",
+    "/root/lightsem/runs/visual_next_20260929/projections_v1/FROZEN_TRAIN_TRANSFORMS.json": "1473ed8569e3eaf7eab5e1937555727cd68c1e394ef7075e04bb182a9bfc0839",
+    "/root/lightsem/experiments/2026-09-29-visual-next/records/execution/PROJECTION_FIT_PRIMARY_AUDIT_V1.json": "f8598ad532c8103d81acfc7b8cb545ce828d61d7d17b2f2ec972f87e59865650",
+    "/root/lightsem/runs/visual_next_20260929/projections_v1/R0_PCA.npz": "6341702687db30bdb977b417b0b2d851b9e149b79ff2e7d640c4258b50bd2e3b",
+    "/root/lightsem/runs/visual_next_20260929/projections_v1/R0_PCA.json": "968e1831c393af61e7c2574d4768714b6e167d0486079d7763c4b884afa2cbcf",
+    "/root/lightsem/runs/visual_next_20260929/projections_v1/R1_PCA.npz": "1c8e5a25d8b0226aec3138a830585769b4b190afaf8d411387c849afc6b34d41",
+    "/root/lightsem/runs/visual_next_20260929/projections_v1/R1_PCA.json": "4b281dc4706d4bcb544a8614bf8df4ebb386aebdc162d44d6a46d04f35b8214b",
+    "/root/lightsem/runs/visual_next_20260929/projections_v1/Rrand_PCA.npz": "be359783fddcb3c72c7ed30242fe42ce5c53d82a68322f1d01a615fa18d8140e",
+    "/root/lightsem/runs/visual_next_20260929/projections_v1/Rrand_PCA.json": "89700987577a25422b41a5be0d9f66b845e772c1e3f94854e082a9212baf4ce8",
+    "/root/lightsem/runs/visual_next_20260929/projections_v1/R2_PCA.npz": "f77b5732b3a3abe14b4fddf9b283655b908c94d10a00fbe6090daabdeff86d6f",
+    "/root/lightsem/runs/visual_next_20260929/projections_v1/R2_PCA.json": "746674281c6d22adaf1512a6c7fdcc971ce8c85c74a0b598f7fad183041dc580",
+    "/root/lightsem/runs/visual_next_20260929/projections_v1/R3_PCA.npz": "c258f0943b1459d8e42f3eaafe717d31f41742feda41d25aa89b0410d88e5d26",
+    "/root/lightsem/runs/visual_next_20260929/projections_v1/R3_PCA.json": "6db9519e4756cbaf093420614206e01392219e39aa0e3225d703b9e08be31a2c",
+    "/root/lightsem/runs/visual_next_20260929/projections_v1/R3-shuffle_PCA.npz": "fe52e0d0717913508d9ff02dd732afbbeda79be874db11173ac78a69ef73a442",
+    "/root/lightsem/runs/visual_next_20260929/projections_v1/R3-shuffle_PCA.json": "8cb7af22e631af7f816df05d3478d2244e1360cea9036039c0d2eb2c7d71b786",
+    "/root/lightsem/runs/visual_next_20260929/projections_v1/R3-reverse_PCA.npz": "2fcf738fb4220179611cbbb9e34ebd96a986af74121ba9419b332556db20aa75",
+    "/root/lightsem/runs/visual_next_20260929/projections_v1/R3-reverse_PCA.json": "650783528a10510776603c0074899bcdf808d6e4ffb7e9d800201d6258ac5dec",
+    "/root/lightsem/runs/visual_next_20260929/shared_corpus_v2/jd-5fc36e07dfcc022631ff/REPORT.json": "95f6b28fb6a40929e234a7eda4f12355a0583a4756813a18bb055020e53092a9",
+    "/root/lightsem/runs/visual_next_20260929/shared_corpus_v2/jd-5fc36e07dfcc022631ff/mask_controls.npz": "6f0b69ea25633cfef032d8fe31bd7be1e86e8779776de724b5b1010c7746bbbc",
+    "/root/lightsem/runs/visual_next_20260929/annotations/jd-5fc36e07dfcc022631ff/frame_00.png": "c3cc46ebd9806feb25c313d83e3e78903104c52771e40696954b75163cf7566f",
+    "/root/lightsem/runs/visual_next_20260929/annotations/jd-5fc36e07dfcc022631ff/frame_07.png": "c75568057cfaa025df3d2977f6d75bb3ece2bf00d082c1c67b03200a9e2808ad",
+    "/root/lightsem/runs/visual_next_20260929/annotations/jd-5fc36e07dfcc022631ff/frame_14.png": "a3f285d11a22eabea57946efe18bdb03276ee55960b91cb83daf1b15187f4e65",
+    "/root/lightsem/runs/visual_next_20260929/annotations/jd-5fc36e07dfcc022631ff/frame_21.png": "251eb1740f090a113bcd7fd95b362960b647714066ef2395421ea4ee3968278f",
+    "/root/lightsem/runs/visual_next_20260929/annotations/jd-5fc36e07dfcc022631ff/frame_28.png": "511bf8178f32b826e6f353c7d007540be88ad6fcb56e74d517ec1577832808a1",
+    "/root/lightsem/runs/visual_next_20260929/annotations/jd-5fc36e07dfcc022631ff/frame_35.png": "8e256e475a451f545569a75c7b726c809a40972b75fe4419f0c1e8f13fba0495",
+    "/root/lightsem/runs/visual_next_20260929/annotations/jd-5fc36e07dfcc022631ff/frame_42.png": "d3f16c96191a0f23391ad852552456ba56606a69e8253e1a0b28daeeee1f7d99",
+    "/root/lightsem/runs/visual_next_20260929/annotations/jd-5fc36e07dfcc022631ff/frame_49.png": "caddcb8ba38b117fc62036f77b395aab859c140f4ca08cf96ad5d42827d90ba9",
+    "/root/lightsem/runs/visual_next_20260929/annotations/jd-5fc36e07dfcc022631ff/frame_56.png": "a3f0f58d336b8ef07db47cd870cda49bc58545f30ad82eb415e39c515cc02f4f",
+    "/root/lightsem/runs/visual_next_20260929/annotations/jd-5fc36e07dfcc022631ff/frame_63.png": "5089d737355e87b4c45afe0d63118dd094e5aee10ee23d7450c04676b751fa5f",
+    "/root/lightsem/runs/visual_next_20260929/shared_corpus_v2/jd-b932c8c85bd6f2576073/REPORT.json": "65d2a87574e68ad616a5aa5ed9e2b5f63add0d92fc243ce711c1b89c9e2617c1",
+    "/root/lightsem/runs/visual_next_20260929/shared_corpus_v2/jd-b932c8c85bd6f2576073/mask_controls.npz": "875c6395a185736176a21bb893ad3b6bd777579eced482c4acc17039c6b3bde4",
+    "/root/lightsem/runs/visual_next_20260929/annotations/jd-b932c8c85bd6f2576073/frame_00.png": "7706e7b8dc622eb73e7e76455fc8fb9979a8304e36c760958b664a8082064c2f",
+    "/root/lightsem/runs/visual_next_20260929/annotations/jd-b932c8c85bd6f2576073/frame_07.png": "105b1aa1eca686ad15a6b66c40bbf6faa56c13a61f127518f309d6b29698fb0e",
+    "/root/lightsem/runs/visual_next_20260929/annotations/jd-b932c8c85bd6f2576073/frame_14.png": "652a5d734743cb0befc1ccdc9f7808733bbd4a9a8713865515df40151b20b169",
+    "/root/lightsem/runs/visual_next_20260929/annotations/jd-b932c8c85bd6f2576073/frame_21.png": "d15b69f40e22ba3ba24f59f0c13fd1add45279e91b47b5653874181ef58f5b3c",
+    "/root/lightsem/runs/visual_next_20260929/annotations/jd-b932c8c85bd6f2576073/frame_28.png": "37a0f39a54bb1f589a9dd54e17dd065c41b775e37d46a04527892ffb042a69f3",
+    "/root/lightsem/runs/visual_next_20260929/annotations/jd-b932c8c85bd6f2576073/frame_35.png": "33cc9a1314aa1ddc02ae7fd37673258ebd8f8f9ecbbe3d7c0b47558ec2a011b8",
+    "/root/lightsem/runs/visual_next_20260929/annotations/jd-b932c8c85bd6f2576073/frame_42.png": "1131df6661e065ee88daed6bda074aab946476ee7b6a4dfd169130830ee980a6",
+    "/root/lightsem/runs/visual_next_20260929/annotations/jd-b932c8c85bd6f2576073/frame_49.png": "38f299f3c38613378cc3d37f8cf13a253e0949fe1bfdd961627e3ea11713f462",
+    "/root/lightsem/runs/visual_next_20260929/annotations/jd-b932c8c85bd6f2576073/frame_56.png": "bfb659547a5158ecb639a7e9d23a9dab4f3aae78955b5d42c6ce8dd253bcd304",
+    "/root/lightsem/runs/visual_next_20260929/annotations/jd-b932c8c85bd6f2576073/frame_63.png": "2d80ed141d3045f25a30ec7c417a529431ca9dd2c7de253347ce8a64aa6cfaa2",
+    "/root/lightsem/runs/visual_next_20260929/shared_corpus_v2/jd-7c97b126862e58f1d563/REPORT.json": "4cbfc0600be6df30d08922fb560c330c54d084606248f2b816ec0b9e028153f5",
+    "/root/lightsem/runs/visual_next_20260929/shared_corpus_v2/jd-7c97b126862e58f1d563/mask_controls.npz": "b789fe78cedcdd73d42d4ab2c2e3990fbffa19c4049c22e93ff8e7fd82166547",
+    "/root/lightsem/runs/visual_next_20260929/annotations/jd-7c97b126862e58f1d563/frame_00.png": "3273f318f4c5b8acce6353fe07f8b0c77aad24dc52b032094de13c85312f5cbd",
+    "/root/lightsem/runs/visual_next_20260929/annotations/jd-7c97b126862e58f1d563/frame_07.png": "769dbd560f7989a84a7adc1cdebf6a290e0d1405d41caf5b4abd832a788ce7f3",
+    "/root/lightsem/runs/visual_next_20260929/annotations/jd-7c97b126862e58f1d563/frame_14.png": "d683de91316dd3a5c273cc482abb23d358e0672595a49202dcefa1e0bad5f59a",
+    "/root/lightsem/runs/visual_next_20260929/annotations/jd-7c97b126862e58f1d563/frame_21.png": "3e5bc30cbb897af91c7929835fbe51a2fc790e9751392cc8b78e9eda26ac2ff6",
+    "/root/lightsem/runs/visual_next_20260929/annotations/jd-7c97b126862e58f1d563/frame_28.png": "0eb7a4b85766f0a21267fed0161cea1f6cb5f7f0ea926342318992152bfae246",
+    "/root/lightsem/runs/visual_next_20260929/annotations/jd-7c97b126862e58f1d563/frame_35.png": "08251fb0a9ed1c93ddf705049c3946591d62fc8709c5152652ab914051440572",
+    "/root/lightsem/runs/visual_next_20260929/annotations/jd-7c97b126862e58f1d563/frame_42.png": "5d03ea7f35f46a59963f6ec5e03354990fabe994b632326b5ea5aaac3d29460b",
+    "/root/lightsem/runs/visual_next_20260929/annotations/jd-7c97b126862e58f1d563/frame_49.png": "083f7c919a80408df1cb4edb61ce99c35f44c826435891411a7bee19c23e265d",
+    "/root/lightsem/runs/visual_next_20260929/annotations/jd-7c97b126862e58f1d563/frame_56.png": "95bd2138e9de302f0cdbecf04fa2078b2cf30a99ba2d1a05ebe8f35af3e44f41",
+    "/root/lightsem/runs/visual_next_20260929/annotations/jd-7c97b126862e58f1d563/frame_63.png": "dedaea0170ec1ab1af871621beff4c4a205a3cb708f6b125d4e159e3e20c89a0",
+    "/root/lightsem/runs/visual_next_20260929/shared_corpus_v2/jd-6a5d1bfe68d703300533/REPORT.json": "abfbbeb216deea0d4abd61de480d5af70c3c9732840ec3d0b2f9122d31a05026",
+    "/root/lightsem/runs/visual_next_20260929/shared_corpus_v2/jd-6a5d1bfe68d703300533/mask_controls.npz": "07bf6b6c9fae482aecaa65ce4326f2afd87a48aae858bb4bc1238d9f82f63f49",
+    "/root/lightsem/runs/visual_next_20260929/annotations/jd-6a5d1bfe68d703300533/frame_00.png": "963ca90486759b5ee56aebfff51f65a31bae9c73569ae182413fb968056a0430",
+    "/root/lightsem/runs/visual_next_20260929/annotations/jd-6a5d1bfe68d703300533/frame_07.png": "777433f224e52321cabf77cfea3f9726e71f7f6111fa04ce438dae9de2df3163",
+    "/root/lightsem/runs/visual_next_20260929/annotations/jd-6a5d1bfe68d703300533/frame_14.png": "c3eac0aeb28870ff1fc9d9eadddeb80828bce46788cb86fc030c27d2b045e5bf",
+    "/root/lightsem/runs/visual_next_20260929/annotations/jd-6a5d1bfe68d703300533/frame_21.png": "35edf0837b4514e3d9ccdbaad9e09a6a20fb6b48cc67ae0323d28b6f7ad0692f",
+    "/root/lightsem/runs/visual_next_20260929/annotations/jd-6a5d1bfe68d703300533/frame_28.png": "9745840312c2393292bf2e11e99591ee3e178e4b15ba253bf8c308e41dcae44b",
+    "/root/lightsem/runs/visual_next_20260929/annotations/jd-6a5d1bfe68d703300533/frame_35.png": "6f6f8432e8b8be308f6f2034eba7a503a78e0062d48f61c38b4f13aa967132c7",
+    "/root/lightsem/runs/visual_next_20260929/annotations/jd-6a5d1bfe68d703300533/frame_42.png": "fc17d14efe116e2ce0aa9857776a3e149a3ec51c226f89e2802c9554c4d8ff6d",
+    "/root/lightsem/runs/visual_next_20260929/annotations/jd-6a5d1bfe68d703300533/frame_49.png": "235e5cabcbfd8c939ecc660ed225309305d65a5b4c0adc9872113ee70cbeaa68",
+    "/root/lightsem/runs/visual_next_20260929/annotations/jd-6a5d1bfe68d703300533/frame_56.png": "770decb1be3224aa8644e87bce32a0d8ce4325b237304b4cc865f5294e0e0ba4",
+    "/root/lightsem/runs/visual_next_20260929/annotations/jd-6a5d1bfe68d703300533/frame_63.png": "df44bc868ada5b9339ec61eafe1a9601668954f463e204bb9d483b3450bdaae7",
+    "/root/lightsem/runs/visual_next_20260929/shared_corpus_v2/jd-1066f38acdaf08271fa6/REPORT.json": "e86ad8ec0ed8b1dcf8fc45e7a9cd50e681b112a71626c2c3bb40038e42ffe02a",
+    "/root/lightsem/runs/visual_next_20260929/shared_corpus_v2/jd-1066f38acdaf08271fa6/mask_controls.npz": "2b14e9e4bb128562a27f1da74b8b0ee86ac221d87db0291bf66e5e38d2507382",
+    "/root/lightsem/runs/visual_next_20260929/annotations/jd-1066f38acdaf08271fa6/frame_00.png": "e23643e3c98e0c0a35c4f9d90910a85e0c99185e8fce7ec85f024e9455179874",
+    "/root/lightsem/runs/visual_next_20260929/annotations/jd-1066f38acdaf08271fa6/frame_07.png": "edd0b8a402af1a0e64638eb07672fbc2710b5e721e9c60055afcd4f63f2ca84a",
+    "/root/lightsem/runs/visual_next_20260929/annotations/jd-1066f38acdaf08271fa6/frame_14.png": "69fc4f1fd817bd8626789a538a6f8603e43553f51ec96c7ab14c04b63e1cdf0f",
+    "/root/lightsem/runs/visual_next_20260929/annotations/jd-1066f38acdaf08271fa6/frame_21.png": "5816a51701275684dc381a8210e0558b25bd23e216c12241e4f6dd3350e73195",
+    "/root/lightsem/runs/visual_next_20260929/annotations/jd-1066f38acdaf08271fa6/frame_28.png": "a72586023678ccc7172b1eaa716d5a22bc47a42104367181def0bb34e8d12c78",
+    "/root/lightsem/runs/visual_next_20260929/annotations/jd-1066f38acdaf08271fa6/frame_35.png": "62157d12f1093d5f53ab60b2313999fec9b8b62286f3067dae3332e513d1a32e",
+    "/root/lightsem/runs/visual_next_20260929/annotations/jd-1066f38acdaf08271fa6/frame_42.png": "4314ba15e35db5ecc0eb0c6cbeae6388642582251598c39572b498c72dd5ad1a",
+    "/root/lightsem/runs/visual_next_20260929/annotations/jd-1066f38acdaf08271fa6/frame_49.png": "021bfd88e2c490789c5288c4f413aefe57965d481de5eb42f5248c2fddfd2290",
+    "/root/lightsem/runs/visual_next_20260929/annotations/jd-1066f38acdaf08271fa6/frame_56.png": "867986e519ea86022b98112bb5419ff8fbe5b1cc66c6d849266a385b76b54887",
+    "/root/lightsem/runs/visual_next_20260929/annotations/jd-1066f38acdaf08271fa6/frame_63.png": "7d8f0f69c2597956745e1b5e522e77b8671552b96b79e2dfea3363570be02797",
+    "/root/lightsem/runs/visual_next_20260929/shared_corpus_v2/jd-e6ddbe5382bc260e3e6c/REPORT.json": "613af296d78f5176892cdbfbdb572a3b572a3b145a52ac3ae397fc5f629f26fc",
+    "/root/lightsem/runs/visual_next_20260929/shared_corpus_v2/jd-e6ddbe5382bc260e3e6c/mask_controls.npz": "7093cbc99ad8df6968d218484df11d7aa9806f16570bbe247890356f4dc415d5",
+    "/root/lightsem/runs/visual_next_20260929/annotations/jd-e6ddbe5382bc260e3e6c/frame_00.png": "83d2ea7f2228fed02a84b4be5a96952c65aab40110ab1bc065bfa24a066210de",
+    "/root/lightsem/runs/visual_next_20260929/annotations/jd-e6ddbe5382bc260e3e6c/frame_07.png": "f3845018a5ecd67c632f1d63e6c50c3ad6c1c06488fcd72bdf2cba746ace5e59",
+    "/root/lightsem/runs/visual_next_20260929/annotations/jd-e6ddbe5382bc260e3e6c/frame_14.png": "872b7b57d36aa74c925b84fe25d588d070bd0f46e38587a13cadfd0e3237e928",
+    "/root/lightsem/runs/visual_next_20260929/annotations/jd-e6ddbe5382bc260e3e6c/frame_21.png": "061be68804d61e01e073eed2ed56c9ecdc585d68912cf5ae5c832054345864f2",
+    "/root/lightsem/runs/visual_next_20260929/annotations/jd-e6ddbe5382bc260e3e6c/frame_28.png": "7bf656220c1ce9cbb11b2afdd8535f23573457ba516ac3e9f339f82f5f168d8b",
+    "/root/lightsem/runs/visual_next_20260929/annotations/jd-e6ddbe5382bc260e3e6c/frame_35.png": "d36ebbbc121bfa5fce7801aea809ad89079df82fbee6efa414e86ebe91cf8e38",
+    "/root/lightsem/runs/visual_next_20260929/annotations/jd-e6ddbe5382bc260e3e6c/frame_42.png": "d5e95badcd12af6a9a661c5016dcd29b2e5f4c1ae55642a059208f827a06ba96",
+    "/root/lightsem/runs/visual_next_20260929/annotations/jd-e6ddbe5382bc260e3e6c/frame_49.png": "2e68c473935eea795246477192e0b50545bf6910d9e1108a67050a686ab07db4",
+    "/root/lightsem/runs/visual_next_20260929/annotations/jd-e6ddbe5382bc260e3e6c/frame_56.png": "6a3a2ebebcb92d0f06935dc39ce6121358eeb55e60c378b198db964137d24d15",
+    "/root/lightsem/runs/visual_next_20260929/annotations/jd-e6ddbe5382bc260e3e6c/frame_63.png": "9ca178012e99416063b309f207136c3eed9299425433802d58c6ae1cb732e365",
+    "/root/lightsem/runs/visual_next_20260929/shared_corpus_v2/jd-48e07715df8f7d372d26/REPORT.json": "6332a187bed6f68c2a60a2249ed663f3f8029406c299e210927ec299f9482087",
+    "/root/lightsem/runs/visual_next_20260929/shared_corpus_v2/jd-48e07715df8f7d372d26/mask_controls.npz": "48140059c40b28d3ffb4bd0913e60942f62222f6900a07c687a79d0c9332cc3f",
+    "/root/lightsem/runs/visual_next_20260929/annotations/jd-48e07715df8f7d372d26/frame_00.png": "6c46df5f454fdece5c1cf4cd3857cc007ee726863cc165d6f43b2de042bfd2b3",
+    "/root/lightsem/runs/visual_next_20260929/annotations/jd-48e07715df8f7d372d26/frame_07.png": "24760abea05f7f2320b2efd1d4e918cb8c7025736652e2edcccb08e8fe85758c",
+    "/root/lightsem/runs/visual_next_20260929/annotations/jd-48e07715df8f7d372d26/frame_14.png": "6777ef3b49a16bb747823fc426a89088580285c3c27d6546e042781d8e0fcbde",
+    "/root/lightsem/runs/visual_next_20260929/annotations/jd-48e07715df8f7d372d26/frame_21.png": "071909c2d8f7906a7c50e8cf163f5d00b86231fb9078f34bb70c7c4b79d18eed",
+    "/root/lightsem/runs/visual_next_20260929/annotations/jd-48e07715df8f7d372d26/frame_28.png": "cb2a807a34715385f4e55632127b212c0a961e3cca97e5381523b48e4c355736",
+    "/root/lightsem/runs/visual_next_20260929/annotations/jd-48e07715df8f7d372d26/frame_35.png": "727e40824c9ebc4b29bdf640d4871a34a5b607ef57151eb3f203eb5f520cf68a",
+    "/root/lightsem/runs/visual_next_20260929/annotations/jd-48e07715df8f7d372d26/frame_42.png": "b224a029eadbe430186e4a08889eb91799d674e1cc8d2ae89c6b609ee5a683d2",
+    "/root/lightsem/runs/visual_next_20260929/annotations/jd-48e07715df8f7d372d26/frame_49.png": "54652608b4aaff1f09b064c0a7b7680fadaab4b152fdc699b0fab7d0ba233989",
+    "/root/lightsem/runs/visual_next_20260929/annotations/jd-48e07715df8f7d372d26/frame_56.png": "b4fbf515bdc6e5f148999664c49939395c89ab5e4a8aa179dfc790d7e770e517",
+    "/root/lightsem/runs/visual_next_20260929/annotations/jd-48e07715df8f7d372d26/frame_63.png": "b928e38f4b86b1e0a47005fa53627108855b1d245432b121b27df23861507b81",
+    "/root/lightsem/runs/visual_next_20260929/shared_corpus_v2/jd-4041f5000909d780f8de/REPORT.json": "f73528e3e29f002cb233e79d5253936c1f5bd91a760f64422a8ef9c0c8427d25",
+    "/root/lightsem/runs/visual_next_20260929/shared_corpus_v2/jd-4041f5000909d780f8de/mask_controls.npz": "a7e9ca18307d0238f7807ff93c6ee51a979cad81ebbed1cea084699d0af3f039",
+    "/root/lightsem/runs/visual_next_20260929/annotations/jd-4041f5000909d780f8de/frame_00.png": "3992e4c88532d3be9d34c8b71e01c890abad182e90797c901dfe3c02dad72f1e",
+    "/root/lightsem/runs/visual_next_20260929/annotations/jd-4041f5000909d780f8de/frame_07.png": "4b1432de14f42e0f971e90d17bb63109f861d0354c455e7a94a12d33af581e27",
+    "/root/lightsem/runs/visual_next_20260929/annotations/jd-4041f5000909d780f8de/frame_14.png": "b75bafcb4a631aa8e52f1504cb11df737bc30af9da730da1b95ed164198f2da3",
+    "/root/lightsem/runs/visual_next_20260929/annotations/jd-4041f5000909d780f8de/frame_21.png": "68c6cfad5c0f774da8ad88016503c4544e3683882e7acd99a93f37c0f5f9a58a",
+    "/root/lightsem/runs/visual_next_20260929/annotations/jd-4041f5000909d780f8de/frame_28.png": "0ec0111bd0cc40ee0c6f77a7b220bc310b7d8826d7b12b57220db7d0df45e18c",
+    "/root/lightsem/runs/visual_next_20260929/annotations/jd-4041f5000909d780f8de/frame_35.png": "ebfbe52fda3ee316853e74848e95788e7b1cfaf71f39e53e331b537d8c70d1bc",
+    "/root/lightsem/runs/visual_next_20260929/annotations/jd-4041f5000909d780f8de/frame_42.png": "94a5fbc4a1e1f7b5a4a19a815db9eae0825151c37afd857ff3ae549c1ffbc636",
+    "/root/lightsem/runs/visual_next_20260929/annotations/jd-4041f5000909d780f8de/frame_49.png": "9ae081a73bbdd402f9c499e5e175d49c911912a5c1d75ab551297f47cd522222",
+    "/root/lightsem/runs/visual_next_20260929/annotations/jd-4041f5000909d780f8de/frame_56.png": "6efb73fdaff0192a0d2c2ad3c121cfb6b0dfa4af20557b506a22974c7c550c69",
+    "/root/lightsem/runs/visual_next_20260929/annotations/jd-4041f5000909d780f8de/frame_63.png": "eb14d77a655c3dfc6f9851b45edd96a2f8e7dc9393db4019f43963167f2a145e",
+    "/root/lightsem/runs/visual_next_20260929/shared_corpus_v2/jd-f396b09e25bec38321a3/REPORT.json": "b23135fd3f12a517068de46ec6fe496d808196c841fa7198ad58d992d7c3b97f",
+    "/root/lightsem/runs/visual_next_20260929/shared_corpus_v2/jd-f396b09e25bec38321a3/mask_controls.npz": "f9195a31979f8c79aaee6407ebed1f6d88aab74c4983f2d0b2e11848455f4ecf",
+    "/root/lightsem/runs/visual_next_20260929/annotations/jd-f396b09e25bec38321a3/frame_00.png": "1cfa5d4c392f8f372740f4b40edf04335e85f0620cdf392c183a526c9169502b",
+    "/root/lightsem/runs/visual_next_20260929/annotations/jd-f396b09e25bec38321a3/frame_07.png": "f92ff11bb3fcbaddcea32fbf6aea6767cdcc90909018fbcef785379c3ff49008",
+    "/root/lightsem/runs/visual_next_20260929/annotations/jd-f396b09e25bec38321a3/frame_14.png": "47d04e93ab31031c3bb1997d38d4a9d1b36684d65f50f956d8cf7b1eca61c4bc",
+    "/root/lightsem/runs/visual_next_20260929/annotations/jd-f396b09e25bec38321a3/frame_21.png": "4af264478560663b80954fcb24746a23dfb1df78ce7bcda76e188613a1b799a2",
+    "/root/lightsem/runs/visual_next_20260929/annotations/jd-f396b09e25bec38321a3/frame_28.png": "97470eeb637b2435c8ab5cc2536c0d3b45ce36398bd3cb7e98df8641d28794d8",
+    "/root/lightsem/runs/visual_next_20260929/annotations/jd-f396b09e25bec38321a3/frame_35.png": "2e17001bad50d77e7868a598273749afc599e3ae273a4ec2e399317ee06e3963",
+    "/root/lightsem/runs/visual_next_20260929/annotations/jd-f396b09e25bec38321a3/frame_42.png": "62a4149a5891129a0612995779232486293a9429f55588b7d3f909be5ec181c6",
+    "/root/lightsem/runs/visual_next_20260929/annotations/jd-f396b09e25bec38321a3/frame_49.png": "471b0bbe554f9889868b4fc81dfcb731b9339f5c8fc8114344dea95c413e84e2",
+    "/root/lightsem/runs/visual_next_20260929/annotations/jd-f396b09e25bec38321a3/frame_56.png": "9cf396b3d424462231409ee498ee735fe0f37656c314860c945aa5d150fb7538",
+    "/root/lightsem/runs/visual_next_20260929/annotations/jd-f396b09e25bec38321a3/frame_63.png": "1c5f1617727863ae8cdd2a0a034477a23490abd436b54b3614e313a1fd9e3fe6",
+    "/root/lightsem/runs/visual_next_20260929/shared_corpus_v2/jd-464511233c6a6428a9a5/REPORT.json": "f5ac748586a23c2b98edb48e8fea20f11512b4ccd8d32f4354d8b3f532d5f5a0",
+    "/root/lightsem/runs/visual_next_20260929/shared_corpus_v2/jd-464511233c6a6428a9a5/mask_controls.npz": "ee4c81e921a162d8ae19d897d1b9fae3f434dc55f02401de6ea64c19294ceb1d",
+    "/root/lightsem/runs/visual_next_20260929/annotations/jd-464511233c6a6428a9a5/frame_00.png": "d64691fa10f1a09fc7a3e263579c9ebc92b557573da02ed3218a311302c17f7d",
+    "/root/lightsem/runs/visual_next_20260929/annotations/jd-464511233c6a6428a9a5/frame_07.png": "f0ec95bf3293891bb7ac86956956aa3dfd86637fcc1bfbf6ae6a57a950cdf56e",
+    "/root/lightsem/runs/visual_next_20260929/annotations/jd-464511233c6a6428a9a5/frame_14.png": "66b5910efe9d9529149d763c51b672c83d5f4b5edbedafdf742c8e984430d95f",
+    "/root/lightsem/runs/visual_next_20260929/annotations/jd-464511233c6a6428a9a5/frame_21.png": "eb26e31deb896599297774ac4f621f3f2286fdf669c453f4520bd75bf7562788",
+    "/root/lightsem/runs/visual_next_20260929/annotations/jd-464511233c6a6428a9a5/frame_28.png": "eba87f7d95352248528986dcb2af0f23f225a9ccfcbe275ce6f5f1ab15dbc933",
+    "/root/lightsem/runs/visual_next_20260929/annotations/jd-464511233c6a6428a9a5/frame_35.png": "f336aaab709ceef4ec26ecf4fdfaf11a3c68716019ef79a36669b4ef4724a1de",
+    "/root/lightsem/runs/visual_next_20260929/annotations/jd-464511233c6a6428a9a5/frame_42.png": "bcc9495ae587a02a8219dcd8f71d057cf2b781f84b0322547ee31138029efbb1",
+    "/root/lightsem/runs/visual_next_20260929/annotations/jd-464511233c6a6428a9a5/frame_49.png": "9f1851c6ac0b04a76c2b7e96f72704b010343402d15f39330549b5fc4b7f6aea",
+    "/root/lightsem/runs/visual_next_20260929/annotations/jd-464511233c6a6428a9a5/frame_56.png": "a5dd105a6faca46bf17145c0bf832f256490d0a25b16e84508d4dcd7377bc1d2",
+    "/root/lightsem/runs/visual_next_20260929/annotations/jd-464511233c6a6428a9a5/frame_63.png": "2149c33e8b17f3cd8e154726110dc55550eb519dd1dfb15fee441ef8b678b959",
+    "/root/lightsem/runs/visual_next_20260929/shared_corpus_v2/jd-8fbf5474b581bac86286/REPORT.json": "01ae276fa35fcb014a3f7f724df2a4bd3db1510c60319e13eb1231ddaa2cb0e9",
+    "/root/lightsem/runs/visual_next_20260929/shared_corpus_v2/jd-8fbf5474b581bac86286/mask_controls.npz": "126508fc8b4bfad38be6a909445821cfd9c1f983e40db90cc69eb197a4a18d6c",
+    "/root/lightsem/runs/visual_next_20260929/annotations/jd-8fbf5474b581bac86286/frame_00.png": "158c9a876cca2f5bc78645fe9ef5ede03710b9fd9c0392f71245fcb3656f6a3a",
+    "/root/lightsem/runs/visual_next_20260929/annotations/jd-8fbf5474b581bac86286/frame_07.png": "d5ebd2fbadd172af0fd93e26e5ece43f87b5a25fcc884dca8754e6d2799d98e9",
+    "/root/lightsem/runs/visual_next_20260929/annotations/jd-8fbf5474b581bac86286/frame_14.png": "01d5a0476d18a3de298384899b42895dc3c47756809866bc44fa379a321592be",
+    "/root/lightsem/runs/visual_next_20260929/annotations/jd-8fbf5474b581bac86286/frame_21.png": "46a81603e7c1b921ddeb059e56b13878b502cbf48d5d0fa34bda2aa22f32f621",
+    "/root/lightsem/runs/visual_next_20260929/annotations/jd-8fbf5474b581bac86286/frame_28.png": "f02ea0a0c6796904440cbe07c61f3dc75c92974e82c0202c2a856b7331a1de32",
+    "/root/lightsem/runs/visual_next_20260929/annotations/jd-8fbf5474b581bac86286/frame_35.png": "d9e0379ee63fb30bd7ad0d9d1f8d281cf76c731e7f9777058356da0de3ac4dfc",
+    "/root/lightsem/runs/visual_next_20260929/annotations/jd-8fbf5474b581bac86286/frame_42.png": "44067506b8ea6f6f69404a879e64797b4bfe8e4342d710d78265609624db3626",
+    "/root/lightsem/runs/visual_next_20260929/annotations/jd-8fbf5474b581bac86286/frame_49.png": "5200bb872bdc143c170bed91aefe997a150c74b3f9aab5b92f5895645897b030",
+    "/root/lightsem/runs/visual_next_20260929/annotations/jd-8fbf5474b581bac86286/frame_56.png": "a4edee33ca34b7c5b93b1850cba548dcc5eeb8595ae08425aa41bf459a9fd72e",
+    "/root/lightsem/runs/visual_next_20260929/annotations/jd-8fbf5474b581bac86286/frame_63.png": "fb0de8bb313cf402c682d8b3903750eeb29cea1c8f7e8e8ca76216d2bdfde71e",
+    "/root/lightsem/runs/visual_next_20260929/shared_corpus_v2/jd-a1060383db4600ff501b/REPORT.json": "de69c919a781051226adfbc766fce75eae6ad7b69f6e6cbe877e9abbdc935403",
+    "/root/lightsem/runs/visual_next_20260929/shared_corpus_v2/jd-a1060383db4600ff501b/mask_controls.npz": "303c1530521c52488ac37ed9375a67812118d696978b70af87b0dc1f37f4f068",
+    "/root/lightsem/runs/visual_next_20260929/annotations/jd-a1060383db4600ff501b/frame_00.png": "e35874afaa14ad016412e78b76eca2e7805fb9f224fb41ffed12ccdd4a922827",
+    "/root/lightsem/runs/visual_next_20260929/annotations/jd-a1060383db4600ff501b/frame_07.png": "4ffb06c57bf0f21718ae310fe64729d8356aa16cd64153a86bf026b01355f12b",
+    "/root/lightsem/runs/visual_next_20260929/annotations/jd-a1060383db4600ff501b/frame_14.png": "ab8b365ada3ba7c22c7ba8ef278590a8629b87a69bbe278061886b91b1ad0fee",
+    "/root/lightsem/runs/visual_next_20260929/annotations/jd-a1060383db4600ff501b/frame_21.png": "ccfcc2baa4977c541fe0816a3e303264b5cc7e46a7e042c482e9b32c624e4896",
+    "/root/lightsem/runs/visual_next_20260929/annotations/jd-a1060383db4600ff501b/frame_28.png": "e684b44e40c9e4f55d20ee01577c384743613cf87900a7c14fdf183b4c071496",
+    "/root/lightsem/runs/visual_next_20260929/annotations/jd-a1060383db4600ff501b/frame_35.png": "0595d569c74b558c3f3c85f3f171c874f4bfe445d2cb803ebfd324875e021d39",
+    "/root/lightsem/runs/visual_next_20260929/annotations/jd-a1060383db4600ff501b/frame_42.png": "dc4c796fea0a4bae03db82fbf32928bc70f6b50f5bad3e24b0873a2ba889ac62",
+    "/root/lightsem/runs/visual_next_20260929/annotations/jd-a1060383db4600ff501b/frame_49.png": "29678d68d4b2cfe4bb2e39707b0472afedfaeb6c07ac3bbe7980b9b22909d55f",
+    "/root/lightsem/runs/visual_next_20260929/annotations/jd-a1060383db4600ff501b/frame_56.png": "b5bafd3dce737ff12d9e7f404cc85be471d256efeb130eb03d81b91ee29be171",
+    "/root/lightsem/runs/visual_next_20260929/annotations/jd-a1060383db4600ff501b/frame_63.png": "7e96363e34ded87f8c7b7c887c152cf4d67b2e999ee339b91c9f62d442ac4853",
+    "/root/lightsem/runs/visual_next_20260929/vendor/dinov2/.github/workflows/lint.yaml": "843ad6a49b4b9d5c852ac97c2261038424bc14dc3ccee1f5cdbdc4f79a4fbbaf",
+    "/root/lightsem/runs/visual_next_20260929/vendor/dinov2/CODE_OF_CONDUCT.md": "b161b3e2ec4712ebf69efc38ef796d2c701a323aac51cf11759d38e9c56c39bd",
+    "/root/lightsem/runs/visual_next_20260929/vendor/dinov2/CONTRIBUTING.md": "4732808845ea471137308b5fbaa7e35c1f3c96113f2fbdf8a0ec6b00d91559b6",
+    "/root/lightsem/runs/visual_next_20260929/vendor/dinov2/LICENSE": "600cc67cc4cb2f5ea317dcfc687ad1c74dc4bec8782bbe9db0afd83513b935b7",
+    "/root/lightsem/runs/visual_next_20260929/vendor/dinov2/MODEL_CARD.md": "70ca59606bee0a5fbb1baec80e7e29a93cd7cfbe26ca1910c52a852c4aab09d0",
+    "/root/lightsem/runs/visual_next_20260929/vendor/dinov2/README.md": "d1bc2e9686522bbd66ed6123dc81eb36b3a98e8ea9a2ca97778f54a1c641c9e1",
+    "/root/lightsem/runs/visual_next_20260929/vendor/dinov2/conda-extras.yaml": "14b710eedcad4c36d480cf8852bf8862d77aed8038de21dec538704953205394",
+    "/root/lightsem/runs/visual_next_20260929/vendor/dinov2/conda.yaml": "4806691bed328df4460ba60b4f2be549529a414bd9137867a7c1cc600b218f21",
+    "/root/lightsem/runs/visual_next_20260929/vendor/dinov2/dinov2/__init__.py": "0d2b87b7e71c7f7279ccc4b4f8b541d26071425284a0ea01a5a435fac4511cfe",
+    "/root/lightsem/runs/visual_next_20260929/vendor/dinov2/dinov2/configs/__init__.py": "be6503fea5e43bf81c504247a35f731f12541e567b18607152eff102137f8dc0",
+    "/root/lightsem/runs/visual_next_20260929/vendor/dinov2/dinov2/configs/eval/cell_dino/vitl16_channel_adaptive_pretrain.yaml": "6afb61e965344ea240675bd38517c36a64022670dd52bfea7c0fd193ee17bef3",
+    "/root/lightsem/runs/visual_next_20260929/vendor/dinov2/dinov2/configs/eval/cell_dino/vitl16_pretrain.yaml": "69328d10d124e7ca785d34d92eb252196543b5c033b7eff77b3e77e9490c2ad4",
+    "/root/lightsem/runs/visual_next_20260929/vendor/dinov2/dinov2/configs/eval/vitb14_pretrain.yaml": "03d40aabe4f9bc261a9a78c1e25970943c9675a7fe76eeb2c6068a6f98d6ac2e",
+    "/root/lightsem/runs/visual_next_20260929/vendor/dinov2/dinov2/configs/eval/vitb14_reg4_pretrain.yaml": "682d34d1c90c1533e32dc5afa26cc51541d6e4308d4a11b793c6e702e5823c7e",
+    "/root/lightsem/runs/visual_next_20260929/vendor/dinov2/dinov2/configs/eval/vitg14_pretrain.yaml": "9723c21852aa1ccf6eb822636f39221bc803e666f325a6837271a99ef1dbf95c",
+    "/root/lightsem/runs/visual_next_20260929/vendor/dinov2/dinov2/configs/eval/vitg14_reg4_pretrain.yaml": "3da0e06003ee5d6320d66ab9d3a189cd3f088e726ab751d544838e967b767742",
+    "/root/lightsem/runs/visual_next_20260929/vendor/dinov2/dinov2/configs/eval/vitl14_pretrain.yaml": "3ac4306146a1ecdd172cc40a957129cfbbc39e4151f189dfaab2ece539b7d46f",
+    "/root/lightsem/runs/visual_next_20260929/vendor/dinov2/dinov2/configs/eval/vitl14_reg4_pretrain.yaml": "b9fedf1dc4b0d1c3a16cf74cafd7962fd8960d5944de7077291e862555861c60",
+    "/root/lightsem/runs/visual_next_20260929/vendor/dinov2/dinov2/configs/eval/vits14_pretrain.yaml": "d9479987edb86fc9c65091133a377a9b06d90603a7649f4d89fd355f50be351f",
+    "/root/lightsem/runs/visual_next_20260929/vendor/dinov2/dinov2/configs/eval/vits14_reg4_pretrain.yaml": "91e1df34dc74d7ead96be9b0d0087fea0e9b5d687782964e192e8fa44919254c",
+    "/root/lightsem/runs/visual_next_20260929/vendor/dinov2/dinov2/configs/ssl_default_config.yaml": "96c66043a1113bee3de8e59fa4bde6a7bd4c117c740056c65c6d29a4c709c30f",
+    "/root/lightsem/runs/visual_next_20260929/vendor/dinov2/dinov2/configs/train/cell_dino/vitl16_boc_hpafov.yaml": "ff5b224d4fff05b4138ff2e6c4546adade2a02a8d096e51bc4a7cdd5156f1a93",
+    "/root/lightsem/runs/visual_next_20260929/vendor/dinov2/dinov2/configs/train/cell_dino/vitl16_hpafov.yaml": "6d1afbfda85f5a94b433a0197f015ce0417ac15891373bdfb5040881a9005c3a",
+    "/root/lightsem/runs/visual_next_20260929/vendor/dinov2/dinov2/configs/train/cell_dino/vitl16_hpaone.yaml": "b5d333b1c0f4a6d7e443c3999b2dff63ef28bcfc22de3afb00fec889e86e6e94",
+    "/root/lightsem/runs/visual_next_20260929/vendor/dinov2/dinov2/configs/train/vitg14.yaml": "55dc02f08ecc75e6b92da3b60f90cd7ebcb43f37ee5bfd8bb009c7d05eeff213",
+    "/root/lightsem/runs/visual_next_20260929/vendor/dinov2/dinov2/configs/train/vitl14.yaml": "825c11b9a9bfbfe327b0adcd21838e7a1aafa621e3a0b9e4e4787fe260b0378b",
+    "/root/lightsem/runs/visual_next_20260929/vendor/dinov2/dinov2/configs/train/vitl16_short.yaml": "ad77b37189f2def02b1aba4b75c23dfce57c612394830689de69d10b58891e8f",
+    "/root/lightsem/runs/visual_next_20260929/vendor/dinov2/dinov2/data/__init__.py": "a3d422bc188029270a69b231306eed8482093c0317b0ba406867a115f2e67f01",
+    "/root/lightsem/runs/visual_next_20260929/vendor/dinov2/dinov2/data/accumulators.py": "f7b8677699afbaaef17bb42573db0d45e1bc9a5e6f7da16573672a35f1f9a06f",
+    "/root/lightsem/runs/visual_next_20260929/vendor/dinov2/dinov2/data/adapters.py": "1d24004ce6ead1e35408f590867d0b1c09a4a3a65278771f574f1a3ba0d7ccba",
+    "/root/lightsem/runs/visual_next_20260929/vendor/dinov2/dinov2/data/augmentations.py": "10e949f266c7cffa57ffc8c5cf9dc094a8e701cdc74f1a3fefd2e02f78f8cdf7",
+    "/root/lightsem/runs/visual_next_20260929/vendor/dinov2/dinov2/data/cell_dino/augmentations.py": "b87c8283f717945c8429f220a769aeb0278604a38ded1c75b8adadfa1d2f3ddf",
+    "/root/lightsem/runs/visual_next_20260929/vendor/dinov2/dinov2/data/cell_dino/transforms.py": "18f435ff0a346d972a95c66d8b20bb1fee2fa275740e0fcc99253d982f5e3cd8",
+    "/root/lightsem/runs/visual_next_20260929/vendor/dinov2/dinov2/data/collate.py": "0d2bb0060094b8c86838ad5af2572a9ff0e66c73660b61be70d60f64b9508570",
+    "/root/lightsem/runs/visual_next_20260929/vendor/dinov2/dinov2/data/datasets/__init__.py": "00057731a94738bf3fdbc15af2bcc64f8c21e954e7ff79c0e48dae38b79202f2",
+    "/root/lightsem/runs/visual_next_20260929/vendor/dinov2/dinov2/data/datasets/cell_dino/chammi_cp.py": "bd35d07dec62ab3b5f99c78d97cdfa3fad8a617db5b844e81ded17142ef90361",
+    "/root/lightsem/runs/visual_next_20260929/vendor/dinov2/dinov2/data/datasets/cell_dino/chammi_hpa.py": "dc40cfc28ae02d2275b896189520c85c0c5d8aa9ad1d06f0ed3cd4a760ef488a",
+    "/root/lightsem/runs/visual_next_20260929/vendor/dinov2/dinov2/data/datasets/cell_dino/chammi_wtc.py": "e90ddea42e9273495f294ef584c467667bb8002758707cb154da55d37a24dc37",
+    "/root/lightsem/runs/visual_next_20260929/vendor/dinov2/dinov2/data/datasets/cell_dino/hpafov.py": "065108a515651ef21411e6951fa64197646e2887c8b772185673d3df65c4a779",
+    "/root/lightsem/runs/visual_next_20260929/vendor/dinov2/dinov2/data/datasets/cell_dino/hpaone.py": "16b080fd09d61c8241409d0e444d0b23464f7590f11df612e45efd354526ffe2",
+    "/root/lightsem/runs/visual_next_20260929/vendor/dinov2/dinov2/data/datasets/decoders.py": "a43ca26d46b973943ff17c5e6d0d4115cd07e01851e4fc9d46e4b13738da17f8",
+    "/root/lightsem/runs/visual_next_20260929/vendor/dinov2/dinov2/data/datasets/extended.py": "4f042450ff939a13d284df30a859a16f8c13ac8e3ece48e3437b8bca473980f0",
+    "/root/lightsem/runs/visual_next_20260929/vendor/dinov2/dinov2/data/datasets/image_net.py": "748a6d9f39b1ca9e94a2bdd61a78c40d1655508fcfae40057057fe8c74bb611b",
+    "/root/lightsem/runs/visual_next_20260929/vendor/dinov2/dinov2/data/datasets/image_net_22k.py": "e94c0bffc3f1aa78d770c871ecb72fbbf66a5dfcd0703f8319b263708698e351",
+    "/root/lightsem/runs/visual_next_20260929/vendor/dinov2/dinov2/data/loaders.py": "1f6c2f709f880c8b94717fc3ee2531f18e034ff98986c0a7e90096dc42b82b6e",
+    "/root/lightsem/runs/visual_next_20260929/vendor/dinov2/dinov2/data/masking.py": "4fcbc5aa4cfa069a32200b3eb39f86e09de3ac476afa7a12a2fbdfb160a892c3",
+    "/root/lightsem/runs/visual_next_20260929/vendor/dinov2/dinov2/data/samplers.py": "5f19029f6da99de6c81ec5e8d313d85739c66020cf8447b5b35e7f80c9071ebb",
+    "/root/lightsem/runs/visual_next_20260929/vendor/dinov2/dinov2/data/transforms.py": "725823be317c6a549810740c6566a2a448ba1eba85eea87769c10b986dda2e5b",
+    "/root/lightsem/runs/visual_next_20260929/vendor/dinov2/dinov2/distributed/__init__.py": "b6aaa4151999c88a4ff031e786dc66bb2ecbc8b5421ffe72169c9c305c1414e5",
+    "/root/lightsem/runs/visual_next_20260929/vendor/dinov2/dinov2/eval/__init__.py": "2932e94a2d67be87b717c49468214c1127be7864aedf37f5891d26be7bc1437f",
+    "/root/lightsem/runs/visual_next_20260929/vendor/dinov2/dinov2/eval/cell_dino/knn.py": "1360aaaf72fa561315e269e1c714d431aa6e5aa0ec64abe4d1c26be14b4c1750",
+    "/root/lightsem/runs/visual_next_20260929/vendor/dinov2/dinov2/eval/cell_dino/linear.py": "0f103e6a5578138c614a445fc36c8555a74751cc5b6a90218fe0a417baf43df8",
+    "/root/lightsem/runs/visual_next_20260929/vendor/dinov2/dinov2/eval/cell_dino/utils.py": "4117190b6b216f0ad48b2dab91cea55a09a861d27cb8d8993677274b01a76fd6",
+    "/root/lightsem/runs/visual_next_20260929/vendor/dinov2/dinov2/eval/depth/__init__.py": "2932e94a2d67be87b717c49468214c1127be7864aedf37f5891d26be7bc1437f",
+    "/root/lightsem/runs/visual_next_20260929/vendor/dinov2/dinov2/eval/depth/models/__init__.py": "6d2d9aa7396eafa2c3d04d5609b39c068b210a5ca8368d2f7cd47f5fc3e7d152",
+    "/root/lightsem/runs/visual_next_20260929/vendor/dinov2/dinov2/eval/depth/models/backbones/__init__.py": "e6e25365ad291aad30d8bce4c9f9b906580f204c141d62be4bcc3699e563d901",
+    "/root/lightsem/runs/visual_next_20260929/vendor/dinov2/dinov2/eval/depth/models/backbones/vision_transformer.py": "9aa72220970247ccb8399e5a95d82721679c479e0f0c0096c4ef0bdff4fe6735",
+    "/root/lightsem/runs/visual_next_20260929/vendor/dinov2/dinov2/eval/depth/models/builder.py": "0b1dcd672ba5a6b5acec2fa70cfea70ee280aba264a3236e7c1139976b2d02dc",
+    "/root/lightsem/runs/visual_next_20260929/vendor/dinov2/dinov2/eval/depth/models/decode_heads/__init__.py": "38268a3d08272273b7a1cf03b88b1eff6604cbef519637476e9652dcef4f43bc",
+    "/root/lightsem/runs/visual_next_20260929/vendor/dinov2/dinov2/eval/depth/models/decode_heads/decode_head.py": "4d163967518b4ef251dbd400792a295033983a7c3eb9ce2b362df32f1bc57046",
+    "/root/lightsem/runs/visual_next_20260929/vendor/dinov2/dinov2/eval/depth/models/decode_heads/dpt_head.py": "4de04fd7fd8681d0bb5977f250be89d76314f97d626f717d1d09eeff14e059f7",
+    "/root/lightsem/runs/visual_next_20260929/vendor/dinov2/dinov2/eval/depth/models/decode_heads/linear_head.py": "bf6c448f2635a5db0eb0423bf7854899c1e36f0e0897107c14dfb2bf064d0160",
+    "/root/lightsem/runs/visual_next_20260929/vendor/dinov2/dinov2/eval/depth/models/depther/__init__.py": "a00bcccdea87b79d23b0085ad3db9728169103c236749dfda09184dc0fefa8aa",
+    "/root/lightsem/runs/visual_next_20260929/vendor/dinov2/dinov2/eval/depth/models/depther/base.py": "59233aeb2bdf0266937213d5d1f12628835bc5a204f11a7b6982838f61adf28f",
+    "/root/lightsem/runs/visual_next_20260929/vendor/dinov2/dinov2/eval/depth/models/depther/encoder_decoder.py": "96d0d2ff321707888191b52ee9180ef6f38d6b7212f5d604891c764b4b46d248",
+    "/root/lightsem/runs/visual_next_20260929/vendor/dinov2/dinov2/eval/depth/models/losses/__init__.py": "5dacc4c02607b64ee63906bbda9de9158d59d50fc2d1e4cf360455f6f749bee0",
+    "/root/lightsem/runs/visual_next_20260929/vendor/dinov2/dinov2/eval/depth/models/losses/gradientloss.py": "61d625dd618ca3fb2443d1e831949f1e79c2bc4081d72355ff932a41c8b47f89",
+    "/root/lightsem/runs/visual_next_20260929/vendor/dinov2/dinov2/eval/depth/models/losses/sigloss.py": "97ff67edf57ebfd6570be45859545580171cfbca489803429005529ccc0e4135",
+    "/root/lightsem/runs/visual_next_20260929/vendor/dinov2/dinov2/eval/depth/ops/__init__.py": "1640dd76d0d09a1db46df8a1c767ff04d2a0d6004d9c9b6134d80a0f53f6c4e7",
+    "/root/lightsem/runs/visual_next_20260929/vendor/dinov2/dinov2/eval/depth/ops/wrappers.py": "85d58e303eff9a0a306d97101c8b35c24196bfe55e8da019df1e4817411a4dc7",
+    "/root/lightsem/runs/visual_next_20260929/vendor/dinov2/dinov2/eval/knn.py": "5f59977c5d697579d64b1acb19244d819c54a253cdcf1b023b818418bdf841e1",
+    "/root/lightsem/runs/visual_next_20260929/vendor/dinov2/dinov2/eval/linear.py": "cd6cb057561ab180557711b20d2f5f4916393a848375b0cefae11ff61d339865",
+    "/root/lightsem/runs/visual_next_20260929/vendor/dinov2/dinov2/eval/log_regression.py": "273648c0937183af4b2f516b8009e7ef4ffda91b599e8512422e2c3b51829615",
+    "/root/lightsem/runs/visual_next_20260929/vendor/dinov2/dinov2/eval/metrics.py": "2f436b2a67949955bddce0b6b58d73fe338ba362a3de4834290593f7a134e9aa",
+    "/root/lightsem/runs/visual_next_20260929/vendor/dinov2/dinov2/eval/segmentation/__init__.py": "2932e94a2d67be87b717c49468214c1127be7864aedf37f5891d26be7bc1437f",
+    "/root/lightsem/runs/visual_next_20260929/vendor/dinov2/dinov2/eval/segmentation/hooks/__init__.py": "590638a03129a24077f4dff2477b3d9326e234f23590d5c5715c37dff26b5638",
+    "/root/lightsem/runs/visual_next_20260929/vendor/dinov2/dinov2/eval/segmentation/hooks/optimizer.py": "1c116c35dfad8fa9abdfa5738c7e621e75c9277304fd009f48c2592571204ab1",
+    "/root/lightsem/runs/visual_next_20260929/vendor/dinov2/dinov2/eval/segmentation/models/__init__.py": "8d3601782bc10c5477243d1d6760c94e78a8ef8e7028476c70ee4781a693fd36",
+    "/root/lightsem/runs/visual_next_20260929/vendor/dinov2/dinov2/eval/segmentation/models/backbones/__init__.py": "e6e25365ad291aad30d8bce4c9f9b906580f204c141d62be4bcc3699e563d901",
+    "/root/lightsem/runs/visual_next_20260929/vendor/dinov2/dinov2/eval/segmentation/models/backbones/vision_transformer.py": "ed687476a2381bc708c6035b5f77e7b2560baaee36313c55f5e26aa5253adbb7",
+    "/root/lightsem/runs/visual_next_20260929/vendor/dinov2/dinov2/eval/segmentation/models/decode_heads/__init__.py": "f440e7a342f485db7c5766359f5b747f0ed810172e89521b218e50057a94c5e4",
+    "/root/lightsem/runs/visual_next_20260929/vendor/dinov2/dinov2/eval/segmentation/models/decode_heads/linear_head.py": "14500d7aa301797f77774348bd6912ee2ee3e68909c9f511a2730ff340349340",
+    "/root/lightsem/runs/visual_next_20260929/vendor/dinov2/dinov2/eval/segmentation/utils/__init__.py": "2932e94a2d67be87b717c49468214c1127be7864aedf37f5891d26be7bc1437f",
+    "/root/lightsem/runs/visual_next_20260929/vendor/dinov2/dinov2/eval/segmentation/utils/colormaps.py": "5c421de6f63e74b098fa9bd75f5410d816336bb3bcee0194e483682766aa4036",
+    "/root/lightsem/runs/visual_next_20260929/vendor/dinov2/dinov2/eval/segmentation_m2f/__init__.py": "7fb45f0041dd007542578ecf31414a883a9e028a591f9570eec0d25afd928e9d",
+    "/root/lightsem/runs/visual_next_20260929/vendor/dinov2/dinov2/eval/segmentation_m2f/core/__init__.py": "99e3920edbb8635012e51b583c4264556f540f098a80dee90534a454c34b4c68",
+    "/root/lightsem/runs/visual_next_20260929/vendor/dinov2/dinov2/eval/segmentation_m2f/core/anchor/__init__.py": "cd269c97e28579d99706f3f31241173b22210429249742005b8a00bc8528d366",
+    "/root/lightsem/runs/visual_next_20260929/vendor/dinov2/dinov2/eval/segmentation_m2f/core/anchor/builder.py": "fa8456a4f2941fb3b6bc88d210c6ce43298d0b081d00af9ac0ea9050edf6d16e",
+    "/root/lightsem/runs/visual_next_20260929/vendor/dinov2/dinov2/eval/segmentation_m2f/core/anchor/point_generator.py": "23ff9cf80fef4472cf8a361d2df8f211fab4092925d6bb9cce18bb68a60cd6f0",
+    "/root/lightsem/runs/visual_next_20260929/vendor/dinov2/dinov2/eval/segmentation_m2f/core/box/__init__.py": "7b0b68761110103819b5e8ef0733327021bcca5ac78168e8f27a5a721b1bfa43",
+    "/root/lightsem/runs/visual_next_20260929/vendor/dinov2/dinov2/eval/segmentation_m2f/core/box/builder.py": "93ad53a18707547dc53c28c52ae616da19e43064d7e4f30240d08ea50dfb955f",
+    "/root/lightsem/runs/visual_next_20260929/vendor/dinov2/dinov2/eval/segmentation_m2f/core/box/samplers/__init__.py": "b3383233672410d9f13fdfb9dc47ae4543a98c45ee2361a0cc825afc5dd00e32",
+    "/root/lightsem/runs/visual_next_20260929/vendor/dinov2/dinov2/eval/segmentation_m2f/core/box/samplers/base_sampler.py": "91fd7bc656e0519b6f732a55a0f00457ba339bd98c6d3393d7ba35280442a1ed",
+    "/root/lightsem/runs/visual_next_20260929/vendor/dinov2/dinov2/eval/segmentation_m2f/core/box/samplers/mask_pseudo_sampler.py": "3ac44707526239d782a1653ad641d447ecb1003eea399e0a718790a92a476305",
+    "/root/lightsem/runs/visual_next_20260929/vendor/dinov2/dinov2/eval/segmentation_m2f/core/box/samplers/mask_sampling_result.py": "527d952b5001c86ca285a3f7895d804d12dd47b9d3c07535b6494a8b35e21d39",
+    "/root/lightsem/runs/visual_next_20260929/vendor/dinov2/dinov2/eval/segmentation_m2f/core/box/samplers/sampling_result.py": "c4b34191ab9589a098b0e46116ca9a53eedeae3adda515b8078f635096b1d492",
+    "/root/lightsem/runs/visual_next_20260929/vendor/dinov2/dinov2/eval/segmentation_m2f/core/utils/__init__.py": "17ecc2ee748e92194c272e63a0db74dae0bb2ef921cecedc9cffe5c23b86dea9",
+    "/root/lightsem/runs/visual_next_20260929/vendor/dinov2/dinov2/eval/segmentation_m2f/core/utils/dist_utils.py": "a3747a307397dbc10c09838d44fa90438f758977254ed305647ce96bd16bd045",
+    "/root/lightsem/runs/visual_next_20260929/vendor/dinov2/dinov2/eval/segmentation_m2f/core/utils/misc.py": "97409a32ac290d34da2bb7d28a3f6ecbc975537a3aa76060fd16ab5924de400f",
+    "/root/lightsem/runs/visual_next_20260929/vendor/dinov2/dinov2/eval/segmentation_m2f/models/__init__.py": "2c8e40b6362d507e4d1ad18700feb53897ec7403e32033065d7927dae6ccf818",
+    "/root/lightsem/runs/visual_next_20260929/vendor/dinov2/dinov2/eval/segmentation_m2f/models/backbones/__init__.py": "f35535dbddb96f998a9bd1a7734cbc02abb652c18a5c6df7a47e7548ac33440c",
+    "/root/lightsem/runs/visual_next_20260929/vendor/dinov2/dinov2/eval/segmentation_m2f/models/backbones/adapter_modules.py": "e103c8bdff5c3427a59a0bf84dc70677d5fef5ac9d43445815da16537944ccbe",
+    "/root/lightsem/runs/visual_next_20260929/vendor/dinov2/dinov2/eval/segmentation_m2f/models/backbones/drop_path.py": "068b166f953c0939f5479ef1735736116d91bc9942990472b60d104d95f9c83a",
+    "/root/lightsem/runs/visual_next_20260929/vendor/dinov2/dinov2/eval/segmentation_m2f/models/backbones/vit.py": "7ad30e14310c5bee54743459f128b076195554760eefd60e1593fbfde2234021",
+    "/root/lightsem/runs/visual_next_20260929/vendor/dinov2/dinov2/eval/segmentation_m2f/models/backbones/vit_adapter.py": "cb89b1d4943049c0ee3e3993738fb56806239221dce72345ea054fc7fa8785b0",
+    "/root/lightsem/runs/visual_next_20260929/vendor/dinov2/dinov2/eval/segmentation_m2f/models/builder.py": "e96e68e45a5139d16e3238c7f5690d72d4e7838c9fe9fc85273215a3b7a0115f",
+    "/root/lightsem/runs/visual_next_20260929/vendor/dinov2/dinov2/eval/segmentation_m2f/models/decode_heads/__init__.py": "8bea632762d84b954373d0fb2e35a224786eb4692f2bf6acf4b61b0c5fc89c06",
+    "/root/lightsem/runs/visual_next_20260929/vendor/dinov2/dinov2/eval/segmentation_m2f/models/decode_heads/mask2former_head.py": "c7b5d0d307da7737ac087b368de5d8160053d2e7fb9c705e805e7930ad9446ad",
+    "/root/lightsem/runs/visual_next_20260929/vendor/dinov2/dinov2/eval/segmentation_m2f/models/losses/__init__.py": "ca75161c95771d281968c329697642f7f84e0deaa6ec780262f4fe2c4a33fd4c",
+    "/root/lightsem/runs/visual_next_20260929/vendor/dinov2/dinov2/eval/segmentation_m2f/models/losses/cross_entropy_loss.py": "b5cf193e70a20c9a0936222dab0546918940b9dee714cac2c4836197ed6bf940",
+    "/root/lightsem/runs/visual_next_20260929/vendor/dinov2/dinov2/eval/segmentation_m2f/models/losses/dice_loss.py": "d6dc52a33494d569b98dc165f176c1444060d2f6bd8c8f458aabcea72d2edeee",
+    "/root/lightsem/runs/visual_next_20260929/vendor/dinov2/dinov2/eval/segmentation_m2f/models/losses/match_costs.py": "4cccb76ea151a0c38581f73d4da727ecb1d95a4b92ac294680adb588e6534046",
+    "/root/lightsem/runs/visual_next_20260929/vendor/dinov2/dinov2/eval/segmentation_m2f/models/plugins/__init__.py": "80ed4eab0a7f3c8a03c96a328a94cd972fb804cff30ccfc68e87b066ffb08fb5",
+    "/root/lightsem/runs/visual_next_20260929/vendor/dinov2/dinov2/eval/segmentation_m2f/models/plugins/msdeformattn_pixel_decoder.py": "66fc2f5a58638747576492250ce43e076bb119fe54a5e82569f4e6bd88a5a95b",
+    "/root/lightsem/runs/visual_next_20260929/vendor/dinov2/dinov2/eval/segmentation_m2f/models/segmentors/__init__.py": "02bc4c748360de2f9b4fe61b112fbd49cfcd943265f0c6f78afc2802b0d11a96",
+    "/root/lightsem/runs/visual_next_20260929/vendor/dinov2/dinov2/eval/segmentation_m2f/models/segmentors/encoder_decoder_mask2former.py": "06fdad9b0f24a0a3af4e4213bc1beb288fca7ad9010b24b3284103f2b9ea4e04",
+    "/root/lightsem/runs/visual_next_20260929/vendor/dinov2/dinov2/eval/segmentation_m2f/models/utils/__init__.py": "091931518ac32103e9ef30be7a7b57839c1970bb4a8658f5bce0643735c73bb2",
+    "/root/lightsem/runs/visual_next_20260929/vendor/dinov2/dinov2/eval/segmentation_m2f/models/utils/assigner.py": "47d015ce3a022c720fa5c8d37260c1bd39b19f77808b51dae25a0a9c7fdd70f3",
+    "/root/lightsem/runs/visual_next_20260929/vendor/dinov2/dinov2/eval/segmentation_m2f/models/utils/point_sample.py": "e4f2dc0a1a4d5db984a590a85a0fb4ef224cfbfa013c1a212ee9cbcb8b49a9ae",
+    "/root/lightsem/runs/visual_next_20260929/vendor/dinov2/dinov2/eval/segmentation_m2f/models/utils/positional_encoding.py": "3b07f2b2127f03048dcd10266e3d14818334becb56970a8cfe9ac680ec0b8753",
+    "/root/lightsem/runs/visual_next_20260929/vendor/dinov2/dinov2/eval/segmentation_m2f/models/utils/transformer.py": "6bc659898dd0d4e75bbb941bb1720f696eb840667cda52fbac46feab1eac20ab",
+    "/root/lightsem/runs/visual_next_20260929/vendor/dinov2/dinov2/eval/segmentation_m2f/ops/modules/__init__.py": "2b1c15f2a30741376faebf09ac22e3fdf672b768c1717a3b7bbffaa844c0f111",
+    "/root/lightsem/runs/visual_next_20260929/vendor/dinov2/dinov2/eval/segmentation_m2f/ops/modules/ms_deform_attn.py": "ef8d800b0e3139b6ec2dbe22de3a39da653dcc88129bc246239fc47abf6524ec",
+    "/root/lightsem/runs/visual_next_20260929/vendor/dinov2/dinov2/eval/setup.py": "629eea62ca20ad2694b4979a91fb85e644cda429049580360a3a86be4bbe477c",
+    "/root/lightsem/runs/visual_next_20260929/vendor/dinov2/dinov2/eval/utils.py": "3eb42fa16c97b21c8e69c229e71388b2db04923097912e42c29676c82f03ed44",
+    "/root/lightsem/runs/visual_next_20260929/vendor/dinov2/dinov2/fsdp/__init__.py": "672fc23d385c86530e439c42f8c73abb585a5bb96ce87c6ad5e8fb004e631efa",
+    "/root/lightsem/runs/visual_next_20260929/vendor/dinov2/dinov2/hub/__init__.py": "2932e94a2d67be87b717c49468214c1127be7864aedf37f5891d26be7bc1437f",
+    "/root/lightsem/runs/visual_next_20260929/vendor/dinov2/dinov2/hub/backbones.py": "871fca671b12a9ff02e810654baf509e97ccf461bf8196ce5ddeefff2fd87d3e",
+    "/root/lightsem/runs/visual_next_20260929/vendor/dinov2/dinov2/hub/cell_dino/backbones.py": "5e2be2a84f04bab20050f8e9c6e14870d5a2d3e7894631dd8747e00f3b5299d2",
+    "/root/lightsem/runs/visual_next_20260929/vendor/dinov2/dinov2/hub/classifiers.py": "e2dcf8c2aaec1c695bb20dae8f808811e28f27032338f3450f2ac17e309e0e1d",
+    "/root/lightsem/runs/visual_next_20260929/vendor/dinov2/dinov2/hub/depth/__init__.py": "de8f3fbecabae6552ebb8f3d7dee27987b1dbc11e94143c95137c438e86a9123",
+    "/root/lightsem/runs/visual_next_20260929/vendor/dinov2/dinov2/hub/depth/decode_heads.py": "04eb9639a4441409b80651c3d019a6e850c32b7e709236ceb6dbbaeb9fa17713",
+    "/root/lightsem/runs/visual_next_20260929/vendor/dinov2/dinov2/hub/depth/encoder_decoder.py": "1baf6f59269fb99faf274900f12910a22e038a3bb6d81c6fc712c0c482041a57",
+    "/root/lightsem/runs/visual_next_20260929/vendor/dinov2/dinov2/hub/depth/ops.py": "85d58e303eff9a0a306d97101c8b35c24196bfe55e8da019df1e4817411a4dc7",
+    "/root/lightsem/runs/visual_next_20260929/vendor/dinov2/dinov2/hub/depthers.py": "098e10859c1e8188d5245318911025eef1c5f37331d01e6014167027b25cd5b7",
+    "/root/lightsem/runs/visual_next_20260929/vendor/dinov2/dinov2/hub/dinotxt.py": "9124df0f7f8f21995f33a86a4e6545c11e25591f7bafcbe96a299ae6bd070677",
+    "/root/lightsem/runs/visual_next_20260929/vendor/dinov2/dinov2/hub/text/dinotxt_model.py": "7ef7bfceaacfd1566a3984038a691edeaf9b9f42910583e5de62a00e3cf852d0",
+    "/root/lightsem/runs/visual_next_20260929/vendor/dinov2/dinov2/hub/text/dinov2_wrapper.py": "834423f869038ce7c2b1794564018e0d3ca8194faa6d4c17f0d208b1625d0c64",
+    "/root/lightsem/runs/visual_next_20260929/vendor/dinov2/dinov2/hub/text/text_tower.py": "fa591e45ad0e7400290e716ff0ddca102fd646edc2da448807c1006a5b94744f",
+    "/root/lightsem/runs/visual_next_20260929/vendor/dinov2/dinov2/hub/text/text_transformer.py": "7138271bc95251d33a172cead1392434b9f8f7b1401fe1e0b4c37e64ff2bf354",
+    "/root/lightsem/runs/visual_next_20260929/vendor/dinov2/dinov2/hub/text/tokenizer.py": "85078188841107932343123f29104288615b41ca4e5d1eb2d8623e02a8ac749a",
+    "/root/lightsem/runs/visual_next_20260929/vendor/dinov2/dinov2/hub/text/vision_tower.py": "2496418c885c01ba7b7b9172d72906911ad950211c08a6e085ef2ee574405ebb",
+    "/root/lightsem/runs/visual_next_20260929/vendor/dinov2/dinov2/hub/utils.py": "579613e3d7b82c2a387eddc215ad9f076b8740f9618229628395fe5755dbd131",
+    "/root/lightsem/runs/visual_next_20260929/vendor/dinov2/dinov2/hub/xray_dino/backbones.py": "23c4513ac900815772d6076d2dd8c6e8564cd85ec11873c8ebe62e5de0647d03",
+    "/root/lightsem/runs/visual_next_20260929/vendor/dinov2/dinov2/layers/__init__.py": "1b55deed39d5ab0b589bef421bbfe06f24a10cd590a0f8403234c9ee4e34109d",
+    "/root/lightsem/runs/visual_next_20260929/vendor/dinov2/dinov2/layers/attention.py": "79c7be7a452b3aad96698ec38d5d5150b9f4d8ac084fa93324510dc9f624775d",
+    "/root/lightsem/runs/visual_next_20260929/vendor/dinov2/dinov2/layers/block.py": "60c0ac7dfa4474be313fabfa5a23d82faf6f0cecd4e720a88be35de9788cb636",
+    "/root/lightsem/runs/visual_next_20260929/vendor/dinov2/dinov2/layers/dino_head.py": "9fdb1fa61c0609dc0876f711f9d0d828c33bf9fd972aab3d9c968d44e16b98d1",
+    "/root/lightsem/runs/visual_next_20260929/vendor/dinov2/dinov2/layers/drop_path.py": "b9f8236e86054b9d9a71275efcad2a9ecaa1f86b529d4b8d6109ddb5e806f67a",
+    "/root/lightsem/runs/visual_next_20260929/vendor/dinov2/dinov2/layers/layer_scale.py": "dadd5aafe178f1bf72a205a02a6645c7e635cacbad585d4a7369c200c6e89135",
+    "/root/lightsem/runs/visual_next_20260929/vendor/dinov2/dinov2/layers/mlp.py": "255825c73b60a916dd00eb1e38aacbcdbf316e40d6a005efb46e245b7edb43aa",
+    "/root/lightsem/runs/visual_next_20260929/vendor/dinov2/dinov2/layers/patch_embed.py": "40da6add3d811198ea3e17cb99cdd4e5cda59e369efbbe3d18d89308618cf142",
+    "/root/lightsem/runs/visual_next_20260929/vendor/dinov2/dinov2/layers/swiglu_ffn.py": "e46d2948fb97e497cf991ff82ce30cb59b59fdf2e12a19568417113716b4f119",
+    "/root/lightsem/runs/visual_next_20260929/vendor/dinov2/dinov2/logging/__init__.py": "fff00c7e5d5381b55d8f820ba3a1f8f0902af15dacb3159fe5c6e3b542771c40",
+    "/root/lightsem/runs/visual_next_20260929/vendor/dinov2/dinov2/logging/helpers.py": "5c2ee4b35f6c160836c7f5e7f3db1246662499ecc6ec8e53d06f14fef71504ae",
+    "/root/lightsem/runs/visual_next_20260929/vendor/dinov2/dinov2/loss/__init__.py": "e5ae2143dd98108f81d26c276e2048fa339cde5f5fe369e2d6797acea09912bf",
+    "/root/lightsem/runs/visual_next_20260929/vendor/dinov2/dinov2/loss/dino_clstoken_loss.py": "49f0b2b75c2feba83b3fc9dfb40ef5eb4e3db350ab1e12a63d75d3060a88f7df",
+    "/root/lightsem/runs/visual_next_20260929/vendor/dinov2/dinov2/loss/ibot_patch_loss.py": "19c0ffc85c8af01657ad2e6cffc2d4d311415b10807f63c2d6341195c7a62ddb",
+    "/root/lightsem/runs/visual_next_20260929/vendor/dinov2/dinov2/loss/koleo_loss.py": "ddccd75b7985d5e584f0fe6f3fb1ac474b9cbd9a6fd6fb6c6ae471ca479085d1",
+    "/root/lightsem/runs/visual_next_20260929/vendor/dinov2/dinov2/models/__init__.py": "b93329ce676f3eb0c9a7790d1b3b2b114a0855ea8dc76e32e262d1a7dc6c55ae",
+    "/root/lightsem/runs/visual_next_20260929/vendor/dinov2/dinov2/models/vision_transformer.py": "7799a260f2d7d0fe197331d08502fb8c542f9b7424723650f6a39b64fa2639ea",
+    "/root/lightsem/runs/visual_next_20260929/vendor/dinov2/dinov2/run/__init__.py": "2932e94a2d67be87b717c49468214c1127be7864aedf37f5891d26be7bc1437f",
+    "/root/lightsem/runs/visual_next_20260929/vendor/dinov2/dinov2/run/eval/cell_dino/knn.py": "944113cdf344910011150a52e7874dce69640e0afb8e438a4c7e582349bbe1ff",
+    "/root/lightsem/runs/visual_next_20260929/vendor/dinov2/dinov2/run/eval/cell_dino/linear.py": "efb20708485a41bacd8db2a6a274988fac3e1e7cfec5290050293a8b587e7601",
+    "/root/lightsem/runs/visual_next_20260929/vendor/dinov2/dinov2/run/eval/knn.py": "21d1ed25bc9206b412e2d17bac150549f69929f5d0c924b7400a72d1bd295c31",
+    "/root/lightsem/runs/visual_next_20260929/vendor/dinov2/dinov2/run/eval/linear.py": "f89eb0a2eccdd2f35e27f7a5ca91ded95e4a5699f57e8e568c58547625f87ac5",
+    "/root/lightsem/runs/visual_next_20260929/vendor/dinov2/dinov2/run/eval/log_regression.py": "b4c4ddd086408c681b8b5642a26858b6c9e1a798c483a5283a983f2cd2b44c46",
+    "/root/lightsem/runs/visual_next_20260929/vendor/dinov2/dinov2/run/submit.py": "64597db2041e9c16a7640eeac00a299cb2761329af980f33f26a6dd025ffb541",
+    "/root/lightsem/runs/visual_next_20260929/vendor/dinov2/dinov2/run/train/train.py": "b469e29aaa460e509d52f19c787aad50963265d242200cad5f9ee3ce85938ba5",
+    "/root/lightsem/runs/visual_next_20260929/vendor/dinov2/dinov2/thirdparty/CLIP/LICENSE": "893951b3bf94db8df1b13e05da5cdeb499400960e4d44a3962a8b33ed0b4f28e",
+    "/root/lightsem/runs/visual_next_20260929/vendor/dinov2/dinov2/thirdparty/CLIP/clip/simple_tokenizer.py": "47b4a3678fed8a7a8b9ca614e7728c33c6ccda5aea3bd2acebf24c081cb25b64",
+    "/root/lightsem/runs/visual_next_20260929/vendor/dinov2/dinov2/train/__init__.py": "64dde70804b782a876524b529b00b9775559314a88d738cf4aee914bd4dbb9c4",
+    "/root/lightsem/runs/visual_next_20260929/vendor/dinov2/dinov2/train/ssl_meta_arch.py": "a97cdcc721e9312f5e088f78257dbbeb98cb3af40e3e3b975aefbd6bfd1996c4",
+    "/root/lightsem/runs/visual_next_20260929/vendor/dinov2/dinov2/train/train.py": "04c4829d6cb428df546536cba4b2a313fae38bac084abf82758bf69483b03e89",
+    "/root/lightsem/runs/visual_next_20260929/vendor/dinov2/dinov2/utils/__init__.py": "2932e94a2d67be87b717c49468214c1127be7864aedf37f5891d26be7bc1437f",
+    "/root/lightsem/runs/visual_next_20260929/vendor/dinov2/dinov2/utils/checkpoint.py": "36335648d4574417c41e0fe82ddb8cc23653bbbc251b580541167b73a83b8eff",
+    "/root/lightsem/runs/visual_next_20260929/vendor/dinov2/dinov2/utils/cluster.py": "be49f48f01edbc7d209941e1078be309bef7d06631da851cafcfdec7112d269f",
+    "/root/lightsem/runs/visual_next_20260929/vendor/dinov2/dinov2/utils/config.py": "588574a78951ccfe7ffaad9ef7cab53d37e837e3ae98cfc1b6a976189073d87c",
+    "/root/lightsem/runs/visual_next_20260929/vendor/dinov2/dinov2/utils/dtype.py": "610251537bcf55de8961a17dd625560eae5cfa5082e9382bbd9ded86db92e1c6",
+    "/root/lightsem/runs/visual_next_20260929/vendor/dinov2/dinov2/utils/param_groups.py": "ec1daae9eb7c50492091504f97087e3179d46a080d7b7f131967c07cb15cf6d4",
+    "/root/lightsem/runs/visual_next_20260929/vendor/dinov2/dinov2/utils/utils.py": "4e1419e8dd4a24d48689357ca48d304d1f895fa49f5dbf42d400ac941216e9f7",
+    "/root/lightsem/runs/visual_next_20260929/vendor/dinov2/docs/README_CELL_DINO.md": "b9ec5771aaa41d571f5c2b54300a7f8bf7ab5d75f7679d2a80f260247a71d42f",
+    "/root/lightsem/runs/visual_next_20260929/vendor/dinov2/docs/README_CHANNEL_ADAPTIVE_DINO.md": "d15b88dbf5be7c1e4ec0a5062e33e4ad9c654f7256ec3fb02246a077d74b32ee",
+    "/root/lightsem/runs/visual_next_20260929/vendor/dinov2/hubconf.py": "c1f5090e78ff940b72c076d2bf9c0310d1707c946b3d10e2d6f2b0bdf56a6f64",
+    "/root/lightsem/runs/visual_next_20260929/vendor/dinov2/requirements-dev.txt": "fe970368414b041da0776bacee267fd633a30b23d82052f9071c29cf936a041d",
+    "/root/lightsem/runs/visual_next_20260929/vendor/dinov2/requirements-extras.txt": "1b3750ae8652a54863a2d6d7d0c708f6b7ced787f57c951aa11f1a9444feaacd",
+    "/root/lightsem/runs/visual_next_20260929/vendor/dinov2/requirements.txt": "553faa42e1ad3975631e46df26bcfd76ec3add6beacb9ede3f8ef22393f5eefc",
+    "/root/lightsem/runs/visual_next_20260929/vendor/dinov2/setup.py": "8ec72d3be027aee099a7b7b1c36c874be6d7ade4dd9eb69baff3975b586820ae",
+    "/root/lightsem/runs/visual_next_20260929/weights/dinov2_vits14_pretrain.pth": "b938bf1bc15cd2ec0feacfe3a1bb553fe8ea9ca46a7e1d8d00217f29aef60cd9",
+    "/root/lightsem/scripts/light_layers/probe_visual_next_retention.py": "6c076e5147f1538c40c7d418f978304bc954efea7a61f1c9f5d7971d89c51701",
+    "/root/lightsem/run_torch.sh": "fa8766599ce7741477aff2035e5e87566fa4ddacacdfbbe39d5bbcba947888f1",
+    "/root/lightsem/lightsem/experiments/stage11/stage11_common.py": "1196cfda2e0a222d85ebd508f8c09636907611edd01a83d0624abef3465f64d3",
+    "/root/lightsem/lightsem/experiments/visual_next/models.py": "4f8a81740bb4337b22edd10950deba38b6630a4782d3128ece55200b85eeb77a",
+    "/root/lightsem/lightsem/experiments/visual_next/features.py": "89df72748c39cbc3b3baed5807de4adc0dd175eec6e82060a2eece5e20c10fa0",
+    "/root/lightsem/lightsem/experiments/visual_next/observation.py": "686a4d2879c6c298978ae44be02da99324d833e2c9d01e3df455e83a88033e77",
+    "/root/lightsem/lightsem/experiments/visual_next/probes.py": "83d38f70fcc8c32a96a2d7c8a099e748a1aaf836121f9172d97e1d23377723e4",
+    "/root/lightsem/lightsem/experiments/visual_next/projection.py": "447854fc96aa2067e3bf074c9fe8d0a0f390f505bdef45e24257d22337b8daf4",
+    "/root/lightsem/lightsem/model/light_layers/visual.py": "bdc2a264a56543fe7d3f45283a0de82e69587cd30c8112837b50e1b0fc233682",
+    "/root/lightsem/lightsem/model/light_layers/targets.py": "4f1e980ed9f62e2ae2a6d53e426cd44c0ed2381835bf4b1382a7fba1e566d6d1",
+    "/root/lightsem/experiments/2026-09-29-visual-next/records/PREREGISTRATION_V1.md": "772b9687c992275f020b488edf7524596c3c7f177cd40befbcda3828aa8573b5",
+    "/root/lightsem/experiments/2026-09-29-visual-next/records/execution/IMPLEMENTATION_DETAILS_V2.md": "60498acac4da9391f187d530a4a9d97485e83da882ed73f87365c6d410123625",
+    "/root/lightsem/experiments/2026-09-29-visual-next/records/execution/SCORING_AND_DELIVERY_DETAILS_V1.md": "97671ae621fb0464b685c00156eeeeb4433808a43fe9dd2f7e0ee8c06f93a279",
+    "/root/lightsem/experiments/2026-09-29-visual-next/records/execution/STORAGE_AMENDMENT_V4.md": "e38e496b16fe9f604e27f2a96ce7bc99eab4eb79669c7a230d4d3d91129da492"
+  },
+  "families": [
+    {
+      "canonical_id": "jd-5fc36e07dfcc022631ff",
+      "partition": "train",
+      "recording_id": "UOn8c9cQvWE",
+      "geometry_wh": [
+        640,
+        360
+      ],
+      "stills": [
+        {
+          "offset_s": 0.0,
+          "path": "/root/lightsem/runs/visual_next_20260929/annotations/jd-5fc36e07dfcc022631ff/frame_00.png",
+          "sha256": "c3cc46ebd9806feb25c313d83e3e78903104c52771e40696954b75163cf7566f",
+          "source_time_s": 85.986
+        },
+        {
+          "offset_s": 7.0,
+          "path": "/root/lightsem/runs/visual_next_20260929/annotations/jd-5fc36e07dfcc022631ff/frame_07.png",
+          "sha256": "c75568057cfaa025df3d2977f6d75bb3ece2bf00d082c1c67b03200a9e2808ad",
+          "source_time_s": 92.993
+        },
+        {
+          "offset_s": 14.0,
+          "path": "/root/lightsem/runs/visual_next_20260929/annotations/jd-5fc36e07dfcc022631ff/frame_14.png",
+          "sha256": "a3f285d11a22eabea57946efe18bdb03276ee55960b91cb83daf1b15187f4e65",
+          "source_time_s": 100.0
+        },
+        {
+          "offset_s": 21.0,
+          "path": "/root/lightsem/runs/visual_next_20260929/annotations/jd-5fc36e07dfcc022631ff/frame_21.png",
+          "sha256": "251eb1740f090a113bcd7fd95b362960b647714066ef2395421ea4ee3968278f",
+          "source_time_s": 107.007
+        },
+        {
+          "offset_s": 28.0,
+          "path": "/root/lightsem/runs/visual_next_20260929/annotations/jd-5fc36e07dfcc022631ff/frame_28.png",
+          "sha256": "511bf8178f32b826e6f353c7d007540be88ad6fcb56e74d517ec1577832808a1",
+          "source_time_s": 114.014
+        },
+        {
+          "offset_s": 35.0,
+          "path": "/root/lightsem/runs/visual_next_20260929/annotations/jd-5fc36e07dfcc022631ff/frame_35.png",
+          "sha256": "8e256e475a451f545569a75c7b726c809a40972b75fe4419f0c1e8f13fba0495",
+          "source_time_s": 120.988
+        },
+        {
+          "offset_s": 42.0,
+          "path": "/root/lightsem/runs/visual_next_20260929/annotations/jd-5fc36e07dfcc022631ff/frame_42.png",
+          "sha256": "d3f16c96191a0f23391ad852552456ba56606a69e8253e1a0b28daeeee1f7d99",
+          "source_time_s": 127.995
+        },
+        {
+          "offset_s": 49.0,
+          "path": "/root/lightsem/runs/visual_next_20260929/annotations/jd-5fc36e07dfcc022631ff/frame_49.png",
+          "sha256": "caddcb8ba38b117fc62036f77b395aab859c140f4ca08cf96ad5d42827d90ba9",
+          "source_time_s": 135.002
+        },
+        {
+          "offset_s": 56.0,
+          "path": "/root/lightsem/runs/visual_next_20260929/annotations/jd-5fc36e07dfcc022631ff/frame_56.png",
+          "sha256": "a3f0f58d336b8ef07db47cd870cda49bc58545f30ad82eb415e39c515cc02f4f",
+          "source_time_s": 142.009
+        },
+        {
+          "offset_s": 63.0,
+          "path": "/root/lightsem/runs/visual_next_20260929/annotations/jd-5fc36e07dfcc022631ff/frame_63.png",
+          "sha256": "5089d737355e87b4c45afe0d63118dd094e5aee10ee23d7450c04676b751fa5f",
+          "source_time_s": 149.016
+        }
+      ]
+    },
+    {
+      "canonical_id": "jd-b932c8c85bd6f2576073",
+      "partition": "train",
+      "recording_id": "suUCZNQJHQw",
+      "geometry_wh": [
+        640,
+        360
+      ],
+      "stills": [
+        {
+          "offset_s": 0.0,
+          "path": "/root/lightsem/runs/visual_next_20260929/annotations/jd-b932c8c85bd6f2576073/frame_00.png",
+          "sha256": "7706e7b8dc622eb73e7e76455fc8fb9979a8304e36c760958b664a8082064c2f",
+          "source_time_s": 43.1
+        },
+        {
+          "offset_s": 7.0,
+          "path": "/root/lightsem/runs/visual_next_20260929/annotations/jd-b932c8c85bd6f2576073/frame_07.png",
+          "sha256": "105b1aa1eca686ad15a6b66c40bbf6faa56c13a61f127518f309d6b29698fb0e",
+          "source_time_s": 50.1
+        },
+        {
+          "offset_s": 14.0,
+          "path": "/root/lightsem/runs/visual_next_20260929/annotations/jd-b932c8c85bd6f2576073/frame_14.png",
+          "sha256": "652a5d734743cb0befc1ccdc9f7808733bbd4a9a8713865515df40151b20b169",
+          "source_time_s": 57.1
+        },
+        {
+          "offset_s": 21.0,
+          "path": "/root/lightsem/runs/visual_next_20260929/annotations/jd-b932c8c85bd6f2576073/frame_21.png",
+          "sha256": "d15b69f40e22ba3ba24f59f0c13fd1add45279e91b47b5653874181ef58f5b3c",
+          "source_time_s": 64.1
+        },
+        {
+          "offset_s": 28.0,
+          "path": "/root/lightsem/runs/visual_next_20260929/annotations/jd-b932c8c85bd6f2576073/frame_28.png",
+          "sha256": "37a0f39a54bb1f589a9dd54e17dd065c41b775e37d46a04527892ffb042a69f3",
+          "source_time_s": 71.1
+        },
+        {
+          "offset_s": 35.0,
+          "path": "/root/lightsem/runs/visual_next_20260929/annotations/jd-b932c8c85bd6f2576073/frame_35.png",
+          "sha256": "33cc9a1314aa1ddc02ae7fd37673258ebd8f8f9ecbbe3d7c0b47558ec2a011b8",
+          "source_time_s": 78.1
+        },
+        {
+          "offset_s": 42.0,
+          "path": "/root/lightsem/runs/visual_next_20260929/annotations/jd-b932c8c85bd6f2576073/frame_42.png",
+          "sha256": "1131df6661e065ee88daed6bda074aab946476ee7b6a4dfd169130830ee980a6",
+          "source_time_s": 85.1
+        },
+        {
+          "offset_s": 49.0,
+          "path": "/root/lightsem/runs/visual_next_20260929/annotations/jd-b932c8c85bd6f2576073/frame_49.png",
+          "sha256": "38f299f3c38613378cc3d37f8cf13a253e0949fe1bfdd961627e3ea11713f462",
+          "source_time_s": 92.1
+        },
+        {
+          "offset_s": 56.0,
+          "path": "/root/lightsem/runs/visual_next_20260929/annotations/jd-b932c8c85bd6f2576073/frame_56.png",
+          "sha256": "bfb659547a5158ecb639a7e9d23a9dab4f3aae78955b5d42c6ce8dd253bcd304",
+          "source_time_s": 99.1
+        },
+        {
+          "offset_s": 63.0,
+          "path": "/root/lightsem/runs/visual_next_20260929/annotations/jd-b932c8c85bd6f2576073/frame_63.png",
+          "sha256": "2d80ed141d3045f25a30ec7c417a529431ca9dd2c7de253347ce8a64aa6cfaa2",
+          "source_time_s": 106.1
+        }
+      ]
+    },
+    {
+      "canonical_id": "jd-7c97b126862e58f1d563",
+      "partition": "train",
+      "recording_id": "CdXP-aZLuOI",
+      "geometry_wh": [
+        640,
+        480
+      ],
+      "stills": [
+        {
+          "offset_s": 0.0,
+          "path": "/root/lightsem/runs/visual_next_20260929/annotations/jd-7c97b126862e58f1d563/frame_00.png",
+          "sha256": "3273f318f4c5b8acce6353fe07f8b0c77aad24dc52b032094de13c85312f5cbd",
+          "source_time_s": 99.28
+        },
+        {
+          "offset_s": 7.0,
+          "path": "/root/lightsem/runs/visual_next_20260929/annotations/jd-7c97b126862e58f1d563/frame_07.png",
+          "sha256": "769dbd560f7989a84a7adc1cdebf6a290e0d1405d41caf5b4abd832a788ce7f3",
+          "source_time_s": 106.28
+        },
+        {
+          "offset_s": 14.0,
+          "path": "/root/lightsem/runs/visual_next_20260929/annotations/jd-7c97b126862e58f1d563/frame_14.png",
+          "sha256": "d683de91316dd3a5c273cc482abb23d358e0672595a49202dcefa1e0bad5f59a",
+          "source_time_s": 113.28
+        },
+        {
+          "offset_s": 21.0,
+          "path": "/root/lightsem/runs/visual_next_20260929/annotations/jd-7c97b126862e58f1d563/frame_21.png",
+          "sha256": "3e5bc30cbb897af91c7929835fbe51a2fc790e9751392cc8b78e9eda26ac2ff6",
+          "source_time_s": 120.28
+        },
+        {
+          "offset_s": 28.0,
+          "path": "/root/lightsem/runs/visual_next_20260929/annotations/jd-7c97b126862e58f1d563/frame_28.png",
+          "sha256": "0eb7a4b85766f0a21267fed0161cea1f6cb5f7f0ea926342318992152bfae246",
+          "source_time_s": 127.28
+        },
+        {
+          "offset_s": 35.0,
+          "path": "/root/lightsem/runs/visual_next_20260929/annotations/jd-7c97b126862e58f1d563/frame_35.png",
+          "sha256": "08251fb0a9ed1c93ddf705049c3946591d62fc8709c5152652ab914051440572",
+          "source_time_s": 134.28
+        },
+        {
+          "offset_s": 42.0,
+          "path": "/root/lightsem/runs/visual_next_20260929/annotations/jd-7c97b126862e58f1d563/frame_42.png",
+          "sha256": "5d03ea7f35f46a59963f6ec5e03354990fabe994b632326b5ea5aaac3d29460b",
+          "source_time_s": 141.28
+        },
+        {
+          "offset_s": 49.0,
+          "path": "/root/lightsem/runs/visual_next_20260929/annotations/jd-7c97b126862e58f1d563/frame_49.png",
+          "sha256": "083f7c919a80408df1cb4edb61ce99c35f44c826435891411a7bee19c23e265d",
+          "source_time_s": 148.28
+        },
+        {
+          "offset_s": 56.0,
+          "path": "/root/lightsem/runs/visual_next_20260929/annotations/jd-7c97b126862e58f1d563/frame_56.png",
+          "sha256": "95bd2138e9de302f0cdbecf04fa2078b2cf30a99ba2d1a05ebe8f35af3e44f41",
+          "source_time_s": 155.28
+        },
+        {
+          "offset_s": 63.0,
+          "path": "/root/lightsem/runs/visual_next_20260929/annotations/jd-7c97b126862e58f1d563/frame_63.png",
+          "sha256": "dedaea0170ec1ab1af871621beff4c4a205a3cb708f6b125d4e159e3e20c89a0",
+          "source_time_s": 162.28
+        }
+      ]
+    },
+    {
+      "canonical_id": "jd-6a5d1bfe68d703300533",
+      "partition": "train",
+      "recording_id": "OQD75k0fHog",
+      "geometry_wh": [
+        640,
+        360
+      ],
+      "stills": [
+        {
+          "offset_s": 0.0,
+          "path": "/root/lightsem/runs/visual_next_20260929/annotations/jd-6a5d1bfe68d703300533/frame_00.png",
+          "sha256": "963ca90486759b5ee56aebfff51f65a31bae9c73569ae182413fb968056a0430",
+          "source_time_s": 91.391
+        },
+        {
+          "offset_s": 7.0,
+          "path": "/root/lightsem/runs/visual_next_20260929/annotations/jd-6a5d1bfe68d703300533/frame_07.png",
+          "sha256": "777433f224e52321cabf77cfea3f9726e71f7f6111fa04ce438dae9de2df3163",
+          "source_time_s": 98.398
+        },
+        {
+          "offset_s": 14.0,
+          "path": "/root/lightsem/runs/visual_next_20260929/annotations/jd-6a5d1bfe68d703300533/frame_14.png",
+          "sha256": "c3eac0aeb28870ff1fc9d9eadddeb80828bce46788cb86fc030c27d2b045e5bf",
+          "source_time_s": 105.405
+        },
+        {
+          "offset_s": 21.0,
+          "path": "/root/lightsem/runs/visual_next_20260929/annotations/jd-6a5d1bfe68d703300533/frame_21.png",
+          "sha256": "35edf0837b4514e3d9ccdbaad9e09a6a20fb6b48cc67ae0323d28b6f7ad0692f",
+          "source_time_s": 112.412
+        },
+        {
+          "offset_s": 28.0,
+          "path": "/root/lightsem/runs/visual_next_20260929/annotations/jd-6a5d1bfe68d703300533/frame_28.png",
+          "sha256": "9745840312c2393292bf2e11e99591ee3e178e4b15ba253bf8c308e41dcae44b",
+          "source_time_s": 119.386
+        },
+        {
+          "offset_s": 35.0,
+          "path": "/root/lightsem/runs/visual_next_20260929/annotations/jd-6a5d1bfe68d703300533/frame_35.png",
+          "sha256": "6f6f8432e8b8be308f6f2034eba7a503a78e0062d48f61c38b4f13aa967132c7",
+          "source_time_s": 126.393
+        },
+        {
+          "offset_s": 42.0,
+          "path": "/root/lightsem/runs/visual_next_20260929/annotations/jd-6a5d1bfe68d703300533/frame_42.png",
+          "sha256": "fc17d14efe116e2ce0aa9857776a3e149a3ec51c226f89e2802c9554c4d8ff6d",
+          "source_time_s": 133.4
+        },
+        {
+          "offset_s": 49.0,
+          "path": "/root/lightsem/runs/visual_next_20260929/annotations/jd-6a5d1bfe68d703300533/frame_49.png",
+          "sha256": "235e5cabcbfd8c939ecc660ed225309305d65a5b4c0adc9872113ee70cbeaa68",
+          "source_time_s": 140.407
+        },
+        {
+          "offset_s": 56.0,
+          "path": "/root/lightsem/runs/visual_next_20260929/annotations/jd-6a5d1bfe68d703300533/frame_56.png",
+          "sha256": "770decb1be3224aa8644e87bce32a0d8ce4325b237304b4cc865f5294e0e0ba4",
+          "source_time_s": 147.414
+        },
+        {
+          "offset_s": 63.0,
+          "path": "/root/lightsem/runs/visual_next_20260929/annotations/jd-6a5d1bfe68d703300533/frame_63.png",
+          "sha256": "df44bc868ada5b9339ec61eafe1a9601668954f463e204bb9d483b3450bdaae7",
+          "source_time_s": 154.388
+        }
+      ]
+    },
+    {
+      "canonical_id": "jd-1066f38acdaf08271fa6",
+      "partition": "train",
+      "recording_id": "awVxB4MdMeE",
+      "geometry_wh": [
+        640,
+        360
+      ],
+      "stills": [
+        {
+          "offset_s": 0.0,
+          "path": "/root/lightsem/runs/visual_next_20260929/annotations/jd-1066f38acdaf08271fa6/frame_00.png",
+          "sha256": "e23643e3c98e0c0a35c4f9d90910a85e0c99185e8fce7ec85f024e9455179874",
+          "source_time_s": 45.612
+        },
+        {
+          "offset_s": 7.0,
+          "path": "/root/lightsem/runs/visual_next_20260929/annotations/jd-1066f38acdaf08271fa6/frame_07.png",
+          "sha256": "edd0b8a402af1a0e64638eb07672fbc2710b5e721e9c60055afcd4f63f2ca84a",
+          "source_time_s": 52.586
+        },
+        {
+          "offset_s": 14.0,
+          "path": "/root/lightsem/runs/visual_next_20260929/annotations/jd-1066f38acdaf08271fa6/frame_14.png",
+          "sha256": "69fc4f1fd817bd8626789a538a6f8603e43553f51ec96c7ab14c04b63e1cdf0f",
+          "source_time_s": 59.593
+        },
+        {
+          "offset_s": 21.0,
+          "path": "/root/lightsem/runs/visual_next_20260929/annotations/jd-1066f38acdaf08271fa6/frame_21.png",
+          "sha256": "5816a51701275684dc381a8210e0558b25bd23e216c12241e4f6dd3350e73195",
+          "source_time_s": 66.6
+        },
+        {
+          "offset_s": 28.0,
+          "path": "/root/lightsem/runs/visual_next_20260929/annotations/jd-1066f38acdaf08271fa6/frame_28.png",
+          "sha256": "a72586023678ccc7172b1eaa716d5a22bc47a42104367181def0bb34e8d12c78",
+          "source_time_s": 73.607
+        },
+        {
+          "offset_s": 35.0,
+          "path": "/root/lightsem/runs/visual_next_20260929/annotations/jd-1066f38acdaf08271fa6/frame_35.png",
+          "sha256": "62157d12f1093d5f53ab60b2313999fec9b8b62286f3067dae3332e513d1a32e",
+          "source_time_s": 80.614
+        },
+        {
+          "offset_s": 42.0,
+          "path": "/root/lightsem/runs/visual_next_20260929/annotations/jd-1066f38acdaf08271fa6/frame_42.png",
+          "sha256": "4314ba15e35db5ecc0eb0c6cbeae6388642582251598c39572b498c72dd5ad1a",
+          "source_time_s": 87.588
+        },
+        {
+          "offset_s": 49.0,
+          "path": "/root/lightsem/runs/visual_next_20260929/annotations/jd-1066f38acdaf08271fa6/frame_49.png",
+          "sha256": "021bfd88e2c490789c5288c4f413aefe57965d481de5eb42f5248c2fddfd2290",
+          "source_time_s": 94.595
+        },
+        {
+          "offset_s": 56.0,
+          "path": "/root/lightsem/runs/visual_next_20260929/annotations/jd-1066f38acdaf08271fa6/frame_56.png",
+          "sha256": "867986e519ea86022b98112bb5419ff8fbe5b1cc66c6d849266a385b76b54887",
+          "source_time_s": 101.602
+        },
+        {
+          "offset_s": 63.0,
+          "path": "/root/lightsem/runs/visual_next_20260929/annotations/jd-1066f38acdaf08271fa6/frame_63.png",
+          "sha256": "7d8f0f69c2597956745e1b5e522e77b8671552b96b79e2dfea3363570be02797",
+          "source_time_s": 108.609
+        }
+      ]
+    },
+    {
+      "canonical_id": "jd-e6ddbe5382bc260e3e6c",
+      "partition": "train",
+      "recording_id": "6Aw7qMFYvd8",
+      "geometry_wh": [
+        640,
+        360
+      ],
+      "stills": [
+        {
+          "offset_s": 0.0,
+          "path": "/root/lightsem/runs/visual_next_20260929/annotations/jd-e6ddbe5382bc260e3e6c/frame_00.png",
+          "sha256": "83d2ea7f2228fed02a84b4be5a96952c65aab40110ab1bc065bfa24a066210de",
+          "source_time_s": 83.4
+        },
+        {
+          "offset_s": 7.0,
+          "path": "/root/lightsem/runs/visual_next_20260929/annotations/jd-e6ddbe5382bc260e3e6c/frame_07.png",
+          "sha256": "f3845018a5ecd67c632f1d63e6c50c3ad6c1c06488fcd72bdf2cba746ace5e59",
+          "source_time_s": 90.4
+        },
+        {
+          "offset_s": 14.0,
+          "path": "/root/lightsem/runs/visual_next_20260929/annotations/jd-e6ddbe5382bc260e3e6c/frame_14.png",
+          "sha256": "872b7b57d36aa74c925b84fe25d588d070bd0f46e38587a13cadfd0e3237e928",
+          "source_time_s": 97.4
+        },
+        {
+          "offset_s": 21.0,
+          "path": "/root/lightsem/runs/visual_next_20260929/annotations/jd-e6ddbe5382bc260e3e6c/frame_21.png",
+          "sha256": "061be68804d61e01e073eed2ed56c9ecdc585d68912cf5ae5c832054345864f2",
+          "source_time_s": 104.4
+        },
+        {
+          "offset_s": 28.0,
+          "path": "/root/lightsem/runs/visual_next_20260929/annotations/jd-e6ddbe5382bc260e3e6c/frame_28.png",
+          "sha256": "7bf656220c1ce9cbb11b2afdd8535f23573457ba516ac3e9f339f82f5f168d8b",
+          "source_time_s": 111.4
+        },
+        {
+          "offset_s": 35.0,
+          "path": "/root/lightsem/runs/visual_next_20260929/annotations/jd-e6ddbe5382bc260e3e6c/frame_35.png",
+          "sha256": "d36ebbbc121bfa5fce7801aea809ad89079df82fbee6efa414e86ebe91cf8e38",
+          "source_time_s": 118.4
+        },
+        {
+          "offset_s": 42.0,
+          "path": "/root/lightsem/runs/visual_next_20260929/annotations/jd-e6ddbe5382bc260e3e6c/frame_42.png",
+          "sha256": "d5e95badcd12af6a9a661c5016dcd29b2e5f4c1ae55642a059208f827a06ba96",
+          "source_time_s": 125.4
+        },
+        {
+          "offset_s": 49.0,
+          "path": "/root/lightsem/runs/visual_next_20260929/annotations/jd-e6ddbe5382bc260e3e6c/frame_49.png",
+          "sha256": "2e68c473935eea795246477192e0b50545bf6910d9e1108a67050a686ab07db4",
+          "source_time_s": 132.4
+        },
+        {
+          "offset_s": 56.0,
+          "path": "/root/lightsem/runs/visual_next_20260929/annotations/jd-e6ddbe5382bc260e3e6c/frame_56.png",
+          "sha256": "6a3a2ebebcb92d0f06935dc39ce6121358eeb55e60c378b198db964137d24d15",
+          "source_time_s": 139.4
+        },
+        {
+          "offset_s": 63.0,
+          "path": "/root/lightsem/runs/visual_next_20260929/annotations/jd-e6ddbe5382bc260e3e6c/frame_63.png",
+          "sha256": "9ca178012e99416063b309f207136c3eed9299425433802d58c6ae1cb732e365",
+          "source_time_s": 146.4
+        }
+      ]
+    },
+    {
+      "canonical_id": "jd-48e07715df8f7d372d26",
+      "partition": "train",
+      "recording_id": "n8GguUJtOa4",
+      "geometry_wh": [
+        640,
+        360
+      ],
+      "stills": [
+        {
+          "offset_s": 0.0,
+          "path": "/root/lightsem/runs/visual_next_20260929/annotations/jd-48e07715df8f7d372d26/frame_00.png",
+          "sha256": "6c46df5f454fdece5c1cf4cd3857cc007ee726863cc165d6f43b2de042bfd2b3",
+          "source_time_s": 43.0
+        },
+        {
+          "offset_s": 7.0,
+          "path": "/root/lightsem/runs/visual_next_20260929/annotations/jd-48e07715df8f7d372d26/frame_07.png",
+          "sha256": "24760abea05f7f2320b2efd1d4e918cb8c7025736652e2edcccb08e8fe85758c",
+          "source_time_s": 50.0
+        },
+        {
+          "offset_s": 14.0,
+          "path": "/root/lightsem/runs/visual_next_20260929/annotations/jd-48e07715df8f7d372d26/frame_14.png",
+          "sha256": "6777ef3b49a16bb747823fc426a89088580285c3c27d6546e042781d8e0fcbde",
+          "source_time_s": 57.0
+        },
+        {
+          "offset_s": 21.0,
+          "path": "/root/lightsem/runs/visual_next_20260929/annotations/jd-48e07715df8f7d372d26/frame_21.png",
+          "sha256": "071909c2d8f7906a7c50e8cf163f5d00b86231fb9078f34bb70c7c4b79d18eed",
+          "source_time_s": 64.0
+        },
+        {
+          "offset_s": 28.0,
+          "path": "/root/lightsem/runs/visual_next_20260929/annotations/jd-48e07715df8f7d372d26/frame_28.png",
+          "sha256": "cb2a807a34715385f4e55632127b212c0a961e3cca97e5381523b48e4c355736",
+          "source_time_s": 71.0
+        },
+        {
+          "offset_s": 35.0,
+          "path": "/root/lightsem/runs/visual_next_20260929/annotations/jd-48e07715df8f7d372d26/frame_35.png",
+          "sha256": "727e40824c9ebc4b29bdf640d4871a34a5b607ef57151eb3f203eb5f520cf68a",
+          "source_time_s": 78.0
+        },
+        {
+          "offset_s": 42.0,
+          "path": "/root/lightsem/runs/visual_next_20260929/annotations/jd-48e07715df8f7d372d26/frame_42.png",
+          "sha256": "b224a029eadbe430186e4a08889eb91799d674e1cc8d2ae89c6b609ee5a683d2",
+          "source_time_s": 85.0
+        },
+        {
+          "offset_s": 49.0,
+          "path": "/root/lightsem/runs/visual_next_20260929/annotations/jd-48e07715df8f7d372d26/frame_49.png",
+          "sha256": "54652608b4aaff1f09b064c0a7b7680fadaab4b152fdc699b0fab7d0ba233989",
+          "source_time_s": 92.0
+        },
+        {
+          "offset_s": 56.0,
+          "path": "/root/lightsem/runs/visual_next_20260929/annotations/jd-48e07715df8f7d372d26/frame_56.png",
+          "sha256": "b4fbf515bdc6e5f148999664c49939395c89ab5e4a8aa179dfc790d7e770e517",
+          "source_time_s": 99.0
+        },
+        {
+          "offset_s": 63.0,
+          "path": "/root/lightsem/runs/visual_next_20260929/annotations/jd-48e07715df8f7d372d26/frame_63.png",
+          "sha256": "b928e38f4b86b1e0a47005fa53627108855b1d245432b121b27df23861507b81",
+          "source_time_s": 106.0
+        }
+      ]
+    },
+    {
+      "canonical_id": "jd-4041f5000909d780f8de",
+      "partition": "train",
+      "recording_id": "3HN1Y3VGXGI",
+      "geometry_wh": [
+        640,
+        360
+      ],
+      "stills": [
+        {
+          "offset_s": 0.0,
+          "path": "/root/lightsem/runs/visual_next_20260929/annotations/jd-4041f5000909d780f8de/frame_00.png",
+          "sha256": "3992e4c88532d3be9d34c8b71e01c890abad182e90797c901dfe3c02dad72f1e",
+          "source_time_s": 87.888
+        },
+        {
+          "offset_s": 7.0,
+          "path": "/root/lightsem/runs/visual_next_20260929/annotations/jd-4041f5000909d780f8de/frame_07.png",
+          "sha256": "4b1432de14f42e0f971e90d17bb63109f861d0354c455e7a94a12d33af581e27",
+          "source_time_s": 94.895
+        },
+        {
+          "offset_s": 14.0,
+          "path": "/root/lightsem/runs/visual_next_20260929/annotations/jd-4041f5000909d780f8de/frame_14.png",
+          "sha256": "b75bafcb4a631aa8e52f1504cb11df737bc30af9da730da1b95ed164198f2da3",
+          "source_time_s": 101.902
+        },
+        {
+          "offset_s": 21.0,
+          "path": "/root/lightsem/runs/visual_next_20260929/annotations/jd-4041f5000909d780f8de/frame_21.png",
+          "sha256": "68c6cfad5c0f774da8ad88016503c4544e3683882e7acd99a93f37c0f5f9a58a",
+          "source_time_s": 108.909
+        },
+        {
+          "offset_s": 28.0,
+          "path": "/root/lightsem/runs/visual_next_20260929/annotations/jd-4041f5000909d780f8de/frame_28.png",
+          "sha256": "0ec0111bd0cc40ee0c6f77a7b220bc310b7d8826d7b12b57220db7d0df45e18c",
+          "source_time_s": 115.916
+        },
+        {
+          "offset_s": 35.0,
+          "path": "/root/lightsem/runs/visual_next_20260929/annotations/jd-4041f5000909d780f8de/frame_35.png",
+          "sha256": "ebfbe52fda3ee316853e74848e95788e7b1cfaf71f39e53e331b537d8c70d1bc",
+          "source_time_s": 122.889
+        },
+        {
+          "offset_s": 42.0,
+          "path": "/root/lightsem/runs/visual_next_20260929/annotations/jd-4041f5000909d780f8de/frame_42.png",
+          "sha256": "94a5fbc4a1e1f7b5a4a19a815db9eae0825151c37afd857ff3ae549c1ffbc636",
+          "source_time_s": 129.896
+        },
+        {
+          "offset_s": 49.0,
+          "path": "/root/lightsem/runs/visual_next_20260929/annotations/jd-4041f5000909d780f8de/frame_49.png",
+          "sha256": "9ae081a73bbdd402f9c499e5e175d49c911912a5c1d75ab551297f47cd522222",
+          "source_time_s": 136.903
+        },
+        {
+          "offset_s": 56.0,
+          "path": "/root/lightsem/runs/visual_next_20260929/annotations/jd-4041f5000909d780f8de/frame_56.png",
+          "sha256": "6efb73fdaff0192a0d2c2ad3c121cfb6b0dfa4af20557b506a22974c7c550c69",
+          "source_time_s": 143.91
+        },
+        {
+          "offset_s": 63.0,
+          "path": "/root/lightsem/runs/visual_next_20260929/annotations/jd-4041f5000909d780f8de/frame_63.png",
+          "sha256": "eb14d77a655c3dfc6f9851b45edd96a2f8e7dc9393db4019f43963167f2a145e",
+          "source_time_s": 150.884
+        }
+      ]
+    },
+    {
+      "canonical_id": "jd-f396b09e25bec38321a3",
+      "partition": "train",
+      "recording_id": "xV3dqkP1RrY",
+      "geometry_wh": [
+        640,
+        360
+      ],
+      "stills": [
+        {
+          "offset_s": 0.0,
+          "path": "/root/lightsem/runs/visual_next_20260929/annotations/jd-f396b09e25bec38321a3/frame_00.png",
+          "sha256": "1cfa5d4c392f8f372740f4b40edf04335e85f0620cdf392c183a526c9169502b",
+          "source_time_s": 58.792
+        },
+        {
+          "offset_s": 7.0,
+          "path": "/root/lightsem/runs/visual_next_20260929/annotations/jd-f396b09e25bec38321a3/frame_07.png",
+          "sha256": "f92ff11bb3fcbaddcea32fbf6aea6767cdcc90909018fbcef785379c3ff49008",
+          "source_time_s": 65.799
+        },
+        {
+          "offset_s": 14.0,
+          "path": "/root/lightsem/runs/visual_next_20260929/annotations/jd-f396b09e25bec38321a3/frame_14.png",
+          "sha256": "47d04e93ab31031c3bb1997d38d4a9d1b36684d65f50f956d8cf7b1eca61c4bc",
+          "source_time_s": 72.806
+        },
+        {
+          "offset_s": 21.0,
+          "path": "/root/lightsem/runs/visual_next_20260929/annotations/jd-f396b09e25bec38321a3/frame_21.png",
+          "sha256": "4af264478560663b80954fcb24746a23dfb1df78ce7bcda76e188613a1b799a2",
+          "source_time_s": 79.813
+        },
+        {
+          "offset_s": 28.0,
+          "path": "/root/lightsem/runs/visual_next_20260929/annotations/jd-f396b09e25bec38321a3/frame_28.png",
+          "sha256": "97470eeb637b2435c8ab5cc2536c0d3b45ce36398bd3cb7e98df8641d28794d8",
+          "source_time_s": 86.787
+        },
+        {
+          "offset_s": 35.0,
+          "path": "/root/lightsem/runs/visual_next_20260929/annotations/jd-f396b09e25bec38321a3/frame_35.png",
+          "sha256": "2e17001bad50d77e7868a598273749afc599e3ae273a4ec2e399317ee06e3963",
+          "source_time_s": 93.794
+        },
+        {
+          "offset_s": 42.0,
+          "path": "/root/lightsem/runs/visual_next_20260929/annotations/jd-f396b09e25bec38321a3/frame_42.png",
+          "sha256": "62a4149a5891129a0612995779232486293a9429f55588b7d3f909be5ec181c6",
+          "source_time_s": 100.801
+        },
+        {
+          "offset_s": 49.0,
+          "path": "/root/lightsem/runs/visual_next_20260929/annotations/jd-f396b09e25bec38321a3/frame_49.png",
+          "sha256": "471b0bbe554f9889868b4fc81dfcb731b9339f5c8fc8114344dea95c413e84e2",
+          "source_time_s": 107.808
+        },
+        {
+          "offset_s": 56.0,
+          "path": "/root/lightsem/runs/visual_next_20260929/annotations/jd-f396b09e25bec38321a3/frame_56.png",
+          "sha256": "9cf396b3d424462231409ee498ee735fe0f37656c314860c945aa5d150fb7538",
+          "source_time_s": 114.815
+        },
+        {
+          "offset_s": 63.0,
+          "path": "/root/lightsem/runs/visual_next_20260929/annotations/jd-f396b09e25bec38321a3/frame_63.png",
+          "sha256": "1c5f1617727863ae8cdd2a0a034477a23490abd436b54b3614e313a1fd9e3fe6",
+          "source_time_s": 121.788
+        }
+      ]
+    },
+    {
+      "canonical_id": "jd-464511233c6a6428a9a5",
+      "partition": "train",
+      "recording_id": "2ABEKrS4cWI",
+      "geometry_wh": [
+        640,
+        360
+      ],
+      "stills": [
+        {
+          "offset_s": 0.0,
+          "path": "/root/lightsem/runs/visual_next_20260929/annotations/jd-464511233c6a6428a9a5/frame_00.png",
+          "sha256": "d64691fa10f1a09fc7a3e263579c9ebc92b557573da02ed3218a311302c17f7d",
+          "source_time_s": 70.504
+        },
+        {
+          "offset_s": 7.0,
+          "path": "/root/lightsem/runs/visual_next_20260929/annotations/jd-464511233c6a6428a9a5/frame_07.png",
+          "sha256": "f0ec95bf3293891bb7ac86956956aa3dfd86637fcc1bfbf6ae6a57a950cdf56e",
+          "source_time_s": 77.511
+        },
+        {
+          "offset_s": 14.0,
+          "path": "/root/lightsem/runs/visual_next_20260929/annotations/jd-464511233c6a6428a9a5/frame_14.png",
+          "sha256": "66b5910efe9d9529149d763c51b672c83d5f4b5edbedafdf742c8e984430d95f",
+          "source_time_s": 84.484
+        },
+        {
+          "offset_s": 21.0,
+          "path": "/root/lightsem/runs/visual_next_20260929/annotations/jd-464511233c6a6428a9a5/frame_21.png",
+          "sha256": "eb26e31deb896599297774ac4f621f3f2286fdf669c453f4520bd75bf7562788",
+          "source_time_s": 91.491
+        },
+        {
+          "offset_s": 28.0,
+          "path": "/root/lightsem/runs/visual_next_20260929/annotations/jd-464511233c6a6428a9a5/frame_28.png",
+          "sha256": "eba87f7d95352248528986dcb2af0f23f225a9ccfcbe275ce6f5f1ab15dbc933",
+          "source_time_s": 98.498
+        },
+        {
+          "offset_s": 35.0,
+          "path": "/root/lightsem/runs/visual_next_20260929/annotations/jd-464511233c6a6428a9a5/frame_35.png",
+          "sha256": "f336aaab709ceef4ec26ecf4fdfaf11a3c68716019ef79a36669b4ef4724a1de",
+          "source_time_s": 105.505
+        },
+        {
+          "offset_s": 42.0,
+          "path": "/root/lightsem/runs/visual_next_20260929/annotations/jd-464511233c6a6428a9a5/frame_42.png",
+          "sha256": "bcc9495ae587a02a8219dcd8f71d057cf2b781f84b0322547ee31138029efbb1",
+          "source_time_s": 112.512
+        },
+        {
+          "offset_s": 49.0,
+          "path": "/root/lightsem/runs/visual_next_20260929/annotations/jd-464511233c6a6428a9a5/frame_49.png",
+          "sha256": "9f1851c6ac0b04a76c2b7e96f72704b010343402d15f39330549b5fc4b7f6aea",
+          "source_time_s": 119.486
+        },
+        {
+          "offset_s": 56.0,
+          "path": "/root/lightsem/runs/visual_next_20260929/annotations/jd-464511233c6a6428a9a5/frame_56.png",
+          "sha256": "a5dd105a6faca46bf17145c0bf832f256490d0a25b16e84508d4dcd7377bc1d2",
+          "source_time_s": 126.493
+        },
+        {
+          "offset_s": 63.0,
+          "path": "/root/lightsem/runs/visual_next_20260929/annotations/jd-464511233c6a6428a9a5/frame_63.png",
+          "sha256": "2149c33e8b17f3cd8e154726110dc55550eb519dd1dfb15fee441ef8b678b959",
+          "source_time_s": 133.5
+        }
+      ]
+    },
+    {
+      "canonical_id": "jd-8fbf5474b581bac86286",
+      "partition": "train",
+      "recording_id": "SAM13SzjLfo",
+      "geometry_wh": [
+        640,
+        360
+      ],
+      "stills": [
+        {
+          "offset_s": 0.0,
+          "path": "/root/lightsem/runs/visual_next_20260929/annotations/jd-8fbf5474b581bac86286/frame_00.png",
+          "sha256": "158c9a876cca2f5bc78645fe9ef5ede03710b9fd9c0392f71245fcb3656f6a3a",
+          "source_time_s": 76.093
+        },
+        {
+          "offset_s": 7.0,
+          "path": "/root/lightsem/runs/visual_next_20260929/annotations/jd-8fbf5474b581bac86286/frame_07.png",
+          "sha256": "d5ebd2fbadd172af0fd93e26e5ece43f87b5a25fcc884dca8754e6d2799d98e9",
+          "source_time_s": 83.1
+        },
+        {
+          "offset_s": 14.0,
+          "path": "/root/lightsem/runs/visual_next_20260929/annotations/jd-8fbf5474b581bac86286/frame_14.png",
+          "sha256": "01d5a0476d18a3de298384899b42895dc3c47756809866bc44fa379a321592be",
+          "source_time_s": 90.107
+        },
+        {
+          "offset_s": 21.0,
+          "path": "/root/lightsem/runs/visual_next_20260929/annotations/jd-8fbf5474b581bac86286/frame_21.png",
+          "sha256": "46a81603e7c1b921ddeb059e56b13878b502cbf48d5d0fa34bda2aa22f32f621",
+          "source_time_s": 97.097
+        },
+        {
+          "offset_s": 28.0,
+          "path": "/root/lightsem/runs/visual_next_20260929/annotations/jd-8fbf5474b581bac86286/frame_28.png",
+          "sha256": "f02ea0a0c6796904440cbe07c61f3dc75c92974e82c0202c2a856b7331a1de32",
+          "source_time_s": 104.104
+        },
+        {
+          "offset_s": 35.0,
+          "path": "/root/lightsem/runs/visual_next_20260929/annotations/jd-8fbf5474b581bac86286/frame_35.png",
+          "sha256": "d9e0379ee63fb30bd7ad0d9d1f8d281cf76c731e7f9777058356da0de3ac4dfc",
+          "source_time_s": 111.094
+        },
+        {
+          "offset_s": 42.0,
+          "path": "/root/lightsem/runs/visual_next_20260929/annotations/jd-8fbf5474b581bac86286/frame_42.png",
+          "sha256": "44067506b8ea6f6f69404a879e64797b4bfe8e4342d710d78265609624db3626",
+          "source_time_s": 118.101
+        },
+        {
+          "offset_s": 49.0,
+          "path": "/root/lightsem/runs/visual_next_20260929/annotations/jd-8fbf5474b581bac86286/frame_49.png",
+          "sha256": "5200bb872bdc143c170bed91aefe997a150c74b3f9aab5b92f5895645897b030",
+          "source_time_s": 125.092
+        },
+        {
+          "offset_s": 56.0,
+          "path": "/root/lightsem/runs/visual_next_20260929/annotations/jd-8fbf5474b581bac86286/frame_56.png",
+          "sha256": "a4edee33ca34b7c5b93b1850cba548dcc5eeb8595ae08425aa41bf459a9fd72e",
+          "source_time_s": 132.099
+        },
+        {
+          "offset_s": 63.0,
+          "path": "/root/lightsem/runs/visual_next_20260929/annotations/jd-8fbf5474b581bac86286/frame_63.png",
+          "sha256": "fb0de8bb313cf402c682d8b3903750eeb29cea1c8f7e8e8ca76216d2bdfde71e",
+          "source_time_s": 139.106
+        }
+      ]
+    },
+    {
+      "canonical_id": "jd-a1060383db4600ff501b",
+      "partition": "train",
+      "recording_id": "EbE_NJWIOtg",
+      "geometry_wh": [
+        640,
+        360
+      ],
+      "stills": [
+        {
+          "offset_s": 0.0,
+          "path": "/root/lightsem/runs/visual_next_20260929/annotations/jd-a1060383db4600ff501b/frame_00.png",
+          "sha256": "e35874afaa14ad016412e78b76eca2e7805fb9f224fb41ffed12ccdd4a922827",
+          "source_time_s": 49.2
+        },
+        {
+          "offset_s": 7.0,
+          "path": "/root/lightsem/runs/visual_next_20260929/annotations/jd-a1060383db4600ff501b/frame_07.png",
+          "sha256": "4ffb06c57bf0f21718ae310fe64729d8356aa16cd64153a86bf026b01355f12b",
+          "source_time_s": 56.2
+        },
+        {
+          "offset_s": 14.0,
+          "path": "/root/lightsem/runs/visual_next_20260929/annotations/jd-a1060383db4600ff501b/frame_14.png",
+          "sha256": "ab8b365ada3ba7c22c7ba8ef278590a8629b87a69bbe278061886b91b1ad0fee",
+          "source_time_s": 63.2
+        },
+        {
+          "offset_s": 21.0,
+          "path": "/root/lightsem/runs/visual_next_20260929/annotations/jd-a1060383db4600ff501b/frame_21.png",
+          "sha256": "ccfcc2baa4977c541fe0816a3e303264b5cc7e46a7e042c482e9b32c624e4896",
+          "source_time_s": 70.2
+        },
+        {
+          "offset_s": 28.0,
+          "path": "/root/lightsem/runs/visual_next_20260929/annotations/jd-a1060383db4600ff501b/frame_28.png",
+          "sha256": "e684b44e40c9e4f55d20ee01577c384743613cf87900a7c14fdf183b4c071496",
+          "source_time_s": 77.2
+        },
+        {
+          "offset_s": 35.0,
+          "path": "/root/lightsem/runs/visual_next_20260929/annotations/jd-a1060383db4600ff501b/frame_35.png",
+          "sha256": "0595d569c74b558c3f3c85f3f171c874f4bfe445d2cb803ebfd324875e021d39",
+          "source_time_s": 84.2
+        },
+        {
+          "offset_s": 42.0,
+          "path": "/root/lightsem/runs/visual_next_20260929/annotations/jd-a1060383db4600ff501b/frame_42.png",
+          "sha256": "dc4c796fea0a4bae03db82fbf32928bc70f6b50f5bad3e24b0873a2ba889ac62",
+          "source_time_s": 91.2
+        },
+        {
+          "offset_s": 49.0,
+          "path": "/root/lightsem/runs/visual_next_20260929/annotations/jd-a1060383db4600ff501b/frame_49.png",
+          "sha256": "29678d68d4b2cfe4bb2e39707b0472afedfaeb6c07ac3bbe7980b9b22909d55f",
+          "source_time_s": 98.2
+        },
+        {
+          "offset_s": 56.0,
+          "path": "/root/lightsem/runs/visual_next_20260929/annotations/jd-a1060383db4600ff501b/frame_56.png",
+          "sha256": "b5bafd3dce737ff12d9e7f404cc85be471d256efeb130eb03d81b91ee29be171",
+          "source_time_s": 105.2
+        },
+        {
+          "offset_s": 63.0,
+          "path": "/root/lightsem/runs/visual_next_20260929/annotations/jd-a1060383db4600ff501b/frame_63.png",
+          "sha256": "7e96363e34ded87f8c7b7c887c152cf4d67b2e999ee339b91c9f62d442ac4853",
+          "source_time_s": 112.2
+        }
+      ]
+    }
+  ],
+  "projection_root": "/root/lightsem/runs/visual_next_20260929/projections_v1",
+  "shared_root": "/root/lightsem/runs/visual_next_20260929/shared_corpus_v2",
+  "output": "/root/lightsem/runs/visual_next_20260929/retention_v1",
+  "max_gpu_seconds": 900,
+  "source_stills": 120,
+  "source_SAM_present_stills": 116,
+  "software_versions": {
+    "torch": "2.14.0+cu130",
+    "torchvision": "0.29.0+cu130",
+    "numpy": "2.5.2",
+    "opencv-python": "5.0.0.93",
+    "ultralytics": "8.4.138"
+  },
+  "resource_charge": "H3_features; atlaunch require priorFeatureSeconds +sharedReport.stage_seconds.H3_features+900<=3600, else stopforprimary",
+  "queue": "after fullshared extraction, H4renderer smoke andP2/P4 previews; neverconcurrentGPU",
+  "test_access": false,
+  "geometry": "Original source geometry:11families640x360,1family640x480. Masks and PNGstills match; no additional crop or rescale.",
+  "command": "TORCH_ENV=/root/lightsem/.venv/torch-access OPENBLAS_NUM_THREADS=2 bash run_torch.sh -u -m scripts.light_layers.probe_visual_next_retention --freeze /root/lightsem/experiments/2026-09-29-visual-next/records/execution/RETENTION_PROBE_FREEZE_V1.json"
+}

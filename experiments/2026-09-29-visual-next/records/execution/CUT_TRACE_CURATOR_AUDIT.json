@@ -1,0 +1,61 @@
+{
+  "arrays": {
+    "all_artifact_hashes_match_reports": true,
+    "all_independent_content_outcomes_null": true,
+    "all_interval_shapes_and_order_valid": true,
+    "all_numeric_values_finite": true,
+    "all_observer_masks_valid": true,
+    "all_times_monotonic": true,
+    "pairs_checked": 43
+  },
+  "checks": {
+    "array_integrity": "passed",
+    "combined_membership": "passed",
+    "freeze_inputs": "passed",
+    "gpu_released": "passed",
+    "preserved_pairs": "passed",
+    "resource_limits": "passed",
+    "resume_pairs": "passed"
+  },
+  "freeze": {
+    "actual_sha256": "3df4f2a3bf38f31ccd930eed46d3e39c44318cf3eaf2d06f50e9988ed6763eba",
+    "expected_sha256": "3df4f2a3bf38f31ccd930eed46d3e39c44318cf3eaf2d06f50e9988ed6763eba",
+    "path": "/root/lightsem/experiments/2026-09-29-visual-next/records/execution/CUT_TRACE_RESUME_FREEZE_V2.json"
+  },
+  "frozen_inputs": {
+    "all_unchanged": true,
+    "count": 329,
+    "ordered_path_sha256_manifest_sha256": "e6367f51a3017dd1a529f1a846d09c3cafe8c8ef24d6e45bd8be400843a2b59a",
+    "preserved_original_pair_files": 76
+  },
+  "gpu_compute_processes_after": "none",
+  "membership": {
+    "combined_aggregate_created": false,
+    "combined_artifact_manifest_sha256": "a72a918d39f846bd6dd2cb0f46d7c77440eb40d21c519e0e7b4a1dd53987c1ed",
+    "combined_artifact_pairs": 43,
+    "combined_families": 43,
+    "combined_matches_original_enrollment": true,
+    "original_root_families": 38,
+    "resume_root_families": 5,
+    "role_counts": {
+      "annotation_calibration_TRAIN": 12,
+      "historical_DEV_assessment": 31
+    }
+  },
+  "resume": {
+    "aggregate_report_path": "/root/lightsem/runs/visual_next_20260929/cut_traces_resume_v1/REPORT.json",
+    "aggregate_report_sha256": "1773b85f8317ea053c1f16a77a2573d26e7a2b54d211e3f236275ee494127373",
+    "elapsed_s": 203.39256149716675,
+    "log_path": "/root/lightsem/experiments/2026-09-29-visual-next/records/execution/CUT_TRACE_RESUME_V2.log",
+    "log_sha256": "7016d9349acc7852e78701fc6cdf3366f8dc1454fb55a51c3d8bf5436e94b242",
+    "original_hypothesis_closed": false,
+    "peak_reserved_bytes": 241172480,
+    "process_peak_rss_bytes": 1536581632,
+    "root": "/root/lightsem/runs/visual_next_20260929/cut_traces_resume_v1",
+    "test_access": false
+  },
+  "stage": "cut_trace_resume_v2_curator_audit",
+  "status": "passed",
+  "terminal_process_state": "terminated",
+  "verified_utc": "2026-09-29T17:55:05.758130Z"
+}

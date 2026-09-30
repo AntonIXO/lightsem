@@ -1,0 +1,18 @@
+{
+  "status": "independently_verified_by_primary",
+  "report_sha256": "5d9878d00d53d67c7181070530f0b16018188ed277cb16e4ca5c59dace44a60e",
+  "frozen_files": 382,
+  "artifacts": {
+    "cutie.npz": "c547b53ab75680e301c966fa7c917cdbe4ea92864ff97a41a8c4e56d7a02003e",
+    "hold.npz": "1152912ee6eb1e29b2ba882fde23306fcdd94f98e0d9a94fbf4bb38eb371d400",
+    "lag_cutie.npz": "157913fab487809dad87b93698a9bd7045345afdbdc0cd8f258cf7d4c42afbd6",
+    "mask_controls.npz": "4cec7f4fb965a228718f792ad84fc70a703dedf2bcf7b85984349199f1378cb8",
+    "teacher_raw.npz": "f1d564df7ae13960ce4273836547cfb0773b585befc7cbe224d151aec0b4b1f0"
+  },
+  "stage_seconds": {
+    "H1_H2": 7.047255609417334,
+    "H3_features": 0.7174787984695286
+  },
+  "baseline_replay_error": 0.00024378299713134766,
+  "independent_accuracy_measured": false
+}

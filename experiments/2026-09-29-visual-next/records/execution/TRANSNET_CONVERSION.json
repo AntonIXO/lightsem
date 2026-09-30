@@ -1,0 +1,25 @@
+{
+  "atol": 0.0001,
+  "cases": [
+    "all_black_100_frames",
+    "seeded_uniform_uint8_100_frames"
+  ],
+  "converter_sha256": "3572d76ddccc92e7ccca13ac3c47aaf39c86f56ce4e392d4d0d6a60da05b42fa",
+  "device": "cpu",
+  "elapsed_s": 3.223328480962664,
+  "max_logit_abs_error_by_output": [
+    2.86102294921875e-06,
+    3.814697265625e-06,
+    1.9073486328125e-06,
+    1.9073486328125e-06
+  ],
+  "rtol": 0.0001,
+  "source_data_read": false,
+  "status": "converted_and_synthetic_equivalence_verified",
+  "tensorflow": "2.20.0",
+  "torch": "2.14.0+cu130",
+  "weights": {
+    "path": "/root/lightsem/runs/visual_next_20260929/weights/transnetv2-pytorch-official.pth",
+    "sha256": "d8c1a9ddd5dfc77b152f6155b717cd22a237e038eeece5c3f161e1b249d950a5"
+  }
+}

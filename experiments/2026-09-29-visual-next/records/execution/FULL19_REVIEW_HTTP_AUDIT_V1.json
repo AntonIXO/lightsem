@@ -1,0 +1,152 @@
+{
+  "browser_playback_and_rating_interaction_tested": false,
+  "manifest_sha256": "5475c34b219958c31031edfe7651de0bfa0cd2d9a9eb6e0d1f16a212c5e7fbd4",
+  "page": "http://127.0.0.1:8769/",
+  "requests": [
+    {
+      "bytes": 8735,
+      "route": "/",
+      "status": 200
+    },
+    {
+      "bytes": 38380,
+      "route": "/manifest.json",
+      "status": 200
+    },
+    {
+      "download_HEAD_status": 200,
+      "id": "01",
+      "range_matches_actual_media": true,
+      "seek_status": 206,
+      "variant": "C"
+    },
+    {
+      "download_HEAD_status": 200,
+      "id": "02",
+      "range_matches_actual_media": true,
+      "seek_status": 206,
+      "variant": "R0"
+    },
+    {
+      "download_HEAD_status": 200,
+      "id": "03",
+      "range_matches_actual_media": true,
+      "seek_status": 206,
+      "variant": "H1"
+    },
+    {
+      "download_HEAD_status": 200,
+      "id": "04",
+      "range_matches_actual_media": true,
+      "seek_status": 206,
+      "variant": "H2"
+    },
+    {
+      "download_HEAD_status": 200,
+      "id": "05",
+      "range_matches_actual_media": true,
+      "seek_status": 206,
+      "variant": "R1"
+    },
+    {
+      "download_HEAD_status": 200,
+      "id": "06",
+      "range_matches_actual_media": true,
+      "seek_status": 206,
+      "variant": "R2"
+    },
+    {
+      "download_HEAD_status": 200,
+      "id": "07",
+      "range_matches_actual_media": true,
+      "seek_status": 206,
+      "variant": "R3"
+    },
+    {
+      "download_HEAD_status": 200,
+      "id": "08",
+      "range_matches_actual_media": true,
+      "seek_status": 206,
+      "variant": "ALL"
+    },
+    {
+      "download_HEAD_status": 200,
+      "id": "09",
+      "range_matches_actual_media": true,
+      "seek_status": 206,
+      "variant": "ALL4"
+    },
+    {
+      "download_HEAD_status": 200,
+      "id": "10",
+      "range_matches_actual_media": true,
+      "seek_status": 206,
+      "variant": "P2"
+    },
+    {
+      "download_HEAD_status": 200,
+      "id": "11",
+      "range_matches_actual_media": true,
+      "seek_status": 206,
+      "variant": "P4"
+    },
+    {
+      "download_HEAD_status": 200,
+      "id": "12",
+      "range_matches_actual_media": true,
+      "seek_status": 206,
+      "variant": "Rrand"
+    },
+    {
+      "download_HEAD_status": 200,
+      "id": "13",
+      "range_matches_actual_media": true,
+      "seek_status": 206,
+      "variant": "R3-S"
+    },
+    {
+      "download_HEAD_status": 200,
+      "id": "14",
+      "range_matches_actual_media": true,
+      "seek_status": 206,
+      "variant": "R3-R"
+    },
+    {
+      "download_HEAD_status": 200,
+      "id": "15",
+      "range_matches_actual_media": true,
+      "seek_status": 206,
+      "variant": "O0"
+    },
+    {
+      "download_HEAD_status": 200,
+      "id": "16",
+      "range_matches_actual_media": true,
+      "seek_status": 206,
+      "variant": "O2"
+    },
+    {
+      "download_HEAD_status": 200,
+      "id": "17",
+      "range_matches_actual_media": true,
+      "seek_status": 206,
+      "variant": "O4"
+    },
+    {
+      "download_HEAD_status": 200,
+      "id": "18",
+      "range_matches_actual_media": true,
+      "seek_status": 206,
+      "variant": "O4-P"
+    },
+    {
+      "download_HEAD_status": 200,
+      "id": "19",
+      "range_matches_actual_media": true,
+      "seek_status": 206,
+      "variant": "O4-D"
+    }
+  ],
+  "scope": "Live HTTP200page/manifest,19actualbyte-range206checks,and19downloadHEADchecks. JSsyntaxchecked separately;no claim of browser interaction testing.",
+  "status": "all19_seek_and_download_routes_verified"
+}

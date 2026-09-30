@@ -1,0 +1,31 @@
+{
+  "tool": "add_paper",
+  "arguments": {
+    "id": "paper-vjepa21-2603-14482",
+    "title": "V-JEPA 2.1: Unlocking Dense Features in Video Self-Supervised Learning",
+    "arxiv_id_or_url": "https://arxiv.org/abs/2603.14482",
+    "key_claims": [
+      "Supervising visible as well as masked tokens and intermediate layers improves dense video features alongside global tasks. The released80M ViT-B/16 provides a specific future temporal teacher. Use a frozen model if pursued; do not port its large-scale pretraining recipe into this project. Keep explicit chromatic targets because video understanding scores do not establish color faithfulness. Published robotics/action gains are not LightSem effect sizes. Compare ordered clips with order-destroyed controls, and measure actual VRAM and feature cache cost first.",
+      "Verified full PDF SHA256 b40580916242ade00e2ac177cb01473d511f021d5a25f7552fd17512b3a72bbb. Read scope: Abstract; Sec2.3 dense and deep supervision; Sec3.10 distilled models/Table11; conclusion; official80M Base384 release. Published evidence is outside LightSem; application here is a hypothesis."
+    ],
+    "topic_tags": [
+      "audio-to-light",
+      "cross-modal",
+      "evaluation-metric"
+    ]
+  },
+  "result": {
+    "id": "paper-vjepa21-2603-14482",
+    "title": "V-JEPA 2.1: Unlocking Dense Features in Video Self-Supervised Learning",
+    "arxiv_id_or_url": "https://arxiv.org/abs/2603.14482",
+    "key_claims": [
+      "Supervising visible as well as masked tokens and intermediate layers improves dense video features alongside global tasks. The released80M ViT-B/16 provides a specific future temporal teacher. Use a frozen model if pursued; do not port its large-scale pretraining recipe into this project. Keep explicit chromatic targets because video understanding scores do not establish color faithfulness. Published robotics/action gains are not LightSem effect sizes. Compare ordered clips with order-destroyed controls, and measure actual VRAM and feature cache cost first.",
+      "Verified full PDF SHA256 b40580916242ade00e2ac177cb01473d511f021d5a25f7552fd17512b3a72bbb. Read scope: Abstract; Sec2.3 dense and deep supervision; Sec3.10 distilled models/Table11; conclusion; official80M Base384 release. Published evidence is outside LightSem; application here is a hypothesis."
+    ],
+    "topic_tags": [
+      "audio-to-light",
+      "cross-modal",
+      "evaluation-metric"
+    ]
+  }
+}

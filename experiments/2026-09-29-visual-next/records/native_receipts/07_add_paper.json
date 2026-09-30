@@ -1,0 +1,31 @@
+{
+  "tool": "add_paper",
+  "arguments": {
+    "id": "paper-cutie-2310-12982",
+    "title": "Putting the Object Back into Video Object Segmentation",
+    "arxiv_id_or_url": "https://arxiv.org/abs/2310.12982",
+    "key_claims": [
+      "Object-level memory complements local pixel matching to improve coherent video object masks. This supports testing propagation from fixed SAM2 initialization against independent per-frame SAM2, with identical initial prompts. The paper documents failures for similar objects occluding or approaching one another; coach identity and foreground leakage therefore need independent masks. A segmentation benchmark gain is not a color-observer gain. Test retained-background HS error directly, not just mask smoothness or IoU, and reset at declared shot boundaries.",
+      "Verified full PDF SHA256 90d83bdff858a8408192ac803713c178085d8f3a306e92edad782865221c9837. Read scope: Abstract; object transformer and memory Sec3; runtime/ablation discussion; Sec4.3 and supplementB failure cases; official release. Published evidence is outside LightSem; application here is a hypothesis."
+    ],
+    "topic_tags": [
+      "audio-to-light",
+      "cross-modal",
+      "evaluation-metric"
+    ]
+  },
+  "result": {
+    "id": "paper-cutie-2310-12982",
+    "title": "Putting the Object Back into Video Object Segmentation",
+    "arxiv_id_or_url": "https://arxiv.org/abs/2310.12982",
+    "key_claims": [
+      "Object-level memory complements local pixel matching to improve coherent video object masks. This supports testing propagation from fixed SAM2 initialization against independent per-frame SAM2, with identical initial prompts. The paper documents failures for similar objects occluding or approaching one another; coach identity and foreground leakage therefore need independent masks. A segmentation benchmark gain is not a color-observer gain. Test retained-background HS error directly, not just mask smoothness or IoU, and reset at declared shot boundaries.",
+      "Verified full PDF SHA256 90d83bdff858a8408192ac803713c178085d8f3a306e92edad782865221c9837. Read scope: Abstract; object transformer and memory Sec3; runtime/ablation discussion; Sec4.3 and supplementB failure cases; official release. Published evidence is outside LightSem; application here is a hypothesis."
+    ],
+    "topic_tags": [
+      "audio-to-light",
+      "cross-modal",
+      "evaluation-metric"
+    ]
+  }
+}

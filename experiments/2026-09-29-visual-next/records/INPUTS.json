@@ -1,0 +1,59 @@
+{
+  "git_ref": "master@ff342ff",
+  "baseline": {
+    "schema_version": 2,
+    "id": "light-layers-independent-rich96-seed0-history-fade300ms-20260929",
+    "status": "user_selected_development_baseline",
+    "selected_variant": "06",
+    "recipe": "I_VR_P0",
+    "seed": 0,
+    "checkpoint_role": "selected",
+    "checkpoint": {
+      "path": "/mnt/lightsem-data/experiments/lightsem/lighting-cue-model-20260922t094347z/observer_fits_v1/04_seed0_I_VR_P0/best.pt",
+      "sha256": "8de865906cfabb49290971eccf6016ab38edebe885eec7e6369f020fb5544b8a"
+    },
+    "provenance": "/mnt/lightsem-data/experiments/lightsem/end_to_end_20260928_v1/comparison_demos_v1/03_I_VR_P0/inference_saved.json",
+    "motion_controller": "rhythm_companion (rating variant02), saved accepted motion style",
+    "palette_history": true,
+    "palette_decode": "argmax at fixed saved color cues",
+    "color_transition_s": 0.3,
+    "reference_video": "/root/lightsem/experiments/2026-09-29-baseline/outputs/shpongle_baseline_ab_v2/media/C/C_full_1080p_av1.mp4",
+    "reference_video_sha256": "fb06c3f3a951a4f2a12bbc01f4470cec4f8326912a441bd4e25097e275170299",
+    "feedback_record": "experiments/2026-09-29-baseline/records/USER_BASELINE_C_SELECTION.json",
+    "review_plan": "experiments/2026-09-29-baseline/records/AB_PLAN_V2.json",
+    "scope": "Default reference for new lighting-layer development and comparisons. Historical causal LightModel API remains a separate implementation.",
+    "selected_review_variant": "C",
+    "color_transition_curve": "causal_smoothstep_channel_rgb",
+    "reference_streams": "/root/lightsem/experiments/2026-09-29-baseline/outputs/shpongle_baseline_ab_v2/streams/03.npz",
+    "reference_streams_sha256": "34ca1d5f2c9a271b9e08536519f4d657e4aa3017a5ac42514b38e8dd07e4829b",
+    "previous_baseline_snapshot": "experiments/2026-09-29-baseline/records/BASELINE_BEFORE_C_SELECTION.json",
+    "review_encoding": {
+      "codec": "av1_nvenc",
+      "preset": "p7",
+      "tune": "uhq",
+      "target_video_bitrate": "1100k",
+      "max_video_bitrate": "1200k",
+      "buffer_size": "2000k",
+      "audio_codec": "aac",
+      "audio_bitrate": "128k",
+      "max_full_review_bytes": 50000000,
+      "scope": "Compact native1080p Shpongle review delivery; source FLAC remains the analysis input."
+    }
+  },
+  "source_files": {
+    "/root/lightsem/configs/light_layers/baseline.json": "5e37fd3cad083f4945502ed5df2459806b82ce2b0134382ac9ddf3204d0c8d6b",
+    "/root/lightsem/lightsem/model/light_layers/model.py": "aa1d63f0cbf5cf270c3c7d676edf3eaf3debeb394220123493a400aa60835529",
+    "/root/lightsem/lightsem/model/light_layers/targets.py": "4f1e980ed9f62e2ae2a6d53e426cd44c0ed2381835bf4b1382a7fba1e566d6d1",
+    "/root/lightsem/lightsem/model/light_layers/training.py": "534c2d11d458691cfb876211476642f74657a5fa64be4b44b0a528943d1bc8ee",
+    "/root/lightsem/lightsem/model/light_layers/visual.py": "bdc2a264a56543fe7d3f45283a0de82e69587cd30c8112837b50e1b0fc233682",
+    "/root/lightsem/lightsem/model/light_layers/overlay.py": "fe41686d022d8f9fc5a347bf03c608da8f15dece76bf1aec6efabccfbe8ecc2f",
+    "/root/lightsem/lightsem/model/light_layers/transitions.py": "3ff90c8899e1609355aae4b8c47638fd1598e305274bfd882e2b4356c80a115b",
+    "/root/lightsem/experiments/2026-09-22-color-beat/records/OBSERVER_RESULTS_SUMMARY_V1.json": "3a92d9baa77f6d4150b959f41025744261b7c3759da3c6dfd0f7a3fcbe2b3e30",
+    "/root/lightsem/experiments/2026-09-22-color-beat/records/PALETTE_SECONDARY_RESULTS_SUMMARY_V1.json": "f9f3a26d7aa10b15f2e0ae8ac2c4a9517efad4ccb604753fd52853e0d67bfa97"
+  },
+  "training_manifest": {
+    "path": "/mnt/lightsem-data/experiments/lightsem/lighting-cue-model-20260922t094347z/observer_training_manifest_v1.json",
+    "sha256": "705ce8ec50ea1f9b7a8d7bb62e1aceee9a82e2eba541892ca02bc76a3254bb10"
+  },
+  "scope": "Research/preregistration bindings. Later executable implementation/weights/annotation receipts must be frozen before new scientific outputs; not a claim that prerequisites are already complete."
+}

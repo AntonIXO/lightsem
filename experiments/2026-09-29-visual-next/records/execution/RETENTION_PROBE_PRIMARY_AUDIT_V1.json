@@ -1,0 +1,57 @@
+{
+  "status": "retention_failure_independently_verified_with_SVD_ridge",
+  "report_sha256": "4659b322c97bd6a8ce7d3894bf52416a7f7f13c5c91bbd2fba55601f2e74cf78",
+  "frozen_bindings_verified": 366,
+  "families": 12,
+  "rows": 928,
+  "source_exclusions": 4,
+  "ridge_fold_scores_recomputed": 192,
+  "maximum_fold_MSE_difference": 5.492828414332962e-14,
+  "skills": {
+    "R1_raw": {
+      "hue": 0.9993109369197549,
+      "layout": 0.8827069504797347
+    },
+    "R0": {
+      "hue": 0.9611228350284879,
+      "layout": -0.09194360991622541
+    },
+    "R1": {
+      "hue": 0.9943377963021687,
+      "layout": -0.14403979052748372
+    },
+    "Rrand": {
+      "hue": 0.5441173809324997,
+      "layout": -1.3145871080821117
+    },
+    "R2": {
+      "hue": -1.3285049172860828,
+      "layout": -2.6720022889686685
+    },
+    "R3": {
+      "hue": -1.624466477530182,
+      "layout": -2.742219981530844
+    },
+    "R3-shuffle": {
+      "hue": -1.7737436068717658,
+      "layout": -2.7424240570805667
+    },
+    "R3-reverse": {
+      "hue": -1.5313503779976054,
+      "layout": -2.6859059866506962
+    }
+  },
+  "R3_retention_ratios": {
+    "hue": -1.6255866092463545,
+    "layout": -3.10660291055882
+  },
+  "recorded_gates": {
+    "hue_retention": false,
+    "layout_retention": false,
+    "monotone_R3_hue_distance": true,
+    "no_severe_rank_collapse": true
+  },
+  "original_fit_gate_pass": false,
+  "elapsed_s_for_budget": 66.08728483412415,
+  "scope": "Fixed TRAIN synthetic calibration. Severe hue/layout qualification failure, not a small miss; no student performance or original hypothesis confirmation."
+}

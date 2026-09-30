@@ -1,0 +1,44 @@
+{
+  "status": "completed_authorized_exploratory_scope_and_review_delivery",
+  "objective": "All user-authorized automatic exploratory comparisons and Shpongle demonstrations delivered.",
+  "active_processes": [],
+  "do_not_restart": "All training/evaluation/inference/render queues are complete. Do not relaunch sessions63293,70914 or98116. No pending GPU work.",
+  "review_url": "http://127.0.0.1:8769/",
+  "review_guide": "/root/lightsem/experiments/2026-09-29-visual-next/records/REVIEW.md",
+  "results_report": "/root/lightsem/experiments/2026-09-29-visual-next/records/RESULTS_EXPLORATORY.md",
+  "completion_audit": "/root/lightsem/experiments/2026-09-29-visual-next/records/execution/COMPLETION_AUDIT_V1.json",
+  "final_manifest": {
+    "path": "/root/lightsem/runs/visual_next_20260929/shpongle_full_review_v1/MANIFEST.json",
+    "sha256": "5475c34b219958c31031edfe7651de0bfa0cd2d9a9eb6e0d1f16a212c5e7fbd4"
+  },
+  "delivery_counts": {
+    "original_study_directions": 4,
+    "source_families": 122,
+    "student_fits": 24,
+    "fixed_optimizer_updates_per_fit": 6000,
+    "evaluated_checkpoints": 27,
+    "independently_recomputed_family_scores": 837,
+    "actual_Shpongle_inferences": 10,
+    "learned_display_streams": 11,
+    "oracle_display_streams": 5,
+    "review_entries": 19,
+    "new_unique_encodes": 9,
+    "new_named_video_files": 16,
+    "exact_duplicate_hard_links": 7,
+    "existing_videos_reused": 3
+  },
+  "key_findings": {
+    "H1": "74/661automatic cues removed,not verifiederrorreduction. Cut-only has0Shpongle colorcues.",
+    "H2": "Cutiecolor estimates agreecloselywithSAM2;independentaccuracyunmeasured. Mask-only has0Shpongle colorcues.",
+    "H3": "R3-R0AP+.00060657,CI[-.011811,.014040],correctedp1;allcombinednumericgatesfail. Retention ratiosnegative. R1meanAP.120396 highestdescriptively,p.07779unadjusted.",
+    "H4": "Relativeerrorgain.847% fails20%;donor/permutationadvantages4.746%/1.347% fail10%. All5oracle examplesdelivered.",
+    "Shpongle": "Eightmodels emit0learnedcolorcues andshareexactoutput. R1:10cues,2subsequentpalettechanges. Combined:3cues,0subsequentchanges. C:262cueopportunities,48subsequentchanges."
+  },
+  "preserved_baseline": "configs/light_layers/baseline.json matches ff342ff exactly. Existing concurrentfestivalcommit2eff936 preserved.",
+  "vault": "Final outcomes recorded in /root/lightsem-vault via pinned vibescience-lightsem MCP. FINAL_OUTCOMES_VAULT_RECEIPTS_V1.json. Original fourhypotheses remainunconfirmed,not falselyclosed as supports.",
+  "remaining_experiment_or_media_work": [],
+  "next_user_action": "Rate videos orchoosea futurebaseline; do not assume promotion.",
+  "source_and_media_immutability": "All freeze-bound artifacts/source snapshots must remain reproducible. Rawweights/videos/caches are in ignoredruns/ andmountedinputstorage; committed package keepscode/protocols/hashes/audits/results/guide.",
+  "version_control": "Final delivery records and code are intended for the containing Git commit; verify Git history before marking the thread goal complete.",
+  "last_goal_turn_classification": "Progress: complete actual pipeline, all19mediaindependentlyverifiedandserved, allresultsrecorded. FinalGitcommitverification remains beforegoaltool completion."
+}

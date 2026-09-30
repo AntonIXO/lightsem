@@ -1,0 +1,21 @@
+{
+  "tool": "register_intervention",
+  "arguments": {
+    "id": "visual-next-color-temporal-aux-v1",
+    "name": "Explicit spatial color plus frozen patch and temporal-difference auxiliary targets",
+    "description": "Seven fixed96D auxiliary recipes: Rich96,4x4explicitHS layout, layout+untrainedDINOv2, layout+frozenDINOv2-S/14, static+lag differences, shuffled-history differences, reversed-history differences. TRAIN-only PCA/scalers; matched independent audio students,3seeds, fixed final6000 checkpoints. No visual playback input.",
+    "topic_tags": [
+      "audio-to-light",
+      "cross-modal"
+    ]
+  },
+  "result": {
+    "id": "visual-next-color-temporal-aux-v1",
+    "name": "Explicit spatial color plus frozen patch and temporal-difference auxiliary targets",
+    "description": "Seven fixed96D auxiliary recipes: Rich96,4x4explicitHS layout, layout+untrainedDINOv2, layout+frozenDINOv2-S/14, static+lag differences, shuffled-history differences, reversed-history differences. TRAIN-only PCA/scalers; matched independent audio students,3seeds, fixed final6000 checkpoints. No visual playback input.",
+    "topic_tags": [
+      "audio-to-light",
+      "cross-modal"
+    ]
+  }
+}

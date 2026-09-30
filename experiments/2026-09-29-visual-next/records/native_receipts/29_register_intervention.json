@@ -1,0 +1,21 @@
+{
+  "tool": "register_intervention",
+  "arguments": {
+    "id": "visual-next-cutie-masks-v1",
+    "name": "Anchored temporal foreground propagation with Cutie",
+    "description": "Cutie-base480px propagates SAM2 union-of-people anchors refreshed every2s and reset at frozen edits. Same YOLO prompts/UI exclusions; no detector replacement. Compare stateless SAM2 and held-anchor control on independent masks/background color.",
+    "topic_tags": [
+      "audio-to-light",
+      "cross-modal"
+    ]
+  },
+  "result": {
+    "id": "visual-next-cutie-masks-v1",
+    "name": "Anchored temporal foreground propagation with Cutie",
+    "description": "Cutie-base480px propagates SAM2 union-of-people anchors refreshed every2s and reset at frozen edits. Same YOLO prompts/UI exclusions; no detector replacement. Compare stateless SAM2 and held-anchor control on independent masks/background color.",
+    "topic_tags": [
+      "audio-to-light",
+      "cross-modal"
+    ]
+  }
+}

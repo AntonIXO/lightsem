@@ -1,0 +1,21 @@
+SMOKE {"model": "transnetv2_official_converted", "seconds": 0.344135032966733, "peak_allocated_bytes": 165133824, "peak_reserved_bytes": 199229440, "process_peak_rss_bytes": 1451646976}
+SMOKE {"model": "same_sam2_union_anchor", "seconds": 1.1719377289991826, "peak_allocated_bytes": 532390400, "peak_reserved_bytes": 627048448, "process_peak_rss_bytes": 2466836480}
+/root/lightsem/runs/visual_next_20260929/vendor/cutie/cutie/utils/tensor_utils.py:48: FutureWarning: `torch.cuda.amp.autocast(args...)` is deprecated. Please use `torch.amp.autocast('cuda', args...)` instead.
+  with torch.cuda.amp.autocast(enabled=False):
+/root/lightsem/runs/visual_next_20260929/vendor/cutie/cutie/model/modules.py:79: FutureWarning: `torch.cuda.amp.autocast(args...)` is deprecated. Please use `torch.amp.autocast('cuda', args...)` instead.
+  with torch.cuda.amp.autocast(enabled=False):
+/root/lightsem/runs/visual_next_20260929/vendor/cutie/cutie/model/transformer/object_summarizer.py:78: FutureWarning: `torch.cuda.amp.autocast(args...)` is deprecated. Please use `torch.amp.autocast('cuda', args...)` instead.
+  with torch.cuda.amp.autocast(enabled=False):
+/root/lightsem/runs/visual_next_20260929/vendor/cutie/cutie/model/big_modules.py:289: FutureWarning: `torch.cuda.amp.autocast(args...)` is deprecated. Please use `torch.amp.autocast('cuda', args...)` instead.
+  with torch.cuda.amp.autocast(enabled=False):
+/root/lightsem/runs/visual_next_20260929/vendor/cutie/cutie/model/modules.py:62: FutureWarning: `torch.cuda.amp.autocast(args...)` is deprecated. Please use `torch.amp.autocast('cuda', args...)` instead.
+  with torch.cuda.amp.autocast(enabled=False):
+SMOKE {"model": "cutie_base_mega_480", "seconds": 1.1917141769081354, "peak_allocated_bytes": 405623296, "peak_reserved_bytes": 486539264, "process_peak_rss_bytes": 2819985408}
+/root/lightsem/runs/visual_next_20260929/vendor/dinov2/dinov2/layers/swiglu_ffn.py:51: UserWarning: xFormers is not available (SwiGLU)
+  warnings.warn("xFormers is not available (SwiGLU)")
+/root/lightsem/runs/visual_next_20260929/vendor/dinov2/dinov2/layers/attention.py:33: UserWarning: xFormers is not available (Attention)
+  warnings.warn("xFormers is not available (Attention)")
+/root/lightsem/runs/visual_next_20260929/vendor/dinov2/dinov2/layers/block.py:40: UserWarning: xFormers is not available (Block)
+  warnings.warn("xFormers is not available (Block)")
+SMOKE {"model": "dinov2_pretrained", "seconds": 0.21976778889074922, "peak_allocated_bytes": 128332800, "peak_reserved_bytes": 138412032, "process_peak_rss_bytes": 2872049664}
+SMOKE {"model": "dinov2_random_seed17", "seconds": 0.1622518179938197, "peak_allocated_bytes": 128332800, "peak_reserved_bytes": 138412032, "process_peak_rss_bytes": 2872049664}

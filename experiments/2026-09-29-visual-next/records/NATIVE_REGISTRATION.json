@@ -1,0 +1,299 @@
+{
+  "status": "PREREGISTERED_AND_READ_BACK",
+  "hypotheses": [
+    "h-visual-next-cut-targets-20260929",
+    "h-visual-next-temporal-masks-20260929",
+    "h-visual-next-color-temporal-20260929",
+    "h-visual-next-fixture-oracle-20260929"
+  ],
+  "new_papers": 17,
+  "new_diagnostics": 7,
+  "new_interventions": 4,
+  "runbooks": [
+    "rb-visual-next-cut-targets-20260929",
+    "rb-visual-next-temporal-masks-20260929",
+    "rb-visual-next-color-temporal-20260929",
+    "rb-visual-next-fixture-oracle-20260929"
+  ],
+  "calls": [
+    {
+      "tool": "get_problem",
+      "id": "dancing-light-generative-20260903"
+    },
+    {
+      "tool": "recall",
+      "id": null
+    },
+    {
+      "tool": "list_tags",
+      "id": null
+    },
+    {
+      "tool": "add_paper",
+      "id": "paper-dinov3-2508-10104"
+    },
+    {
+      "tool": "add_paper",
+      "id": "paper-videoprism-2402-13217"
+    },
+    {
+      "tool": "add_paper",
+      "id": "paper-vjepa21-2603-14482"
+    },
+    {
+      "tool": "add_paper",
+      "id": "paper-cutie-2310-12982"
+    },
+    {
+      "tool": "add_paper",
+      "id": "paper-raft-2003-12039"
+    },
+    {
+      "tool": "add_paper",
+      "id": "paper-regularized-ot-1307-5551"
+    },
+    {
+      "tool": "add_paper",
+      "id": "paper-palette-recolor-2015"
+    },
+    {
+      "tool": "add_paper",
+      "id": "paper-dreamsim-2306-09344"
+    },
+    {
+      "tool": "add_paper",
+      "id": "paper-insid3-2603-28480"
+    },
+    {
+      "tool": "add_paper",
+      "id": "paper-transnetv2-2008-04838"
+    },
+    {
+      "tool": "add_paper",
+      "id": "paper-deva-2309-03903"
+    },
+    {
+      "tool": "add_paper",
+      "id": "paper-maskfreevis-2303-15904"
+    },
+    {
+      "tool": "add_paper",
+      "id": "paper-davis-2016"
+    },
+    {
+      "tool": "add_paper",
+      "id": "paper-dinov2-2304-07193"
+    },
+    {
+      "tool": "add_paper",
+      "id": "paper-videomae-2203-12602"
+    },
+    {
+      "tool": "add_paper",
+      "id": "paper-colorvideovdp-2401-11485"
+    },
+    {
+      "tool": "add_paper",
+      "id": "paper-synchformer-2401-16423"
+    },
+    {
+      "tool": "register_diagnostic",
+      "id": "visual-next-content-recall"
+    },
+    {
+      "tool": "register_diagnostic",
+      "id": "visual-next-content-false-cues"
+    },
+    {
+      "tool": "register_diagnostic",
+      "id": "visual-next-content-event-f1"
+    },
+    {
+      "tool": "register_diagnostic",
+      "id": "visual-next-content-event-ap"
+    },
+    {
+      "tool": "register_diagnostic",
+      "id": "visual-next-background-removal"
+    },
+    {
+      "tool": "register_diagnostic",
+      "id": "visual-next-render-luma-mismatch"
+    },
+    {
+      "tool": "register_diagnostic",
+      "id": "visual-next-spatial-palette-error"
+    },
+    {
+      "tool": "register_intervention",
+      "id": "visual-next-edit-veto-v1"
+    },
+    {
+      "tool": "register_intervention",
+      "id": "visual-next-cutie-masks-v1"
+    },
+    {
+      "tool": "register_intervention",
+      "id": "visual-next-color-temporal-aux-v1"
+    },
+    {
+      "tool": "register_intervention",
+      "id": "visual-next-fixture-oracle-v1"
+    },
+    {
+      "tool": "propose_hypothesis",
+      "id": "h-visual-next-cut-targets-20260929"
+    },
+    {
+      "tool": "propose_hypothesis",
+      "id": "h-visual-next-temporal-masks-20260929"
+    },
+    {
+      "tool": "propose_hypothesis",
+      "id": "h-visual-next-color-temporal-20260929"
+    },
+    {
+      "tool": "propose_hypothesis",
+      "id": "h-visual-next-fixture-oracle-20260929"
+    },
+    {
+      "tool": "update_problem",
+      "id": "dancing-light-generative-20260903"
+    },
+    {
+      "tool": "synthesize_problem",
+      "id": null
+    },
+    {
+      "tool": "get_problem",
+      "id": "dancing-light-generative-20260903"
+    },
+    {
+      "tool": "register_runbook",
+      "id": "rb-visual-next-cut-targets-20260929"
+    },
+    {
+      "tool": "update_runbook",
+      "id": "rb-visual-next-cut-targets-20260929"
+    },
+    {
+      "tool": "register_runbook",
+      "id": "rb-visual-next-temporal-masks-20260929"
+    },
+    {
+      "tool": "update_runbook",
+      "id": "rb-visual-next-temporal-masks-20260929"
+    },
+    {
+      "tool": "register_runbook",
+      "id": "rb-visual-next-color-temporal-20260929"
+    },
+    {
+      "tool": "update_runbook",
+      "id": "rb-visual-next-color-temporal-20260929"
+    },
+    {
+      "tool": "register_runbook",
+      "id": "rb-visual-next-fixture-oracle-20260929"
+    },
+    {
+      "tool": "update_runbook",
+      "id": "rb-visual-next-fixture-oracle-20260929"
+    },
+    {
+      "tool": "update_runbook",
+      "id": "rb-baseline06-image-supervision-20260929"
+    },
+    {
+      "tool": "recall",
+      "id": null
+    }
+  ],
+  "protocol_sha256": "772b9687c992275f020b488edf7524596c3c7f177cd40befbcda3828aa8573b5",
+  "created_records": [
+    "/root/lightsem-vault/papers/paper-dinov3-2508-10104.md",
+    "/root/lightsem-vault/papers/paper-videoprism-2402-13217.md",
+    "/root/lightsem-vault/papers/paper-vjepa21-2603-14482.md",
+    "/root/lightsem-vault/papers/paper-cutie-2310-12982.md",
+    "/root/lightsem-vault/papers/paper-raft-2003-12039.md",
+    "/root/lightsem-vault/papers/paper-regularized-ot-1307-5551.md",
+    "/root/lightsem-vault/papers/paper-palette-recolor-2015.md",
+    "/root/lightsem-vault/papers/paper-dreamsim-2306-09344.md",
+    "/root/lightsem-vault/papers/paper-insid3-2603-28480.md",
+    "/root/lightsem-vault/papers/paper-transnetv2-2008-04838.md",
+    "/root/lightsem-vault/papers/paper-deva-2309-03903.md",
+    "/root/lightsem-vault/papers/paper-maskfreevis-2303-15904.md",
+    "/root/lightsem-vault/papers/paper-davis-2016.md",
+    "/root/lightsem-vault/papers/paper-dinov2-2304-07193.md",
+    "/root/lightsem-vault/papers/paper-videomae-2203-12602.md",
+    "/root/lightsem-vault/papers/paper-colorvideovdp-2401-11485.md",
+    "/root/lightsem-vault/papers/paper-synchformer-2401-16423.md",
+    "/root/lightsem-vault/diagnostics/visual-next-content-recall.md",
+    "/root/lightsem-vault/diagnostics/visual-next-content-false-cues.md",
+    "/root/lightsem-vault/diagnostics/visual-next-content-event-f1.md",
+    "/root/lightsem-vault/diagnostics/visual-next-content-event-ap.md",
+    "/root/lightsem-vault/diagnostics/visual-next-background-removal.md",
+    "/root/lightsem-vault/diagnostics/visual-next-render-luma-mismatch.md",
+    "/root/lightsem-vault/diagnostics/visual-next-spatial-palette-error.md",
+    "/root/lightsem-vault/interventions/visual-next-edit-veto-v1.md",
+    "/root/lightsem-vault/interventions/visual-next-cutie-masks-v1.md",
+    "/root/lightsem-vault/interventions/visual-next-color-temporal-aux-v1.md",
+    "/root/lightsem-vault/interventions/visual-next-fixture-oracle-v1.md",
+    "/root/lightsem-vault/hypotheses/h-visual-next-cut-targets-20260929.md",
+    "/root/lightsem-vault/hypotheses/h-visual-next-temporal-masks-20260929.md",
+    "/root/lightsem-vault/hypotheses/h-visual-next-color-temporal-20260929.md",
+    "/root/lightsem-vault/hypotheses/h-visual-next-fixture-oracle-20260929.md",
+    "/root/lightsem-vault/runbooks/rb-visual-next-cut-targets-20260929.md",
+    "/root/lightsem-vault/runbooks/rb-visual-next-temporal-masks-20260929.md",
+    "/root/lightsem-vault/runbooks/rb-visual-next-color-temporal-20260929.md",
+    "/root/lightsem-vault/runbooks/rb-visual-next-fixture-oracle-20260929.md"
+  ],
+  "changed_markdown": {
+    "/root/lightsem-vault": [
+      "/root/lightsem-vault/diagnostics/visual-next-background-removal.md",
+      "/root/lightsem-vault/diagnostics/visual-next-content-event-ap.md",
+      "/root/lightsem-vault/diagnostics/visual-next-content-event-f1.md",
+      "/root/lightsem-vault/diagnostics/visual-next-content-false-cues.md",
+      "/root/lightsem-vault/diagnostics/visual-next-content-recall.md",
+      "/root/lightsem-vault/diagnostics/visual-next-render-luma-mismatch.md",
+      "/root/lightsem-vault/diagnostics/visual-next-spatial-palette-error.md",
+      "/root/lightsem-vault/hypotheses/h-visual-next-color-temporal-20260929.md",
+      "/root/lightsem-vault/hypotheses/h-visual-next-cut-targets-20260929.md",
+      "/root/lightsem-vault/hypotheses/h-visual-next-fixture-oracle-20260929.md",
+      "/root/lightsem-vault/hypotheses/h-visual-next-temporal-masks-20260929.md",
+      "/root/lightsem-vault/interventions/visual-next-color-temporal-aux-v1.md",
+      "/root/lightsem-vault/interventions/visual-next-cutie-masks-v1.md",
+      "/root/lightsem-vault/interventions/visual-next-edit-veto-v1.md",
+      "/root/lightsem-vault/interventions/visual-next-fixture-oracle-v1.md",
+      "/root/lightsem-vault/papers/paper-colorvideovdp-2401-11485.md",
+      "/root/lightsem-vault/papers/paper-cutie-2310-12982.md",
+      "/root/lightsem-vault/papers/paper-davis-2016.md",
+      "/root/lightsem-vault/papers/paper-deva-2309-03903.md",
+      "/root/lightsem-vault/papers/paper-dinov2-2304-07193.md",
+      "/root/lightsem-vault/papers/paper-dinov3-2508-10104.md",
+      "/root/lightsem-vault/papers/paper-dreamsim-2306-09344.md",
+      "/root/lightsem-vault/papers/paper-insid3-2603-28480.md",
+      "/root/lightsem-vault/papers/paper-maskfreevis-2303-15904.md",
+      "/root/lightsem-vault/papers/paper-palette-recolor-2015.md",
+      "/root/lightsem-vault/papers/paper-raft-2003-12039.md",
+      "/root/lightsem-vault/papers/paper-regularized-ot-1307-5551.md",
+      "/root/lightsem-vault/papers/paper-synchformer-2401-16423.md",
+      "/root/lightsem-vault/papers/paper-transnetv2-2008-04838.md",
+      "/root/lightsem-vault/papers/paper-videomae-2203-12602.md",
+      "/root/lightsem-vault/papers/paper-videoprism-2402-13217.md",
+      "/root/lightsem-vault/papers/paper-vjepa21-2603-14482.md",
+      "/root/lightsem-vault/problems/dancing-light-generative-20260903.md",
+      "/root/lightsem-vault/runbooks/rb-baseline06-image-supervision-20260929.md",
+      "/root/lightsem-vault/runbooks/rb-visual-next-color-temporal-20260929.md",
+      "/root/lightsem-vault/runbooks/rb-visual-next-cut-targets-20260929.md",
+      "/root/lightsem-vault/runbooks/rb-visual-next-fixture-oracle-20260929.md",
+      "/root/lightsem-vault/runbooks/rb-visual-next-temporal-masks-20260929.md"
+    ],
+    "/root/vibescience-vault": []
+  },
+  "all_historical_experiment_bytes_preserved": true,
+  "foreign_vault_unchanged": true,
+  "native_plan_readback_complete": true,
+  "new_experiments": 0,
+  "scientific_results_or_noise_estimates_recorded": false
+}

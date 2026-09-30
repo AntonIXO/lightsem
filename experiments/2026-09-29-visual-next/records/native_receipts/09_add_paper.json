@@ -1,0 +1,31 @@
+{
+  "tool": "add_paper",
+  "arguments": {
+    "id": "paper-regularized-ot-1307-5551",
+    "title": "Regularized Discrete Optimal Transport",
+    "arxiv_id_or_url": "https://arxiv.org/abs/1307.5551",
+    "key_claims": [
+      "Relaxed mass conservation and graph regularization help transfer multimodal color distributions without amplifying noise. This motivates a constrained fixture-assignment oracle and distributional objectives rather than collapsing a palette to its mean RGB. The paper is image recoloring, not a physical lighting controller: fixture gamut, overlap, emitted luminance and temporal transitions must be constrained independently. Histogram matching alone ignores spatial layout. Keep a regional held-out error and palette-permutation control; an oracle improvement establishes output capacity only.",
+      "Verified full PDF SHA256 68962db9b04c14655e82f9eb4d50e68a9d5047f0cff91e8c42c86d1e4c717be2. Read scope: Abstract; relaxed transport and graph regularization Sec3; color transfer Sec4.1–4.2; algorithm/scaling discussion. Published evidence is outside LightSem; application here is a hypothesis."
+    ],
+    "topic_tags": [
+      "audio-to-light",
+      "cross-modal",
+      "evaluation-metric"
+    ]
+  },
+  "result": {
+    "id": "paper-regularized-ot-1307-5551",
+    "title": "Regularized Discrete Optimal Transport",
+    "arxiv_id_or_url": "https://arxiv.org/abs/1307.5551",
+    "key_claims": [
+      "Relaxed mass conservation and graph regularization help transfer multimodal color distributions without amplifying noise. This motivates a constrained fixture-assignment oracle and distributional objectives rather than collapsing a palette to its mean RGB. The paper is image recoloring, not a physical lighting controller: fixture gamut, overlap, emitted luminance and temporal transitions must be constrained independently. Histogram matching alone ignores spatial layout. Keep a regional held-out error and palette-permutation control; an oracle improvement establishes output capacity only.",
+      "Verified full PDF SHA256 68962db9b04c14655e82f9eb4d50e68a9d5047f0cff91e8c42c86d1e4c717be2. Read scope: Abstract; relaxed transport and graph regularization Sec3; color transfer Sec4.1–4.2; algorithm/scaling discussion. Published evidence is outside LightSem; application here is a hypothesis."
+    ],
+    "topic_tags": [
+      "audio-to-light",
+      "cross-modal",
+      "evaluation-metric"
+    ]
+  }
+}

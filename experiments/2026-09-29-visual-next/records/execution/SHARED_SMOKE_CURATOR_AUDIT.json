@@ -1,0 +1,66 @@
+{
+  "artifacts": {
+    "all_declared_hashes_match": true,
+    "all_numeric_values_finite": true,
+    "count": 5,
+    "ordered_path_sha256_manifest_sha256": "da1cadac83936799a3125e8d58683c6f68fff441761bc11b7079c0e33419a571",
+    "shapes_checked": true
+  },
+  "checks": {
+    "artifact_hashes_and_arrays": "passed",
+    "freeze_inputs": "passed",
+    "gpu_released": "passed",
+    "replay_tolerance": "passed",
+    "report_bindings": "passed",
+    "resource_limits": "passed"
+  },
+  "freeze": {
+    "actual_sha256": "1d2e2d7aa04b0c2cddb0e8148b1583fad7a6b04736d51f8c8cb4887c42e603bc",
+    "expected_sha256": "1d2e2d7aa04b0c2cddb0e8148b1583fad7a6b04736d51f8c8cb4887c42e603bc",
+    "path": "/root/lightsem/experiments/2026-09-29-visual-next/records/execution/SHARED_SMOKE_FREEZE_V1.json"
+  },
+  "frozen_inputs": {
+    "all_unchanged": true,
+    "count": 382,
+    "ordered_path_sha256_manifest_sha256": "26f778c96bf56d3d2fed7626f8e933f8be257e501364cd6262ffc50fa09c61c4"
+  },
+  "gpu_compute_processes_after": "none",
+  "log": {
+    "path": "/root/lightsem/experiments/2026-09-29-visual-next/records/execution/SHARED_SMOKE_V1.log",
+    "sha256": "990c1cc755a13c99b315d4262eba3138100857b0589bfb9dbaea3e835a37a4b7"
+  },
+  "replay": {
+    "allowed_max_abs_error": 0.0005,
+    "baseline_replay_max_abs_rich_error": 0.00024378299713134766,
+    "float16_teacher_max_abs_roundoff": 0.003856658935546875
+  },
+  "reports": {
+    "aggregate_path": "/root/lightsem/runs/visual_next_20260929/shared_smoke_v1/REPORT.json",
+    "aggregate_sha256": "5d9878d00d53d67c7181070530f0b16018188ed277cb16e4ca5c59dace44a60e",
+    "family_path": "/root/lightsem/runs/visual_next_20260929/shared_smoke_v1/jd-5fc36e07dfcc022631ff/REPORT.json",
+    "family_sha256": "c96b9543c131b38ed68ad59d4e437497f6b00236cfdd906fa89015700feb4543",
+    "frames": 16,
+    "independent_background_color_error": null,
+    "independent_mask_accuracy": null,
+    "original_hypotheses_closed": false,
+    "status": "shared_extraction_complete",
+    "test_access": false
+  },
+  "resources": {
+    "peak_reserved_bytes": 1132462080,
+    "peak_rss_bytes": 2621001728,
+    "stage_limits_seconds": {
+      "H1_H2": 180,
+      "H3_features": 180
+    },
+    "stage_seconds": {
+      "H1_H2": 7.047255609417334,
+      "H3_features": 0.7174787984695286
+    },
+    "study_cache_bytes": 1207918438
+  },
+  "stage": "shared_smoke_v1_curator_audit",
+  "status": "passed",
+  "terminal_process_state": "terminated",
+  "verified_utc": "2026-09-29T17:57:15.906572Z"
+}

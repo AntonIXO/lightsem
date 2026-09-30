@@ -1,0 +1,15 @@
+{
+  "status": "reverse_control_information_equivalence_proven_before_fitting",
+  "construction": "R3=[current,current-prev1,current-prev5]; reversal gives[current,current-prev5,current-prev1]. Fixed invertible coordinate permutation.",
+  "exact_permutation_equality": true,
+  "max_float64_Gram_difference": 1.4210854715202004e-14,
+  "random_sequence_seed": 20260929,
+  "rows": 64,
+  "input_dimension": 7,
+  "PCA_implication": "Exact PCA sees the same sample Gram matrix; separate coordinate relabeling cannot remove temporal information. Approximate solver and optimization differences are not evidence that true chronology was lost.",
+  "original_gate": "R3 superiority over R3-reverse remains a registered requirement but is not an identifiable temporal-order test. Do not call a miss scientific refutation or a numerical win causal evidence.",
+  "meaningful_existing_control": "R3-shuffle uses independently permuted five-frame windows; it does not reduce to one fixed global coordinate permutation.",
+  "change_to_executed_methods": false,
+  "all_original_7x3_fits_retained": true,
+  "original_quality_thresholds_not_silently_changed": true
+}

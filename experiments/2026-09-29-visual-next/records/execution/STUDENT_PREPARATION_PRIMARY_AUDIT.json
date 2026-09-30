@@ -1,0 +1,22 @@
+{
+  "status": "paired_initializations_independently_verified",
+  "report_sha256": "a361f6a4d8c624bb5cd5f5106269efdcde2352a00628b8636eb47afbf64b2388",
+  "main_targets_sha256": "59be936164e437af195b2b4be8fb8c80c712735582e729d20400d6c699f17098",
+  "initialization_sha256": {
+    "0": "4e2d686e549586e10ecbb20cb80474aee5f43531034311dfb3b086579fd2ad28",
+    "1": "583de93e6bedff8f5b42eedc22804ef94d0372428ccffb041bdbd7708a064ea9",
+    "2": "eeece44e846c0f80b34dbd23043e7f17da4350860e21db8726d0c1d4403a440f"
+  },
+  "sample_sequence_sha256": {
+    "0": "9bee858299da08a2d056d4f144498901900befcc10ec41cbb2e44d8df104d064",
+    "1": "916efe6ae5d63c08f31d71429948d00ce886a655fb93728819552a55e72d07a6",
+    "2": "6f774ea8f969d0dcb060f71104fc3289fec473f2aac44ab4ab04daa79d5f93fa"
+  },
+  "checkpoints_load_strictly": true,
+  "seeds": [
+    0,
+    1,
+    2
+  ],
+  "fitting_or_predictions": false
+}

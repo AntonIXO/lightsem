@@ -1,0 +1,72 @@
+{
+  "measured_utc": "2026-09-29T20:27:15.969616+00:00",
+  "directories": [
+    {
+      "directory": "cut_traces_resume_v1",
+      "bytes": 221444
+    },
+    {
+      "directory": "smoke_v1",
+      "bytes": 742327
+    },
+    {
+      "directory": "vendor",
+      "bytes": 7998940
+    },
+    {
+      "directory": "runtime_deps",
+      "bytes": 6356239
+    },
+    {
+      "directory": "baseline_C_proxy_v1",
+      "bytes": 484
+    },
+    {
+      "directory": "shpongle_palette_previews_v1",
+      "bytes": 874639
+    },
+    {
+      "directory": "weights",
+      "bytes": 295689502
+    },
+    {
+      "directory": "initializations_v1",
+      "bytes": 15780554
+    },
+    {
+      "directory": "shared_smoke_v1",
+      "bytes": 426638
+    },
+    {
+      "directory": "cut_traces_v1",
+      "bytes": 1431655
+    },
+    {
+      "directory": "baseline_C_proxy_v3",
+      "bytes": 1451077
+    },
+    {
+      "directory": "annotations",
+      "bytes": 895053842
+    },
+    {
+      "directory": "shared_corpus_v2",
+      "bytes": 1343721229
+    },
+    {
+      "directory": "baseline_C_proxy_v2",
+      "bytes": 588
+    },
+    {
+      "directory": "evaluation_inputs_v1",
+      "bytes": 435405
+    }
+  ],
+  "bytes": 2570184563,
+  "root_free_bytes": 12782768128,
+  "mnt_free_bytes": 1244852224,
+  "exclusions": [
+    "papers"
+  ],
+  "scope": "Artifact storage inventory, not scientific output quality or GPU progress estimate"
+}

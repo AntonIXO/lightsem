@@ -1,5 +1,7 @@
 # Image supervision after the baseline06 selection
 
+Research and preregistration are complete. See [the successor study package](../../2026-09-29-visual-next/README.md) for the verified papers, four native hypotheses and exact prospective protocol. The original research runbook below is complete; separate queued runbooks carry the future experiments. Baseline C includes history and300ms fades.
+
 User direction: retain06, add color transitions, repeat palette-history A/B on06,
 and investigate the picture as well as movement. Native queue:
 `rb-baseline06-image-supervision-20260929` in `/root/lightsem-vault`.

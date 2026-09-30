@@ -1,0 +1,31 @@
+{
+  "tool": "add_paper",
+  "arguments": {
+    "id": "paper-videoprism-2402-13217",
+    "title": "VideoPrism: A Foundational Visual Encoder for Video Understanding",
+    "arxiv_id_or_url": "https://arxiv.org/abs/2402.13217v3",
+    "key_claims": [
+      "A frozen video encoder retains spatiotemporal outputs and combines semantic global/local distillation. It provides a useful temporal-representation comparator in principle. Its paper explicitly limits long-video understanding: the encoder consumes16 sampled frames. The official implementation currently uses JAX/Flax and lists PyTorch support as a TODO, so it is deferred from the first PyTorch pilot. Large and partly private pretraining data leave overlap and transfer questions; no stage-light or precise chromatic timing result is established.",
+      "Verified full PDF SHA256 dc3958c581b69c7a492f0f7b4d90a5b2acdf1697896be6755b71e38399440066. Read scope: Abstract; architecture and two-stage training Sec2.2–2.3; ablations and limitations Sec3.5–3.6; official code availability. Published evidence is outside LightSem; application here is a hypothesis."
+    ],
+    "topic_tags": [
+      "audio-to-light",
+      "cross-modal",
+      "evaluation-metric"
+    ]
+  },
+  "result": {
+    "id": "paper-videoprism-2402-13217",
+    "title": "VideoPrism: A Foundational Visual Encoder for Video Understanding",
+    "arxiv_id_or_url": "https://arxiv.org/abs/2402.13217v3",
+    "key_claims": [
+      "A frozen video encoder retains spatiotemporal outputs and combines semantic global/local distillation. It provides a useful temporal-representation comparator in principle. Its paper explicitly limits long-video understanding: the encoder consumes16 sampled frames. The official implementation currently uses JAX/Flax and lists PyTorch support as a TODO, so it is deferred from the first PyTorch pilot. Large and partly private pretraining data leave overlap and transfer questions; no stage-light or precise chromatic timing result is established.",
+      "Verified full PDF SHA256 dc3958c581b69c7a492f0f7b4d90a5b2acdf1697896be6755b71e38399440066. Read scope: Abstract; architecture and two-stage training Sec2.2–2.3; ablations and limitations Sec3.5–3.6; official code availability. Published evidence is outside LightSem; application here is a hypothesis."
+    ],
+    "topic_tags": [
+      "audio-to-light",
+      "cross-modal",
+      "evaluation-metric"
+    ]
+  }
+}

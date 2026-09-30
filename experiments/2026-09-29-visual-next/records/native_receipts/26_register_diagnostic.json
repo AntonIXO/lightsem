@@ -1,0 +1,32 @@
+{
+  "tool": "register_diagnostic",
+  "arguments": {
+    "id": "visual-next-render-luma-mismatch",
+    "name": "Displayed-luma mismatch to equally privileged global oracle",
+    "unit": "relative_fraction",
+    "direction": "lower_better",
+    "description": "Absolute difference in fixed-mask mean displayed luma versus global-color oracle divided by that oracle luma, averaged over fixed scoring frames then source families. Declare renderer/tone map/visibility mask and positive denominator. Not calibrated physical output.",
+    "topic_tags": [
+      "audio-to-light",
+      "evaluation-metric"
+    ],
+    "noise_note": "No noise sigma or powered MDE measured at registration; no numeric noise floor is assumed."
+  },
+  "result": {
+    "id": "visual-next-render-luma-mismatch",
+    "name": "Displayed-luma mismatch to equally privileged global oracle",
+    "unit": "relative_fraction",
+    "direction": "lower_better",
+    "description": "Absolute difference in fixed-mask mean displayed luma versus global-color oracle divided by that oracle luma, averaged over fixed scoring frames then source families. Declare renderer/tone map/visibility mask and positive denominator. Not calibrated physical output.",
+    "topic_tags": [
+      "audio-to-light",
+      "evaluation-metric"
+    ],
+    "requires_control": null,
+    "noise_sigma": null,
+    "noise_source": null,
+    "noise_n": null,
+    "noise_note": "No noise sigma or powered MDE measured at registration; no numeric noise floor is assumed.",
+    "noise_k": 2.0
+  }
+}

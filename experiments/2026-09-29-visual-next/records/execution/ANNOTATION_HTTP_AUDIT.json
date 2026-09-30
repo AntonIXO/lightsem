@@ -1,0 +1,31 @@
+{
+  "status": "passed",
+  "url": "http://127.0.0.1:8767",
+  "page_and_pack": 200,
+  "media_HEAD_checks": 43,
+  "range_checks": [
+    {
+      "path": "jd-5fc36e07dfcc022631ff/source.mp4",
+      "status": 206,
+      "bytes": 32,
+      "local_bytes_match": true
+    },
+    {
+      "path": "jd-2d5d5defd33a5ae0bdc3/source.mp4",
+      "status": 206,
+      "bytes": 32,
+      "local_bytes_match": true
+    },
+    {
+      "path": "jd-5fc36e07dfcc022631ff/frame_00.png",
+      "status": 206,
+      "bytes": 32,
+      "local_bytes_match": true
+    }
+  ],
+  "other_reviewer_drafts_not_exposed": true,
+  "unlisted_paths_rejected": true,
+  "invalid_draft_rejected": true,
+  "human_labels_written": 0,
+  "browser_visual_check": "not_performed_no_browser_runtime_available"
+}

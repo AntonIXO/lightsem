@@ -1,0 +1,38 @@
+{
+  "tool": "update_runbook",
+  "arguments": {
+    "runbook_id": "rb-baseline06-image-supervision-20260929",
+    "status": "done",
+    "hypothesis_id": "h-visual-next-cut-targets-20260929",
+    "preconditions": "Research/preregistration completed; four specific queued runbooks now carry execution. Independent annotations and experiments remain pending.",
+    "note": "Completed the requested full-context Perplexity research,17primary-paper verification/reading, and four native prospective hypotheses: h-visual-next-cut-targets-20260929, h-visual-next-temporal-masks-20260929, h-visual-next-color-temporal-20260929, h-visual-next-fixture-oracle-20260929. This closes only the research-planning intent, not the experiments. Baseline C remains accepted."
+  },
+  "result": {
+    "id": "rb-baseline06-image-supervision-20260929",
+    "problem_id": "dancing-light-generative-20260903",
+    "prompt": "CURRENT ACCEPTED BASELINE: C (06 I_VR_P0 + history ON +300ms smoothstep transitions). User explicitly selected history ON and transitions ON for the new baseline after four-arm review, and requested committing all changes including compression. This selects armC: variant06 independent Rich96 I_VR_P0 selected seed0, rhythm companion02, generated palette history, 300ms causal smoothstep channel-RGB transitions. Current config /root/lightsem/configs/light_layers/baseline.json now points to C video SHA256 fb06c3f3a951a4f2a12bbc01f4470cec4f8326912a441bd4e25097e275170299 and C streams SHA25634ca1d5f2c9a271b9e08536519f4d657e4aa3017a5ac42514b38e8dd07e4829b. Full C video43587650bytes,1080p30AV1,277.3s. Compact encoding is AV1 NVENC p7/UHQ1100k target1200k max2000k buffer, AAC128k, maximum50MB for full Shpongle reviews. Source FLAC remains unchanged. Exact user message /root/lightsem/experiments/2026-09-29-baseline/records/USER_BASELINE_C_SELECTION.json. Old configuration preserved in BASELINE_BEFORE_C_SELECTION.json and matches the frozen review binding; historical manifests/audits retained. The new baseline is accepted by the user; no further selection/permission or numerical ratings required. This is product preference, not changed scientific verdicts.\n\nResearch intent:\nInvestigate richer image supervision from the user-selected baseline06 I_VR_P0, not an assumed pose-only or YOLO-generated model. Existing selected independent architecture has separate audio encoders for accent, chromatic change and palette, Rich96 image auxiliary, pose_aux_dim0. Current image observer uses SAM2 box-prompted person masks with YOLO-derived cached boxes and excludes UI/people; 72 hue-saturation bins+24 quadrant descriptors, brightness-derived accent targets. No full-scene semantic representation or validated independent light labels. User reports strong track/rhythm match on Shpongle but this is one-song informed feedback. Next scoped study should inspect image targets, mask/UI/shot-cut contamination and temporal visual structure, establish independently annotated useful changes on a bounded TRAIN/DEV pilot, and compare current descriptors against a richer image/temporal representation with appropriate audio and visual nulls. Replacing YOLO alone is a separate masking intervention, not a demonstrated route to better lighting. No new fitting, dataset enlargement, test access or claimed advantage is authorized by this queue entry alone; preregister actual controlled pilot before computation. Keep previous observer29/30 null gate and negative palette-history results intact. First review baseline06 history/fade A/B.\n\nAdditional local finding: current demo mapping reduces each palette token to one global RGB and applies it to all color-enabled fixtures; there is no learned fixture-wise color assignment. A richer image representation and a spatial fixture-color output mapping are separate interventions. See updated experiments/2026-09-29-baseline/records/IMAGE_SUPERVISION_NEXT.md. Current inference/model outputs stay unchanged.",
+    "preconditions": "Research/preregistration completed; four specific queued runbooks now carry execution. Independent annotations and experiments remain pending.",
+    "gates": [],
+    "status": "done",
+    "hypothesis_id": "h-visual-next-cut-targets-20260929",
+    "priority": 20,
+    "notes": [
+      {
+        "at": "2026-09-29T15:19:56+00:00",
+        "text": "Additional local finding: current demo mapping reduces each palette token to one global RGB and applies it to all color-enabled fixtures; there is no learned fixture-wise color assignment. A richer image representation and a spatial fixture-color output mapping are separate interventions. See updated experiments/2026-09-29-baseline/records/IMAGE_SUPERVISION_NEXT.md. Current inference/model outputs stay unchanged."
+      },
+      {
+        "at": "2026-09-29T15:33:23+00:00",
+        "text": "User explicitly selected history ON and transitions ON for the new baseline after four-arm review, and requested committing all changes including compression. This selects armC: variant06 independent Rich96 I_VR_P0 selected seed0, rhythm companion02, generated palette history, 300ms causal smoothstep channel-RGB transitions. Current config /root/lightsem/configs/light_layers/baseline.json now points to C video SHA256 fb06c3f3a951a4f2a12bbc01f4470cec4f8326912a441bd4e25097e275170299 and C streams SHA25634ca1d5f2c9a271b9e08536519f4d657e4aa3017a5ac42514b38e8dd07e4829b. Full C video43587650bytes,1080p30AV1,277.3s. Compact encoding is AV1 NVENC p7/UHQ1100k target1200k max2000k buffer, AAC128k, maximum50MB for full Shpongle reviews. Source FLAC remains unchanged. Exact user message /root/lightsem/experiments/2026-09-29-baseline/records/USER_BASELINE_C_SELECTION.json. Old configuration preserved in BASELINE_BEFORE_C_SELECTION.json and matches the frozen review binding; historical manifests/audits retained. The new baseline is accepted by the user; no further selection/permission or numerical ratings required. This is product preference, not changed scientific verdicts."
+      },
+      {
+        "at": "2026-09-29T16:27:00+00:00",
+        "text": "Completed the requested full-context Perplexity research,17primary-paper verification/reading, and four native prospective hypotheses: h-visual-next-cut-targets-20260929, h-visual-next-temporal-masks-20260929, h-visual-next-color-temporal-20260929, h-visual-next-fixture-oracle-20260929. This closes only the research-planning intent, not the experiments. Baseline C remains accepted."
+      }
+    ],
+    "former_ids": [],
+    "topic_tags": [],
+    "created_at": "2026-09-29T15:04:24+00:00",
+    "updated_at": "2026-09-29T16:27:00+00:00"
+  }
+}

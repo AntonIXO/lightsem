@@ -1,0 +1,115 @@
+{
+  "status": "VERIFIED",
+  "count": 17,
+  "perplexity_recommendations_fetched_and_read": 10,
+  "additional_primary_papers": 7,
+  "dedup_scope": "Full current LightSem papers directory and81-reference research brief; normalized arXiv identities plus manual title comparison for non-arXiv entries.",
+  "existing_paper_files": 81,
+  "pdf_bytes": 259302591,
+  "arxiv_mcp_available": false,
+  "verification_fallback": "Official arXiv citation metadata and full PDF identity; CVF/Princeton author pages for non-arXiv papers",
+  "papers": [
+    {
+      "title": "DINOv3",
+      "arxiv_id": "2508.10104",
+      "new_to_vault": true,
+      "identity_verified": true
+    },
+    {
+      "title": "VideoPrism: A Foundational Visual Encoder for Video Understanding",
+      "arxiv_id": "2402.13217",
+      "new_to_vault": true,
+      "identity_verified": true
+    },
+    {
+      "title": "V-JEPA 2.1: Unlocking Dense Features in Video Self-Supervised Learning",
+      "arxiv_id": "2603.14482",
+      "new_to_vault": true,
+      "identity_verified": true
+    },
+    {
+      "title": "Putting the Object Back into Video Object Segmentation",
+      "arxiv_id": "2310.12982",
+      "new_to_vault": true,
+      "identity_verified": true
+    },
+    {
+      "title": "RAFT: Recurrent All-Pairs Field Transforms for Optical Flow",
+      "arxiv_id": "2003.12039",
+      "new_to_vault": true,
+      "identity_verified": true
+    },
+    {
+      "title": "Regularized Discrete Optimal Transport",
+      "arxiv_id": "1307.5551",
+      "new_to_vault": true,
+      "identity_verified": true
+    },
+    {
+      "title": "Palette-based Photo Recoloring",
+      "arxiv_id": null,
+      "new_to_vault": true,
+      "identity_verified": true
+    },
+    {
+      "title": "DreamSim: Learning New Dimensions of Human Visual Similarity using Synthetic Data",
+      "arxiv_id": "2306.09344",
+      "new_to_vault": true,
+      "identity_verified": true
+    },
+    {
+      "title": "INSID3: Training-Free In-Context Segmentation with DINOv3",
+      "arxiv_id": "2603.28480",
+      "new_to_vault": true,
+      "identity_verified": true
+    },
+    {
+      "title": "TransNet V2: An effective deep network architecture for fast shot transition detection",
+      "arxiv_id": "2008.04838",
+      "new_to_vault": true,
+      "identity_verified": true
+    },
+    {
+      "title": "Tracking Anything with Decoupled Video Segmentation",
+      "arxiv_id": "2309.03903",
+      "new_to_vault": true,
+      "identity_verified": true
+    },
+    {
+      "title": "Mask-Free Video Instance Segmentation",
+      "arxiv_id": "2303.15904",
+      "new_to_vault": true,
+      "identity_verified": true
+    },
+    {
+      "title": "A Benchmark Dataset and Evaluation Methodology for Video Object Segmentation",
+      "arxiv_id": null,
+      "new_to_vault": true,
+      "identity_verified": true
+    },
+    {
+      "title": "DINOv2: Learning Robust Visual Features without Supervision",
+      "arxiv_id": "2304.07193",
+      "new_to_vault": true,
+      "identity_verified": true
+    },
+    {
+      "title": "VideoMAE: Masked Autoencoders are Data-Efficient Learners for Self-Supervised Video Pre-Training",
+      "arxiv_id": "2203.12602",
+      "new_to_vault": true,
+      "identity_verified": true
+    },
+    {
+      "title": "ColorVideoVDP: A visual difference predictor for image, video and display distortions",
+      "arxiv_id": "2401.11485",
+      "new_to_vault": true,
+      "identity_verified": true
+    },
+    {
+      "title": "Synchformer: Efficient Synchronization from Sparse Cues",
+      "arxiv_id": "2401.16423",
+      "new_to_vault": true,
+      "identity_verified": true
+    }
+  ]
+}

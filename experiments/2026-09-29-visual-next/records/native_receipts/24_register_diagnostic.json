@@ -1,0 +1,33 @@
+{
+  "tool": "register_diagnostic",
+  "arguments": {
+    "id": "visual-next-content-event-ap",
+    "name": "Audio student AP against independent content-color events",
+    "unit": "AP",
+    "direction": "higher_better",
+    "requires_control": "visual-next-content-false-cues",
+    "description": "Tie-correct event AP from ranked chromatic peaks with.2s NMS and one-to-one±.2s matching to independent human content events; average paired seeds within canonical family then macro-family mean. Same source support across all arms and controls; no-event AP undefined, false-cue/minute and coverage mandatory. Conditional historicalDEV pilot, not teacher-observer AP or human preference.",
+    "topic_tags": [
+      "audio-to-light",
+      "evaluation-metric"
+    ],
+    "noise_note": "No noise sigma or powered MDE measured at registration; no numeric noise floor is assumed."
+  },
+  "result": {
+    "id": "visual-next-content-event-ap",
+    "name": "Audio student AP against independent content-color events",
+    "unit": "AP",
+    "direction": "higher_better",
+    "description": "Tie-correct event AP from ranked chromatic peaks with.2s NMS and one-to-one±.2s matching to independent human content events; average paired seeds within canonical family then macro-family mean. Same source support across all arms and controls; no-event AP undefined, false-cue/minute and coverage mandatory. Conditional historicalDEV pilot, not teacher-observer AP or human preference.",
+    "topic_tags": [
+      "audio-to-light",
+      "evaluation-metric"
+    ],
+    "requires_control": "visual-next-content-false-cues",
+    "noise_sigma": null,
+    "noise_source": null,
+    "noise_n": null,
+    "noise_note": "No noise sigma or powered MDE measured at registration; no numeric noise floor is assumed.",
+    "noise_k": 2.0
+  }
+}

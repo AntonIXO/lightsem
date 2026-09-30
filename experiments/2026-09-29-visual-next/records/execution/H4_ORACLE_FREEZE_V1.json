@@ -1,0 +1,733 @@
+{
+  "mode": "oracle",
+  "output": "/root/lightsem/runs/visual_next_20260929/oracle_v1",
+  "max_seconds": 5400,
+  "baseline_stream": {
+    "path": "/root/lightsem/experiments/2026-09-29-baseline/outputs/shpongle_baseline_ab_v2/streams/03.npz",
+    "sha256": "34ca1d5f2c9a271b9e08536519f4d657e4aa3017a5ac42514b38e8dd07e4829b"
+  },
+  "original_overlay": {
+    "path": "/mnt/lightsem-data/experiments/lightsem/end_to_end_20260928_v1/comparison_demos_v1/03_I_VR_P0/overlay_dmx.npz",
+    "sha256": "041c0a346a2655507a550a42bfc38b96114fa4232b9a0c68ac829d85ae9c2684",
+    "bytes": 417629
+  },
+  "baseline_fit_report": {
+    "path": "/mnt/lightsem-data/experiments/lightsem/lighting-cue-model-20260922t094347z/observer_fits_v1/04_seed0_I_VR_P0/complete.json",
+    "sha256": "dc428e1ed9976628deea30978779eef4bf51c606e631cea82affb8df1502d5af"
+  },
+  "fixture_groups": [
+    {
+      "name": "mh1",
+      "kind": "moving_head",
+      "address": 1,
+      "x": -5.0,
+      "o2": "left",
+      "o4": "left_heads",
+      "rgb_slots_zero_based": [
+        6,
+        7,
+        8
+      ]
+    },
+    {
+      "name": "mh2",
+      "kind": "moving_head",
+      "address": 13,
+      "x": -3.0,
+      "o2": "left",
+      "o4": "left_heads",
+      "rgb_slots_zero_based": [
+        18,
+        19,
+        20
+      ]
+    },
+    {
+      "name": "mh3",
+      "kind": "moving_head",
+      "address": 25,
+      "x": -1.0,
+      "o2": "left",
+      "o4": "left_heads",
+      "rgb_slots_zero_based": [
+        30,
+        31,
+        32
+      ]
+    },
+    {
+      "name": "mh4",
+      "kind": "moving_head",
+      "address": 37,
+      "x": 1.0,
+      "o2": "right",
+      "o4": "right_heads",
+      "rgb_slots_zero_based": [
+        42,
+        43,
+        44
+      ]
+    },
+    {
+      "name": "mh5",
+      "kind": "moving_head",
+      "address": 49,
+      "x": 3.0,
+      "o2": "right",
+      "o4": "right_heads",
+      "rgb_slots_zero_based": [
+        54,
+        55,
+        56
+      ]
+    },
+    {
+      "name": "mh6",
+      "kind": "moving_head",
+      "address": 61,
+      "x": 5.0,
+      "o2": "right",
+      "o4": "right_heads",
+      "rgb_slots_zero_based": [
+        66,
+        67,
+        68
+      ]
+    },
+    {
+      "name": "wash1",
+      "kind": "wash",
+      "address": 73,
+      "x": -3.5,
+      "o2": "left",
+      "o4": "left_other",
+      "rgb_slots_zero_based": [
+        74,
+        75,
+        76
+      ]
+    },
+    {
+      "name": "wash2",
+      "kind": "wash",
+      "address": 80,
+      "x": -1.1666666666666665,
+      "o2": "left",
+      "o4": "left_other",
+      "rgb_slots_zero_based": [
+        81,
+        82,
+        83
+      ]
+    },
+    {
+      "name": "wash3",
+      "kind": "wash",
+      "address": 87,
+      "x": 1.166666666666667,
+      "o2": "right",
+      "o4": "right_other",
+      "rgb_slots_zero_based": [
+        88,
+        89,
+        90
+      ]
+    },
+    {
+      "name": "wash4",
+      "kind": "wash",
+      "address": 94,
+      "x": 3.5,
+      "o2": "right",
+      "o4": "right_other",
+      "rgb_slots_zero_based": [
+        95,
+        96,
+        97
+      ]
+    },
+    {
+      "name": "proj1",
+      "kind": "projector",
+      "address": 108,
+      "x": 0.0,
+      "o2": "right",
+      "o4": "right_other",
+      "rgb_slots_zero_based": [
+        109,
+        110,
+        111
+      ]
+    }
+  ],
+  "families": [
+    {
+      "canonical_id": "jd-0928ee4d1de962b531b9",
+      "recording_id": "wnw4_ZfVmrA",
+      "partition": "val",
+      "teacher_raw": {
+        "path": "/root/lightsem/runs/visual_next_20260929/shared_corpus_v2/jd-0928ee4d1de962b531b9/teacher_raw.npz",
+        "sha256": "02b9cfe05151c9dfad8abaf068c835017707ec29a02c29724e8bf8928c965879"
+      },
+      "geometry_wh": [
+        640,
+        360
+      ]
+    },
+    {
+      "canonical_id": "jd-2c77ae090404e55f756a",
+      "recording_id": "WxPy_sHLpCM",
+      "partition": "val",
+      "teacher_raw": {
+        "path": "/root/lightsem/runs/visual_next_20260929/shared_corpus_v2/jd-2c77ae090404e55f756a/teacher_raw.npz",
+        "sha256": "173f50110ef4456c7bfcbcecb0ce80a7c20c66e89cc7ae8d06a25b377f28e797"
+      },
+      "geometry_wh": [
+        640,
+        360
+      ]
+    },
+    {
+      "canonical_id": "jd-2d5d5defd33a5ae0bdc3",
+      "recording_id": "ZyE3xcxZHnw",
+      "partition": "val",
+      "teacher_raw": {
+        "path": "/root/lightsem/runs/visual_next_20260929/shared_corpus_v2/jd-2d5d5defd33a5ae0bdc3/teacher_raw.npz",
+        "sha256": "02cb19886c91f55fa17d6a9b177857eb469fc200cd91971591bef78a0293344a"
+      },
+      "geometry_wh": [
+        640,
+        360
+      ]
+    },
+    {
+      "canonical_id": "jd-3b9ff4e655382e86d13e",
+      "recording_id": "NBw54DXeVw8",
+      "partition": "val",
+      "teacher_raw": {
+        "path": "/root/lightsem/runs/visual_next_20260929/shared_corpus_v2/jd-3b9ff4e655382e86d13e/teacher_raw.npz",
+        "sha256": "1aa55c23dca459e0d801f6a5a855dbcb22d918350ff0712d087441b6096e6927"
+      },
+      "geometry_wh": [
+        640,
+        360
+      ]
+    },
+    {
+      "canonical_id": "jd-3befa145e6969e6c9a95",
+      "recording_id": "uFcIni6A3P0",
+      "partition": "val",
+      "teacher_raw": {
+        "path": "/root/lightsem/runs/visual_next_20260929/shared_corpus_v2/jd-3befa145e6969e6c9a95/teacher_raw.npz",
+        "sha256": "58e49f04959f7544cbb1f38403e71a33b4a0bd01c7e7e4f78f8e71b82e48c694"
+      },
+      "geometry_wh": [
+        640,
+        360
+      ]
+    },
+    {
+      "canonical_id": "jd-3c5e68ae33c47c290479",
+      "recording_id": "Z9Got5FyrXI",
+      "partition": "val",
+      "teacher_raw": {
+        "path": "/root/lightsem/runs/visual_next_20260929/shared_corpus_v2/jd-3c5e68ae33c47c290479/teacher_raw.npz",
+        "sha256": "91a384434911183a8eb24ad55ffd254cc72f9cbc4ed519cd6c80d272b3b55ded"
+      },
+      "geometry_wh": [
+        640,
+        360
+      ]
+    },
+    {
+      "canonical_id": "jd-41ab77f7b47086034bdd",
+      "recording_id": "FUDKBgik9uU",
+      "partition": "val",
+      "teacher_raw": {
+        "path": "/root/lightsem/runs/visual_next_20260929/shared_corpus_v2/jd-41ab77f7b47086034bdd/teacher_raw.npz",
+        "sha256": "43b5c215341f2fa6e263f0c4e990188f846a891835d1563151ba853991baed18"
+      },
+      "geometry_wh": [
+        640,
+        360
+      ]
+    },
+    {
+      "canonical_id": "jd-456e07ff2d55abce6615",
+      "recording_id": "5pb-txxfRDk",
+      "partition": "val",
+      "teacher_raw": {
+        "path": "/root/lightsem/runs/visual_next_20260929/shared_corpus_v2/jd-456e07ff2d55abce6615/teacher_raw.npz",
+        "sha256": "db36f943cd38b02d25963bf7727904d46ec78843b4f56cc311d48fde8480cf4d"
+      },
+      "geometry_wh": [
+        640,
+        360
+      ]
+    },
+    {
+      "canonical_id": "jd-55b5e12d13bb65af40c4",
+      "recording_id": "ApisF-hdoZg",
+      "partition": "val",
+      "teacher_raw": {
+        "path": "/root/lightsem/runs/visual_next_20260929/shared_corpus_v2/jd-55b5e12d13bb65af40c4/teacher_raw.npz",
+        "sha256": "a3a0c1cbef646d87c0dc599f3abd476fce65b2d7547fa122dd992e5363674d45"
+      },
+      "geometry_wh": [
+        640,
+        360
+      ]
+    },
+    {
+      "canonical_id": "jd-669b916cd15af69ae82c",
+      "recording_id": "J21d603A7T4",
+      "partition": "val",
+      "teacher_raw": {
+        "path": "/root/lightsem/runs/visual_next_20260929/shared_corpus_v2/jd-669b916cd15af69ae82c/teacher_raw.npz",
+        "sha256": "cce450a477c4be0d53ba732c4932d9df8912a60ebabb9195db4274ee347f064e"
+      },
+      "geometry_wh": [
+        640,
+        360
+      ]
+    },
+    {
+      "canonical_id": "jd-700bceaf8b0e9265bafe",
+      "recording_id": "1ozcUaAXJV8",
+      "partition": "val",
+      "teacher_raw": {
+        "path": "/root/lightsem/runs/visual_next_20260929/shared_corpus_v2/jd-700bceaf8b0e9265bafe/teacher_raw.npz",
+        "sha256": "b4d307189b1ecc7fc303abc33d2ac2f3ae74ed5a532e4d498c4f4bf192637a72"
+      },
+      "geometry_wh": [
+        640,
+        360
+      ]
+    },
+    {
+      "canonical_id": "jd-747150134cf9e99c3c3c",
+      "recording_id": "E3Af6_rVeSQ",
+      "partition": "val",
+      "teacher_raw": {
+        "path": "/root/lightsem/runs/visual_next_20260929/shared_corpus_v2/jd-747150134cf9e99c3c3c/teacher_raw.npz",
+        "sha256": "ebd807d5e6f516d418b3dfc257fb0e264a764d003de31142919390c3762c5e12"
+      },
+      "geometry_wh": [
+        640,
+        360
+      ]
+    },
+    {
+      "canonical_id": "jd-74e48db9c68c3ba7518c",
+      "recording_id": "uCxcK7PhvBY",
+      "partition": "val",
+      "teacher_raw": {
+        "path": "/root/lightsem/runs/visual_next_20260929/shared_corpus_v2/jd-74e48db9c68c3ba7518c/teacher_raw.npz",
+        "sha256": "508461df32387cff6ce95b1a8dfbfcac083937418f3afe8c8c9a3c84bb7faf51"
+      },
+      "geometry_wh": [
+        640,
+        360
+      ]
+    },
+    {
+      "canonical_id": "jd-86d4dcca00cd5d4c8660",
+      "recording_id": "RPTeAkorooA",
+      "partition": "val",
+      "teacher_raw": {
+        "path": "/root/lightsem/runs/visual_next_20260929/shared_corpus_v2/jd-86d4dcca00cd5d4c8660/teacher_raw.npz",
+        "sha256": "86717264f699832d59ffd62c0d5703fa085f76f8c6ae3f1c0d0be024b0946b91"
+      },
+      "geometry_wh": [
+        640,
+        360
+      ]
+    },
+    {
+      "canonical_id": "jd-8a679ca83b209ec3b56d",
+      "recording_id": "SQu7mn2LFxI",
+      "partition": "val",
+      "teacher_raw": {
+        "path": "/root/lightsem/runs/visual_next_20260929/shared_corpus_v2/jd-8a679ca83b209ec3b56d/teacher_raw.npz",
+        "sha256": "ebab64f3b62c51317fecf7742a2b3df2ea833f76903029d1e8c9f87733f322d2"
+      },
+      "geometry_wh": [
+        640,
+        360
+      ]
+    },
+    {
+      "canonical_id": "jd-91a59e9979e5c8c83a4b",
+      "recording_id": "TIfHV-Xq9VI",
+      "partition": "val",
+      "teacher_raw": {
+        "path": "/root/lightsem/runs/visual_next_20260929/shared_corpus_v2/jd-91a59e9979e5c8c83a4b/teacher_raw.npz",
+        "sha256": "a9e26ff0c636bf73d27f1572a6a7eea85e1c1f8e3e898755dfa6bb1919b92946"
+      },
+      "geometry_wh": [
+        640,
+        360
+      ]
+    },
+    {
+      "canonical_id": "jd-95ce22181d5e92287572",
+      "recording_id": "9_htm1JQxBg",
+      "partition": "val",
+      "teacher_raw": {
+        "path": "/root/lightsem/runs/visual_next_20260929/shared_corpus_v2/jd-95ce22181d5e92287572/teacher_raw.npz",
+        "sha256": "632e10878e3fab4a3a770af33c6e62232801d1891cfe6875e07b3b9ade25ecd8"
+      },
+      "geometry_wh": [
+        640,
+        360
+      ]
+    },
+    {
+      "canonical_id": "jd-97b196cd3a7f8f8c644e",
+      "recording_id": "2sYjdIN6rv0",
+      "partition": "val",
+      "teacher_raw": {
+        "path": "/root/lightsem/runs/visual_next_20260929/shared_corpus_v2/jd-97b196cd3a7f8f8c644e/teacher_raw.npz",
+        "sha256": "99382326592b06e89780aa8139bd6f15bcff918083c74a810ec4c083602ccb19"
+      },
+      "geometry_wh": [
+        640,
+        360
+      ]
+    },
+    {
+      "canonical_id": "jd-9853154cde288d120418",
+      "recording_id": "OeYSabCXfjU",
+      "partition": "val",
+      "teacher_raw": {
+        "path": "/root/lightsem/runs/visual_next_20260929/shared_corpus_v2/jd-9853154cde288d120418/teacher_raw.npz",
+        "sha256": "ebac3942167c94620cd60adeca4bf04c175bbb7e1dba721ced1088cf896b44f0"
+      },
+      "geometry_wh": [
+        640,
+        360
+      ]
+    },
+    {
+      "canonical_id": "jd-a93d208ad804d0dcaf1a",
+      "recording_id": "ARQwK8P1hkg",
+      "partition": "val",
+      "teacher_raw": {
+        "path": "/root/lightsem/runs/visual_next_20260929/shared_corpus_v2/jd-a93d208ad804d0dcaf1a/teacher_raw.npz",
+        "sha256": "32a1fa5be241bd78cf3d26c5d49b3b82db2bac605202da72551110fcccc0c7c2"
+      },
+      "geometry_wh": [
+        640,
+        360
+      ]
+    },
+    {
+      "canonical_id": "jd-d3581d2b1eb7b0beb7d1",
+      "recording_id": "vsW87yPjmSs",
+      "partition": "val",
+      "teacher_raw": {
+        "path": "/root/lightsem/runs/visual_next_20260929/shared_corpus_v2/jd-d3581d2b1eb7b0beb7d1/teacher_raw.npz",
+        "sha256": "b49bcd05547508cf4533c863fadade6b12d949ecf00bd1d48b07c3adcd2faf8e"
+      },
+      "geometry_wh": [
+        640,
+        360
+      ]
+    },
+    {
+      "canonical_id": "jd-d79d29aa3c0f14c7e4f8",
+      "recording_id": "8UTvmHbgc5w",
+      "partition": "val",
+      "teacher_raw": {
+        "path": "/root/lightsem/runs/visual_next_20260929/shared_corpus_v2/jd-d79d29aa3c0f14c7e4f8/teacher_raw.npz",
+        "sha256": "79cf403053eb27875a34490bb15d7a968faea7780896af63b5e9984924d70fe4"
+      },
+      "geometry_wh": [
+        640,
+        360
+      ]
+    },
+    {
+      "canonical_id": "jd-e1da76a76ac38851fb95",
+      "recording_id": "jkGH7JIHDSk",
+      "partition": "val",
+      "teacher_raw": {
+        "path": "/root/lightsem/runs/visual_next_20260929/shared_corpus_v2/jd-e1da76a76ac38851fb95/teacher_raw.npz",
+        "sha256": "3b1af1551e277b2ba36aaf4866a103adb5eea0fe9cbe315e07866d6229e37c2a"
+      },
+      "geometry_wh": [
+        640,
+        360
+      ]
+    },
+    {
+      "canonical_id": "jd-e23374aa3965d47673e4",
+      "recording_id": "hnVwwzCVoqg",
+      "partition": "val",
+      "teacher_raw": {
+        "path": "/root/lightsem/runs/visual_next_20260929/shared_corpus_v2/jd-e23374aa3965d47673e4/teacher_raw.npz",
+        "sha256": "5e7a3ce9dbdf7c2112582ba9eb1d9e883a4e0ae7791c7301429bb0a19319fe9a"
+      },
+      "geometry_wh": [
+        640,
+        360
+      ]
+    },
+    {
+      "canonical_id": "jd-e41ede5dd92ce64a6170",
+      "recording_id": "NA7shs-6IYo",
+      "partition": "val",
+      "teacher_raw": {
+        "path": "/root/lightsem/runs/visual_next_20260929/shared_corpus_v2/jd-e41ede5dd92ce64a6170/teacher_raw.npz",
+        "sha256": "6e322e420bb6a80ae2344ebb313748aa59dfd32d12f512159c19af803ba970b7"
+      },
+      "geometry_wh": [
+        640,
+        360
+      ]
+    },
+    {
+      "canonical_id": "jd-ea120a8bdace51e8b6f6",
+      "recording_id": "V2yuC5yLxws",
+      "partition": "val",
+      "teacher_raw": {
+        "path": "/root/lightsem/runs/visual_next_20260929/shared_corpus_v2/jd-ea120a8bdace51e8b6f6/teacher_raw.npz",
+        "sha256": "80b15450c46c0466a888f9b3e3fa588aae6c18f5f7e0213fdbebdc802f99b7c9"
+      },
+      "geometry_wh": [
+        640,
+        360
+      ]
+    },
+    {
+      "canonical_id": "jd-efebde221c7bbf18bf6a",
+      "recording_id": "Vf2s-fakSIo",
+      "partition": "val",
+      "teacher_raw": {
+        "path": "/root/lightsem/runs/visual_next_20260929/shared_corpus_v2/jd-efebde221c7bbf18bf6a/teacher_raw.npz",
+        "sha256": "deae40e551ed73675862970cd15c6cc883bf473b27933dd0c97b04414519f504"
+      },
+      "geometry_wh": [
+        640,
+        360
+      ]
+    },
+    {
+      "canonical_id": "jd-f19a7edfa3a9eca671bf",
+      "recording_id": "3M9VrJLQDhU",
+      "partition": "val",
+      "teacher_raw": {
+        "path": "/root/lightsem/runs/visual_next_20260929/shared_corpus_v2/jd-f19a7edfa3a9eca671bf/teacher_raw.npz",
+        "sha256": "9c6a837f7d12e8132daf2f26c33a8a605a4e463f9f96d00d1a08e2b5f19966ca"
+      },
+      "geometry_wh": [
+        640,
+        360
+      ]
+    },
+    {
+      "canonical_id": "jd-f4c8176fa3a91973b592",
+      "recording_id": "8hDff6PV2KA",
+      "partition": "val",
+      "teacher_raw": {
+        "path": "/root/lightsem/runs/visual_next_20260929/shared_corpus_v2/jd-f4c8176fa3a91973b592/teacher_raw.npz",
+        "sha256": "2c38867ee46e411273662982b7bbf6c205615b421960901fe84a095923708a54"
+      },
+      "geometry_wh": [
+        640,
+        400
+      ]
+    },
+    {
+      "canonical_id": "jd-f6d8aa9c97422610fd37",
+      "recording_id": "Ub3Cc9DLhK4",
+      "partition": "val",
+      "teacher_raw": {
+        "path": "/root/lightsem/runs/visual_next_20260929/shared_corpus_v2/jd-f6d8aa9c97422610fd37/teacher_raw.npz",
+        "sha256": "d7093cf7c153808bb3418f99242688112af1e417a8014197c8b6cbec285826fb"
+      },
+      "geometry_wh": [
+        640,
+        360
+      ]
+    },
+    {
+      "canonical_id": "jd-fafcdb519fee22dbc70c",
+      "recording_id": "T4NAdlh-suQ",
+      "partition": "val",
+      "teacher_raw": {
+        "path": "/root/lightsem/runs/visual_next_20260929/shared_corpus_v2/jd-fafcdb519fee22dbc70c/teacher_raw.npz",
+        "sha256": "99b6873e310f910871a7e6854d27855df13ab7b3b4bd2d0876961a1dc7b8993f"
+      },
+      "geometry_wh": [
+        640,
+        360
+      ]
+    }
+  ],
+  "donors": {
+    "jd-0928ee4d1de962b531b9": "jd-2c77ae090404e55f756a",
+    "jd-2c77ae090404e55f756a": "jd-2d5d5defd33a5ae0bdc3",
+    "jd-2d5d5defd33a5ae0bdc3": "jd-3b9ff4e655382e86d13e",
+    "jd-3b9ff4e655382e86d13e": "jd-3befa145e6969e6c9a95",
+    "jd-3befa145e6969e6c9a95": "jd-3c5e68ae33c47c290479",
+    "jd-3c5e68ae33c47c290479": "jd-41ab77f7b47086034bdd",
+    "jd-41ab77f7b47086034bdd": "jd-456e07ff2d55abce6615",
+    "jd-456e07ff2d55abce6615": "jd-55b5e12d13bb65af40c4",
+    "jd-55b5e12d13bb65af40c4": "jd-669b916cd15af69ae82c",
+    "jd-669b916cd15af69ae82c": "jd-700bceaf8b0e9265bafe",
+    "jd-700bceaf8b0e9265bafe": "jd-747150134cf9e99c3c3c",
+    "jd-747150134cf9e99c3c3c": "jd-74e48db9c68c3ba7518c",
+    "jd-74e48db9c68c3ba7518c": "jd-86d4dcca00cd5d4c8660",
+    "jd-86d4dcca00cd5d4c8660": "jd-8a679ca83b209ec3b56d",
+    "jd-8a679ca83b209ec3b56d": "jd-91a59e9979e5c8c83a4b",
+    "jd-91a59e9979e5c8c83a4b": "jd-95ce22181d5e92287572",
+    "jd-95ce22181d5e92287572": "jd-97b196cd3a7f8f8c644e",
+    "jd-97b196cd3a7f8f8c644e": "jd-9853154cde288d120418",
+    "jd-9853154cde288d120418": "jd-a93d208ad804d0dcaf1a",
+    "jd-a93d208ad804d0dcaf1a": "jd-d3581d2b1eb7b0beb7d1",
+    "jd-d3581d2b1eb7b0beb7d1": "jd-d79d29aa3c0f14c7e4f8",
+    "jd-d79d29aa3c0f14c7e4f8": "jd-e1da76a76ac38851fb95",
+    "jd-e1da76a76ac38851fb95": "jd-e23374aa3965d47673e4",
+    "jd-e23374aa3965d47673e4": "jd-e41ede5dd92ce64a6170",
+    "jd-e41ede5dd92ce64a6170": "jd-ea120a8bdace51e8b6f6",
+    "jd-ea120a8bdace51e8b6f6": "jd-efebde221c7bbf18bf6a",
+    "jd-efebde221c7bbf18bf6a": "jd-f19a7edfa3a9eca671bf",
+    "jd-f19a7edfa3a9eca671bf": "jd-f4c8176fa3a91973b592",
+    "jd-f4c8176fa3a91973b592": "jd-f6d8aa9c97422610fd37",
+    "jd-f6d8aa9c97422610fd37": "jd-fafcdb519fee22dbc70c",
+    "jd-fafcdb519fee22dbc70c": "jd-0928ee4d1de962b531b9"
+  },
+  "files": {
+    "/root/lightsem/experiments/2026-09-29-baseline/outputs/shpongle_baseline_ab_v2/streams/03.npz": "34ca1d5f2c9a271b9e08536519f4d657e4aa3017a5ac42514b38e8dd07e4829b",
+    "/mnt/lightsem-data/experiments/lightsem/end_to_end_20260928_v1/comparison_demos_v1/03_I_VR_P0/overlay_dmx.npz": "041c0a346a2655507a550a42bfc38b96114fa4232b9a0c68ac829d85ae9c2684",
+    "/mnt/lightsem-data/experiments/lightsem/lighting-cue-model-20260922t094347z/observer_fits_v1/04_seed0_I_VR_P0/complete.json": "dc428e1ed9976628deea30978779eef4bf51c606e631cea82affb8df1502d5af",
+    "/root/lightsem/scripts/light_layers/run_visual_next_oracle.py": "55b4e45809145544ef49380b9c93f13ebb2b3e18f31a94db7a3026a31557a6b2",
+    "/root/lightsem/lightsem/experiments/visual_next/oracle.py": "37e46205a4f0c44a76574dce6fbe3b2fc05ee9d819561cd599504db5eb7002ba",
+    "/root/lightsem/lightsem/experiments/visual_next/palettes.py": "7e11336e1240d1f1a3bbbbb384515db355950e593e97fbb05349441fc34f77ff",
+    "/root/lightsem/lightsem/experiments/visual_next/observation.py": "686a4d2879c6c298978ae44be02da99324d833e2c9d01e3df455e83a88033e77",
+    "/root/lightsem/lightsem/experiments/visual_next/instruments.py": "67bd47135ca5f6fa79f82e1e0b261a4ca8f87597811023387ba70cebc765b985",
+    "/root/lightsem/lightsem/sim/renderer.py": "3e0cb928108ad0ffad0cd5558fb7047099a2241adc026e18c04551afa53a0621",
+    "/root/lightsem/lightsem/sim/shaders.py": "1663a89c934e224969f1c1df4ee2cbe663f8a39ef8415e4b77c154672428677c",
+    "/root/lightsem/lightsem/conductor/rig.py": "608a7eb9971c2bd583282e4a38f777be96b49e5c1a909baffd47bf76cf28b28a",
+    "/root/lightsem/lightsem/dmx/fixtures.py": "685e8b206d7e6b96288a3b88fb5c543368fbd8bd765d8a96873806e18d48c3d7",
+    "/root/lightsem/lightsem/dmx/__init__.py": "523d12af2ae6e6af02b37bcf025062362f9467cc3a2a856ffd73abecffc0a38f",
+    "/root/lightsem/lightsem/model/light_layers/transitions.py": "3ff90c8899e1609355aae4b8c47638fd1598e305274bfd882e2b4356c80a115b",
+    "/root/lightsem/lightsem/model/light_layers/targets.py": "4f1e980ed9f62e2ae2a6d53e426cd44c0ed2381835bf4b1382a7fba1e566d6d1",
+    "/root/lightsem/scripts/motion/run_rhythm_companion.py": "22ee050ffc404d7107de37556776ad50c058ae3163d977e3a3124a56721fb63a",
+    "/root/lightsem/tests/test_visual_next_oracle.py": "c8789748c4eef84ed730efaccaed290749f2506000d9feb0f1fb34edaf7bdbc8",
+    "/root/lightsem/runs/visual_next_20260929/shared_corpus_v2/REPORT.json": "4821707d55756a650d634a0c6385170bcc8da27cf39b4e1aeaba87f0a98359c2",
+    "/root/lightsem/experiments/2026-09-29-visual-next/records/execution/SHARED_CORPUS_PRIMARY_AUDIT_V1.json": "534ce0bc30d3bb3a87b2a2b35565c7fc2ed5ef13ea845220fef0e616e73f6314",
+    "/root/lightsem/experiments/2026-09-29-visual-next/records/execution/H4_SMOKE_PRIMARY_AUDIT_V1.json": "46cb147e6b8b2f933ef38fc29c7f550b0168338f33a62f81871a66d815e3eea4",
+    "/root/lightsem/runs/visual_next_20260929/shared_corpus_v2/jd-0928ee4d1de962b531b9/REPORT.json": "3f0a2b0cd109314b8876c1de66c2260814c07026b7899889268862550be0c711",
+    "/root/lightsem/runs/visual_next_20260929/shared_corpus_v2/jd-0928ee4d1de962b531b9/teacher_raw.npz": "02b9cfe05151c9dfad8abaf068c835017707ec29a02c29724e8bf8928c965879",
+    "/root/lightsem/runs/visual_next_20260929/shared_corpus_v2/jd-0928ee4d1de962b531b9/mask_controls.npz": "dcab1f0616d99313bc2fc8f073f7317d6129beb9d79ad9e24ea43d0472b2d7b6",
+    "/root/lightsem/runs/visual_next_20260929/shared_corpus_v2/jd-2c77ae090404e55f756a/REPORT.json": "5881c537bcdcfacb093386b3318a278aa39213555c9ddda26f70e6ecf5d63cf5",
+    "/root/lightsem/runs/visual_next_20260929/shared_corpus_v2/jd-2c77ae090404e55f756a/teacher_raw.npz": "173f50110ef4456c7bfcbcecb0ce80a7c20c66e89cc7ae8d06a25b377f28e797",
+    "/root/lightsem/runs/visual_next_20260929/shared_corpus_v2/jd-2c77ae090404e55f756a/mask_controls.npz": "349640f527f6af95f057aa54f66e204e21983aafd63437c0b6c82c00fc8f88b2",
+    "/root/lightsem/runs/visual_next_20260929/shared_corpus_v2/jd-2d5d5defd33a5ae0bdc3/REPORT.json": "82e444b15fd8caa1d8cb5b26ab674902a11e8f7bb338addb1915dec2663619e1",
+    "/root/lightsem/runs/visual_next_20260929/shared_corpus_v2/jd-2d5d5defd33a5ae0bdc3/teacher_raw.npz": "02cb19886c91f55fa17d6a9b177857eb469fc200cd91971591bef78a0293344a",
+    "/root/lightsem/runs/visual_next_20260929/shared_corpus_v2/jd-2d5d5defd33a5ae0bdc3/mask_controls.npz": "a0e5e34165ed1fe911b1544245d222ba13da9aec96209826e4b26e4b6fec14ee",
+    "/root/lightsem/runs/visual_next_20260929/shared_corpus_v2/jd-3b9ff4e655382e86d13e/REPORT.json": "1cb4b118b0b9fe54223e48830b6c64659f6a68614a0c6b98567a52e8db7f46a5",
+    "/root/lightsem/runs/visual_next_20260929/shared_corpus_v2/jd-3b9ff4e655382e86d13e/teacher_raw.npz": "1aa55c23dca459e0d801f6a5a855dbcb22d918350ff0712d087441b6096e6927",
+    "/root/lightsem/runs/visual_next_20260929/shared_corpus_v2/jd-3b9ff4e655382e86d13e/mask_controls.npz": "563f1480e0e3c043ee0e65ba164d2a45ffd1c15ccc0a17adb5013476b5533cec",
+    "/root/lightsem/runs/visual_next_20260929/shared_corpus_v2/jd-3befa145e6969e6c9a95/REPORT.json": "6c404a1e52cefcda69add67cb9c89ed172c894d0154eae98c6e308e961c5d84b",
+    "/root/lightsem/runs/visual_next_20260929/shared_corpus_v2/jd-3befa145e6969e6c9a95/teacher_raw.npz": "58e49f04959f7544cbb1f38403e71a33b4a0bd01c7e7e4f78f8e71b82e48c694",
+    "/root/lightsem/runs/visual_next_20260929/shared_corpus_v2/jd-3befa145e6969e6c9a95/mask_controls.npz": "8834b9b633e400f51a300a6db6eb2949d3fa758700afafc5e9a767d45bf6aa3f",
+    "/root/lightsem/runs/visual_next_20260929/shared_corpus_v2/jd-3c5e68ae33c47c290479/REPORT.json": "c4292af502c9b1e4df73a162d0811427ff007af08c21626fe9e1ff8b3a8bd95c",
+    "/root/lightsem/runs/visual_next_20260929/shared_corpus_v2/jd-3c5e68ae33c47c290479/teacher_raw.npz": "91a384434911183a8eb24ad55ffd254cc72f9cbc4ed519cd6c80d272b3b55ded",
+    "/root/lightsem/runs/visual_next_20260929/shared_corpus_v2/jd-3c5e68ae33c47c290479/mask_controls.npz": "f1d6041f050d207aeeba1194e76fc3e022885ee0d02303fc0ab06cf532e74953",
+    "/root/lightsem/runs/visual_next_20260929/shared_corpus_v2/jd-41ab77f7b47086034bdd/REPORT.json": "197e079c4bedb2eb4f5b139fd8afa4dd1d6de628c07c0ea25d06e95531eaff58",
+    "/root/lightsem/runs/visual_next_20260929/shared_corpus_v2/jd-41ab77f7b47086034bdd/teacher_raw.npz": "43b5c215341f2fa6e263f0c4e990188f846a891835d1563151ba853991baed18",
+    "/root/lightsem/runs/visual_next_20260929/shared_corpus_v2/jd-41ab77f7b47086034bdd/mask_controls.npz": "1331c826b9b55f929e08804f76efc4bc4bd453881efcbc3260ec674c9a3fce08",
+    "/root/lightsem/runs/visual_next_20260929/shared_corpus_v2/jd-456e07ff2d55abce6615/REPORT.json": "ff9af4952eb8789e1743b077db02a89b8080ac547ac80ae46928eaec478742a7",
+    "/root/lightsem/runs/visual_next_20260929/shared_corpus_v2/jd-456e07ff2d55abce6615/teacher_raw.npz": "db36f943cd38b02d25963bf7727904d46ec78843b4f56cc311d48fde8480cf4d",
+    "/root/lightsem/runs/visual_next_20260929/shared_corpus_v2/jd-456e07ff2d55abce6615/mask_controls.npz": "a1994c404f7010cb79559daf80dc83f15b98ce7d91af92dfb8d8607eb2462c97",
+    "/root/lightsem/runs/visual_next_20260929/shared_corpus_v2/jd-55b5e12d13bb65af40c4/REPORT.json": "1e07d1daa3a39c8b45d64e9087905591dc6cc6941015eef428658af5b6fa75b3",
+    "/root/lightsem/runs/visual_next_20260929/shared_corpus_v2/jd-55b5e12d13bb65af40c4/teacher_raw.npz": "a3a0c1cbef646d87c0dc599f3abd476fce65b2d7547fa122dd992e5363674d45",
+    "/root/lightsem/runs/visual_next_20260929/shared_corpus_v2/jd-55b5e12d13bb65af40c4/mask_controls.npz": "6ceb21c1c08f1a4f0dcc097ea67e010f7c1c0af86514f6177427031c5fa66aa0",
+    "/root/lightsem/runs/visual_next_20260929/shared_corpus_v2/jd-669b916cd15af69ae82c/REPORT.json": "ac57cb183eb2952dfe1954f89e84b50763e8ebfd9e5119781de5f59769a2a000",
+    "/root/lightsem/runs/visual_next_20260929/shared_corpus_v2/jd-669b916cd15af69ae82c/teacher_raw.npz": "cce450a477c4be0d53ba732c4932d9df8912a60ebabb9195db4274ee347f064e",
+    "/root/lightsem/runs/visual_next_20260929/shared_corpus_v2/jd-669b916cd15af69ae82c/mask_controls.npz": "8930bbb032a018be3d997838b735ac13c5a40a9978cf87829809b3874c66f271",
+    "/root/lightsem/runs/visual_next_20260929/shared_corpus_v2/jd-700bceaf8b0e9265bafe/REPORT.json": "8b99766df61cd33824f18f32be6d77e0445cc8af5c7d7e52b594a221c1e1f9fa",
+    "/root/lightsem/runs/visual_next_20260929/shared_corpus_v2/jd-700bceaf8b0e9265bafe/teacher_raw.npz": "b4d307189b1ecc7fc303abc33d2ac2f3ae74ed5a532e4d498c4f4bf192637a72",
+    "/root/lightsem/runs/visual_next_20260929/shared_corpus_v2/jd-700bceaf8b0e9265bafe/mask_controls.npz": "0b7fa4266bbc5e94c5e2f3d145cfe7f21b2143c1bb785aed7c91f0c37823dfa0",
+    "/root/lightsem/runs/visual_next_20260929/shared_corpus_v2/jd-747150134cf9e99c3c3c/REPORT.json": "ae6b82885b1a6f7b406cb704421007d6bc3635c5e4d96cc59282bd342676dc8b",
+    "/root/lightsem/runs/visual_next_20260929/shared_corpus_v2/jd-747150134cf9e99c3c3c/teacher_raw.npz": "ebd807d5e6f516d418b3dfc257fb0e264a764d003de31142919390c3762c5e12",
+    "/root/lightsem/runs/visual_next_20260929/shared_corpus_v2/jd-747150134cf9e99c3c3c/mask_controls.npz": "d6775d6a5eb1ca0e2ffedce8d42cf11375d08977da356dff67aab28add7b629b",
+    "/root/lightsem/runs/visual_next_20260929/shared_corpus_v2/jd-74e48db9c68c3ba7518c/REPORT.json": "e8a2576833f2f442ea28f04b9b99c4aa362411f8d59ca68a1617fc324d6c2e6c",
+    "/root/lightsem/runs/visual_next_20260929/shared_corpus_v2/jd-74e48db9c68c3ba7518c/teacher_raw.npz": "508461df32387cff6ce95b1a8dfbfcac083937418f3afe8c8c9a3c84bb7faf51",
+    "/root/lightsem/runs/visual_next_20260929/shared_corpus_v2/jd-74e48db9c68c3ba7518c/mask_controls.npz": "b16be7cb3184d34562f0a9c527faa3df6159f63a6d205490c1db8a556fcde184",
+    "/root/lightsem/runs/visual_next_20260929/shared_corpus_v2/jd-86d4dcca00cd5d4c8660/REPORT.json": "48e98d48dc51fcbd695977525db3b0a4b180ec2b1a3416c71421630d3585a415",
+    "/root/lightsem/runs/visual_next_20260929/shared_corpus_v2/jd-86d4dcca00cd5d4c8660/teacher_raw.npz": "86717264f699832d59ffd62c0d5703fa085f76f8c6ae3f1c0d0be024b0946b91",
+    "/root/lightsem/runs/visual_next_20260929/shared_corpus_v2/jd-86d4dcca00cd5d4c8660/mask_controls.npz": "dbb5f85eb4935959e2d665f625a57e38220620d7ca030b15b3bd9c46d412a892",
+    "/root/lightsem/runs/visual_next_20260929/shared_corpus_v2/jd-8a679ca83b209ec3b56d/REPORT.json": "dc5d978feca589beb723f3fab6aa25aac6914f9f98b2557f04b5402b1c836c94",
+    "/root/lightsem/runs/visual_next_20260929/shared_corpus_v2/jd-8a679ca83b209ec3b56d/teacher_raw.npz": "ebab64f3b62c51317fecf7742a2b3df2ea833f76903029d1e8c9f87733f322d2",
+    "/root/lightsem/runs/visual_next_20260929/shared_corpus_v2/jd-8a679ca83b209ec3b56d/mask_controls.npz": "584b9c81b56180621d5a9dc34589a52a1af5a977830ad65f23ead72fb73a024c",
+    "/root/lightsem/runs/visual_next_20260929/shared_corpus_v2/jd-91a59e9979e5c8c83a4b/REPORT.json": "39c983eca78d35e8cd115a77da6afbc74ccfe59b1bcfb12f6d8e56cbc42e5456",
+    "/root/lightsem/runs/visual_next_20260929/shared_corpus_v2/jd-91a59e9979e5c8c83a4b/teacher_raw.npz": "a9e26ff0c636bf73d27f1572a6a7eea85e1c1f8e3e898755dfa6bb1919b92946",
+    "/root/lightsem/runs/visual_next_20260929/shared_corpus_v2/jd-91a59e9979e5c8c83a4b/mask_controls.npz": "0a3a2f695d30abfe5401a5434c2fd164cc5adc52359452650f576120b19821ff",
+    "/root/lightsem/runs/visual_next_20260929/shared_corpus_v2/jd-95ce22181d5e92287572/REPORT.json": "383ce19802f6a5bd6fc421fe8808bc80aa7cb4bb835907a34dd19ca615914740",
+    "/root/lightsem/runs/visual_next_20260929/shared_corpus_v2/jd-95ce22181d5e92287572/teacher_raw.npz": "632e10878e3fab4a3a770af33c6e62232801d1891cfe6875e07b3b9ade25ecd8",
+    "/root/lightsem/runs/visual_next_20260929/shared_corpus_v2/jd-95ce22181d5e92287572/mask_controls.npz": "475b15cd6efbd344b1f88f3f353c59f49d73d520ccce3206c2a8c0ece4540fdd",
+    "/root/lightsem/runs/visual_next_20260929/shared_corpus_v2/jd-97b196cd3a7f8f8c644e/REPORT.json": "6842a15323e01bb307e47cca28eb08f14c6a0745d9301f9abf69da59b35e061b",
+    "/root/lightsem/runs/visual_next_20260929/shared_corpus_v2/jd-97b196cd3a7f8f8c644e/teacher_raw.npz": "99382326592b06e89780aa8139bd6f15bcff918083c74a810ec4c083602ccb19",
+    "/root/lightsem/runs/visual_next_20260929/shared_corpus_v2/jd-97b196cd3a7f8f8c644e/mask_controls.npz": "5573ef5acd63ae519ca26d31fe439ad341ed24fe36f7131774d6a2dc495a3d16",
+    "/root/lightsem/runs/visual_next_20260929/shared_corpus_v2/jd-9853154cde288d120418/REPORT.json": "43389ed2b93a9b4059f8c14004e24423766ab856db31b9f0c68bf90ce2e85d5f",
+    "/root/lightsem/runs/visual_next_20260929/shared_corpus_v2/jd-9853154cde288d120418/teacher_raw.npz": "ebac3942167c94620cd60adeca4bf04c175bbb7e1dba721ced1088cf896b44f0",
+    "/root/lightsem/runs/visual_next_20260929/shared_corpus_v2/jd-9853154cde288d120418/mask_controls.npz": "ee02105f4a2b5aa5115a564acb2546259a3eda0a78d2aa1f86e7dd2ab202cfd9",
+    "/root/lightsem/runs/visual_next_20260929/shared_corpus_v2/jd-a93d208ad804d0dcaf1a/REPORT.json": "b1955ec42a971efd079b4d05585556b941a72114889404b21965e348de89e74c",
+    "/root/lightsem/runs/visual_next_20260929/shared_corpus_v2/jd-a93d208ad804d0dcaf1a/teacher_raw.npz": "32a1fa5be241bd78cf3d26c5d49b3b82db2bac605202da72551110fcccc0c7c2",
+    "/root/lightsem/runs/visual_next_20260929/shared_corpus_v2/jd-a93d208ad804d0dcaf1a/mask_controls.npz": "d82652716caf0bb73cf3731ff7fb828c0e631fe79aabb201b6fb935a8335ccdd",
+    "/root/lightsem/runs/visual_next_20260929/shared_corpus_v2/jd-d3581d2b1eb7b0beb7d1/REPORT.json": "30fbc9af133a502c6ac987d5a4b9d36e6a269bc8cef517021e6c9e43e5a63c74",
+    "/root/lightsem/runs/visual_next_20260929/shared_corpus_v2/jd-d3581d2b1eb7b0beb7d1/teacher_raw.npz": "b49bcd05547508cf4533c863fadade6b12d949ecf00bd1d48b07c3adcd2faf8e",
+    "/root/lightsem/runs/visual_next_20260929/shared_corpus_v2/jd-d3581d2b1eb7b0beb7d1/mask_controls.npz": "d412936600202459a0e36d3e6216b4ed25780f70776efe3e214e66c5dabfad8c",
+    "/root/lightsem/runs/visual_next_20260929/shared_corpus_v2/jd-d79d29aa3c0f14c7e4f8/REPORT.json": "b6d66d8c179e88fc90a80ad28ced21fc3729bc480d928e0608e53b93c8900fee",
+    "/root/lightsem/runs/visual_next_20260929/shared_corpus_v2/jd-d79d29aa3c0f14c7e4f8/teacher_raw.npz": "79cf403053eb27875a34490bb15d7a968faea7780896af63b5e9984924d70fe4",
+    "/root/lightsem/runs/visual_next_20260929/shared_corpus_v2/jd-d79d29aa3c0f14c7e4f8/mask_controls.npz": "13b09c758309dedec695b7f78a97ec55346795fed4b2c46e244f17a708b5f07d",
+    "/root/lightsem/runs/visual_next_20260929/shared_corpus_v2/jd-e1da76a76ac38851fb95/REPORT.json": "4d338727525b0ea4d8c8f4b1c41e92d2bb4b4991cb6337d1406635a793828e88",
+    "/root/lightsem/runs/visual_next_20260929/shared_corpus_v2/jd-e1da76a76ac38851fb95/teacher_raw.npz": "3b1af1551e277b2ba36aaf4866a103adb5eea0fe9cbe315e07866d6229e37c2a",
+    "/root/lightsem/runs/visual_next_20260929/shared_corpus_v2/jd-e1da76a76ac38851fb95/mask_controls.npz": "3dc60a5878e5d37950adea5eb22b07afc830f586344e431bc41e9e77c26444cf",
+    "/root/lightsem/runs/visual_next_20260929/shared_corpus_v2/jd-e23374aa3965d47673e4/REPORT.json": "3ce3ce5882276b7864672b95ab4b296cb11d4e29b0baff6964370aba7718af0d",
+    "/root/lightsem/runs/visual_next_20260929/shared_corpus_v2/jd-e23374aa3965d47673e4/teacher_raw.npz": "5e7a3ce9dbdf7c2112582ba9eb1d9e883a4e0ae7791c7301429bb0a19319fe9a",
+    "/root/lightsem/runs/visual_next_20260929/shared_corpus_v2/jd-e23374aa3965d47673e4/mask_controls.npz": "41946a70cc013ab03c08a05a8d038ecb991026b4e8b2fcb492ba1bf843942e07",
+    "/root/lightsem/runs/visual_next_20260929/shared_corpus_v2/jd-e41ede5dd92ce64a6170/REPORT.json": "37d6e131aa572a3d92289e3f1bfbb316fd679fa3955f014f550bab77c67cad3b",
+    "/root/lightsem/runs/visual_next_20260929/shared_corpus_v2/jd-e41ede5dd92ce64a6170/teacher_raw.npz": "6e322e420bb6a80ae2344ebb313748aa59dfd32d12f512159c19af803ba970b7",
+    "/root/lightsem/runs/visual_next_20260929/shared_corpus_v2/jd-e41ede5dd92ce64a6170/mask_controls.npz": "c88dbf97b6e8da6b88ee753e4a4ea57a5460afe3cf035948b254db24132bdfa0",
+    "/root/lightsem/runs/visual_next_20260929/shared_corpus_v2/jd-ea120a8bdace51e8b6f6/REPORT.json": "08eeea2355a5c0b540d738e776a0c1c6aec052dfca83a04ef069b69e6279e6bf",
+    "/root/lightsem/runs/visual_next_20260929/shared_corpus_v2/jd-ea120a8bdace51e8b6f6/teacher_raw.npz": "80b15450c46c0466a888f9b3e3fa588aae6c18f5f7e0213fdbebdc802f99b7c9",
+    "/root/lightsem/runs/visual_next_20260929/shared_corpus_v2/jd-ea120a8bdace51e8b6f6/mask_controls.npz": "0f6247e7c49ab1e2d24c068e91e5dd7c6cd9fb5fd4a13dbff380091649846d85",
+    "/root/lightsem/runs/visual_next_20260929/shared_corpus_v2/jd-efebde221c7bbf18bf6a/REPORT.json": "e6ee33ab42c5ce8fe7f843ce876d9aab73fe59a8c95fc63031064522cfdadfb6",
+    "/root/lightsem/runs/visual_next_20260929/shared_corpus_v2/jd-efebde221c7bbf18bf6a/teacher_raw.npz": "deae40e551ed73675862970cd15c6cc883bf473b27933dd0c97b04414519f504",
+    "/root/lightsem/runs/visual_next_20260929/shared_corpus_v2/jd-efebde221c7bbf18bf6a/mask_controls.npz": "f78bc964f5e694dc5a55d3ea8b7c4afe77f8a5b647fbccf7510f7bb4bcf341d5",
+    "/root/lightsem/runs/visual_next_20260929/shared_corpus_v2/jd-f19a7edfa3a9eca671bf/REPORT.json": "fa84a72a90a7db2ee8a917a0226a5156ca91f1d50abfbb92e20de2b376fa898f",
+    "/root/lightsem/runs/visual_next_20260929/shared_corpus_v2/jd-f19a7edfa3a9eca671bf/teacher_raw.npz": "9c6a837f7d12e8132daf2f26c33a8a605a4e463f9f96d00d1a08e2b5f19966ca",
+    "/root/lightsem/runs/visual_next_20260929/shared_corpus_v2/jd-f19a7edfa3a9eca671bf/mask_controls.npz": "7442d9ec52eadfcb7285302eae0fe5bf4d8ff50961f54ec5c58ff25012906732",
+    "/root/lightsem/runs/visual_next_20260929/shared_corpus_v2/jd-f4c8176fa3a91973b592/REPORT.json": "8262a4bf0c2ae3e1cee556ff24459fccbbfdc2da85528fb22dd884d3d7df7c3e",
+    "/root/lightsem/runs/visual_next_20260929/shared_corpus_v2/jd-f4c8176fa3a91973b592/teacher_raw.npz": "2c38867ee46e411273662982b7bbf6c205615b421960901fe84a095923708a54",
+    "/root/lightsem/runs/visual_next_20260929/shared_corpus_v2/jd-f4c8176fa3a91973b592/mask_controls.npz": "9e0a2c4eb90efd45d9583bc5c768bdbf41be23bd3b5d4764d7ad37db2ed318c5",
+    "/root/lightsem/runs/visual_next_20260929/shared_corpus_v2/jd-f6d8aa9c97422610fd37/REPORT.json": "47067f74a705ae01abe9267867a04f4d0ed1c0e65480c275f21ac196eb53c8b4",
+    "/root/lightsem/runs/visual_next_20260929/shared_corpus_v2/jd-f6d8aa9c97422610fd37/teacher_raw.npz": "d7093cf7c153808bb3418f99242688112af1e417a8014197c8b6cbec285826fb",
+    "/root/lightsem/runs/visual_next_20260929/shared_corpus_v2/jd-f6d8aa9c97422610fd37/mask_controls.npz": "163963b9e8d985c635d9a4b67e319cefcf9a77bbeec84cc4f5db248bc2d5a95f",
+    "/root/lightsem/runs/visual_next_20260929/shared_corpus_v2/jd-fafcdb519fee22dbc70c/REPORT.json": "1afcf0e6c94c377ed37431f8d448433be496f6983b0ccf24fed63af5f76b1fa1",
+    "/root/lightsem/runs/visual_next_20260929/shared_corpus_v2/jd-fafcdb519fee22dbc70c/teacher_raw.npz": "99b6873e310f910871a7e6854d27855df13ab7b3b4bd2d0876961a1dc7b8993f",
+    "/root/lightsem/runs/visual_next_20260929/shared_corpus_v2/jd-fafcdb519fee22dbc70c/mask_controls.npz": "6bb3ecdb8dd03d334bb53074f59d5b32bb47f9d8eca7d31682050b3486a4140c",
+    "/root/lightsem/experiments/2026-09-29-visual-next/records/PREREGISTRATION_V1.md": "772b9687c992275f020b488edf7524596c3c7f177cd40befbcda3828aa8573b5",
+    "/root/lightsem/experiments/2026-09-29-visual-next/records/execution/EXPLORATORY_EXTENSION_V1.md": "aeb2fc3f0e23cc1ab8f74eb67374b40a5bd3cc4052725ae6f4f14f0daa91034f",
+    "/root/lightsem/experiments/2026-09-29-visual-next/records/execution/SCORING_AND_DELIVERY_DETAILS_V1.md": "97671ae621fb0464b685c00156eeeeb4433808a43fe9dd2f7e0ee8c06f93a279",
+    "/root/lightsem/experiments/2026-09-29-visual-next/records/execution/STORAGE_AMENDMENT_V4.md": "e38e496b16fe9f604e27f2a96ce7bc99eab4eb79669c7a230d4d3d91129da492"
+  },
+  "scope": "Full equal-information output-capacity oracle on31 automatic source references. O0/O2/O4 plus cyclic donor/group-permutation controls. No learned audio-spatial claim or independent manual truth.",
+  "observation": "Native1920x1080 fixed baseline renderer; fixed every-third-pixel lattice produces640x360 observer samples. NeutralRGB visibility uses maxchannel>=21bytes. Luma/clipping use entire fixed lattice. Same camera/tonemap/optical zoom convention as C.",
+  "supersedes_unexecuted_draft": "H4_RENDER_SMOKE_FREEZE_V1.json; completed gate/reference/resource instrumentation before any rendering.",
+  "command": "TORCH_ENV=/root/lightsem/.venv/torch-access OPENBLAS_NUM_THREADS=2 bash run_torch.sh -u -m scripts.light_layers.run_visual_next_oracle --freeze /root/lightsem/experiments/2026-09-29-visual-next/records/execution/H4_ORACLE_FREEZE_V1.json",
+  "resource_allocation": {
+    "H4_total_seconds": 7200,
+    "verified_prior_smoke_seconds": 1.245426697889343,
+    "verified_prior_palette_preview_seconds": 457.30654779216275,
+    "this_oracle_max_seconds": 5400,
+    "remaining_reserved_for_oracle_review_seconds": 1341.448025509948,
+    "this_oracle_study_bytes_limit": 4294967296,
+    "final_campaign_bytes_limit": 5368709120
+  }
+}

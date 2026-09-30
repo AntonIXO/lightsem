@@ -1,0 +1,18 @@
+/root/lightsem/runs/visual_next_20260929/vendor/dinov2/dinov2/layers/swiglu_ffn.py:51: UserWarning: xFormers is not available (SwiGLU)
+  warnings.warn("xFormers is not available (SwiGLU)")
+/root/lightsem/runs/visual_next_20260929/vendor/dinov2/dinov2/layers/attention.py:33: UserWarning: xFormers is not available (Attention)
+  warnings.warn("xFormers is not available (Attention)")
+/root/lightsem/runs/visual_next_20260929/vendor/dinov2/dinov2/layers/block.py:40: UserWarning: xFormers is not available (Block)
+  warnings.warn("xFormers is not available (Block)")
+RETENTION_PROBE jd-5fc36e07dfcc022631ff rows 80
+RETENTION_PROBE jd-b932c8c85bd6f2576073 rows 160
+RETENTION_PROBE jd-7c97b126862e58f1d563 rows 240
+RETENTION_PROBE jd-6a5d1bfe68d703300533 rows 312
+RETENTION_PROBE jd-1066f38acdaf08271fa6 rows 392
+RETENTION_PROBE jd-e6ddbe5382bc260e3e6c rows 456
+RETENTION_PROBE jd-48e07715df8f7d372d26 rows 528
+RETENTION_PROBE jd-4041f5000909d780f8de rows 608
+RETENTION_PROBE jd-f396b09e25bec38321a3 rows 688
+RETENTION_PROBE jd-464511233c6a6428a9a5 rows 768
+RETENTION_PROBE jd-8fbf5474b581bac86286 rows 848
+RETENTION_PROBE jd-a1060383db4600ff501b rows 928

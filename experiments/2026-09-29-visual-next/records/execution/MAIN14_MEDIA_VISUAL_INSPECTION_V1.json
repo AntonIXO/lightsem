@@ -1,0 +1,42 @@
+{
+  "status": "all4unique_learned_videos_sampled_visually",
+  "sample_times_s": [
+    0,
+    70,
+    118,
+    130,
+    177,
+    261
+  ],
+  "rows": [
+    {
+      "variant": "R0",
+      "video_sha256": "487a6f1b25626c18b3c22a97ad05a3a5643470a4f29ae1e4295672e14e5d2666",
+      "contact_sheet": "/root/lightsem/runs/visual_next_20260929/media_inspection_v1/R0_contact.png",
+      "contact_sha256": "0f6ea0e197e40252bbe02a7273878bf64087c82458826da9294e10b174f3d2da",
+      "observed": "Neutral shared-output caption is legible. Preserved companion colors vary from blue/cyan to purple; scene and beam trajectories are present at all sampled times."
+    },
+    {
+      "variant": "R1",
+      "video_sha256": "1e34328e64727c0bb56cf898e92678b4eec60ef590ae20a435e1612f5dcfe1a8",
+      "contact_sheet": "/root/lightsem/runs/visual_next_20260929/media_inspection_v1/R1_contact.png",
+      "contact_sha256": "5c04c99489dbc9cd3a67f3d5d728401f1394e38b913df74b6ed396b56d36a3fa",
+      "observed": "Same scene and sampled beam trajectories. Sampled colors match companion before activation, warm pale color at130s and pale purple at177/261s. No blank/corrupt sampled frames seen."
+    },
+    {
+      "variant": "ALL",
+      "video_sha256": "a08986a5b38b906184e0960c4af2788a8bfffaf76a786fa96844e17a18244448",
+      "contact_sheet": "/root/lightsem/runs/visual_next_20260929/media_inspection_v1/ALL_contact.png",
+      "contact_sha256": "ebc95de66c21dbb9bb11c4ec9d1bca4e8717eef54224d47f4da862396384e745",
+      "observed": "Sampled frames retain companion colors before activation, then a shared warm pale color at130/177/261s. Same camera and beam trajectories as the other sampled variants; no blank/corrupt sampled frame."
+    },
+    {
+      "variant": "ALL4",
+      "video_sha256": "b5c10ec6a8b628584ce96b33bfb456bc2e1f4cc669ef1b9f27059f899a9fbc2e",
+      "contact_sheet": "/root/lightsem/runs/visual_next_20260929/media_inspection_v1/ALL4_contact.png",
+      "contact_sha256": "cd41ce9011989a1c23f735328f7ba3a96a28399def50839bcd6de0cae952bf84",
+      "observed": "Same pre-activation scene. At130/177/261s left/right heads have different warm palette colors and lower fixtures add a green region. Same sampled beam trajectories; no blank/corrupt sampled frame."
+    }
+  ],
+  "scope": "Sampled decoded frame inspection, not full-playback aesthetic acceptance. Seven exact duplicates inherit the same visuals; C/P2/P4 were inspected in their prior delivery."
+}

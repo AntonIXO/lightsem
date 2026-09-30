@@ -1,0 +1,20 @@
+....F...                                                                 [100%]
+=================================== FAILURES ===================================
+_______ test_chromatic_instrument_separates_hue_from_value_and_darkness ________
+
+    def test_chromatic_instrument_separates_hue_from_value_and_darkness():
+        red=histogram([255,0,0]);green=histogram([0,255,0])
+        assert hs_distance(red,red)==0
+        assert hs_distance(red,histogram([100,0,0]))==pytest.approx(0)
+        assert hs_distance(red,green)==1
+        assert hs_distance(red,histogram([0,0,0]))==1
+        assert hs_distance(histogram([128,128,128]),red) is None
+>       assert hs_distance(red,histogram([255,0,1]))<.05
+E       assert 0.0627112904349254 < 0.05
+E        +  where 0.0627112904349254 = hs_distance(array([0., 0., 0., 0., 0., 1., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0.,\n       0., 0., 0., 0., 0., 0., 0., 0., 0., ..., 0.,\n       0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0.,\n       0., 0., 0., 0.], dtype=float32), array([0.        , 0.        , 0.        , 0.        , 0.        ,\n       0.99215686, 0.        , 0.        , 0.      ...    ,\n       0.        , 0.        , 0.        , 0.        , 0.        ,\n       0.        , 0.00784314], dtype=float32))
+E        +    where array([0.        , 0.        , 0.        , 0.        , 0.        ,\n       0.99215686, 0.        , 0.        , 0.      ...    ,\n       0.        , 0.        , 0.        , 0.        , 0.        ,\n       0.        , 0.00784314], dtype=float32) = histogram([255, 0, 1])
+
+tests/test_visual_next_instruments.py:58: AssertionError
+=========================== short test summary info ============================
+FAILED tests/test_visual_next_instruments.py::test_chromatic_instrument_separates_hue_from_value_and_darkness
+1 failed, 7 passed in 0.30s

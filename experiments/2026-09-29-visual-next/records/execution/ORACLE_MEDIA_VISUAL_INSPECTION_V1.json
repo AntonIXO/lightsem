@@ -1,0 +1,49 @@
+{
+  "rows": [
+    {
+      "contact_sha256": "ea6b170d3536360703dbc5ff300d75e2b70e18fc4f18ce2d2afb2afa30733f7e",
+      "contact_sheet": "/root/lightsem/runs/visual_next_20260929/media_inspection_v1/O0_contact.png",
+      "observed": "Scene, captions and sampled beam trajectories render consistently. Global/two-group examples look similar at these sampled times; no claim of full-video identity.",
+      "variant": "O0",
+      "video_sha256": "77e8bb955bcc9fff450b2bca83bace33a4536bfbc0338ea2c89f60c08425d1db"
+    },
+    {
+      "contact_sha256": "c028393b32dd2c078204ee31b4b8f79aaaf0e89acfe42bba79600bfe730f9aa0",
+      "contact_sheet": "/root/lightsem/runs/visual_next_20260929/media_inspection_v1/O2_contact.png",
+      "observed": "Scene, captions and sampled beam trajectories render consistently. Global/two-group examples look similar at these sampled times; no claim of full-video identity.",
+      "variant": "O2",
+      "video_sha256": "232de5fde32d39ebc3be20ae7867fcb11c7f166fab8e59f007c34a17ac8483cb"
+    },
+    {
+      "contact_sha256": "719fad6c4c276f3b6e11b8b53bf9677e78f308ca8658d89795173ce6a4398a4c",
+      "contact_sheet": "/root/lightsem/runs/visual_next_20260929/media_inspection_v1/O4_contact.png",
+      "observed": "At130s O4 shows purple left heads and cyan right heads; other sampled times are predominantly shared colors.",
+      "variant": "O4",
+      "video_sha256": "3a0b170b7d0b0a4eec35c7019f0a21abae98285d494c0f80aeef32c8f02cb9c0"
+    },
+    {
+      "contact_sha256": "f537653f742af090aab087beb2e024ebc371d6b7cff99e68ada10f6d1bf6ae86",
+      "contact_sheet": "/root/lightsem/runs/visual_next_20260929/media_inspection_v1/O4-P_contact.png",
+      "observed": "Permuted example has predominantly shared head colors at sampled times; this is a control with its own verified stream.",
+      "variant": "O4-P",
+      "video_sha256": "064298d647e9caee26d439019500ce7c7ab19e12e1473ead7cc74df337146b8d"
+    },
+    {
+      "contact_sha256": "0aa8d41910599054b5da2e8dec76d82362244692c8f48f25a7facc76d7eedcc4",
+      "contact_sheet": "/root/lightsem/runs/visual_next_20260929/media_inspection_v1/O4-D_contact.png",
+      "observed": "Donor-reference example becomes orange in the177/261s samples, unlike the cyan reference-family examples.",
+      "variant": "O4-D",
+      "video_sha256": "7a4d0cc111b501aab8a8ffd9e9352d391cbc070458ee7ea4c27fbed1f9d2fbac"
+    }
+  ],
+  "sample_times_s": [
+    0,
+    70,
+    118,
+    130,
+    177,
+    261
+  ],
+  "scope": "Actual sampled decoded-frame inspection; no blank/corrupt sampled frames, no full-playback aesthetic or audio-predictability claim.",
+  "status": "all5oracle_videos_sampled_visually"
+}

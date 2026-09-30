@@ -1,0 +1,22 @@
+{
+  "asof_utc": "2026-09-29T17:13:39.348631+00:00",
+  "directory_bytes": {
+    "smoke_v1": 742327,
+    "vendor": 7998940,
+    "runtime_deps": 6356239,
+    "papers": 262327002,
+    "weights": 295689502,
+    "cut_traces_v1": 131781,
+    "annotations": 895053842
+  },
+  "study_bytes_excluding_papers": 1205972631,
+  "smoke_H1_H2_model_seconds": 2.707786938874051,
+  "smoke_H3_features_model_seconds": 0.38201960688456893,
+  "budget_limits_seconds": {
+    "H1_H2": 7200,
+    "H3_features": 3600,
+    "H3_fits": 10800,
+    "H4": 7200
+  },
+  "note": "Onlycompletedmodelsmoke recorded; corpusstageelapsedmustbeaddedfrom finalreport. AnnotationCPUtranscoding904.4s separatelyrecorded, noGPU. Original andconvertedTFweightsretained; oneuseconversionenvironmentarchivedandremoved."
+}
