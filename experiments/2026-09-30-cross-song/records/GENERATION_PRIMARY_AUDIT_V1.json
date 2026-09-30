@@ -1,0 +1,55 @@
+{
+  "clock_swap_angle_rms_deg": 18.588168928074694,
+  "generation_sha256": "f689d930e6783ff7f5840356722d6a48b56de7955425930216aa010b315c1c85",
+  "plan_sha256": "d97de3a88c39f1fd23f30c7c00291bde0147a6f87788cd9ab423ad23147c99ac",
+  "raw_and_normalized_audio_inputs_distinct": true,
+  "render_authorized_as_user_requested_diagnostic": true,
+  "same_input_replay_basis": "Executed by frozen generator and authenticated by curator; primary independently verified saved controls and source identities.",
+  "scope": "Mechanical input sensitivity and color-output behavior. Shared pattern vocabulary remains; no generalization or music-quality verdict.",
+  "shared_spatial_style_exact": true,
+  "status": "two_song_generation_independently_verified_before_render",
+  "tracks": [
+    {
+      "active_palette_occupancy": {
+        "2": 1.0
+      },
+      "activity_above_95pct_fraction": 0.8597916666666666,
+      "color_cues_prefix": 55,
+      "review_color_cues": 47,
+      "review_median_speed_deg_s": 48.63730485475543,
+      "review_palette_id_changes": 0,
+      "rhythm_drive_quantiles": [
+        0.32881900013641635,
+        0.9231487996814536,
+        0.9980940575095237
+      ],
+      "source_prefix_samples_exact": true,
+      "streams_sha256": "30fb7640387ba6555db9904462b38fed0eebe79e0a034b6286fec9dbbf1df771",
+      "track": "01"
+    },
+    {
+      "active_palette_occupancy": {
+        "10": 0.35944444444444446,
+        "16": 0.009444444444444445,
+        "2": 0.6311111111111111
+      },
+      "activity_above_95pct_fraction": 0.45729166666666665,
+      "color_cues_prefix": 8,
+      "review_color_cues": 5,
+      "review_median_speed_deg_s": 48.1716184045668,
+      "review_palette_id_changes": 1,
+      "rhythm_drive_quantiles": [
+        0.6477930578934546,
+        0.9665935773665448,
+        0.9999999999999992
+      ],
+      "source_prefix_samples_exact": true,
+      "streams_sha256": "ea3d5bcb5de11f3c21e557eb1906171aec0dae1dc236a96eb28d5feb41e9f875",
+      "track": "02"
+    }
+  ],
+  "two_song_angle_rms_deg": 18.3378170094576,
+  "warnings_preserved": [
+    "01: one active palette"
+  ]
+}

@@ -1,0 +1,38 @@
+{
+  "baseline_C_changed": false,
+  "correct_source_crop_audio_verified": true,
+  "delivery_sha256": "318561546fcb957e3cad75c8d46fb91002e06d3d2b23ab0b8a2a00ad299e9646",
+  "frames_each": 3600,
+  "plan_sha256": "d97de3a88c39f1fd23f30c7c00291bde0147a6f87788cd9ab423ad23147c99ac",
+  "source_interval_s": [
+    60,
+    180
+  ],
+  "status": "both_new_song_videos_independently_verified",
+  "videos": [
+    {
+      "audio_channels": 2,
+      "audit_sha256": "a7ebf4ea851e6ea0dfaa980abccec6e8408ca248d128165c3906651e7de5acd0",
+      "bytes": 20126844,
+      "contact_sha256": "a515e5cab0a67b8ef0e3fd947b4b94a6268264ff3d296aae05db824b644e0891",
+      "contact_sheet": "/root/lightsem/runs/cross_song_20260930_v1/01/review_contact.png",
+      "id": "01",
+      "independently_decoded_pcm_sha256": "d66401c3ad71607aa23c6aea5712710e6afe46fd7ca454be36a2ea610d810520",
+      "samples_per_channel": 5292000,
+      "source_crop_reference_sha256": "1783e2d791d8df66a537f6bb61927453e59ce1afa533358579f68047856bea64",
+      "video_sha256": "724dbc6ea2ae4c409132975ae1fac1a8d6ab0b38ba42f8fbb5a20f8a9ca52673"
+    },
+    {
+      "audio_channels": 1,
+      "audit_sha256": "b82c3f0f5182a1ca8bf441e7d437ce6071a1c2ef4b603c1dc4fa49a13a4ec613",
+      "bytes": 20143159,
+      "contact_sha256": "6667090683f1ca4d556ae49bcab42391c874c8779501815b19ea9bc19c8f88bf",
+      "contact_sheet": "/root/lightsem/runs/cross_song_20260930_v1/02/review_contact.png",
+      "id": "02",
+      "independently_decoded_pcm_sha256": "426c302af484fdbb91e8f4145d7007609c863097830c7f273cde925dc747d039",
+      "samples_per_channel": 5292000,
+      "source_crop_reference_sha256": "ce717ee5a8e2629d578d5abe949dbfb1f3d673741cf7d6aa73ed5ec8a7486195",
+      "video_sha256": "e8600d6caefa6f8fba492bcda3359ab760092bdff352d1a84ff0364acaf1580e"
+    }
+  ]
+}

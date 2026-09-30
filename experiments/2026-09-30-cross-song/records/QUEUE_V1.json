@@ -1,0 +1,12 @@
+{
+  "plan": "/root/lightsem/experiments/2026-09-30-cross-song/records/PLAN_V1.json",
+  "plan_sha256": "d97de3a88c39f1fd23f30c7c00291bde0147a6f87788cd9ab423ad23147c99ac",
+  "commands": [
+    "TORCH_ENV=/root/lightsem/.venv/torch-access OPENBLAS_NUM_THREADS=2 bash run_torch.sh -u -m scripts.light_layers.run_cross_song_review prepare --plan /root/lightsem/experiments/2026-09-30-cross-song/records/PLAN_V1.json",
+    "TORCH_ENV=/root/lightsem/.venv/night-access OPENBLAS_NUM_THREADS=2 bash run_torch.sh -u -m scripts.light_layers.run_light_layers_rhythm --manifest /root/lightsem/runs/cross_song_20260930_v1/rhythm_inputs.json --output /root/lightsem/runs/cross_song_20260930_v1/rhythm",
+    "TORCH_ENV=/root/lightsem/.venv/torch-access OPENBLAS_NUM_THREADS=2 bash run_torch.sh -u -m scripts.light_layers.run_cross_song_review generate --plan /root/lightsem/experiments/2026-09-30-cross-song/records/PLAN_V1.json",
+    "TORCH_ENV=/root/lightsem/.venv/torch-access OPENBLAS_NUM_THREADS=2 bash run_torch.sh -u -m scripts.light_layers.run_cross_song_review render --plan /root/lightsem/experiments/2026-09-30-cross-song/records/PLAN_V1.json"
+  ],
+  "stop_after": "GENERATION.json before render until primary has inspected the actual diagnostics",
+  "all_commands_predeclared": true
+}

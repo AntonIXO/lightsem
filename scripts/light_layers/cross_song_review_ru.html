@@ -1,0 +1,41 @@
+<!doctype html><html lang="ru">
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>LightSem · C на другой музыке</title>
+<style>
+:root{color-scheme:dark;font:16px/1.5 system-ui;background:#10141b;color:#edf2f8}*{box-sizing:border-box}body{max-width:1180px;margin:auto;padding:24px}h1{font-size:28px}h2{font-size:21px}p{color:#bdcada}video{width:100%;aspect-ratio:16/9;background:#000;border-radius:10px;border:1px solid #43536a}.bar{display:flex;gap:10px;flex-wrap:wrap;margin:16px 0}button,a.download,textarea{font:inherit;background:#223045;color:#edf2f8;border:1px solid #526887;border-radius:7px;padding:10px 14px}button{cursor:pointer}button[aria-pressed=true]{background:#b5d4ff;color:#122031}.panel{padding:18px;border:1px solid #43536a;border-radius:10px;margin:20px 0}.notice{border-left:3px solid #edba78;padding-left:14px}a{color:#b5d4ff}.download{text-decoration:none}textarea{display:block;width:100%;min-height:90px;margin-top:8px}.muted{font-size:14px}summary{cursor:pointer}button:focus-visible,a:focus-visible,textarea:focus-visible{outline:3px solid #b5d4ff;outline-offset:3px}table{width:100%;border-collapse:collapse}th,td{border-bottom:1px solid #43536a;padding:8px;text-align:left}@media(max-width:650px){body{padding:12px}h1{font-size:24px}}
+</style>
+<h1>Бейзлайн C на другой музыке</h1>
+<p>Два отрывка <strong>1:00–3:00 исходных песен</strong>. Модель, сцена и настройки одинаковы. Ритм, громкость, цветовые предсказания и управление приборами рассчитаны заново для каждого трека. Первую минуту также обрабатывали, чтобы история не начиналась заново в точке показа.</p>
+<p class="notice"><strong>Общая библиотека движений:</strong> C использует заранее заданные взмахи на 2, 4 и 8 долей, которые меняет сохранённый образец движений. Музыка управляет фазой, ритмом и размахом. Новую хореографию из музыки этот контроллер не генерирует — поэтому рисунки могут оставаться похожими.</p>
+<div class="bar" id="choices"></div>
+<video id="video" controls playsinline preload="metadata"></video>
+<div class="bar"><button data-time="0">Начало</button><button data-time="30">0:30</button><button data-time="60">1:00</button><button data-time="90">1:30</button><a id="download" class="download">Скачать видео</a></div>
+<h2 id="title">Загрузка…</h2><p id="diagnostic"></p>
+<p>Смотри, меняется ли характер движения вместе с музыкой или просто повторяется тот же рисунок в другом ритме. Цвет оцени отдельно: отсутствие смен палитры уже отмечено в диагностике.</p>
+<section class="panel"><h2>Что показала проверка до рендера</h2><div id="summary"></div>
+<details><summary>Численные показатели</summary><table><thead><tr><th>Показатель</th><th>Ladykiller</th><th>Cure For Me</th></tr></thead><tbody id="metrics"></tbody></table>
+<p class="muted">RMS — среднеквадратичное различие углов поворота приборов. Разные углы подтверждают реакцию на вход, но сами по себе не доказывают разнообразие фигур или музыкальную уместность. Темп указан по нашему детектору.</p></details></section>
+<section class="panel"><h2>Комментарий к выбранному треку</h2>
+<label for="notes">Что заметно: одинаковые фигуры, попадание в ритм, слишком быстрые взмахи, неподвижный цвет?</label><textarea id="notes"></textarea>
+<div class="bar"><button id="export">Скачать комментарии</button><span id="saved" role="status"></span></div>
+<p class="muted">Комментарии хранятся в этом браузере. Можно просто написать впечатления в чат.</p></section>
+<p class="muted" id="status"></p>
+<script>
+'use strict';
+const $=id=>document.getElementById(id),video=$('video'),key='lightsem-cross-song-review-20260930';
+let manifest=null,current=null,answers={tracks:{}};
+try{answers=JSON.parse(localStorage.getItem(key)||'null')||answers}catch{}
+function save(){if(!current)return;answers.tracks[current]=$('notes').value;answers.updated_at=new Date().toISOString();answers.video_hashes=Object.fromEntries(manifest.variants.map(v=>[v.id,v.sha256]));try{localStorage.setItem(key,JSON.stringify(answers));$('saved').textContent='Сохранено'}catch{$('saved').textContent='Скачай комментарии для сохранения'}}
+function select(row){if(current===row.id)return;save();const t=video.currentTime||0,playing=!video.paused;current=row.id;video.src='/media/'+row.id+'.mp4';video.onloadedmetadata=()=>{video.currentTime=Math.min(t,Math.max(0,video.duration-.1));if(playing)video.play().catch(()=>{})};$('title').textContent=row.title;$('diagnostic').textContent=row.comment;$('notes').value=answers.tracks[current]||'';$('download').href='/media/'+row.id+'.mp4';$('download').download=row.download_name;for(const b of $('choices').children)b.setAttribute('aria-pressed',String(b.dataset.id===current))}
+for(const b of document.querySelectorAll('[data-time]'))b.onclick=()=>{if(Number.isFinite(video.duration))video.currentTime=Number(b.dataset.time)};
+$('notes').addEventListener('input',save);
+$('export').onclick=()=>{save();const url=URL.createObjectURL(new Blob([JSON.stringify(answers,null,2)],{type:'application/json'})),a=document.createElement('a');a.href=url;a.download='drugaya_muzyka_kommentarii.json';a.click();setTimeout(()=>URL.revokeObjectURL(url),1000)};
+video.addEventListener('error',()=>{$('status').textContent='Если AV1 не воспроизводится в браузере, скачай видео и открой его в плеере.'});
+fetch('/manifest.json',{cache:'no-store'}).then(r=>{if(!r.ok)throw Error(r.status);return r.json()}).then(m=>{
+ manifest=m;
+ for(const row of m.variants){const b=document.createElement('button');b.textContent=row.title;b.dataset.id=row.id;b.onclick=()=>select(row);$('choices').append(b)}
+ for(const text of m.summary){const p=document.createElement('p');p.textContent=text;$('summary').append(p)}
+ for(const values of m.metrics){const tr=document.createElement('tr');for(const value of values){const td=document.createElement('td');td.textContent=value;tr.append(td)}$('metrics').append(tr)}
+ $('status').textContent='2 видео по 2:00 · 1080p30 AV1 · звук исходного трека · '+m.variants.map(v=>(v.bytes/1e6).toLocaleString('ru-RU',{maximumFractionDigits:1})+' МБ').join(' / ');select(m.variants[0]);
+}).catch(()=>{$('status').textContent='Не удалось загрузить видео. Обнови страницу.'});
+</script></html>

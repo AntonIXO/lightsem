@@ -27,3 +27,5 @@ counts without changing the selected model or the existing diagnostic renderer.
 Use `bash run.sh <script>` for the CPU environment and `bash run_torch.sh <script>` for the dedicated Torch environment. Launchers now live under `scripts/`; see [the script index](scripts/README.md). The research [campaign index](experiments/README.md) and [relocation map](experiments/RELOCATION_MAP.json) locate historical files by their old path.
 
 The historical records keep their original contents and absolute path claims. Those paths are documentary after this move; use the relocation map to find the files. Replaying a frozen experiment from its original binding requires a new, versioned binding for the new source paths. No new training, scoring, or model promotion occurred in this reorganization.
+
+[Проверка C на другой музыке](experiments/2026-09-30-cross-song/README.md): два новых аудиовхода, диагностика одинаковых движений и залипания палитры, два ролика для просмотра. Проверки до рендера закреплены в [AGENTS.md](AGENTS.md).

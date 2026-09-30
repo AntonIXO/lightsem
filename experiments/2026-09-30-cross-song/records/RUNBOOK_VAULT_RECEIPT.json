@@ -1,0 +1,24 @@
+{
+  "request": {
+    "problem_id": "dancing-light-generative-20260903",
+    "id": "rb-cross-song-output-check-20260930",
+    "priority": 1,
+    "preconditions": "User explicitly requests two other-music demos and permanent collapse/output checks. Current baseline C checkpoint and saved unconditioned style are preserved. No new hypothesis confirmation or training.",
+    "prompt": "Run the fixed engineering diagnostic in /root/lightsem/experiments/2026-09-30-cross-song/records/PLAN_V1.json SHA256 d97de3a88c39f1fd23f30c7c00291bde0147a6f87788cd9ab423ad23147c99ac. Tracks: Vanilla Ace Ladykiller and AURORA Cure For Me. Compute complete first180s prefixes fromt0, then show60-180s. Use exactC color checkpoint, ownpalettehistory and300msfades; fresh audio92+BeatThis, rhythmclock, loudness, accents andDMX. Hold the accepted unconditioned body-style prefix fixed; this controller has shared2/4/8beat motion vocabulary. Never reuse Shpongle DMX with a new soundtrack. Before rendering recordper-head motionrange/speed/inactivity, colorcue/palettechanges/occupancy, nativecontext rank/variance, distinctaudio/outputidentity, pairwiseangleRMS andclock-only swap effect, plusdeterministic samemotioninput replay. One-degree RMS is a prospectively fixed engineering flag, not a music-quality/generalization threshold. Preserve all failures; diagnostic videos remain allowed byexplicitrequest, butdo notpromote orretune. At mostoneGPU pipeline,8GiB RAM,10GiB VRAM,>=1GiBfree bothfilesystems,1.5GiB newroot,30min executionbound. Native1080p30AV1/AAC128 compactvideos. Execute exactcommands inQUEUE_V1.json, stopaftergeneration forprimaryaudit, thenrenderthe2predeclaredmovies andfullsoftware/mediaaudits."
+  },
+  "result": {
+    "id": "rb-cross-song-output-check-20260930",
+    "problem_id": "dancing-light-generative-20260903",
+    "prompt": "Run the fixed engineering diagnostic in /root/lightsem/experiments/2026-09-30-cross-song/records/PLAN_V1.json SHA256 d97de3a88c39f1fd23f30c7c00291bde0147a6f87788cd9ab423ad23147c99ac. Tracks: Vanilla Ace Ladykiller and AURORA Cure For Me. Compute complete first180s prefixes fromt0, then show60-180s. Use exactC color checkpoint, ownpalettehistory and300msfades; fresh audio92+BeatThis, rhythmclock, loudness, accents andDMX. Hold the accepted unconditioned body-style prefix fixed; this controller has shared2/4/8beat motion vocabulary. Never reuse Shpongle DMX with a new soundtrack. Before rendering recordper-head motionrange/speed/inactivity, colorcue/palettechanges/occupancy, nativecontext rank/variance, distinctaudio/outputidentity, pairwiseangleRMS andclock-only swap effect, plusdeterministic samemotioninput replay. One-degree RMS is a prospectively fixed engineering flag, not a music-quality/generalization threshold. Preserve all failures; diagnostic videos remain allowed byexplicitrequest, butdo notpromote orretune. At mostoneGPU pipeline,8GiB RAM,10GiB VRAM,>=1GiBfree bothfilesystems,1.5GiB newroot,30min executionbound. Native1080p30AV1/AAC128 compactvideos. Execute exactcommands inQUEUE_V1.json, stopaftergeneration forprimaryaudit, thenrenderthe2predeclaredmovies andfullsoftware/mediaaudits.",
+    "preconditions": "User explicitly requests two other-music demos and permanent collapse/output checks. Current baseline C checkpoint and saved unconditioned style are preserved. No new hypothesis confirmation or training.",
+    "gates": [],
+    "status": "queued",
+    "hypothesis_id": null,
+    "priority": 1,
+    "notes": [],
+    "former_ids": [],
+    "topic_tags": [],
+    "created_at": "2026-09-30T11:43:59+00:00",
+    "updated_at": "2026-09-30T11:43:59+00:00"
+  }
+}

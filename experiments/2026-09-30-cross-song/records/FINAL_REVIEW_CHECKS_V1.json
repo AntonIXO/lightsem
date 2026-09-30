@@ -1,0 +1,42 @@
+{
+  "baseline_config_matches_accepted_C": true,
+  "browser_interactions_not_automated": true,
+  "delivered_audio": "Each movie independently matches an AAC reference encoded from its own source60-180s crop.",
+  "http_page_and_two_byte_range_routes_verified": true,
+  "independently_recomputed_beat_aligned_angle_rms_deg": 4.0866359024795225,
+  "javascript_syntax_passed": true,
+  "live_page": "http://127.0.0.1:8770/",
+  "logical_artifact_bytes": 165364081,
+  "primary_delivery_audit_sha256": "a1c27080336955e5ba23284040467970e95d837dc3a2275847acd6e81058cb3d",
+  "primary_generation_audit_sha256": "396cf568c8e5aa7c3ac2fbe8e036a8979b38672821394a532e5d05002194e0c0",
+  "source_sha256": "a27f737f115788e83c1b1eeb85b081b41ba7c08114c364a3b91a1e73e676e2d4",
+  "status": "two_requested_diagnostic_videos_ready",
+  "visual_sample_inspection": [
+    {
+      "contact_sha256": "a515e5cab0a67b8ef0e3fd947b4b94a6268264ff3d296aae05db824b644e0891",
+      "observation": "All six sampled frames show the same pale green/white palette, with changing beam poses. No missing scene/corrupt sampled frame.",
+      "sample_times_in_review_s": [
+        0,
+        20,
+        40,
+        60,
+        80,
+        100
+      ],
+      "track": "01"
+    },
+    {
+      "contact_sha256": "6667090683f1ca4d556ae49bcab42391c874c8779501815b19ea9bc19c8f88bf",
+      "observation": "The first sampled frame is blue; later samples are pale green/white, consistent with one visible palette change. The beam vocabulary looks like the shared paired sweeps; no corrupt sampled frame.",
+      "sample_times_in_review_s": [
+        0,
+        20,
+        40,
+        60,
+        80,
+        100
+      ],
+      "track": "02"
+    }
+  ]
+}
