@@ -1,0 +1,18 @@
+[
+  {
+    "url": "http://127.0.0.1:8769/",
+    "status": 200,
+    "source": "scripts/light_layers/visual_next_full_review_ru.html",
+    "served_body_exact": true,
+    "javascript_syntax": "passed",
+    "sha256": "f5857154c5f83f061b4ccf508d01869c13b9ae5219769e82c7c1a3ee445923c9"
+  },
+  {
+    "url": "http://127.0.0.1:8770/",
+    "status": 200,
+    "source": "scripts/light_layers/cross_song_review_ru.html",
+    "served_body_exact": true,
+    "javascript_syntax": "passed",
+    "sha256": "9a7e894f3fa8f9640362885e7bc97b70c01e78205231f8dafa31e1cd2ed62c4e"
+  }
+]

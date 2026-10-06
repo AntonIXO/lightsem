@@ -1,0 +1,12 @@
+{
+  "id": "user-color-baseline-P2-20260930",
+  "inputs": {
+    "audio": {
+      "path": "/root/shpongle.flac",
+      "sha256": "95e4388424ef62950bdeae78e47b8e71839ed28c6e01189fe15f9ae6c902b6c0"
+    }
+  },
+  "review_manifest": "/root/lightsem/runs/visual_next_20260929/shpongle_palette_previews_v1/MANIFEST.json",
+  "selected_variant": "P2",
+  "scope": "User selection of color layout only. Reference video contains historical rejected companion motion."
+}

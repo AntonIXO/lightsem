@@ -1,0 +1,31 @@
+{
+  "plan": "/root/lightsem/experiments/2026-09-30-body-transfer/records/DARK_STAGE_PLAN_V1.json",
+  "plan_sha256": "4b9b4579de70ca87f19fa54913526644704190a7f06f4019bed11d98480124fc",
+  "env": {
+    "TORCH_ENV": "/root/lightsem/.venv/torch-access",
+    "OPENBLAS_NUM_THREADS": "2"
+  },
+  "commands": [
+    [
+      "bash",
+      "run_torch.sh",
+      "-u",
+      "-m",
+      "scripts.rendering.render_body_dark_stage",
+      "smoke",
+      "--plan",
+      "/root/lightsem/experiments/2026-09-30-body-transfer/records/DARK_STAGE_PLAN_V1.json"
+    ],
+    [
+      "bash",
+      "run_torch.sh",
+      "-u",
+      "-m",
+      "scripts.rendering.render_body_dark_stage",
+      "render",
+      "--plan",
+      "/root/lightsem/experiments/2026-09-30-body-transfer/records/DARK_STAGE_PLAN_V1.json"
+    ]
+  ],
+  "stop_after_smoke": "Primary inspects images before full render"
+}

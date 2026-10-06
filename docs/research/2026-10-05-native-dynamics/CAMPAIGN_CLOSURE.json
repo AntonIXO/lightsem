@@ -1,0 +1,2437 @@
+{
+  "schema_version": 1,
+  "archived_on": "2026-10-06",
+  "timezone": "Europe/Moscow",
+  "user_request": "Make fixed C baseline + D4max and D6 as cli options to enable if I need (MuQ in all, baseline). Then close experiments, commit and push.",
+  "status": "campaigns_archived",
+  "problem_status": "parked; unresolved scientific/artistic questions are not declared solved",
+  "registered_experiments": [
+    {
+      "id": "exp-bt2-09-cure_for_me-20261004",
+      "problem_id": "body-transfer-portfolio-20261004",
+      "closed": true,
+      "computed_verdict": "supports",
+      "hypothesis_id": "h-bt2-09-cure_for_me-20261004",
+      "key_numbers": {
+        "bt2-emitted-six-region-coverage_after": 1.0,
+        "bt2-emitted-six-region-coverage_before": 0.8333333333333334,
+        "bt2-exact-desired-target-pairs_after": 0.0,
+        "bt2-exact-desired-target-pairs_before": 2.0,
+        "bt2-geometric-crossing-fraction_after": 0.1031517094017094,
+        "bt2-geometric-crossing-fraction_before": 0.5685630341880342
+      },
+      "artifacts": [
+        "/mnt/lightsem-data/experiments/lightsem/body_transfer_20261004_v2/timelines/09/cure_for_me/report.json"
+      ],
+      "failure_mode": null,
+      "lesson": "V2 mapping 09 on Cure For Me met its registered geometric crossing/source-response engineering criteria; this is numerical transfer evidence, not musical choreography or an artistic winner. Preserve V2 results and compare against the separate V3 readout repair before making product claims.",
+      "record_path": "/root/lightsem-vault/experiments/exp-bt2-09-cure_for_me-20261004.md",
+      "record_sha256": "a8904d310e9070fbf6452334901fde4f9e140cfe5563d97989bb35d291d6c02f"
+    },
+    {
+      "id": "exp-bt3-09-shpongle-20261004",
+      "problem_id": "body-transfer-portfolio-20261004-v3",
+      "closed": true,
+      "computed_verdict": "supports",
+      "hypothesis_id": "h-bt3-09-shpongle-20261004",
+      "key_numbers": {
+        "bt2-emitted-six-region-coverage_after": 1.0,
+        "bt2-emitted-six-region-coverage_before": 0.8333333333333334,
+        "bt2-exact-desired-target-pairs_after": 0.0,
+        "bt2-exact-desired-target-pairs_before": 2.0,
+        "bt2-geometric-crossing-fraction_after": 0.10683760683760683,
+        "bt2-geometric-crossing-fraction_before": 0.5818376068376069
+      },
+      "artifacts": [
+        "/mnt/lightsem-data/experiments/lightsem/body_transfer_20261004_v3/timelines/09/shpongle/report.json"
+      ],
+      "failure_mode": null,
+      "lesson": "The fixed geometric crossing-reduction and emitted six-region source-response gates pass on this accepted saved song body. This comparison estimates the combined method and capability readout; static spacing contributes, extra outputs do not create independent gestures, and choreography/music generalization remains unqualified.",
+      "record_path": "/root/lightsem-vault/experiments/exp-bt3-09-shpongle-20261004.md",
+      "record_sha256": "c746e50e404fa34a0fe99b13432bc7b1503c089886605df7ed884ec19859bca7"
+    },
+    {
+      "id": "exp-bt3-08-shpongle-20261004",
+      "problem_id": "body-transfer-portfolio-20261004-v3",
+      "closed": true,
+      "computed_verdict": "supports",
+      "hypothesis_id": "h-bt3-08-shpongle-20261004",
+      "key_numbers": {
+        "bt2-emitted-six-region-coverage_after": 1.0,
+        "bt2-emitted-six-region-coverage_before": 0.8333333333333334,
+        "bt2-exact-desired-target-pairs_after": 0.0,
+        "bt2-exact-desired-target-pairs_before": 2.0,
+        "bt2-geometric-crossing-fraction_after": 0.25066773504273504,
+        "bt2-geometric-crossing-fraction_before": 0.5818376068376069
+      },
+      "artifacts": [
+        "/mnt/lightsem-data/experiments/lightsem/body_transfer_20261004_v3/timelines/08/shpongle/report.json"
+      ],
+      "failure_mode": null,
+      "lesson": "Common spatial coordinates repaired an inverted proximity relationship caused by independent fixture offsets. On saved source frames with hands<=0.10m, median emitted finite-ray separation fell from1.842/1.847m inV2 to0.000797/0.000508m inV3; there are only13/5 correlated frames. The crossing/source-response gates pass, while readable encounters and phrase development remain for visual review.",
+      "record_path": "/root/lightsem-vault/experiments/exp-bt3-08-shpongle-20261004.md",
+      "record_sha256": "03c7a9fb10106e7ce903183f2ced28a73761bd4eeef2b311295a4c06ac2226ff"
+    },
+    {
+      "id": "exp-dynamic-dance-d3-20261005",
+      "problem_id": "dynamic-musical-dance-20261005",
+      "closed": true,
+      "computed_verdict": "directional_only",
+      "hypothesis_id": "h-dynamic-dance-d3-20261005",
+      "key_numbers": {
+        "administrative_least_favorable_primary": 0.0013406965881586075,
+        "cure_for_me": 0.0013406965881586075,
+        "cure_for_me_display_primary": 0.0013406965881586075,
+        "required_increment": 0.005,
+        "shpongle": 0.008024397306144238,
+        "shpongle_display_primary": 0.008024397306144238
+      },
+      "artifacts": [
+        "/mnt/lightsem-data/experiments/lightsem/dynamic_dance_20261005_v1/reports/FINAL_REPORT.json",
+        "/mnt/lightsem-data/experiments/lightsem/dynamic_dance_20261005_v1/reports/FINAL_REPORT.md",
+        "/mnt/lightsem-data/experiments/lightsem/dynamic_dance_20261005_v1/reports/PRE_RENDER_AUDIT_v1.json",
+        "/mnt/lightsem-data/experiments/lightsem/dynamic_dance_20261005_v1/records/SCIENTIFIC_CLOSEOUT_CONVENTION.json",
+        "/mnt/lightsem-data/experiments/lightsem/dynamic_dance_20261005_v1/reports/training_audit_v2.json",
+        "/mnt/lightsem-data/experiments/lightsem/dynamic_dance_20261005_v1/reports/repeatability_v3/report.json",
+        "/mnt/lightsem-data/experiments/lightsem/dynamic_dance_20261005_v1/media/D3/shpongle/dark.mp4",
+        "/mnt/lightsem-data/experiments/lightsem/dynamic_dance_20261005_v1/bodies/D3/shpongle/body.npz",
+        "/mnt/lightsem-data/experiments/lightsem/dynamic_dance_20261005_v1/bodies/D3/shpongle/plan.npz",
+        "/mnt/lightsem-data/experiments/lightsem/dynamic_dance_20261005_v1/timelines/D3/shpongle/timeline.npz",
+        "/mnt/lightsem-data/experiments/lightsem/dynamic_dance_20261005_v1/timelines/D3/shpongle/comparison.json",
+        "/mnt/lightsem-data/experiments/lightsem/dynamic_dance_20261005_v1/reports/supplemental_transfer_v1/D3_shpongle.json",
+        "/mnt/lightsem-data/experiments/lightsem/dynamic_dance_20261005_v1/media/D3/cure_for_me/dark.mp4",
+        "/mnt/lightsem-data/experiments/lightsem/dynamic_dance_20261005_v1/bodies/D3/cure_for_me/body.npz",
+        "/mnt/lightsem-data/experiments/lightsem/dynamic_dance_20261005_v1/bodies/D3/cure_for_me/plan.npz",
+        "/mnt/lightsem-data/experiments/lightsem/dynamic_dance_20261005_v1/timelines/D3/cure_for_me/timeline.npz",
+        "/mnt/lightsem-data/experiments/lightsem/dynamic_dance_20261005_v1/timelines/D3/cure_for_me/comparison.json",
+        "/mnt/lightsem-data/experiments/lightsem/dynamic_dance_20261005_v1/reports/supplemental_transfer_v1/D3_cure_for_me.json"
+      ],
+      "failure_mode": "recipe_conditional",
+      "lesson": "Regional source selectivity reaches its body threshold only for Shpongle. Vocal responses localize, but drum-to-support selectivity reverses in requested/emitted light; investigate the mapping before claiming transfer.",
+      "record_path": "/root/lightsem-vault/experiments/exp-dynamic-dance-d3-20261005.md",
+      "record_sha256": "e8d3b2e674c62cdb77c45331128e9d428c97cd8734be870294b9970b39e4e97d"
+    },
+    {
+      "id": "exp-bt2-12-shpongle-20261004",
+      "problem_id": "body-transfer-portfolio-20261004",
+      "closed": true,
+      "computed_verdict": "supports",
+      "hypothesis_id": "h-bt2-12-shpongle-20261004",
+      "key_numbers": {
+        "bt2-emitted-six-region-coverage_after": 1.0,
+        "bt2-emitted-six-region-coverage_before": 0.8333333333333334,
+        "bt2-exact-desired-target-pairs_after": 0.0,
+        "bt2-exact-desired-target-pairs_before": 2.0,
+        "bt2-geometric-crossing-fraction_after": 0.08530982905982906,
+        "bt2-geometric-crossing-fraction_before": 0.5818376068376069
+      },
+      "artifacts": [
+        "/mnt/lightsem-data/experiments/lightsem/body_transfer_20261004_v2/timelines/12/shpongle/report.json"
+      ],
+      "failure_mode": null,
+      "lesson": "V2 mapping 12 on Shpongle met its registered geometric crossing/source-response engineering criteria; this is numerical transfer evidence, not musical choreography or an artistic winner. Preserve V2 results and compare against the separate V3 readout repair before making product claims.",
+      "record_path": "/root/lightsem-vault/experiments/exp-bt2-12-shpongle-20261004.md",
+      "record_sha256": "663e12a034c03384d3cbaccde66e694e5271ec1546548b22ac96c5078b10fcb4"
+    },
+    {
+      "id": "exp-bt2-08-cure_for_me-20261004",
+      "problem_id": "body-transfer-portfolio-20261004",
+      "closed": true,
+      "computed_verdict": "supports",
+      "hypothesis_id": "h-bt2-08-cure_for_me-20261004",
+      "key_numbers": {
+        "bt2-emitted-six-region-coverage_after": 1.0,
+        "bt2-emitted-six-region-coverage_before": 0.8333333333333334,
+        "bt2-exact-desired-target-pairs_after": 0.0,
+        "bt2-exact-desired-target-pairs_before": 2.0,
+        "bt2-geometric-crossing-fraction_after": 0.10077457264957265,
+        "bt2-geometric-crossing-fraction_before": 0.5685630341880342
+      },
+      "artifacts": [
+        "/mnt/lightsem-data/experiments/lightsem/body_transfer_20261004_v2/timelines/08/cure_for_me/report.json"
+      ],
+      "failure_mode": null,
+      "lesson": "V2 mapping 08 on Cure For Me met its registered geometric crossing/source-response engineering criteria; this is numerical transfer evidence, not musical choreography or an artistic winner. Its original semantic readout had defects later addressed in V3; use the V3 evidence for semantic claims. Preserve V2 results and compare against the separate V3 readout repair before making product claims.",
+      "record_path": "/root/lightsem-vault/experiments/exp-bt2-08-cure_for_me-20261004.md",
+      "record_sha256": "2b5d843b3b75dbdcaf8bf826ea69571ebeffdad250d0e43ab09d34aa14533560"
+    },
+    {
+      "id": "exp-bt3-11-cure_for_me-20261004",
+      "problem_id": "body-transfer-portfolio-20261004-v3",
+      "closed": true,
+      "computed_verdict": "supports",
+      "hypothesis_id": "h-bt3-11-cure_for_me-20261004",
+      "key_numbers": {
+        "bt2-emitted-six-region-coverage_after": 1.0,
+        "bt2-emitted-six-region-coverage_before": 0.8333333333333334,
+        "bt2-exact-desired-target-pairs_after": 0.0,
+        "bt2-exact-desired-target-pairs_before": 2.0,
+        "bt2-geometric-crossing-fraction_after": 0.1014957264957265,
+        "bt2-geometric-crossing-fraction_before": 0.5685630341880342
+      },
+      "artifacts": [
+        "/mnt/lightsem-data/experiments/lightsem/body_transfer_20261004_v3/timelines/11/cure_for_me/report.json"
+      ],
+      "failure_mode": null,
+      "lesson": "The crossing/source-response gates pass, but normalized motion is very close to10 (direction similarity0.979/0.973). Fixed anatomical transport is an interpretable alternate mechanism, not an independent visual discovery; no generalization or artistic success is established.",
+      "record_path": "/root/lightsem-vault/experiments/exp-bt3-11-cure_for_me-20261004.md",
+      "record_sha256": "131dfb75e084ab6ca53f4d7f0c9b2f20bbc200d1e5fb2bd7d42959b1bc12157d"
+    },
+    {
+      "id": "exp-bt3-09-cure_for_me-20261004",
+      "problem_id": "body-transfer-portfolio-20261004-v3",
+      "closed": true,
+      "computed_verdict": "supports",
+      "hypothesis_id": "h-bt3-09-cure_for_me-20261004",
+      "key_numbers": {
+        "bt2-emitted-six-region-coverage_after": 1.0,
+        "bt2-emitted-six-region-coverage_before": 0.8333333333333334,
+        "bt2-exact-desired-target-pairs_after": 0.0,
+        "bt2-exact-desired-target-pairs_before": 2.0,
+        "bt2-geometric-crossing-fraction_after": 0.1031517094017094,
+        "bt2-geometric-crossing-fraction_before": 0.5685630341880342
+      },
+      "artifacts": [
+        "/mnt/lightsem-data/experiments/lightsem/body_transfer_20261004_v3/timelines/09/cure_for_me/report.json"
+      ],
+      "failure_mode": null,
+      "lesson": "The fixed geometric crossing-reduction and emitted six-region source-response gates pass on this accepted saved song body. This comparison estimates the combined method and capability readout; static spacing contributes, extra outputs do not create independent gestures, and choreography/music generalization remains unqualified.",
+      "record_path": "/root/lightsem-vault/experiments/exp-bt3-09-cure_for_me-20261004.md",
+      "record_sha256": "fa7622a47312a1e3d4dd14e48ec9cd1df65324862da43b918ed0ab14bf35ad23"
+    },
+    {
+      "id": "exp-bt3-15-cure_for_me-20261004",
+      "problem_id": "body-transfer-portfolio-20261004-v3",
+      "closed": true,
+      "computed_verdict": "supports",
+      "hypothesis_id": "h-bt3-15-cure_for_me-20261004",
+      "key_numbers": {
+        "bt2-emitted-six-region-coverage_after": 1.0,
+        "bt2-emitted-six-region-coverage_before": 0.8333333333333334,
+        "bt2-exact-desired-target-pairs_after": 0.0,
+        "bt2-exact-desired-target-pairs_before": 2.0,
+        "bt2-geometric-crossing-fraction_after": 0.10373931623931625,
+        "bt2-geometric-crossing-fraction_before": 0.5685630341880342
+      },
+      "artifacts": [
+        "/mnt/lightsem-data/experiments/lightsem/body_transfer_20261004_v3/timelines/15/cure_for_me/report.json"
+      ],
+      "failure_mode": null,
+      "lesson": "The fixed geometric crossing-reduction and emitted six-region source-response gates pass on this accepted saved song body. This comparison estimates the combined method and capability readout; static spacing contributes, extra outputs do not create independent gestures, and choreography/music generalization remains unqualified.",
+      "record_path": "/root/lightsem-vault/experiments/exp-bt3-15-cure_for_me-20261004.md",
+      "record_sha256": "11b3fabb97e5e09fc989072c12d381077e49d4427e452016888b339aae7f79a6"
+    },
+    {
+      "id": "exp-bt2-10-cure_for_me-20261004",
+      "problem_id": "body-transfer-portfolio-20261004",
+      "closed": true,
+      "computed_verdict": "supports",
+      "hypothesis_id": "h-bt2-10-cure_for_me-20261004",
+      "key_numbers": {
+        "bt2-emitted-six-region-coverage_after": 1.0,
+        "bt2-emitted-six-region-coverage_before": 0.8333333333333334,
+        "bt2-exact-desired-target-pairs_after": 0.0,
+        "bt2-exact-desired-target-pairs_before": 2.0,
+        "bt2-geometric-crossing-fraction_after": 0.10213675213675213,
+        "bt2-geometric-crossing-fraction_before": 0.5685630341880342
+      },
+      "artifacts": [
+        "/mnt/lightsem-data/experiments/lightsem/body_transfer_20261004_v2/timelines/10/cure_for_me/report.json"
+      ],
+      "failure_mode": null,
+      "lesson": "V2 mapping 10 on Cure For Me met its registered geometric crossing/source-response engineering criteria; this is numerical transfer evidence, not musical choreography or an artistic winner. Preserve V2 results and compare against the separate V3 readout repair before making product claims.",
+      "record_path": "/root/lightsem-vault/experiments/exp-bt2-10-cure_for_me-20261004.md",
+      "record_sha256": "336ba2b9c0a25a2300ec6cd7c9ba286c8fd9094a78f61a4b7a4682fcb8e6a19a"
+    },
+    {
+      "id": "exp-bt2-14-shpongle-20261004",
+      "problem_id": "body-transfer-portfolio-20261004",
+      "closed": true,
+      "computed_verdict": "supports",
+      "hypothesis_id": "h-bt2-14-shpongle-20261004",
+      "key_numbers": {
+        "bt2-emitted-six-region-coverage_after": 1.0,
+        "bt2-emitted-six-region-coverage_before": 0.8333333333333334,
+        "bt2-exact-desired-target-pairs_after": 0.0,
+        "bt2-exact-desired-target-pairs_before": 2.0,
+        "bt2-geometric-crossing-fraction_after": 0.10451388888888889,
+        "bt2-geometric-crossing-fraction_before": 0.5818376068376069
+      },
+      "artifacts": [
+        "/mnt/lightsem-data/experiments/lightsem/body_transfer_20261004_v2/timelines/14/shpongle/report.json"
+      ],
+      "failure_mode": null,
+      "lesson": "V2 mapping 14 on Shpongle met its registered geometric crossing/source-response engineering criteria; this is numerical transfer evidence, not musical choreography or an artistic winner. Preserve V2 results and compare against the separate V3 readout repair before making product claims.",
+      "record_path": "/root/lightsem-vault/experiments/exp-bt2-14-shpongle-20261004.md",
+      "record_sha256": "151a07a6d1da560719b480f0fbda249c024066c5f31663a516768cefd78332fa"
+    },
+    {
+      "id": "exp-dynamic-dance-d7-20261005",
+      "problem_id": "dynamic-musical-dance-20261005",
+      "closed": true,
+      "computed_verdict": "directional_only",
+      "hypothesis_id": "h-dynamic-dance-d7-20261005",
+      "key_numbers": {
+        "D7_emitted_event_F1_delta_vs_continued_cure_for_me": -0.006502472948206162,
+        "D7_emitted_event_F1_delta_vs_continued_shpongle": 0.006129194400865123,
+        "D7_emitted_recurrence_delta_vs_continued_cure_for_me": -0.006021445569602789,
+        "D7_emitted_recurrence_delta_vs_continued_shpongle": -0.016257516156619772,
+        "D7_emitted_release_delta_vs_continued_cure_for_me": -0.004330048280551753,
+        "D7_emitted_release_delta_vs_continued_shpongle": -0.006036594171515003,
+        "administrative_least_favorable_primary": 0.0012906734994567657,
+        "cure_for_me_display_primary": 0.0027166578721041787,
+        "dev_seed0": 0.00271665787210446,
+        "dev_seed0_donor_relative_gain": 0.03355013728062335,
+        "dev_seed0_shift_relative_gain": 0.00271665787210446,
+        "dev_seed1": 0.0012906734994567657,
+        "dev_seed1_donor_relative_gain": 0.03140151191735287,
+        "dev_seed1_shift_relative_gain": 0.0012906734994567657,
+        "required_increment": 0.05,
+        "shpongle_display_primary": 0.0027166578721041787
+      },
+      "artifacts": [
+        "/mnt/lightsem-data/experiments/lightsem/dynamic_dance_20261005_v1/reports/FINAL_REPORT.json",
+        "/mnt/lightsem-data/experiments/lightsem/dynamic_dance_20261005_v1/reports/FINAL_REPORT.md",
+        "/mnt/lightsem-data/experiments/lightsem/dynamic_dance_20261005_v1/reports/PRE_RENDER_AUDIT_v1.json",
+        "/mnt/lightsem-data/experiments/lightsem/dynamic_dance_20261005_v1/records/SCIENTIFIC_CLOSEOUT_CONVENTION.json",
+        "/mnt/lightsem-data/experiments/lightsem/dynamic_dance_20261005_v1/reports/training_audit_v2.json",
+        "/mnt/lightsem-data/experiments/lightsem/dynamic_dance_20261005_v1/reports/repeatability_v3/report.json",
+        "/mnt/lightsem-data/experiments/lightsem/dynamic_dance_20261005_v1/media/D7/shpongle/dark.mp4",
+        "/mnt/lightsem-data/experiments/lightsem/dynamic_dance_20261005_v1/bodies/D7/shpongle/body.npz",
+        "/mnt/lightsem-data/experiments/lightsem/dynamic_dance_20261005_v1/bodies/D7/shpongle/plan.npz",
+        "/mnt/lightsem-data/experiments/lightsem/dynamic_dance_20261005_v1/timelines/D7/shpongle/timeline.npz",
+        "/mnt/lightsem-data/experiments/lightsem/dynamic_dance_20261005_v1/timelines/D7/shpongle/comparison.json",
+        "/mnt/lightsem-data/experiments/lightsem/dynamic_dance_20261005_v1/reports/supplemental_transfer_v1/D7_shpongle.json",
+        "/mnt/lightsem-data/experiments/lightsem/dynamic_dance_20261005_v1/media/D7/cure_for_me/dark.mp4",
+        "/mnt/lightsem-data/experiments/lightsem/dynamic_dance_20261005_v1/bodies/D7/cure_for_me/body.npz",
+        "/mnt/lightsem-data/experiments/lightsem/dynamic_dance_20261005_v1/bodies/D7/cure_for_me/plan.npz",
+        "/mnt/lightsem-data/experiments/lightsem/dynamic_dance_20261005_v1/timelines/D7/cure_for_me/timeline.npz",
+        "/mnt/lightsem-data/experiments/lightsem/dynamic_dance_20261005_v1/timelines/D7/cure_for_me/comparison.json",
+        "/mnt/lightsem-data/experiments/lightsem/dynamic_dance_20261005_v1/reports/supplemental_transfer_v1/D7_cure_for_me.json"
+      ],
+      "failure_mode": "recipe_conditional",
+      "lesson": "Source-conditioned generation is measurably input-dependent and its motion responses reach emitted DMX, but the conditional-loss gain is far below 5% in both seeds. Emitted recurrence/release regress versus matched continued training on both songs; input response alone is not musical choreography.",
+      "record_path": "/root/lightsem-vault/experiments/exp-dynamic-dance-d7-20261005.md",
+      "record_sha256": "3248c994cff37d0ca70733693c6ec45204087c70fe4df1d558810b08f34f2c94"
+    },
+    {
+      "id": "exp-au-jepa-retrieval-20261004",
+      "problem_id": "lightsem-audio-understanding-20261004",
+      "closed": true,
+      "computed_verdict": "refutes",
+      "hypothesis_id": "h-au-jepa-retrieval-20261004",
+      "key_numbers": {
+        "delta_recall5": -0.125,
+        "delta_temporal_auc": -0.20442708333333334,
+        "native_effective_rank": 14.38235403416084,
+        "recall5": 0.34732142857142856,
+        "temporal_auc": 0.6387648809523809
+      },
+      "artifacts": [
+        "/mnt/lightsem-data/experiments/lightsem/audio_understanding_20261004/results/jepa/report.json",
+        "/mnt/lightsem-data/experiments/lightsem/audio_understanding_20261004/records/root_jepa_dev_verification_v1.json",
+        "/mnt/lightsem-data/experiments/lightsem/audio_understanding_20261004/records/root_jepa_training_verification_v1.json",
+        "/mnt/lightsem-data/experiments/lightsem/audio_understanding_20261004/runs/jepa/seed0/final.pt"
+      ],
+      "failure_mode": "recipe_conditional",
+      "lesson": "Fresh-initialized latent prediction loses retrieval and local timing versus MAE; temporal loss is also clear versus untrained. Outputs remain variable, nonduplicate and input-sensitive, so this is not constant-output collapse and does not rule out changed predictive recipes.",
+      "record_path": "/root/lightsem-vault/experiments/exp-au-jepa-retrieval-20261004.md",
+      "record_sha256": "416c9687779d2ed6abcaaef4fefdafe4c44273751409d99b310dde4d5ebc6532"
+    },
+    {
+      "id": "exp-au-cocola-temporal-20261004",
+      "problem_id": "lightsem-audio-understanding-20261004",
+      "closed": true,
+      "computed_verdict": "directional_only",
+      "hypothesis_id": "h-au-cocola-temporal-20261004",
+      "key_numbers": {
+        "delta_recall5": 0.275,
+        "delta_temporal_auc": 0.022247023809523814,
+        "native_effective_rank": 75.50179481084899,
+        "recall5": 0.7473214285714285,
+        "temporal_auc": 0.8654389880952382
+      },
+      "artifacts": [
+        "/mnt/lightsem-data/experiments/lightsem/audio_understanding_20261004/results/cocola/report.json",
+        "/mnt/lightsem-data/experiments/lightsem/audio_understanding_20261004/records/root_cocola_dev_verification_v1.json",
+        "/mnt/lightsem-data/experiments/lightsem/audio_understanding_20261004/records/root_cocola_training_verification_v1.json",
+        "/mnt/lightsem-data/experiments/lightsem/audio_understanding_20261004/runs/cocola/seed0/final.pt"
+      ],
+      "failure_mode": "recipe_conditional",
+      "lesson": "Contrastive learning markedly improves retrieval with the matched TRAIN readout and reduces best-offset error versus MAE. Its incremental temporal AUROC gain misses the registered magnitude, while source-activity AUROC adds no clear benefit over mixture energy.",
+      "record_path": "/root/lightsem-vault/experiments/exp-au-cocola-temporal-20261004.md",
+      "record_sha256": "a8c7c28af6e8a4a9a5ac45ab050bbce48be1b9740265a6cbc2fa543b2e75231e"
+    },
+    {
+      "id": "exp-bt3-02-cure_for_me-20261004",
+      "problem_id": "body-transfer-portfolio-20261004-v3",
+      "closed": true,
+      "computed_verdict": "supports",
+      "hypothesis_id": "h-bt3-02-cure_for_me-20261004",
+      "key_numbers": {
+        "bt2-emitted-six-region-coverage_after": 1.0,
+        "bt2-emitted-six-region-coverage_before": 0.8333333333333334,
+        "bt2-exact-desired-target-pairs_after": 0.0,
+        "bt2-exact-desired-target-pairs_before": 2.0,
+        "bt2-geometric-crossing-fraction_after": 0.10219017094017094,
+        "bt2-geometric-crossing-fraction_before": 0.5685630341880342
+      },
+      "artifacts": [
+        "/mnt/lightsem-data/experiments/lightsem/body_transfer_20261004_v3/timelines/02/cure_for_me/report.json"
+      ],
+      "failure_mode": null,
+      "lesson": "The fixed geometric crossing-reduction and emitted six-region source-response gates pass on this accepted saved song body. This comparison estimates the combined method and capability readout; static spacing contributes, extra outputs do not create independent gestures, and choreography/music generalization remains unqualified.",
+      "record_path": "/root/lightsem-vault/experiments/exp-bt3-02-cure_for_me-20261004.md",
+      "record_sha256": "523b507f419aa70bd5018e76e8232b5a9f988f39adad92ca9645d8ca9a058731"
+    },
+    {
+      "id": "exp-d4max-d8-v2-c4-20261005",
+      "problem_id": "dynamic-musical-dance-20261005",
+      "closed": true,
+      "computed_verdict": "directional_only",
+      "hypothesis_id": "h-d4max-d8-v2-c4-20261005",
+      "key_numbers": {
+        "cure_body_hold_s": 0.0,
+        "cure_primary": 0.012271608134212103,
+        "mean_primary": 0.008161258355139575,
+        "minimum_required_each_song": 0.02,
+        "shpongle_body_hold_s": 0.0,
+        "shpongle_primary": 0.004050908576067047
+      },
+      "artifacts": [
+        "/mnt/lightsem-data/experiments/lightsem/d4max_d8_20261005_v2/PLAN.json",
+        "/mnt/lightsem-data/experiments/lightsem/d4max_d8_20261005_v2/reports/FINAL_REPORT.json",
+        "/mnt/lightsem-data/experiments/lightsem/d4max_d8_20261005_v2/reports/RESULTS.html",
+        "/mnt/lightsem-data/experiments/lightsem/d4max_d8_20261005_v2/reports/SOURCE_RELATIVE_PHYSICAL.json",
+        "/mnt/lightsem-data/experiments/lightsem/d4max_d8_20261005_v2/reports/FREEZE_AUDIT.json",
+        "/mnt/lightsem-data/experiments/lightsem/d4max_d8_20261005_v2/reports/OLD_FREEZE_CAUSE_v3.json",
+        "/mnt/lightsem-data/experiments/lightsem/d4max_d8_20261005_v2/reports/NATIVE_TRAINING_PROPOSAL_v2.json",
+        "/mnt/lightsem-data/experiments/lightsem/d4max_d8_20261005_v2/reports/AUDIO_ALTERNATIVES.json",
+        "/mnt/lightsem-data/experiments/lightsem/d4max_d8_20261005_v2/delivery_verification/browser_v1/REPORT.json",
+        "/mnt/lightsem-data/experiments/lightsem/d4max_d8_20261005_v2/media/C4/shpongle/full.mp4",
+        "/mnt/lightsem-data/experiments/lightsem/d4max_d8_20261005_v2/media/C4/cure_for_me/full.mp4"
+      ],
+      "failure_mode": "recipe_conditional",
+      "lesson": "Positive within-motif pacing eliminates artificial zero clocks and threshold bodyholds on both songs, but release gains+.00405/+.01227 miss+.02 and Cure sliding exceeds original-G78 tolerance. Support hold was coupled to a whole-body clock despite moving-arm predictions; learn native regional dynamics and distinguish planted support from a globalpause.",
+      "record_path": "/root/lightsem-vault/experiments/exp-d4max-d8-v2-c4-20261005.md",
+      "record_sha256": "d1285255b6ab22c69df17da25950e7e1f00198d74f3cc4a3ccff29a871772695"
+    },
+    {
+      "id": "exp-bt2-03-shpongle-20261004",
+      "problem_id": "body-transfer-portfolio-20261004",
+      "closed": true,
+      "computed_verdict": "supports",
+      "hypothesis_id": "h-bt2-03-shpongle-20261004",
+      "key_numbers": {
+        "bt2-emitted-six-region-coverage_after": 1.0,
+        "bt2-emitted-six-region-coverage_before": 0.8333333333333334,
+        "bt2-exact-desired-target-pairs_after": 0.0,
+        "bt2-exact-desired-target-pairs_before": 2.0,
+        "bt2-geometric-crossing-fraction_after": 0.11503739316239316,
+        "bt2-geometric-crossing-fraction_before": 0.5818376068376069
+      },
+      "artifacts": [
+        "/mnt/lightsem-data/experiments/lightsem/body_transfer_20261004_v2/timelines/03/shpongle/report.json"
+      ],
+      "failure_mode": null,
+      "lesson": "V2 mapping 03 on Shpongle met its registered geometric crossing/source-response engineering criteria; this is numerical transfer evidence, not musical choreography or an artistic winner. Its original semantic readout had defects later addressed in V3; use the V3 evidence for semantic claims. Preserve V2 results and compare against the separate V3 readout repair before making product claims.",
+      "record_path": "/root/lightsem-vault/experiments/exp-bt2-03-shpongle-20261004.md",
+      "record_sha256": "fc18980bd08c4b0e8a6c050fb3967eddbdd41859d060a01fbd48a89e25e384fb"
+    },
+    {
+      "id": "exp-bt2-01-cure_for_me-20261004",
+      "problem_id": "body-transfer-portfolio-20261004",
+      "closed": true,
+      "computed_verdict": "supports",
+      "hypothesis_id": "h-bt2-01-cure_for_me-20261004",
+      "key_numbers": {
+        "bt2-emitted-six-region-coverage_after": 1.0,
+        "bt2-emitted-six-region-coverage_before": 0.8333333333333334,
+        "bt2-exact-desired-target-pairs_after": 0.0,
+        "bt2-exact-desired-target-pairs_before": 2.0,
+        "bt2-geometric-crossing-fraction_after": 0.11947115384615385,
+        "bt2-geometric-crossing-fraction_before": 0.5685630341880342
+      },
+      "artifacts": [
+        "/mnt/lightsem-data/experiments/lightsem/body_transfer_20261004_v2/timelines/01/cure_for_me/report.json"
+      ],
+      "failure_mode": null,
+      "lesson": "V2 mapping 01 on Cure For Me met its registered geometric crossing/source-response engineering criteria; this is numerical transfer evidence, not musical choreography or an artistic winner. Preserve V2 results and compare against the separate V3 readout repair before making product claims.",
+      "record_path": "/root/lightsem-vault/experiments/exp-bt2-01-cure_for_me-20261004.md",
+      "record_sha256": "5b89696a550f58a28e3f2a7a601d5cca1d5ca8852ac00c2a05986c26398da555"
+    },
+    {
+      "id": "exp-bt3-10-cure_for_me-20261004",
+      "problem_id": "body-transfer-portfolio-20261004-v3",
+      "closed": true,
+      "computed_verdict": "supports",
+      "hypothesis_id": "h-bt3-10-cure_for_me-20261004",
+      "key_numbers": {
+        "bt2-emitted-six-region-coverage_after": 1.0,
+        "bt2-emitted-six-region-coverage_before": 0.8333333333333334,
+        "bt2-exact-desired-target-pairs_after": 0.0,
+        "bt2-exact-desired-target-pairs_before": 2.0,
+        "bt2-geometric-crossing-fraction_after": 0.10213675213675213,
+        "bt2-geometric-crossing-fraction_before": 0.5685630341880342
+      },
+      "artifacts": [
+        "/mnt/lightsem-data/experiments/lightsem/body_transfer_20261004_v3/timelines/10/cure_for_me/report.json"
+      ],
+      "failure_mode": null,
+      "lesson": "The crossing/source-response gates pass and body recurrence is well retained in this two-song diagnostic, but normalized motion is very close to11 (direction similarity0.979/0.973). Count different mechanisms as related candidates, not independent visual discoveries; no generalization or artistic success is established.",
+      "record_path": "/root/lightsem-vault/experiments/exp-bt3-10-cure_for_me-20261004.md",
+      "record_sha256": "cfae6f3a558b8a3a5bb60159e5c6cc541484a6ec046751fe50ce8c49fa0b2e68"
+    },
+    {
+      "id": "exp-dynamic-dance-d5-20261005",
+      "problem_id": "dynamic-musical-dance-20261005",
+      "closed": true,
+      "computed_verdict": "refutes",
+      "hypothesis_id": "h-dynamic-dance-d5-20261005",
+      "key_numbers": {
+        "administrative_least_favorable_primary": -0.054112668052064904,
+        "cure_for_me": -0.054112668052064904,
+        "cure_for_me_display_primary": -0.054112668052064904,
+        "required_increment": 0.02,
+        "shpongle": -0.05352503779832035,
+        "shpongle_display_primary": -0.05352503779832035
+      },
+      "artifacts": [
+        "/mnt/lightsem-data/experiments/lightsem/dynamic_dance_20261005_v1/reports/FINAL_REPORT.json",
+        "/mnt/lightsem-data/experiments/lightsem/dynamic_dance_20261005_v1/reports/FINAL_REPORT.md",
+        "/mnt/lightsem-data/experiments/lightsem/dynamic_dance_20261005_v1/reports/PRE_RENDER_AUDIT_v1.json",
+        "/mnt/lightsem-data/experiments/lightsem/dynamic_dance_20261005_v1/records/SCIENTIFIC_CLOSEOUT_CONVENTION.json",
+        "/mnt/lightsem-data/experiments/lightsem/dynamic_dance_20261005_v1/reports/training_audit_v2.json",
+        "/mnt/lightsem-data/experiments/lightsem/dynamic_dance_20261005_v1/reports/repeatability_v3/report.json",
+        "/mnt/lightsem-data/experiments/lightsem/dynamic_dance_20261005_v1/media/D5/shpongle/dark.mp4",
+        "/mnt/lightsem-data/experiments/lightsem/dynamic_dance_20261005_v1/bodies/D5/shpongle/body.npz",
+        "/mnt/lightsem-data/experiments/lightsem/dynamic_dance_20261005_v1/bodies/D5/shpongle/plan.npz",
+        "/mnt/lightsem-data/experiments/lightsem/dynamic_dance_20261005_v1/timelines/D5/shpongle/timeline.npz",
+        "/mnt/lightsem-data/experiments/lightsem/dynamic_dance_20261005_v1/timelines/D5/shpongle/comparison.json",
+        "/mnt/lightsem-data/experiments/lightsem/dynamic_dance_20261005_v1/reports/supplemental_transfer_v1/D5_shpongle.json",
+        "/mnt/lightsem-data/experiments/lightsem/dynamic_dance_20261005_v1/media/D5/cure_for_me/dark.mp4",
+        "/mnt/lightsem-data/experiments/lightsem/dynamic_dance_20261005_v1/bodies/D5/cure_for_me/body.npz",
+        "/mnt/lightsem-data/experiments/lightsem/dynamic_dance_20261005_v1/bodies/D5/cure_for_me/plan.npz",
+        "/mnt/lightsem-data/experiments/lightsem/dynamic_dance_20261005_v1/timelines/D5/cure_for_me/timeline.npz",
+        "/mnt/lightsem-data/experiments/lightsem/dynamic_dance_20261005_v1/timelines/D5/cure_for_me/comparison.json",
+        "/mnt/lightsem-data/experiments/lightsem/dynamic_dance_20261005_v1/reports/supplemental_transfer_v1/D5_cure_for_me.json"
+      ],
+      "failure_mode": "recipe_conditional",
+      "lesson": "The surrogate-guided fixed-time refinement worsens actual emitted refinement loss on both songs. Optimize and validate the real constrained path before claiming expressive light transfer.",
+      "record_path": "/root/lightsem-vault/experiments/exp-dynamic-dance-d5-20261005.md",
+      "record_sha256": "37fed670ff7aef3ffa66497ccc6b0b134aad2e27a66b49123b17309094e371d0"
+    },
+    {
+      "id": "exp-bt2-12-cure_for_me-20261004",
+      "problem_id": "body-transfer-portfolio-20261004",
+      "closed": true,
+      "computed_verdict": "supports",
+      "hypothesis_id": "h-bt2-12-cure_for_me-20261004",
+      "key_numbers": {
+        "bt2-emitted-six-region-coverage_after": 1.0,
+        "bt2-emitted-six-region-coverage_before": 0.8333333333333334,
+        "bt2-exact-desired-target-pairs_after": 0.0,
+        "bt2-exact-desired-target-pairs_before": 2.0,
+        "bt2-geometric-crossing-fraction_after": 0.08637820512820513,
+        "bt2-geometric-crossing-fraction_before": 0.5685630341880342
+      },
+      "artifacts": [
+        "/mnt/lightsem-data/experiments/lightsem/body_transfer_20261004_v2/timelines/12/cure_for_me/report.json"
+      ],
+      "failure_mode": null,
+      "lesson": "V2 mapping 12 on Cure For Me met its registered geometric crossing/source-response engineering criteria; this is numerical transfer evidence, not musical choreography or an artistic winner. Preserve V2 results and compare against the separate V3 readout repair before making product claims.",
+      "record_path": "/root/lightsem-vault/experiments/exp-bt2-12-cure_for_me-20261004.md",
+      "record_sha256": "55ad4123749cf8996e6a68ac123017de2dc6b0b78200a43c9948c61c8782d1af"
+    },
+    {
+      "id": "exp-native-repair-20261006",
+      "problem_id": "dynamic-musical-dance-20261005",
+      "closed": true,
+      "computed_verdict": "directional_only",
+      "hypothesis_id": "h-native-repair-20261006",
+      "key_numbers": {},
+      "artifacts": [
+        "/mnt/lightsem-data/experiments/lightsem/native_dynamics_jd_20261005_v1/repair_v1/reports/REPAIR_VERDICT.json",
+        "/mnt/lightsem-data/experiments/lightsem/native_dynamics_jd_20261005_v1/repair_v1/evaluation",
+        "/mnt/lightsem-data/experiments/lightsem/native_dynamics_jd_20261005_v1/repair_v1/bodies"
+      ],
+      "failure_mode": "recipe_conditional",
+      "lesson": "Raw3D training constraints repair the severe jerk/root instability and preserve activity, but HFweight1 leaves the frozen Shpongle90\u2013150 fast-position-residual gate unmet in BOTH seeds (1.364/1.336 vs1.25). Do not substitute the improved jerk/JDmetrics for this failedgate, relaxthresholds, select13kcheckpoint, or smoothoutput. ContinuewithregisteredmatchedHF refinement; realJD3Dlabels still unavailable andD7reference remains onlya prior.",
+      "record_path": "/root/lightsem-vault/experiments/exp-native-repair-20261006.md",
+      "record_sha256": "14c253f10cb3e371f3c62003e75691527869d03c59988f8af9fc3e1288a185a1"
+    },
+    {
+      "id": "exp-bt3-07-shpongle-20261004",
+      "problem_id": "body-transfer-portfolio-20261004-v3",
+      "closed": true,
+      "computed_verdict": "supports",
+      "hypothesis_id": "h-bt3-07-shpongle-20261004",
+      "key_numbers": {
+        "bt2-emitted-six-region-coverage_after": 1.0,
+        "bt2-emitted-six-region-coverage_before": 0.8333333333333334,
+        "bt2-exact-desired-target-pairs_after": 0.0,
+        "bt2-exact-desired-target-pairs_before": 2.0,
+        "bt2-geometric-crossing-fraction_after": 0.1110042735042735,
+        "bt2-geometric-crossing-fraction_before": 0.5818376068376069
+      },
+      "artifacts": [
+        "/mnt/lightsem-data/experiments/lightsem/body_transfer_20261004_v3/timelines/07/shpongle/report.json"
+      ],
+      "failure_mode": null,
+      "lesson": "The crossing/source-response gates pass, but this relative-frame representation substantially changes global recurrence. Evaluate intended local interactions visually; do not equate a finite, responsive output with preserved overall dance structure.",
+      "record_path": "/root/lightsem-vault/experiments/exp-bt3-07-shpongle-20261004.md",
+      "record_sha256": "62804b4ed24ce164f38520a17037b328a71c008cfe70d20493923585177b8c65"
+    },
+    {
+      "id": "exp-bt2-04-cure_for_me-20261004",
+      "problem_id": "body-transfer-portfolio-20261004",
+      "closed": true,
+      "computed_verdict": "supports",
+      "hypothesis_id": "h-bt2-04-cure_for_me-20261004",
+      "key_numbers": {
+        "bt2-emitted-six-region-coverage_after": 1.0,
+        "bt2-emitted-six-region-coverage_before": 0.8333333333333334,
+        "bt2-exact-desired-target-pairs_after": 0.0,
+        "bt2-exact-desired-target-pairs_before": 2.0,
+        "bt2-geometric-crossing-fraction_after": 0.09871794871794871,
+        "bt2-geometric-crossing-fraction_before": 0.5685630341880342
+      },
+      "artifacts": [
+        "/mnt/lightsem-data/experiments/lightsem/body_transfer_20261004_v2/timelines/04/cure_for_me/report.json"
+      ],
+      "failure_mode": null,
+      "lesson": "V2 mapping 04 on Cure For Me met its registered geometric crossing/source-response engineering criteria; this is numerical transfer evidence, not musical choreography or an artistic winner. Preserve V2 results and compare against the separate V3 readout repair before making product claims.",
+      "record_path": "/root/lightsem-vault/experiments/exp-bt2-04-cure_for_me-20261004.md",
+      "record_sha256": "879ff9bda3bea60c48fad114c0d1e13f5d15a99ce0601cead85190b75422bfc9"
+    },
+    {
+      "id": "exp-bt3-01-cure_for_me-20261004",
+      "problem_id": "body-transfer-portfolio-20261004-v3",
+      "closed": true,
+      "computed_verdict": "supports",
+      "hypothesis_id": "h-bt3-01-cure_for_me-20261004",
+      "key_numbers": {
+        "bt2-emitted-six-region-coverage_after": 1.0,
+        "bt2-emitted-six-region-coverage_before": 0.8333333333333334,
+        "bt2-exact-desired-target-pairs_after": 0.0,
+        "bt2-exact-desired-target-pairs_before": 2.0,
+        "bt2-geometric-crossing-fraction_after": 0.11947115384615385,
+        "bt2-geometric-crossing-fraction_before": 0.5685630341880342
+      },
+      "artifacts": [
+        "/mnt/lightsem-data/experiments/lightsem/body_transfer_20261004_v3/timelines/01/cure_for_me/report.json"
+      ],
+      "failure_mode": null,
+      "lesson": "The fixed geometric crossing-reduction and emitted six-region source-response gates pass on this accepted saved song body. This comparison estimates the combined method and capability readout; static spacing contributes, extra outputs do not create independent gestures, and choreography/music generalization remains unqualified.",
+      "record_path": "/root/lightsem-vault/experiments/exp-bt3-01-cure_for_me-20261004.md",
+      "record_sha256": "e8db2a7ff0e89de1e683d49141fb57f83faa2d1170c0d9c8914579549f93a8dc"
+    },
+    {
+      "id": "exp-dynamic-dance-d1-20261005",
+      "problem_id": "dynamic-musical-dance-20261005",
+      "closed": true,
+      "computed_verdict": "refutes",
+      "hypothesis_id": "h-dynamic-dance-d1-20261005",
+      "key_numbers": {
+        "D1_Cure_emitted_F1_delta_vs_loudness_only": -0.0004662004662004948,
+        "D1_emitted_event_F1_delta_vs_baseline_cure_for_me": 0.0858585858585858,
+        "D1_emitted_event_F1_delta_vs_baseline_shpongle": 0.0286707450807292,
+        "administrative_least_favorable_primary": -0.013162705667276065,
+        "cure_for_me": -0.013162705667276065,
+        "cure_for_me_display_primary": -0.013162705667276065,
+        "required_increment": 0.02,
+        "shpongle": 0.03237410071942437,
+        "shpongle_display_primary": 0.03237410071942437
+      },
+      "artifacts": [
+        "/mnt/lightsem-data/experiments/lightsem/dynamic_dance_20261005_v1/reports/FINAL_REPORT.json",
+        "/mnt/lightsem-data/experiments/lightsem/dynamic_dance_20261005_v1/reports/FINAL_REPORT.md",
+        "/mnt/lightsem-data/experiments/lightsem/dynamic_dance_20261005_v1/reports/PRE_RENDER_AUDIT_v1.json",
+        "/mnt/lightsem-data/experiments/lightsem/dynamic_dance_20261005_v1/records/SCIENTIFIC_CLOSEOUT_CONVENTION.json",
+        "/mnt/lightsem-data/experiments/lightsem/dynamic_dance_20261005_v1/reports/training_audit_v2.json",
+        "/mnt/lightsem-data/experiments/lightsem/dynamic_dance_20261005_v1/reports/repeatability_v3/report.json",
+        "/mnt/lightsem-data/experiments/lightsem/dynamic_dance_20261005_v1/media/D1/shpongle/dark.mp4",
+        "/mnt/lightsem-data/experiments/lightsem/dynamic_dance_20261005_v1/bodies/D1/shpongle/body.npz",
+        "/mnt/lightsem-data/experiments/lightsem/dynamic_dance_20261005_v1/bodies/D1/shpongle/plan.npz",
+        "/mnt/lightsem-data/experiments/lightsem/dynamic_dance_20261005_v1/timelines/D1/shpongle/timeline.npz",
+        "/mnt/lightsem-data/experiments/lightsem/dynamic_dance_20261005_v1/timelines/D1/shpongle/comparison.json",
+        "/mnt/lightsem-data/experiments/lightsem/dynamic_dance_20261005_v1/reports/supplemental_transfer_v1/D1_shpongle.json",
+        "/mnt/lightsem-data/experiments/lightsem/dynamic_dance_20261005_v1/media/D1/cure_for_me/dark.mp4",
+        "/mnt/lightsem-data/experiments/lightsem/dynamic_dance_20261005_v1/bodies/D1/cure_for_me/body.npz",
+        "/mnt/lightsem-data/experiments/lightsem/dynamic_dance_20261005_v1/bodies/D1/cure_for_me/plan.npz",
+        "/mnt/lightsem-data/experiments/lightsem/dynamic_dance_20261005_v1/timelines/D1/cure_for_me/timeline.npz",
+        "/mnt/lightsem-data/experiments/lightsem/dynamic_dance_20261005_v1/timelines/D1/cure_for_me/comparison.json",
+        "/mnt/lightsem-data/experiments/lightsem/dynamic_dance_20261005_v1/reports/supplemental_transfer_v1/D1_cure_for_me.json"
+      ],
+      "failure_mode": "recipe_conditional",
+      "lesson": "Selected-event body timing improves for Shpongle only; emitted F1 beats native baseline on both songs but Cure is 0.0004662 below loudness-only. No two-song musical superiority.",
+      "record_path": "/root/lightsem-vault/experiments/exp-dynamic-dance-d1-20261005.md",
+      "record_sha256": "6bda36528d4d3ea1f8ea6b855929bc741c275dca2237f4bbb86e5aa189d5b33d"
+    },
+    {
+      "id": "exp-bt3-12-shpongle-20261004",
+      "problem_id": "body-transfer-portfolio-20261004-v3",
+      "closed": true,
+      "computed_verdict": "supports",
+      "hypothesis_id": "h-bt3-12-shpongle-20261004",
+      "key_numbers": {
+        "bt2-emitted-six-region-coverage_after": 1.0,
+        "bt2-emitted-six-region-coverage_before": 0.8333333333333334,
+        "bt2-exact-desired-target-pairs_after": 0.0,
+        "bt2-exact-desired-target-pairs_before": 2.0,
+        "bt2-geometric-crossing-fraction_after": 0.08530982905982906,
+        "bt2-geometric-crossing-fraction_before": 0.5818376068376069
+      },
+      "artifacts": [
+        "/mnt/lightsem-data/experiments/lightsem/body_transfer_20261004_v3/timelines/12/shpongle/report.json"
+      ],
+      "failure_mode": null,
+      "lesson": "The fixed geometric crossing-reduction and emitted six-region source-response gates pass on this accepted saved song body. This comparison estimates the combined method and capability readout; static spacing contributes, extra outputs do not create independent gestures, and choreography/music generalization remains unqualified.",
+      "record_path": "/root/lightsem-vault/experiments/exp-bt3-12-shpongle-20261004.md",
+      "record_sha256": "4e532c540e8cfb06c3b25db602326fb992cd8455a42bd7f5374d559b7a0edac0"
+    },
+    {
+      "id": "exp-bt3-03-cure_for_me-20261004",
+      "problem_id": "body-transfer-portfolio-20261004-v3",
+      "closed": true,
+      "computed_verdict": "refutes",
+      "hypothesis_id": "h-bt3-03-cure_for_me-20261004",
+      "key_numbers": {
+        "bt2-emitted-six-region-coverage_after": 1.0,
+        "bt2-emitted-six-region-coverage_before": 0.8333333333333334,
+        "bt2-exact-desired-target-pairs_after": 0.0,
+        "bt2-exact-desired-target-pairs_before": 2.0,
+        "bt2-geometric-crossing-fraction_after": 0.7829059829059829,
+        "bt2-geometric-crossing-fraction_before": 0.5685630341880342
+      },
+      "artifacts": [
+        "/mnt/lightsem-data/experiments/lightsem/body_transfer_20261004_v3/timelines/03/cure_for_me/report.json"
+      ],
+      "failure_mode": "recipe_conditional",
+      "lesson": "The absolute articulated target shape is preserved, but fixed physical rays aimed through that shape increase crossings to0.7791/0.7829 versusV1 0.5818/0.5686. The frozen clutter-reduction claim is refuted for this installation; preserve this as a morphology/clutter tradeoff diagnostic, not a lighting improvement. Mechanical limits also prevent exact optical target tracing; no parameter was tuned after this outcome.",
+      "record_path": "/root/lightsem-vault/experiments/exp-bt3-03-cure_for_me-20261004.md",
+      "record_sha256": "969ae788a7ae6fcd3c918fc15d2064b7c276effb6e6b39ac782d9c084d25c065"
+    },
+    {
+      "id": "exp-dynamic-combo-c4-20261005",
+      "problem_id": "dynamic-musical-dance-20261005",
+      "closed": true,
+      "computed_verdict": "refutes",
+      "hypothesis_id": "h-dynamic-combo-c4-20261005",
+      "key_numbers": {
+        "cure_for_me_first30_beam_dimmer": 0.3453680555555556,
+        "cure_for_me_longest_hold_s": 4.533333333333333,
+        "cure_for_me_primary": -0.22303921173666355,
+        "cure_for_me_world_hold_s": 9.99999999999999,
+        "mean_primary": -0.10687736489246603,
+        "required_per_song_increment": 0.02,
+        "shpongle_first30_beam_dimmer": 0.11731821895424839,
+        "shpongle_longest_hold_s": 9.533333333333331,
+        "shpongle_primary": 0.009284481951731472,
+        "shpongle_world_hold_s": 31.699999999999992
+      },
+      "artifacts": [
+        "/mnt/lightsem-data/experiments/lightsem/dynamic_dance_combo_20261005_v1/PLAN.json",
+        "/mnt/lightsem-data/experiments/lightsem/dynamic_dance_combo_20261005_v1/reports/FINAL_REPORT.json",
+        "/mnt/lightsem-data/experiments/lightsem/dynamic_dance_combo_20261005_v1/reports/FINAL_REPORT.md",
+        "/mnt/lightsem-data/experiments/lightsem/dynamic_dance_combo_20261005_v1/reports/PRE_RENDER_PRIMARY_AUDIT_v1.json",
+        "/mnt/lightsem-data/experiments/lightsem/dynamic_dance_combo_20261005_v1/reports/MEDIA_AUDIT_PRIMARY_v1.json",
+        "/mnt/lightsem-data/experiments/lightsem/dynamic_dance_combo_20261005_v1/delivery_verification/browser_v2/REPORT.json",
+        "/mnt/lightsem-data/experiments/lightsem/dynamic_dance_combo_20261005_v1/media/C4/shpongle/full.mp4",
+        "/mnt/lightsem-data/experiments/lightsem/dynamic_dance_combo_20261005_v1/bodies/C4/shpongle/body.npz",
+        "/mnt/lightsem-data/experiments/lightsem/dynamic_dance_combo_20261005_v1/bodies/C4/shpongle/plan.npz",
+        "/mnt/lightsem-data/experiments/lightsem/dynamic_dance_combo_20261005_v1/timelines/C4/shpongle/timeline.npz",
+        "/mnt/lightsem-data/experiments/lightsem/dynamic_dance_combo_20261005_v1/reports/comparisons/C4_shpongle.json",
+        "/mnt/lightsem-data/experiments/lightsem/dynamic_dance_combo_20261005_v1/media/C4/cure_for_me/full.mp4",
+        "/mnt/lightsem-data/experiments/lightsem/dynamic_dance_combo_20261005_v1/bodies/C4/cure_for_me/body.npz",
+        "/mnt/lightsem-data/experiments/lightsem/dynamic_dance_combo_20261005_v1/bodies/C4/cure_for_me/plan.npz",
+        "/mnt/lightsem-data/experiments/lightsem/dynamic_dance_combo_20261005_v1/timelines/C4/cure_for_me/timeline.npz",
+        "/mnt/lightsem-data/experiments/lightsem/dynamic_dance_combo_20261005_v1/reports/comparisons/C4_cure_for_me.json"
+      ],
+      "failure_mode": "recipe_conditional",
+      "lesson": "D6 pacing on the combined source now creates supported whole-body rests:31.7s Shpongle and10s Cure, unlike the earlier standalone pacing examples. It nevertheless worsens jerk and emitted retention on both songs, increases Shpongle sliding, and fails the intended release/control criteria; more stops alone do not establish well-placed musical pauses.",
+      "record_path": "/root/lightsem-vault/experiments/exp-dynamic-combo-c4-20261005.md",
+      "record_sha256": "b1193b6f0cf16cde0d0ab71f9f8f4c891bd3e7df39dc1733743de57338c24036"
+    },
+    {
+      "id": "exp-d4max-c3-20261005",
+      "problem_id": "dynamic-musical-dance-20261005",
+      "closed": true,
+      "computed_verdict": "directional_only",
+      "hypothesis_id": "h-d4max-c3-20261005",
+      "key_numbers": {
+        "cure_primary": 0.03163805322572619,
+        "cure_recomposed_fragments": 35.0,
+        "mean_primary": 0.031078630534591777,
+        "required_each_song": 0.02,
+        "shpongle_primary": 0.03051920784345737,
+        "shpongle_recomposed_fragments": 18.0
+      },
+      "artifacts": [
+        "/mnt/lightsem-data/experiments/lightsem/d4max_20261005_v1/PLAN.json",
+        "/mnt/lightsem-data/experiments/lightsem/d4max_20261005_v1/reports/FINAL_REPORT.json",
+        "/mnt/lightsem-data/experiments/lightsem/d4max_20261005_v1/reports/RESULTS.html",
+        "/mnt/lightsem-data/experiments/lightsem/d4max_20261005_v1/reports/RANKING.json",
+        "/mnt/lightsem-data/experiments/lightsem/d4max_20261005_v1/reports/RANKING.csv",
+        "/mnt/lightsem-data/experiments/lightsem/d4max_20261005_v1/reports/ARCHITECTURE.json",
+        "/mnt/lightsem-data/experiments/lightsem/d4max_20261005_v1/reports/PRIMARY_AUDIT.json",
+        "/mnt/lightsem-data/experiments/lightsem/d4max_20261005_v1/delivery_verification/browser_v1/REPORT.json",
+        "/mnt/lightsem-data/experiments/lightsem/d4max_20261005_v1/reports/figures_v2/shpongle_movement.png",
+        "/mnt/lightsem-data/experiments/lightsem/d4max_20261005_v1/reports/figures_v2/cure_for_me_movement.png",
+        "/mnt/lightsem-data/experiments/lightsem/d4max_20261005_v1/media/C3/shpongle/full.mp4",
+        "/mnt/lightsem-data/experiments/lightsem/d4max_20261005_v1/media/C3/cure_for_me/full.mp4"
+      ],
+      "failure_mode": "recipe_conditional",
+      "lesson": "A small own-song motif bank improved full-song emitted recurrence over standard D4 by+.0305/+.0316 while preserving physical checks;6families and18/15takes gave actual18/35remappedfragments. Both outputs remain below shifted-audio null and gain-sensitive, with donor-query advantage onShpongle, so this is a conditional composition improvement rather than established musical semantics.",
+      "record_path": "/root/lightsem-vault/experiments/exp-d4max-c3-20261005.md",
+      "record_sha256": "7a8dc2b8e9211a67c01e28a0e8db6d2162f2de2f58e65aff16e0579698eb96d9"
+    },
+    {
+      "id": "exp-d4max-d8-v2-c3-20261005",
+      "problem_id": "dynamic-musical-dance-20261005",
+      "closed": true,
+      "computed_verdict": "directional_only",
+      "hypothesis_id": "h-d4max-d8-v2-c3-20261005",
+      "key_numbers": {
+        "cure_body_hold_s": 0.0,
+        "cure_primary": -0.0009700789791303732,
+        "mean_primary": 0.011976787176760895,
+        "minimum_required_each_song": 0.02,
+        "shpongle_body_hold_s": 0.0,
+        "shpongle_primary": 0.024923653332652163
+      },
+      "artifacts": [
+        "/mnt/lightsem-data/experiments/lightsem/d4max_d8_20261005_v2/PLAN.json",
+        "/mnt/lightsem-data/experiments/lightsem/d4max_d8_20261005_v2/reports/FINAL_REPORT.json",
+        "/mnt/lightsem-data/experiments/lightsem/d4max_d8_20261005_v2/reports/RESULTS.html",
+        "/mnt/lightsem-data/experiments/lightsem/d4max_d8_20261005_v2/reports/SOURCE_RELATIVE_PHYSICAL.json",
+        "/mnt/lightsem-data/experiments/lightsem/d4max_d8_20261005_v2/reports/FREEZE_AUDIT.json",
+        "/mnt/lightsem-data/experiments/lightsem/d4max_d8_20261005_v2/reports/OLD_FREEZE_CAUSE_v3.json",
+        "/mnt/lightsem-data/experiments/lightsem/d4max_d8_20261005_v2/reports/NATIVE_TRAINING_PROPOSAL_v2.json",
+        "/mnt/lightsem-data/experiments/lightsem/d4max_d8_20261005_v2/reports/AUDIO_ALTERNATIVES.json",
+        "/mnt/lightsem-data/experiments/lightsem/d4max_d8_20261005_v2/delivery_verification/browser_v1/REPORT.json",
+        "/mnt/lightsem-data/experiments/lightsem/d4max_d8_20261005_v2/media/C3/shpongle/full.mp4",
+        "/mnt/lightsem-data/experiments/lightsem/d4max_d8_20261005_v2/media/C3/cure_for_me/full.mp4"
+      ],
+      "failure_mode": "recipe_conditional",
+      "lesson": "Exact last-donor DP prevents inactive D4 on Cure without weakening contact/pose gates, but stronger recomposition on G78 underperforms shuffled recurrence and increases Cure sliding. Keep the solver correction; do not equate motif reuse with musical qualification.",
+      "record_path": "/root/lightsem-vault/experiments/exp-d4max-d8-v2-c3-20261005.md",
+      "record_sha256": "7976ba48837571d12cdb2913ed2ca3cf3965a8534236fdb40b105c51d5971c9b"
+    },
+    {
+      "id": "exp-bt2-13-cure_for_me-20261004",
+      "problem_id": "body-transfer-portfolio-20261004",
+      "closed": true,
+      "computed_verdict": "supports",
+      "hypothesis_id": "h-bt2-13-cure_for_me-20261004",
+      "key_numbers": {
+        "bt2-emitted-six-region-coverage_after": 1.0,
+        "bt2-emitted-six-region-coverage_before": 0.8333333333333334,
+        "bt2-exact-desired-target-pairs_after": 0.0,
+        "bt2-exact-desired-target-pairs_before": 2.0,
+        "bt2-geometric-crossing-fraction_after": 0.10128205128205128,
+        "bt2-geometric-crossing-fraction_before": 0.5685630341880342
+      },
+      "artifacts": [
+        "/mnt/lightsem-data/experiments/lightsem/body_transfer_20261004_v2/timelines/13/cure_for_me/report.json"
+      ],
+      "failure_mode": null,
+      "lesson": "V2 mapping 13 on Cure For Me met its registered geometric crossing/source-response engineering criteria; this is numerical transfer evidence, not musical choreography or an artistic winner. Preserve V2 results and compare against the separate V3 readout repair before making product claims.",
+      "record_path": "/root/lightsem-vault/experiments/exp-bt2-13-cure_for_me-20261004.md",
+      "record_sha256": "9a8a7b1b9a83c5be9e2cb8389c1480ca0056f3a95a69243c192b65c3b01f5469"
+    },
+    {
+      "id": "exp-au-muq-rhythm-20261004",
+      "problem_id": "lightsem-audio-understanding-20261004",
+      "closed": true,
+      "computed_verdict": "supports",
+      "hypothesis_id": "h-au-muq-rhythm-20261004",
+      "key_numbers": {
+        "onset_f1_50ms_delta": 0.03901626963103755,
+        "rank": 159.1913838246204
+      },
+      "artifacts": [
+        "/mnt/lightsem-data/experiments/lightsem/audio_understanding_20261004/rhythm_pretrained/report.json",
+        "/mnt/lightsem-data/experiments/lightsem/audio_understanding_20261004/features/rhythm_muq/index.json"
+      ],
+      "failure_mode": null,
+      "lesson": "Frozen MuQ layer9 clears the registered +.03 onsetF1 improvement over correctedFourier on15-family groupedGuitarSet, despite historical motion-task failure. This supports useful audio-task information under this readout, not dance/light transfer or uncontaminated foundation generalization; unknownpretrainingoverlap andstationarypositioncues remain explicit.",
+      "record_path": "/root/lightsem-vault/experiments/exp-au-muq-rhythm-20261004.md",
+      "record_sha256": "35183362a1e5e0bbc453a04c91a5fad29c2d3c0e4abcf65e39c60dc389ca0caa"
+    },
+    {
+      "id": "exp-bt2-02-shpongle-20261004",
+      "problem_id": "body-transfer-portfolio-20261004",
+      "closed": true,
+      "computed_verdict": "supports",
+      "hypothesis_id": "h-bt2-02-shpongle-20261004",
+      "key_numbers": {
+        "bt2-emitted-six-region-coverage_after": 1.0,
+        "bt2-emitted-six-region-coverage_before": 0.8333333333333334,
+        "bt2-exact-desired-target-pairs_after": 0.0,
+        "bt2-exact-desired-target-pairs_before": 2.0,
+        "bt2-geometric-crossing-fraction_after": 0.0998931623931624,
+        "bt2-geometric-crossing-fraction_before": 0.5818376068376069
+      },
+      "artifacts": [
+        "/mnt/lightsem-data/experiments/lightsem/body_transfer_20261004_v2/timelines/02/shpongle/report.json"
+      ],
+      "failure_mode": null,
+      "lesson": "V2 mapping 02 on Shpongle met its registered geometric crossing/source-response engineering criteria; this is numerical transfer evidence, not musical choreography or an artistic winner. Preserve V2 results and compare against the separate V3 readout repair before making product claims.",
+      "record_path": "/root/lightsem-vault/experiments/exp-bt2-02-shpongle-20261004.md",
+      "record_sha256": "fde91aefd1a3e0fd4e73d628c4bb052e6204f6661d65104299666e8a3abdd99c"
+    },
+    {
+      "id": "exp-bt3-06-shpongle-20261004",
+      "problem_id": "body-transfer-portfolio-20261004-v3",
+      "closed": true,
+      "computed_verdict": "supports",
+      "hypothesis_id": "h-bt3-06-shpongle-20261004",
+      "key_numbers": {
+        "bt2-emitted-six-region-coverage_after": 1.0,
+        "bt2-emitted-six-region-coverage_before": 0.8333333333333334,
+        "bt2-exact-desired-target-pairs_after": 0.0,
+        "bt2-exact-desired-target-pairs_before": 2.0,
+        "bt2-geometric-crossing-fraction_after": 0.10352564102564103,
+        "bt2-geometric-crossing-fraction_before": 0.5818376068376069
+      },
+      "artifacts": [
+        "/mnt/lightsem-data/experiments/lightsem/body_transfer_20261004_v3/timelines/06/shpongle/report.json"
+      ],
+      "failure_mode": null,
+      "lesson": "The fixed geometric crossing-reduction and emitted six-region source-response gates pass on this accepted saved song body. This comparison estimates the combined method and capability readout; static spacing contributes, extra outputs do not create independent gestures, and choreography/music generalization remains unqualified.",
+      "record_path": "/root/lightsem-vault/experiments/exp-bt3-06-shpongle-20261004.md",
+      "record_sha256": "cc1e87daaaa80f488b87abde6676e498a24c95494898a70310d13e2426b779f9"
+    },
+    {
+      "id": "exp-bt3-13-shpongle-20261004",
+      "problem_id": "body-transfer-portfolio-20261004-v3",
+      "closed": true,
+      "computed_verdict": "supports",
+      "hypothesis_id": "h-bt3-13-shpongle-20261004",
+      "key_numbers": {
+        "bt2-emitted-six-region-coverage_after": 1.0,
+        "bt2-emitted-six-region-coverage_before": 0.8333333333333334,
+        "bt2-exact-desired-target-pairs_after": 0.0,
+        "bt2-exact-desired-target-pairs_before": 2.0,
+        "bt2-geometric-crossing-fraction_after": 0.10192307692307692,
+        "bt2-geometric-crossing-fraction_before": 0.5818376068376069
+      },
+      "artifacts": [
+        "/mnt/lightsem-data/experiments/lightsem/body_transfer_20261004_v3/timelines/13/shpongle/report.json"
+      ],
+      "failure_mode": null,
+      "lesson": "The fixed geometric crossing-reduction and emitted six-region source-response gates pass on this accepted saved song body. This comparison estimates the combined method and capability readout; static spacing contributes, extra outputs do not create independent gestures, and choreography/music generalization remains unqualified.",
+      "record_path": "/root/lightsem-vault/experiments/exp-bt3-13-shpongle-20261004.md",
+      "record_sha256": "9fa37021f87ccc1eeab1bf29052819e547dcccd28a7cc0ec81fb2d3ddf981bf8"
+    },
+    {
+      "id": "exp-bt2-07-cure_for_me-20261004",
+      "problem_id": "body-transfer-portfolio-20261004",
+      "closed": true,
+      "computed_verdict": "supports",
+      "hypothesis_id": "h-bt2-07-cure_for_me-20261004",
+      "key_numbers": {
+        "bt2-emitted-six-region-coverage_after": 1.0,
+        "bt2-emitted-six-region-coverage_before": 0.8333333333333334,
+        "bt2-exact-desired-target-pairs_after": 0.0,
+        "bt2-exact-desired-target-pairs_before": 2.0,
+        "bt2-geometric-crossing-fraction_after": 0.10598290598290598,
+        "bt2-geometric-crossing-fraction_before": 0.5685630341880342
+      },
+      "artifacts": [
+        "/mnt/lightsem-data/experiments/lightsem/body_transfer_20261004_v2/timelines/07/cure_for_me/report.json"
+      ],
+      "failure_mode": null,
+      "lesson": "V2 mapping 07 on Cure For Me met its registered geometric crossing/source-response engineering criteria; this is numerical transfer evidence, not musical choreography or an artistic winner. Preserve V2 results and compare against the separate V3 readout repair before making product claims.",
+      "record_path": "/root/lightsem-vault/experiments/exp-bt2-07-cure_for_me-20261004.md",
+      "record_sha256": "d4a7310cf2d5500da5852f0df187a9c232594f022ee23bc617146dd6820d77dc"
+    },
+    {
+      "id": "exp-native-positive-20261006",
+      "problem_id": "dynamic-musical-dance-20261005",
+      "closed": true,
+      "computed_verdict": "supports",
+      "hypothesis_id": "h-native-positive-20261006",
+      "key_numbers": {},
+      "artifacts": [
+        "/mnt/lightsem-data/experiments/lightsem/native_dynamics_jd_20261005_v1/hybrid_positive_v1/reports/AGGREGATE.json",
+        "/mnt/lightsem-data/experiments/lightsem/native_dynamics_jd_20261005_v1/hybrid_positive_v1/reports/NATIVE_C_BURST_PROBE.json",
+        "/mnt/lightsem-data/experiments/lightsem/native_dynamics_jd_20261005_v1/hybrid_positive_v1/preview_3d_positive_v1"
+      ],
+      "failure_mode": "recipe_conditional",
+      "lesson": "D4-max plus positive anchored D6 reduced abruptness on the original broken native-C body and passed its declared engineering gates, while acoustic recurrence and musical control comparisons failed. This supports an optional posthoc diagnostic only; it does not repair native generation or establish musical superiority. The later HF16 training repair is the qualified native stability reference.",
+      "record_path": "/root/lightsem-vault/experiments/exp-native-positive-20261006.md",
+      "record_sha256": "a7c2cb205ee1041fd84203e8e78767d522c76ab185beccdbfb3514d0533792ee"
+    },
+    {
+      "id": "exp-bt3-04-shpongle-20261004",
+      "problem_id": "body-transfer-portfolio-20261004-v3",
+      "closed": true,
+      "computed_verdict": "supports",
+      "hypothesis_id": "h-bt3-04-shpongle-20261004",
+      "key_numbers": {
+        "bt2-emitted-six-region-coverage_after": 1.0,
+        "bt2-emitted-six-region-coverage_before": 0.8333333333333334,
+        "bt2-exact-desired-target-pairs_after": 0.0,
+        "bt2-exact-desired-target-pairs_before": 2.0,
+        "bt2-geometric-crossing-fraction_after": 0.09895833333333333,
+        "bt2-geometric-crossing-fraction_before": 0.5818376068376069
+      },
+      "artifacts": [
+        "/mnt/lightsem-data/experiments/lightsem/body_transfer_20261004_v3/timelines/04/shpongle/report.json"
+      ],
+      "failure_mode": null,
+      "lesson": "The fixed geometric crossing-reduction and emitted six-region source-response gates pass on this accepted saved song body. This comparison estimates the combined method and capability readout; static spacing contributes, extra outputs do not create independent gestures, and choreography/music generalization remains unqualified.",
+      "record_path": "/root/lightsem-vault/experiments/exp-bt3-04-shpongle-20261004.md",
+      "record_sha256": "bc4123ff9875155e82d09bb02f91e408bfba983feff4cc0311af59d0cb97f24e"
+    },
+    {
+      "id": "exp-au-teacher-audit-20261004",
+      "problem_id": "lightsem-audio-understanding-20261004",
+      "closed": true,
+      "computed_verdict": "supports",
+      "hypothesis_id": "h-au-teacher-audit-20261004",
+      "key_numbers": {
+        "dev_envelope_pearson": 0.8931646112932837,
+        "dev_envelope_pearson_gain": 0.44667283814098224,
+        "dev_inactive_false_positive_rate": 0.23963010303030202,
+        "dev_si_sdr_db": 7.807293660358629,
+        "dev_si_sdr_gain_db": 14.592148469126752
+      },
+      "artifacts": [
+        "/mnt/lightsem-data/experiments/lightsem/audio_understanding_20261004/teacher_audit/report.json",
+        "/mnt/lightsem-data/experiments/lightsem/audio_understanding_20261004/teacher_audit/uncertainty.json",
+        "/mnt/lightsem-data/experiments/lightsem/audio_understanding_20261004/teacher_audit/uncertainty_verification.json"
+      ],
+      "failure_mode": null,
+      "lesson": "Pinned HTDemucs supplies substantially cleaner source waveforms and temporal envelopes than repeating the mixture in this bounded, training/selection-exposed audit. Its residual silent-source leakage and weaker other/vocal fidelity require treating JD pseudo-stems as noisy training targets; this result neither certifies unseen separation quality nor says the new encoders recover source identity or physical location.",
+      "record_path": "/root/lightsem-vault/experiments/exp-au-teacher-audit-20261004.md",
+      "record_sha256": "ba3803f71af0577c94036ce6feb84fb9daeed652fd3908ec0505c1142236859b"
+    },
+    {
+      "id": "exp-bt2-03-cure_for_me-20261004",
+      "problem_id": "body-transfer-portfolio-20261004",
+      "closed": true,
+      "computed_verdict": "supports",
+      "hypothesis_id": "h-bt2-03-cure_for_me-20261004",
+      "key_numbers": {
+        "bt2-emitted-six-region-coverage_after": 1.0,
+        "bt2-emitted-six-region-coverage_before": 0.8333333333333334,
+        "bt2-exact-desired-target-pairs_after": 0.0,
+        "bt2-exact-desired-target-pairs_before": 2.0,
+        "bt2-geometric-crossing-fraction_after": 0.11260683760683761,
+        "bt2-geometric-crossing-fraction_before": 0.5685630341880342
+      },
+      "artifacts": [
+        "/mnt/lightsem-data/experiments/lightsem/body_transfer_20261004_v2/timelines/03/cure_for_me/report.json"
+      ],
+      "failure_mode": null,
+      "lesson": "V2 mapping 03 on Cure For Me met its registered geometric crossing/source-response engineering criteria; this is numerical transfer evidence, not musical choreography or an artistic winner. Its original semantic readout had defects later addressed in V3; use the V3 evidence for semantic claims. Preserve V2 results and compare against the separate V3 readout repair before making product claims.",
+      "record_path": "/root/lightsem-vault/experiments/exp-bt2-03-cure_for_me-20261004.md",
+      "record_sha256": "1473382282b0813c05981d402edd38a4469c2193313f8dc17a01de48e9306151"
+    },
+    {
+      "id": "exp-au-mert-rhythm-20261004",
+      "problem_id": "lightsem-audio-understanding-20261004",
+      "closed": true,
+      "computed_verdict": "directional_only",
+      "hypothesis_id": "h-au-mert-rhythm-20261004",
+      "key_numbers": {
+        "onset_f1_50ms_delta": 0.027928049048239534,
+        "rank": 139.63148030317737
+      },
+      "artifacts": [
+        "/mnt/lightsem-data/experiments/lightsem/audio_understanding_20261004/rhythm_pretrained/report.json",
+        "/mnt/lightsem-data/experiments/lightsem/audio_understanding_20261004/features/rhythm_mert/index.json"
+      ],
+      "failure_mode": "recipe_conditional",
+      "lesson": "MERT improves onsetF1 in all15families but its+.02793pointgain falls belowthe committed+.03bar. Preserve the positive secondary/tolerance-specific findings andscoped near-miss; no extra seeds are justified for these frozen deterministic features andno method-family rejection follows.",
+      "record_path": "/root/lightsem-vault/experiments/exp-au-mert-rhythm-20261004.md",
+      "record_sha256": "c0054ce52e29e28e2e339364c684cec3bba7db7d0428d290d2a49bdac2df3d06"
+    },
+    {
+      "id": "exp-au-mae-temporal-20261004",
+      "problem_id": "lightsem-audio-understanding-20261004",
+      "closed": true,
+      "computed_verdict": "supports",
+      "hypothesis_id": "h-au-mae-temporal-20261004",
+      "key_numbers": {
+        "delta_recall5": 0.07261904761904762,
+        "delta_temporal_auc": 0.09572172619047621,
+        "native_effective_rank": 33.918562006294,
+        "recall5": 0.47232142857142856,
+        "temporal_auc": 0.8431919642857142
+      },
+      "artifacts": [
+        "/mnt/lightsem-data/experiments/lightsem/audio_understanding_20261004/results/mae/report.json",
+        "/mnt/lightsem-data/experiments/lightsem/audio_understanding_20261004/records/root_mae_dev_verification_v1.json",
+        "/mnt/lightsem-data/experiments/lightsem/audio_understanding_20261004/records/root_mae_training_verification_v1.json",
+        "/mnt/lightsem-data/experiments/lightsem/audio_understanding_20261004/runs/mae/seed0/final.pt"
+      ],
+      "failure_mode": null,
+      "lesson": "Masked reconstruction improves top-five inclusion and local timing over the untrained encoder in this seed0 recipe. First-choice retrieval gains remain uncertain and source-activity calibration remains poor; this is audio evidence, not lighting qualification.",
+      "record_path": "/root/lightsem-vault/experiments/exp-au-mae-temporal-20261004.md",
+      "record_sha256": "d33c72a27c68dd10a8a84cf245de0ad8b24e4e4aac840272515eb41a865ebf6b"
+    },
+    {
+      "id": "exp-bt2-08-shpongle-20261004",
+      "problem_id": "body-transfer-portfolio-20261004",
+      "closed": true,
+      "computed_verdict": "supports",
+      "hypothesis_id": "h-bt2-08-shpongle-20261004",
+      "key_numbers": {
+        "bt2-emitted-six-region-coverage_after": 1.0,
+        "bt2-emitted-six-region-coverage_before": 0.8333333333333334,
+        "bt2-exact-desired-target-pairs_after": 0.0,
+        "bt2-exact-desired-target-pairs_before": 2.0,
+        "bt2-geometric-crossing-fraction_after": 0.1032051282051282,
+        "bt2-geometric-crossing-fraction_before": 0.5818376068376069
+      },
+      "artifacts": [
+        "/mnt/lightsem-data/experiments/lightsem/body_transfer_20261004_v2/timelines/08/shpongle/report.json"
+      ],
+      "failure_mode": null,
+      "lesson": "V2 mapping 08 on Shpongle met its registered geometric crossing/source-response engineering criteria; this is numerical transfer evidence, not musical choreography or an artistic winner. Its original semantic readout had defects later addressed in V3; use the V3 evidence for semantic claims. Preserve V2 results and compare against the separate V3 readout repair before making product claims.",
+      "record_path": "/root/lightsem-vault/experiments/exp-bt2-08-shpongle-20261004.md",
+      "record_sha256": "f4f2f0e2f34f75bffd6ef277af1228b44a932c5c9cc1d4bb3df9e98d011907fc"
+    },
+    {
+      "id": "exp-bt2-11-shpongle-20261004",
+      "problem_id": "body-transfer-portfolio-20261004",
+      "closed": true,
+      "computed_verdict": "supports",
+      "hypothesis_id": "h-bt2-11-shpongle-20261004",
+      "key_numbers": {
+        "bt2-emitted-six-region-coverage_after": 1.0,
+        "bt2-emitted-six-region-coverage_before": 0.8333333333333334,
+        "bt2-exact-desired-target-pairs_after": 0.0,
+        "bt2-exact-desired-target-pairs_before": 2.0,
+        "bt2-geometric-crossing-fraction_after": 0.1031517094017094,
+        "bt2-geometric-crossing-fraction_before": 0.5818376068376069
+      },
+      "artifacts": [
+        "/mnt/lightsem-data/experiments/lightsem/body_transfer_20261004_v2/timelines/11/shpongle/report.json"
+      ],
+      "failure_mode": null,
+      "lesson": "V2 mapping 11 on Shpongle met its registered geometric crossing/source-response engineering criteria; this is numerical transfer evidence, not musical choreography or an artistic winner. Preserve V2 results and compare against the separate V3 readout repair before making product claims.",
+      "record_path": "/root/lightsem-vault/experiments/exp-bt2-11-shpongle-20261004.md",
+      "record_sha256": "9cf7d344ae58e9d74f8798347dbdbf49e9614e4decf094a0d7e80f2b4eca29ad"
+    },
+    {
+      "id": "exp-au-mae-rhythm-transfer-20261004",
+      "problem_id": "lightsem-audio-understanding-20261004",
+      "closed": true,
+      "computed_verdict": "refutes",
+      "hypothesis_id": "h-au-mae-rhythm-transfer-20261004",
+      "key_numbers": {
+        "beat_cmlt": 0.07976336630701233,
+        "beat_f1": 0.5626533558557274,
+        "delta_onset_f1": -0.0003945396289501968,
+        "native_effective_rank": 66.27205206962651,
+        "onset_f1_50ms": 0.7880281970559274
+      },
+      "artifacts": [
+        "/mnt/lightsem-data/experiments/lightsem/audio_understanding_20261004/rhythm_learned/report.json",
+        "/mnt/lightsem-data/experiments/lightsem/audio_understanding_20261004/records/rhythm_learned_comparisons.json",
+        "/mnt/lightsem-data/experiments/lightsem/audio_understanding_20261004/records/rhythm_learned_preflight.json"
+      ],
+      "failure_mode": "recipe_conditional",
+      "lesson": "MAE onset transfer is effectively tied with Fourier within the measured interval, missing the+.03goal; its positive beat-F1 change does not replace that endpoint, and continuous beat tracking remains weak. This describes the tested historical GuitarSet transfer recipe, not absence of all rhythmic information.",
+      "record_path": "/root/lightsem-vault/experiments/exp-au-mae-rhythm-transfer-20261004.md",
+      "record_sha256": "36937196cfa3623633025a14ae24e07f8f180047628f51b8c504bdc8ded5d5cf"
+    },
+    {
+      "id": "exp-dynamic-combo-c3-20261005",
+      "problem_id": "dynamic-musical-dance-20261005",
+      "closed": true,
+      "computed_verdict": "refutes",
+      "hypothesis_id": "h-dynamic-combo-c3-20261005",
+      "key_numbers": {
+        "cure_for_me_first30_beam_dimmer": 0.34571691176470587,
+        "cure_for_me_longest_hold_s": 0.0,
+        "cure_for_me_primary": -0.04085380890435433,
+        "cure_for_me_world_hold_s": 0.0,
+        "mean_primary": -0.03699101876290828,
+        "required_per_song_increment": 0.02,
+        "shpongle_first30_beam_dimmer": 0.11767687908496735,
+        "shpongle_longest_hold_s": 0.0,
+        "shpongle_primary": -0.033128228621462225,
+        "shpongle_world_hold_s": 0.0
+      },
+      "artifacts": [
+        "/mnt/lightsem-data/experiments/lightsem/dynamic_dance_combo_20261005_v1/PLAN.json",
+        "/mnt/lightsem-data/experiments/lightsem/dynamic_dance_combo_20261005_v1/reports/FINAL_REPORT.json",
+        "/mnt/lightsem-data/experiments/lightsem/dynamic_dance_combo_20261005_v1/reports/FINAL_REPORT.md",
+        "/mnt/lightsem-data/experiments/lightsem/dynamic_dance_combo_20261005_v1/reports/PRE_RENDER_PRIMARY_AUDIT_v1.json",
+        "/mnt/lightsem-data/experiments/lightsem/dynamic_dance_combo_20261005_v1/reports/MEDIA_AUDIT_PRIMARY_v1.json",
+        "/mnt/lightsem-data/experiments/lightsem/dynamic_dance_combo_20261005_v1/delivery_verification/browser_v2/REPORT.json",
+        "/mnt/lightsem-data/experiments/lightsem/dynamic_dance_combo_20261005_v1/media/C3/shpongle/full.mp4",
+        "/mnt/lightsem-data/experiments/lightsem/dynamic_dance_combo_20261005_v1/bodies/C3/shpongle/body.npz",
+        "/mnt/lightsem-data/experiments/lightsem/dynamic_dance_combo_20261005_v1/bodies/C3/shpongle/plan.npz",
+        "/mnt/lightsem-data/experiments/lightsem/dynamic_dance_combo_20261005_v1/timelines/C3/shpongle/timeline.npz",
+        "/mnt/lightsem-data/experiments/lightsem/dynamic_dance_combo_20261005_v1/reports/comparisons/C3_shpongle.json",
+        "/mnt/lightsem-data/experiments/lightsem/dynamic_dance_combo_20261005_v1/media/C3/cure_for_me/full.mp4",
+        "/mnt/lightsem-data/experiments/lightsem/dynamic_dance_combo_20261005_v1/bodies/C3/cure_for_me/body.npz",
+        "/mnt/lightsem-data/experiments/lightsem/dynamic_dance_combo_20261005_v1/bodies/C3/cure_for_me/plan.npz",
+        "/mnt/lightsem-data/experiments/lightsem/dynamic_dance_combo_20261005_v1/timelines/C3/cure_for_me/timeline.npz",
+        "/mnt/lightsem-data/experiments/lightsem/dynamic_dance_combo_20261005_v1/reports/comparisons/C3_cure_for_me.json"
+      ],
+      "failure_mode": "recipe_conditional",
+      "lesson": "This fixed D7/D8 residual plus contact-compatible motif recipe preserves physical checks and source dependence, but its emitted recurrence regresses against D7 and shuffled recurrence on both full songs. Change how motifs are selected or supervised before claiming musical improvement; the user's positive D7 review remains valid as a separate artistic observation.",
+      "record_path": "/root/lightsem-vault/experiments/exp-dynamic-combo-c3-20261005.md",
+      "record_sha256": "a6a43a16c0f4a56429f044c5d15d3e0c34f234cb7a36736489fec2a4b543754f"
+    },
+    {
+      "id": "exp-au-cocola-retrieval-20261004",
+      "problem_id": "lightsem-audio-understanding-20261004",
+      "closed": true,
+      "computed_verdict": "supports",
+      "hypothesis_id": "h-au-cocola-retrieval-20261004",
+      "key_numbers": {
+        "delta_recall5": 0.275,
+        "delta_temporal_auc": 0.022247023809523814,
+        "native_effective_rank": 75.50179481084899,
+        "recall5": 0.7473214285714285,
+        "temporal_auc": 0.8654389880952382
+      },
+      "artifacts": [
+        "/mnt/lightsem-data/experiments/lightsem/audio_understanding_20261004/results/cocola/report.json",
+        "/mnt/lightsem-data/experiments/lightsem/audio_understanding_20261004/records/root_cocola_dev_verification_v1.json",
+        "/mnt/lightsem-data/experiments/lightsem/audio_understanding_20261004/records/root_cocola_training_verification_v1.json",
+        "/mnt/lightsem-data/experiments/lightsem/audio_understanding_20261004/runs/cocola/seed0/final.pt"
+      ],
+      "failure_mode": null,
+      "lesson": "Contrastive learning markedly improves retrieval with the matched TRAIN readout and reduces best-offset error versus MAE. Its incremental temporal AUROC gain misses the registered magnitude, while source-activity AUROC adds no clear benefit over mixture energy.",
+      "record_path": "/root/lightsem-vault/experiments/exp-au-cocola-retrieval-20261004.md",
+      "record_sha256": "339b349063586174f1f8a088a1ed4b97d49df4ab3818dff6cbdcf8277cbf8b43"
+    },
+    {
+      "id": "exp-bt3-10-shpongle-20261004",
+      "problem_id": "body-transfer-portfolio-20261004-v3",
+      "closed": true,
+      "computed_verdict": "supports",
+      "hypothesis_id": "h-bt3-10-shpongle-20261004",
+      "key_numbers": {
+        "bt2-emitted-six-region-coverage_after": 1.0,
+        "bt2-emitted-six-region-coverage_before": 0.8333333333333334,
+        "bt2-exact-desired-target-pairs_after": 0.0,
+        "bt2-exact-desired-target-pairs_before": 2.0,
+        "bt2-geometric-crossing-fraction_after": 0.10336538461538461,
+        "bt2-geometric-crossing-fraction_before": 0.5818376068376069
+      },
+      "artifacts": [
+        "/mnt/lightsem-data/experiments/lightsem/body_transfer_20261004_v3/timelines/10/shpongle/report.json"
+      ],
+      "failure_mode": null,
+      "lesson": "The crossing/source-response gates pass and body recurrence is well retained in this two-song diagnostic, but normalized motion is very close to11 (direction similarity0.979/0.973). Count different mechanisms as related candidates, not independent visual discoveries; no generalization or artistic success is established.",
+      "record_path": "/root/lightsem-vault/experiments/exp-bt3-10-shpongle-20261004.md",
+      "record_sha256": "90681e9639552360d67bd5df5fa0663b76bf232bb2c06ce262c9aa1e0ceecc13"
+    },
+    {
+      "id": "exp-native-hf-refine-20261006",
+      "problem_id": "dynamic-musical-dance-20261005",
+      "closed": true,
+      "computed_verdict": "directional_only",
+      "hypothesis_id": "h-native-hf-refine-20261006",
+      "key_numbers": {},
+      "artifacts": [
+        "/mnt/lightsem-data/experiments/lightsem/native_dynamics_jd_20261005_v1/repair_refine_v1/reports/SELECTION.json"
+      ],
+      "failure_mode": "recipe_conditional",
+      "lesson": "HF4 narrows the remaining gap without losing activity/DEVperformance, but doesnotmeet the unchanged gate onseed0. A passingseed1 cannot substitute forfailedseed0. ContinuewithregisteredHF16 comparison; nooutputfilter orthresholdrelaxation.",
+      "record_path": "/root/lightsem-vault/experiments/exp-native-hf-refine-20261006.md",
+      "record_sha256": "d5ff471503c037db3266d8b0a69d16805e336c33a0395e2353c7d580e7774e70"
+    },
+    {
+      "id": "exp-dynamic-dance-d6-20261005",
+      "problem_id": "dynamic-musical-dance-20261005",
+      "closed": true,
+      "computed_verdict": "refutes",
+      "hypothesis_id": "h-dynamic-dance-d6-20261005",
+      "key_numbers": {
+        "D6_emitted_release_contrast_delta_vs_D2_cure_for_me": 0.06666095342654643,
+        "D6_emitted_release_contrast_delta_vs_D2_shpongle": 0.04583959961181801,
+        "administrative_least_favorable_primary": -0.16280302405785813,
+        "cure_for_me_display_primary": -0.09894211305573322,
+        "dev_seed0": -0.09894211305573275,
+        "dev_seed1": -0.16280302405785813,
+        "required_increment": 0.05,
+        "shpongle_display_primary": -0.09894211305573322
+      },
+      "artifacts": [
+        "/mnt/lightsem-data/experiments/lightsem/dynamic_dance_20261005_v1/reports/FINAL_REPORT.json",
+        "/mnt/lightsem-data/experiments/lightsem/dynamic_dance_20261005_v1/reports/FINAL_REPORT.md",
+        "/mnt/lightsem-data/experiments/lightsem/dynamic_dance_20261005_v1/reports/PRE_RENDER_AUDIT_v1.json",
+        "/mnt/lightsem-data/experiments/lightsem/dynamic_dance_20261005_v1/records/SCIENTIFIC_CLOSEOUT_CONVENTION.json",
+        "/mnt/lightsem-data/experiments/lightsem/dynamic_dance_20261005_v1/reports/training_audit_v2.json",
+        "/mnt/lightsem-data/experiments/lightsem/dynamic_dance_20261005_v1/reports/repeatability_v3/report.json",
+        "/mnt/lightsem-data/experiments/lightsem/dynamic_dance_20261005_v1/media/D6/shpongle/dark.mp4",
+        "/mnt/lightsem-data/experiments/lightsem/dynamic_dance_20261005_v1/bodies/D6/shpongle/body.npz",
+        "/mnt/lightsem-data/experiments/lightsem/dynamic_dance_20261005_v1/bodies/D6/shpongle/plan.npz",
+        "/mnt/lightsem-data/experiments/lightsem/dynamic_dance_20261005_v1/timelines/D6/shpongle/timeline.npz",
+        "/mnt/lightsem-data/experiments/lightsem/dynamic_dance_20261005_v1/timelines/D6/shpongle/comparison.json",
+        "/mnt/lightsem-data/experiments/lightsem/dynamic_dance_20261005_v1/reports/supplemental_transfer_v1/D6_shpongle.json",
+        "/mnt/lightsem-data/experiments/lightsem/dynamic_dance_20261005_v1/media/D6/cure_for_me/dark.mp4",
+        "/mnt/lightsem-data/experiments/lightsem/dynamic_dance_20261005_v1/bodies/D6/cure_for_me/body.npz",
+        "/mnt/lightsem-data/experiments/lightsem/dynamic_dance_20261005_v1/bodies/D6/cure_for_me/plan.npz",
+        "/mnt/lightsem-data/experiments/lightsem/dynamic_dance_20261005_v1/timelines/D6/cure_for_me/timeline.npz",
+        "/mnt/lightsem-data/experiments/lightsem/dynamic_dance_20261005_v1/timelines/D6/cure_for_me/comparison.json",
+        "/mnt/lightsem-data/experiments/lightsem/dynamic_dance_20261005_v1/reports/supplemental_transfer_v1/D6_cure_for_me.json"
+      ],
+      "failure_mode": "recipe_conditional",
+      "lesson": "Frozen-audio planner prediction is worse than TRAIN-only loudness regression for both seeds; Shpongle also regresses contacts, jerk and emitted retention. Release contrast versus D2 improves on both examples but does not override the primary/physical failure.",
+      "record_path": "/root/lightsem-vault/experiments/exp-dynamic-dance-d6-20261005.md",
+      "record_sha256": "1f573cba46ba5c9acaa69717ed9400c9ed36863a24f59a95cdaafd0759826899"
+    },
+    {
+      "id": "exp-bt2-05-cure_for_me-20261004",
+      "problem_id": "body-transfer-portfolio-20261004",
+      "closed": true,
+      "computed_verdict": "supports",
+      "hypothesis_id": "h-bt2-05-cure_for_me-20261004",
+      "key_numbers": {
+        "bt2-emitted-six-region-coverage_after": 1.0,
+        "bt2-emitted-six-region-coverage_before": 0.8333333333333334,
+        "bt2-exact-desired-target-pairs_after": 0.0,
+        "bt2-exact-desired-target-pairs_before": 2.0,
+        "bt2-geometric-crossing-fraction_after": 0.08993055555555556,
+        "bt2-geometric-crossing-fraction_before": 0.5685630341880342
+      },
+      "artifacts": [
+        "/mnt/lightsem-data/experiments/lightsem/body_transfer_20261004_v2/timelines/05/cure_for_me/report.json"
+      ],
+      "failure_mode": null,
+      "lesson": "V2 mapping 05 on Cure For Me met its registered geometric crossing/source-response engineering criteria; this is numerical transfer evidence, not musical choreography or an artistic winner. Preserve V2 results and compare against the separate V3 readout repair before making product claims.",
+      "record_path": "/root/lightsem-vault/experiments/exp-bt2-05-cure_for_me-20261004.md",
+      "record_sha256": "00e0e13324df649140bdf5d41c81078d2edacc047949fff8bb9e20cea371cda0"
+    },
+    {
+      "id": "exp-bt3-11-shpongle-20261004",
+      "problem_id": "body-transfer-portfolio-20261004-v3",
+      "closed": true,
+      "computed_verdict": "supports",
+      "hypothesis_id": "h-bt3-11-shpongle-20261004",
+      "key_numbers": {
+        "bt2-emitted-six-region-coverage_after": 1.0,
+        "bt2-emitted-six-region-coverage_before": 0.8333333333333334,
+        "bt2-exact-desired-target-pairs_after": 0.0,
+        "bt2-exact-desired-target-pairs_before": 2.0,
+        "bt2-geometric-crossing-fraction_after": 0.1031517094017094,
+        "bt2-geometric-crossing-fraction_before": 0.5818376068376069
+      },
+      "artifacts": [
+        "/mnt/lightsem-data/experiments/lightsem/body_transfer_20261004_v3/timelines/11/shpongle/report.json"
+      ],
+      "failure_mode": null,
+      "lesson": "The crossing/source-response gates pass, but normalized motion is very close to10 (direction similarity0.979/0.973). Fixed anatomical transport is an interpretable alternate mechanism, not an independent visual discovery; no generalization or artistic success is established.",
+      "record_path": "/root/lightsem-vault/experiments/exp-bt3-11-shpongle-20261004.md",
+      "record_sha256": "87645f40fa4652ba8716f4cd8d627187c6a016c8b510364fa467cfb4e4f57c1a"
+    },
+    {
+      "id": "exp-bt3-13-cure_for_me-20261004",
+      "problem_id": "body-transfer-portfolio-20261004-v3",
+      "closed": true,
+      "computed_verdict": "supports",
+      "hypothesis_id": "h-bt3-13-cure_for_me-20261004",
+      "key_numbers": {
+        "bt2-emitted-six-region-coverage_after": 1.0,
+        "bt2-emitted-six-region-coverage_before": 0.8333333333333334,
+        "bt2-exact-desired-target-pairs_after": 0.0,
+        "bt2-exact-desired-target-pairs_before": 2.0,
+        "bt2-geometric-crossing-fraction_after": 0.10128205128205128,
+        "bt2-geometric-crossing-fraction_before": 0.5685630341880342
+      },
+      "artifacts": [
+        "/mnt/lightsem-data/experiments/lightsem/body_transfer_20261004_v3/timelines/13/cure_for_me/report.json"
+      ],
+      "failure_mode": null,
+      "lesson": "The fixed geometric crossing-reduction and emitted six-region source-response gates pass on this accepted saved song body. This comparison estimates the combined method and capability readout; static spacing contributes, extra outputs do not create independent gestures, and choreography/music generalization remains unqualified.",
+      "record_path": "/root/lightsem-vault/experiments/exp-bt3-13-cure_for_me-20261004.md",
+      "record_sha256": "d3e313531b3ef05f82cbac8f551709ba908392906b2162f92d86f5bf7536102f"
+    },
+    {
+      "id": "exp-dynamic-dance-d2-20261005",
+      "problem_id": "dynamic-musical-dance-20261005",
+      "closed": true,
+      "computed_verdict": "refutes",
+      "hypothesis_id": "h-dynamic-dance-d2-20261005",
+      "key_numbers": {
+        "administrative_least_favorable_primary": -0.3653082787360648,
+        "cure_for_me": -0.060318048045380934,
+        "cure_for_me_display_primary": -0.060318048045380934,
+        "required_increment": 0.02,
+        "shpongle": -0.3653082787360648,
+        "shpongle_display_primary": -0.3653082787360648
+      },
+      "artifacts": [
+        "/mnt/lightsem-data/experiments/lightsem/dynamic_dance_20261005_v1/reports/FINAL_REPORT.json",
+        "/mnt/lightsem-data/experiments/lightsem/dynamic_dance_20261005_v1/reports/FINAL_REPORT.md",
+        "/mnt/lightsem-data/experiments/lightsem/dynamic_dance_20261005_v1/reports/PRE_RENDER_AUDIT_v1.json",
+        "/mnt/lightsem-data/experiments/lightsem/dynamic_dance_20261005_v1/records/SCIENTIFIC_CLOSEOUT_CONVENTION.json",
+        "/mnt/lightsem-data/experiments/lightsem/dynamic_dance_20261005_v1/reports/training_audit_v2.json",
+        "/mnt/lightsem-data/experiments/lightsem/dynamic_dance_20261005_v1/reports/repeatability_v3/report.json",
+        "/mnt/lightsem-data/experiments/lightsem/dynamic_dance_20261005_v1/media/D2/shpongle/dark.mp4",
+        "/mnt/lightsem-data/experiments/lightsem/dynamic_dance_20261005_v1/bodies/D2/shpongle/body.npz",
+        "/mnt/lightsem-data/experiments/lightsem/dynamic_dance_20261005_v1/bodies/D2/shpongle/plan.npz",
+        "/mnt/lightsem-data/experiments/lightsem/dynamic_dance_20261005_v1/timelines/D2/shpongle/timeline.npz",
+        "/mnt/lightsem-data/experiments/lightsem/dynamic_dance_20261005_v1/timelines/D2/shpongle/comparison.json",
+        "/mnt/lightsem-data/experiments/lightsem/dynamic_dance_20261005_v1/reports/supplemental_transfer_v1/D2_shpongle.json",
+        "/mnt/lightsem-data/experiments/lightsem/dynamic_dance_20261005_v1/media/D2/cure_for_me/dark.mp4",
+        "/mnt/lightsem-data/experiments/lightsem/dynamic_dance_20261005_v1/bodies/D2/cure_for_me/body.npz",
+        "/mnt/lightsem-data/experiments/lightsem/dynamic_dance_20261005_v1/bodies/D2/cure_for_me/plan.npz",
+        "/mnt/lightsem-data/experiments/lightsem/dynamic_dance_20261005_v1/timelines/D2/cure_for_me/timeline.npz",
+        "/mnt/lightsem-data/experiments/lightsem/dynamic_dance_20261005_v1/timelines/D2/cure_for_me/comparison.json",
+        "/mnt/lightsem-data/experiments/lightsem/dynamic_dance_20261005_v1/reports/supplemental_transfer_v1/D2_cure_for_me.json"
+      ],
+      "failure_mode": "recipe_conditional",
+      "lesson": "Phrase scheduling fails its body release proxy on both songs. Estimated boundaries and source texture do not by themselves place meaningful suspensions.",
+      "record_path": "/root/lightsem-vault/experiments/exp-dynamic-dance-d2-20261005.md",
+      "record_sha256": "a7c85986645cf7f14d172bd3cdf516fca683f91394019ab7c8d27068545193b0"
+    },
+    {
+      "id": "exp-bt3-01-shpongle-20261004",
+      "problem_id": "body-transfer-portfolio-20261004-v3",
+      "closed": true,
+      "computed_verdict": "supports",
+      "hypothesis_id": "h-bt3-01-shpongle-20261004",
+      "key_numbers": {
+        "bt2-emitted-six-region-coverage_after": 1.0,
+        "bt2-emitted-six-region-coverage_before": 0.8333333333333334,
+        "bt2-exact-desired-target-pairs_after": 0.0,
+        "bt2-exact-desired-target-pairs_before": 2.0,
+        "bt2-geometric-crossing-fraction_after": 0.11848290598290598,
+        "bt2-geometric-crossing-fraction_before": 0.5818376068376069
+      },
+      "artifacts": [
+        "/mnt/lightsem-data/experiments/lightsem/body_transfer_20261004_v3/timelines/01/shpongle/report.json"
+      ],
+      "failure_mode": null,
+      "lesson": "The fixed geometric crossing-reduction and emitted six-region source-response gates pass on this accepted saved song body. This comparison estimates the combined method and capability readout; static spacing contributes, extra outputs do not create independent gestures, and choreography/music generalization remains unqualified.",
+      "record_path": "/root/lightsem-vault/experiments/exp-bt3-01-shpongle-20261004.md",
+      "record_sha256": "6f726860451f332cf1b5e6be6a3d1f4f3ed9e4cf6c2ea8ddf75402c9af6d81f3"
+    },
+    {
+      "id": "exp-bt2-10-shpongle-20261004",
+      "problem_id": "body-transfer-portfolio-20261004",
+      "closed": true,
+      "computed_verdict": "supports",
+      "hypothesis_id": "h-bt2-10-shpongle-20261004",
+      "key_numbers": {
+        "bt2-emitted-six-region-coverage_after": 1.0,
+        "bt2-emitted-six-region-coverage_before": 0.8333333333333334,
+        "bt2-exact-desired-target-pairs_after": 0.0,
+        "bt2-exact-desired-target-pairs_before": 2.0,
+        "bt2-geometric-crossing-fraction_after": 0.10336538461538461,
+        "bt2-geometric-crossing-fraction_before": 0.5818376068376069
+      },
+      "artifacts": [
+        "/mnt/lightsem-data/experiments/lightsem/body_transfer_20261004_v2/timelines/10/shpongle/report.json"
+      ],
+      "failure_mode": null,
+      "lesson": "V2 mapping 10 on Shpongle met its registered geometric crossing/source-response engineering criteria; this is numerical transfer evidence, not musical choreography or an artistic winner. Preserve V2 results and compare against the separate V3 readout repair before making product claims.",
+      "record_path": "/root/lightsem-vault/experiments/exp-bt2-10-shpongle-20261004.md",
+      "record_sha256": "9879cafaf3a9c63c36c5133d36081d91fa96e0158e8b18c75dc55481440cb384"
+    },
+    {
+      "id": "exp-au-mae-init-jepa-retrieval-20261004",
+      "problem_id": "lightsem-audio-understanding-20261004",
+      "closed": true,
+      "computed_verdict": "directional_only",
+      "hypothesis_id": "h-au-mae-init-jepa-retrieval-20261004",
+      "key_numbers": {
+        "delta_recall5": 0.10029761904761908,
+        "delta_temporal_auc": -0.0386904761904762,
+        "native_rank": 34.08351514686989,
+        "recall5_after": 0.5294642857142857,
+        "recall5_before": 0.4291666666666667,
+        "temporal_auc_after": 0.7690476190476191,
+        "temporal_auc_before": 0.8077380952380953
+      },
+      "artifacts": [
+        "/mnt/lightsem-data/experiments/lightsem/audio_understanding_20261004/records/followup_gate_results_v1.json",
+        "/mnt/lightsem-data/experiments/lightsem/audio_understanding_20261004/records/root_followup_pair_training_verification_v1.json",
+        "/mnt/lightsem-data/experiments/lightsem/audio_understanding_20261004/records/root_mae_to_jepa_dev_verification_v1.json",
+        "/mnt/lightsem-data/experiments/lightsem/audio_understanding_20261004/engineering/export_stationarity_v1/report.json",
+        "/mnt/lightsem-data/experiments/lightsem/audio_understanding_20261004/results/mae_continue/report.json",
+        "/mnt/lightsem-data/experiments/lightsem/audio_understanding_20261004/results/mae_to_jepa/report.json",
+        "/mnt/lightsem-data/experiments/lightsem/audio_understanding_20261004/comparisons/mae_to_jepa_vs_mae_continue_dev_v1.json",
+        "/mnt/lightsem-data/experiments/lightsem/audio_understanding_20261004/comparisons/mae_to_jepa_vs_mae_dev_v1.json",
+        "/mnt/lightsem-data/experiments/lightsem/audio_understanding_20261004/runs/followup_mae_jepa/mae_continue/seed0/final.pt",
+        "/mnt/lightsem-data/experiments/lightsem/audio_understanding_20261004/runs/followup_mae_jepa/mae_to_jepa/seed0/final.pt"
+      ],
+      "failure_mode": "recipe_conditional",
+      "lesson": "This full MAE-to-JEPA continuation increases the retrieval point estimate over matched continued reconstruction, but its Recall@5 interval includes zero and it loses3.87 points of temporal AUROC, exceeding the2-point guard. It does not qualify for TEST under the fixed policy; do not treat this as a family-level rejection of JEPA or an isolated test of initialization.",
+      "record_path": "/root/lightsem-vault/experiments/exp-au-mae-init-jepa-retrieval-20261004.md",
+      "record_sha256": "96e53664dea891ba12db0485897f85e78aaae270b72def76f10a753b3f8054cb"
+    },
+    {
+      "id": "exp-au-fourier-rhythm-20261004",
+      "problem_id": "lightsem-audio-understanding-20261004",
+      "closed": true,
+      "computed_verdict": "directional_only",
+      "hypothesis_id": "h-au-fourier-rhythm-20261004",
+      "key_numbers": {
+        "beat_f1_delta": 0.006191511898644197,
+        "cmlt_delta": -0.007294289399421099,
+        "constant_grid_beat_f1": 0.582814365176612,
+        "onset_f1_50ms_delta": 0.023547818915860996
+      },
+      "artifacts": [
+        "/mnt/lightsem-data/experiments/lightsem/audio_understanding_20261004/rhythm/report.json",
+        "/mnt/lightsem-data/experiments/lightsem/audio_understanding_20261004/records/jobs/cpu_rhythm_spectral_fourier_v2/report.json"
+      ],
+      "failure_mode": "recipe_conditional",
+      "lesson": "The corrected Fourier augmentation gives a small beat-F1 increase below the registered magnitude, while onset timing improves descriptively under the matched grouped readout. This separates useful event information from unsuccessful beat tracking in this recipe; it neither qualifies lighting nor rules out Fourier/rhythm representations generally. Raw-unit covariance rank alone does not establish collapse.",
+      "record_path": "/root/lightsem-vault/experiments/exp-au-fourier-rhythm-20261004.md",
+      "record_sha256": "69d2db3e2f4896a7f62fba42a0eed54c441d3085df969af882b476bef23ed21b"
+    },
+    {
+      "id": "exp-bt2-14-cure_for_me-20261004",
+      "problem_id": "body-transfer-portfolio-20261004",
+      "closed": true,
+      "computed_verdict": "supports",
+      "hypothesis_id": "h-bt2-14-cure_for_me-20261004",
+      "key_numbers": {
+        "bt2-emitted-six-region-coverage_after": 1.0,
+        "bt2-emitted-six-region-coverage_before": 0.8333333333333334,
+        "bt2-exact-desired-target-pairs_after": 0.0,
+        "bt2-exact-desired-target-pairs_before": 2.0,
+        "bt2-geometric-crossing-fraction_after": 0.10168269230769231,
+        "bt2-geometric-crossing-fraction_before": 0.5685630341880342
+      },
+      "artifacts": [
+        "/mnt/lightsem-data/experiments/lightsem/body_transfer_20261004_v2/timelines/14/cure_for_me/report.json"
+      ],
+      "failure_mode": null,
+      "lesson": "V2 mapping 14 on Cure For Me met its registered geometric crossing/source-response engineering criteria; this is numerical transfer evidence, not musical choreography or an artistic winner. Preserve V2 results and compare against the separate V3 readout repair before making product claims.",
+      "record_path": "/root/lightsem-vault/experiments/exp-bt2-14-cure_for_me-20261004.md",
+      "record_sha256": "833815af85636ce75a17bb8b5a47280d0bf70ac2500db28a4cb84db65e43f723"
+    },
+    {
+      "id": "exp-native-jd-dynamics-20261005",
+      "problem_id": "dynamic-musical-dance-20261005",
+      "closed": true,
+      "computed_verdict": "inconclusive",
+      "hypothesis_id": "h-native-jd-dynamics-20261005",
+      "key_numbers": {
+        "available_profile_after": 0.2035472615329038,
+        "available_profile_before": 0.30262235005012944,
+        "complete_profile_windows": 34.0,
+        "distribution_after": 0.14257198638127497,
+        "distribution_before": 0.27686501470290953,
+        "seed0_available_profile_after": 0.20347238140321686,
+        "seed0_available_profile_before": 0.3041522186411016,
+        "seed0_available_profile_delta": -0.10067983723788476,
+        "seed0_available_profile_relative_reduction": 0.3310179280877992,
+        "seed1_available_profile_after": 0.20362214166259077,
+        "seed1_available_profile_before": 0.3010924814591573,
+        "seed1_available_profile_delta": -0.0974703397965665,
+        "seed1_available_profile_relative_reduction": 0.3237222640837952,
+        "total_profile_windows": 72.0
+      },
+      "artifacts": [
+        "/mnt/lightsem-data/experiments/lightsem/native_dynamics_jd_20261005_v1/reports/FINAL_EVIDENCE.json",
+        "/mnt/lightsem-data/experiments/lightsem/native_dynamics_jd_20261005_v1/reports/VALIDATION.json",
+        "/mnt/lightsem-data/experiments/lightsem/native_dynamics_jd_20261005_v1/reports/METRIC_CONTROLS.json",
+        "/mnt/lightsem-data/experiments/lightsem/native_dynamics_jd_20261005_v1/reports/PLANNER_REPRESENTATIONS.json",
+        "/mnt/lightsem-data/experiments/lightsem/native_dynamics_jd_20261005_v1/preview_3d_v2/index.html",
+        "/mnt/lightsem-data/experiments/lightsem/native_dynamics_jd_20261005_v1/review/index.html"
+      ],
+      "failure_mode": "recipe_conditional",
+      "lesson": "Directmotion-data losses reduced available-cell speederror32\u201333% inbothseeds andimprovedobserved distributions, butincreased3Dfoot sliding/jerk andlostemittedgesture retention. Nativelearninghadreal effects; thisweak2D/matched3D recipe didnotearnend-to-endimprovement. Thecompleteprimaryremainsunqualified becauseobservationalcoveragewasincomplete; thisdoesnotrejectnativelearningingeneral.",
+      "record_path": "/root/lightsem-vault/experiments/exp-native-jd-dynamics-20261005.md",
+      "record_sha256": "7d0d6fcab3d2c63e44163c830b97fa5da95544f7ff2a6e5337350b74678f3bb0"
+    },
+    {
+      "id": "exp-bt3-03-shpongle-20261004",
+      "problem_id": "body-transfer-portfolio-20261004-v3",
+      "closed": true,
+      "computed_verdict": "refutes",
+      "hypothesis_id": "h-bt3-03-shpongle-20261004",
+      "key_numbers": {
+        "bt2-emitted-six-region-coverage_after": 1.0,
+        "bt2-emitted-six-region-coverage_before": 0.8333333333333334,
+        "bt2-exact-desired-target-pairs_after": 0.0,
+        "bt2-exact-desired-target-pairs_before": 2.0,
+        "bt2-geometric-crossing-fraction_after": 0.7791132478632479,
+        "bt2-geometric-crossing-fraction_before": 0.5818376068376069
+      },
+      "artifacts": [
+        "/mnt/lightsem-data/experiments/lightsem/body_transfer_20261004_v3/timelines/03/shpongle/report.json"
+      ],
+      "failure_mode": "recipe_conditional",
+      "lesson": "The absolute articulated target shape is preserved, but fixed physical rays aimed through that shape increase crossings to0.7791/0.7829 versusV1 0.5818/0.5686. The frozen clutter-reduction claim is refuted for this installation; preserve this as a morphology/clutter tradeoff diagnostic, not a lighting improvement. Mechanical limits also prevent exact optical target tracing; no parameter was tuned after this outcome.",
+      "record_path": "/root/lightsem-vault/experiments/exp-bt3-03-shpongle-20261004.md",
+      "record_sha256": "046332b3b32178912c7908ebf8a2848d90399bc2a08e84a1c19436f74ce47684"
+    },
+    {
+      "id": "exp-d4max-c4-20261005",
+      "problem_id": "dynamic-musical-dance-20261005",
+      "closed": true,
+      "computed_verdict": "directional_only",
+      "hypothesis_id": "h-d4max-c4-20261005",
+      "key_numbers": {
+        "cure_primary": 0.0009069129648228537,
+        "cure_supported_hold_s": 0.0,
+        "mean_primary": 0.002688016344136671,
+        "required_each_song": 0.02,
+        "shpongle_primary": 0.0044691197234504884,
+        "shpongle_supported_hold_s": 0.7333333333333343
+      },
+      "artifacts": [
+        "/mnt/lightsem-data/experiments/lightsem/d4max_20261005_v1/PLAN.json",
+        "/mnt/lightsem-data/experiments/lightsem/d4max_20261005_v1/reports/FINAL_REPORT.json",
+        "/mnt/lightsem-data/experiments/lightsem/d4max_20261005_v1/reports/RESULTS.html",
+        "/mnt/lightsem-data/experiments/lightsem/d4max_20261005_v1/reports/RANKING.json",
+        "/mnt/lightsem-data/experiments/lightsem/d4max_20261005_v1/reports/RANKING.csv",
+        "/mnt/lightsem-data/experiments/lightsem/d4max_20261005_v1/reports/ARCHITECTURE.json",
+        "/mnt/lightsem-data/experiments/lightsem/d4max_20261005_v1/reports/PRIMARY_AUDIT.json",
+        "/mnt/lightsem-data/experiments/lightsem/d4max_20261005_v1/delivery_verification/browser_v1/REPORT.json",
+        "/mnt/lightsem-data/experiments/lightsem/d4max_20261005_v1/reports/figures_v2/shpongle_movement.png",
+        "/mnt/lightsem-data/experiments/lightsem/d4max_20261005_v1/reports/figures_v2/cure_for_me_movement.png",
+        "/mnt/lightsem-data/experiments/lightsem/d4max_20261005_v1/media/C4/shpongle/full.mp4",
+        "/mnt/lightsem-data/experiments/lightsem/d4max_20261005_v1/media/C4/cure_for_me/full.mp4"
+      ],
+      "failure_mode": "recipe_conditional",
+      "lesson": "Anchoring a common D6 clock inside each motif preserves exactphraseboundaries and avoids prior regional-D6 physical regressions, but release gains+.00447/+.00091 miss+.02 and sustainedrests remain scarce. Keep improved time-map integration separate from the weak learned pacing predictions; do not infer semantic pauses from changedrates.",
+      "record_path": "/root/lightsem-vault/experiments/exp-d4max-c4-20261005.md",
+      "record_sha256": "dae5f0dc734f7a0ea1bd0e64e186fc8e632a38103b7766b4da1c78ab84f83133"
+    },
+    {
+      "id": "exp-bt3-04-cure_for_me-20261004",
+      "problem_id": "body-transfer-portfolio-20261004-v3",
+      "closed": true,
+      "computed_verdict": "supports",
+      "hypothesis_id": "h-bt3-04-cure_for_me-20261004",
+      "key_numbers": {
+        "bt2-emitted-six-region-coverage_after": 1.0,
+        "bt2-emitted-six-region-coverage_before": 0.8333333333333334,
+        "bt2-exact-desired-target-pairs_after": 0.0,
+        "bt2-exact-desired-target-pairs_before": 2.0,
+        "bt2-geometric-crossing-fraction_after": 0.09871794871794871,
+        "bt2-geometric-crossing-fraction_before": 0.5685630341880342
+      },
+      "artifacts": [
+        "/mnt/lightsem-data/experiments/lightsem/body_transfer_20261004_v3/timelines/04/cure_for_me/report.json"
+      ],
+      "failure_mode": null,
+      "lesson": "The fixed geometric crossing-reduction and emitted six-region source-response gates pass on this accepted saved song body. This comparison estimates the combined method and capability readout; static spacing contributes, extra outputs do not create independent gestures, and choreography/music generalization remains unqualified.",
+      "record_path": "/root/lightsem-vault/experiments/exp-bt3-04-cure_for_me-20261004.md",
+      "record_sha256": "a8d3324de9c214231333166232f8ba414819f50c5392544d9142bc291c36177d"
+    },
+    {
+      "id": "exp-au-jepa-rhythm-transfer-20261004",
+      "problem_id": "lightsem-audio-understanding-20261004",
+      "closed": true,
+      "computed_verdict": "refutes",
+      "hypothesis_id": "h-au-jepa-rhythm-transfer-20261004",
+      "key_numbers": {
+        "beat_cmlt": 0.07439287291556743,
+        "beat_f1": 0.5224543843606789,
+        "delta_onset_f1": -0.028620076249434634,
+        "native_effective_rank": 19.768881677513825,
+        "onset_f1_50ms": 0.7594081208064928
+      },
+      "artifacts": [
+        "/mnt/lightsem-data/experiments/lightsem/audio_understanding_20261004/rhythm_learned/report.json",
+        "/mnt/lightsem-data/experiments/lightsem/audio_understanding_20261004/records/rhythm_learned_comparisons.json",
+        "/mnt/lightsem-data/experiments/lightsem/audio_understanding_20261004/records/rhythm_learned_preflight.json"
+      ],
+      "failure_mode": "recipe_conditional",
+      "lesson": "Fresh JEPA also loses annotated onset timing versusMAE despite finite diverse native features. This corroborates local-information weakness in this tested initialization/objective recipe; it does not establish constant collapse or prohibit the separately registered curriculum experiment.",
+      "record_path": "/root/lightsem-vault/experiments/exp-au-jepa-rhythm-transfer-20261004.md",
+      "record_sha256": "1d03695b49aec30df8f74551d0084e426a494f95687e17ee023bc073c9be07e1"
+    },
+    {
+      "id": "exp-bt2-15-shpongle-20261004",
+      "problem_id": "body-transfer-portfolio-20261004",
+      "closed": true,
+      "computed_verdict": "supports",
+      "hypothesis_id": "h-bt2-15-shpongle-20261004",
+      "key_numbers": {
+        "bt2-emitted-six-region-coverage_after": 1.0,
+        "bt2-emitted-six-region-coverage_before": 0.8333333333333334,
+        "bt2-exact-desired-target-pairs_after": 0.0,
+        "bt2-exact-desired-target-pairs_before": 2.0,
+        "bt2-geometric-crossing-fraction_after": 0.1046207264957265,
+        "bt2-geometric-crossing-fraction_before": 0.5818376068376069
+      },
+      "artifacts": [
+        "/mnt/lightsem-data/experiments/lightsem/body_transfer_20261004_v2/timelines/15/shpongle/report.json"
+      ],
+      "failure_mode": null,
+      "lesson": "V2 mapping 15 on Shpongle met its registered geometric crossing/source-response engineering criteria; this is numerical transfer evidence, not musical choreography or an artistic winner. Preserve V2 results and compare against the separate V3 readout repair before making product claims.",
+      "record_path": "/root/lightsem-vault/experiments/exp-bt2-15-shpongle-20261004.md",
+      "record_sha256": "fcc0b5f4e5972218f86a003583cb9f1e8c6f4ca41854a095658e92bf025d9815"
+    },
+    {
+      "id": "exp-bt2-09-shpongle-20261004",
+      "problem_id": "body-transfer-portfolio-20261004",
+      "closed": true,
+      "computed_verdict": "supports",
+      "hypothesis_id": "h-bt2-09-shpongle-20261004",
+      "key_numbers": {
+        "bt2-emitted-six-region-coverage_after": 1.0,
+        "bt2-emitted-six-region-coverage_before": 0.8333333333333334,
+        "bt2-exact-desired-target-pairs_after": 0.0,
+        "bt2-exact-desired-target-pairs_before": 2.0,
+        "bt2-geometric-crossing-fraction_after": 0.10683760683760683,
+        "bt2-geometric-crossing-fraction_before": 0.5818376068376069
+      },
+      "artifacts": [
+        "/mnt/lightsem-data/experiments/lightsem/body_transfer_20261004_v2/timelines/09/shpongle/report.json"
+      ],
+      "failure_mode": null,
+      "lesson": "V2 mapping 09 on Shpongle met its registered geometric crossing/source-response engineering criteria; this is numerical transfer evidence, not musical choreography or an artistic winner. Preserve V2 results and compare against the separate V3 readout repair before making product claims.",
+      "record_path": "/root/lightsem-vault/experiments/exp-bt2-09-shpongle-20261004.md",
+      "record_sha256": "735c1a132c7519eab388b1524a07e67b897ab8f57aa746cf1a56f49254b5c775"
+    },
+    {
+      "id": "exp-au-mae-retrieval-20261004",
+      "problem_id": "lightsem-audio-understanding-20261004",
+      "closed": true,
+      "computed_verdict": "supports",
+      "hypothesis_id": "h-au-mae-retrieval-20261004",
+      "key_numbers": {
+        "delta_recall5": 0.07261904761904762,
+        "delta_temporal_auc": 0.09572172619047621,
+        "native_effective_rank": 33.918562006294,
+        "recall5": 0.47232142857142856,
+        "temporal_auc": 0.8431919642857142
+      },
+      "artifacts": [
+        "/mnt/lightsem-data/experiments/lightsem/audio_understanding_20261004/results/mae/report.json",
+        "/mnt/lightsem-data/experiments/lightsem/audio_understanding_20261004/records/root_mae_dev_verification_v1.json",
+        "/mnt/lightsem-data/experiments/lightsem/audio_understanding_20261004/records/root_mae_training_verification_v1.json",
+        "/mnt/lightsem-data/experiments/lightsem/audio_understanding_20261004/runs/mae/seed0/final.pt"
+      ],
+      "failure_mode": null,
+      "lesson": "Masked reconstruction improves top-five inclusion and local timing over the untrained encoder in this seed0 recipe. First-choice retrieval gains remain uncertain and source-activity calibration remains poor; this is audio evidence, not lighting qualification.",
+      "record_path": "/root/lightsem-vault/experiments/exp-au-mae-retrieval-20261004.md",
+      "record_sha256": "5fefbd172c606c9df50c8a48d4fc1213957821679c2d1aefe960c13c8358d038"
+    },
+    {
+      "id": "exp-bt3-07-cure_for_me-20261004",
+      "problem_id": "body-transfer-portfolio-20261004-v3",
+      "closed": true,
+      "computed_verdict": "supports",
+      "hypothesis_id": "h-bt3-07-cure_for_me-20261004",
+      "key_numbers": {
+        "bt2-emitted-six-region-coverage_after": 1.0,
+        "bt2-emitted-six-region-coverage_before": 0.8333333333333334,
+        "bt2-exact-desired-target-pairs_after": 0.0,
+        "bt2-exact-desired-target-pairs_before": 2.0,
+        "bt2-geometric-crossing-fraction_after": 0.10598290598290598,
+        "bt2-geometric-crossing-fraction_before": 0.5685630341880342
+      },
+      "artifacts": [
+        "/mnt/lightsem-data/experiments/lightsem/body_transfer_20261004_v3/timelines/07/cure_for_me/report.json"
+      ],
+      "failure_mode": null,
+      "lesson": "The crossing/source-response gates pass, but this relative-frame representation substantially changes global recurrence. Evaluate intended local interactions visually; do not equate a finite, responsive output with preserved overall dance structure.",
+      "record_path": "/root/lightsem-vault/experiments/exp-bt3-07-cure_for_me-20261004.md",
+      "record_sha256": "9436e70df5a67ef27c877cca126ace7f00ba57e9f567b797bf7bf508f053f24b"
+    },
+    {
+      "id": "exp-bt2-15-cure_for_me-20261004",
+      "problem_id": "body-transfer-portfolio-20261004",
+      "closed": true,
+      "computed_verdict": "supports",
+      "hypothesis_id": "h-bt2-15-cure_for_me-20261004",
+      "key_numbers": {
+        "bt2-emitted-six-region-coverage_after": 1.0,
+        "bt2-emitted-six-region-coverage_before": 0.8333333333333334,
+        "bt2-exact-desired-target-pairs_after": 0.0,
+        "bt2-exact-desired-target-pairs_before": 2.0,
+        "bt2-geometric-crossing-fraction_after": 0.10373931623931625,
+        "bt2-geometric-crossing-fraction_before": 0.5685630341880342
+      },
+      "artifacts": [
+        "/mnt/lightsem-data/experiments/lightsem/body_transfer_20261004_v2/timelines/15/cure_for_me/report.json"
+      ],
+      "failure_mode": null,
+      "lesson": "V2 mapping 15 on Cure For Me met its registered geometric crossing/source-response engineering criteria; this is numerical transfer evidence, not musical choreography or an artistic winner. Preserve V2 results and compare against the separate V3 readout repair before making product claims.",
+      "record_path": "/root/lightsem-vault/experiments/exp-bt2-15-cure_for_me-20261004.md",
+      "record_sha256": "54162c64362ba5cf190259321980adf2257092860d834721fb4e08797900680b"
+    },
+    {
+      "id": "exp-native-hf16-refine-20261006",
+      "problem_id": "dynamic-musical-dance-20261005",
+      "closed": true,
+      "computed_verdict": "supports",
+      "hypothesis_id": "h-native-hf16-refine-20261006",
+      "key_numbers": {},
+      "artifacts": [
+        "/mnt/lightsem-data/experiments/lightsem/native_dynamics_jd_20261005_v1/repair_refine_v2/reports/SELECTION.json",
+        "/mnt/lightsem-data/experiments/lightsem/native_dynamics_jd_20261005_v1/repair_review_v1/reports/RENDER_ADMISSION.json",
+        "/mnt/lightsem-data/experiments/lightsem/native_dynamics_jd_20261005_v1/repair_review_v1/review_3d_v1/browser_final_v1/REPORT.json",
+        "/mnt/lightsem-data/experiments/lightsem/native_dynamics_jd_20261005_v1/repair_review_v1/review_3d_v1"
+      ],
+      "failure_mode": null,
+      "lesson": "Repair training, not playback: raw3D stability constraints alongside noise-robust2D observations remove the native jitter regression without freezingmotion. Use source-matchedD7onlyasJDprior, notgroundtruth. Allgates mustpass acrossseeds, fullsongs andfixeddiagnosticwindow; improvedjerk orsmoothed2Dmetrics alone were insufficient. The successfulHF16recipe is evidenceforthis setup, not auniversalhyperparameter. Keep rawgraphs and realDMX/humanreview.",
+      "record_path": "/root/lightsem-vault/experiments/exp-native-hf16-refine-20261006.md",
+      "record_sha256": "94a83970c2a281fc0fa201f5723baa251fb0e3c747cf08c72c7a3a652e4ad564"
+    },
+    {
+      "id": "exp-bt2-07-shpongle-20261004",
+      "problem_id": "body-transfer-portfolio-20261004",
+      "closed": true,
+      "computed_verdict": "supports",
+      "hypothesis_id": "h-bt2-07-shpongle-20261004",
+      "key_numbers": {
+        "bt2-emitted-six-region-coverage_after": 1.0,
+        "bt2-emitted-six-region-coverage_before": 0.8333333333333334,
+        "bt2-exact-desired-target-pairs_after": 0.0,
+        "bt2-exact-desired-target-pairs_before": 2.0,
+        "bt2-geometric-crossing-fraction_after": 0.1110042735042735,
+        "bt2-geometric-crossing-fraction_before": 0.5818376068376069
+      },
+      "artifacts": [
+        "/mnt/lightsem-data/experiments/lightsem/body_transfer_20261004_v2/timelines/07/shpongle/report.json"
+      ],
+      "failure_mode": null,
+      "lesson": "V2 mapping 07 on Shpongle met its registered geometric crossing/source-response engineering criteria; this is numerical transfer evidence, not musical choreography or an artistic winner. Preserve V2 results and compare against the separate V3 readout repair before making product claims.",
+      "record_path": "/root/lightsem-vault/experiments/exp-bt2-07-shpongle-20261004.md",
+      "record_sha256": "396954c211cc8a4465ccd6befb1e0e329d543b7b45531634bd9a981372c60176"
+    },
+    {
+      "id": "exp-bt3-05-cure_for_me-20261004",
+      "problem_id": "body-transfer-portfolio-20261004-v3",
+      "closed": true,
+      "computed_verdict": "supports",
+      "hypothesis_id": "h-bt3-05-cure_for_me-20261004",
+      "key_numbers": {
+        "bt2-emitted-six-region-coverage_after": 1.0,
+        "bt2-emitted-six-region-coverage_before": 0.8333333333333334,
+        "bt2-exact-desired-target-pairs_after": 0.0,
+        "bt2-exact-desired-target-pairs_before": 2.0,
+        "bt2-geometric-crossing-fraction_after": 0.08993055555555556,
+        "bt2-geometric-crossing-fraction_before": 0.5685630341880342
+      },
+      "artifacts": [
+        "/mnt/lightsem-data/experiments/lightsem/body_transfer_20261004_v3/timelines/05/cure_for_me/report.json"
+      ],
+      "failure_mode": null,
+      "lesson": "The crossing/source-response gates pass, but support-relative transitions lose structure in mechanical fitting (intent/emitted recurrence0.668/0.644), and brightness often reaches its configured ceiling. These unchangedV2/V3 outputs are a tradeoff candidate, not proof that support semantics are perceptually preserved.",
+      "record_path": "/root/lightsem-vault/experiments/exp-bt3-05-cure_for_me-20261004.md",
+      "record_sha256": "043bae7328f20b52fa60342b192ff2b23ccbcd3bdd3449bd2723c626e90f4877"
+    },
+    {
+      "id": "exp-bt3-06-cure_for_me-20261004",
+      "problem_id": "body-transfer-portfolio-20261004-v3",
+      "closed": true,
+      "computed_verdict": "supports",
+      "hypothesis_id": "h-bt3-06-cure_for_me-20261004",
+      "key_numbers": {
+        "bt2-emitted-six-region-coverage_after": 1.0,
+        "bt2-emitted-six-region-coverage_before": 0.8333333333333334,
+        "bt2-exact-desired-target-pairs_after": 0.0,
+        "bt2-exact-desired-target-pairs_before": 2.0,
+        "bt2-geometric-crossing-fraction_after": 0.10189636752136752,
+        "bt2-geometric-crossing-fraction_before": 0.5685630341880342
+      },
+      "artifacts": [
+        "/mnt/lightsem-data/experiments/lightsem/body_transfer_20261004_v3/timelines/06/cure_for_me/report.json"
+      ],
+      "failure_mode": null,
+      "lesson": "The fixed geometric crossing-reduction and emitted six-region source-response gates pass on this accepted saved song body. This comparison estimates the combined method and capability readout; static spacing contributes, extra outputs do not create independent gestures, and choreography/music generalization remains unqualified.",
+      "record_path": "/root/lightsem-vault/experiments/exp-bt3-06-cure_for_me-20261004.md",
+      "record_sha256": "588c84971a9ce3bacf52a0c8e6b99c4f8a517f44fa9c33d4240ca637cb913be0"
+    },
+    {
+      "id": "exp-bt3-08-cure_for_me-20261004",
+      "problem_id": "body-transfer-portfolio-20261004-v3",
+      "closed": true,
+      "computed_verdict": "supports",
+      "hypothesis_id": "h-bt3-08-cure_for_me-20261004",
+      "key_numbers": {
+        "bt2-emitted-six-region-coverage_after": 1.0,
+        "bt2-emitted-six-region-coverage_before": 0.8333333333333334,
+        "bt2-exact-desired-target-pairs_after": 0.0,
+        "bt2-exact-desired-target-pairs_before": 2.0,
+        "bt2-geometric-crossing-fraction_after": 0.24877136752136753,
+        "bt2-geometric-crossing-fraction_before": 0.5685630341880342
+      },
+      "artifacts": [
+        "/mnt/lightsem-data/experiments/lightsem/body_transfer_20261004_v3/timelines/08/cure_for_me/report.json"
+      ],
+      "failure_mode": null,
+      "lesson": "Common spatial coordinates repaired an inverted proximity relationship caused by independent fixture offsets. On saved source frames with hands<=0.10m, median emitted finite-ray separation fell from1.842/1.847m inV2 to0.000797/0.000508m inV3; there are only13/5 correlated frames. The crossing/source-response gates pass, while readable encounters and phrase development remain for visual review.",
+      "record_path": "/root/lightsem-vault/experiments/exp-bt3-08-cure_for_me-20261004.md",
+      "record_sha256": "9c1f36e625c47e2f619954b6f2bba90b78ef086c2359f40f89d9e111361c649e"
+    },
+    {
+      "id": "exp-bt3-12-cure_for_me-20261004",
+      "problem_id": "body-transfer-portfolio-20261004-v3",
+      "closed": true,
+      "computed_verdict": "supports",
+      "hypothesis_id": "h-bt3-12-cure_for_me-20261004",
+      "key_numbers": {
+        "bt2-emitted-six-region-coverage_after": 1.0,
+        "bt2-emitted-six-region-coverage_before": 0.8333333333333334,
+        "bt2-exact-desired-target-pairs_after": 0.0,
+        "bt2-exact-desired-target-pairs_before": 2.0,
+        "bt2-geometric-crossing-fraction_after": 0.08637820512820513,
+        "bt2-geometric-crossing-fraction_before": 0.5685630341880342
+      },
+      "artifacts": [
+        "/mnt/lightsem-data/experiments/lightsem/body_transfer_20261004_v3/timelines/12/cure_for_me/report.json"
+      ],
+      "failure_mode": null,
+      "lesson": "The fixed geometric crossing-reduction and emitted six-region source-response gates pass on this accepted saved song body. This comparison estimates the combined method and capability readout; static spacing contributes, extra outputs do not create independent gestures, and choreography/music generalization remains unqualified.",
+      "record_path": "/root/lightsem-vault/experiments/exp-bt3-12-cure_for_me-20261004.md",
+      "record_sha256": "fe2e2485e4fd2199ae801c2a7dab9de0f0a2879a22f9442b1485f731509af03e"
+    },
+    {
+      "id": "exp-dynamic-dance-d4-20261005",
+      "problem_id": "dynamic-musical-dance-20261005",
+      "closed": true,
+      "computed_verdict": "refutes",
+      "hypothesis_id": "h-dynamic-dance-d4-20261005",
+      "key_numbers": {
+        "administrative_least_favorable_primary": -0.042812409517962766,
+        "cure_for_me": 0.01906091321146826,
+        "cure_for_me_display_primary": 0.01906091321146826,
+        "required_increment": 0.02,
+        "shpongle": -0.042812409517962766,
+        "shpongle_display_primary": -0.042812409517962766
+      },
+      "artifacts": [
+        "/mnt/lightsem-data/experiments/lightsem/dynamic_dance_20261005_v1/reports/FINAL_REPORT.json",
+        "/mnt/lightsem-data/experiments/lightsem/dynamic_dance_20261005_v1/reports/FINAL_REPORT.md",
+        "/mnt/lightsem-data/experiments/lightsem/dynamic_dance_20261005_v1/reports/PRE_RENDER_AUDIT_v1.json",
+        "/mnt/lightsem-data/experiments/lightsem/dynamic_dance_20261005_v1/records/SCIENTIFIC_CLOSEOUT_CONVENTION.json",
+        "/mnt/lightsem-data/experiments/lightsem/dynamic_dance_20261005_v1/reports/training_audit_v2.json",
+        "/mnt/lightsem-data/experiments/lightsem/dynamic_dance_20261005_v1/reports/repeatability_v3/report.json",
+        "/mnt/lightsem-data/experiments/lightsem/dynamic_dance_20261005_v1/media/D4/shpongle/dark.mp4",
+        "/mnt/lightsem-data/experiments/lightsem/dynamic_dance_20261005_v1/bodies/D4_floor_v2/shpongle/body.npz",
+        "/mnt/lightsem-data/experiments/lightsem/dynamic_dance_20261005_v1/bodies/D4_floor_v2/shpongle/plan.npz",
+        "/mnt/lightsem-data/experiments/lightsem/dynamic_dance_20261005_v1/timelines/D4_floor_v2/shpongle/timeline.npz",
+        "/mnt/lightsem-data/experiments/lightsem/dynamic_dance_20261005_v1/timelines/D4_floor_v2/shpongle/comparison.json",
+        "/mnt/lightsem-data/experiments/lightsem/dynamic_dance_20261005_v1/reports/supplemental_transfer_v1/D4_shpongle.json",
+        "/mnt/lightsem-data/experiments/lightsem/dynamic_dance_20261005_v1/media/D4/cure_for_me/dark.mp4",
+        "/mnt/lightsem-data/experiments/lightsem/dynamic_dance_20261005_v1/bodies/D4_floor_v2/cure_for_me/body.npz",
+        "/mnt/lightsem-data/experiments/lightsem/dynamic_dance_20261005_v1/bodies/D4_floor_v2/cure_for_me/plan.npz",
+        "/mnt/lightsem-data/experiments/lightsem/dynamic_dance_20261005_v1/timelines/D4_floor_v2/cure_for_me/timeline.npz",
+        "/mnt/lightsem-data/experiments/lightsem/dynamic_dance_20261005_v1/timelines/D4_floor_v2/cure_for_me/comparison.json",
+        "/mnt/lightsem-data/experiments/lightsem/dynamic_dance_20261005_v1/reports/supplemental_transfer_v1/D4_cure_for_me.json"
+      ],
+      "failure_mode": "recipe_conditional",
+      "lesson": "Own-song motif recomposition fails the recurrence threshold on both songs after the XZ-only floor repair. Preserve the original floor bug and unchanged recurrence evidence; this is a recipe-specific negative, not a disproof of graph choreography.",
+      "record_path": "/root/lightsem-vault/experiments/exp-dynamic-dance-d4-20261005.md",
+      "record_sha256": "880cadef11dc4334dff354826200e9cfbc5eece80bf1aeef089e59d1c8996a90"
+    },
+    {
+      "id": "exp-au-jepa-temporal-20261004",
+      "problem_id": "lightsem-audio-understanding-20261004",
+      "closed": true,
+      "computed_verdict": "refutes",
+      "hypothesis_id": "h-au-jepa-temporal-20261004",
+      "key_numbers": {
+        "delta_recall5": -0.125,
+        "delta_temporal_auc": -0.20442708333333334,
+        "native_effective_rank": 14.38235403416084,
+        "recall5": 0.34732142857142856,
+        "temporal_auc": 0.6387648809523809
+      },
+      "artifacts": [
+        "/mnt/lightsem-data/experiments/lightsem/audio_understanding_20261004/results/jepa/report.json",
+        "/mnt/lightsem-data/experiments/lightsem/audio_understanding_20261004/records/root_jepa_dev_verification_v1.json",
+        "/mnt/lightsem-data/experiments/lightsem/audio_understanding_20261004/records/root_jepa_training_verification_v1.json",
+        "/mnt/lightsem-data/experiments/lightsem/audio_understanding_20261004/runs/jepa/seed0/final.pt"
+      ],
+      "failure_mode": "recipe_conditional",
+      "lesson": "Fresh-initialized latent prediction loses retrieval and local timing versus MAE; temporal loss is also clear versus untrained. Outputs remain variable, nonduplicate and input-sensitive, so this is not constant-output collapse and does not rule out changed predictive recipes.",
+      "record_path": "/root/lightsem-vault/experiments/exp-au-jepa-temporal-20261004.md",
+      "record_sha256": "7269fc4c48c802966538da4f5d19fe7edb50e943f8e5f76ad5e696ca6e0fd89a"
+    },
+    {
+      "id": "exp-au-mae-init-jepa-temporal-20261004",
+      "problem_id": "lightsem-audio-understanding-20261004",
+      "closed": true,
+      "computed_verdict": "refutes",
+      "hypothesis_id": "h-au-mae-init-jepa-temporal-20261004",
+      "key_numbers": {
+        "delta_recall5": 0.10029761904761908,
+        "delta_temporal_auc": -0.0386904761904762,
+        "native_rank": 34.08351514686989,
+        "recall5_after": 0.5294642857142857,
+        "recall5_before": 0.4291666666666667,
+        "temporal_auc_after": 0.7690476190476191,
+        "temporal_auc_before": 0.8077380952380953
+      },
+      "artifacts": [
+        "/mnt/lightsem-data/experiments/lightsem/audio_understanding_20261004/records/followup_gate_results_v1.json",
+        "/mnt/lightsem-data/experiments/lightsem/audio_understanding_20261004/records/root_followup_pair_training_verification_v1.json",
+        "/mnt/lightsem-data/experiments/lightsem/audio_understanding_20261004/records/root_mae_to_jepa_dev_verification_v1.json",
+        "/mnt/lightsem-data/experiments/lightsem/audio_understanding_20261004/engineering/export_stationarity_v1/report.json",
+        "/mnt/lightsem-data/experiments/lightsem/audio_understanding_20261004/results/mae_continue/report.json",
+        "/mnt/lightsem-data/experiments/lightsem/audio_understanding_20261004/results/mae_to_jepa/report.json",
+        "/mnt/lightsem-data/experiments/lightsem/audio_understanding_20261004/comparisons/mae_to_jepa_vs_mae_continue_dev_v1.json",
+        "/mnt/lightsem-data/experiments/lightsem/audio_understanding_20261004/comparisons/mae_to_jepa_vs_mae_dev_v1.json",
+        "/mnt/lightsem-data/experiments/lightsem/audio_understanding_20261004/runs/followup_mae_jepa/mae_continue/seed0/final.pt",
+        "/mnt/lightsem-data/experiments/lightsem/audio_understanding_20261004/runs/followup_mae_jepa/mae_to_jepa/seed0/final.pt"
+      ],
+      "failure_mode": "recipe_conditional",
+      "lesson": "Switching the shared MAE parent to this JEPA recipe loses local temporal information despite nonconstant, input-sensitive embeddings. The comparison changes the objective with explicit Adam/EMA policies at matched total exposure; improved native geometry or retrieval does not establish preserved timing, and no second adaptation follows.",
+      "record_path": "/root/lightsem-vault/experiments/exp-au-mae-init-jepa-temporal-20261004.md",
+      "record_sha256": "fe222624e62233123e8709dd69ef226b6b1a210de0602f597394b38099c86417"
+    },
+    {
+      "id": "exp-d4max-d8-c4-20261005",
+      "problem_id": "dynamic-musical-dance-20261005",
+      "closed": true,
+      "computed_verdict": "directional_only",
+      "hypothesis_id": "h-d4max-d8-c4-20261005",
+      "key_numbers": {},
+      "artifacts": [
+        "/mnt/lightsem-data/experiments/lightsem/d4max_d8_20261005_v1/reports/SEARCH_AUDIT.json",
+        "/mnt/lightsem-data/experiments/lightsem/d4max_d8_20261005_v1/PLAN.json"
+      ],
+      "failure_mode": "execution_bug",
+      "lesson": "Naive motif beam retained multiple paths ending at the same donor and could discard another feasible future state. On Cure this erased all recomposition; exact-state DP proves39additional bank selections possible without loosening any constraints. Preserve these outputs as failure evidence; correct state dominance rather than tuning physical thresholds.",
+      "record_path": "/root/lightsem-vault/experiments/exp-d4max-d8-c4-20261005.md",
+      "record_sha256": "6471657aa61d96049b71c200b9966bd470af79a38dffb945d2d63f9bdb6a9dc4"
+    },
+    {
+      "id": "exp-bt3-05-shpongle-20261004",
+      "problem_id": "body-transfer-portfolio-20261004-v3",
+      "closed": true,
+      "computed_verdict": "supports",
+      "hypothesis_id": "h-bt3-05-shpongle-20261004",
+      "key_numbers": {
+        "bt2-emitted-six-region-coverage_after": 1.0,
+        "bt2-emitted-six-region-coverage_before": 0.8333333333333334,
+        "bt2-exact-desired-target-pairs_after": 0.0,
+        "bt2-exact-desired-target-pairs_before": 2.0,
+        "bt2-geometric-crossing-fraction_after": 0.09054487179487179,
+        "bt2-geometric-crossing-fraction_before": 0.5818376068376069
+      },
+      "artifacts": [
+        "/mnt/lightsem-data/experiments/lightsem/body_transfer_20261004_v3/timelines/05/shpongle/report.json"
+      ],
+      "failure_mode": null,
+      "lesson": "The crossing/source-response gates pass, but support-relative transitions lose structure in mechanical fitting (intent/emitted recurrence0.668/0.644), and brightness often reaches its configured ceiling. These unchangedV2/V3 outputs are a tradeoff candidate, not proof that support semantics are perceptually preserved.",
+      "record_path": "/root/lightsem-vault/experiments/exp-bt3-05-shpongle-20261004.md",
+      "record_sha256": "97f1c03415095ef4eb9a7ea751c6fae2b82d0c65ea98fc56d4b19dc97bcc7189"
+    },
+    {
+      "id": "exp-bt2-06-cure_for_me-20261004",
+      "problem_id": "body-transfer-portfolio-20261004",
+      "closed": true,
+      "computed_verdict": "supports",
+      "hypothesis_id": "h-bt2-06-cure_for_me-20261004",
+      "key_numbers": {
+        "bt2-emitted-six-region-coverage_after": 1.0,
+        "bt2-emitted-six-region-coverage_before": 0.8333333333333334,
+        "bt2-exact-desired-target-pairs_after": 0.0,
+        "bt2-exact-desired-target-pairs_before": 2.0,
+        "bt2-geometric-crossing-fraction_after": 0.10189636752136752,
+        "bt2-geometric-crossing-fraction_before": 0.5685630341880342
+      },
+      "artifacts": [
+        "/mnt/lightsem-data/experiments/lightsem/body_transfer_20261004_v2/timelines/06/cure_for_me/report.json"
+      ],
+      "failure_mode": null,
+      "lesson": "V2 mapping 06 on Cure For Me met its registered geometric crossing/source-response engineering criteria; this is numerical transfer evidence, not musical choreography or an artistic winner. Preserve V2 results and compare against the separate V3 readout repair before making product claims.",
+      "record_path": "/root/lightsem-vault/experiments/exp-bt2-06-cure_for_me-20261004.md",
+      "record_sha256": "5e2afcb636cd0339150515efb810fe9c4d2b49dbf343e5b35c7327f0413b588e"
+    },
+    {
+      "id": "exp-dynamic-dance-d8-20261005",
+      "problem_id": "dynamic-musical-dance-20261005",
+      "closed": true,
+      "computed_verdict": "refutes",
+      "hypothesis_id": "h-dynamic-dance-d8-20261005",
+      "key_numbers": {
+        "administrative_least_favorable_primary": -0.019751837578404888,
+        "cure_for_me": -0.01362055712498085,
+        "cure_for_me_display_primary": -0.01362055712498085,
+        "required_increment": 0.02,
+        "shpongle": -0.019751837578404888,
+        "shpongle_display_primary": -0.019751837578404888
+      },
+      "artifacts": [
+        "/mnt/lightsem-data/experiments/lightsem/dynamic_dance_20261005_v1/reports/FINAL_REPORT.json",
+        "/mnt/lightsem-data/experiments/lightsem/dynamic_dance_20261005_v1/reports/FINAL_REPORT.md",
+        "/mnt/lightsem-data/experiments/lightsem/dynamic_dance_20261005_v1/reports/PRE_RENDER_AUDIT_v1.json",
+        "/mnt/lightsem-data/experiments/lightsem/dynamic_dance_20261005_v1/records/SCIENTIFIC_CLOSEOUT_CONVENTION.json",
+        "/mnt/lightsem-data/experiments/lightsem/dynamic_dance_20261005_v1/reports/training_audit_v2.json",
+        "/mnt/lightsem-data/experiments/lightsem/dynamic_dance_20261005_v1/reports/repeatability_v3/report.json",
+        "/mnt/lightsem-data/experiments/lightsem/dynamic_dance_20261005_v1/media/D8/shpongle/dark.mp4",
+        "/mnt/lightsem-data/experiments/lightsem/dynamic_dance_20261005_v1/bodies/D8/shpongle/body.npz",
+        "/mnt/lightsem-data/experiments/lightsem/dynamic_dance_20261005_v1/bodies/D8/shpongle/plan.npz",
+        "/mnt/lightsem-data/experiments/lightsem/dynamic_dance_20261005_v1/timelines/D8/shpongle/timeline.npz",
+        "/mnt/lightsem-data/experiments/lightsem/dynamic_dance_20261005_v1/timelines/D8/shpongle/comparison.json",
+        "/mnt/lightsem-data/experiments/lightsem/dynamic_dance_20261005_v1/reports/supplemental_transfer_v1/D8_shpongle.json",
+        "/mnt/lightsem-data/experiments/lightsem/dynamic_dance_20261005_v1/media/D8/cure_for_me/dark.mp4",
+        "/mnt/lightsem-data/experiments/lightsem/dynamic_dance_20261005_v1/bodies/D8/cure_for_me/body.npz",
+        "/mnt/lightsem-data/experiments/lightsem/dynamic_dance_20261005_v1/bodies/D8/cure_for_me/plan.npz",
+        "/mnt/lightsem-data/experiments/lightsem/dynamic_dance_20261005_v1/timelines/D8/cure_for_me/timeline.npz",
+        "/mnt/lightsem-data/experiments/lightsem/dynamic_dance_20261005_v1/timelines/D8/cure_for_me/comparison.json",
+        "/mnt/lightsem-data/experiments/lightsem/dynamic_dance_20261005_v1/reports/supplemental_transfer_v1/D8_cure_for_me.json"
+      ],
+      "failure_mode": "recipe_conditional",
+      "lesson": "Hierarchical generation fails to beat both required recurrence references: body recurrence is slightly above D7 but below shuffled plans on both songs. Hierarchy with these motion-derived proxy targets does not establish useful musical planning.",
+      "record_path": "/root/lightsem-vault/experiments/exp-dynamic-dance-d8-20261005.md",
+      "record_sha256": "44ae730f1951bf08f8870f37bf2e10d58a80486ff0382c969593b2c5bf3514f4"
+    },
+    {
+      "id": "exp-bt2-06-shpongle-20261004",
+      "problem_id": "body-transfer-portfolio-20261004",
+      "closed": true,
+      "computed_verdict": "supports",
+      "hypothesis_id": "h-bt2-06-shpongle-20261004",
+      "key_numbers": {
+        "bt2-emitted-six-region-coverage_after": 1.0,
+        "bt2-emitted-six-region-coverage_before": 0.8333333333333334,
+        "bt2-exact-desired-target-pairs_after": 0.0,
+        "bt2-exact-desired-target-pairs_before": 2.0,
+        "bt2-geometric-crossing-fraction_after": 0.10352564102564103,
+        "bt2-geometric-crossing-fraction_before": 0.5818376068376069
+      },
+      "artifacts": [
+        "/mnt/lightsem-data/experiments/lightsem/body_transfer_20261004_v2/timelines/06/shpongle/report.json"
+      ],
+      "failure_mode": null,
+      "lesson": "V2 mapping 06 on Shpongle met its registered geometric crossing/source-response engineering criteria; this is numerical transfer evidence, not musical choreography or an artistic winner. Preserve V2 results and compare against the separate V3 readout repair before making product claims.",
+      "record_path": "/root/lightsem-vault/experiments/exp-bt2-06-shpongle-20261004.md",
+      "record_sha256": "ef82f6971c531596b63f481f4f9c51c20a87dbe09659510dea6f3986dfb3fa53"
+    },
+    {
+      "id": "exp-bt3-14-cure_for_me-20261004",
+      "problem_id": "body-transfer-portfolio-20261004-v3",
+      "closed": true,
+      "computed_verdict": "supports",
+      "hypothesis_id": "h-bt3-14-cure_for_me-20261004",
+      "key_numbers": {
+        "bt2-emitted-six-region-coverage_after": 1.0,
+        "bt2-emitted-six-region-coverage_before": 0.8333333333333334,
+        "bt2-exact-desired-target-pairs_after": 0.0,
+        "bt2-exact-desired-target-pairs_before": 2.0,
+        "bt2-geometric-crossing-fraction_after": 0.10168269230769231,
+        "bt2-geometric-crossing-fraction_before": 0.5685630341880342
+      },
+      "artifacts": [
+        "/mnt/lightsem-data/experiments/lightsem/body_transfer_20261004_v3/timelines/14/cure_for_me/report.json"
+      ],
+      "failure_mode": null,
+      "lesson": "The fixed geometric crossing-reduction and emitted six-region source-response gates pass on this accepted saved song body. This comparison estimates the combined method and capability readout; static spacing contributes, extra outputs do not create independent gestures, and choreography/music generalization remains unqualified.",
+      "record_path": "/root/lightsem-vault/experiments/exp-bt3-14-cure_for_me-20261004.md",
+      "record_sha256": "a9b02735da258dd130b110b71bc8839dcf11025f6cfb3d47d7ddff5bd5ac7ef5"
+    },
+    {
+      "id": "exp-au-cocola-rhythm-transfer-20261004",
+      "problem_id": "lightsem-audio-understanding-20261004",
+      "closed": true,
+      "computed_verdict": "refutes",
+      "hypothesis_id": "h-au-cocola-rhythm-transfer-20261004",
+      "key_numbers": {
+        "beat_cmlt": 0.06892157215923764,
+        "beat_f1": 0.5296723314107549,
+        "delta_onset_f1": -0.007427993353715023,
+        "native_effective_rank": 72.7166062650634,
+        "onset_f1_50ms": 0.7806002037022124
+      },
+      "artifacts": [
+        "/mnt/lightsem-data/experiments/lightsem/audio_understanding_20261004/rhythm_learned/report.json",
+        "/mnt/lightsem-data/experiments/lightsem/audio_understanding_20261004/records/rhythm_learned_comparisons.json",
+        "/mnt/lightsem-data/experiments/lightsem/audio_understanding_20261004/records/rhythm_learned_preflight.json"
+      ],
+      "failure_mode": "recipe_conditional",
+      "lesson": "COCOLA's strong stem-retrieval gain does not translate to better annotated note or beat timing under the same rhythm readout; onsetF1 falls modestly versusMAE. Preserve the distinction between compatibility and event fidelity, not a family-wide rejection of contrastive learning.",
+      "record_path": "/root/lightsem-vault/experiments/exp-au-cocola-rhythm-transfer-20261004.md",
+      "record_sha256": "191da906e71312d0cc0a5213b0e9fa4cb3e0f1f1d710b8b0b5729e26320fab01"
+    },
+    {
+      "id": "exp-bt2-05-shpongle-20261004",
+      "problem_id": "body-transfer-portfolio-20261004",
+      "closed": true,
+      "computed_verdict": "supports",
+      "hypothesis_id": "h-bt2-05-shpongle-20261004",
+      "key_numbers": {
+        "bt2-emitted-six-region-coverage_after": 1.0,
+        "bt2-emitted-six-region-coverage_before": 0.8333333333333334,
+        "bt2-exact-desired-target-pairs_after": 0.0,
+        "bt2-exact-desired-target-pairs_before": 2.0,
+        "bt2-geometric-crossing-fraction_after": 0.09054487179487179,
+        "bt2-geometric-crossing-fraction_before": 0.5818376068376069
+      },
+      "artifacts": [
+        "/mnt/lightsem-data/experiments/lightsem/body_transfer_20261004_v2/timelines/05/shpongle/report.json"
+      ],
+      "failure_mode": null,
+      "lesson": "V2 mapping 05 on Shpongle met its registered geometric crossing/source-response engineering criteria; this is numerical transfer evidence, not musical choreography or an artistic winner. Preserve V2 results and compare against the separate V3 readout repair before making product claims.",
+      "record_path": "/root/lightsem-vault/experiments/exp-bt2-05-shpongle-20261004.md",
+      "record_sha256": "3cd44fcd80c054c7517277546c11259b7138b28849b8b0ef5cbc015e58aab6ea"
+    },
+    {
+      "id": "exp-bt2-11-cure_for_me-20261004",
+      "problem_id": "body-transfer-portfolio-20261004",
+      "closed": true,
+      "computed_verdict": "supports",
+      "hypothesis_id": "h-bt2-11-cure_for_me-20261004",
+      "key_numbers": {
+        "bt2-emitted-six-region-coverage_after": 1.0,
+        "bt2-emitted-six-region-coverage_before": 0.8333333333333334,
+        "bt2-exact-desired-target-pairs_after": 0.0,
+        "bt2-exact-desired-target-pairs_before": 2.0,
+        "bt2-geometric-crossing-fraction_after": 0.1014957264957265,
+        "bt2-geometric-crossing-fraction_before": 0.5685630341880342
+      },
+      "artifacts": [
+        "/mnt/lightsem-data/experiments/lightsem/body_transfer_20261004_v2/timelines/11/cure_for_me/report.json"
+      ],
+      "failure_mode": null,
+      "lesson": "V2 mapping 11 on Cure For Me met its registered geometric crossing/source-response engineering criteria; this is numerical transfer evidence, not musical choreography or an artistic winner. Preserve V2 results and compare against the separate V3 readout repair before making product claims.",
+      "record_path": "/root/lightsem-vault/experiments/exp-bt2-11-cure_for_me-20261004.md",
+      "record_sha256": "f414ce904bd37d3e0ab397e5fe08bc6289694ba55b3eb211f80d1c26694d87c5"
+    },
+    {
+      "id": "exp-bt2-01-shpongle-20261004",
+      "problem_id": "body-transfer-portfolio-20261004",
+      "closed": true,
+      "computed_verdict": "supports",
+      "hypothesis_id": "h-bt2-01-shpongle-20261004",
+      "key_numbers": {
+        "bt2-emitted-six-region-coverage_after": 1.0,
+        "bt2-emitted-six-region-coverage_before": 0.8333333333333334,
+        "bt2-exact-desired-target-pairs_after": 0.0,
+        "bt2-exact-desired-target-pairs_before": 2.0,
+        "bt2-geometric-crossing-fraction_after": 0.11848290598290598,
+        "bt2-geometric-crossing-fraction_before": 0.5818376068376069
+      },
+      "artifacts": [
+        "/mnt/lightsem-data/experiments/lightsem/body_transfer_20261004_v2/timelines/01/shpongle/report.json"
+      ],
+      "failure_mode": null,
+      "lesson": "V2 mapping 01 on Shpongle met its registered geometric crossing/source-response engineering criteria; this is numerical transfer evidence, not musical choreography or an artistic winner. Preserve V2 results and compare against the separate V3 readout repair before making product claims.",
+      "record_path": "/root/lightsem-vault/experiments/exp-bt2-01-shpongle-20261004.md",
+      "record_sha256": "8e01e69c93bcce389561190e9818e01d403fc97e1e48b52ef7d22e5ebefa90b5"
+    },
+    {
+      "id": "exp-native-jd-joint-20261005",
+      "problem_id": "dynamic-musical-dance-20261005",
+      "closed": true,
+      "computed_verdict": "inconclusive",
+      "hypothesis_id": "h-native-jd-joint-20261005",
+      "key_numbers": {
+        "available_profile_after": 0.21473020804916407,
+        "available_profile_before": 0.2035472615329038,
+        "complete_profile_windows": 34.0,
+        "distribution_after": 0.14721621120245093,
+        "distribution_before": 0.14257198638127497,
+        "seed0_available_profile_after": 0.21441523604905344,
+        "seed0_available_profile_before": 0.20347238140321686,
+        "seed0_available_profile_delta": 0.0109428546458366,
+        "seed0_available_profile_relative_reduction": -0.05378054048599038,
+        "seed1_available_profile_after": 0.21504518004927467,
+        "seed1_available_profile_before": 0.20362214166259077,
+        "seed1_available_profile_delta": 0.011423038386683917,
+        "seed1_available_profile_relative_reduction": -0.056099195762375834,
+        "total_profile_windows": 72.0
+      },
+      "artifacts": [
+        "/mnt/lightsem-data/experiments/lightsem/native_dynamics_jd_20261005_v1/reports/FINAL_EVIDENCE.json",
+        "/mnt/lightsem-data/experiments/lightsem/native_dynamics_jd_20261005_v1/reports/VALIDATION.json",
+        "/mnt/lightsem-data/experiments/lightsem/native_dynamics_jd_20261005_v1/reports/METRIC_CONTROLS.json",
+        "/mnt/lightsem-data/experiments/lightsem/native_dynamics_jd_20261005_v1/reports/PLANNER_REPRESENTATIONS.json",
+        "/mnt/lightsem-data/experiments/lightsem/native_dynamics_jd_20261005_v1/preview_3d_v2/index.html",
+        "/mnt/lightsem-data/experiments/lightsem/native_dynamics_jd_20261005_v1/review/index.html"
+      ],
+      "failure_mode": "recipe_conditional",
+      "lesson": "The connectedplanner iscausallyactive inbodyandDMX andimproves somephysicaltradeoffs versusdirectlosses, butavailable-cell speederror is5.4\u20135.6%worse andShpongle seed0developsbadbursts/transferloss. Jointconditioningdidnotearnanoverallwin inthisrecipe. Thecompleteprimaryremainsunqualified becauseobservationalcoveragewasincomplete; thisdoesnotrejectnativelearningingeneral.",
+      "record_path": "/root/lightsem-vault/experiments/exp-native-jd-joint-20261005.md",
+      "record_sha256": "976295f6b1079361aaf01325da6efc402ea75493193b4675ccd164459608c369"
+    },
+    {
+      "id": "exp-bt3-15-shpongle-20261004",
+      "problem_id": "body-transfer-portfolio-20261004-v3",
+      "closed": true,
+      "computed_verdict": "supports",
+      "hypothesis_id": "h-bt3-15-shpongle-20261004",
+      "key_numbers": {
+        "bt2-emitted-six-region-coverage_after": 1.0,
+        "bt2-emitted-six-region-coverage_before": 0.8333333333333334,
+        "bt2-exact-desired-target-pairs_after": 0.0,
+        "bt2-exact-desired-target-pairs_before": 2.0,
+        "bt2-geometric-crossing-fraction_after": 0.1046207264957265,
+        "bt2-geometric-crossing-fraction_before": 0.5818376068376069
+      },
+      "artifacts": [
+        "/mnt/lightsem-data/experiments/lightsem/body_transfer_20261004_v3/timelines/15/shpongle/report.json"
+      ],
+      "failure_mode": null,
+      "lesson": "The fixed geometric crossing-reduction and emitted six-region source-response gates pass on this accepted saved song body. This comparison estimates the combined method and capability readout; static spacing contributes, extra outputs do not create independent gestures, and choreography/music generalization remains unqualified.",
+      "record_path": "/root/lightsem-vault/experiments/exp-bt3-15-shpongle-20261004.md",
+      "record_sha256": "261a58627c7c4ba5ee9f8c5a2026460bbb9e5b179e839c205fa7ba6a203d3b7d"
+    },
+    {
+      "id": "exp-bt2-13-shpongle-20261004",
+      "problem_id": "body-transfer-portfolio-20261004",
+      "closed": true,
+      "computed_verdict": "supports",
+      "hypothesis_id": "h-bt2-13-shpongle-20261004",
+      "key_numbers": {
+        "bt2-emitted-six-region-coverage_after": 1.0,
+        "bt2-emitted-six-region-coverage_before": 0.8333333333333334,
+        "bt2-exact-desired-target-pairs_after": 0.0,
+        "bt2-exact-desired-target-pairs_before": 2.0,
+        "bt2-geometric-crossing-fraction_after": 0.10192307692307692,
+        "bt2-geometric-crossing-fraction_before": 0.5818376068376069
+      },
+      "artifacts": [
+        "/mnt/lightsem-data/experiments/lightsem/body_transfer_20261004_v2/timelines/13/shpongle/report.json"
+      ],
+      "failure_mode": null,
+      "lesson": "V2 mapping 13 on Shpongle met its registered geometric crossing/source-response engineering criteria; this is numerical transfer evidence, not musical choreography or an artistic winner. Preserve V2 results and compare against the separate V3 readout repair before making product claims.",
+      "record_path": "/root/lightsem-vault/experiments/exp-bt2-13-shpongle-20261004.md",
+      "record_sha256": "30b9cd9fc84d63ed57e02b3a7219796979b4c49016c1b6423ca419965d153e28"
+    },
+    {
+      "id": "exp-d4max-d8-c3-20261005",
+      "problem_id": "dynamic-musical-dance-20261005",
+      "closed": true,
+      "computed_verdict": "directional_only",
+      "hypothesis_id": "h-d4max-d8-c3-20261005",
+      "key_numbers": {},
+      "artifacts": [
+        "/mnt/lightsem-data/experiments/lightsem/d4max_d8_20261005_v1/reports/SEARCH_AUDIT.json",
+        "/mnt/lightsem-data/experiments/lightsem/d4max_d8_20261005_v1/PLAN.json"
+      ],
+      "failure_mode": "execution_bug",
+      "lesson": "Naive motif beam retained multiple paths ending at the same donor and could discard another feasible future state. On Cure this erased all recomposition; exact-state DP proves39additional bank selections possible without loosening any constraints. Preserve these outputs as failure evidence; correct state dominance rather than tuning physical thresholds.",
+      "record_path": "/root/lightsem-vault/experiments/exp-d4max-d8-c3-20261005.md",
+      "record_sha256": "b60a3af2ce41a42d005fc9f34b825e095cfb6d5b361c933e2afe5c62b2ff0822"
+    },
+    {
+      "id": "exp-bt2-04-shpongle-20261004",
+      "problem_id": "body-transfer-portfolio-20261004",
+      "closed": true,
+      "computed_verdict": "supports",
+      "hypothesis_id": "h-bt2-04-shpongle-20261004",
+      "key_numbers": {
+        "bt2-emitted-six-region-coverage_after": 1.0,
+        "bt2-emitted-six-region-coverage_before": 0.8333333333333334,
+        "bt2-exact-desired-target-pairs_after": 0.0,
+        "bt2-exact-desired-target-pairs_before": 2.0,
+        "bt2-geometric-crossing-fraction_after": 0.09895833333333333,
+        "bt2-geometric-crossing-fraction_before": 0.5818376068376069
+      },
+      "artifacts": [
+        "/mnt/lightsem-data/experiments/lightsem/body_transfer_20261004_v2/timelines/04/shpongle/report.json"
+      ],
+      "failure_mode": null,
+      "lesson": "V2 mapping 04 on Shpongle met its registered geometric crossing/source-response engineering criteria; this is numerical transfer evidence, not musical choreography or an artistic winner. Preserve V2 results and compare against the separate V3 readout repair before making product claims.",
+      "record_path": "/root/lightsem-vault/experiments/exp-bt2-04-shpongle-20261004.md",
+      "record_sha256": "020a84716bb281f31fc02ed6386ce5240438b2d752953051c19e1ecaabbb84b3"
+    },
+    {
+      "id": "exp-bt3-02-shpongle-20261004",
+      "problem_id": "body-transfer-portfolio-20261004-v3",
+      "closed": true,
+      "computed_verdict": "supports",
+      "hypothesis_id": "h-bt3-02-shpongle-20261004",
+      "key_numbers": {
+        "bt2-emitted-six-region-coverage_after": 1.0,
+        "bt2-emitted-six-region-coverage_before": 0.8333333333333334,
+        "bt2-exact-desired-target-pairs_after": 0.0,
+        "bt2-exact-desired-target-pairs_before": 2.0,
+        "bt2-geometric-crossing-fraction_after": 0.0998931623931624,
+        "bt2-geometric-crossing-fraction_before": 0.5818376068376069
+      },
+      "artifacts": [
+        "/mnt/lightsem-data/experiments/lightsem/body_transfer_20261004_v3/timelines/02/shpongle/report.json"
+      ],
+      "failure_mode": null,
+      "lesson": "The fixed geometric crossing-reduction and emitted six-region source-response gates pass on this accepted saved song body. This comparison estimates the combined method and capability readout; static spacing contributes, extra outputs do not create independent gestures, and choreography/music generalization remains unqualified.",
+      "record_path": "/root/lightsem-vault/experiments/exp-bt3-02-shpongle-20261004.md",
+      "record_sha256": "8bd36689d602a2e24f76702d4c8b6d011db0cd11c64c4a59c396e39dd35a1817"
+    },
+    {
+      "id": "exp-bt2-02-cure_for_me-20261004",
+      "problem_id": "body-transfer-portfolio-20261004",
+      "closed": true,
+      "computed_verdict": "supports",
+      "hypothesis_id": "h-bt2-02-cure_for_me-20261004",
+      "key_numbers": {
+        "bt2-emitted-six-region-coverage_after": 1.0,
+        "bt2-emitted-six-region-coverage_before": 0.8333333333333334,
+        "bt2-exact-desired-target-pairs_after": 0.0,
+        "bt2-exact-desired-target-pairs_before": 2.0,
+        "bt2-geometric-crossing-fraction_after": 0.10219017094017094,
+        "bt2-geometric-crossing-fraction_before": 0.5685630341880342
+      },
+      "artifacts": [
+        "/mnt/lightsem-data/experiments/lightsem/body_transfer_20261004_v2/timelines/02/cure_for_me/report.json"
+      ],
+      "failure_mode": null,
+      "lesson": "V2 mapping 02 on Cure For Me met its registered geometric crossing/source-response engineering criteria; this is numerical transfer evidence, not musical choreography or an artistic winner. Preserve V2 results and compare against the separate V3 readout repair before making product claims.",
+      "record_path": "/root/lightsem-vault/experiments/exp-bt2-02-cure_for_me-20261004.md",
+      "record_sha256": "b879acfe3424fc61fc2c7c8fca770afbb135cb15a498f9ab8849a4521d6e9163"
+    },
+    {
+      "id": "exp-bt3-14-shpongle-20261004",
+      "problem_id": "body-transfer-portfolio-20261004-v3",
+      "closed": true,
+      "computed_verdict": "supports",
+      "hypothesis_id": "h-bt3-14-shpongle-20261004",
+      "key_numbers": {
+        "bt2-emitted-six-region-coverage_after": 1.0,
+        "bt2-emitted-six-region-coverage_before": 0.8333333333333334,
+        "bt2-exact-desired-target-pairs_after": 0.0,
+        "bt2-exact-desired-target-pairs_before": 2.0,
+        "bt2-geometric-crossing-fraction_after": 0.10451388888888889,
+        "bt2-geometric-crossing-fraction_before": 0.5818376068376069
+      },
+      "artifacts": [
+        "/mnt/lightsem-data/experiments/lightsem/body_transfer_20261004_v3/timelines/14/shpongle/report.json"
+      ],
+      "failure_mode": null,
+      "lesson": "The fixed geometric crossing-reduction and emitted six-region source-response gates pass on this accepted saved song body. This comparison estimates the combined method and capability readout; static spacing contributes, extra outputs do not create independent gestures, and choreography/music generalization remains unqualified.",
+      "record_path": "/root/lightsem-vault/experiments/exp-bt3-14-shpongle-20261004.md",
+      "record_sha256": "b7193b38c909ff7a08a3fe52cd61e882a302d2ffac38394ecbbde2065ba6736c"
+    }
+  ],
+  "active_training_runs": 0,
+  "selection": {
+    "motion": "Fixed native C HF16 seed0",
+    "configuration": "configs/dance/fixed_c.json",
+    "MuQ_required": true,
+    "D4max_default": false,
+    "D6_default": false,
+    "P2_COLOR": "unchanged",
+    "historical_brightness": "unchanged",
+    "fixture_motion_caps": "OFF"
+  },
+  "diagnostics": {
+    "native_training_repair": "Both seeds pass original raw3D stability/activity/development gates",
+    "fixed_C_D4max_D6": "Two own-song60s90\u2013150s human-check previews pass raw/source/output/fullmedia checks; not musical superiority",
+    "quiet_loss_gradient_fix": "Code tested; not retrained into selected weights",
+    "full_JD_training": "Unexecuted next recipe"
+  },
+  "preservation": "All original checkpoints, failed branches, protocols, commands, seeds, metrics, videos and computed verdicts remain on the data/model mount. No results rewritten or substituted.",
+  "evidence": {
+    "repair_selection": {
+      "path": "/mnt/lightsem-data/experiments/lightsem/native_dynamics_jd_20261005_v1/repair_refine_v2/reports/SELECTION.json",
+      "sha256": "6986e724e7e68898720ac7e8d4607562dab2bb986021f4592ce5b47acc737ce6"
+    },
+    "repair_final_delivery": {
+      "path": "/mnt/lightsem-data/experiments/lightsem/native_dynamics_jd_20261005_v1/repair_review_v1/reports/FINAL_REPORT.json",
+      "sha256": "e908120fd5ad1c26b13a59a604a295335ba257952e7c4e0d59afda9dcc9cb361"
+    },
+    "hybrid_delivery": {
+      "path": "/mnt/lightsem-data/experiments/lightsem/native_dynamics_jd_20261005_v1/fixed_c_hybrid_check_20261006_v1/reports/FINAL_DELIVERY.json",
+      "sha256": "6892408ef5d6f19180a658e4d9d5264273545d2a1634b94c0fe8d73d7c6dbf62"
+    },
+    "quiet_gradient_audit": {
+      "path": "/mnt/lightsem-data/experiments/lightsem/native_dynamics_jd_20261005_v1/speed_training_audit_v1/AUDIT.json",
+      "sha256": "913b79fa8b206d867543d60da0fdddf04d9bb257b5135a296d2925c7af55e88a"
+    },
+    "cohort_limit_reasons": {
+      "path": "/mnt/lightsem-data/experiments/lightsem/native_dynamics_jd_20261005_v1/speed_training_audit_v1/COHORT_LIMIT_REASONS.json",
+      "sha256": "9584bd1bb86d70093c145c42a17870cc8dfe26b62d19634ad9bf00d39aa1d503"
+    }
+  }
+}

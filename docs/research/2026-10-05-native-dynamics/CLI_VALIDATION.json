@@ -1,0 +1,152 @@
+{
+  "scope": "Code/integration verification, not a new trained-model scientific experiment",
+  "selected_baseline": "configs/dance/fixed_c.json",
+  "MuQ_required_every_combination": true,
+  "plain_body_bit_exact_to_verified_native_C": [
+    "shpongle",
+    "cure_for_me"
+  ],
+  "plain_emitted_lighting_bit_exact": [
+    "shpongle",
+    "cure_for_me"
+  ],
+  "option_matrix": {
+    "scope": "Correct legacy D6 timestamp grid; original v1 matrix retained",
+    "rows": [
+      {
+        "song": "shpongle",
+        "d4max": false,
+        "d6": false,
+        "finite": true,
+        "MuQ": "muq",
+        "rate_min": 1.0,
+        "rate_max": 1.0
+      },
+      {
+        "song": "shpongle",
+        "d4max": true,
+        "d6": false,
+        "finite": true,
+        "MuQ": "muq",
+        "rate_min": 0.9272388219833374,
+        "rate_max": 1.0
+      },
+      {
+        "song": "shpongle",
+        "d4max": false,
+        "d6": true,
+        "finite": true,
+        "MuQ": "muq",
+        "rate_min": 0.25,
+        "rate_max": 1.5
+      },
+      {
+        "song": "shpongle",
+        "d4max": true,
+        "d6": true,
+        "finite": true,
+        "MuQ": "muq",
+        "rate_min": 0.25,
+        "rate_max": 1.5,
+        "human_preview_world_max_difference_m": 4.0531158447265625e-06
+      },
+      {
+        "song": "cure_for_me",
+        "d4max": false,
+        "d6": false,
+        "finite": true,
+        "MuQ": "muq",
+        "rate_min": 1.0,
+        "rate_max": 1.0
+      },
+      {
+        "song": "cure_for_me",
+        "d4max": true,
+        "d6": false,
+        "finite": true,
+        "MuQ": "muq",
+        "rate_min": 0.9919354915618896,
+        "rate_max": 1.0162601470947266
+      },
+      {
+        "song": "cure_for_me",
+        "d4max": false,
+        "d6": true,
+        "finite": true,
+        "MuQ": "muq",
+        "rate_min": 0.3821285367012024,
+        "rate_max": 1.5
+      },
+      {
+        "song": "cure_for_me",
+        "d4max": true,
+        "d6": true,
+        "finite": true,
+        "MuQ": "muq",
+        "rate_min": 0.3808475136756897,
+        "rate_max": 1.5,
+        "human_preview_world_max_difference_m": 2.0265579223632812e-06
+      }
+    ],
+    "default_C_bit_exact_both_songs": true
+  },
+  "regressions": {
+    "passed": 918,
+    "subtests_passed": 23,
+    "test_files": 54,
+    "log_sha256": "b96744615cd1751456e401e6442ca2d6e3882bb60d1e4917df00e94b86b04531"
+  },
+  "targeted_after_server_range_compatibility_change": {
+    "passed": 19
+  },
+  "cold_P2_check": {
+    "seconds": 8,
+    "audio_sha256": "a13f3fbf89aed07ee5cc029c2139f066b69be364cb14392a302e3d8e4322e3d3",
+    "checkpoint_sha256": "8de865906cfabb49290971eccf6016ab38edebe885eec7e6369f020fb5544b8a",
+    "color_cues": 7,
+    "device": "CPU",
+    "no_mocked_model": true
+  },
+  "actual_CLI_video_checks": [
+    {
+      "path": "/root/lightsem/runs/fixed_c_cli_validation_v1/shpongle_render.mp4",
+      "sha256": "fdbdd1c2c74ceb5e49c11ac3cb2b22f85c872f94633d99780df5546ebe45b641",
+      "frames": 30,
+      "source_start_s": 90.0,
+      "source_duration_s": 1.0,
+      "full_software_decode": true,
+      "posthoc_modifiers": {
+        "d4max": true,
+        "d6": true
+      },
+      "fixture_motion_caps": false
+    },
+    {
+      "path": "/root/lightsem/runs/fixed_c_cli_validation_v1/cure_render.mp4",
+      "sha256": "853423c30fbd6779e6632e51d72246748153008cf29e8e5ee5a25219d38950f4",
+      "frames": 30,
+      "source_start_s": 90.0,
+      "source_duration_s": 1.0,
+      "full_software_decode": true,
+      "posthoc_modifiers": {
+        "d4max": false,
+        "d6": false
+      },
+      "fixture_motion_caps": false
+    }
+  ],
+  "models_bundled_in_git": false,
+  "untrained_changes": "Quiet loss gradient correction and full-data expansion are not in the selected checkpoint.",
+  "source_hashes": {
+    "lightsem/dance/p2.py": "44bde25b5d0babb1294148cecd759aa81e0e4e16d420f6e2967c0cfc90f9c4e1",
+    "lightsem/dance/pipeline.py": "303a69e555b2b2802a8f44193545ad91e9c86720662f0204567302ae716bd7ee",
+    "lightsem/dance/baseline.py": "9f79788500ed086be6eee8e15742b46bf4948d352fc8a76b2377e7d64c409ca3",
+    "lightsem/dance/render.py": "8909744741691b156314bc3aee56a0c4f26f8b4eb1ceb58df73add02300e8863",
+    "lightsem/dance/__init__.py": "0f04dd16aafa34cd781339144c3f58f228f1008b9860d543d24c00e7871337e5",
+    "lightsem/dance/cli.py": "0f5a7ae92f9772ff3b1178a3f859fe341691db14f335d25c42669d7809cfca44",
+    "lightsem/dance/extract.py": "ba932e52a285aea3130314748bd642c1c4eb82f35ae4be8af038ca07deb76ab3",
+    "lightsem/dance/lighting.py": "ecdffbc89d613682b44c2820bb2a73ad3b892fc0769b835a211ab3c05b7d6865",
+    "lightsem/cli.py": "3469f631419159cc90059900068de54b32ac8b07aecbc2bade93b8351c735b43",
+    "configs/dance/fixed_c.json": "b337979dc3b5b3521484600ee16421907fbcc6384068d6b8082b2dcc58feeca9"
+  }
+}

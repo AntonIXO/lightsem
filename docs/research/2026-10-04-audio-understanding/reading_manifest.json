@@ -1,0 +1,226 @@
+{
+  "research_date": "2026-10-04",
+  "note": "Hashes authenticate fetched text, not experimental evidence. Null version means metadata failed; do not infer latest version. Bounded readings are not all full-paper reads. Other foundation/JEPA primary-web sources are logged in foundation_reading.md and rhythm_reading.md.",
+  "arxiv_mcp_papers": [
+    {
+      "arxiv_id": "2408.02514",
+      "title_from_text": "Stem-JEPA: A Joint-Embedding Predictive Architecture for Musical Stem Compatibility Estimation",
+      "official_url": "https://arxiv.org/abs/2408.02514",
+      "cache_path": "/root/arxiv-papers/2408.02514.md",
+      "sha256": "0543f79fabd7a539d9feeda9119edf3d07376365f3ac87e6d125a9d893925fa6",
+      "bytes": 43410,
+      "metadata_version": null,
+      "reading_route": "arxiv MCP HTML download plus bounded full-text/section/method reading; see specialist reading ledgers for actual scope",
+      "fully_read_entire_paper": false
+    },
+    {
+      "arxiv_id": "2411.19806",
+      "title_from_text": "Zero-shot Musical Stem Retrieval with Joint-Embedding Predictive Architectures",
+      "official_url": "https://arxiv.org/abs/2411.19806",
+      "cache_path": "/root/arxiv-papers/2411.19806.md",
+      "sha256": "8fda4e626766599f96862b3334e6116dc455722332a623c8c48684df8e35be41",
+      "bytes": 40458,
+      "metadata_version": null,
+      "reading_route": "arxiv MCP HTML download plus bounded full-text/section/method reading; see specialist reading ledgers for actual scope",
+      "fully_read_entire_paper": false
+    },
+    {
+      "arxiv_id": "2302.07077",
+      "title_from_text": "MULTI-SOURCE CONTRASTIVE LEARNING FROM MUSICAL AUDIO",
+      "official_url": "https://arxiv.org/abs/2302.07077",
+      "cache_path": "/root/arxiv-papers/2302.07077.md",
+      "sha256": "0b7dac6f83bb4fdbed63d42b9a7993d3d138cd81328a79a91971f7995a9f455e",
+      "bytes": 41008,
+      "metadata_version": null,
+      "reading_route": "arxiv MCP HTML download plus bounded full-text/section/method reading; see specialist reading ledgers for actual scope",
+      "fully_read_entire_paper": false
+    },
+    {
+      "arxiv_id": "2408.10807",
+      "title_from_text": "DisMix: Disentangling Mixtures of Musical Instruments for Source-level Pitch and Timbre Manipulation",
+      "official_url": "https://arxiv.org/abs/2408.10807",
+      "cache_path": "/root/arxiv-papers/2408.10807.md",
+      "sha256": "01abaa9da9c9872fd284ab732d9da3c21f55f056503add2a6679cc1e9833e344",
+      "bytes": 71984,
+      "metadata_version": null,
+      "reading_route": "arxiv MCP HTML download plus bounded full-text/section/method reading; see specialist reading ledgers for actual scope",
+      "fully_read_entire_paper": false
+    },
+    {
+      "arxiv_id": "2404.16969",
+      "title_from_text": "COCOLA: Coherence-Oriented Contrastive Learning of Musical Audio Representations",
+      "official_url": "https://arxiv.org/abs/2404.16969",
+      "cache_path": "/root/arxiv-papers/2404.16969.md",
+      "sha256": "76eb7489d7d780bc85f63982afb4e6b8032102a402fe29a03506eeb91681f846",
+      "bytes": 29143,
+      "metadata_version": null,
+      "reading_route": "arxiv MCP HTML download plus bounded full-text/section/method reading; see specialist reading ledgers for actual scope",
+      "fully_read_entire_paper": false
+    },
+    {
+      "arxiv_id": "2412.18955",
+      "title_from_text": "Leave-One-EquiVariant: Alleviating invariance-related information loss in contrastive music representations",
+      "official_url": "https://arxiv.org/abs/2412.18955",
+      "cache_path": "/root/arxiv-papers/2412.18955.md",
+      "sha256": "e6c39e850a75f7ee0d7c33036ebaae946282aa6da5aa10a5db5a6baedf3faca5",
+      "bytes": 40735,
+      "metadata_version": null,
+      "reading_route": "arxiv MCP HTML download plus bounded full-text/section/method reading; see specialist reading ledgers for actual scope",
+      "fully_read_entire_paper": false
+    },
+    {
+      "arxiv_id": "2211.08553",
+      "title_from_text": "hybrid transformers for music source separation",
+      "official_url": "https://arxiv.org/abs/2211.08553",
+      "cache_path": "/root/arxiv-papers/2211.08553.md",
+      "sha256": "b997b848920da68901bb62f3f7c76c638625da889b7ef83b2def1b004be708bb",
+      "bytes": 22846,
+      "metadata_version": null,
+      "reading_route": "arxiv MCP HTML download plus bounded full-text/section/method reading; see specialist reading ledgers for actual scope",
+      "fully_read_entire_paper": false
+    },
+    {
+      "arxiv_id": "2309.02612",
+      "title_from_text": "Music Source Separation with Band-Split RoPE Transformer",
+      "official_url": "https://arxiv.org/abs/2309.02612",
+      "cache_path": "/root/arxiv-papers/2309.02612.md",
+      "sha256": "45e68072a230cbf16a68b7ccea6fcde41aecc14b81a0c4a64df6851c769ea301",
+      "bytes": 29162,
+      "metadata_version": null,
+      "reading_route": "arxiv MCP HTML download plus bounded full-text/section/method reading; see specialist reading ledgers for actual scope",
+      "fully_read_entire_paper": false
+    },
+    {
+      "arxiv_id": "2406.18747",
+      "title_from_text": "A Stem-Agnostic Single-Decoder System for Music Source Separation Beyond Four Stems",
+      "official_url": "https://arxiv.org/abs/2406.18747",
+      "cache_path": "/root/arxiv-papers/2406.18747.md",
+      "sha256": "489001d713fa72b452cf5ca8bef6ff92a6ff3c2215d686ca7ffe8c770709f9dd",
+      "bytes": 48938,
+      "metadata_version": null,
+      "reading_route": "arxiv MCP HTML download plus bounded full-text/section/method reading; see specialist reading ledgers for actual scope",
+      "fully_read_entire_paper": false
+    },
+    {
+      "arxiv_id": "2512.15532",
+      "title_from_text": "A conditioned UNet for Music Source Separation",
+      "official_url": "https://arxiv.org/abs/2512.15532",
+      "cache_path": "/root/arxiv-papers/2512.15532.md",
+      "sha256": "478678e35c3dc9f32b10b945eee9f37ec93acda33ba0d044a713f1461b3b14dc",
+      "bytes": 35991,
+      "metadata_version": null,
+      "reading_route": "arxiv MCP HTML download plus bounded full-text/section/method reading; see specialist reading ledgers for actual scope",
+      "fully_read_entire_paper": false
+    },
+    {
+      "arxiv_id": "2512.18099",
+      "title_from_text": "SAM Audio: Segment Anything in Audio",
+      "official_url": "https://arxiv.org/abs/2512.18099",
+      "cache_path": "/root/arxiv-papers/2512.18099.md",
+      "sha256": "e5accd2fa004d68e3b550acf6b6f928feddd0d920d0a5a5804c7943824fc2841",
+      "bytes": 187078,
+      "metadata_version": null,
+      "reading_route": "arxiv MCP HTML download plus bounded full-text/section/method reading; see specialist reading ledgers for actual scope",
+      "fully_read_entire_paper": false
+    },
+    {
+      "arxiv_id": "2407.04822",
+      "title_from_text": "YourMT3+: Multi-instrument Music Transcription with Enhanced Transformer Architectures and Cross-dataset Stem Augmentation",
+      "official_url": "https://arxiv.org/abs/2407.04822",
+      "cache_path": "/root/arxiv-papers/2407.04822.md",
+      "sha256": "a6b5d4c5e594ac7895a50b40dc2e7591d3be48ac4fb72b459a10a64a478a4a3a",
+      "bytes": 66410,
+      "metadata_version": null,
+      "reading_route": "arxiv MCP HTML download plus bounded full-text/section/method reading; see specialist reading ledgers for actual scope",
+      "fully_read_entire_paper": false
+    },
+    {
+      "arxiv_id": "2111.03017",
+      "title_from_text": "MT3: Multi-Task Multitrack Music Transcription",
+      "official_url": "https://arxiv.org/abs/2111.03017",
+      "cache_path": "/root/arxiv-papers/2111.03017.md",
+      "sha256": "38e018190f62d80a6d4729b61562c01d386b9b16b8cadd06b7e699e6f15d8f9c",
+      "bytes": 68637,
+      "metadata_version": null,
+      "reading_route": "arxiv MCP HTML download plus bounded full-text/section/method reading; see specialist reading ledgers for actual scope",
+      "fully_read_entire_paper": false
+    },
+    {
+      "arxiv_id": "2607.08168",
+      "title_from_text": "MuScriptor: An Open Model for Multi-Instrument Music Transcription",
+      "official_url": "https://arxiv.org/abs/2607.08168",
+      "cache_path": "/root/arxiv-papers/2607.08168.md",
+      "sha256": "478f1a3b653c374995f7ce7dc2ed9dd258ed8511ca5c4983f6345c6401fdaa92",
+      "bytes": 36180,
+      "metadata_version": null,
+      "reading_route": "arxiv MCP HTML download plus bounded full-text/section/method reading; see specialist reading ledgers for actual scope",
+      "fully_read_entire_paper": false
+    },
+    {
+      "arxiv_id": "2505.03337",
+      "title_from_text": "The Inverse Drum Machine: Source Separation Through Joint Transcription and Analysis-by-Synthesis",
+      "official_url": "https://arxiv.org/abs/2505.03337",
+      "cache_path": "/root/arxiv-papers/2505.03337.md",
+      "sha256": "7456fd5bdcc7c85679cd0c7ce5c3ba5f0e257dfda3154f4e1558fa36e7125047",
+      "bytes": 66418,
+      "metadata_version": null,
+      "reading_route": "arxiv MCP HTML download plus bounded full-text/section/method reading; see specialist reading ledgers for actual scope",
+      "fully_read_entire_paper": false
+    },
+    {
+      "arxiv_id": "2601.09520",
+      "title_from_text": "Towards Realistic Synthetic Data for Automatic Drum Transcription",
+      "official_url": "https://arxiv.org/abs/2601.09520",
+      "cache_path": "/root/arxiv-papers/2601.09520.md",
+      "sha256": "40b19687d645022836a9673711dee6c14e9b8dc7709a188ee9e7615eec1d99e3",
+      "bytes": 25761,
+      "metadata_version": null,
+      "reading_route": "arxiv MCP HTML download plus bounded full-text/section/method reading; see specialist reading ledgers for actual scope",
+      "fully_read_entire_paper": false
+    },
+    {
+      "arxiv_id": "2202.07523",
+      "title_from_text": "SpaIn-Net: Spatially-Informed Stereophonic Music Source Separation",
+      "official_url": "https://arxiv.org/abs/2202.07523",
+      "cache_path": "/root/arxiv-papers/2202.07523.md",
+      "sha256": "0b5738e3cc2b5571b5e514e35ab6d312c284bde68dbb39da1c154559df282809",
+      "bytes": 33636,
+      "metadata_version": null,
+      "reading_route": "arxiv MCP HTML download plus bounded full-text/section/method reading; see specialist reading ledgers for actual scope",
+      "fully_read_entire_paper": false
+    },
+    {
+      "arxiv_id": "2204.12489",
+      "title_from_text": "Sound Localization by Self-Supervised Time Delay Estimation",
+      "official_url": "https://arxiv.org/abs/2204.12489",
+      "cache_path": "/root/arxiv-papers/2204.12489.md",
+      "sha256": "4d86d083ec6f8b85176e4ec5bf3de83bb5083afd9b6eb3ea2aba18cb565f7806",
+      "bytes": 66244,
+      "metadata_version": null,
+      "reading_route": "arxiv MCP HTML download plus bounded full-text/section/method reading; see specialist reading ledgers for actual scope",
+      "fully_read_entire_paper": false
+    },
+    {
+      "arxiv_id": "2203.12053",
+      "title_from_text": "Upmixing via style transfer: a variational autoencoder for disentangling spatial images and musical content",
+      "official_url": "https://arxiv.org/abs/2203.12053",
+      "cache_path": "/root/arxiv-papers/2203.12053.md",
+      "sha256": "c1c7d04b94071cab539f18e3e4277bd2bbfd61a52f785c0c5c5c83a2f9b7afe3",
+      "bytes": 30745,
+      "metadata_version": null,
+      "reading_route": "arxiv MCP HTML download plus bounded full-text/section/method reading; see specialist reading ledgers for actual scope",
+      "fully_read_entire_paper": false
+    },
+    {
+      "arxiv_id": "2506.00934",
+      "title_from_text": "GRAM: Spatial general-purpose audio representations for real-world environments",
+      "official_url": "https://arxiv.org/abs/2506.00934",
+      "cache_path": "/root/arxiv-papers/2506.00934.md",
+      "sha256": "8dda9ad5937363118e4a0c205b07a91ba334fb8f413fba37faadae95e3fe21b4",
+      "bytes": 71708,
+      "metadata_version": null,
+      "reading_route": "arxiv MCP HTML download plus bounded full-text/section/method reading; see specialist reading ledgers for actual scope",
+      "fully_read_entire_paper": false
+    }
+  ]
+}

@@ -1,0 +1,7 @@
+{
+  "date": "2026-09-30",
+  "source": "explicit user instruction",
+  "raw_user_message": "Сначала сделай P2 новым бейзлайном по цвету, остальные гипотезы теперь предется перепроверять. Сейчас фокус на танцы тела, а источник для лучей. Так же дальше все демо делаются для двух треков: shpongle и cure for me.",
+  "selected_variant": "P2",
+  "scope": "Color baseline accepted. Existing body generation is accepted as the source for current transfer work. Autonomous periodic light motion rejected. Historical scientific verdicts preserved; relevance to new baseline must be revalidated."
+}

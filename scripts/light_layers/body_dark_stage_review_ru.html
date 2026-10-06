@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="ru">
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>LightSem · танец в тёмной сцене</title>
+<style>
+:root{color-scheme:dark;font:16px/1.55 system-ui;background:#0c1016;color:#edf2f8}*{box-sizing:border-box}body{max-width:1320px;margin:auto;padding:24px}h1{font-size:30px;line-height:1.25}p{color:#bdcada}video{width:100%;aspect-ratio:16/9;background:#000;border:1px solid #344359;border-radius:10px}.row{display:flex;align-items:center;gap:10px;flex-wrap:wrap;margin:14px 0}button,a.download{font:inherit;border-radius:7px;border:1px solid #526887;padding:9px 14px;background:#1e2b3e;color:#edf2f8;cursor:pointer}button[aria-pressed=true]{background:#b5d4ff;color:#102030}a{color:#b5d4ff}a.download{text-decoration:none}.label{min-width:65px;color:#9caec4}.muted{font-size:14px;color:#93a5ba}.notice{border-left:3px solid #b19564;padding-left:14px}button:focus-visible,a:focus-visible{outline:3px solid #b5d4ff;outline-offset:3px}@media(max-width:650px){body{padding:12px}h1{font-size:24px}.label{width:100%}}
+</style>
+<h1>Танец → свет в тёмной сцене</h1>
+<p>Те же <strong>8 лучей, 5 виртуальных лазеров и 50 лампочек</strong>, теперь в прежней сцене с объёмным светом и дымкой. Движения, яркость и цвет P2 сохранены. У каждой песни своё тело.</p>
+<div class="row" id="tracks" role="group" aria-label="Песня"><span class="label">Песня</span><button data-track="shpongle" aria-pressed="true">Shpongle</button><button data-track="cure_for_me" aria-pressed="false">Cure For Me</button></div>
+<div class="row" id="views" role="group" aria-label="Вид сцены"><span class="label">Вид</span><button data-view="dark" aria-pressed="true">Тёмная сцена</button><button data-view="geometric" aria-pressed="false">Схема переноса</button></div>
+<video id="video" controls playsinline preload="metadata" aria-label="Видео выбранной песни"></video>
+<div class="row"><button data-time="0">Начало</button><button data-time="30">0:30</button><button data-time="60">1:00</button><button data-time="90">1:30</button><a id="download" class="download">Скачать видео</a></div>
+<p id="caption"></p>
+<p class="notice" id="color"></p>
+<p>Оба фрагмента: <strong>1:00–3:00 исходной песни</strong>. При переключении вида сохраняется время — можно сравнить один жест в схеме и объёмном свете. В тёмной сцене тело показано в небольшом окне слева внизу.</p>
+<p class="muted">Камера немного расширена, чтобы гирлянда целиком помещалась в кадр. Это визуализация тех же сохранённых команд, без новой генерации движений.</p>
+<p class="muted" id="status" role="status">Загрузка…</p>
+<script>
+'use strict';
+const $=id=>document.getElementById(id),video=$('video');
+let manifest=null,track='shpongle',view='dark',current=null;
+function select(){
+ if(!manifest)return;
+ const row=manifest.variants.find(v=>v.track_id===track&&v.view===view);
+ if(!row||current===row.id)return;
+ const t=video.currentTime||0,playing=!video.paused;current=row.id;
+ video.src='/media/'+row.id+'.mp4';video.onloadedmetadata=()=>{video.currentTime=Math.min(t,Math.max(0,video.duration-.1));if(playing)video.play().catch(()=>{})};
+ $('download').href='/media/'+row.id+'.mp4';$('download').download=row.download_name;
+ $('caption').textContent=row.title+' · '+(view==='dark'?'Тёмная сцена':'Геометрическая схема')+' · '+(row.bytes/1e6).toLocaleString('ru-RU',{maximumFractionDigits:1})+' МБ';
+ $('color').textContent=track==='shpongle'?'Цвет P2 сохранён: в первой части фрагмента RGB постоянен, затем начинаются смены палитры.':'Цвет P2 сохранён: один переход примерно на 0:07 ролика, после него RGB постоянен. Движение и яркость продолжают следовать телу.';
+ for(const b of document.querySelectorAll('[data-track]'))b.setAttribute('aria-pressed',String(b.dataset.track===track));
+ for(const b of document.querySelectorAll('[data-view]'))b.setAttribute('aria-pressed',String(b.dataset.view===view));
+}
+for(const b of document.querySelectorAll('[data-track]'))b.onclick=()=>{track=b.dataset.track;select()};
+for(const b of document.querySelectorAll('[data-view]'))b.onclick=()=>{view=b.dataset.view;select()};
+for(const b of document.querySelectorAll('[data-time]'))b.onclick=()=>{if(Number.isFinite(video.duration))video.currentTime=Number(b.dataset.time)};
+video.addEventListener('error',()=>{$('status').textContent='Если AV1 не воспроизводится, скачай видео и открой его в плеере.'});
+fetch('/manifest.json',{cache:'no-store'}).then(r=>{if(!r.ok)throw Error(r.status);return r.json()}).then(m=>{manifest=m;$('status').textContent='1080p30 · AV1 · 2:00 · звук соответствующей песни';select()}).catch(()=>{$('status').textContent='Не удалось загрузить видео. Обнови страницу.'});
+</script></html>

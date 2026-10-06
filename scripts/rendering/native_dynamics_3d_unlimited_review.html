@@ -1,0 +1,35 @@
+<!doctype html><html lang="en"><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Native dynamics — 3D dance + data — unlimited simulation</title>
+<style>body{background:#10151d;color:#e3ebf4;font:16px system-ui;margin:24px}h1{font-size:25px}button,select,input{font:inherit}button,select{padding:8px;background:#243249;color:inherit;border:1px solid #65809c;border-radius:5px}#grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px}article{background:#192330;padding:12px;border-radius:7px}video{width:100%;background:#000}a{color:#a8ccff}h2{font-size:17px}.song{font-weight:bold;color:#b6cbe3}.warning{color:#ffd495}#seek{width:min(50vw,620px)}@media(max-width:1000px){#grid{grid-template-columns:1fr}}.toolbar{display:flex;flex-wrap:wrap;gap:12px;align-items:center;margin:20px 0}</style>
+<h1>Native dynamics — 3D dance + data — unlimited simulation</h1>
+<p class="warning">A is the matched experimental control. Candidates B and C failed physical / transfer gates. No baseline promotion.</p>
+<p>Each song supplies its own saved body. Source 90–150 s for all six clips; Shpongle includes C's burst near 135 s. Native generation; no timewarp. Native 30 Hz body, actual 40 Hz emitted lights, P2 colors, restored brightness, original audio speed.</p>
+<p>The lower strip compares A (gray) with the current model (cyan): regional/root speeds, requested and emitted motor speeds, actual beam dimmer, and estimated sources. Speed traces use a 250 ms display average; scales match across A/B/C. These showcase traces are not a musical correctness score.</p>
+<div class="toolbar"><label>Song <select id="song"><option value="shpongle">Shpongle</option><option value="cure_for_me">AURORA — Cure For Me</option></select></label><button id="play">Play three arms</button><button id="pause">Pause</button><button id="restart">Restart</button><label>Source <input id="seek" type="range" min="90" max="150" step="0.033333" value="90"></label><output id="clock">90.00 s</output><label>Audible master <select id="master"></select></label><span id="status" role="status"></span></div>
+<div id="grid"></div>
+<details><summary>How is the reported error measured?</summary>
+<p>The training comparison uses recorded Just Dance coaches, not a guessed ideal dance for Shpongle or Cure. Generated motion is projected to 2D; hip translation is removed and positions are normalized by torso length. After a 50 ms measurement filter, regional speed profiles are compared at 0.2, 1 and 4 seconds using mean absolute <code>log(1+generated speed) − log(1+recorded speed)</code>, averaged over valid observations and equally across songs.</p>
+<p>The 32–33% figure is a reduction in that observed-cell speed-profile error, not a percentage of musical correctness. Missing region/scale cells in 38/72 windows prevent complete-primary qualification. Sliding, jerk, diversity, input sensitivity and requested-to-emitted transfer are separate checks.</p>
+<p>The video curves show actual generated 3D speeds in m/s and motor speeds in degrees/s. Their 250 ms display average does not alter the body or DMX and is not the validation error calculation. There is no ground-truth showcase choreography, so no per-frame musical-error curve is claimed.</p></details>
+<p>Same existing scene and cameras in every clip. Constant neutral viewer fill aids body visibility: close .50 / wide .12. This presentation fill is separate from generated DMX lighting. Root XZ removed for viewing; native pose/height/timing retained. Download links retain the original preview files.</p>
+<script>
+const clips=__CLIPS_JSON__;
+const grid=document.querySelector('#grid'),master=document.querySelector('#master'),seek=document.querySelector('#seek'),clock=document.querySelector('#clock'),status=document.querySelector('#status'),songSelect=document.querySelector('#song');
+const articles=[];
+const videos=clips.map((clip,index)=>{const article=document.createElement('article');articles.push(article);const title=document.createElement('h2');title.textContent=clip.label;const song=document.createElement('p');song.className='song';song.textContent=clip.song==='shpongle'?'Shpongle':'AURORA — Cure For Me';const verdict=document.createElement('p');verdict.className='warning';verdict.textContent=clip.method==='D7_reference'?'Experimental control':'Failure diagnostic';const v=document.createElement('video');v.src=clip.src;v.preload='metadata';v.playsInline=true;v.muted=true;const download=document.createElement('a');download.href=clip.src;download.download=clip.song+'_'+clip.method+'_90-150s.mp4';download.textContent='Download video';const full=document.createElement('button');full.textContent='Fullscreen';full.onclick=()=>v.requestFullscreen();article.append(title,song,verdict,v,download,document.createTextNode(' '),full);grid.append(article);return v;});
+let playing=false,generation=0;
+function activeIndices(){return clips.map((clip,index)=>clip.song===songSelect.value?index:-1).filter(index=>index>=0);}
+function activeVideos(){return activeIndices().map(index=>videos[index]);}
+function primary(){return videos[Number(master.value)];}
+function setMaster(){videos.forEach(v=>v.muted=v!==primary());}
+function pause(){generation++;playing=false;videos.forEach(v=>v.pause());}
+function jump(seconds){const t=Math.max(0,Math.min(60,seconds-90));activeVideos().forEach(v=>v.currentTime=t);clock.value=(90+t).toFixed(2)+' s';seek.value=90+t;}
+async function play(){setMaster();playing=true;const token=++generation;const outcomes=await Promise.allSettled(activeVideos().map(v=>v.play()));if(token!==generation)return;if(outcomes.some(r=>r.status==='rejected')){pause();status.textContent='Playback could not start for every active clip.';}else status.textContent='';}
+function switchSong(){pause();videos.forEach(v=>{v.muted=true;if(v.readyState>0)v.currentTime=0;});master.replaceChildren();clips.forEach((clip,index)=>articles[index].hidden=clip.song!==songSelect.value);for(const index of activeIndices()){const option=document.createElement('option');option.value=index;option.textContent=clips[index].label;master.append(option);}jump(90);setMaster();status.textContent='';}
+master.onchange=()=>{const t=activeVideos()[0].currentTime;activeVideos().forEach(v=>{if(Math.abs(v.currentTime-t)>.06)v.currentTime=t;});setMaster();};
+songSelect.onchange=switchSong;
+document.querySelector('#play').onclick=play;document.querySelector('#pause').onclick=pause;document.querySelector('#restart').onclick=()=>{pause();jump(90);};seek.oninput=()=>jump(Number(seek.value));
+for(const v of videos){v.onended=()=>{if(!activeVideos().includes(v))return;pause();seek.value=150;clock.value='150.00 s';};v.onerror=()=>{pause();status.textContent='A clip failed to load.';};}
+setInterval(()=>{if(!playing)return;const t=primary().currentTime;for(const v of activeVideos())if(v!==primary()&&Math.abs(v.currentTime-t)>.09)v.currentTime=t;seek.value=90+t;clock.value=(90+t).toFixed(2)+' s';},100);
+switchSong();
+</script></html>

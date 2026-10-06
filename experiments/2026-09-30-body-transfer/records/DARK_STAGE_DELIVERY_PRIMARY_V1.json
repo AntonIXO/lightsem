@@ -1,0 +1,36 @@
+{
+  "plan_sha256": "4b9b4579de70ca87f19fa54913526644704190a7f06f4019bed11d98480124fc",
+  "frozen_inputs": 140,
+  "input_timelines_unchanged": true,
+  "media": [
+    {
+      "id": "shpongle",
+      "path": "/root/lightsem/runs/body_transfer_dark_stage_20260930_v1/shpongle/shpongle_body_P2_dark_stage_1080p_av1.mp4",
+      "sha256": "89c0ccadf85cfc9167f74ce0076d9868b7cac74cdf56982a9c5cad6fc34afa44",
+      "render_sha256": "4d1cb228ec81ab065be26c5bfd4e2b4fee3e006647f337684129e623b5034b1a",
+      "audit_sha256": "d6b4da172a774e6cee54fe4c8c7c4000ffeb412de7ddcb31ab72652346e94f5b",
+      "audio_pcm_sha256": "edbfe63f8143e5e6f55521e9a02b35008e48ab3d6caa3dbedfb57d6c54f28226",
+      "duration_s": 120,
+      "frames": 3600,
+      "uniform_pts": true
+    },
+    {
+      "id": "cure_for_me",
+      "path": "/root/lightsem/runs/body_transfer_dark_stage_20260930_v1/cure_for_me/cure_for_me_body_P2_dark_stage_1080p_av1.mp4",
+      "sha256": "45d6db9fae380453128084412dd8fe7772c59ec77298300c26473763e24b13d7",
+      "render_sha256": "68166ecbf033de5893c6e547ab74f1fcd463f2f7fdeb87a1a1cd089b8ad63003",
+      "audit_sha256": "0c0bf3ba72520a112a0a83cf810b41f3bb4042a788f4180e97d92e334598161d",
+      "audio_pcm_sha256": "426c302af484fdbb91e8f4145d7007609c863097830c7f273cde925dc747d039",
+      "duration_s": 120,
+      "frames": 3600,
+      "uniform_pts": true
+    }
+  ],
+  "visual_samples": [
+    "shpongle/frame_2700.png",
+    "cure_for_me/frame_1800.png"
+  ],
+  "scope": "Presentation-only delivery; same body/P2/63output controls, old dark stage with new virtual laser/bulb optics and wider fixed lens. No new choreography claim.",
+  "manifest_sha256": "dea3e2b4377cc45da0f3b78b0236a0dc2a69e119d799b05f1f77f6331048aff3",
+  "page_sha256": "0fd4be427e5c89fe2a64baf551d11f2c769e6d51089d3421ada2dfcfb9367960"
+}

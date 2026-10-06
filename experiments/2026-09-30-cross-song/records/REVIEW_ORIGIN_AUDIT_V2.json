@@ -1,0 +1,106 @@
+{
+  "scope": "Retrospective read-only audit of existing saved outputs, no training or new generation",
+  "color_layout_pairs": {
+    "C_vs_P2": {
+      "all_479_nonRGB_slots_exact": true,
+      "all_moving_head_RGB_slots_exact": false,
+      "video_frames_with_any_RGB_command_difference": 8309,
+      "total_video_frames": 8319,
+      "n_40Hz_ticks": 11092,
+      "ticks_with_any_RGB_difference": 11079,
+      "seconds_with_any_RGB_difference": 276.975,
+      "changed_RGB_bytes": 263010,
+      "RGB_byte_mean_absolute_difference": 30.348454796795945,
+      "RGB_byte_p95_absolute_difference": 93.0,
+      "per_tick_max_difference_p50": 93.0,
+      "scope": "DMX RGB command difference, not perceptual image distance"
+    },
+    "C_vs_P4": {
+      "all_479_nonRGB_slots_exact": true,
+      "all_moving_head_RGB_slots_exact": false,
+      "video_frames_with_any_RGB_command_difference": 8309,
+      "total_video_frames": 8319,
+      "n_40Hz_ticks": 11092,
+      "ticks_with_any_RGB_difference": 11079,
+      "seconds_with_any_RGB_difference": 276.975,
+      "changed_RGB_bytes": 242945,
+      "RGB_byte_mean_absolute_difference": 43.345520659170134,
+      "RGB_byte_p95_absolute_difference": 151.0,
+      "per_tick_max_difference_p50": 157.0,
+      "scope": "DMX RGB command difference, not perceptual image distance"
+    },
+    "P2_vs_P4": {
+      "all_479_nonRGB_slots_exact": true,
+      "all_moving_head_RGB_slots_exact": true,
+      "video_frames_with_any_RGB_command_difference": 8309,
+      "total_video_frames": 8319,
+      "n_40Hz_ticks": 11092,
+      "ticks_with_any_RGB_difference": 11079,
+      "seconds_with_any_RGB_difference": 276.975,
+      "changed_RGB_bytes": 149863,
+      "RGB_byte_mean_absolute_difference": 31.352735796479035,
+      "RGB_byte_p95_absolute_difference": 157.0,
+      "per_tick_max_difference_p50": 213.0,
+      "scope": "DMX RGB command difference, not perceptual image distance"
+    }
+  },
+  "R1": {
+    "first_color_cue_s": 121.7,
+    "cue_times_s": [
+      121.7,
+      122.7,
+      127.0,
+      127.7,
+      130.7,
+      137.7,
+      149.7,
+      150.7,
+      151.7,
+      153.7
+    ],
+    "subsequent_palette_change_times_s": [
+      149.7,
+      153.7
+    ],
+    "active_palette_occupancy": {
+      "9": 0.02570694087403599,
+      "22": 0.794344473007712,
+      "23": 0.17994858611825193
+    },
+    "model_active_s": 155.6,
+    "pre_first_cue_uses_companion_RGB": true
+  },
+  "body_origin": {
+    "saved_body_exact_to_previous_review": true,
+    "original_flow0_FK_max_absolute_difference_m": 0.0,
+    "world_shape": [
+      8319,
+      22,
+      3
+    ],
+    "original_model": "MusicModel conditional native flow, training seed 0",
+    "original_draw_seed": 7001,
+    "original_audio": "/root/shpongle.flac",
+    "original_audio_features": "/mnt/lightsem-data/experiments/lightsem/motion_native_audio_20260910/data/shpongle/audio30.npz",
+    "meaning_of_prior_native_flow": "previous native flow model, NOT an unconditional prior",
+    "new_song_usage": "same saved Shpongle body prefix, no new song-conditioned body inference"
+  },
+  "input_sha256": {
+    "/root/lightsem/runs/visual_next_20260929/shpongle_palette_previews_v1/MANIFEST.json": "3d138048e1926a6ea760c5d2b67c8a44c49907ae8a23cbddd21ad3b597d04420",
+    "/root/lightsem/experiments/2026-09-29-baseline/outputs/shpongle_baseline_ab_v2/streams/03.npz": "34ca1d5f2c9a271b9e08536519f4d657e4aa3017a5ac42514b38e8dd07e4829b",
+    "/root/lightsem/runs/visual_next_20260929/shpongle_palette_previews_v1/P2.npz": "d704d75fb9be47483f3ea55ec3d2cf259e42aedfa6bc670645d2c9fa3c2d62e5",
+    "/root/lightsem/runs/visual_next_20260929/shpongle_palette_previews_v1/P4.npz": "2a6632fc6f824ce1f74a80c002a83664e69e6d964678029602d9faa717dff65d",
+    "/root/lightsem/runs/visual_next_20260929/shpongle_learned_streams_v1/R1_seed0/model_outputs.npz": "ff499f791f4d7974ed2fa4ef46cb779dbd6bfa0f2dac0628b9e0e6530fba240b",
+    "/mnt/lightsem-data/experiments/lightsem/dance_diagnosis_20260911/pose_stage_01/mapped/shpongle_prior_flow0/full_world.npz": "23bdbcb9b524ef7773cc6c3231f3e822af504cb504c88d7816248beffb7015c4",
+    "/mnt/lightsem-data/experiments/lightsem/dance_diagnosis_20260911/music_physical_revision_01/visual_review_support_revision_01/mapped/full_shpongle_draw7001/full_world.npz": "54d480016b9484f58449efca13238c6510d2845842a2e7ba490949017bbc17dd",
+    "/mnt/lightsem-data/experiments/lightsem/motion_native_audio_20260910/delivery/final_diagnostic/inference/shpongle.npz": "057dd433968f5a913683ea43b595c640f74b1c9dd3fbaf5e18473dc0ce2925dc",
+    "/mnt/lightsem-data/experiments/lightsem/motion_native_audio_20260910/delivery/final_diagnostic/protocol.json": "18b5df31553404a160b9108f6be0867c70b82de5e693ee9ffde169727b7562db",
+    "/mnt/lightsem-data/experiments/lightsem/motion_native_audio_20260910/data/shpongle/audio30.npz": "78cf29a6df7c8843b0f8008f2fa347e5326a70aa631e74824394480ffcf6c674",
+    "/root/lightsem/lightsem/experiments/motion_study/delivery.py": "05091fdf54aed1f2920d83bfabfe246152bd103fd00d6beb4d02651d465c05a6",
+    "/root/lightsem/lightsem/experiments/motion_study/music_model.py": "46b9e55f56246001f21baa675c702775c526d144908e889af326aa408833642f",
+    "/root/lightsem/scripts/motion/review_music_physical_support_revision.py": "c01c7dc09082df2078f425c4659d6e152e2d489891da5ba1a4e9287b13434bc5",
+    "/root/lightsem/lightsem/experiments/motion_study/companion.py": "808e64ebf402bd6084df8d2f54037759140f317d1e469a81868e77fb55184d64",
+    "/root/lightsem/lightsem/experiments/visual_next/delivery.py": "4289242efadb7eeeddeb7dc021b7893ca899d3cde7557d02bc4d410408b4d147",
+    "/root/lightsem/experiments/2026-09-30-cross-song/records/audit_review_origin_v1.py": "f916ef5ef8011d390d4547f9a954bc0594317d4266023aeb05f08689ff137fdc"
+  }
+}

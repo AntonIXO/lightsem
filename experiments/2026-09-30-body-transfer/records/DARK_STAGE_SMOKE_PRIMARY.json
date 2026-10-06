@@ -1,0 +1,10 @@
+{
+  "plan_sha256": "4b9b4579de70ca87f19fa54913526644704190a7f06f4019bed11d98480124fc",
+  "smoke_sha256": "4dbaaa9940618f3e584ea72e20c476c3d373737e3ddc2e0e1a647d18bca384bd",
+  "frozen_inputs_verified": 140,
+  "visual_samples": [
+    "shpongle_4800.png",
+    "cure_for_me_3600.png"
+  ],
+  "decision": "Render both complete120s clips. Existing dark-stage look visible; all fixture types represented. Same saved DMX/body/P2. No quality or music-fit requalification."
+}

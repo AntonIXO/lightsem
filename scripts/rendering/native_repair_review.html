@@ -1,0 +1,165 @@
+<!doctype html>
+<html lang="en">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Native dance repair — old, broken and retrained</title>
+<style>
+:root{color-scheme:dark}*{box-sizing:border-box}body{background:#10151d;color:#e3ebf4;font:16px/1.5 system-ui;margin:24px}h1{font-size:27px;margin:0 0 10px}h2{font-size:19px;margin:0 0 8px}p{max-width:1400px}button,select,input{font:inherit}button,select{padding:8px 10px;background:#243249;color:inherit;border:1px solid #65809c;border-radius:5px}button{cursor:pointer}button:disabled,select:disabled,input:disabled{opacity:.5;cursor:default}a{color:#a8ccff}code{overflow-wrap:anywhere}.toolbar{display:flex;flex-wrap:wrap;gap:12px;align-items:center;margin:20px 0;padding:12px;background:#192330;border:1px solid #35485e;border-radius:7px}.toolbar label{display:inline-flex;align-items:center;gap:7px}#seek{width:min(38vw,520px)}#clock{font-variant-numeric:tabular-nums;min-width:75px}#status{font-size:14px;flex-basis:100%}#grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px}article{background:#192330;padding:14px;border:1px solid #35485e;border-radius:7px;min-width:0}article[hidden]{display:none}video{display:block;width:100%;aspect-ratio:5/4;background:#000;margin:12px 0}.song{font-weight:bold;color:#b6cbe3}.warning{color:#ffd495}.small{font-size:14px;color:#b4c5d8}.badge{display:inline-block;padding:3px 7px;border:1px solid #7c7158;border-radius:4px;font-size:13px;color:#ffd495}.pending{padding:24px 14px;margin:12px 0;background:#101720;border:1px dashed #526477;border-radius:5px;min-height:185px}.links{display:flex;gap:12px;align-items:center;flex-wrap:wrap}details{margin:16px 0;padding:10px;border:1px solid #35485e;border-radius:6px}summary{cursor:pointer}pre{font:12px/1.5 ui-monospace,monospace;white-space:pre-wrap;overflow-wrap:anywhere;max-height:420px;overflow:auto}.prior-item{margin:12px 0 0;padding:10px;background:#192330;border-radius:5px}.prior-item h3{font-size:16px;margin:0 0 6px}:focus-visible{outline:3px solid #a8ccff;outline-offset:3px}@media(max-width:1100px){#grid{grid-template-columns:1fr}body{margin:14px}#seek{width:min(60vw,520px)}}
+</style>
+<style>#clock{min-width:175px}.diagnostic-controls{display:flex;gap:12px;align-items:center;flex-wrap:wrap}.diagnostic-controls input{width:min(60vw,660px)}.diagnostic-graph{margin:18px 0}.diagnostic-graph img{display:block;max-width:100%;height:auto;background:#10151d}.diagnostic-graph figcaption{margin:7px 0;font-size:14px;color:#b4c5d8}</style>
+<style>.evidence-overview{margin:16px 0}.evidence-overview h3{font-size:15px;margin:0 0 7px}.evidence-summary{margin:7px 0;white-space:pre-wrap}.metrics-scroll{overflow-x:auto}.metrics-table{border-collapse:collapse;width:100%;font-size:13px}.metrics-table th,.metrics-table td{padding:6px 7px;border-bottom:1px solid #35485e;text-align:left;vertical-align:top;overflow-wrap:anywhere}.metrics-table th{font-weight:600}.metrics-table td:not(:first-child){font-variant-numeric:tabular-nums}.evidence-pending{margin:14px 0}</style>
+<h1>Native dance repair — one comparison</h1>
+<p>Compare the <strong>historical Old D7</strong>, the <strong>Broken native C</strong> joint planner at seed 0, and a <strong>genuinely retrained Repaired native C</strong> at seed 0. The three roles stay in this order. An unfinished repair remains an empty, labeled pane until its own output is ready.</p>
+<p class="warning">Experimental review. No baseline promotion or automatic improvement claim. “Verified media” means the video is admitted for review; it does not establish that the repair succeeded.</p>
+<p>Each song uses its own body. The videos cover the <strong>complete song from 0 s</strong> with unchanged audio speed and native motion timing, without post hoc retiming. At most a fractional video frame of silence completes the final frame; the song is never sped up. P2 colors, historical audio-driven brightness control and cameras are fixed across the comparison.</p>
+<p>The movies show the body, the stage and raw data traces: raw regional speeds, whole-body joint RMS jerk, signed root Y and vertical jerk, requested versus emitted motor motion, and brightness. Root Y is measured in metres; jerk is measured in m/s³. Per-pixel raw minima and maxima preserve peaks; the charts use no temporal smoothing. Motor speed and acceleration limits are disabled in this simulation. Assess body dynamics and light transfer separately.</p>
+<div class="toolbar">
+  <label>Song <select id="song"><option value="shpongle">Shpongle</option><option value="cure_for_me">AURORA — Cure For Me</option></select></label>
+  <button id="play" disabled>Play available clips</button><button id="pause" disabled>Pause</button><button id="restart" disabled>Restart</button>
+  <label>Song time <input id="seek" type="range" min="0" max="0" step="0.033333" value="0" disabled></label>
+  <output id="clock">00:00.00 / 00:00.00</output>
+  <label>Audio / sync master <select id="master" disabled></select></label>
+  <label><input id="mute" type="checkbox"> Mute</label>
+  <button id="diagnostic-open">90–150 s detail</button>
+  <span id="status" role="status" aria-live="polite">Loading comparison records…</span>
+</div>
+<main id="grid"></main>
+<details id="diagnostic"><summary>90–150 s diagnostic view — same full-song videos</summary>
+  <p class="small">This expanded time control seeks within the full-song videos above. Supplied diagnostic graphs retain their original 90–150 s raw data; no additional video clips or substitute charts are created.</p>
+  <div class="diagnostic-controls"><button id="diagnostic-jump" disabled>Jump to 90 s</button><label for="diagnostic-seek">Detail time</label><input id="diagnostic-seek" type="range" min="90" max="150" step="0.033333" value="90" disabled><output id="diagnostic-clock">90–150 s</output></div>
+  <div id="diagnostic-graphs"></div>
+</details>
+<details id="prior"><summary>Prior evidence and context</summary><div id="prior-content"></div></details>
+<p class="small">Use the shared controls to view available clips at the same source time. Pending panes remain visible and do not participate in playback. Download links preserve the original preview files. Evidence is presented within this page.</p>
+<script>
+'use strict';
+const clips=__CLIPS_JSON__;
+const trackSpecs=typeof __TRACKS_JSON__==='undefined'?[]:__TRACKS_JSON__;
+const priorEvidence=typeof __PRIOR_EVIDENCE_JSON__==='undefined'?[]:__PRIOR_EVIDENCE_JSON__;
+const diagnosticGraphs=typeof __DIAGNOSTIC_GRAPHS_JSON__==='undefined'?[]:__DIAGNOSTIC_GRAPHS_JSON__;
+const roles=[
+ {method:'D7_reference',title:'Old D7',description:'Historical generator from before the native-dynamics campaign. Original native timing.'},
+ {method:'C3',title:'Broken native C',description:'Current joint native planner, seed 0. Original native timing.'},
+ {method:'C4',title:'Repaired native C',description:'Reserved for the newly retrained joint native planner, seed 0. Original native timing.'}
+];
+const lifecycle={awaiting_generation:'Awaiting generation',awaiting_verification:'Awaiting verification',verified:'Verified media · review pending',failure_diagnostic:'Failure diagnostic · real output',broken:'Broken run · no playable video'};
+const $=id=>document.getElementById(id),cards=new Map(),players=new Map(),rows=new Map();
+let playing=false,generation=0,songTime=0,masterKey=null,graphSong=null;
+const keyOf=(song,method)=>song+'::'+method;
+function trackFor(song){
+ const spec=Array.isArray(trackSpecs)?trackSpecs.find(track=>(track.id||track.song)===song):null;
+ const row=clips.find(clip=>clip.song===song)||{};const start=Number(spec?.source_start_s??row.source_start_s??0);
+ const sourceDuration=Number(spec?.source_duration_s??spec?.duration_s??row.source_duration_s??0);
+ const frames=Number(spec?.video_frames??row.video_frames??0);const videoDuration=Number(spec?.video_duration_s??(frames>0?frames/30:row.duration_s??sourceDuration));
+ const valid=start===0&&Number.isFinite(sourceDuration)&&sourceDuration>0&&Number.isFinite(videoDuration)&&videoDuration>=sourceDuration-1e-8&&videoDuration-sourceDuration<1/30+1e-8;
+ return {id:song,title:spec?.title||(song==='shpongle'?'Shpongle':'AURORA — Cure For Me'),start,sourceDuration,videoDuration,videoFrames:frames,valid};
+}
+function currentTrack(){return trackFor($('song').value)}
+function formatClock(seconds){const ticks=Math.round(Math.max(0,seconds)*100),minutes=Math.floor(ticks/6000),remaining=(ticks%6000)/100;return String(minutes).padStart(2,'0')+':'+remaining.toFixed(2).padStart(5,'0')}
+function activeEntries(){return roles.map(role=>keyOf($('song').value,role.method)).filter(key=>players.has(key)).map(key=>[key,players.get(key)])}
+function isActive(key){return activeEntries().some(([current])=>current===key)}
+function primary(){return isActive(masterKey)?players.get(masterKey):null}
+function position(video,time){if(video.readyState>0&&Number.isFinite(video.duration))video.currentTime=Math.max(0,Math.min(video.duration,time))}
+function displayTime(time){const track=currentTrack();songTime=Math.max(0,Math.min(track.sourceDuration,time));$('clock').value=formatClock(songTime)+' / '+formatClock(track.sourceDuration);$('clock').title='Original song end: '+track.sourceDuration+' s; video end: '+track.videoDuration+' s.';$('seek').value=songTime;$('diagnostic-seek').value=Math.max(90,Math.min(150,songTime));$('diagnostic-clock').value=songTime>=90&&songTime<=150?songTime.toFixed(2)+' s':'Current time '+songTime.toFixed(2)+' s is outside 90–150 s'}
+function captureTime(){const video=primary();if(video&&!video.seeking)displayTime(video.currentTime)}
+function audio(){const source=$('mute').checked?null:primary();for(const video of players.values())video.muted=video!==source}
+function pause(message){generation++;playing=false;for(const video of players.values())video.pause();if(message)$('status').textContent=message}
+function jump(seconds){displayTime(seconds);for(const [,video] of activeEntries())position(video,songTime)}
+function playable(row){return (row.status==='verified'||row.status==='failure_diagnostic')&&typeof row.src==='string'&&row.src.length>0}
+function pendingMessage(row){
+ if(row.message)return row.message;
+ if(row.status==='awaiting_generation')return row.method==='C4'?'The retrained repair has no generated output available yet. No other motion is shown in its place.':'This role has no generated output available yet.';
+ if(row.status==='awaiting_verification')return 'This output is awaiting media verification. Playback will be available only when its own video is admitted.';
+ if(row.status==='broken')return 'This run is broken. Inspect its evidence; no substitute video is shown.';
+ if(row.status==='verified'||row.status==='failure_diagnostic')return 'No video source is bound to this record. The pane remains unavailable.';
+ return 'The record has no recognized playable status. Inspect its evidence.';
+}
+function evidenceText(value){
+ if(typeof value==='string')return value.trim()?value:'—';
+ if(typeof value==='number'&&Number.isFinite(value))return String(value);
+ return '—';
+}
+function appendEvidenceOverview(article,evidence){
+ if(evidence?.status!=='authenticated'){
+  const pending=document.createElement('p');pending.className='small evidence-pending';
+  pending.textContent=evidence?.status==='stale'?'Evidence pending: the saved report is stale and has not been authenticated for this output.':evidence?.status==='unsealed'?'Evidence pending: the report has no verified seal.':'Evidence pending: no authenticated report is attached to this output.';
+  article.append(pending);return;
+ }
+ const section=document.createElement('section');section.className='evidence-overview';const heading=document.createElement('h3');heading.textContent='Authenticated evidence';section.append(heading);
+ const report=evidence.report||{};const summaryValue=evidenceText(evidence.summary)==='—'?report.summary:evidence.summary;
+ if(evidenceText(summaryValue)!=='—'){const summary=document.createElement('p');summary.className='evidence-summary';summary.textContent=evidenceText(summaryValue);section.append(summary)}
+ const metrics=Array.isArray(report.metrics)?report.metrics.filter(row=>row&&typeof row==='object'&&!Array.isArray(row)):[];
+ if(metrics.length){
+  const columns=[['label','Metric'],['value','Value'],['unit','Unit']];
+  for(const [key,title] of [['reference','Reference'],['delta','Delta']])if(metrics.some(row=>Object.prototype.hasOwnProperty.call(row,key)))columns.push([key,title]);
+  const scroll=document.createElement('div');scroll.className='metrics-scroll';const table=document.createElement('table');table.className='metrics-table';const head=document.createElement('thead'),headRow=document.createElement('tr');
+  for(const [,title] of columns){const cell=document.createElement('th');cell.scope='col';cell.textContent=title;headRow.append(cell)}head.append(headRow);table.append(head);
+  const body=document.createElement('tbody');for(const row of metrics){const line=document.createElement('tr');for(const [key] of columns){const cell=document.createElement('td');cell.textContent=evidenceText(row[key]);line.append(cell)}body.append(line)}table.append(body);scroll.append(table);section.append(scroll);
+ }else{const empty=document.createElement('p');empty.className='small';empty.textContent='No metric rows are included in this authenticated report.';section.append(empty)}
+ article.append(section);
+}
+function createCard(row,role){
+ const key=keyOf(row.song,row.method),article=document.createElement('article');article.id='pane-'+row.song+'-'+row.method;article.dataset.method=row.method;article.dataset.song=row.song;article.dataset.status=row.status;cards.set(key,article);rows.set(key,row);
+ const title=document.createElement('h2');title.textContent=role.title;
+ const song=document.createElement('p');song.className='song';song.textContent=row.song==='shpongle'?'Shpongle':'AURORA — Cure For Me';
+ const badge=document.createElement('span');badge.className='badge';badge.textContent=lifecycle[row.status]||'Unrecognized status · unavailable';
+ const description=document.createElement('p');description.className='small';description.textContent=role.description;article.append(title,song,badge,description);
+ if(playable(row)){
+  const video=document.createElement('video');video.src=row.src;video.preload='metadata';video.playsInline=true;video.muted=true;video.setAttribute('aria-label',role.title+' — '+song.textContent+'; use shared controls');players.set(key,video);article.append(video);
+  video.addEventListener('loadedmetadata',()=>{if(isActive(key))position(video,songTime)});
+  video.addEventListener('play',()=>{if(!video.paused&&(!playing||!isActive(key)))video.pause()});
+  video.addEventListener('ended',()=>{if(!playing||!isActive(key)||!video.ended)return;const track=currentTrack();const complete=Math.abs(video.currentTime-track.videoDuration)<=1/30+1e-6;captureTime();pause(complete?'Complete song finished. Restart returns to 0 s.':'An active clip ended before its declared full-song duration. Inspect its evidence.');if(complete)displayTime(track.sourceDuration)});
+  video.addEventListener('error',()=>{if(isActive(key))pause('A clip failed to load. Inspect its evidence or download the original video.')});
+  const links=document.createElement('div');links.className='links';const download=document.createElement('a');download.href=row.src;download.download=row.download_name||row.song+'_'+({D7_reference:'old_D7',C3:'broken_C',C4:'repaired_C'}[row.method]||row.method)+'_full.mp4';download.textContent='Download full-song video';const full=document.createElement('button');full.textContent='Fullscreen';full.onclick=()=>{const request=video.requestFullscreen?.();request?.catch(()=>{$('status').textContent='Fullscreen is unavailable; use the video download.'})};links.append(download,full);article.append(links);
+  if(row.message){const message=document.createElement('p');message.className='small';message.textContent=row.message;article.append(message)}
+ }else{const placeholder=document.createElement('p');placeholder.className='pending';placeholder.textContent=pendingMessage(row);article.append(placeholder)}
+ appendEvidenceOverview(article,row.evidence);
+ const details=document.createElement('details'),summary=document.createElement('summary');summary.textContent='Raw evidence, hashes and provenance';details.append(summary);
+ details.addEventListener('toggle',()=>{if(details.open&&!details.querySelector('pre')){const pre=document.createElement('pre');pre.textContent=JSON.stringify({role:role.title,artifact_method:row.method,song:row.song,status:row.status,message:row.message||null,video_sha256:row.sha256||null,bytes:row.bytes??null,provided_role:row.role||null,source_start_s:row.source_start_s??0,source_duration_s:row.source_duration_s??trackFor(row.song).sourceDuration,duration_s:row.duration_s??trackFor(row.song).videoDuration,video_frames:row.video_frames??trackFor(row.song).videoFrames,evidence:row.evidence||{}},null,2);details.append(pre)}});article.append(details);
+ return article;
+}
+function switchSong(){
+ pause();for(const video of players.values()){video.muted=true;position(video,0)}
+ for(const [key,card] of cards)card.hidden=rows.get(key).song!==$('song').value;
+ $('master').replaceChildren();const active=activeEntries();
+ for(const [key] of active){const option=document.createElement('option');option.value=key;option.textContent=roles.find(role=>role.method===rows.get(key).method).title;$('master').append(option)}
+ masterKey=active[0]?.[0]||null;if(masterKey)$('master').value=masterKey;else{const option=document.createElement('option');option.value='';option.textContent='No playable clip';$('master').append(option)}
+ const track=currentTrack();$('seek').min='0';$('seek').max=String(track.sourceDuration);
+ for(const id of ['play','pause','restart','seek','master','mute'])$(id).disabled=active.length===0||!track.valid;
+ for(const id of ['diagnostic-jump','diagnostic-seek'])$(id).disabled=active.length===0||!track.valid||track.sourceDuration<150;
+ jump(0);audio();$('status').textContent=track.valid?active.length+' of 3 panes have playable full-song media. Paused at 0 s.':'Full-song timing is missing or inconsistent; playback is unavailable.';if($('diagnostic').open)loadDiagnosticGraphs();
+}
+async function play(){
+ const active=activeEntries(),track=currentTrack();if(!active.length||!track.valid)return;if(songTime>=track.sourceDuration-1e-8)jump(0);else for(const [,video] of active)position(video,songTime);
+ playing=true;audio();const token=++generation;$('status').textContent='Starting '+active.length+' available clips…';
+ const outcomes=await Promise.allSettled(active.map(([,video])=>video.play()));
+ if(token!==generation){for(const [key,video] of active)if(!playing||!isActive(key))video.pause();return}
+ if(outcomes.some(outcome=>outcome.status==='rejected'))pause('Playback could not start for every available clip. Press Play again.');else $('status').textContent=active.length+' available clips synchronized; pending panes remain empty.';
+}
+$('song').onchange=switchSong;$('play').onclick=play;
+$('pause').onclick=()=>{captureTime();pause('Paused.')};$('restart').onclick=()=>{pause();jump(0);$('status').textContent='Paused at 0 s.'};$('seek').oninput=()=>jump(Number($('seek').value));
+$('master').onchange=()=>{captureTime();if(isActive($('master').value))masterKey=$('master').value;for(const [,video] of activeEntries())position(video,songTime);audio()};$('mute').onchange=audio;
+function loadDiagnosticGraphs(){
+ const song=$('song').value;if(graphSong===song)return;graphSong=song;const container=$('diagnostic-graphs');container.replaceChildren();
+ const supplied=Array.isArray(diagnosticGraphs)?diagnosticGraphs.filter(item=>item.song===song&&typeof item.src==='string'&&item.src.length>0):[];
+ if(!supplied.length){const message=document.createElement('p');message.className='small';message.textContent='No original 90–150 s diagnostic graphs were supplied for this song.';container.append(message);return}
+ const ordered=[...supplied].sort((a,b)=>roles.findIndex(role=>role.method===a.method)-roles.findIndex(role=>role.method===b.method));
+ for(const graph of ordered){const figure=document.createElement('figure');figure.className='diagnostic-graph';const name=roles.find(role=>role.method===graph.method)?.title||graph.method||'Diagnostic';const image=document.createElement('img');image.src=graph.src;image.alt=graph.title||name+' — original 90–150 s raw data';image.loading='lazy';const caption=document.createElement('figcaption');caption.textContent=name+' | '+(graph.title||'Original 90–150 s raw data');figure.append(image,caption);if(graph.data_url){const link=document.createElement('a');link.href=graph.data_url;link.textContent='Open original graph data';figure.append(link)}container.append(figure)}
+}
+$('diagnostic-open').onclick=()=>{$('diagnostic').open=true;loadDiagnosticGraphs()};$('diagnostic').addEventListener('toggle',()=>{if($('diagnostic').open)loadDiagnosticGraphs()});
+$('diagnostic-jump').onclick=()=>jump(90);$('diagnostic-seek').oninput=()=>jump(Number($('diagnostic-seek').value));
+let priorLoaded=false;
+$('prior').addEventListener('toggle',()=>{if(!$('prior').open||priorLoaded)return;priorLoaded=true;const container=$('prior-content');
+ if(!Array.isArray(priorEvidence)||!priorEvidence.length){const message=document.createElement('p');message.className='small';message.textContent='No prior-evidence records were attached to this page.';container.append(message);return}
+ for(const item of priorEvidence){const box=document.createElement('section');box.className='prior-item';const title=document.createElement('h3');title.textContent=item.title||'Prior evidence';const summary=document.createElement('p');summary.textContent=item.summary||'';box.append(title,summary);
+  if(item.path){const path=document.createElement('p');path.className='small';const code=document.createElement('code');code.textContent=item.path;path.append('Artifact: ',code);box.append(path)}
+  if(item.sha256){const digest=document.createElement('p');digest.className='small';const code=document.createElement('code');code.textContent=item.sha256;digest.append('SHA-256: ',code);box.append(digest)}
+  if(item.url){const link=document.createElement('a');link.href=item.url;link.textContent='Open evidence';box.append(link)}
+  container.append(box);
+ }
+});
+for(const song of ['shpongle','cure_for_me'])for(const role of roles){const matches=clips.filter(row=>row.song===song&&row.method===role.method);const row=matches.length===1?matches[0]:{song,method:role.method,status:matches.length?'broken':'awaiting_generation',message:matches.length?'Multiple records claim this role. Playback is disabled until the binding is resolved.':undefined,evidence:{record_count:matches.length}};$('grid').append(createCard(row,role))}
+setInterval(()=>{if(!playing)return;const source=primary();if(!source||source.seeking)return;const time=source.currentTime;for(const [,video] of activeEntries())if(video!==source&&!video.seeking&&Math.abs(video.currentTime-time)>.09)position(video,time);displayTime(time)},100);
+switchSong();
+</script>
+</html>

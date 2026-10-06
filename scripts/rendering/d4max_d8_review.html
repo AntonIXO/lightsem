@@ -1,0 +1,79 @@
+<!doctype html>
+<html lang="en">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>LightSem | D4-max + D6 + D8</title>
+<style>
+:root{color-scheme:dark;font:16px/1.5 system-ui,sans-serif;background:#0d131c;color:#e9f0f8}*{box-sizing:border-box}body{max-width:1800px;padding:24px;margin:auto}h1{font-size:30px;margin:0 0 8px}h2{font-size:19px;margin:0}p{max-width:1250px;color:#b9c9db}a{color:#a6d4ff}button,select,input,textarea{font:inherit}button,select{padding:8px 12px;background:#203149;border:1px solid #526e8e;border-radius:6px;color:inherit}button{cursor:pointer}button:disabled{opacity:.5;cursor:default}label{display:inline-flex;gap:7px;align-items:center}.toolbar{position:sticky;top:0;z-index:2;background:#101b2bf5;border:1px solid #36506f;padding:12px;border-radius:9px;display:flex;gap:12px;align-items:center;flex-wrap:wrap}.toolbar p{margin:0;width:100%;font-size:14px}input[type=range]{flex:1;min-width:180px}.gallery{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:20px;margin-top:22px}.card{border:1px solid #354b65;border-radius:10px;background:#101a27;padding:14px;min-width:0}.card header{display:flex;align-items:center;gap:12px;justify-content:space-between;margin-bottom:8px}.card video{display:block;width:100%;aspect-ratio:16/9;background:#03060a;margin:12px 0}.badge{display:inline-block;font-size:13px;line-height:1.4;color:#f1c884;border:1px solid #8d744a;border-radius:4px;padding:4px 7px}.small{font-size:14px;color:#a9bfd8}.row{display:flex;gap:12px;align-items:center;flex-wrap:wrap}.failure{color:#f3b79d}.placeholder{padding:30px 12px;background:#0b111b}.card pre{font-size:12px;white-space:pre-wrap;overflow-wrap:anywhere;max-height:360px;overflow:auto}details{margin:12px 0}textarea{width:100%;min-height:75px;padding:8px;background:#101a27;border:1px solid #4d6787;border-radius:5px;color:inherit}.hidden{display:none!important}:focus-visible{outline:3px solid #a9d2ff;outline-offset:3px}#clock{font-variant-numeric:tabular-nums;white-space:nowrap}footer{margin:26px 0 10px;border-top:1px solid #354b65;padding-top:14px}@media(max-width:950px){.gallery{grid-template-columns:1fr}body{padding:12px}h1{font-size:25px}.toolbar{position:static}}
+</style>
+<h1>D4-max + D6 + D8</h1>
+<p><strong>C3 = D4-max + D8 (D6 off). C4 = D4-max + D6 + D8. Saved D7+D8 motion library; D6 rate 0.25–1.5× prevents forced freezes.</strong> Each video compares the G78 (D7+D8) reference on the left with the combined candidate on the right, including both body views and actual emitted light. These are experimental comparisons; no new baseline is assigned.</p>
+<p class="small">Both sides use the restored audio-driven brightness controller from the earlier demo and the fixed P2 color policy. Playback starts at the beginning of each complete song, with unchanged audio speed. Source estimates and movement traces remain visible in the videos.</p>
+<div class="toolbar">
+  <label>Song <select id="song" disabled></select></label>
+  <button id="play" disabled>Play both</button><button id="pause" disabled>Pause</button>
+  <label>Audio <select id="audible" disabled><option value="none">Muted</option></select></label>
+  <label for="seek">Song time</label><input id="seek" type="range" min="0" max="1" step="0.05" value="0" disabled>
+  <span id="clock">00:00 / 00:00</span><button id="reset" disabled>Start</button>
+  <p id="status" role="status" aria-live="polite">Loading media manifest…</p>
+</div>
+<main class="gallery" id="gallery"></main>
+<footer><p class="small">Use the shared controls to compare the two combinations at the same song time. Selecting an audio source also selects the synchronization master; only one soundtrack is audible. Changing songs pauses playback and returns to 00:00. Review notes stay in this browser.</p><button id="export" disabled>Export review notes</button></footer>
+<script>
+'use strict';
+const $=id=>document.getElementById(id),players=new Map(),cards=new Map();
+let manifest=null,notes={},storageKey='',trackId='',masterId=null,seekTime=0,duration=0,desiredPlaying=false,epoch=0,lastSync=0;
+const clock=t=>{const n=Math.max(0,Math.floor(t));return String(Math.floor(n/60)).padStart(2,'0')+':'+String(n%60).padStart(2,'0')};
+const status=text=>{$('status').textContent=text};
+const rows=()=>manifest.variants.filter(row=>row.track_id===trackId);
+const active=()=>rows().filter(row=>players.has(row.id)).map(row=>[row.id,players.get(row.id)]);
+const isActive=id=>active().some(([current])=>current===id);
+const master=()=>players.get(masterId);
+function updateClock(){ $('seek').value=String(seekTime);$('clock').textContent=clock(seekTime)+' / '+clock(duration) }
+function seekVideo(video,time){if(video.readyState>=1&&Number.isFinite(video.duration))video.currentTime=Math.max(0,Math.min(time,video.duration))}
+function positionAll(time){seekTime=Math.max(0,Math.min(time,duration));for(const [,video] of active())seekVideo(video,seekTime);updateClock()}
+function muteAll(){for(const video of players.values())video.muted=true}
+function applyAudio(){const requested=$('audible').value;muteAll();if(requested!=='none'&&isActive(requested))players.get(requested).muted=false;else $('audible').value='none'}
+function pauseAll(message){desiredPlaying=false;epoch++;for(const video of players.values())video.pause();if(message)status(message)}
+function captureTime(){const video=master();if(video&&isActive(masterId)&&!video.seeking)seekTime=Math.max(0,Math.min(video.currentTime,duration));updateClock()}
+function sync(force=false){const source=master();if(!source||!isActive(masterId)||source.seeking)return;seekTime=Math.max(0,Math.min(source.currentTime,duration));for(const [id,video] of active())if(id!==masterId&&(force||(!video.seeking&&Math.abs(video.currentTime-seekTime)>.15)))seekVideo(video,seekTime);updateClock()}
+function setMaster(id){if(!isActive(id))return;captureTime();masterId=id;seekVideo(master(),seekTime)}
+function buildAudioOptions(){const previous=$('audible').value;$('audible').replaceChildren(new Option('Muted','none'));for(const row of rows())if(players.has(row.id))$('audible').append(new Option(row.algorithm_id+' soundtrack',row.id));const first=active()[0]?.[0];$('audible').value=isActive(previous)?previous:(first||'none');masterId=first||null;applyAudio()}
+function changeSong(){pauseAll();muteAll();trackId=$('song').value;seekTime=0;const track=manifest.tracks.find(item=>item.id===trackId);const lengths=rows().filter(row=>players.has(row.id)).map(row=>Number(row.duration_s)).filter(value=>Number.isFinite(value)&&value>0);duration=lengths.length?Math.max(...lengths):Number(track?.duration_s)||0;for(const [id,card] of cards)card.classList.toggle('hidden',manifest.variants.find(row=>row.id===id).track_id!==trackId);$('seek').max=String(duration);buildAudioOptions();positionAll(0);const available=active().length;$('play').disabled=available===0;$('pause').disabled=available===0;$('seek').disabled=available===0;$('reset').disabled=available===0;$('audible').disabled=available===0;status(available===2?'Both combinations ready at the start of the song.':available+' playable comparison(s); inspect any failure records below.')}
+async function playBoth(){const current=active();if(!current.length)return;if(seekTime>=duration-.05)positionAll(0);if(!isActive(masterId))masterId=current[0][0];desiredPlaying=true;const attempt=++epoch;positionAll(seekTime);applyAudio();status('Starting synchronized playback…');const results=await Promise.allSettled(current.map(([,video])=>video.play()));if(attempt!==epoch){for(const [id,video] of current)if(!desiredPlaying||!isActive(id))video.pause();return}if(results.some(result=>result.status==='rejected')){pauseAll('Playback could not start. Press Play both again, or download the videos.');return}status(current.length+' comparisons playing in sync; one soundtrack at most.')}
+function downloadJson(value,name){const url=URL.createObjectURL(new Blob([JSON.stringify(value,null,2)],{type:'application/json'})),link=document.createElement('a');link.href=url;link.download=name;link.click();setTimeout(()=>URL.revokeObjectURL(url),1000)}
+function saveNote(row,text){notes[row.id]={text,video_sha256:row.sha256||null,updated_at:new Date().toISOString()};try{localStorage.setItem(storageKey,JSON.stringify(notes))}catch{status('Browser storage is unavailable. Export notes to retain your review.')}}
+function createCard(row){
+ const box=document.createElement('section');box.className='card';box.id='variant-'+row.id;box.dataset.variantId=row.id;cards.set(row.id,box);
+ const head=document.createElement('header'),title=document.createElement('h2');title.textContent=row.algorithm_id+' | '+row.title;head.append(title);box.append(head);
+ const badge=document.createElement('span');badge.className='badge';badge.textContent=row.duplicate_of?'Exact body + DMX duplicate · representative '+row.duplicate_of:(row.banner||'Experimental combination · no new baseline');box.append(badge);
+ const origin=typeof row.motion_origin==='string'?row.motion_origin:row.motion_origin?.label;if(origin){const text=document.createElement('p');text.className='small';text.textContent='Motion source: '+origin;box.append(text)}
+ const reference=document.createElement('p');reference.className='small';reference.textContent='Left: G78 (D7+D8) reference. Right: '+row.algorithm_id+' candidate. Restored audio brightness on both sides; P2 colors fixed.';box.append(reference);const numerical=document.createElement('p');numerical.className='small';const comparator=row.comparison?.comparator||row.comparison?.primary?.baseline_id||(row.algorithm_id==='C4'?'C3':'D7_reference');numerical.textContent='Numerical comparison: '+(comparator==='C3'?'D4-max (D6 off)':comparator.replaceAll('_',' '))+'. The visual reference is G78.';box.append(numerical);
+ if(row.status==='complete'&&!row.duplicate_of){
+  const video=document.createElement('video');video.playsInline=true;video.preload='metadata';video.muted=true;video.controls=false;video.src='/media/'+encodeURIComponent(row.id)+'.mp4?v='+encodeURIComponent(row.sha256||'');video.setAttribute('aria-label',row.algorithm_id+' — '+row.title+' comparison; use shared playback controls');players.set(row.id,video);box.append(video);
+  video.addEventListener('loadedmetadata',()=>{if(isActive(row.id))seekVideo(video,seekTime)});
+  video.addEventListener('play',()=>{if(video.paused)return;if(!desiredPlaying||!isActive(row.id)){video.pause();return}applyAudio()});
+  video.addEventListener('pause',()=>{if(!video.paused||!desiredPlaying||!isActive(row.id)||video.ended)return;captureTime();pauseAll('Playback paused. Press Play both to continue.')});
+  video.addEventListener('ended',()=>{if(!desiredPlaying||!isActive(row.id)||!video.ended)return;const complete=video.currentTime>=duration-.15;captureTime();pauseAll(complete?'Complete song finished. Start replays from 00:00.':'A comparison ended before the selected song duration. Inspect its evidence.');if(complete){seekTime=duration;updateClock()}});
+  video.addEventListener('error',()=>{if(isActive(row.id))pauseAll('Playback failed for '+row.algorithm_id+'. Use its download link to inspect locally.')});
+  const links=document.createElement('div');links.className='row';const download=document.createElement('a');download.href='/media/'+encodeURIComponent(row.id)+'.mp4?download=1&v='+encodeURIComponent(row.sha256||'');download.download=row.download_name||row.algorithm_id+'_'+row.track_id+'.mp4';download.textContent='Download full-song video';const info=document.createElement('span');info.className='small';info.textContent=clock(Number(row.duration_s)||0)+' · 1080p30'+(Number.isFinite(row.bytes)?' · '+(row.bytes/1048576).toFixed(1)+' MiB':'');links.append(download,info);box.append(links);
+ }else if(row.duplicate_of){const duplicate=document.createElement('p');duplicate.className='placeholder failure';duplicate.textContent='Exact body + DMX duplicate of comparison '+row.duplicate_of+'. The saved body and emitted lighting match that representative exactly. This remains a duplicate diagnostic; no separate improvement is claimed.';box.append(duplicate);const representative=document.createElement('a');representative.href='#variant-'+row.duplicate_of;representative.textContent='View representative '+row.duplicate_of;representative.onclick=()=>{const target=manifest.variants.find(item=>item.id===row.duplicate_of);if(target&&target.track_id!==trackId){$('song').value=target.track_id;changeSong()}};box.append(representative)}
+ else{const failure=document.createElement('p');failure.className='placeholder failure';failure.textContent=String(row.failure||'No completed video is available. See the evidence record.');box.append(failure)}
+ const details=document.createElement('details'),summary=document.createElement('summary');summary.textContent='Evidence and provenance';details.append(summary);details.addEventListener('toggle',()=>{if(details.open&&!details.querySelector('pre')){const pre=document.createElement('pre');pre.textContent=JSON.stringify({algorithm_id:row.algorithm_id,track_id:row.track_id,status:row.status,duplicate_of:row.duplicate_of,video_sha256:row.sha256,duration_s:row.duration_s,source_duration_s:row.source_duration_s,motion_origin:row.motion_origin,comparison:row.comparison},null,2);details.append(pre)}});box.append(details);
+ const evidence=document.createElement('button');evidence.textContent='Download evidence JSON';evidence.onclick=()=>downloadJson({campaign:manifest.campaign,plan_sha256:manifest.plan_sha256,...row},row.algorithm_id+'_'+row.track_id+'_evidence.json');box.append(evidence);
+ const label=document.createElement('label');label.style.display='block';label.style.marginTop='12px';label.textContent='Musical dynamics and light transfer observations';const textarea=document.createElement('textarea');textarea.value=notes[row.id]?.text||'';textarea.setAttribute('aria-label','Review notes for '+row.algorithm_id+' '+row.track_id);textarea.oninput=()=>saveNote(row,textarea.value);label.append(textarea);box.append(label);return box;
+}
+$('song').onchange=changeSong;
+$('audible').onchange=()=>{const id=$('audible').value;if(id!=='none')setMaster(id);applyAudio()};
+$('play').onclick=playBoth;
+$('pause').onclick=()=>{captureTime();pauseAll('Paused at '+clock(seekTime)+'.')};
+$('seek').oninput=()=>{epoch++;positionAll(Number($('seek').value));status((desiredPlaying?'Playing':'Paused')+' at '+clock(seekTime)+'.')};
+$('reset').onclick=()=>{pauseAll();positionAll(0);status('Both comparisons ready at 00:00.')};
+$('export').onclick=()=>downloadJson({campaign:manifest.campaign,plan_sha256:manifest.plan_sha256,notes},'dynamic_combo_review_notes.json');
+function tick(now){if(desiredPlaying&&now-lastSync>=150){sync();lastSync=now}requestAnimationFrame(tick)}
+fetch('/manifest.json',{cache:'no-store'}).then(response=>{if(!response.ok)throw Error('HTTP '+response.status);return response.json()}).then(data=>{
+ if(!Array.isArray(data.variants)||!Array.isArray(data.tracks)||!data.tracks.length)throw Error('Missing comparisons or songs');manifest=data;storageKey='lightsem-dynamic-combo-'+(data.plan_sha256||data.campaign||'full-song');try{notes=JSON.parse(localStorage.getItem(storageKey)||'{}');if(!notes||typeof notes!=='object'||Array.isArray(notes))notes={}}catch{notes={}}
+ for(const track of data.tracks)$('song').append(new Option(track.title,track.id));for(const row of data.variants)$('gallery').append(createCard(row));$('song').value=data.tracks.find(track=>/shpongle/i.test(track.id))?.id||data.tracks[0].id;$('song').disabled=false;$('export').disabled=false;changeSong();requestAnimationFrame(tick);
+}).catch(error=>status('Review manifest unavailable: '+error.message));
+</script>
+</html>

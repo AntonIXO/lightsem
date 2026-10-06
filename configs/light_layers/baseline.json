@@ -1,7 +1,7 @@
 {
-  "schema_version": 2,
-  "id": "light-layers-independent-rich96-seed0-history-fade300ms-20260929",
-  "status": "user_selected_development_baseline",
+  "schema_version": 3,
+  "id": "light-layers-independent-rich96-P2-history-fade300ms-20260930",
+  "status": "user_selected_color_baseline",
   "selected_variant": "06",
   "recipe": "I_VR_P0",
   "seed": 0,
@@ -11,20 +11,20 @@
     "sha256": "8de865906cfabb49290971eccf6016ab38edebe885eec7e6369f020fb5544b8a"
   },
   "provenance": "/mnt/lightsem-data/experiments/lightsem/end_to_end_20260928_v1/comparison_demos_v1/03_I_VR_P0/inference_saved.json",
-  "motion_controller": "rhythm_companion (rating variant02), saved accepted motion style",
+  "motion_controller": "body_transfer; autonomous rhythm_companion is rejected",
   "palette_history": true,
   "palette_decode": "argmax at fixed saved color cues",
   "color_transition_s": 0.3,
-  "reference_video": "/root/lightsem/experiments/2026-09-29-baseline/outputs/shpongle_baseline_ab_v2/media/C/C_full_1080p_av1.mp4",
-  "reference_video_sha256": "fb06c3f3a951a4f2a12bbc01f4470cec4f8326912a441bd4e25097e275170299",
-  "feedback_record": "experiments/2026-09-29-baseline/records/USER_BASELINE_C_SELECTION.json",
-  "review_plan": "experiments/2026-09-29-baseline/records/AB_PLAN_V2.json",
-  "scope": "Default reference for new lighting-layer development and comparisons. Historical causal LightModel API remains a separate implementation.",
-  "selected_review_variant": "C",
+  "reference_video": "/root/lightsem/runs/visual_next_20260929/shpongle_palette_previews_v1/media/P2/P2_full_1080p_av1.mp4",
+  "reference_video_sha256": "7ff0360ebb3d304e80f9e949d280d91fd17bd83fd86285def620de97e0b5c300",
+  "feedback_record": "/root/lightsem/experiments/2026-09-30-body-transfer/records/USER_P2_SELECTION.json",
+  "review_plan": "/root/lightsem/experiments/2026-09-30-body-transfer/records/P2_SELECTION_PLAN.json",
+  "scope": "Accepted COLOR reference for future work. New movement must come from the per-song body, not a rhythm oscillator. Revalidate prior hypotheses against P2 when relevant; do not rewrite their historical verdicts.",
+  "selected_review_variant": "P2",
   "color_transition_curve": "causal_smoothstep_channel_rgb",
-  "reference_streams": "/root/lightsem/experiments/2026-09-29-baseline/outputs/shpongle_baseline_ab_v2/streams/03.npz",
-  "reference_streams_sha256": "34ca1d5f2c9a271b9e08536519f4d657e4aa3017a5ac42514b38e8dd07e4829b",
-  "previous_baseline_snapshot": "experiments/2026-09-29-baseline/records/BASELINE_BEFORE_C_SELECTION.json",
+  "reference_streams": "/root/lightsem/runs/visual_next_20260929/shpongle_palette_previews_v1/P2.npz",
+  "reference_streams_sha256": "d704d75fb9be47483f3ea55ec3d2cf259e42aedfa6bc670645d2c9fa3c2d62e5",
+  "previous_baseline_snapshot": "/root/lightsem/experiments/2026-09-30-body-transfer/records/BASELINE_BEFORE_P2.json",
   "review_encoding": {
     "codec": "av1_nvenc",
     "preset": "p7",
@@ -36,5 +36,13 @@
     "audio_bitrate": "128k",
     "max_full_review_bytes": 50000000,
     "scope": "Compact native1080p Shpongle review delivery; source FLAC remains the analysis input."
-  }
+  },
+  "color_layout": "two_groups",
+  "color_group_policy": "first chromatic palette component on left, second on right; spatial assignment, no new temporal motion",
+  "motion_status": "body-driven transfer is the active development objective; no approved N-output mapper yet",
+  "reference_motion_status": "historical rhythm_companion in this color comparison only; not accepted for future motion",
+  "required_demo_tracks": [
+    "shpongle",
+    "cure_for_me"
+  ]
 }

@@ -2,7 +2,28 @@
 
 This file provides guidance to Claude Code (claude.ai/code) when working with code in this repository.
 
-Current baseline decision (September29, 2026): the user explicitly chose rating
+October6, 2026: fixed native C/HF16 is now the user-selected motion baseline,
+configured in `configs/dance/fixed_c.json`, with MuQ always required. CLI
+`render` uses native C; D4-max and D6 are independently optional via `--d4max`
+and `--d6`, default off. P2 color/restored brightness and limits-off simulation
+remain fixed. The historical `configs/dance/baseline.json` stays immutable.
+Completed campaigns are archived; broader-data/quiet-loss retraining is still
+unexecuted. See AGENTS.md and the native campaign closure record.
+
+Current overriding decision (September30, 2026): P2 is the accepted COLOR
+baseline (same independent Rich96 checkpoint, history ON, 300 ms transitions,
+two spatial color groups). The user rejects autonomous sinusoidal/beat-driven
+light choreography as a substitution for the task. The dance body is accepted
+as the source; focus on transferring its gestures to arbitrary N outputs,
+including moving beams, simulated lasers and fixed bulbs. Every future demo
+must use Shpongle AND Cure For Me, with a body generated for that song. Do not
+retreat into dancer reconstruction/retraining or replace failed transfer with
+oscillators. See AGENTS.md and experiments/2026-09-30-body-transfer/README.md.
+Older baseline and rhythm-companion authorizations below are historical and
+superseded on these points. Relevant old hypotheses need revalidation against
+the new color baseline; original evidence and verdicts remain preserved.
+
+Historical baseline decision (September29, 2026): the user explicitly chose rating
 variant06, independent Rich96 `I_VR_P0`, selected seed0, as the new development
 baseline. Variant02's rhythm-led movement is preferred to01 and stays beneath it.
 Use `configs/light_layers/baseline.json` and
@@ -18,7 +39,7 @@ a substantial difference in07 (comparator unspecified); the requested history
 comparison on06 is complete and C is selected. Inspect image/temporal supervision next:06 already
 uses SAM2-observed Rich96 image features and has no pose auxiliary (P0).
 
-Standing authorization (September 12, 2026): the product is LIGHT. Dance is a
+Superseded authorization (September 12, 2026): the product is LIGHT. Dance is a
 visual diagnostic of the intermediate motion representation, not a separate
 product or an optimization target. Implement direct audio rhythm controls for
 lighting timing, using internal motion for spatial style rather than literal

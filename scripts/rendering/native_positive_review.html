@@ -1,0 +1,84 @@
+<!doctype html>
+<html lang="en">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Hybrid dance pilot — 3D body, light and pacing data</title>
+<style>
+:root{color-scheme:dark}*{box-sizing:border-box}body{background:#10151d;color:#e3ebf4;font:16px/1.5 system-ui;margin:24px}h1{font-size:27px;margin-bottom:10px}p{max-width:1380px}button,select,input{font:inherit}button,select{padding:8px;background:#243249;color:inherit;border:1px solid #65809c;border-radius:5px}button{cursor:pointer}#grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px}article{background:#192330;padding:14px;border:1px solid #35485e;border-radius:7px;min-width:0}article[hidden]{display:none}video{display:block;width:100%;background:#000;margin:12px 0}a{color:#a8ccff}h2{font-size:18px;line-height:1.4}.song{font-weight:bold;color:#b6cbe3}.warning{color:#ffd495}.small{font-size:14px;color:#b4c5d8}.toolbar{display:flex;flex-wrap:wrap;gap:12px;align-items:center;margin:20px 0;padding:12px;background:#192330;border:1px solid #35485e;border-radius:7px}.toolbar label{display:inline-flex;align-items:center;gap:7px}#seek{width:min(42vw,540px)}#clock{font-variant-numeric:tabular-nums;min-width:75px}#status{font-size:14px;flex-basis:100%}.links{display:flex;gap:12px;align-items:center;flex-wrap:wrap}details{margin:20px 0;padding:12px;border:1px solid #35485e;border-radius:7px}:focus-visible{outline:3px solid #a8ccff;outline-offset:3px}@media(max-width:1100px){#grid{grid-template-columns:1fr}body{margin:14px}#seek{width:min(60vw,540px)}}
+</style>
+<h1>Hybrid dance pilot — body, emitted light and pacing</h1>
+<p class="warning">Experimental comparisons. User review is pending. No baseline promotion.</p>
+<p><strong>A</strong> is the original native joint-planner result at its native 1× clock. <strong>B</strong> applies the historical D4-max + D6 + D8 approach to each song’s own G78 motion. <strong>C</strong> starts from A, recomposes it with D4-max, then applies the earlier D6 positive-pacing planner. B and C contain recomposed and retimed motion.</p>
+<p>All six clips cover the same <strong>90–150 s</strong> source interval with original-speed audio. Each song supplies its own body. The lighting simulation follows requested motor motion without speed or acceleration caps; P2 colors and restored audio-driven brightness remain in place.</p>
+<p>The lower data strip compares A (gray) with the current arm: regional and root speeds, requested and emitted motor speeds, beam dimmer and estimated audio sources. B/C show the actual saved D6 <code>playback_rate</code> and motif cuts. Scales are shared across A/B/C within each song. These are measured behavior traces, not a musical-correctness score.</p>
+<div class="toolbar">
+  <label>Song <select id="song"><option value="shpongle">Shpongle</option><option value="cure_for_me">AURORA — Cure For Me</option></select></label>
+  <button id="play">Play three arms</button><button id="pause">Pause</button><button id="restart">Restart</button>
+  <label>Source time <input id="seek" type="range" min="90" max="150" step="0.033333" value="90"></label>
+  <output id="clock">90.00 s</output>
+  <label>Audible master <select id="master"></select></label>
+  <span id="status" role="status" aria-live="polite"></span>
+</div>
+<main id="grid"></main>
+<details>
+  <summary>How to read the comparisons</summary>
+  <p>A retains native motion timing. B and C reuse and reorder motion fragments, then change their timing through D6. The saved D6 playback rate describes that retiming step; it does not measure the song tempo or certify musical appropriateness. Motif-cut markers identify recomposition boundaries.</p>
+  <p>Regional speeds are measured relative to the hips; root speed is shown separately. Requested motor speeds come from spatial targets and emitted speeds from the saved DMX output. Shared scales make arm-to-arm differences directly comparable within a song. Audio-source and musical-boundary estimates remain estimates.</p>
+  <p>This pilot has no new validated improvement claim. Inspect phrase timing, repetition, pauses, physical continuity and the resulting light separately. Artistic acceptance remains pending your review.</p>
+</details>
+<p class="small">Scene and cameras are fixed across the six clips. Constant presentation fill aids body visibility: close .50 / wide .12, separate from emitted DMX. Root XZ is removed for viewing; saved pose, height and candidate timing are retained. Download links point to the original preview files.</p>
+<script>
+'use strict';
+const clips=__CLIPS_JSON__;
+const armLabels={D7_reference:'A | Native joint planner',C3:'B | D4-max + D6 + D8 on own-song G78',C4:'C | Native A → D4-max → D6'};
+const armTiming={D7_reference:'Native 1× timing. Original native joint-planner body.',C3:'Recomposed + retimed. Historical positive-pacing approach on this song’s G78 body.',C4:'Recomposed + retimed. Starts from A, then D4-max and the earlier D6 pacing planner.'};
+const grid=document.querySelector('#grid'),master=document.querySelector('#master'),seek=document.querySelector('#seek'),clock=document.querySelector('#clock'),status=document.querySelector('#status'),songSelect=document.querySelector('#song');
+const articles=[];
+let playing=false,generation=0,songTime=0;
+const videos=clips.map((clip,index)=>{
+ const article=document.createElement('article');article.dataset.method=clip.method;article.dataset.song=clip.song;articles.push(article);
+ const title=document.createElement('h2');title.textContent=armLabels[clip.method]||clip.label;
+ const song=document.createElement('p');song.className='song';song.textContent=clip.song==='shpongle'?'Shpongle':'AURORA — Cure For Me';
+ const verdict=document.createElement('p');verdict.className='warning';verdict.textContent='Experimental · user review pending';
+ const timing=document.createElement('p');timing.className='small';timing.textContent=armTiming[clip.method]||'See the saved motion provenance.';
+ const video=document.createElement('video');video.src=clip.src;video.preload='metadata';video.playsInline=true;video.muted=true;video.setAttribute('aria-label',(armLabels[clip.method]||clip.label)+' — '+song.textContent+'; use shared controls');
+ const links=document.createElement('div');links.className='links';const download=document.createElement('a');download.href=clip.src;download.download=clip.song+'_'+clip.method+'_hybrid_90-150s.mp4';download.textContent='Download video';const full=document.createElement('button');full.textContent='Fullscreen';full.onclick=()=>{const request=video.requestFullscreen?.();request?.catch(()=>{status.textContent='Fullscreen is unavailable; use the video download.'})};links.append(download,full);
+ video.addEventListener('loadedmetadata',()=>{if(activeIndices().includes(index))position(video,songTime)});
+ video.addEventListener('play',()=>{if(!video.paused&&(!playing||!activeIndices().includes(index)))video.pause()});
+ article.append(title,song,verdict,timing,video,links);grid.append(article);return video;
+});
+function activeIndices(){return clips.map((clip,index)=>clip.song===songSelect.value?index:-1).filter(index=>index>=0)}
+function activeVideos(){return activeIndices().map(index=>videos[index])}
+function primary(){const index=Number(master.value);return activeIndices().includes(index)?videos[index]:activeVideos()[0]}
+function position(video,time){if(video.readyState>0&&Number.isFinite(video.duration))video.currentTime=Math.max(0,Math.min(video.duration,time))}
+function displayTime(time){songTime=Math.max(0,Math.min(60,time));clock.value=(90+songTime).toFixed(2)+' s';seek.value=90+songTime}
+function setMaster(){const source=primary();videos.forEach(video=>video.muted=video!==source)}
+function pause(){generation++;playing=false;videos.forEach(video=>video.pause())}
+function jump(seconds){displayTime(seconds-90);activeVideos().forEach(video=>position(video,songTime))}
+async function play(){
+ const active=activeVideos();if(!active.length){status.textContent='No clips are available for this song.';return}
+ if(songTime>=59.999)jump(90);else active.forEach(video=>position(video,songTime));
+ setMaster();playing=true;const token=++generation;status.textContent='Starting synchronized playback…';
+ const outcomes=await Promise.allSettled(active.map(video=>video.play()));
+ if(token!==generation){for(const video of active)if(!playing||!activeVideos().includes(video))video.pause();return}
+ if(outcomes.some(result=>result.status==='rejected')){pause();status.textContent='Playback could not start for every active clip. Press Play again.'}else status.textContent='Three arms synchronized; one soundtrack.';
+}
+function switchSong(){
+ pause();videos.forEach(video=>{video.muted=true;position(video,0)});master.replaceChildren();clips.forEach((clip,index)=>articles[index].hidden=clip.song!==songSelect.value);
+ for(const index of activeIndices()){const option=document.createElement('option');option.value=index;option.textContent=armLabels[clips[index].method]||clips[index].label;master.append(option)}
+ jump(90);setMaster();status.textContent='Paused at source 90.00 s.';
+}
+master.onchange=()=>{const current=activeVideos();const oldTime=playing?songTime:(current[0]?.currentTime??songTime);current.forEach(video=>position(video,oldTime));displayTime(oldTime);setMaster()};
+songSelect.onchange=switchSong;
+document.querySelector('#play').onclick=play;
+document.querySelector('#pause').onclick=()=>{if(primary()&&!primary().seeking)displayTime(primary().currentTime);pause();status.textContent='Paused.'};
+document.querySelector('#restart').onclick=()=>{pause();jump(90);status.textContent='Paused at source 90.00 s.'};
+seek.oninput=()=>jump(Number(seek.value));
+for(const video of videos){
+ video.onended=()=>{if(!playing||!activeVideos().includes(video)||!video.ended)return;pause();displayTime(60);status.textContent='Source interval complete.'};
+ video.onerror=()=>{if(!activeVideos().includes(video))return;pause();status.textContent='An active clip failed to load. Its download link remains available.'};
+}
+setInterval(()=>{if(!playing)return;const source=primary();if(!source||source.seeking)return;const time=source.currentTime;for(const video of activeVideos())if(video!==source&&!video.seeking&&Math.abs(video.currentTime-time)>.09)position(video,time);displayTime(time)},100);
+switchSong();
+</script>
+</html>

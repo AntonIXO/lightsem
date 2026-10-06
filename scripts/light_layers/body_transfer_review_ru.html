@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="ru">
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>LightSem · тело → 63 выхода</title>
+<style>
+:root{color-scheme:dark;font:16px/1.55 system-ui;background:#10141b;color:#edf2f8}*{box-sizing:border-box}body{max-width:1280px;margin:auto;padding:24px}h1{font-size:30px;line-height:1.25}h2{font-size:21px}p{color:#bdcada}strong{color:#edf2f8}video{width:100%;aspect-ratio:16/9;background:#000;border-radius:10px;border:1px solid #43536a}.bar{display:flex;gap:10px;flex-wrap:wrap;margin:16px 0}button,a.download,textarea{font:inherit;background:#223045;color:#edf2f8;border:1px solid #526887;border-radius:7px;padding:10px 14px}button{cursor:pointer}button[aria-pressed=true]{background:#b5d4ff;color:#122031}.panel{padding:18px;border:1px solid #43536a;border-radius:10px;margin:20px 0}.notice{border-left:3px solid #edba78;padding-left:14px}a{color:#b5d4ff}.download{text-decoration:none}textarea{display:block;width:100%;min-height:90px;margin-top:8px}.muted{font-size:14px}summary{cursor:pointer}button:focus-visible,a:focus-visible,textarea:focus-visible,summary:focus-visible{outline:3px solid #b5d4ff;outline-offset:3px}table{width:100%;border-collapse:collapse}th,td{border-bottom:1px solid #43536a;padding:8px;text-align:left}.scroll{overflow:auto}@media(max-width:650px){body{padding:12px}h1{font-size:25px}}
+</style>
+<h1>Тело → 8 лучей, 5 лазеров и 50 лампочек</h1>
+<p>Первый прототип переноса танца на свет. Слева — <strong>тело, полученное для выбранной песни</strong>, справа — свет, которым оно управляет. Оба ролика показывают <strong>1:00–3:00 исходного трека</strong>. Цветовой бейзлайн — P2.</p>
+<div class="bar" id="choices" aria-label="Выбор песни"></div>
+<video id="video" controls playsinline preload="metadata" aria-label="Тело и свет выбранной песни"></video>
+<div class="bar"><button data-time="0">Начало</button><button data-time="30">0:30</button><button data-time="60">1:00</button><button data-time="90">1:30</button><a id="download" class="download">Скачать видео</a></div>
+<h2 id="title">Загрузка…</h2><p id="origin"></p>
+<p class="notice" id="diagnostic"></p>
+<p>Это геометрический просмотр переноса: широкие линии — лучи, тонкие — виртуальные лазеры, точки на дуге — гирлянда. Направления и яркость показаны по фактическим командам после ограничений приборов. Сценический вид и художественное качество здесь ещё не утверждены.</p>
+<section class="panel"><h2>Как из четырёх конечностей получается N выходов</h2>
+<p>Каждая конечность управляет несколькими выходами через разные точки вдоль своей цепи и фиксированное пространственное преобразование. Они раскрывают один жест в разных местах. Положение и скорость кистей и стоп также управляют световыми пятнами на гирлянде. Нового самостоятельного движения этот перенос не добавляет.</p>
+<p>Замороженное тело даёт неподвижный рисунок. Цвет работает отдельно по P2. Количества лучей, лазеров и лампочек задаются независимо; здесь выбран пример 8 + 5 + 50.</p>
+<details><summary>Какая конечность управляет каким лучом</summary>
+<div class="scroll"><table><thead><tr><th>Источник</th><th>Луч / виртуальный лазер</th></tr></thead><tbody>
+<tr><td>Левая рука</td><td>Г1, Г5 · Л1, Л5</td></tr><tr><td>Левая нога</td><td>Г2, Г6 · Л2</td></tr><tr><td>Правая нога</td><td>Г3, Г7 · Л3</td></tr><tr><td>Правая рука</td><td>Г4, Г8 · Л4</td></tr>
+</tbody></table></div>
+<p class="muted">Перенос сохраняет поворот корпуса, высоту тела и движения конечностей. Горизонтальное перемещение всего тела по сцене пока исключено. Ограничение скорости рассчитано офлайн с учётом всей траектории.</p></details>
+</section>
+<section class="panel"><h2>Проверка переноса</h2><div id="summary"></div>
+<details><summary>Численные показатели и ограничения</summary><div class="scroll"><table><thead><tr><th>Показатель</th><th>Shpongle</th><th>Cure For Me</th></tr></thead><tbody id="metrics"></tbody></table></div>
+<p class="muted">Число разных траекторий подтверждает отсутствие точных копий. Оно не доказывает, что жесты выразительны или хорошо читаются. Смена RGB означает переход между устойчивыми командами цвета; промежуточные кадры плавного перехода отдельно не считаются.</p></details>
+</section>
+<section class="panel"><h2>Заметки к выбранному треку</h2>
+<label for="notes">Какие жесты тела читаются в свете, а какие теряются?</label><textarea id="notes"></textarea>
+<div class="bar"><button id="export">Скачать заметки</button><span id="saved" role="status"></span></div>
+<p class="muted">Заметки сохраняются в этом браузере. Впечатления можно написать в чат.</p></section>
+<p class="muted" id="status" role="status"></p>
+<script>
+'use strict';
+const $=id=>document.getElementById(id),video=$('video'),key='lightsem-body-transfer-20260930-v1';
+let manifest=null,current=null,answers={tracks:{}};
+try{const stored=JSON.parse(localStorage.getItem(key)||'null');if(stored&&stored.tracks)answers=stored}catch{}
+function save(){if(!current)return;answers.tracks[current]=$('notes').value;answers.updated_at=new Date().toISOString();answers.video_hashes=Object.fromEntries(manifest.variants.map(v=>[v.id,v.sha256]));try{localStorage.setItem(key,JSON.stringify(answers));$('saved').textContent='Сохранено'}catch{$('saved').textContent='Скачай заметки для сохранения'}}
+function select(row){if(current===row.id)return;save();const t=video.currentTime||0,playing=!video.paused;current=row.id;video.src='/media/'+row.id+'.mp4';video.onloadedmetadata=()=>{video.currentTime=Math.min(t,Math.max(0,video.duration-.1));if(playing)video.play().catch(()=>{})};$('title').textContent=row.title;$('origin').textContent=row.origin;$('diagnostic').textContent=row.comment;$('notes').value=answers.tracks[current]||'';$('saved').textContent='';$('download').href='/media/'+row.id+'.mp4';$('download').download=row.download_name;for(const b of $('choices').children)b.setAttribute('aria-pressed',String(b.dataset.id===current))}
+for(const b of document.querySelectorAll('[data-time]'))b.onclick=()=>{if(Number.isFinite(video.duration))video.currentTime=Number(b.dataset.time)};
+$('notes').addEventListener('input',save);
+$('export').onclick=()=>{save();const url=URL.createObjectURL(new Blob([JSON.stringify(answers,null,2)],{type:'application/json'})),a=document.createElement('a');a.href=url;a.download='body_transfer_notes.json';a.click();setTimeout(()=>URL.revokeObjectURL(url),1000)};
+video.addEventListener('error',()=>{$('status').textContent='Если AV1 не воспроизводится в браузере, скачай видео и открой его в плеере.'});
+fetch('/manifest.json',{cache:'no-store'}).then(r=>{if(!r.ok)throw Error(r.status);return r.json()}).then(m=>{
+manifest=m;
+for(const row of m.variants){const b=document.createElement('button');b.textContent=row.title;b.dataset.id=row.id;b.onclick=()=>select(row);$('choices').append(b)}
+for(const text of m.summary){const p=document.createElement('p');p.textContent=text;$('summary').append(p)}
+for(const values of m.metrics){const tr=document.createElement('tr');for(const value of values){const td=document.createElement('td');td.textContent=value;tr.append(td)}$('metrics').append(tr)}
+$('status').textContent='2 видео по 2:00 · 1080p30 AV1 · звук исходного трека · '+m.variants.map(v=>(v.bytes/1e6).toLocaleString('ru-RU',{maximumFractionDigits:1})+' МБ').join(' / ');select(m.variants[0]);
+}).catch(()=>{$('status').textContent='Не удалось загрузить видео. Обнови страницу.'});
+</script></html>

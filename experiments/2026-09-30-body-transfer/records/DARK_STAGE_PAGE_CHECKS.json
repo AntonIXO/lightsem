@@ -1,0 +1,29 @@
+{
+  "url": "http://127.0.0.1:8772",
+  "HTML_source_match": true,
+  "JavaScript_syntax": true,
+  "two_songs_by_two_views_complete": true,
+  "range_checks": [
+    {
+      "id": "01",
+      "status": 206,
+      "source_bytes_match": true
+    },
+    {
+      "id": "02",
+      "status": 206,
+      "source_bytes_match": true
+    },
+    {
+      "id": "03",
+      "status": 206,
+      "source_bytes_match": true
+    },
+    {
+      "id": "04",
+      "status": 206,
+      "source_bytes_match": true
+    }
+  ],
+  "browser_automation": false
+}

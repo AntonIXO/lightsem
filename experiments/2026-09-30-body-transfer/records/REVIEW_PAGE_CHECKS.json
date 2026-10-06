@@ -1,0 +1,23 @@
+{
+  "url": "http://127.0.0.1:8771",
+  "HTML_matches_source": true,
+  "JavaScript_syntax": true,
+  "variants": 2,
+  "media_range_checks": [
+    {
+      "id": "01",
+      "status": 206,
+      "bytes": 1024,
+      "matches_file": true
+    },
+    {
+      "id": "02",
+      "status": 206,
+      "bytes": 1024,
+      "matches_file": true
+    }
+  ],
+  "old_review_still_available": true,
+  "browser_visual_test": false,
+  "limitation": "No browser automation runtime available; HTML/JS and HTTP media checked. Rendered movie samples inspected separately."
+}

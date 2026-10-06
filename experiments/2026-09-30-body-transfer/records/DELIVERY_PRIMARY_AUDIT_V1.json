@@ -1,0 +1,42 @@
+{
+  "plan_sha256": "578f6c43a87c73f92aebb4012ba3b2b681e5df98acf281bee026b211a9b93d93",
+  "frozen_inputs_reverified": 130,
+  "delivery_sha256": "c0768aabac5f30426fee442817a96466f39e200a0ddcce122b8ff7832752527e",
+  "media": [
+    {
+      "id": "shpongle",
+      "sha256": "a354343e9776fb51d888d489d205a0c3792c3765010e2cc301e5da52930fdb2f",
+      "audit_sha256": "b81f6954c734310bb1908ae20f0dea57be69c7bf389a2f1d50f8098377a41ca7",
+      "render_sha256": "1478fff233a4128fc0bc7b0ac14b3d424d9bafd5fe61abc95cf1563135a7439e",
+      "reference_pcm_sha256": "edbfe63f8143e5e6f55521e9a02b35008e48ab3d6caa3dbedfb57d6c54f28226",
+      "decoded_frames": 3600,
+      "width": 1920,
+      "height": 1080,
+      "duration_s": 120
+    },
+    {
+      "id": "cure_for_me",
+      "sha256": "aa53e197c1ee95632a464fbbb287855d03185b9234fcd9284b4af0228b940db7",
+      "audit_sha256": "4bb9577b5861c9e48469dc888503a45ad8cf55e505c67a347dc1c844b06975f4",
+      "render_sha256": "ed65eb0ddaabc603a4eea1c4df3f0bed1f436358256161c3831fa4c8c4982d9a",
+      "reference_pcm_sha256": "426c302af484fdbb91e8f4145d7007609c863097830c7f273cde925dc747d039",
+      "decoded_frames": 3600,
+      "width": 1920,
+      "height": 1080,
+      "duration_s": 120
+    }
+  ],
+  "visual_scope": "Sampled silent source frames and decoded contact sheets, not human audio/music-fit acceptance",
+  "observations": [
+    "Body and all output classes visible; fixed camera and source timestamps readable.",
+    "Rays often cross near the center; overlapping rays and dimmer changes can obscure individual gestures.",
+    "Cure color almost static (one RGB transition); no autonomous replacement or injected color event."
+  ],
+  "delivery_decision": "Deliver as engineering prototype; no artistic acceptance or hardware qualification.",
+  "page_sha256": "acdf757eb4cd3f674275a5661a041cc94e930ddfd77afdba6ca575c7af3183c7",
+  "review_manifest_sha256": "e7fbad6f370aa4b210327a6d6c588187d908c8c2f6628a88f49cf889b270cd1d",
+  "remaining_free_bytes": {
+    "/root": 10688012288,
+    "/mnt": 1244852224
+  }
+}

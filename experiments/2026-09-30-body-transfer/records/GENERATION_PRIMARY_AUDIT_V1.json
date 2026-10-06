@@ -1,0 +1,202 @@
+{
+  "plan_sha256": "578f6c43a87c73f92aebb4012ba3b2b681e5df98acf281bee026b211a9b93d93",
+  "frozen_inputs_verified": 130,
+  "tracks": {
+    "shpongle": {
+      "fixture_counts": {
+        "beam": 8,
+        "laser": 5,
+        "bulb": 50
+      },
+      "constant_middle_pose_DMX_exact": true,
+      "all_finite": true,
+      "speed_max": 89.8531481415419,
+      "acceleration_max": 354.9845421045919,
+      "unique_moving_trajectories": 13,
+      "surface_target_error_median_p90_m": [
+        0.04330995405214304,
+        0.3403994011643258
+      ],
+      "angular_target_error_median_p90_deg": [
+        0.287841319924979,
+        2.741306407325644
+      ],
+      "segments": {
+        "prefix": {
+          "RGB_transition_count": 45,
+          "RGB_transition_start_s": [
+            0.325,
+            119.025,
+            119.625,
+            120.325,
+            121.325,
+            122.325,
+            123.325,
+            124.325,
+            125.025,
+            126.025,
+            126.725,
+            127.325,
+            128.025,
+            128.525,
+            129.025,
+            129.525,
+            130.025,
+            131.025,
+            131.725,
+            132.325,
+            133.025,
+            133.825,
+            134.325,
+            135.025,
+            136.025,
+            136.525,
+            137.025,
+            137.525,
+            138.025,
+            138.725,
+            139.325,
+            154.725,
+            155.325,
+            158.725,
+            159.325,
+            160.025,
+            163.325,
+            166.725,
+            167.325,
+            168.025,
+            169.325,
+            170.725,
+            175.325,
+            176.025,
+            177.325
+          ],
+          "longest_constant_RGB_s": 118.425,
+          "stationary_speed_below_1deg_s_fraction": 0.0023293833545257356,
+          "dim_min_max": [
+            0.0392156862745098,
+            0.8980392156862745
+          ]
+        },
+        "review": {
+          "RGB_transition_count": 44,
+          "RGB_transition_start_s": [
+            119.025,
+            119.625,
+            120.325,
+            121.325,
+            122.325,
+            123.325,
+            124.325,
+            125.025,
+            126.025,
+            126.725,
+            127.325,
+            128.025,
+            128.525,
+            129.025,
+            129.525,
+            130.025,
+            131.025,
+            131.725,
+            132.325,
+            133.025,
+            133.825,
+            134.325,
+            135.025,
+            136.025,
+            136.525,
+            137.025,
+            137.525,
+            138.025,
+            138.725,
+            139.325,
+            154.725,
+            155.325,
+            158.725,
+            159.325,
+            160.025,
+            163.325,
+            166.725,
+            167.325,
+            168.025,
+            169.325,
+            170.725,
+            175.325,
+            176.025,
+            177.325
+          ],
+          "longest_constant_RGB_s": 59.025,
+          "stationary_speed_below_1deg_s_fraction": 0.002388318079086989,
+          "dim_min_max": [
+            0.0392156862745098,
+            0.8980392156862745
+          ]
+        }
+      }
+    },
+    "cure_for_me": {
+      "fixture_counts": {
+        "beam": 8,
+        "laser": 5,
+        "bulb": 50
+      },
+      "constant_middle_pose_DMX_exact": true,
+      "all_finite": true,
+      "speed_max": 89.85314814154275,
+      "acceleration_max": 354.98454210462893,
+      "unique_moving_trajectories": 13,
+      "surface_target_error_median_p90_m": [
+        0.04947335466483674,
+        0.3587205245494445
+      ],
+      "angular_target_error_median_p90_deg": [
+        0.3229445770937429,
+        2.8742523201726877
+      ],
+      "segments": {
+        "prefix": {
+          "RGB_transition_count": 3,
+          "RGB_transition_start_s": [
+            0.925,
+            2.625,
+            67.325
+          ],
+          "longest_constant_RGB_s": 112.4,
+          "stationary_speed_below_1deg_s_fraction": 0.0023293833545257356,
+          "dim_min_max": [
+            0.0392156862745098,
+            0.8980392156862745
+          ]
+        },
+        "review": {
+          "RGB_transition_count": 1,
+          "RGB_transition_start_s": [
+            67.325
+          ],
+          "longest_constant_RGB_s": 112.4,
+          "stationary_speed_below_1deg_s_fraction": 0.00259669482424223,
+          "dim_min_max": [
+            0.0392156862745098,
+            0.8980392156862745
+          ]
+        }
+      }
+    }
+  },
+  "artifacts": {
+    "/root/lightsem/runs/body_transfer_20260930_v1/shpongle/timeline.npz": "767690af63430eed5b945246c540394f32b866adbe0bd868a3865cbd5d74d923",
+    "/root/lightsem/runs/body_transfer_20260930_v1/shpongle/body.npz": "18ea1a395a5fa4c36ca8013f9e09a15d9d373b0eda12a92a891e00390eee85af",
+    "/root/lightsem/runs/body_transfer_20260930_v1/shpongle/patch.json": "73d082649bb84e5aa88f3e41ec249c1881643a936c69c0903b15d77719c10e94",
+    "/root/lightsem/runs/body_transfer_20260930_v1/shpongle/BODY_PROVENANCE.json": "e2d12a81ddf39cf40d6c4f9912101cb989b60c11d4a50b38e04787cc841c36d7",
+    "/root/lightsem/runs/body_transfer_20260930_v1/shpongle/DIAGNOSTICS.json": "dbfaf304b5e696207ce3a630bb003033282198073e2d0d4cb4b36d6a9aeb4660",
+    "/root/lightsem/runs/body_transfer_20260930_v1/cure_for_me/timeline.npz": "9cbbd3f64cfcd04218b285018abc2548dae060e13b550f39e075646adf88ebe1",
+    "/root/lightsem/runs/body_transfer_20260930_v1/cure_for_me/body.npz": "89295782396d34734d15d2edb8381fc86c83f668dd4ba1d94df2f39f8913b68c",
+    "/root/lightsem/runs/body_transfer_20260930_v1/cure_for_me/patch.json": "73d082649bb84e5aa88f3e41ec249c1881643a936c69c0903b15d77719c10e94",
+    "/root/lightsem/runs/body_transfer_20260930_v1/cure_for_me/BODY_PROVENANCE.json": "38a5c7af70125d6f2a4229ad41dcdb4a802fa8cc7124d275186085235b45e232",
+    "/root/lightsem/runs/body_transfer_20260930_v1/cure_for_me/DIAGNOSTICS.json": "ec79b0cbdd7da574105d8391484cf18eec8b76698ddb0175943b6d6e562a9b26"
+  },
+  "body_arrays_distinct": true,
+  "cross_track_angles_RMS_deg": 8.305433148564608,
+  "decision": "Allow both diagnostic renders. Engineering controls pass. Sparse Cure color is exposed, no artificial changes added. Choreography is unjudged; whole-track constrained fitting is offline."
+}

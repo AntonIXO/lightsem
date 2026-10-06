@@ -1,0 +1,63 @@
+<style>
+#pair-comparison{background:#101b26;border-color:#4d8294}#pair-comparison summary{font-size:20px;font-weight:600}.pair-toolbar{display:flex;align-items:center;gap:12px;flex-wrap:wrap;margin:14px 0}.pair-toolbar label{display:flex;align-items:center;gap:7px}.pair-toolbar input{width:min(45vw,580px)}#pair-plot{display:block;width:100%;height:auto;max-width:1680px}#pair-caption{color:#d1dfec}.pair-col-old{color:#ffa950}.pair-col-new{color:#4bd6e6}#pair-measures{max-width:1200px}#pair-time{font-variant-numeric:tabular-nums}.pair-note{max-width:1250px;color:#cad8e6}
+</style>
+<details id="pair-comparison" open>
+  <summary>Direct motion comparison — Old D7 versus Repaired native C</summary>
+  <p class="pair-note"><strong>The earlier charts hid differences.</strong> Broken C's full-song spikes set every axis, even the 90–150 s details. The new plots use one common linear scale for <span class="pair-col-old">Old D7</span> and <span class="pair-col-new">Repaired C</span> within the displayed interval. Every peak is included; no clipping, smoothing or changes to motion. The three original movies keep their original embedded plots.</p>
+  <p id="pair-identity" class="pair-note"></p>
+  <div class="pair-toolbar">
+    <label>Window <select id="pair-window"><option value="90_150">90–150 s</option><option value="full_song">Complete song</option></select></label>
+    <label>Plot <select id="pair-kind"><option value="body">Raw body: arms, legs, jerk and root</option><option value="difference">Signed regional speed difference: repaired − D7</option><option value="lights">Requested / emitted motors and brightness</option></select></label>
+    <button id="pair-jump">Jump to window start</button>
+    <label>Video time <input id="pair-seek" type="range" min="0" max="0" value="0" step="0.033333"></label>
+    <output id="pair-time"></output>
+  </div>
+  <img id="pair-plot" alt="Direct raw motion comparison">
+  <p id="pair-caption" class="small"></p>
+  <div class="metrics-scroll" id="pair-measures"></div>
+  <p class="pair-note">Speeds are pelvis-relative; joint RMS jerk is world-space. These are measurements of generated output, not errors against a true dance for the showcase song. Related speed curves do not establish new musical choreography. The historical D7 draw differs from C's draw, so this is a descriptive comparison; matched training controls are in the existing evidence.</p>
+  <p class="pair-note">The shared waveform and brightness law are intentional controls. Similar brightness is expected. Motion, brightness and color are evaluated separately.</p>
+  <button id="pair-download">Download comparison audit (JSON)</button>
+</details>
+<script>
+(() => {
+ 'use strict';
+ const pairData=__PAIR_DATA_JSON__;
+ window.addEventListener('DOMContentLoaded',()=>{
+  const byId=id=>document.getElementById(id);
+  const number=value=>value===null?'—':Number(value).toLocaleString('en-US',{maximumSignificantDigits:4});
+  function update(){
+   const song=byId('song').value,scope=byId('pair-window').value,kind=byId('pair-kind').value;
+   const audit=pairData.audit.songs.find(item=>item.song===song),windowData=audit.windows[scope];
+   const graph=pairData.graphs.find(item=>item.song===song&&item.scope===scope&&item.kind===kind);
+   if(!graph)throw Error('Missing direct comparison graph');
+   const image=byId('pair-plot');image.src=graph.src;image.dataset.sha256=graph.sha256;image.dataset.song=song;image.dataset.scope=scope;image.dataset.kind=kind;
+   image.alt=(song==='shpongle'?'Shpongle':'AURORA — Cure For Me')+' '+graph.interval_s.join('–')+' s — '+kind+' — raw D7 versus repaired C';
+   byId('pair-caption').textContent=kind==='difference'?'Signed raw sample differences: positive means repaired C moves faster, negative means slower. A zero line would mean identical regional speeds.':kind==='body'?'Orange: historical Old D7. Cyan: Repaired native C. Shared scales between this pair only; all raw extrema retained.':'Orange: historical Old D7. Cyan: Repaired native C. Fixture speed/acceleration caps remain off; these are the actual requested and emitted light commands.';
+   const identity=audit.identity;
+   byId('pair-identity').textContent='Saved raw trajectories: '+(identity.world_exactly_equal?'EXACT DUPLICATE':'different')+'. Pelvis-relative joint-vector RMS difference: '+number(identity.pelvis_relative_joint_vector_RMS_difference_m*100)+' cm. The measurements below show how much the regional speeds still resemble each other.';
+   const keys=kind==='lights'?['requested','emitted','brightness']:['left_arm','right_arm','lower','body_jerk','root_y','root_vertical_jerk'];
+   const table=document.createElement('table');table.className='metrics-table';
+   const head=document.createElement('thead'),heading=document.createElement('tr');
+   for(const title of ['Raw measurement','Old D7 mean','Repaired C mean','Mean change','Correlation r','Difference RMSE']){const cell=document.createElement('th');cell.scope='col';cell.textContent=title;heading.append(cell)}
+   head.append(heading);table.append(head);const body=document.createElement('tbody');
+   for(const key of keys){
+    const measurement=windowData.measurements[key],row=document.createElement('tr');
+    const delta=key==='root_vertical_jerk'||key==='root_y'?'—':number(measurement.mean_delta_percent)+'%';
+    for(const [index,text] of [measurement.label,number(measurement.old_mean),number(measurement.repaired_mean),delta,number(measurement.pearson_r),number(measurement.difference_RMSE)].entries()){const cell=document.createElement('td');cell.textContent=text;if(index===1)cell.className='pair-col-old';if(index===2)cell.className='pair-col-new';row.append(cell)}
+    body.append(row);
+   }
+   table.append(body);byId('pair-measures').replaceChildren(table);
+   byId('pair-seek').min=String(graph.interval_s[0]);byId('pair-seek').max=String(graph.interval_s[1]);
+   byId('pair-jump').dataset.time=String(graph.interval_s[0]);
+  }
+  for(const id of ['song','pair-window','pair-kind'])byId(id).addEventListener('change',update);
+  byId('pair-jump').onclick=()=>jump(Number(byId('pair-jump').dataset.time));
+  byId('pair-seek').oninput=()=>jump(Number(byId('pair-seek').value));
+  byId('diagnostic-open').onclick=()=>{byId('pair-comparison').open=true;byId('pair-comparison').scrollIntoView({behavior:'smooth',block:'start'})};
+  byId('pair-download').onclick=()=>{const blob=new Blob([JSON.stringify(pairData.audit,null,2)+'\n'],{type:'application/json'});const url=URL.createObjectURL(blob),link=document.createElement('a');link.href=url;link.download='native_repair_direct_comparison_audit.json';link.click();setTimeout(()=>URL.revokeObjectURL(url),2000)};
+  function clock(){byId('pair-time').value=Number(songTime).toFixed(2)+' s';byId('pair-seek').value=Math.max(Number(byId('pair-seek').min),Math.min(Number(byId('pair-seek').max),songTime));requestAnimationFrame(clock)}
+  update();clock();
+ });
+})();
+</script>

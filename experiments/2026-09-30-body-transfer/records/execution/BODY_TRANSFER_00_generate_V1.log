@@ -1,0 +1,4 @@
+BODY_READY shpongle
+BODY_READY cure_for_me
+N_OUTPUTS_MAPPED shpongle 13 distinct trajectories
+N_OUTPUTS_MAPPED cure_for_me 13 distinct trajectories

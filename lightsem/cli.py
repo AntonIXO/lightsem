@@ -1,9 +1,12 @@
 """LightSem CLI — one command from audio to a rendered, audio-synced MP4.
 
-    bash run.sh -m lightsem.cli render --wav path/to.wav --out show.mp4
-    bash run.sh -m lightsem.cli render --aist mBR0 --duration 30
+    bash run_torch.sh -m lightsem.cli render --wav path/to.wav --out show.mp4
+    bash run_torch.sh -m lightsem.cli render --wav path/to.wav --out show.mp4 --d4max --d6
+    bash run_torch.sh -m lightsem.cli dance --wav path/to.wav --out runs/body
     bash run.sh -m lightsem.cli analyse --wav path/to.wav
     bash run.sh -m lightsem.cli manifest
+
+The historical rule-driven renderer is explicitly named legacy-render.
 """
 
 from __future__ import annotations
@@ -155,7 +158,23 @@ def main(argv=None) -> int:
     pm.add_argument("--limit", type=int, default=None)
     pm.set_defaults(func=do_manifest)
 
-    pr = sub.add_parser("render", help="full pipeline -> MP4")
+    from .dance.cli import add_options, do_dance, do_render as do_native_render
+    pd = sub.add_parser("dance", help="fixed native C + MuQ -> body; optional D4-max/D6")
+    add_options(pd)
+    pd.add_argument("--out", type=Path, help="New run directory containing body.npz, plan.npz and provenance")
+    pd.set_defaults(func=do_dance)
+
+    pn = sub.add_parser("render", help="fixed native C + MuQ -> actual DMX + lit3D MP4")
+    add_options(pn)
+    pn.add_argument("--out", type=Path)
+    pn.add_argument("--start", type=float, default=0., help="Render start in source seconds; generate/analyze complete song first")
+    pn.add_argument("--duration", type=float, default=None, help="Render-only crop in seconds; original audio speed")
+    pn.add_argument("--colors", type=Path, help="Own-song P2 color cache with authenticated REPORT.json")
+    for name in ("beams", "lasers", "bulbs"):
+        pn.add_argument("--" + name, type=int, default=None)
+    pn.set_defaults(func=do_native_render)
+
+    pr = sub.add_parser("legacy-render", help="historical rule-driven renderer, for reproducing old studies")
     common(pr)
     pr.add_argument("--out")
     pr.add_argument("--mode", choices=[CAUSAL, ORACLE], default=CAUSAL)

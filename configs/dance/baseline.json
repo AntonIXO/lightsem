@@ -1,0 +1,153 @@
+{
+  "schema_version": 1,
+  "id": "native-C-HF16-reference-20261006",
+  "status": "user_authorized_working_motion_reference",
+  "authority": {
+    "date": "2026-10-06",
+    "timezone": "Europe/Moscow",
+    "request": "Ok. Let's format a new baseline. Should we bring one of D algoritms on top fixed C?",
+    "scope": "Versioned working reference for future motion comparisons. No assertion of musical superiority; prior experiment verdicts remain unchanged."
+  },
+  "checkpoint": {
+    "path": "/mnt/lightsem-data/experiments/lightsem/native_dynamics_jd_20261005_v1/repair_refine_v2/strong/learning/runs/joint/seed_0/final.pt",
+    "sha256": "4a40a85139e4177cbcf88b73d278016deef3d9b1fdc6a55e590ab7d473a8600a"
+  },
+  "generation_root": "/mnt/lightsem-data/experiments/lightsem/native_dynamics_jd_20261005_v1/repair_refine_v2/strong",
+  "inference_source_root": "/mnt/lightsem-data/experiments/lightsem/native_dynamics_jd_20261005_v1/sources/repair_r",
+  "training_seed": 0,
+  "generation_draw_seed": 7001,
+  "architecture": {
+    "model": "NativeDynamicsModel, joint arm, repaired HF16",
+    "native_channels": 139,
+    "joints": 22,
+    "solver_steps": 32,
+    "planner_hz": 2,
+    "regional_dynamics_channels": 48,
+    "continuous_motif_channels": 32,
+    "components": {
+      "D7": "Pretrained source-conditioned flow backbone",
+      "D8_principle": "Integrated whole-song/local hierarchy",
+      "D6_principle": "Regional speed and duration learned during training",
+      "D4_principle": "Continuous pose-recurrence objective; no fragment recomposition"
+    },
+    "audio": "Base92 +1061frozenMuQ/source/rhythm/structure features"
+  },
+  "timing": {
+    "native_body_hz": 30,
+    "lighting_hz": 40,
+    "audio_playback_rate": 1,
+    "retiming": false,
+    "motif_recomposition": false,
+    "output_smoothing": false,
+    "source_body_reuse_between_songs": false
+  },
+  "post_generation_addons": {
+    "D4_max": false,
+    "D6_clock": false,
+    "legacy_D7_overlay": false,
+    "legacy_D8_residual": false
+  },
+  "lighting": {
+    "color_baseline": {
+      "path": "/root/lightsem/configs/light_layers/baseline.json",
+      "sha256": "ca039831a35c5bdc654cd2569c009875c2855e11f2c137138b38ad257f2d6d39"
+    },
+    "brightness": "Restored historical full-song LUFS envelope and established body modulation",
+    "mapper": "V3 bone-direction 01, experimental transfer comparator",
+    "apply_motion_limits": false,
+    "demonstration_outputs": {
+      "moving_beams": 8,
+      "simulated_laser_beams": 5,
+      "bulbs": 50
+    }
+  },
+  "trained_recipe": {
+    "FD_train_songgroups": 109,
+    "JD_train_songgroups": 72,
+    "native_training_updates": 35500,
+    "raw_3D_constraints": true,
+    "quiet_gradient_fix_in_checkpoint": false,
+    "full_JD_training": false
+  },
+  "evidence": {
+    "selection": {
+      "path": "/mnt/lightsem-data/experiments/lightsem/native_dynamics_jd_20261005_v1/repair_refine_v2/reports/SELECTION.json",
+      "sha256": "6986e724e7e68898720ac7e8d4607562dab2bb986021f4592ce5b47acc737ce6"
+    },
+    "source_sensitivity": {
+      "path": "/mnt/lightsem-data/experiments/lightsem/native_dynamics_jd_20261005_v1/repair_refine_v2/strong/reports/SOURCE_CONTROLS.json",
+      "sha256": "fee21b8464f613cabb53c11379d6310292d7d1021fefd8acca0d8c0be234466e"
+    },
+    "complete_repair_delivery": {
+      "path": "/mnt/lightsem-data/experiments/lightsem/native_dynamics_jd_20261005_v1/repair_review_v1/reports/FINAL_REPORT.json",
+      "sha256": "e908120fd5ad1c26b13a59a604a295335ba257952e7c4e0d59afda9dcc9cb361"
+    },
+    "raw_similarity": {
+      "path": "/mnt/lightsem-data/experiments/lightsem/native_dynamics_jd_20261005_v1/repair_review_v1/review_3d_v1/revisions/direct_comparison_v1/SIMILARITY_AUDIT.json",
+      "sha256": "202cb535e91612d1ee7f08679ee38c79fed33323fba230ead73a1ddc71a3734e"
+    },
+    "quiet_gradient_audit": {
+      "path": "/mnt/lightsem-data/experiments/lightsem/native_dynamics_jd_20261005_v1/speed_training_audit_v1/AUDIT.json",
+      "sha256": "913b79fa8b206d867543d60da0fdddf04d9bb257b5135a296d2925c7af55e88a"
+    }
+  },
+  "musical_superiority_established": false,
+  "actual_reference_media": {
+    "shpongle": {
+      "body": {
+        "path": "/mnt/lightsem-data/experiments/lightsem/native_dynamics_jd_20261005_v1/repair_review_v1/bodies/C4/shpongle/body.npz",
+        "sha256": "15f063bdf975ad6322a8d974546cb60fdbdd28cf357020e229634871ad70ee0b"
+      },
+      "body_metadata": {
+        "path": "/mnt/lightsem-data/experiments/lightsem/native_dynamics_jd_20261005_v1/repair_review_v1/bodies/C4/shpongle/body.json",
+        "sha256": "280a28ff113e4eb12a261d420256b0f2decf63800985bf48180a9eda884dae04"
+      },
+      "movie": {
+        "path": "/mnt/lightsem-data/experiments/lightsem/native_dynamics_jd_20261005_v1/repair_review_v1/review_3d_v1/C4/shpongle/preview.mp4",
+        "sha256": "c5af6ec53c5aef99c73cc52235eafa8445d007520b3c8b058a4fbd553ab0595a"
+      },
+      "emission": {
+        "path": "/mnt/lightsem-data/experiments/lightsem/native_dynamics_jd_20261005_v1/repair_review_v1/unlimited_motion_v1/C4/shpongle/emission.npz",
+        "sha256": "0366e7f56e2bbd1ed3071d0f6146692b89b991ac557a24f1458d3eb1a71d06f1"
+      }
+    },
+    "cure_for_me": {
+      "body": {
+        "path": "/mnt/lightsem-data/experiments/lightsem/native_dynamics_jd_20261005_v1/repair_review_v1/bodies/C4/cure_for_me/body.npz",
+        "sha256": "768ac63e510936798d2bbbd56360e0d3059c4914ce498fd3bd82d52d6d42a417"
+      },
+      "body_metadata": {
+        "path": "/mnt/lightsem-data/experiments/lightsem/native_dynamics_jd_20261005_v1/repair_review_v1/bodies/C4/cure_for_me/body.json",
+        "sha256": "7b947f8816e9b4bff2e33a289d16ef22814493f7f65658c58995af0db46d5de4"
+      },
+      "movie": {
+        "path": "/mnt/lightsem-data/experiments/lightsem/native_dynamics_jd_20261005_v1/repair_review_v1/review_3d_v1/C4/cure_for_me/preview.mp4",
+        "sha256": "00ee3dba17d726adadd026c53eb712d68eeec49d4178cdff91951a3202b26408"
+      },
+      "emission": {
+        "path": "/mnt/lightsem-data/experiments/lightsem/native_dynamics_jd_20261005_v1/repair_review_v1/unlimited_motion_v1/C4/cure_for_me/emission.npz",
+        "sha256": "bc2e5944006aa9b7ae12c446ac7e599bc08a007d805ee8201d1cb05f3c40a5ab"
+      }
+    }
+  },
+  "candidate_addons": [
+    {
+      "id": "C_fixed_D4max",
+      "status": "defined_not_executed_on_this_checkpoint",
+      "purpose": "Explicit motif returns/development from this song's own body; retain donor provenance",
+      "default": false
+    },
+    {
+      "id": "C_fixed_D4max_D6",
+      "status": "defined_not_executed_on_this_checkpoint",
+      "purpose": "Comparison of recomposed and externally retimed motion; do not count as native speed learning",
+      "default": false,
+      "required_control": "C_fixed_D4max to isolate added pacing"
+    }
+  ],
+  "historical_addon_evidence": {
+    "path": "/mnt/lightsem-data/experiments/lightsem/native_dynamics_jd_20261005_v1/hybrid_positive_v1/reports/AGGREGATE.json",
+    "sha256": "e23fae432c3b6d0f8780b6b1c59aa9a92f57fdbd7f577c6f5e4a30280851c983"
+  },
+  "next_training_recipe": "/root/lightsem/configs/dance/native_speed_next.json"
+}

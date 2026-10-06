@@ -1,7 +1,51 @@
 # LightSem experiment and demo checks
 
+## Selected default — 2026-10-06
+
+- The user explicitly selected repaired native C/HF16 seed0 as the motion
+  baseline and requested commit/push. `configs/dance/fixed_c.json` is the
+  active CLI definition. The historically pinned `configs/dance/baseline.json`
+  remains unchanged for completed experiment provenance.
+- Frozen MuQ is required in the baseline and every option combination. D4-max
+  (`--d4max`) and external D6 pacing (`--d6`) default OFF and are independently
+  opt-in; D6 must also work without D4. Extra legacy D7/D8 overlays are off.
+- `lightsem.cli render` uses this native path; `legacy-render` only reproduces
+  historical rule-driven studies. P2 color and restored LUFS brightness stay
+  fixed; fixture motion caps remain OFF in simulation.
+- The selected weights do not include the later quiet-loss gradient fix or
+  full Just Dance retraining. Do not label those as trained or qualified.
+- The user closed the completed research campaigns. Preserve original failed
+  artifacts/verdicts and parked unresolved questions; do not silently resume
+  training. Closure: `docs/research/2026-10-05-native-dynamics/CAMPAIGN_CLOSURE.json`.
+
 The user explicitly requires collapse and input-sensitivity checks before model
 comparisons or demo delivery (2026-09-30).
+
+## Current product decision — 2026-09-30
+
+- P2 is the explicitly accepted COLOR baseline: independent Rich96 checkpoint,
+  palette history enabled, 300 ms transitions, two spatial color groups. Use
+  `configs/light_layers/baseline.json`. C is historical. Revalidate relevant
+  earlier hypotheses against P2; preserve their original evidence and verdicts.
+- The user accepts the demonstrated generated body as the dance source for the
+  current task. Focus on body-to-light transfer and arbitrary N outputs, not
+  reconstruction, retraining, or requalification of the dancer as a prerequisite.
+- Never substitute autonomous sine waves, beat oscillators, canned sweeps,
+  random motion or time-driven choreography for failed dance transfer. The user
+  calls that cheating: it changes the task while making the lamps look active.
+  This explicitly supersedes the September 12 rhythm-companion authorization.
+  Report failed transfer and fix it instead. Trigonometry for spatial coordinate
+  conversion is fine; an independent temporal motion source is not.
+- Every future demo uses BOTH Shpongle and AURORA — Cure For Me. Each song must
+  supply its own body trajectory. Never reuse Shpongle's body as Cure For Me's
+  dance. Keep the source body visible in transfer diagnostics.
+- Support arbitrary output count and capabilities: e.g. 8 moving beams,
+  5 simulated laser beams and 50 garland bulbs. Preserve related gestures and
+  phrase timing across the installation; do not claim more independent dance
+  information merely because outputs were duplicated.
+- Test source dependence: a frozen body must not produce autonomous motion;
+  changing a limb must affect its assigned outputs; extra outputs must preserve
+  source gesture timing; inspect the actual constrained/emitted output.
 
 - Before a large render batch, inspect the actual generated outputs: finite
   values, motion range and speed, inactive time, color-cue count, actual palette
@@ -19,6 +63,20 @@ comparisons or demo delivery (2026-09-30).
 - Say which components depend on music and which use a shared procedural
   vocabulary or unconditioned motion prior. Shared style is not evidence that
   audio changes generated body motion.
+- Trace saved-body provenance before calling a generator unconditional.
+  `prior_native_flow` means the previous audio-conditioned native flow model;
+  the accepted saved body was generated with Shpongle. Reusing that body on a
+  new song tests the companion controller, not new song-conditioned dance.
+- Nonzero movement and different output hashes do not establish choreography.
+  Compare after beat/tempo alignment, include different music with similar BPM,
+  and inspect phrase development, motif repetition, holds and visible gestures.
+  Check loss of gesture information separately at body, mapper and emitted DMX.
+- User review on 2026-09-30 rejects R1's two palette changes as output collapse
+  for this task, subsequently selects P2 as the color-layout baseline,
+  rejects P4's illogical flicker, and rejects the cross-song movement sameness.
+  Do not present these rejected results as qualified product alternatives.
+  P2 and P4 have identical moving-head RGB and identical non-RGB commands;
+  only auxiliary-fixture colors differ between those two variants.
 - Do not present failed/inactive or identical outputs as distinct baseline
   improvements. Keep full evidence, but show one representative of exact visual
   duplicates and identify the other runs as diagnostics.
@@ -28,3 +86,73 @@ comparisons or demo delivery (2026-09-30).
 - Store these checks and findings in the project Vibescience vault
   /root/lightsem-vault, not the unrelated default vault. Memory updates are
   already authorized by the user.
+
+## Native dynamics regression — 2026-10-06
+
+- The user now explicitly requests native training repair and verification;
+  this authorizes retraining for this task despite the older transfer-only scope.
+
+- The user rejects the native B/C jitter regression. Never treat lower smoothed
+  2D speed-profile error, greater speed variation, or more stops as qualified
+  dance improvement without raw 3D temporal-quality checks.
+- The original dynamics loss measures poses after a 9-tap, sigma-50-ms filter;
+  only ~4.4% of an 8-Hz perturbation survives. That measurement cannot certify
+  the unfiltered generated body's velocity, acceleration, jerk, support or root
+  stability. Check raw generated motion separately on BOTH FD and JD updates.
+- Just Dance supplies masked 2D observations, not metric 3D ground truth.
+  Keep observational denoising/masks, but do not leave generated depth, root
+  height or foot support unregularized merely because JD lacks 3D labels.
+- Compare against paired old D7 / continued-training controls on both songs
+  and development groups. Freeze raw-body roughness, high-frequency motion,
+  root/support, speed-variation and audio-sensitivity gates before scoring.
+  Do not accept a stationary or uniformly slowed model as a jitter fix.
+- Inspect native outputs BEFORE interpolation, DMX or rendering. Keep raw and
+  filtered measurements distinct. Posthoc smoothing/retiming/recomposition
+  does not establish that training was repaired. Do not stack D4/D6 on a
+  failed native generator and call the generator fixed.
+- Real-fixture speed/acceleration caps stay OFF in the current simulation;
+  never restore them to conceal bad generated motion. P2 color and restored
+  historical brightness remain fixed, with no automatic baseline promotion.
+- Evidence: /mnt/lightsem-data/experiments/lightsem/native_dynamics_jd_20261005_v1/jitter_audit_v1/ROOT_CAUSE.json
+
+- Verified repair evidence (2026-10-06):
+  `/mnt/lightsem-data/experiments/lightsem/native_dynamics_jd_20261005_v1/repair_refine_v2/reports/SELECTION.json`.
+  Both seeds pass all original raw-stability/activity/development gates;
+  this is recipe-specific evidence, not permission to skip checks in future.
+  Inference remains unfiltered native30Hz, with fixture speed limits off.
+
+## Comparison graph readability — 2026-10-06
+
+- Broken-model outliers must not make accepted/reference raw traces unreadable.
+  Preserve all-three diagnostics, but also show a direct reference/candidate
+  overlay with the same pair-specific scale and a signed difference plot.
+  Include every raw peak and disclose the time/scale scope; do not clip or
+  smooth away defects. Recompute plotted data from each role's own saved body.
+- The repaired C and historical D7 outputs are distinct but strongly correlated.
+  Passing jitter/stability gates does not prove that learned musical pacing
+  improved. D7 initialization, frozen early blocks and the JD stability prior
+  must be disclosed when interpreting resemblance. Historical D7 and current C
+  have different noise arrays; their comparison is descriptive, not paired.
+- Evidence: native_dynamics_jd_20261005_v1/repair_review_v1/review_3d_v1/
+  revisions/direct_comparison_v1/SIMILARITY_AUDIT.json.
+
+## Slow-target coverage and learning gradients — 2026-10-06
+
+- Do not claim the native dynamics recipe trains on all local corpora. Its
+  admitted inputs are FineDance TRAIN and the bounded 72-song Just Dance
+  TRAIN cohort. More cached videos/poses do not establish usable paired data.
+  Preserve existing development partitions, duplicate groups and quarantines.
+- Audit actual slow-target frequency, regional mask coverage and censored
+  durations before increasing a slow-motion objective. The current strict
+  Just Dance whole-quiet proxy covers only ~0.63% of valid frames; this is
+  not a count of every true slow gesture or rest in the underlying videos.
+- Never clamp a sigmoid probability before quiet-target BCE: sufficiently
+  fast predictions then receive zero slowdown gradient. Use stable logit-space
+  BCE and verify backpropagation through a genuinely moving trajectory, plus
+  the missing-observation case. Do not infer overall zero learning: the other
+  speed objectives still have gradients.
+- The gradient correction is code-tested only (15 relevant tests pass).
+  Displayed repaired-C checkpoints retain their original training recipe;
+  new musical effects and raw3D stability require a separately trained and
+  verified comparison. Do not claim the current demos include this fix.
+- Evidence: native_dynamics_jd_20261005_v1/speed_training_audit_v1/AUDIT.json.

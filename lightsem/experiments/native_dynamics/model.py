@@ -1,0 +1,170 @@
+"""Native learned dynamics: data-supervised planning inside the motion flow.
+
+No playback clock, trajectory recomposition, source-motion input or tempo rule.
+Just Dance gradients act on generated samples; only paired 3D data get CFM.
+"""
+from dataclasses import dataclass,asdict
+import torch
+from torch import nn
+import torch.nn.functional as F
+from ..dynamic_dance.learning import DynamicFlow,DynamicFlowConfig
+from ..motion_study.music_model import MusicConfig
+from .kinematics import PLAN_DIM,masked_mean
+MOTIF_DIM=32
+CONDITION_DIM=PLAN_DIM+MOTIF_DIM
+
+@dataclass(frozen=True)
+class Config:
+    arm:str='joint'
+    extra_dim:int=1061
+    planner_width:int=96
+    planner_heads:int=4
+    frames:int=480
+    steps:int=32
+    gradient_steps:int=4
+    freeze_early_blocks:int=6
+    adapter_scale:float=.2
+    def __post_init__(self):
+        if self.arm not in ('continued','dynamics','joint'):raise ValueError('Unknown registered arm')
+        if self.steps!=32 or not 1<=self.gradient_steps<=self.steps:raise ValueError('Declared32-step native solver required')
+
+
+class Planner(nn.Module):
+    def __init__(self,dimension,width=96,heads=4):
+        super().__init__();self.input=nn.Linear(dimension,width)
+        self.blocks=nn.ModuleList(nn.Conv1d(width,width,3,padding=d,dilation=d) for d in (1,2,4,8))
+        self.norm=nn.LayerNorm(width);self.attention=nn.MultiheadAttention(width,heads,batch_first=True)
+        self.mix=nn.Linear(width,width);self.output=nn.Linear(width,PLAN_DIM);self.recurrence=nn.Linear(width,32)
+    def forward(self,audio,valid):
+        x=F.silu(self.input(torch.where(valid[...,None],audio,0.)))
+        x=torch.where(valid[...,None],x,0.)
+        for block in self.blocks:x=torch.where(valid[...,None],x+.2*block(F.silu(x).transpose(1,2)).transpose(1,2),0.)
+        q=self.norm(x);vm=valid.clone();vm[:,0]=True
+        context,_=self.attention(q,q,q,key_padding_mask=~vm,need_weights=False)
+        h=torch.where(valid[...,None],x+.2*self.mix(context),0.)
+        raw=self.output(h).float();u=raw.reshape(*raw.shape[:-1],6,8)
+        quantiles=F.softplus(u[...,:3]).cumsum(-1)
+        packed=torch.cat((quantiles,u[...,3:4].sigmoid(),u[...,4:].softmax(-1)),-1).flatten(-2)
+        packed=torch.where(valid[...,None],packed,0.)
+        embedding=torch.where(valid[...,None],F.normalize(self.recurrence(h).float(),dim=-1,eps=1e-6),0.)
+        return {'raw':raw,'packed':packed,'embedding':embedding,'conditioning':torch.cat((packed,embedding),-1)}
+
+
+def plan_at_frames(plan,coarse_valid,frame_indices):
+    position=(frame_indices.float()-7.)/15.;lo0=position.floor().long();hi0=lo0+1;weight=(position-lo0.float()).clamp(0,1)
+    last=coarse_valid.sum(1).clamp_min(1)-1
+    lo=torch.minimum(lo0.clamp_min(0),last[:,None]);hi=torch.minimum(hi0.clamp_min(0),last[:,None])
+    a=plan.gather(1,lo[...,None].expand(-1,-1,plan.shape[-1]));b=plan.gather(1,hi[...,None].expand(-1,-1,plan.shape[-1]))
+    return a+(b-a)*weight[...,None]
+
+
+class Flow(DynamicFlow):
+    def __init__(self,base_config,normalizers,config):
+        super().__init__(base_config,normalizers,DynamicFlowConfig(config.extra_dim,arm='D7'))
+        self.native_config=config
+        self.native_projection=nn.Linear(CONDITION_DIM,32)
+        self.native_adapters=nn.ModuleList(nn.Linear(32,base_config.width) for _ in self.blocks)
+        for layer in self.native_adapters:nn.init.zeros_(layer.weight);nn.init.zeros_(layer.bias)
+    @property
+    def conditioning_dim(self):return 92+self.dynamic.extra_dim+CONDITION_DIM
+    def prepare_conditioning(self,audio):
+        extra=audio[...,92:92+self.dynamic.extra_dim]
+        conditioning=F.silu(self.audio_projection(extra))
+        native=F.silu(self.native_projection(audio[...,-CONDITION_DIM:])) if self.native_config.arm=='joint' else None
+        biases=[]
+        for adapter,native_adapter in zip(self.adapters,self.native_adapters):
+            bias=self.dynamic.adapter_scale*torch.tanh(adapter(conditioning))
+            if native is not None:bias=bias+self.native_config.adapter_scale*torch.tanh(native_adapter(native))
+            biases.append(bias.transpose(1,2))
+        return audio[...,:92],torch.stack(biases,1)
+    def prepared_vector_field(self,base,biases,state,t):
+        phase=t[:,None]*self.frequencies[None];time=self.time(torch.cat((phase.sin(),phase.cos()),-1))
+        x=self.input(torch.cat((base,state),-1).transpose(1,2))
+        for i,block in enumerate(self.blocks):x=block(x+biases[:,i],time)
+        return self.output(F.silu(x)).transpose(1,2).float()
+    def vector_field(self,audio,state,t):
+        return self.prepared_vector_field(*self.prepare_conditioning(audio),state,t)
+
+    def config_dict(self):
+        return {**super().config_dict(),'native_control_channels':80,'legacy34_plan_projection_unused':True,'conditioning':'Base92+1061frozenaudio+48learneddynamics+32continuousmotif; onlyjointconsumescontrol','retiming':False}
+
+
+
+class NativeDynamicsModel(nn.Module):
+    def __init__(self,base_config,normalizers,config=Config()):
+        super().__init__();self.config=config;self.flow=Flow(base_config,normalizers,config);self.planner=Planner(config.extra_dim,config.planner_width,config.planner_heads)
+        # All arms retain identical pretrained early3D filters. Candidatelearns
+        # its new adapters at every block, plus shared lateblocks/audioadapters.
+        for block in self.flow.blocks[:config.freeze_early_blocks]:
+            for p in block.parameters():p.requires_grad_(False)
+        for p in self.flow.plan_projection.parameters():p.requires_grad_(False) # unused legacy34-channel slots
+        if config.arm!='joint':
+            for module in (self.flow.native_projection,self.flow.native_adapters):
+                for p in module.parameters():p.requires_grad_(False)
+    def warmstart(self,d7_state):
+        result=self.flow.load_state_dict(d7_state,strict=False)
+        if result.unexpected_keys or any(not k.startswith(('native_projection.','native_adapters.')) for k in result.missing_keys):raise ValueError('D7 architecture/state mismatch')
+    def condition(self,fine_audio,coarse_audio,coarse_valid,frame_indices):
+        if fine_audio.shape[-1]!=92+self.config.extra_dim:raise ValueError('Wrong audio schema')
+        # Observerplanner receives identical supervision in allarms. Only joint
+        # connects its outputs to the decoder; this controls label exposure.
+        plan=self.planner(coarse_audio,coarse_valid)
+        values=plan_at_frames(plan['conditioning'],coarse_valid,frame_indices)
+        return torch.cat((fine_audio,values),-1),plan
+    def rollout(self,conditioning,noise,*,gradient_steps=None,field=None,teacher=None):
+        """Exact32forwardsteps; gradients only through finaldeclaredsteps.
+
+        The detached prefix uses the CURRENT model, not fabricated3Dtargets.
+        Training/evaluation share the forwardsolver; truncation affects only
+        derivative estimation. A frozen D7 field is an explicit soft prior.
+        """
+        steps=self.config.steps;grad_steps=self.config.gradient_steps if gradient_steps is None else gradient_steps
+        fn=self.flow.prepared_vector_field if field is None else field;base_audio,biases=self.flow.prepare_conditioning(conditioning);state=noise.clone();prior=state.sum()*0
+        teacher_audio=None
+        if teacher is not None:
+            teacher_audio=torch.cat((conditioning[...,:92+self.config.extra_dim].detach(),conditioning.new_zeros((*conditioning.shape[:2],34))),-1)
+        for i in range(steps):
+            t=state.new_full((len(state),),i/steps)
+            if i<steps-grad_steps:
+                with torch.no_grad():state=state+fn(base_audio.detach(),biases.detach(),state,t)/steps
+            else:
+                velocity=fn(base_audio,biases,state,t)
+                if teacher is not None:
+                    with torch.no_grad():base=teacher.vector_field(teacher_audio,state.detach(),t)
+                    prior=prior+(velocity-base).square().mean()/max(grad_steps,1)
+                state=state+velocity/steps
+        native=self.flow.codec.decode(state.float()*self.flow.std+self.flow.mean)
+        return native,prior
+    @torch.inference_mode()
+    def generate(self,fine_audio,coarse_audio,coarse_valid,frame_indices,noise,*,plan_override=None,core_frames=960):
+        conditioning,plan=self.condition(fine_audio,coarse_audio,coarse_valid,frame_indices)
+        if plan_override is not None:
+            if self.config.arm!='joint':raise ValueError('Plan intervention requires active joint architecture')
+            values=plan_at_frames(plan_override,coarse_valid,frame_indices)
+            conditioning=torch.cat((fine_audio,values),-1)
+        base,biases=self.flow.prepare_conditioning(conditioning);state=noise.clone();halo=self.flow.halo
+        for i in range(self.config.steps):
+            time=state.new_full((len(state),),i/self.config.steps);parts=[]
+            for start in range(0,state.shape[1],core_frames):
+                end=min(start+core_frames,state.shape[1]);lo=max(0,start-halo);hi=min(state.shape[1],end+halo)
+                velocity=self.flow.prepared_vector_field(base[:,lo:hi],biases[:,:,:,lo:hi],state[:,lo:hi],time)
+                parts.append(velocity[:,start-lo:end-lo])
+            state=state+torch.cat(parts,1)/self.config.steps
+        return self.flow.codec.decode(state.float()*self.flow.std+self.flow.mean),plan
+    def config_dict(self):
+        return {**asdict(self.config),'planner_hz':2,'planning_channels':48,'continuous_motif_channels':32,'total_control_channels':80,'channel_schema':'6regions*(ordered log-speed q10/q50/q90,low-speedfraction,4censored low/high-bout duration probabilities)','condition':'audioonly;motion-derivedtargets used inlosses only; allarms train the same observerplanner, only joint consumes it','whole_articulation_low_speed':'allobserved root-relative joints quiet; lower-bodyquietdoesnot stoparms; roottranslation/contact supervised separately bypaired3D','time_axis':'original30Hz songtime, no retiming/recomposition/floor','weak_supervision':'JD generated32-step outputs, backpropagatefinal4steps; no JD3D CFM targets','flow':self.flow.config_dict()}
+
+
+def planner_loss(plan,targets,validity,pose_context,pose_valid):
+    """Motion-only supervision of the integrated planner; no tempo heuristics."""
+    if plan is None:return targets.sum()*0,{}
+    raw=plan['raw'].reshape(*targets.shape[:2],6,8);pred=plan['packed'].reshape_as(raw);target=targets.reshape_as(raw)
+    quant=masked_mean(F.smooth_l1_loss(pred[...,:3],target[...,:3],reduction='none',beta=.1),validity[...,0,None])
+    low=masked_mean(F.binary_cross_entropy_with_logits(raw[...,3],target[...,3],reduction='none'),validity[...,1])
+    ce=-(target[...,4:]*raw[...,4:].log_softmax(-1)).sum(-1);duration=masked_mean(ce,validity[...,2])
+    # Bounded64sample whole-song recurrence; labels are coachposes, not MuQ.
+    idx=torch.linspace(0,targets.shape[1]-1,min(64,targets.shape[1]),device=targets.device).long().unique()
+    embedding=plan['embedding'][:,idx];reference=F.normalize(pose_context[:,idx].float(),dim=-1,eps=1e-6);good=pose_valid[:,idx]
+    pairs=good[:,:,None]&good[:,None,:]&(torch.abs(idx[:,None]-idx[None,:])>=4)[None]
+    recurrence=masked_mean((embedding@embedding.transpose(1,2)-reference@reference.transpose(1,2)).square(),pairs)
+    return quant+.25*low+.1*duration+.1*recurrence,{'planner_quantile':quant,'planner_low':low,'planner_duration':duration,'planner_recurrence':recurrence}

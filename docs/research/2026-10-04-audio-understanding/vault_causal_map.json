@@ -1,0 +1,1308 @@
+{
+  "ok": true,
+  "data": {
+    "scope": {
+      "problem_id": "dancing-light-generative-20260903",
+      "tag": null,
+      "min_verdict": null
+    },
+    "edges": [
+      {
+        "intervention": "beat-conditioned-abc-world-aim-v1",
+        "diagnostic": "valid-visible-moving-head-clip-fraction",
+        "mean_delta": 1,
+        "sign": "↑",
+        "n_experiments": 1,
+        "up": 1,
+        "down": 0,
+        "flat": 0,
+        "n_isolated_experiments": 1,
+        "isolated_mean_delta": 1,
+        "confounded_with": [],
+        "verdicts": {
+          "directional_only": 1
+        },
+        "attribution": "isolated"
+      },
+      {
+        "intervention": "beat-free-dance-temporal-training",
+        "diagnostic": "dance-no-clock-alignment-advantage",
+        "mean_delta": 0.117865,
+        "sign": "↑",
+        "n_experiments": 1,
+        "up": 1,
+        "down": 0,
+        "flat": 0,
+        "n_isolated_experiments": 1,
+        "isolated_mean_delta": 0.117865,
+        "confounded_with": [],
+        "verdicts": {
+          "supports": 1
+        },
+        "attribution": "isolated"
+      },
+      {
+        "intervention": "motion-codec-20260910",
+        "diagnostic": "motion-codec-frame24-learning-velocity-nrmse",
+        "mean_delta": -0.602279,
+        "sign": "↓",
+        "n_experiments": 2,
+        "up": 0,
+        "down": 2,
+        "flat": 0,
+        "n_isolated_experiments": 2,
+        "isolated_mean_delta": -0.602279,
+        "confounded_with": [],
+        "verdicts": {
+          "directional_only": 1,
+          "refutes": 1
+        },
+        "attribution": "isolated"
+      },
+      {
+        "intervention": "motion-codec-20260910",
+        "diagnostic": "motion-codec-temporal128-learning-velocity-nrmse",
+        "mean_delta": -0.602053,
+        "sign": "↓",
+        "n_experiments": 1,
+        "up": 0,
+        "down": 1,
+        "flat": 0,
+        "n_isolated_experiments": 1,
+        "isolated_mean_delta": -0.602053,
+        "confounded_with": [],
+        "verdicts": {
+          "directional_only": 1
+        },
+        "attribution": "isolated"
+      },
+      {
+        "intervention": "motion-codec-20260910",
+        "diagnostic": "motion-codec-temporal64-learning-velocity-nrmse",
+        "mean_delta": -0.60044,
+        "sign": "↓",
+        "n_experiments": 1,
+        "up": 0,
+        "down": 1,
+        "flat": 0,
+        "n_isolated_experiments": 1,
+        "isolated_mean_delta": -0.60044,
+        "confounded_with": [],
+        "verdicts": {
+          "refutes": 1
+        },
+        "attribution": "isolated"
+      },
+      {
+        "intervention": "motion-codec-20260910",
+        "diagnostic": "motion-codec-velocity-nrmse",
+        "mean_delta": -0.000293,
+        "sign": "↓",
+        "n_experiments": 2,
+        "up": 1,
+        "down": 1,
+        "flat": 0,
+        "n_isolated_experiments": 2,
+        "isolated_mean_delta": -0.000293,
+        "confounded_with": [],
+        "verdicts": {
+          "directional_only": 1,
+          "refutes": 1
+        },
+        "attribution": "isolated"
+      },
+      {
+        "intervention": "motion-coherence-20260910",
+        "diagnostic": "motion-light-quiet-angular-speed",
+        "mean_delta": -38.512382,
+        "sign": "↓",
+        "n_experiments": 1,
+        "up": 0,
+        "down": 1,
+        "flat": 0,
+        "n_isolated_experiments": 1,
+        "isolated_mean_delta": -38.512382,
+        "confounded_with": [],
+        "verdicts": {
+          "directional_only": 1
+        },
+        "attribution": "isolated"
+      },
+      {
+        "intervention": "motion-dynamics-20260910",
+        "diagnostic": "motion-light-entry-luminance-ratio",
+        "mean_delta": 2.785249,
+        "sign": "↑",
+        "n_experiments": 1,
+        "up": 1,
+        "down": 0,
+        "flat": 0,
+        "n_isolated_experiments": 1,
+        "isolated_mean_delta": 2.785249,
+        "confounded_with": [],
+        "verdicts": {
+          "directional_only": 1
+        },
+        "attribution": "isolated"
+      },
+      {
+        "intervention": "motion-exposure-20260910",
+        "diagnostic": "motion-render-response-fixed-008",
+        "mean_delta": 1.996434,
+        "sign": "↑",
+        "n_experiments": 1,
+        "up": 1,
+        "down": 0,
+        "flat": 0,
+        "n_isolated_experiments": 1,
+        "isolated_mean_delta": 1.996434,
+        "confounded_with": [],
+        "verdicts": {
+          "inconclusive": 1
+        },
+        "attribution": "isolated"
+      },
+      {
+        "intervention": "motion-exposure-20260910",
+        "diagnostic": "motion-render-response-fixed-012",
+        "mean_delta": 1.277876,
+        "sign": "↑",
+        "n_experiments": 1,
+        "up": 1,
+        "down": 0,
+        "flat": 0,
+        "n_isolated_experiments": 1,
+        "isolated_mean_delta": 1.277876,
+        "confounded_with": [],
+        "verdicts": {
+          "inconclusive": 1
+        },
+        "attribution": "isolated"
+      },
+      {
+        "intervention": "motion-exposure-20260910",
+        "diagnostic": "motion-render-response-fixed-016",
+        "mean_delta": 0.901305,
+        "sign": "↑",
+        "n_experiments": 1,
+        "up": 1,
+        "down": 0,
+        "flat": 0,
+        "n_isolated_experiments": 1,
+        "isolated_mean_delta": 0.901305,
+        "confounded_with": [],
+        "verdicts": {
+          "inconclusive": 1
+        },
+        "attribution": "isolated"
+      },
+      {
+        "intervention": "motion-exposure-20260910",
+        "diagnostic": "motion-render-response-fixed-020",
+        "mean_delta": 0.677412,
+        "sign": "↑",
+        "n_experiments": 1,
+        "up": 1,
+        "down": 0,
+        "flat": 0,
+        "n_isolated_experiments": 1,
+        "isolated_mean_delta": 0.677412,
+        "confounded_with": [],
+        "verdicts": {
+          "inconclusive": 1
+        },
+        "attribution": "isolated"
+      },
+      {
+        "intervention": "motion-exposure-20260910",
+        "diagnostic": "motion-render-response-fixed-024",
+        "mean_delta": 0.531914,
+        "sign": "↑",
+        "n_experiments": 1,
+        "up": 1,
+        "down": 0,
+        "flat": 0,
+        "n_isolated_experiments": 1,
+        "isolated_mean_delta": 0.531914,
+        "confounded_with": [],
+        "verdicts": {
+          "inconclusive": 1
+        },
+        "attribution": "isolated"
+      },
+      {
+        "intervention": "motion-fixed-role-radiance-20260910",
+        "diagnostic": "motion-render-dimmer-response",
+        "mean_delta": 2.618479,
+        "sign": "↑",
+        "n_experiments": 1,
+        "up": 1,
+        "down": 0,
+        "flat": 0,
+        "n_isolated_experiments": 1,
+        "isolated_mean_delta": 2.618479,
+        "confounded_with": [],
+        "verdicts": {
+          "supports": 1
+        },
+        "attribution": "isolated"
+      },
+      {
+        "intervention": "motion-incumbent-euler32-20260910",
+        "diagnostic": "motion-incumbent-pose-high-frequency",
+        "mean_delta": 0.000215,
+        "sign": "↑",
+        "n_experiments": 1,
+        "up": 1,
+        "down": 0,
+        "flat": 0,
+        "n_isolated_experiments": 1,
+        "isolated_mean_delta": 0.000215,
+        "confounded_with": [],
+        "verdicts": {
+          "refutes": 1
+        },
+        "attribution": "isolated"
+      },
+      {
+        "intervention": "motion-light-surface-bandwidth",
+        "diagnostic": "motion-light-relative-surface-extent",
+        "mean_delta": 0.757952,
+        "sign": "↑",
+        "n_experiments": 1,
+        "up": 1,
+        "down": 0,
+        "flat": 0,
+        "n_isolated_experiments": 1,
+        "isolated_mean_delta": 0.757952,
+        "confounded_with": [],
+        "verdicts": {
+          "directional_only": 1
+        },
+        "attribution": "isolated"
+      },
+      {
+        "intervention": "motion-light-surface-mapping",
+        "diagnostic": "motion-light-surface-horizontal-span",
+        "mean_delta": 5.527436,
+        "sign": "↑",
+        "n_experiments": 1,
+        "up": 1,
+        "down": 0,
+        "flat": 0,
+        "n_isolated_experiments": 1,
+        "isolated_mean_delta": 5.527436,
+        "confounded_with": [],
+        "verdicts": {
+          "directional_only": 1
+        },
+        "attribution": "isolated"
+      },
+      {
+        "intervention": "motion-native-audio-flow-20260910",
+        "diagnostic": "motion-native-flow-learning-energy-score",
+        "mean_delta": -1.548,
+        "sign": "↓",
+        "n_experiments": 1,
+        "up": 0,
+        "down": 1,
+        "flat": 0,
+        "n_isolated_experiments": 1,
+        "isolated_mean_delta": -1.548,
+        "confounded_with": [],
+        "verdicts": {
+          "directional_only": 1
+        },
+        "attribution": "isolated"
+      },
+      {
+        "intervention": "motion-native-audio-flow-20260910",
+        "diagnostic": "motion-native-regression-learning-energy-score",
+        "mean_delta": -0.331024,
+        "sign": "↓",
+        "n_experiments": 1,
+        "up": 0,
+        "down": 1,
+        "flat": 0,
+        "n_isolated_experiments": 1,
+        "isolated_mean_delta": -0.331024,
+        "confounded_with": [],
+        "verdicts": {
+          "directional_only": 1
+        },
+        "attribution": "isolated"
+      },
+      {
+        "intervention": "motion-native-audio-flow-20260910",
+        "diagnostic": "motion-native-flow-vs-regression-energy-score",
+        "mean_delta": -0.313725,
+        "sign": "↓",
+        "n_experiments": 1,
+        "up": 0,
+        "down": 1,
+        "flat": 0,
+        "n_isolated_experiments": 1,
+        "isolated_mean_delta": -0.313725,
+        "confounded_with": [],
+        "verdicts": {
+          "directional_only": 1
+        },
+        "attribution": "isolated"
+      },
+      {
+        "intervention": "motion-native-audio-flow-20260910",
+        "diagnostic": "motion-native-regression-donor-energy-score",
+        "mean_delta": -0.031575,
+        "sign": "↓",
+        "n_experiments": 1,
+        "up": 0,
+        "down": 1,
+        "flat": 0,
+        "n_isolated_experiments": 1,
+        "isolated_mean_delta": -0.031575,
+        "confounded_with": [],
+        "verdicts": {
+          "directional_only": 1
+        },
+        "attribution": "isolated"
+      },
+      {
+        "intervention": "motion-native-audio-flow-20260910",
+        "diagnostic": "motion-correct-audio-energy-score",
+        "mean_delta": -0.021064,
+        "sign": "↓",
+        "n_experiments": 1,
+        "up": 0,
+        "down": 1,
+        "flat": 0,
+        "n_isolated_experiments": 1,
+        "isolated_mean_delta": -0.021064,
+        "confounded_with": [],
+        "verdicts": {
+          "directional_only": 1
+        },
+        "attribution": "isolated"
+      },
+      {
+        "intervention": "motion-native-audio-flow-20260910",
+        "diagnostic": "motion-native-flow-donor-energy-score",
+        "mean_delta": -0.021064,
+        "sign": "↓",
+        "n_experiments": 1,
+        "up": 0,
+        "down": 1,
+        "flat": 0,
+        "n_isolated_experiments": 1,
+        "isolated_mean_delta": -0.021064,
+        "confounded_with": [],
+        "verdicts": {
+          "directional_only": 1
+        },
+        "attribution": "isolated"
+      },
+      {
+        "intervention": "motion-native-audio-flow-20260910",
+        "diagnostic": "motion-native-regression-shift-energy-score",
+        "mean_delta": -0.019926,
+        "sign": "↓",
+        "n_experiments": 1,
+        "up": 0,
+        "down": 1,
+        "flat": 0,
+        "n_isolated_experiments": 1,
+        "isolated_mean_delta": -0.019926,
+        "confounded_with": [],
+        "verdicts": {
+          "directional_only": 1
+        },
+        "attribution": "isolated"
+      },
+      {
+        "intervention": "motion-native-audio-flow-20260910",
+        "diagnostic": "motion-native-flow-shift-energy-score",
+        "mean_delta": -0.004381,
+        "sign": "↓",
+        "n_experiments": 1,
+        "up": 0,
+        "down": 1,
+        "flat": 0,
+        "n_isolated_experiments": 1,
+        "isolated_mean_delta": -0.004381,
+        "confounded_with": [],
+        "verdicts": {
+          "directional_only": 1
+        },
+        "attribution": "isolated"
+      },
+      {
+        "intervention": "motion-native-phase-codec-20260910",
+        "diagnostic": "motion-phase-phase128-fit-velocity-nrmse",
+        "mean_delta": -0.842612,
+        "sign": "↓",
+        "n_experiments": 1,
+        "up": 0,
+        "down": 1,
+        "flat": 0,
+        "n_isolated_experiments": 1,
+        "isolated_mean_delta": -0.842612,
+        "confounded_with": [],
+        "verdicts": {
+          "refutes": 1
+        },
+        "attribution": "isolated"
+      },
+      {
+        "intervention": "motion-native-phase-codec-20260910",
+        "diagnostic": "motion-codec-velocity-nrmse",
+        "mean_delta": 0.803184,
+        "sign": "↑",
+        "n_experiments": 1,
+        "up": 1,
+        "down": 0,
+        "flat": 0,
+        "n_isolated_experiments": 1,
+        "isolated_mean_delta": 0.803184,
+        "confounded_with": [],
+        "verdicts": {
+          "refutes": 1
+        },
+        "attribution": "isolated"
+      },
+      {
+        "intervention": "motion-native-phase-codec-20260910",
+        "diagnostic": "motion-phase-phase256-fit-velocity-nrmse",
+        "mean_delta": -0.798325,
+        "sign": "↓",
+        "n_experiments": 1,
+        "up": 0,
+        "down": 1,
+        "flat": 0,
+        "n_isolated_experiments": 1,
+        "isolated_mean_delta": -0.798325,
+        "confounded_with": [],
+        "verdicts": {
+          "refutes": 1
+        },
+        "attribution": "isolated"
+      },
+      {
+        "intervention": "motion-native-phase-codec-20260910",
+        "diagnostic": "motion-phase-frame24-fit-velocity-nrmse",
+        "mean_delta": 0.014022,
+        "sign": "↑",
+        "n_experiments": 1,
+        "up": 1,
+        "down": 0,
+        "flat": 0,
+        "n_isolated_experiments": 1,
+        "isolated_mean_delta": 0.014022,
+        "confounded_with": [],
+        "verdicts": {
+          "refutes": 1
+        },
+        "attribution": "isolated"
+      },
+      {
+        "intervention": "motion-native-phase-codec-20260910",
+        "diagnostic": "motion-phase-phase64-fit-velocity-nrmse",
+        "mean_delta": 0.009889,
+        "sign": "↑",
+        "n_experiments": 1,
+        "up": 1,
+        "down": 0,
+        "flat": 0,
+        "n_isolated_experiments": 1,
+        "isolated_mean_delta": 0.009889,
+        "confounded_with": [],
+        "verdicts": {
+          "refutes": 1
+        },
+        "attribution": "isolated"
+      },
+      {
+        "intervention": "night-expression-composition-20260909",
+        "diagnostic": "night-expressive-group-clip-fraction",
+        "mean_delta": 0.375,
+        "sign": "↑",
+        "n_experiments": 1,
+        "up": 1,
+        "down": 0,
+        "flat": 0,
+        "n_isolated_experiments": 1,
+        "isolated_mean_delta": 0.375,
+        "confounded_with": [],
+        "verdicts": {
+          "directional_only": 1
+        },
+        "attribution": "isolated"
+      },
+      {
+        "intervention": "night-expression-conditioning-20260909",
+        "diagnostic": "night-audio-controlled-song-fraction",
+        "mean_delta": 0,
+        "sign": "→",
+        "n_experiments": 1,
+        "up": 0,
+        "down": 0,
+        "flat": 1,
+        "n_isolated_experiments": 1,
+        "isolated_mean_delta": 0,
+        "confounded_with": [],
+        "verdicts": {
+          "inconclusive": 1
+        },
+        "attribution": "isolated"
+      },
+      {
+        "intervention": "night-expression-conditioning-20260909",
+        "diagnostic": "night-film-base-seed0-controlled",
+        "mean_delta": 0,
+        "sign": "→",
+        "n_experiments": 1,
+        "up": 0,
+        "down": 0,
+        "flat": 1,
+        "n_isolated_experiments": 1,
+        "isolated_mean_delta": 0,
+        "confounded_with": [],
+        "verdicts": {
+          "inconclusive": 1
+        },
+        "attribution": "isolated"
+      },
+      {
+        "intervention": "night-expression-conditioning-20260909",
+        "diagnostic": "night-film-base-seed1-controlled",
+        "mean_delta": 0,
+        "sign": "→",
+        "n_experiments": 1,
+        "up": 0,
+        "down": 0,
+        "flat": 1,
+        "n_isolated_experiments": 1,
+        "isolated_mean_delta": 0,
+        "confounded_with": [],
+        "verdicts": {
+          "inconclusive": 1
+        },
+        "attribution": "isolated"
+      },
+      {
+        "intervention": "night-expression-conditioning-20260909",
+        "diagnostic": "night-film-fourier-seed0-controlled",
+        "mean_delta": 0,
+        "sign": "→",
+        "n_experiments": 1,
+        "up": 0,
+        "down": 0,
+        "flat": 1,
+        "n_isolated_experiments": 1,
+        "isolated_mean_delta": 0,
+        "confounded_with": [],
+        "verdicts": {
+          "inconclusive": 1
+        },
+        "attribution": "isolated"
+      },
+      {
+        "intervention": "night-expression-conditioning-20260909",
+        "diagnostic": "night-film-fourier-seed1-controlled",
+        "mean_delta": 0,
+        "sign": "→",
+        "n_experiments": 1,
+        "up": 0,
+        "down": 0,
+        "flat": 1,
+        "n_isolated_experiments": 1,
+        "isolated_mean_delta": 0,
+        "confounded_with": [],
+        "verdicts": {
+          "inconclusive": 1
+        },
+        "attribution": "isolated"
+      },
+      {
+        "intervention": "night-expression-conditioning-20260909",
+        "diagnostic": "night-film-muq-seed0-controlled",
+        "mean_delta": 0,
+        "sign": "→",
+        "n_experiments": 1,
+        "up": 0,
+        "down": 0,
+        "flat": 1,
+        "n_isolated_experiments": 1,
+        "isolated_mean_delta": 0,
+        "confounded_with": [],
+        "verdicts": {
+          "inconclusive": 1
+        },
+        "attribution": "isolated"
+      },
+      {
+        "intervention": "night-expression-conditioning-20260909",
+        "diagnostic": "night-film-muq-seed1-controlled",
+        "mean_delta": 0,
+        "sign": "→",
+        "n_experiments": 1,
+        "up": 0,
+        "down": 0,
+        "flat": 1,
+        "n_isolated_experiments": 1,
+        "isolated_mean_delta": 0,
+        "confounded_with": [],
+        "verdicts": {
+          "inconclusive": 1
+        },
+        "attribution": "isolated"
+      },
+      {
+        "intervention": "night-expression-fourier-20260909",
+        "diagnostic": "night-fourier-film-seed0-energy",
+        "mean_delta": -0.01682,
+        "sign": "↓",
+        "n_experiments": 1,
+        "up": 0,
+        "down": 1,
+        "flat": 0,
+        "n_isolated_experiments": 1,
+        "isolated_mean_delta": -0.01682,
+        "confounded_with": [],
+        "verdicts": {
+          "directional_only": 1
+        },
+        "attribution": "isolated"
+      },
+      {
+        "intervention": "night-expression-fourier-20260909",
+        "diagnostic": "night-fourier-conditional-energy-score",
+        "mean_delta": -0.008499,
+        "sign": "↓",
+        "n_experiments": 1,
+        "up": 0,
+        "down": 1,
+        "flat": 0,
+        "n_isolated_experiments": 1,
+        "isolated_mean_delta": -0.008499,
+        "confounded_with": [],
+        "verdicts": {
+          "directional_only": 1
+        },
+        "attribution": "isolated"
+      },
+      {
+        "intervention": "night-expression-fourier-20260909",
+        "diagnostic": "night-fourier-once-seed1-energy",
+        "mean_delta": -0.006205,
+        "sign": "↓",
+        "n_experiments": 1,
+        "up": 0,
+        "down": 1,
+        "flat": 0,
+        "n_isolated_experiments": 1,
+        "isolated_mean_delta": -0.006205,
+        "confounded_with": [],
+        "verdicts": {
+          "directional_only": 1
+        },
+        "attribution": "isolated"
+      },
+      {
+        "intervention": "night-expression-fourier-20260909",
+        "diagnostic": "night-fourier-film-seed1-energy",
+        "mean_delta": -0.005735,
+        "sign": "↓",
+        "n_experiments": 1,
+        "up": 0,
+        "down": 1,
+        "flat": 0,
+        "n_isolated_experiments": 1,
+        "isolated_mean_delta": -0.005735,
+        "confounded_with": [],
+        "verdicts": {
+          "directional_only": 1
+        },
+        "attribution": "isolated"
+      },
+      {
+        "intervention": "night-expression-fourier-20260909",
+        "diagnostic": "night-fourier-once-seed0-energy",
+        "mean_delta": -0.005238,
+        "sign": "↓",
+        "n_experiments": 1,
+        "up": 0,
+        "down": 1,
+        "flat": 0,
+        "n_isolated_experiments": 1,
+        "isolated_mean_delta": -0.005238,
+        "confounded_with": [],
+        "verdicts": {
+          "directional_only": 1
+        },
+        "attribution": "isolated"
+      },
+      {
+        "intervention": "night-expression-muq-20260909",
+        "diagnostic": "night-muq-once-seed1-energy",
+        "mean_delta": 0.01281,
+        "sign": "↑",
+        "n_experiments": 1,
+        "up": 1,
+        "down": 0,
+        "flat": 0,
+        "n_isolated_experiments": 1,
+        "isolated_mean_delta": 0.01281,
+        "confounded_with": [],
+        "verdicts": {
+          "refutes": 1
+        },
+        "attribution": "isolated"
+      },
+      {
+        "intervention": "night-expression-muq-20260909",
+        "diagnostic": "night-muq-conditional-energy-score",
+        "mean_delta": 0.005165,
+        "sign": "↑",
+        "n_experiments": 1,
+        "up": 1,
+        "down": 0,
+        "flat": 0,
+        "n_isolated_experiments": 1,
+        "isolated_mean_delta": 0.005165,
+        "confounded_with": [],
+        "verdicts": {
+          "refutes": 1
+        },
+        "attribution": "isolated"
+      },
+      {
+        "intervention": "night-expression-muq-20260909",
+        "diagnostic": "night-muq-film-seed0-energy",
+        "mean_delta": 0.003602,
+        "sign": "↑",
+        "n_experiments": 1,
+        "up": 1,
+        "down": 0,
+        "flat": 0,
+        "n_isolated_experiments": 1,
+        "isolated_mean_delta": 0.003602,
+        "confounded_with": [],
+        "verdicts": {
+          "refutes": 1
+        },
+        "attribution": "isolated"
+      },
+      {
+        "intervention": "night-expression-muq-20260909",
+        "diagnostic": "night-muq-once-seed0-energy",
+        "mean_delta": 0.002477,
+        "sign": "↑",
+        "n_experiments": 1,
+        "up": 1,
+        "down": 0,
+        "flat": 0,
+        "n_isolated_experiments": 1,
+        "isolated_mean_delta": 0.002477,
+        "confounded_with": [],
+        "verdicts": {
+          "refutes": 1
+        },
+        "attribution": "isolated"
+      },
+      {
+        "intervention": "night-expression-muq-20260909",
+        "diagnostic": "night-muq-film-seed1-energy",
+        "mean_delta": 0.001769,
+        "sign": "↑",
+        "n_experiments": 1,
+        "up": 1,
+        "down": 0,
+        "flat": 0,
+        "n_isolated_experiments": 1,
+        "isolated_mean_delta": 0.001769,
+        "confounded_with": [],
+        "verdicts": {
+          "refutes": 1
+        },
+        "attribution": "isolated"
+      },
+      {
+        "intervention": "night-expression-representation-20260909",
+        "diagnostic": "night-pose-reconstruction-error",
+        "mean_delta": -0.352166,
+        "sign": "↓",
+        "n_experiments": 1,
+        "up": 0,
+        "down": 1,
+        "flat": 0,
+        "n_isolated_experiments": 1,
+        "isolated_mean_delta": -0.352166,
+        "confounded_with": [],
+        "verdicts": {
+          "supports": 1
+        },
+        "attribution": "isolated"
+      },
+      {
+        "intervention": "night-expression-rhythm-20260909",
+        "diagnostic": "night-annotated-beat-f1",
+        "mean_delta": -0.093771,
+        "sign": "↓",
+        "n_experiments": 1,
+        "up": 0,
+        "down": 1,
+        "flat": 0,
+        "n_isolated_experiments": 1,
+        "isolated_mean_delta": -0.093771,
+        "confounded_with": [],
+        "verdicts": {
+          "refutes": 1
+        },
+        "attribution": "isolated"
+      },
+      {
+        "intervention": "night-precision-runtime-20260910",
+        "diagnostic": "iteration-training-seconds",
+        "mean_delta": -7551.070564,
+        "sign": "↓",
+        "n_experiments": 1,
+        "up": 0,
+        "down": 1,
+        "flat": 0,
+        "n_isolated_experiments": 1,
+        "isolated_mean_delta": -7551.070564,
+        "confounded_with": [],
+        "verdicts": {
+          "directional_only": 1
+        },
+        "attribution": "isolated"
+      },
+      {
+        "intervention": "night-precision-runtime-20260910",
+        "diagnostic": "iteration-muq-film-s1-seconds",
+        "mean_delta": -1984.705807,
+        "sign": "↓",
+        "n_experiments": 1,
+        "up": 0,
+        "down": 1,
+        "flat": 0,
+        "n_isolated_experiments": 1,
+        "isolated_mean_delta": -1984.705807,
+        "confounded_with": [],
+        "verdicts": {
+          "directional_only": 1
+        },
+        "attribution": "isolated"
+      },
+      {
+        "intervention": "night-precision-runtime-20260910",
+        "diagnostic": "iteration-muq-film-s0-seconds",
+        "mean_delta": -1983.238079,
+        "sign": "↓",
+        "n_experiments": 1,
+        "up": 0,
+        "down": 1,
+        "flat": 0,
+        "n_isolated_experiments": 1,
+        "isolated_mean_delta": -1983.238079,
+        "confounded_with": [],
+        "verdicts": {
+          "directional_only": 1
+        },
+        "attribution": "isolated"
+      },
+      {
+        "intervention": "night-precision-runtime-20260910",
+        "diagnostic": "iteration-base-once-s0-seconds",
+        "mean_delta": -1792.711594,
+        "sign": "↓",
+        "n_experiments": 1,
+        "up": 0,
+        "down": 1,
+        "flat": 0,
+        "n_isolated_experiments": 1,
+        "isolated_mean_delta": -1792.711594,
+        "confounded_with": [],
+        "verdicts": {
+          "directional_only": 1
+        },
+        "attribution": "isolated"
+      },
+      {
+        "intervention": "night-precision-runtime-20260910",
+        "diagnostic": "iteration-base-once-s1-seconds",
+        "mean_delta": -1790.415084,
+        "sign": "↓",
+        "n_experiments": 1,
+        "up": 0,
+        "down": 1,
+        "flat": 0,
+        "n_isolated_experiments": 1,
+        "isolated_mean_delta": -1790.415084,
+        "confounded_with": [],
+        "verdicts": {
+          "directional_only": 1
+        },
+        "attribution": "isolated"
+      },
+      {
+        "intervention": "night-precision-runtime-20260910",
+        "diagnostic": "iteration-muq-film-s0-a-mse",
+        "mean_delta": -0.037583,
+        "sign": "↓",
+        "n_experiments": 1,
+        "up": 0,
+        "down": 1,
+        "flat": 0,
+        "n_isolated_experiments": 1,
+        "isolated_mean_delta": -0.037583,
+        "confounded_with": [],
+        "verdicts": {
+          "directional_only": 1
+        },
+        "attribution": "isolated"
+      },
+      {
+        "intervention": "night-precision-runtime-20260910",
+        "diagnostic": "iteration-muq-film-s1-a-mse",
+        "mean_delta": -0.022721,
+        "sign": "↓",
+        "n_experiments": 1,
+        "up": 0,
+        "down": 1,
+        "flat": 0,
+        "n_isolated_experiments": 1,
+        "isolated_mean_delta": -0.022721,
+        "confounded_with": [],
+        "verdicts": {
+          "directional_only": 1
+        },
+        "attribution": "isolated"
+      },
+      {
+        "intervention": "night-precision-runtime-20260910",
+        "diagnostic": "iteration-a-mse",
+        "mean_delta": -0.018971,
+        "sign": "↓",
+        "n_experiments": 1,
+        "up": 0,
+        "down": 1,
+        "flat": 0,
+        "n_isolated_experiments": 1,
+        "isolated_mean_delta": -0.018971,
+        "confounded_with": [],
+        "verdicts": {
+          "directional_only": 1
+        },
+        "attribution": "isolated"
+      },
+      {
+        "intervention": "night-precision-runtime-20260910",
+        "diagnostic": "iteration-base-once-s0-a-mse",
+        "mean_delta": -0.010844,
+        "sign": "↓",
+        "n_experiments": 1,
+        "up": 0,
+        "down": 1,
+        "flat": 0,
+        "n_isolated_experiments": 1,
+        "isolated_mean_delta": -0.010844,
+        "confounded_with": [],
+        "verdicts": {
+          "directional_only": 1
+        },
+        "attribution": "isolated"
+      },
+      {
+        "intervention": "night-precision-runtime-20260910",
+        "diagnostic": "iteration-muq-film-s0-energy",
+        "mean_delta": -0.010364,
+        "sign": "↓",
+        "n_experiments": 1,
+        "up": 0,
+        "down": 1,
+        "flat": 0,
+        "n_isolated_experiments": 1,
+        "isolated_mean_delta": -0.010364,
+        "confounded_with": [],
+        "verdicts": {
+          "directional_only": 1
+        },
+        "attribution": "isolated"
+      },
+      {
+        "intervention": "night-precision-runtime-20260910",
+        "diagnostic": "iteration-base-once-s1-a-mse",
+        "mean_delta": -0.004738,
+        "sign": "↓",
+        "n_experiments": 1,
+        "up": 0,
+        "down": 1,
+        "flat": 0,
+        "n_isolated_experiments": 1,
+        "isolated_mean_delta": -0.004738,
+        "confounded_with": [],
+        "verdicts": {
+          "directional_only": 1
+        },
+        "attribution": "isolated"
+      },
+      {
+        "intervention": "night-precision-runtime-20260910",
+        "diagnostic": "iteration-muq-film-s1-event-ap",
+        "mean_delta": -0.003633,
+        "sign": "↓",
+        "n_experiments": 1,
+        "up": 0,
+        "down": 1,
+        "flat": 0,
+        "n_isolated_experiments": 1,
+        "isolated_mean_delta": -0.003633,
+        "confounded_with": [],
+        "verdicts": {
+          "directional_only": 1
+        },
+        "attribution": "isolated"
+      },
+      {
+        "intervention": "night-precision-runtime-20260910",
+        "diagnostic": "iteration-muq-film-s0-event-ap",
+        "mean_delta": -0.003568,
+        "sign": "↓",
+        "n_experiments": 1,
+        "up": 0,
+        "down": 1,
+        "flat": 0,
+        "n_isolated_experiments": 1,
+        "isolated_mean_delta": -0.003568,
+        "confounded_with": [],
+        "verdicts": {
+          "directional_only": 1
+        },
+        "attribution": "isolated"
+      },
+      {
+        "intervention": "night-precision-runtime-20260910",
+        "diagnostic": "iteration-energy-score",
+        "mean_delta": -0.002015,
+        "sign": "↓",
+        "n_experiments": 1,
+        "up": 0,
+        "down": 1,
+        "flat": 0,
+        "n_isolated_experiments": 1,
+        "isolated_mean_delta": -0.002015,
+        "confounded_with": [],
+        "verdicts": {
+          "directional_only": 1
+        },
+        "attribution": "isolated"
+      },
+      {
+        "intervention": "night-precision-runtime-20260910",
+        "diagnostic": "iteration-base-once-s1-energy",
+        "mean_delta": 0.001854,
+        "sign": "↑",
+        "n_experiments": 1,
+        "up": 1,
+        "down": 0,
+        "flat": 0,
+        "n_isolated_experiments": 1,
+        "isolated_mean_delta": 0.001854,
+        "confounded_with": [],
+        "verdicts": {
+          "directional_only": 1
+        },
+        "attribution": "isolated"
+      },
+      {
+        "intervention": "night-precision-runtime-20260910",
+        "diagnostic": "iteration-base-once-s0-energy",
+        "mean_delta": 0.001723,
+        "sign": "↑",
+        "n_experiments": 1,
+        "up": 1,
+        "down": 0,
+        "flat": 0,
+        "n_isolated_experiments": 1,
+        "isolated_mean_delta": 0.001723,
+        "confounded_with": [],
+        "verdicts": {
+          "directional_only": 1
+        },
+        "attribution": "isolated"
+      },
+      {
+        "intervention": "night-precision-runtime-20260910",
+        "diagnostic": "iteration-event-ap",
+        "mean_delta": -0.001454,
+        "sign": "↓",
+        "n_experiments": 1,
+        "up": 0,
+        "down": 1,
+        "flat": 0,
+        "n_isolated_experiments": 1,
+        "isolated_mean_delta": -0.001454,
+        "confounded_with": [],
+        "verdicts": {
+          "directional_only": 1
+        },
+        "attribution": "isolated"
+      },
+      {
+        "intervention": "night-precision-runtime-20260910",
+        "diagnostic": "iteration-muq-film-s1-energy",
+        "mean_delta": -0.001273,
+        "sign": "↓",
+        "n_experiments": 1,
+        "up": 0,
+        "down": 1,
+        "flat": 0,
+        "n_isolated_experiments": 1,
+        "isolated_mean_delta": -0.001273,
+        "confounded_with": [],
+        "verdicts": {
+          "directional_only": 1
+        },
+        "attribution": "isolated"
+      },
+      {
+        "intervention": "night-precision-runtime-20260910",
+        "diagnostic": "iteration-base-once-s0-event-ap",
+        "mean_delta": 0.001191,
+        "sign": "↑",
+        "n_experiments": 1,
+        "up": 1,
+        "down": 0,
+        "flat": 0,
+        "n_isolated_experiments": 1,
+        "isolated_mean_delta": 0.001191,
+        "confounded_with": [],
+        "verdicts": {
+          "directional_only": 1
+        },
+        "attribution": "isolated"
+      },
+      {
+        "intervention": "night-precision-runtime-20260910",
+        "diagnostic": "iteration-base-once-s1-event-ap",
+        "mean_delta": 0.000195,
+        "sign": "↑",
+        "n_experiments": 1,
+        "up": 1,
+        "down": 0,
+        "flat": 0,
+        "n_isolated_experiments": 1,
+        "isolated_mean_delta": 0.000195,
+        "confounded_with": [],
+        "verdicts": {
+          "directional_only": 1
+        },
+        "attribution": "isolated"
+      },
+      {
+        "intervention": "stage11-expand-jd",
+        "diagnostic": "stage11-motion-primary-r2",
+        "mean_delta": 0.010978,
+        "sign": "↑",
+        "n_experiments": 1,
+        "up": 1,
+        "down": 0,
+        "flat": 0,
+        "n_isolated_experiments": 1,
+        "isolated_mean_delta": 0.010978,
+        "confounded_with": [],
+        "verdicts": {
+          "directional_only": 1
+        },
+        "attribution": "isolated"
+      },
+      {
+        "intervention": "stage11-joint-temporal-flow",
+        "diagnostic": "stage11-scene-hf-ratio",
+        "mean_delta": -13.787487,
+        "sign": "↓",
+        "n_experiments": 1,
+        "up": 0,
+        "down": 1,
+        "flat": 0,
+        "n_isolated_experiments": 1,
+        "isolated_mean_delta": -13.787487,
+        "confounded_with": [],
+        "verdicts": {
+          "supports": 1
+        },
+        "attribution": "isolated"
+      },
+      {
+        "intervention": "stage11-joint-temporal-flow",
+        "diagnostic": "stage11-scene-variation-ratio",
+        "mean_delta": -1.46189,
+        "sign": "↓",
+        "n_experiments": 1,
+        "up": 0,
+        "down": 1,
+        "flat": 0,
+        "n_isolated_experiments": 1,
+        "isolated_mean_delta": -1.46189,
+        "confounded_with": [],
+        "verdicts": {
+          "supports": 1
+        },
+        "attribution": "isolated"
+      },
+      {
+        "intervention": "stage11-joint-temporal-flow",
+        "diagnostic": "stage11-scene-temporal-w1",
+        "mean_delta": -1.244968,
+        "sign": "↓",
+        "n_experiments": 1,
+        "up": 0,
+        "down": 1,
+        "flat": 0,
+        "n_isolated_experiments": 1,
+        "isolated_mean_delta": -1.244968,
+        "confounded_with": [],
+        "verdicts": {
+          "supports": 1
+        },
+        "attribution": "isolated"
+      },
+      {
+        "intervention": "stage11-joint-temporal-flow",
+        "diagnostic": "stage11-scene-marginal-w1",
+        "mean_delta": -0.012097,
+        "sign": "↓",
+        "n_experiments": 1,
+        "up": 0,
+        "down": 1,
+        "flat": 0,
+        "n_isolated_experiments": 1,
+        "isolated_mean_delta": -0.012097,
+        "confounded_with": [],
+        "verdicts": {
+          "supports": 1
+        },
+        "attribution": "isolated"
+      },
+      {
+        "intervention": "stage11-preserve-nonbeat-audio",
+        "diagnostic": "stage11-scene-audio-advantage-ap",
+        "mean_delta": 0.049378,
+        "sign": "↑",
+        "n_experiments": 1,
+        "up": 1,
+        "down": 0,
+        "flat": 0,
+        "n_isolated_experiments": 1,
+        "isolated_mean_delta": 0.049378,
+        "confounded_with": [],
+        "verdicts": {
+          "supports": 1
+        },
+        "attribution": "isolated"
+      }
+    ],
+    "n_confounded_edges": 0,
+    "text": "# Causal map\nscope: problem=dancing-light-generative-20260903\n\n- [[beat-conditioned-abc-world-aim-v1]] ↑ [[valid-visible-moving-head-clip-fraction]]  mean Δ +1 over 1 exp (↑1 ↓0 →0)  (verdicts: directional_only×1)\n- [[beat-free-dance-temporal-training]] ↑ [[dance-no-clock-alignment-advantage]]  mean Δ +0.117865 over 1 exp (↑1 ↓0 →0)\n- [[motion-codec-20260910]] ↓ [[motion-codec-frame24-learning-velocity-nrmse]]  mean Δ -0.602279 over 2 exp (↑0 ↓2 →0)  (verdicts: directional_only×1, refutes×1)\n- [[motion-codec-20260910]] ↓ [[motion-codec-temporal128-learning-velocity-nrmse]]  mean Δ -0.602053 over 1 exp (↑0 ↓1 →0)  (verdicts: directional_only×1)\n- [[motion-codec-20260910]] ↓ [[motion-codec-temporal64-learning-velocity-nrmse]]  mean Δ -0.60044 over 1 exp (↑0 ↓1 →0)  (verdicts: refutes×1)\n- [[motion-codec-20260910]] ↓ [[motion-codec-velocity-nrmse]]  mean Δ -0.000293 over 2 exp (↑1 ↓1 →0)  (verdicts: directional_only×1, refutes×1)\n- [[motion-coherence-20260910]] ↓ [[motion-light-quiet-angular-speed]]  mean Δ -38.5124 over 1 exp (↑0 ↓1 →0)  (verdicts: directional_only×1)\n- [[motion-dynamics-20260910]] ↑ [[motion-light-entry-luminance-ratio]]  mean Δ +2.78525 over 1 exp (↑1 ↓0 →0)  (verdicts: directional_only×1)\n- [[motion-exposure-20260910]] ↑ [[motion-render-response-fixed-008]]  mean Δ +1.99643 over 1 exp (↑1 ↓0 →0)  (verdicts: inconclusive×1)\n- [[motion-exposure-20260910]] ↑ [[motion-render-response-fixed-012]]  mean Δ +1.27788 over 1 exp (↑1 ↓0 →0)  (verdicts: inconclusive×1)\n- [[motion-exposure-20260910]] ↑ [[motion-render-response-fixed-016]]  mean Δ +0.901305 over 1 exp (↑1 ↓0 →0)  (verdicts: inconclusive×1)\n- [[motion-exposure-20260910]] ↑ [[motion-render-response-fixed-020]]  mean Δ +0.677412 over 1 exp (↑1 ↓0 →0)  (verdicts: inconclusive×1)\n- [[motion-exposure-20260910]] ↑ [[motion-render-response-fixed-024]]  mean Δ +0.531914 over 1 exp (↑1 ↓0 →0)  (verdicts: inconclusive×1)\n- [[motion-fixed-role-radiance-20260910]] ↑ [[motion-render-dimmer-response]]  mean Δ +2.61848 over 1 exp (↑1 ↓0 →0)\n- [[motion-incumbent-euler32-20260910]] ↑ [[motion-incumbent-pose-high-frequency]]  mean Δ +0.000215 over 1 exp (↑1 ↓0 →0)  (verdicts: refutes×1)\n- [[motion-light-surface-bandwidth]] ↑ [[motion-light-relative-surface-extent]]  mean Δ +0.757952 over 1 exp (↑1 ↓0 →0)  (verdicts: directional_only×1)\n- [[motion-light-surface-mapping]] ↑ [[motion-light-surface-horizontal-span]]  mean Δ +5.52744 over 1 exp (↑1 ↓0 →0)  (verdicts: directional_only×1)\n- [[motion-native-audio-flow-20260910]] ↓ [[motion-native-flow-learning-energy-score]]  mean Δ -1.548 over 1 exp (↑0 ↓1 →0)  (verdicts: directional_only×1)\n- [[motion-native-audio-flow-20260910]] ↓ [[motion-native-regression-learning-energy-score]]  mean Δ -0.331024 over 1 exp (↑0 ↓1 →0)  (verdicts: directional_only×1)\n- [[motion-native-audio-flow-20260910]] ↓ [[motion-native-flow-vs-regression-energy-score]]  mean Δ -0.313725 over 1 exp (↑0 ↓1 →0)  (verdicts: directional_only×1)\n- [[motion-native-audio-flow-20260910]] ↓ [[motion-native-regression-donor-energy-score]]  mean Δ -0.031575 over 1 exp (↑0 ↓1 →0)  (verdicts: directional_only×1)\n- [[motion-native-audio-flow-20260910]] ↓ [[motion-correct-audio-energy-score]]  mean Δ -0.021064 over 1 exp (↑0 ↓1 →0)  (verdicts: directional_only×1)\n- [[motion-native-audio-flow-20260910]] ↓ [[motion-native-flow-donor-energy-score]]  mean Δ -0.021064 over 1 exp (↑0 ↓1 →0)  (verdicts: directional_only×1)\n- [[motion-native-audio-flow-20260910]] ↓ [[motion-native-regression-shift-energy-score]]  mean Δ -0.019926 over 1 exp (↑0 ↓1 →0)  (verdicts: directional_only×1)\n- [[motion-native-audio-flow-20260910]] ↓ [[motion-native-flow-shift-energy-score]]  mean Δ -0.004381 over 1 exp (↑0 ↓1 →0)  (verdicts: directional_only×1)\n- [[motion-native-phase-codec-20260910]] ↓ [[motion-phase-phase128-fit-velocity-nrmse]]  mean Δ -0.842612 over 1 exp (↑0 ↓1 →0)  (verdicts: refutes×1)\n- [[motion-native-phase-codec-20260910]] ↑ [[motion-codec-velocity-nrmse]]  mean Δ +0.803184 over 1 exp (↑1 ↓0 →0)  (verdicts: refutes×1)\n- [[motion-native-phase-codec-20260910]] ↓ [[motion-phase-phase256-fit-velocity-nrmse]]  mean Δ -0.798325 over 1 exp (↑0 ↓1 →0)  (verdicts: refutes×1)\n- [[motion-native-phase-codec-20260910]] ↑ [[motion-phase-frame24-fit-velocity-nrmse]]  mean Δ +0.014022 over 1 exp (↑1 ↓0 →0)  (verdicts: refutes×1)\n- [[motion-native-phase-codec-20260910]] ↑ [[motion-phase-phase64-fit-velocity-nrmse]]  mean Δ +0.009889 over 1 exp (↑1 ↓0 →0)  (verdicts: refutes×1)\n- [[night-expression-composition-20260909]] ↑ [[night-expressive-group-clip-fraction]]  mean Δ +0.375 over 1 exp (↑1 ↓0 →0)  (verdicts: directional_only×1)\n- [[night-expression-conditioning-20260909]] → [[night-audio-controlled-song-fraction]]  mean Δ +0 over 1 exp (↑0 ↓0 →1)  (verdicts: inconclusive×1)\n- [[night-expression-conditioning-20260909]] → [[night-film-base-seed0-controlled]]  mean Δ +0 over 1 exp (↑0 ↓0 →1)  (verdicts: inconclusive×1)\n- [[night-expression-conditioning-20260909]] → [[night-film-base-seed1-controlled]]  mean Δ +0 over 1 exp (↑0 ↓0 →1)  (verdicts: inconclusive×1)\n- [[night-expression-conditioning-20260909]] → [[night-film-fourier-seed0-controlled]]  mean Δ +0 over 1 exp (↑0 ↓0 →1)  (verdicts: inconclusive×1)\n- [[night-expression-conditioning-20260909]] → [[night-film-fourier-seed1-controlled]]  mean Δ +0 over 1 exp (↑0 ↓0 →1)  (verdicts: inconclusive×1)\n- [[night-expression-conditioning-20260909]] → [[night-film-muq-seed0-controlled]]  mean Δ +0 over 1 exp (↑0 ↓0 →1)  (verdicts: inconclusive×1)\n- [[night-expression-conditioning-20260909]] → [[night-film-muq-seed1-controlled]]  mean Δ +0 over 1 exp (↑0 ↓0 →1)  (verdicts: inconclusive×1)\n- [[night-expression-fourier-20260909]] ↓ [[night-fourier-film-seed0-energy]]  mean Δ -0.01682 over 1 exp (↑0 ↓1 →0)  (verdicts: directional_only×1)\n- [[night-expression-fourier-20260909]] ↓ [[night-fourier-conditional-energy-score]]  mean Δ -0.008499 over 1 exp (↑0 ↓1 →0)  (verdicts: directional_only×1)\n- [[night-expression-fourier-20260909]] ↓ [[night-fourier-once-seed1-energy]]  mean Δ -0.006205 over 1 exp (↑0 ↓1 →0)  (verdicts: directional_only×1)\n- [[night-expression-fourier-20260909]] ↓ [[night-fourier-film-seed1-energy]]  mean Δ -0.005735 over 1 exp (↑0 ↓1 →0)  (verdicts: directional_only×1)\n- [[night-expression-fourier-20260909]] ↓ [[night-fourier-once-seed0-energy]]  mean Δ -0.005238 over 1 exp (↑0 ↓1 →0)  (verdicts: directional_only×1)\n- [[night-expression-muq-20260909]] ↑ [[night-muq-once-seed1-energy]]  mean Δ +0.01281 over 1 exp (↑1 ↓0 →0)  (verdicts: refutes×1)\n- [[night-expression-muq-20260909]] ↑ [[night-muq-conditional-energy-score]]  mean Δ +0.005165 over 1 exp (↑1 ↓0 →0)  (verdicts: refutes×1)\n- [[night-expression-muq-20260909]] ↑ [[night-muq-film-seed0-energy]]  mean Δ +0.003602 over 1 exp (↑1 ↓0 →0)  (verdicts: refutes×1)\n- [[night-expression-muq-20260909]] ↑ [[night-muq-once-seed0-energy]]  mean Δ +0.002477 over 1 exp (↑1 ↓0 →0)  (verdicts: refutes×1)\n- [[night-expression-muq-20260909]] ↑ [[night-muq-film-seed1-energy]]  mean Δ +0.001769 over 1 exp (↑1 ↓0 →0)  (verdicts: refutes×1)\n- [[night-expression-representation-20260909]] ↓ [[night-pose-reconstruction-error]]  mean Δ -0.352166 over 1 exp (↑0 ↓1 →0)\n- [[night-expression-rhythm-20260909]] ↓ [[night-annotated-beat-f1]]  mean Δ -0.093771 over 1 exp (↑0 ↓1 →0)  (verdicts: refutes×1)\n- [[night-precision-runtime-20260910]] ↓ [[iteration-training-seconds]]  mean Δ -7551.07 over 1 exp (↑0 ↓1 →0)  (verdicts: directional_only×1)\n- [[night-precision-runtime-20260910]] ↓ [[iteration-muq-film-s1-seconds]]  mean Δ -1984.71 over 1 exp (↑0 ↓1 →0)  (verdicts: directional_only×1)\n- [[night-precision-runtime-20260910]] ↓ [[iteration-muq-film-s0-seconds]]  mean Δ -1983.24 over 1 exp (↑0 ↓1 →0)  (verdicts: directional_only×1)\n- [[night-precision-runtime-20260910]] ↓ [[iteration-base-once-s0-seconds]]  mean Δ -1792.71 over 1 exp (↑0 ↓1 →0)  (verdicts: directional_only×1)\n- [[night-precision-runtime-20260910]] ↓ [[iteration-base-once-s1-seconds]]  mean Δ -1790.42 over 1 exp (↑0 ↓1 →0)  (verdicts: directional_only×1)\n- [[night-precision-runtime-20260910]] ↓ [[iteration-muq-film-s0-a-mse]]  mean Δ -0.037583 over 1 exp (↑0 ↓1 →0)  (verdicts: directional_only×1)\n- [[night-precision-runtime-20260910]] ↓ [[iteration-muq-film-s1-a-mse]]  mean Δ -0.022721 over 1 exp (↑0 ↓1 →0)  (verdicts: directional_only×1)\n- [[night-precision-runtime-20260910]] ↓ [[iteration-a-mse]]  mean Δ -0.018971 over 1 exp (↑0 ↓1 →0)  (verdicts: directional_only×1)\n- [[night-precision-runtime-20260910]] ↓ [[iteration-base-once-s0-a-mse]]  mean Δ -0.010844 over 1 exp (↑0 ↓1 →0)  (verdicts: directional_only×1)\n- [[night-precision-runtime-20260910]] ↓ [[iteration-muq-film-s0-energy]]  mean Δ -0.010364 over 1 exp (↑0 ↓1 →0)  (verdicts: directional_only×1)\n- [[night-precision-runtime-20260910]] ↓ [[iteration-base-once-s1-a-mse]]  mean Δ -0.004738 over 1 exp (↑0 ↓1 →0)  (verdicts: directional_only×1)\n- [[night-precision-runtime-20260910]] ↓ [[iteration-muq-film-s1-event-ap]]  mean Δ -0.003633 over 1 exp (↑0 ↓1 →0)  (verdicts: directional_only×1)\n- [[night-precision-runtime-20260910]] ↓ [[iteration-muq-film-s0-event-ap]]  mean Δ -0.003568 over 1 exp (↑0 ↓1 →0)  (verdicts: directional_only×1)\n- [[night-precision-runtime-20260910]] ↓ [[iteration-energy-score]]  mean Δ -0.002015 over 1 exp (↑0 ↓1 →0)  (verdicts: directional_only×1)\n- [[night-precision-runtime-20260910]] ↑ [[iteration-base-once-s1-energy]]  mean Δ +0.001854 over 1 exp (↑1 ↓0 →0)  (verdicts: directional_only×1)\n- [[night-precision-runtime-20260910]] ↑ [[iteration-base-once-s0-energy]]  mean Δ +0.001723 over 1 exp (↑1 ↓0 →0)  (verdicts: directional_only×1)\n- [[night-precision-runtime-20260910]] ↓ [[iteration-event-ap]]  mean Δ -0.001454 over 1 exp (↑0 ↓1 →0)  (verdicts: directional_only×1)\n- [[night-precision-runtime-20260910]] ↓ [[iteration-muq-film-s1-energy]]  mean Δ -0.001273 over 1 exp (↑0 ↓1 →0)  (verdicts: directional_only×1)\n- [[night-precision-runtime-20260910]] ↑ [[iteration-base-once-s0-event-ap]]  mean Δ +0.001191 over 1 exp (↑1 ↓0 →0)  (verdicts: directional_only×1)\n- [[night-precision-runtime-20260910]] ↑ [[iteration-base-once-s1-event-ap]]  mean Δ +0.000195 over 1 exp (↑1 ↓0 →0)  (verdicts: directional_only×1)\n- [[stage11-expand-jd]] ↑ [[stage11-motion-primary-r2]]  mean Δ +0.010978 over 1 exp (↑1 ↓0 →0)  (verdicts: directional_only×1)\n- [[stage11-joint-temporal-flow]] ↓ [[stage11-scene-hf-ratio]]  mean Δ -13.7875 over 1 exp (↑0 ↓1 →0)\n- [[stage11-joint-temporal-flow]] ↓ [[stage11-scene-variation-ratio]]  mean Δ -1.46189 over 1 exp (↑0 ↓1 →0)\n- [[stage11-joint-temporal-flow]] ↓ [[stage11-scene-temporal-w1]]  mean Δ -1.24497 over 1 exp (↑0 ↓1 →0)\n- [[stage11-joint-temporal-flow]] ↓ [[stage11-scene-marginal-w1]]  mean Δ -0.012097 over 1 exp (↑0 ↓1 →0)\n- [[stage11-preserve-nonbeat-audio]] ↑ [[stage11-scene-audio-advantage-ap]]  mean Δ +0.049378 over 1 exp (↑1 ↓0 →0)"
+  }
+}

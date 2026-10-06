@@ -1,5 +1,9 @@
 # Current lighting baseline: C — variant06 with history and300ms fades
 
+**Superseded September30:** the user selected P2 as the new **color** baseline
+and rejected autonomous companion motion. See the [current body-transfer work](../2026-09-30-body-transfer/README.md).
+The C selection and results below are historical records.
+
 The user selected **06, independent Rich96 (`I_VR_P0`, selected seed0)** as the
 most interesting and best Shpongle result on September29. They explicitly prefer
 the rhythm companion02 to original motion mapping01. After reviewing the four

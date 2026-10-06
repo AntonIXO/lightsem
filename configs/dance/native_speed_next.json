@@ -1,0 +1,57 @@
+{
+  "schema_version": 1,
+  "id": "native-C-full-eligible-data-slow-learning-next",
+  "status": "recipe_defined_not_trained",
+  "initialization": {
+    "path": "/mnt/lightsem-data/experiments/lightsem/native_dynamics_jd_20261005_v1/repair_refine_v2/strong/learning/runs/joint/seed_0/final.pt",
+    "sha256": "4a40a85139e4177cbcf88b73d278016deef3d9b1fdc6a55e590ab7d473a8600a"
+  },
+  "comparison_reference_id": "native-C-HF16-reference-20261006",
+  "architecture": "Same joint native-C backbone/planner; external D4/D6 off by default",
+  "data": {
+    "corpora": [
+      "FineDance",
+      "JustDance"
+    ],
+    "use_all_eligible_TRAIN_groups": true,
+    "pilot_songgroup_cap": null,
+    "retain_current_development_and_quarantines": true,
+    "current_JD_partition_manifest": {
+      "path": "/mnt/lightsem-data/experiments/lightsem/native_dynamics_jd_20261005_v1/data/MANIFEST.json",
+      "sha256": "5468bafa704be27f74ee2752cf3cb364f310ae7caadbfc51ba47b836c17be11f"
+    },
+    "current_FD_partition_manifest": {
+      "path": "/mnt/lightsem-data/experiments/lightsem/dynamic_dance_20261005_v1/learning/cache/manifest.json",
+      "sha256": "e952a7d55f4fd8b0c1fb0b9c31de3d4a0443cbfe4d929fb5b36f120e4e7556b1"
+    },
+    "unselected_previously_qualified_JD_groups": 32,
+    "broader_JD_admission": "Prepare missing audio, resolve duplicate/cross-corpus group identities, admit independently tracked coaches and valid observed windows; retain masks and native timestamps. Raw video counts are not independent sample counts."
+  },
+  "learning": {
+    "targets": "Observed regional continuous speed profiles, lower speed quantiles, slowing/release and duration; whole-body pause separate from foot support",
+    "sampling": "Prospective TRAIN-only slow/medium/fast stratification after mask/pose review; no arbitrary variance reward",
+    "quiet_loss": "Stable BCEWithLogits; retain nonzero slowdown gradients from initially fast output",
+    "quiet_loss_source": {
+      "path": "/root/lightsem/lightsem/experiments/native_dynamics/kinematics.py",
+      "sha256": "d930e901bdb6ce8cc38fc0eaaa9b82fb3995bcce5eeb515a6915d269c83c2e29"
+    },
+    "inference_retiming": false,
+    "synthetic_slowdowns_labeled_as_real_choreography": false,
+    "raw_3D_stability_constraints": "Retain raw temporal, root/support, floor and bone-geometry checks; physical reference is not fabricated JD3D ground truth",
+    "D7_pacing_anchoring": "Separate preregistered ablation if required; do not silently remove all safeguards"
+  },
+  "execution": {
+    "training_seeds": [
+      0,
+      1
+    ],
+    "display_seed": 0,
+    "draw_seed": 7001,
+    "performance_preflight_required": true,
+    "freeze_common_exposure_loss_weights_and_acceptance_criteria_before_candidate_scores": true,
+    "sequential_GPU_curator_only": true,
+    "respect_existing_resource_ledger_and_20GiB_free_floor": true
+  },
+  "acceptance": "Compare actual unfiltered native output with the frozen reference on BOTH songs and development; raw3D stability, target slow/fast timing, source/shift/donor sensitivity and actual emitted DMX. Improved variation or different hashes alone do not qualify. Artistic review remains separate.",
+  "baseline_promoted": false
+}
