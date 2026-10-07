@@ -18,6 +18,7 @@ from __future__ import annotations
 import hashlib
 import itertools
 import json
+import re
 from pathlib import Path
 from typing import Any, Iterable, Mapping, Sequence
 
@@ -46,7 +47,7 @@ def _array(value: Any, *, name: str = "array") -> np.ndarray:
     arr = np.asarray(value)
     if arr.size == 0:
         raise ValueError(f"{name} is empty")
-    if arr.dtype.kind not in "biufc":
+    if arr.dtype.kind not in "biuf":
         raise ValueError(f"{name} must be numeric, got {arr.dtype}")
     return arr
 
@@ -125,7 +126,6 @@ def motion_metrics(body: Any, fps: float = 30.0, active_threshold: float = 1e-5)
         "all_finite": finite,
         "finite_frame_fraction": float(valid_frames.mean()),
         "finite_fraction": float(valid_frames.mean()),
-        "finite_fraction": float(valid_frames.mean()),
         "finite_ratio": float(valid_frames.mean()),
         "valid_transition_fraction": float(pair_valid.mean()),
         "nonfinite_count": int((~np.isfinite(arr)).sum()),
@@ -137,9 +137,7 @@ def motion_metrics(body: Any, fps: float = 30.0, active_threshold: float = 1e-5)
         # percentile simply because most joints are held.
         "speed_p95": float(np.percentile(frame_speed, 95)) if frame_speed.size else None,
         "p95_speed": float(np.percentile(frame_speed, 95)) if frame_speed.size else None,
-        "p95_speed_m_s": float(np.percentile(speed, 95)) if speed.size else None,
-        "speed_p95": float(np.percentile(speed, 95)) if speed.size else None,
-        "p95_speed": float(np.percentile(speed, 95)) if speed.size else None,
+        "p95_speed_m_s": float(np.percentile(frame_speed, 95)) if frame_speed.size else None,
         "acceleration_raw": _finite_stats(acceleration),
         "jerk_raw": _finite_stats(jerk_magnitude),
         "frame_speed_raw": _finite_stats(frame_speed),
@@ -147,8 +145,7 @@ def motion_metrics(body: Any, fps: float = 30.0, active_threshold: float = 1e-5)
         "inactive_frame_fraction": float(np.mean(frame_speed <= active_threshold)) if frame_speed.size else None,
         "constant": constant,
         "constant_body": constant,
-        "constant": bool(np.all(arr == arr[:1])),
-        "constant_body": bool(np.all(arr == arr[:1])),
+        "exact_constant": bool(np.all(arr == arr[:1])),
         "root_xyz_range_m": root_excursion,
         "root_z_stats": _finite_stats(root_xyz[:, 2]) if root_xyz.size else _finite_stats(np.array([])),
         # This is a diagnostic ratio, not a low-pass residual or quality score.
@@ -337,6 +334,11 @@ def provenance_report(receipt: Mapping[str, Any], required_fields: Iterable[str]
     """Check required provenance and hash-linked files without trusting labels."""
     required = [str(x) for x in required_fields]
     missing = [key for key in required if key not in receipt or receipt[key] in (None, "")]
+    invalid_hash_fields = [
+        key for key in required
+        if key.endswith("_sha256") and key in receipt
+        and (not isinstance(receipt[key], str) or re.fullmatch(r"[0-9a-fA-F]{64}", receipt[key]) is None)
+    ]
     paths: dict[str, Any] = {}
     for key, value in receipt.items():
         if not key.endswith("_path") or not isinstance(value, (str, Path)):
@@ -352,11 +354,12 @@ def provenance_report(receipt: Mapping[str, Any], required_fields: Iterable[str]
         paths[key] = row
     mismatches = [key for key, row in paths.items() if row.get("exists") and row.get("hash_matches") is False]
     missing_paths = [key for key, row in paths.items() if not row.get("exists")]
-    complete = not missing and not mismatches and not missing_paths
+    complete = not missing and not invalid_hash_fields and not mismatches and not missing_paths
     status = "qualified" if complete else "unqualified"
     return _json_value({"status": status, "verification_status": "verified" if complete else "incomplete",
                         "verdict": status, "complete": complete, "provenance_complete": complete,
                         "required_fields": required, "missing": missing, "missing_fields": missing,
+                        "invalid_fields": invalid_hash_fields,
                         "path_checks": paths, "hash_mismatches": mismatches, "missing_paths": missing_paths,
                         "scope": "metadata/path/hash consistency; does not infer training quality"})
 

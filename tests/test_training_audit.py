@@ -136,6 +136,9 @@ def test_missing_provenance_is_unqualified_and_never_a_zero_score():
     }
     # An incomplete receipt cannot be promoted by a numerically quiet output.
     assert _get(bad, "score", "value", default=None) != 0
+    malformed = provenance_report({"checkpoint_sha256": "short"}, required_fields=("checkpoint_sha256",))
+    assert malformed["complete"] is False
+    assert "checkpoint_sha256" in malformed["invalid_fields"]
 
 
 def test_run_comparison_reports_regression_and_improvement_by_gate():

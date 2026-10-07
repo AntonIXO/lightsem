@@ -225,3 +225,35 @@ The status record is `docs/research/2026-10-07-native-full-data/STATUS.md`.
   phrase development, recurrence, holds, and emitted-light retention.
 - Never overwrite sealed receipts. New code, cache, checkpoint, seed, or source
   hashes require a new artifact root and a new protocol identity.
+- Disk cleanup must preserve caches needed by the next authorized pipeline run.
+  Classify active working caches separately from archival or superseded caches
+  before deleting anything; dataset manifests that point at a cache are evidence
+  of an active dependency, not permission to remove the cache. Provenance and
+  receipt requirements do not imply creating a new JSON file for every cleanup.
+  Do not start regeneration or recovery after an accidental deletion unless the
+  user explicitly requests it.
+
+## Autonomous training evaluation — 2026-10-08
+
+- The reusable skill is `skills/autonomous-training-evaluation/`. Its protocol
+  and metric references define the machine-only audit contract.
+- Run CPU checks through `bash run.sh scripts/evaluate_training.py`; use a new
+  report path and the manifest schema in `docs/training_health_manifest.schema.json`.
+  The audit reads raw native body/stream arrays and refuses to overwrite an
+  existing report. Generate a candidate report and a matched baseline report,
+  then pass `--compare-baseline` for the paired gate comparison.
+- Required checks are finite values and provenance, raw unfiltered motion
+  (speed/acceleration/jerk), representation/sample diversity, output inactivity,
+  saturation, exact duplicate streams, explicit RGB and brightness diagnostics,
+  and at least two independently recomputed song inputs when judging audio
+  conditioning. Missing evidence is `unqualified`; zero events are not a
+  representation-collapse verdict.
+- The single-run statuses are `collapsed`, `failed_safety`, `unqualified`, and
+  `diagnostic_only`. A comparison may report qualified improvement or regression
+  only from explicit paired gate evidence. Passing the health audit never proves
+  choreography, music fit, or artistic/product acceptance.
+- Preserve source-body, soundtrack, checkpoint, noise, mapper, renderer, split,
+  and code hashes. Keep Shpongle and AURORA — Cure For Me bodies and emitted DMX
+  independent. Never substitute oscillators, fallback motion, reused bodies, or
+  post-hoc smoothing/D4/D6 for a failed native generator. Keep pair-scoped plots
+  with signed candidate-minus-reference differences and all raw peaks.

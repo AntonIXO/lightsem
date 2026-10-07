@@ -1,0 +1,4 @@
+interface:
+  display_name: "Autonomous Training Evaluation"
+  short_description: "Score training runs for gain, regression, or collapse"
+  default_prompt: "Use $autonomous-training-evaluation to audit this run against its frozen baseline and produce a machine-readable verdict."
