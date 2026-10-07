@@ -156,3 +156,72 @@ comparisons or demo delivery (2026-09-30).
   new musical effects and raw3D stability require a separately trained and
   verified comparison. Do not claim the current demos include this fix.
 - Evidence: native_dynamics_jd_20261005_v1/speed_training_audit_v1/AUDIT.json.
+
+## Merged repository operations — 2026-10-07
+
+`CLAUDE.md` was merged here and removed. This file is the single repository
+instruction source. The current native CLI baseline and reusable procedure are
+documented in the `$native-dance-light-pipeline` skill at
+`/root/.codex/skills/native-dance-light-pipeline/`.
+
+Use the interpreter wrapper that matches the operation:
+
+```bash
+bash run.sh <script.py> [args]          # non-Torch audio/renderer work
+bash run_torch.sh <script.py> [args]    # Torch/native-dance work
+```
+
+Use `uv` for dependency installation; never use system `pip`. Do not invoke a
+venv binary directly when the wrapper is available. Use the existing GPU/data
+locks and the sequential curator for GPU jobs. Keep `/mnt/lightsem-data` above
+the 20 GiB free-space floor. External checkpoints, feature caches, full videos,
+and raw waveforms stay on `/mnt`; code, small manifests, receipts, and reports
+belong in the repository or the experiment root.
+
+The active architecture is:
+
+```text
+original song -> frozen MuQ/HTDemucs/BeatThis/All-In-One features
+              -> native C planner/flow -> 30 Hz 22-joint body
+              -> fixed mapper 01 -> 40 Hz requested/decoded DMX
+              -> P2 RGB + restored LUFS brightness -> lit3D video/chart
+```
+
+The descriptor/body seam and each body-to-light stage require their own tests.
+The old rule-driven path remains available only as `legacy-render`; it must not
+be silently selected for native-C work.
+
+## Active full-data branch — 2026-10-07
+
+The full-data admission audit is a separate, unqualified branch. It admits 147
+duplicate-resolved Just Dance TRAIN groups, 24 protected JD validation groups,
+and 109 FineDance TRAIN groups with finite per-track features. It preserves
+coach identity, masks, duplicate groups, showcase quarantine, and the
+distinction between global-record coverage and usable masked windows.
+
+The branch's two 60,000-update joint runs finished with finite losses, but seed
+0's checkpoint was lost while preparing a symlinked demo copy. Exact recovery
+was stopped; seed 1 demos are diagnostics only. Do not promote or call this
+branch a trained baseline. Keep the current fixed C/HF16 baseline unchanged.
+The status record is `docs/research/2026-10-07-native-full-data/STATUS.md`.
+
+## Durable failure lessons
+
+- Never let broken-role extrema define the y-axis for an accepted/reference
+  chart; pair scopes and signed differences must be explicit.
+- Filtered 2D dynamics cannot certify raw native 3D quality. Audit raw jerk,
+  root, support, and high-frequency residual before interpolation or DMX.
+- Stable logit-space BCE is required for quiet-target gradients. The selected
+  checkpoint predates this correction, so do not describe it as trained in C.
+- Support/contact confidence is not a whole-body pause. Keep regional effort,
+  contact, and rest separate.
+- Posthoc D4/D6 can create a useful human-check video without repairing native
+  generation or proving musical superiority. Preserve shifted, shuffled,
+  donor, and loudness controls.
+- Do not reuse Shpongle bodies, DMX, or soundtracks for Cure For Me. A new
+  soundtrack on reused universes is not a new generated result.
+- Different hashes, active lamps, more stops, broader speed variation, or RGB
+  changes do not establish choreography. Compare beat-aligned gesture timing,
+  phrase development, recurrence, holds, and emitted-light retention.
+- Never overwrite sealed receipts. New code, cache, checkpoint, seed, or source
+  hashes require a new artifact root and a new protocol identity.
