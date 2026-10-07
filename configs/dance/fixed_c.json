@@ -1,12 +1,12 @@
 {
   "schema_version": 1,
-  "id": "fixed-native-C-HF16-20261006",
+  "id": "full-data-native-C-HF16-seed0-20261007",
   "status": "user_selected_motion_baseline",
-  "selected_on": "2026-10-06",
-  "selection_scope": "User-selected default. Raw stability qualified; musical pacing superiority is not established. Existing failed results are retained.",
+  "selected_on": "2026-10-07",
+  "selection_scope": "User-selected full-data seed0 baseline. Complete demos and raw checks are preserved; no automatic scientific qualification or promotion claim.",
   "checkpoint": {
-    "path": "/mnt/lightsem-data/experiments/lightsem/native_dynamics_jd_20261005_v1/repair_refine_v2/strong/learning/runs/joint/seed_0/final.pt",
-    "sha256": "4a40a85139e4177cbcf88b73d278016deef3d9b1fdc6a55e590ab7d473a8600a"
+    "path": "/mnt/lightsem-data/experiments/lightsem/native_dynamics_full_20261007_recovery_seed0_v2/learning/runs/joint/seed_0/final.pt",
+    "sha256": "5384e4b189e40de3325fb6658bdf910ed351a785fa4ba2e2651f751534e9c30e"
   },
   "training_seed": 0,
   "draw_seed": 7001,
@@ -80,15 +80,19 @@
   },
   "trained_recipe": {
     "FD_train_songgroups": 109,
-    "JD_train_songgroups": 72,
-    "native_training_updates": 35500,
+    "JD_train_songgroups": 147,
+    "JD_validation_songgroups": 24,
+    "native_training_updates": 60000,
     "raw_3D_constraints": true,
-    "quiet_gradient_fix_in_checkpoint": false,
-    "full_JD_training": false
+    "quiet_gradient_fix_in_checkpoint": true,
+    "full_JD_training": true,
+    "admission_manifest": "/mnt/lightsem-data/experiments/lightsem/native_dynamics_full_20261007/data/MANIFEST.json",
+    "feature_receipt": "/mnt/lightsem-data/experiments/lightsem/native_dynamics_full_20261007/features/COMPLETE.json"
   },
   "qualification": {
-    "path": "/mnt/lightsem-data/experiments/lightsem/native_dynamics_jd_20261005_v1/repair_review_v1/reports/FINAL_REPORT.json",
-    "sha256": "e908120fd5ad1c26b13a59a604a295335ba257952e7c4e0d59afda9dcc9cb361"
+    "status": "user_selected_unqualified_full_data_branch",
+    "experiment": "exp-native-full-data-speed-20261007",
+    "note": "Paired two-seed checkpoint/evaluation gate is not promoted automatically; seed1 remains retained for comparison."
   },
   "historical_reference_config": "configs/dance/baseline.json",
   "cached_tracks": {
