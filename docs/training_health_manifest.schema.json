@@ -1,0 +1,53 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "lightsem.training_health.manifest.v1",
+  "title": "LightSem training health audit manifest",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["body"],
+  "properties": {
+    "schema": {
+      "const": "lightsem.training_health.manifest.v1"
+    },
+    "body": {
+      "type": "string",
+      "description": "Native body NPZ. Relative paths resolve beside this manifest."
+    },
+    "stream": {
+      "type": "string",
+      "description": "Optional emitted DMX/universe NPZ."
+    },
+    "samples": {
+      "type": "object",
+      "additionalProperties": {"type": "string"},
+      "description": "Label to body NPZ map for cross-song/diversity checks."
+    },
+    "interventions": {
+      "type": "object",
+      "additionalProperties": {"type": "string"},
+      "description": "Label to body NPZ map after changing one declared input."
+    },
+    "provenance": {
+      "type": "string",
+      "description": "Inference receipt JSON with input/checkpoint hashes."
+    },
+    "required_provenance": {
+      "type": "array",
+      "items": {"type": "string"}
+    },
+    "fps": {"type": "number", "exclusiveMinimum": 0},
+    "limits": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "max_speed": {"type": "number", "exclusiveMinimum": 0},
+        "max_acceleration": {"type": "number", "exclusiveMinimum": 0},
+        "max_jerk": {"type": "number", "exclusiveMinimum": 0},
+        "min_body_activity": {"type": "number", "minimum": 0, "maximum": 1},
+        "min_output_activity": {"type": "number", "minimum": 0, "maximum": 1}
+      }
+    },
+    "rgb_channels": {"type": "array", "items": {"type": "integer", "minimum": 0}},
+    "brightness_channels": {"type": "array", "items": {"type": "integer", "minimum": 0}}
+  }
+}
