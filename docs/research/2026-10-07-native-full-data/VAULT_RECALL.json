@@ -1,0 +1,267 @@
+{
+  "ruled_out": [],
+  "do_not_retry": [
+    {
+      "experiment_id": "exp-audio-rhythm-propagation-20261005",
+      "hypothesis_id": "h-audio-rhythm-propagation-20261005",
+      "verdict": "supports",
+      "item": "Do not replay these completed artifact exports/renders or reinterpret identicalcolors as independent improvements. Changed scientific recipes remain eligible for a new explicitly registered experiment.",
+      "score": 1.5,
+      "match_reasons": [
+        "keyword"
+      ]
+    },
+    {
+      "experiment_id": "exp-d4max-d8-v2-c3-20261005",
+      "hypothesis_id": "h-d4max-d8-v2-c3-20261005",
+      "verdict": "directional_only",
+      "item": "Do not claim qualified musical improvement from eliminated freezes or active D4 alone; fixedmusical and original-source physical gatesfail. Native training should separate support from whole-body pause and avoid posthoc globalclock coupling.",
+      "score": 1.5,
+      "match_reasons": [
+        "keyword"
+      ]
+    },
+    {
+      "experiment_id": "exp-d4max-d8-v2-c4-20261005",
+      "hypothesis_id": "h-d4max-d8-v2-c4-20261005",
+      "verdict": "directional_only",
+      "item": "Do not claim qualified musical improvement from eliminated freezes or active D4 alone; fixedmusical and original-source physical gatesfail. Native training should separate support from whole-body pause and avoid posthoc globalclock coupling.",
+      "score": 1.5,
+      "match_reasons": [
+        "keyword"
+      ]
+    },
+    {
+      "experiment_id": "exp-motion-coherence-20260910",
+      "hypothesis_id": "h-motion-coherence-20260910",
+      "verdict": "directional_only",
+      "item": "Do not promote the native generator from direct-audio lighting metrics. Do not relax the failed active-movement minimum or substitute a different time interval.",
+      "score": 1.5,
+      "match_reasons": [
+        "keyword"
+      ]
+    },
+    {
+      "experiment_id": "exp-motion-dynamics-20260910",
+      "hypothesis_id": "h-motion-dynamics-20260910",
+      "verdict": "directional_only",
+      "item": "Do not promote the native generator from direct-audio lighting metrics. Do not relax the failed active-movement minimum or substitute a different time interval.",
+      "score": 1.5,
+      "match_reasons": [
+        "keyword"
+      ]
+    },
+    {
+      "experiment_id": "exp-motion-native-audio-20260910",
+      "hypothesis_id": "h-motion-native-audio-20260910",
+      "verdict": "directional_only",
+      "item": "Do not promote or extend this native13930k recipe under the same identity. A revision must address physical contact, weak conditionality and short-record handling explicitly.",
+      "score": 1.5,
+      "match_reasons": [
+        "keyword"
+      ]
+    },
+    {
+      "experiment_id": "exp-motion-native-phase-codec-20260910",
+      "hypothesis_id": "h-motion-native-phase-codec-20260910",
+      "verdict": "refutes",
+      "item": "Do not repeat these truncated independent Haar-band projections expecting native velocity fidelity; any revision needs a new identity.",
+      "score": 1.5,
+      "match_reasons": [
+        "keyword"
+      ]
+    },
+    {
+      "experiment_id": "exp-native-jd-dynamics-20261005",
+      "hypothesis_id": "h-native-jd-dynamics-20261005",
+      "verdict": "inconclusive",
+      "item": "Do not silently fill missing observations withzero or relabelthe partial estimator ascompleteprimary.",
+      "score": 1.5,
+      "match_reasons": [
+        "keyword"
+      ]
+    }
+  ],
+  "results": [
+    {
+      "kind": "hypothesis",
+      "hypothesis_id": "h-au-mae-init-jepa-retrieval-20261004",
+      "problem_id": "lightsem-audio-understanding-20261004",
+      "statement": "MAE-initialized JEPA improves missing-source Recall@5 by at least.05 over continued MAE at matched28000totalupdates, without greater-than.02 regression on the other primary axis.",
+      "status": "inconclusive",
+      "score": 4.0,
+      "match_reasons": [
+        "keyword"
+      ],
+      "why_it_failed": "inconclusive [recipe_conditional]: This full MAE-to-JEPA continuation increases the retrieval point estimate over matched continued reconstruction, but its Recall@5 interval includes zero and it loses3.87 points of temporal AUROC, exceeding the2-point guard. It does not qualify for TEST under the fixed policy; do not treat this as a family-level rejection of JEPA or an isolated test of initialization.",
+      "is_negative": true
+    },
+    {
+      "kind": "hypothesis",
+      "hypothesis_id": "h-au-mae-init-jepa-temporal-20261004",
+      "problem_id": "lightsem-audio-understanding-20261004",
+      "statement": "MAE-initialized JEPA improves temporal-discrimination AUROC by at least.05 over continued MAE at matched28000totalupdates, without greater-than.02 regression on the other primary axis.",
+      "status": "refuted",
+      "score": 4.0,
+      "match_reasons": [
+        "keyword"
+      ],
+      "why_it_failed": "refuted [recipe_conditional]: Switching the shared MAE parent to this JEPA recipe loses local temporal information despite nonconstant, input-sensitive embeddings. The comparison changes the objective with explicit Adam/EMA policies at matched total exposure; improved native geometry or retrieval does not establish preserved timing, and no second adaptation follows.",
+      "is_negative": true
+    },
+    {
+      "kind": "hypothesis",
+      "hypothesis_id": "h-au-mert-rhythm-20261004",
+      "problem_id": "lightsem-audio-understanding-20261004",
+      "statement": "Frozen MERT native temporal embeddings improve grouped GuitarSet note-onset prediction over the already measured corrected Fourier representation under the same nested readout.",
+      "status": "inconclusive",
+      "score": 4.0,
+      "match_reasons": [
+        "keyword"
+      ],
+      "why_it_failed": "inconclusive [recipe_conditional]: MERT improves onsetF1 in all15families but its+.02793pointgain falls belowthe committed+.03bar. Preserve the positive secondary/tolerance-specific findings andscoped near-miss; no extra seeds are justified for these frozen deterministic features andno method-family rejection follows.",
+      "is_negative": true
+    },
+    {
+      "kind": "hypothesis",
+      "hypothesis_id": "h-dance-physical-objective-20260911",
+      "problem_id": "dancing-light-generative-20260903",
+      "statement": "Explicit clean-estimate FK/support/root objectives reduce generated sliding on held-out native motion versus a matched masked-native flow baseline without losing independent quality or conditioning gates.",
+      "status": "inconclusive",
+      "score": 4.0,
+      "match_reasons": [
+        "keyword"
+      ],
+      "why_it_failed": "inconclusive [recipe_conditional]: 2026-09-28 retrospective interpretation, not a new experiment: In the matched seed0 study, the physical objective reduced generated sliding excess to 0.343127 m/s versus masked_native at 0.881744 m/s, but still failed the absolute 0.20 m/s gate. Correct-versus-donor/shift conditioning failed on the frozen summary-energy-score instrument, and visual qualification failed, with matched incumbent 3D lighting unavailable despite completed scheduled renders and sampled reviews. Other physical, consistency and coverage passes do not establish learned music-driven LIGHT quality or human music-fit acceptance, reverse the blocked qualification/seed1 decision, or refute physical objectives generally.",
+      "is_negative": true
+    },
+    {
+      "kind": "hypothesis",
+      "hypothesis_id": "h-motion-native-audio-20260910",
+      "problem_id": "dancing-light-generative-20260903",
+      "statement": "A conditional temporal flow on full native motion uses the correct music and preserves coherent dynamics better than a matched deterministic regressor.",
+      "status": "inconclusive",
+      "score": 4.0,
+      "match_reasons": [
+        "keyword"
+      ],
+      "why_it_failed": "inconclusive [recipe_conditional]: Learning the marginal motion distribution and reducing energy score versus a regressor do not establish music timing. Physical foot constraints are missing from the native quadratic objective; contact labels remain populated while feet slide. Global chunk consistency does not bound generated root travel. Preserve this failed recipe and freeze a distinct targeted revision.",
+      "is_negative": true
+    },
+    {
+      "kind": "hypothesis",
+      "hypothesis_id": "h-motion-native-phase-codec-20260910",
+      "problem_id": "dancing-light-generative-20260903",
+      "statement": "A phase-preserving linear codec with explicit root/contact channels can satisfy clean-motion fidelity gates where the 20k nonlinear temporal codec recipe failed.",
+      "status": "refuted",
+      "score": 4.0,
+      "match_reasons": [
+        "keyword"
+      ],
+      "why_it_failed": "refuted [recipe_conditional]: Pose accuracy alone hides severe temporal distortion from bandwise truncation. Even the largest candidate fails velocity, kinetic energy, planted feet and short-hold gates. Retain full native detail as an explicit uncompressed engineering reference before music generation; do not call it learned compression success.",
+      "is_negative": true
+    },
+    {
+      "kind": "hypothesis",
+      "hypothesis_id": "h-native-jd-dynamics-20261005",
+      "problem_id": "dynamic-musical-dance-20261005",
+      "statement": "Native dynamics training lowers held-out observed JustDance speed-profile error versus matched continued without retiming or physical/diversity regression.",
+      "status": "inconclusive",
+      "score": 4.0,
+      "match_reasons": [
+        "keyword"
+      ],
+      "why_it_failed": "inconclusive [recipe_conditional]: Directmotion-data losses reduced available-cell speederror32\u201333% inbothseeds andimprovedobserved distributions, butincreased3Dfoot sliding/jerk andlostemittedgesture retention. Nativelearninghadreal effects; thisweak2D/matched3D recipe didnotearnend-to-endimprovement. Thecompleteprimaryremainsunqualified becauseobservationalcoveragewasincomplete; thisdoesnotrejectnativelearningingeneral.",
+      "is_negative": true
+    },
+    {
+      "kind": "hypothesis",
+      "hypothesis_id": "h-native-jd-joint-20261005",
+      "problem_id": "dynamic-musical-dance-20261005",
+      "statement": "Native joint training lowers held-out observed JustDance speed-profile error versus matched dynamics without retiming or physical/diversity regression.",
+      "status": "inconclusive",
+      "score": 4.0,
+      "match_reasons": [
+        "keyword"
+      ],
+      "why_it_failed": "inconclusive [recipe_conditional]: The connectedplanner iscausallyactive inbodyandDMX andimproves somephysicaltradeoffs versusdirectlosses, butavailable-cell speederror is5.4\u20135.6%worse andShpongle seed0developsbadbursts/transferloss. Jointconditioningdidnotearnanoverallwin inthisrecipe. Thecompleteprimaryremainsunqualified becauseobservationalcoveragewasincomplete; thisdoesnotrejectnativelearningingeneral.",
+      "is_negative": true
+    }
+  ],
+  "context": [
+    {
+      "kind": "intervention",
+      "id": "au-20261004-jepa",
+      "label": "Source-conditioned missing-stem frame prediction",
+      "score": 1.5,
+      "match_reasons": [
+        "keyword"
+      ]
+    },
+    {
+      "kind": "intervention",
+      "id": "au-20261004-mert-readout",
+      "label": "Frozen MERT native music representation readout",
+      "score": 1.5,
+      "match_reasons": [
+        "keyword"
+      ]
+    },
+    {
+      "kind": "intervention",
+      "id": "au-20261004-muq-readout",
+      "label": "Frozen MuQ native music representation readout",
+      "score": 1.5,
+      "match_reasons": [
+        "keyword"
+      ]
+    },
+    {
+      "kind": "intervention",
+      "id": "dynamic-combo-c3-20261005",
+      "label": "D7 with D8 global-context residual and D4 motifs",
+      "score": 1.5,
+      "match_reasons": [
+        "keyword"
+      ]
+    },
+    {
+      "kind": "intervention",
+      "id": "motion-native-audio-flow-20260910",
+      "label": "motion-native-audio-flow-20260910",
+      "score": 1.5,
+      "match_reasons": [
+        "keyword"
+      ]
+    },
+    {
+      "kind": "intervention",
+      "id": "motion-native-phase-codec-20260910",
+      "label": "motion-native-phase-codec-20260910",
+      "score": 1.5,
+      "match_reasons": [
+        "keyword"
+      ]
+    },
+    {
+      "kind": "intervention",
+      "id": "native-positive-composition",
+      "label": "Compose native C with frozen D4-max and D6 positive anchored pacing",
+      "score": 1.5,
+      "match_reasons": [
+        "keyword"
+      ]
+    },
+    {
+      "kind": "intervention",
+      "id": "ndjd-direct-data-dynamics",
+      "label": "Direct observed-time JD dynamics supervision on generated native32-step samples",
+      "score": 1.5,
+      "match_reasons": [
+        "keyword"
+      ]
+    }
+  ],
+  "calibration_note": null,
+  "guidance": "8 explicit DO-NOT-RETRY item(s) match this query \u2014 they were recorded by a run that already paid for them. Refuted/inconclusive results are ranked first on purpose \u2014 do not silently retry a dead end. Propose a NEW hypothesis with a committed prediction, or supersede a prior one. `context` holds related papers/interventions/problems \u2014 grounding for the new hypothesis, not evidence."
+}
