@@ -7,6 +7,9 @@ from .clock_metadata import nonnegative_effort
 from ..dynamic_dance.contracts import DanceResult,DancePlan,MusicTimeline
 from ..dynamic_dance.retiming import d4_motif_recomposition,retime_with_effort,resample_body
 from ..dynamic_dance.training import observed_regional_speed
+from ...dance.lighting import (_exact_clock, _load_p2_colors, _normalise_counts,
+                               _resample_body_full_interval, _stream_duplicate_groups,
+                               _validate_body_for_lighting)
 
 ROOT=Path('/mnt/lightsem-data/experiments/lightsem/dynamic_dance_combo_20261005_v1')
 OLD=Path('/mnt/lightsem-data/experiments/lightsem/dynamic_dance_20261005_v1')
@@ -133,15 +136,28 @@ def postprocess(root,song,condition='correct'):
  save(root/'generation'/song/condition/'POSTPROCESS.json',{'source':str(source_path),'source_sha256':sha(source_path),'C3':str(c3),'C3_sha256':sha(c3),'C4':str(c4),'C4_sha256':sha(c4),'condition':condition})
  return ['C3'+s,'C4'+s]+(['C3_shuffled','C4_loudness','C4_shifted'] if condition=='correct' else [])
 
-def compile_world(world40,time,outputs,left,right,loudness,transfer):
+def compile_world(world40,time,outputs,left,right,loudness,transfer,mapper_id=None):
  from lightsem.conductor.body_transfer_v2 import map_body
  from lightsem.conductor.body_transfer import TransferConfig,compile_intent
  from scripts.motion.run_body_portfolio import hard_checks
+ # The mapper is part of the production lighting configuration.  Older PLAN
+ # files carried it beside the transfer settings, so accept that spelling too
+ # without allowing it to leak into TransferConfig.
+ transfer=dict(transfer)
+ if mapper_id is None: mapper_id=transfer.pop('mapper', '01')
+ else: transfer.pop('mapper', None)
+ mapper_id=str(mapper_id).zfill(2)
+ from lightsem.conductor.body_transfer_v2 import CATALOG
+ if mapper_id not in CATALOG:
+  raise ValueError(f'Unknown body mapper {mapper_id!r}')
  cfg=TransferConfig(**transfer)
- intent=map_body(world40,outputs,'01',40.)
+ intent=map_body(world40,outputs,mapper_id,40.)
  restored,trace=apply_brightness(world40,time,outputs,intent,loudness)
  dmx,patch,final=compile_intent(restored,outputs,left,right,cfg)
  hard=hard_checks(dmx,patch,final,40.,enforce_motion_limits=cfg.apply_motion_limits)
+ # Keep mapper identity and attribution attached to the intent that actually
+ # reached DMX; reports must never infer it from a requested config alone.
+ final['algorithm_id']=mapper_id
  return dmx,patch,final,trace,hard
 
 def map_one(root,song,method):
@@ -149,21 +165,30 @@ def map_one(root,song,method):
  from lightsem.conductor.body_transfer import decode
  root=Path(root);plan=read(root/'PLAN.json');t=track(root,song);p=body_path(root,method,song);body=DanceResult.load(p)
  if len(body.world)!=t['body_frames']:raise ValueError('Full native song required')
- time=np.arange(t['lighting_frames'])/40.;st=np.minimum(time,body.time[-1]);world=resample_body(body.world,st,30.)
- colors=root/'colors'/song/'P2.npz';colorrep=read(colors.parent/'REPORT.json')
- with np.load(colors) as z:
-  left=z['left_rgb'].copy() if 'left_rgb' in z else z['left'].copy();right=z['right_rgb'].copy() if 'right_rgb' in z else z['right'].copy()
-  palette=z['palette_ids40'].copy() if 'palette_ids40' in z else None
-  color_active=z['color_active40'].copy() if 'color_active40' in z else None
+ frames=int(t['lighting_frames'])
+ if frames < 2: raise ValueError('Full song must provide at least two lighting frames')
+ time=np.arange(frames,dtype=np.float64)/40.
+ world_native, body_time = _validate_body_for_lighting(body, float(time[-1]))
+ world=_resample_body_full_interval(world_native,body_time,time)
+ colors=root/'colors'/song/'P2.npz'
+ left,right,palette,color_active,color_identity=_load_p2_colors(colors,t['audio'],frames,
+                                                                allow_fixture_report=True)
  loudness,loudrep=load_verified_loudness(t['loudness_receipt'],t['audio'])
- outputs=make_outputs(**plan['counts']);dmx,patch,intent,bright,hard=compile_world(world,time,outputs,left,right,loudness,plan['transfer'])
+ counts=_normalise_counts(plan.get('counts'))
+ outputs=make_outputs(**counts)
+ mapper_id=plan.get('mapper', plan.get('lighting',{}).get('mapper', plan.get('transfer',{}).get('mapper','01')))
+ dmx,patch,intent,bright,hard=compile_world(world,time,outputs,left,right,loudness,plan['transfer'],mapper_id=mapper_id)
  decoded=decode(dmx,patch)
  for i,f in enumerate(patch):
   expected=left if f['position'][0]<0 else right
   if not np.array_equal(np.rint(decoded['rgb'][:,i]*255).astype(np.uint8),expected):raise ValueError('P2 RGB changed')
  if not np.array_equal(np.rint(intent['dimmer']*255).astype(np.uint8),np.rint(decoded['dimmer']*255).astype(np.uint8)):raise ValueError('Emitted dimmer differs from intended restoration')
+ attribution=np.zeros((len(outputs),22),dtype=np.uint8)
+ for index,joints in enumerate(intent.get('attribution', ())):
+  attribution[index,np.asarray(joints,dtype=int)]=1
+ duplicate_groups=_stream_duplicate_groups(decoded)
  folder=root/'timelines'/method/song;folder.mkdir(parents=True,exist_ok=False)
- data={'time':time,'body':world,'universes':dmx,'targets':intent['targets'],'dimmer':intent['dimmer'],'source_points':intent['source_points'],'field_points':intent['field_points'],'brightness_envelope':bright['level'] if 'level' in bright else bright['envelope']['level']}
+ data={'time':time,'body':world,'universes':dmx,'targets':intent['targets'],'dimmer':intent['dimmer'],'source_points':intent['source_points'],'field_points':intent['field_points'],'attribution_mask':attribution,'brightness_envelope':bright['level'] if 'level' in bright else bright['envelope']['level']}
  if palette is not None:data['palette_ids40']=palette
  if color_active is not None:data['color_active40']=color_active
  rate_roundoff=None
@@ -183,6 +208,12 @@ def map_one(root,song,method):
  arrays(folder/'timeline.npz',**data);save(folder/'patch.json',patch)
  arrays(folder/'brightness.npz',**{k:v for k,v in bright.items() if isinstance(v,np.ndarray)})
  report={'status':'engineering_valid' if hard.get('pass',hard.get('passed',True)) else 'diagnostic','method':method,'track':song,'frames':len(time),'hard_checks':hard,'P2_RGB_exact':True,
+         'mapper':intent.get('algorithm_id',str(mapper_id).zfill(2)),'counts':counts,
+         'mapper_attribution':{'fixture_count':len(outputs),
+                               'covered_joint_count':int(np.count_nonzero(attribution.any(axis=0))),
+                               'uncovered_joints':np.flatnonzero(~attribution.any(axis=0)).tolist(),
+                               'exact_duplicate_fixture_groups':duplicate_groups},
+         'color':color_identity,
          'body_sha256':sha(p),'timeline_sha256':sha(folder/'timeline.npz'),'patch_sha256':sha(folder/'patch.json'),
          'inputs':{str(root/'PLAN.json'):sha(root/'PLAN.json'),str(p):sha(p),str(p.with_suffix('.json')):sha(p.with_suffix('.json')),str(colors):sha(colors),str(colors.parent/'REPORT.json'):sha(colors.parent/'REPORT.json'),'body_metadata_sha256':sha(p.with_suffix('.json'))},
          'brightness':{k:v for k,v in bright.items() if not isinstance(v,np.ndarray)},'loudness':loudrep,'derived_rate_roundoff':rate_roundoff,

@@ -257,6 +257,36 @@ def decode(dmx, patch):
     dmx = np.asarray(dmx)
     if dmx.dtype != np.uint8 or dmx.ndim != 3 or dmx.shape[-1] != 512:
         raise ValueError('Expected (T,universes,512) uint8 DMX')
+    if not isinstance(patch, (list, tuple)):
+        raise ValueError('DMX patch must be a list of fixture records')
+    names, occupied = set(), set()
+    for output in patch:
+        if not isinstance(output, dict) or output.get('kind') not in ('beam', 'laser', 'bulb'):
+            raise ValueError('DMX patch contains an unknown fixture kind')
+        name = output.get('name')
+        if not isinstance(name, str) or not name or name in names:
+            raise ValueError('DMX fixture identities must be unique nonempty names')
+        names.add(name)
+        universe, address, width = output.get('universe'), output.get('address'), output.get('n_channels')
+        if (isinstance(universe, bool) or not isinstance(universe, (int, np.integer))
+                or not 0 <= int(universe) < dmx.shape[1]):
+            raise ValueError('DMX fixture universe is outside the encoded stream')
+        expected_width = 4 if output['kind'] == 'bulb' else 8
+        if isinstance(address, bool) or not isinstance(address, (int, np.integer)) or int(address) < 1:
+            raise ValueError('DMX fixture address must be a positive integer')
+        if isinstance(width, bool) or not isinstance(width, (int, np.integer)) or int(width) != expected_width:
+            raise ValueError('DMX fixture channel width does not match its capability')
+        stop = int(address) - 1 + int(width)
+        if stop > 512:
+            raise ValueError('DMX fixture channels exceed the universe boundary')
+        slots = set((int(universe), channel) for channel in range(int(address)-1, stop))
+        if occupied.intersection(slots):
+            raise ValueError('DMX patch contains overlapping fixture channels')
+        occupied.update(slots)
+        if output['kind'] != 'bulb':
+            ranges = np.asarray([output.get('pan_range_deg'), output.get('tilt_range_deg')], dtype=float)
+            if ranges.shape != (2,) or not np.isfinite(ranges).all() or np.any(ranges <= 0):
+                raise ValueError('Moving fixture angular ranges must be finite and positive')
     angles = np.zeros((len(dmx), len(patch), 2))
     directions = np.zeros((len(dmx), len(patch), 3))
     rgb = np.zeros((len(dmx), len(patch), 3))
