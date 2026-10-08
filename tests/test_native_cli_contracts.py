@@ -112,3 +112,33 @@ def test_compile_world_uses_the_configured_mapper_id(monkeypatch):
     )
 
     assert captured["algorithm_id"] == "03"
+
+
+def test_lighting_rejects_body_that_does_not_cover_the_song():
+    """A short native body cannot be silently held on its final pose."""
+
+    from types import SimpleNamespace
+
+    from lightsem.dance.lighting import _validate_body_for_lighting
+
+    body = SimpleNamespace(
+        time=np.arange(2, dtype=float) / 30.0,
+        world=np.zeros((2, 22, 3), dtype=np.float32),
+    )
+    with pytest.raises(ValueError, match="cover"):
+        _validate_body_for_lighting(body, end_time=1.0)
+
+
+def test_lighting_rejects_shifted_native_body_clock():
+    """A same-length body with an offset clock must not alter mapper phase."""
+
+    from types import SimpleNamespace
+
+    from lightsem.dance.lighting import _validate_body_for_lighting
+
+    body = SimpleNamespace(
+        time=np.arange(31, dtype=float) / 30.0 + 0.1,
+        world=np.zeros((31, 22, 3), dtype=np.float32),
+    )
+    with pytest.raises(ValueError, match="clock"):
+        _validate_body_for_lighting(body, end_time=0.5)
