@@ -56,6 +56,8 @@ def do_render(args):
     output.parent.mkdir(parents=True, exist_ok=True)
     root = output.with_name(output.stem + '_run')
     body, _, _, config, generation = _generate(args, root)
+    if generation['status'] in {'failure_diagnostic', 'unqualified'}:
+        raise RuntimeError(f"Refusing to render generation with status {generation['status']}; inspect {root / 'GENERATION.json'}")
     counts = {key: getattr(args, key) if getattr(args, key) is not None else value
               for key, value in config['lighting']['counts'].items()}
     lighting = map_lights(body, _audio(args), root, config, counts=counts, color_path=args.colors,

@@ -43,6 +43,19 @@ def cached_track(config, audio_path):
                  if item['audio_sha256'] == digest), (None, None))
 
 
+def validate_base92_clock(base, base_time, timeline_time):
+    """Require one exact native-30Hz clock across Base92 and observations."""
+    timeline_time = np.asarray(timeline_time, dtype=np.float64)
+    base_time = np.asarray(base_time, dtype=np.float64)
+    expected = np.arange(len(timeline_time), dtype=np.float64) / 30.
+    base = np.asarray(base)
+    if (base.shape != (len(timeline_time), 92) or base_time.shape != expected.shape
+            or not np.array_equal(base_time, expected)
+            or not np.array_equal(timeline_time, expected)
+            or not np.isfinite(base).all()):
+        raise ValueError('Invalid paired native30Hz Base92 features')
+
+
 def music_input(audio_path, root, config, *, timeline_path=None, base92_path=None,
                 audio_python=None, audio_device=None, audio_cache=None):
     key, cached = cached_track(config, audio_path)
@@ -68,9 +81,14 @@ def music_input(audio_path, root, config, *, timeline_path=None, base92_path=Non
     from lightsem.experiments.dynamic_dance.training import validate_audio_binding
     validate_audio_binding(music, base92_path)
     with np.load(base92_path, allow_pickle=False) as values:
+        if 'x30' not in values or 'time30' not in values:
+            raise ValueError('Base92 cache must contain native x30 and time30 arrays')
         base = values['x30'].astype(np.float32)
-    if base.shape != (len(music.time), 92) or not np.isfinite(base).all():
-        raise ValueError('Invalid paired native30Hz Base92 features')
+        base_time = np.asarray(values['time30'], dtype=np.float64)
+    validate_base92_clock(base, base_time, music.time)
+    duration = music.metadata.get('duration_s')
+    if duration is not None and abs(float(duration) - len(base) / 30.) > 1 / 30. + 1e-6:
+        raise ValueError('Base92/native body coverage differs from analyzed audio duration')
     return music, base, {'timeline': str(timeline_path), 'timeline_sha256': sha(timeline_path),
                          'base92': str(base92_path.resolve()), 'base92_sha256': sha(base92_path),
                          'audio_sha256': sha(audio_path), 'cached_track': key}
@@ -134,9 +152,9 @@ def d6_prediction(extra, config, *, device='cpu', checkpoint=None):
     raw = planner_predict(planner, extra, state['extra_normalizers'], device=device)
     with torch.inference_mode():
         packed = plan_condition(raw['local']).numpy()
-    # This is the frozen D6 export's grid (0,.5,1,...), distinct from C's
-    # native planner frame centers. Shifting it changes the demonstrated clock.
-    return {'coarse_time': np.arange(len(packed)) * .5,
+    # Planner bins represent half-second intervals; use their centers when
+    # mapping learned predictions back to the native clock.
+    return {'coarse_time': (np.arange(len(packed)) + .5) * .5,
             'coarse_local_plan': packed}, {'path': str(path), 'sha256': sha(path)}
 
 
