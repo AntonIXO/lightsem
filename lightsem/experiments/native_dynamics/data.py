@@ -43,6 +43,8 @@ def save_npz(path,**arrays):
     with path.open('xb') as f:np.savez_compressed(f,**arrays)
 
 def pose_observations(path,duration,cfg=Quality(),*,coach_index=None):
+    if not np.isfinite(duration) or duration <= 0:
+        raise ValueError('Invalid audio duration')
     with np.load(path,allow_pickle=False) as z:
         k=z['K'].astype(np.float64);confidence=z['C'].astype(np.float64);box=z['box'].astype(np.float64);time=z['t'].astype(np.float64);meta=json.loads(z['meta'].item())
     if k.ndim!=4 or k.shape[2:]!=(17,2) or len(time)!=len(k) or np.any(np.diff(time)<=0):raise ValueError('Invalid pose/timestamp layout')
@@ -77,7 +79,12 @@ def pose_observations(path,duration,cfg=Quality(),*,coach_index=None):
         if b-a>=cfg.duplicate_run_frames:frozen[max(0,a-1):b]=True
     # Tracking jumps are missing observations, not fast gestures to learn.
     steps=np.linalg.norm(np.diff(clean,axis=0),axis=-1)/scale
-    jumps=steps>cfg.maximum_joint_step_torso
+    # A jump is meaningful only when both sides are finite, admitted
+    # observations.  Missing detections are represented by NaNs; replacing
+    # those with zero for arithmetic must not turn the missing transition into
+    # a tracking jump.
+    finite_pair=valid[1:] & valid[:-1]
+    jumps=(steps>cfg.maximum_joint_step_torso) & finite_pair
     valid[1:]&=~jumps;valid[:-1]&=~jumps
     hip_valid=valid[:,[11,12]].all(1);valid&=hip_valid[:,None]
     q=(clean-hip[:,None])/scale;q[...,1]*=-1
@@ -88,11 +95,13 @@ def pose_observations(path,duration,cfg=Quality(),*,coach_index=None):
     ok=(target>=time[0])&(target<=time[-1])&((time[hi]-time[lo])<=cfg.maximum_interpolation_gap_s)
     mask=valid[lo]&valid[hi]&ok[:,None]
     value=(1-fraction[:,None,None])*q[lo]+fraction[:,None,None]*q[hi]
-    # Exact native samples need only that observation, not a missing neighbour.
-    exact=np.isclose(target,time[hi],atol=1e-8,rtol=0)
-    value[exact]=q[hi[exact]];mask[exact]=valid[hi[exact]]&ok[exact,None]
-    exact0=np.isclose(target,time[0],atol=1e-8,rtol=0)
-    value[exact0]=q[0];mask[exact0]=valid[0]
+    # Exact native samples need only that observation, not a missing neighbour
+    # or an over-sized gap on the other side.  Targets can equal either side
+    # of the search interval (including an interior lower sample).
+    exact_hi=np.isclose(target,time[hi],atol=1e-8,rtol=0)
+    exact_lo=np.isclose(target,time[lo],atol=1e-8,rtol=0)
+    value[exact_hi]=q[hi[exact_hi]];mask[exact_hi]=valid[hi[exact_hi]]
+    value[exact_lo]=q[lo[exact_lo]];mask[exact_lo]=valid[lo[exact_lo]]
     value=np.where(mask[...,None],value,0.).astype(np.float32)
     coverage=float((mask.sum(1)>=10).mean())
     # Eligible 16s windows must have enough observed joints; holes remain masked.
@@ -155,4 +164,4 @@ def prepare_manifest(root=ROOT,cfg=Quality()):
 
 if __name__=='__main__':
     import argparse
-    p=argparse.ArgumentParser();p.add_argument('--root',type=Path,default=ROOT);a=p.parse_args();r=prepare_manifest(a.root);print(json.dumps({k:r[k] for k in ['qualified_groups_before_bounded_selection','qualified_recordings','seconds']}))
+    p=argparse.ArgumentParser();p.add_argument('--root',type=Path,default=ROOT);a=p.parse_args();r=prepare_manifest(a.root);print(json.dumps({k:r[k] for k in ['qualified_groups_admitted','qualified_recordings','seconds']}))

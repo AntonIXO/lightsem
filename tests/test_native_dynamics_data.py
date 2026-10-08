@@ -23,6 +23,20 @@ def test_missing_observation_is_not_a_zero_speed_label(tmp_path):
     assert not a['mask'][100:120].any();assert np.isfinite(a['pose']).all()
     assert a['mask'][150].all()
 
+def test_missing_transition_is_not_counted_as_tracking_jump(tmp_path):
+    p=tmp_path/'pose.npz';k,c,box,t,save=fixture(p);k[100:120]=np.nan;c[100:120]=0;save()
+    _,meta=pose_observations(p,20.)
+    assert meta['tracking_jump_edges']==0
+
+def test_exact_lower_sample_survives_large_following_gap(tmp_path):
+    p=tmp_path/'pose.npz';k,c,box,t,save=fixture(p)
+    # Keep 1.0 s as an exact native sample, then create an over-sized gap.
+    t[31:]+=0.2
+    save()
+    a,_=pose_observations(p,20.)
+    assert a['time'][30] == 1.0
+    assert a['mask'][30].all()
+
 def test_fixed_record_scale_does_not_normalize_away_motion(tmp_path):
     p=tmp_path/'pose.npz';k,c,box,t,save=fixture(p);k[300:,:,5:7,1]=200;save()
     a,meta=pose_observations(p,20.)
