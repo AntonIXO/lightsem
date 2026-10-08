@@ -8,6 +8,7 @@ the safety boundary where a failed native body must not be delivered as media.
 from argparse import Namespace
 from pathlib import Path
 
+import numpy as np
 import pytest
 
 from lightsem.dance import cli
@@ -69,3 +70,45 @@ def test_do_render_refuses_failure_diagnostic_before_mapping_or_encoding(tmp_pat
 
     assert not args.out.exists(), "a rejected generation must not leave media behind"
 
+
+def test_compile_world_uses_the_configured_mapper_id(monkeypatch):
+    """The mapper implementation must follow the selected config, not a literal ``01``."""
+
+    pytest.importorskip("torch")
+    from dataclasses import asdict
+
+    from lightsem.conductor.body_transfer import TransferConfig
+    from lightsem.conductor.body_transfer_v2 import make_outputs, map_body as real_map_body
+    from lightsem.conductor.body_transfer_v2.common import REFERENCE
+    from lightsem.experiments.dynamic_dance_combo import campaign
+
+    captured = {}
+
+    def spy_map_body(body, outputs, algorithm_id, fps=40.0):
+        captured["algorithm_id"] = str(algorithm_id)
+        return real_map_body(body, outputs, algorithm_id, fps)
+
+    monkeypatch.setattr("lightsem.conductor.body_transfer_v2.map_body", spy_map_body)
+    frames = 3
+    world = np.repeat(REFERENCE[None], frames, axis=0)
+    time = np.arange(frames, dtype=float) / 40.0
+    outputs = make_outputs(beams=1, lasers=0, bulbs=0)
+    colors = np.tile(np.array([20, 40, 80], dtype=np.uint8), (frames, 1))
+    loudness = {
+        "time": np.arange(8, dtype=float) / 40.0,
+        "momentary": np.full(8, -20.0),
+        "short_term": np.full(8, -20.0),
+    }
+
+    campaign.compile_world(
+        world,
+        time,
+        outputs,
+        colors,
+        colors,
+        loudness,
+        asdict(TransferConfig(apply_motion_limits=False)),
+        mapper_id="03",
+    )
+
+    assert captured["algorithm_id"] == "03"
