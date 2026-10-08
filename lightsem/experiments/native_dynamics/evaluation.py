@@ -36,6 +36,12 @@ def load_final(root,arm,seed,device='cuda'):
     report=read(path.parent/'REPORT.json')
     if sha(path)!=report['artifacts'][str(path)] or report['steps']!=read(Path(root)/'TRAINING_PROTOCOL.json')['training']['steps']:raise ValueError('Incomplete or changed final checkpoint')
     state=torch.load(path,map_location='cpu',weights_only=False)
+    # Authenticate the state itself before constructing modules.  The requested
+    # arm/seed are constraints; identity remains sourced from the checkpoint.
+    from ...dance.baseline import validate_checkpoint_state
+    validate_checkpoint_state(state, expected_seed=seed, expected_arm=arm)
+    if state.get('step') != report['steps'] or state.get('identity', {}).get('arm') != arm:
+        raise ValueError('Checkpoint step or identity differs from training receipt')
     model=NativeDynamicsModel(MusicConfig(**state['base_config']),state['normalizers'],Config(**state['config']))
     model.load_state_dict(state['model'],strict=True);model=model.to(device).eval().requires_grad_(False)
     norms=[tuple(torch.tensor(state[name][k],device=device,dtype=torch.float32) for k in ('mean','std')) for name in ('audio_normalizers','extra_normalizers')]
