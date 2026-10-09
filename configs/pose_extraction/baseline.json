@@ -1,0 +1,15 @@
+{
+  "schema_version": 1,
+  "id": "rtmpose-m-humanart-bf16-default",
+  "profile": "bf16",
+  "pose_engine": "/root/lightsem/experiments/pose_bf16_20261009/rtmpose_m_autocast_bf16.plan",
+  "pose_engine_sha256": "daed55a96dc083d9b6eacd8431759707f247050e42d430e7d81ae378a2a4dd2a",
+  "detector": "/mnt/lightsem-data/torch-home/hub/checkpoints/yolox_m_8xb8-300e_humanart-c2c7a14a.onnx",
+  "detector_role": "FP32 CUDA ONNX detector; BF16 applies to RTMPose pose stage",
+  "override": {
+    "profile_env": "RTMPOSE_POSE_PROFILE=fp32",
+    "engine_env": "RTMPOSE_BF16_ENGINE=/path/to/rtmpose_m_autocast_bf16.plan"
+  },
+  "qualification": "pose-stage BF16 evidence only; full detector-to-pose admission remains required",
+  "source": "pose_bf16_20261009/REPORT.md"
+}
