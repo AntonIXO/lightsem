@@ -1,0 +1,60 @@
+{
+  "schema_version": 1,
+  "id": "native-c-stereo-audio-v1-factorized-pilot-20261007",
+  "status": "diagnostic_pilot_unqualified",
+  "baseline_config": "configs/dance/fixed_c.json",
+  "baseline_checkpoint_unchanged": true,
+  "audio": {
+    "stereo_schema": "StereoAudioV1",
+    "muq": "pinned layer 9 on the existing mono/mid Base92 contract",
+    "feature_fps": 40,
+    "event_fps": 40,
+    "spatial_fps": 10,
+    "relation_fps": 2,
+    "channel_policy": "retain original L/R; no independent channel normalization",
+    "spatial_semantics": "stereo image descriptors, not physical 3D location"
+  },
+  "arms": [
+    {"id": "R0", "kind": "existing_muq_base92_reference", "train": false},
+    {"id": "R1", "kind": "fused_stereo_adapter", "train": true},
+    {"id": "R2", "kind": "factorized_event_spatial_adapter", "train": true},
+    {"id": "R3", "kind": "factorized_teacher_distillation", "train": false,
+     "condition": "only register after a hash-pinned stereo teacher passes inference and spatial-retention preflight"}
+  ],
+  "native": {
+    "body_fps": 30,
+    "lighting_fps": 40,
+    "flow_steps": 32,
+    "stereo_dim": 64,
+    "stereo_adapter_zero_initialized": true,
+    "freeze_early_blocks": 6,
+    "d4max": false,
+    "d6": false,
+    "fixture_speed_limits": false,
+    "p2_color_fixed": true,
+    "brightness": "restored historical LUFS law"
+  },
+  "pilot_budget": {
+    "wall_clock_hours": 6,
+    "seeds": [0],
+    "max_updates_per_representation_arm": 3000,
+    "gpu_execution": "one sequential curator and existing GPU lock",
+    "minimum_free_bytes": 21474836480
+  },
+  "selection_gates": {
+    "timing_delta_min": 0.02,
+    "spatial_relative_error_max": -0.1,
+    "relation_lag_delta_max_seconds": -0.015,
+    "timing_regression_max": 0.02,
+    "silent_fpr_increase_max": 0.05,
+    "dmx_retention_min": 0.95,
+    "native_confirmation_required": true,
+    "baseline_promotion": false
+  },
+  "provenance": {
+    "test_access": false,
+    "showcase_tracks": ["shpongle", "cure_for_me"],
+    "source_body_policy": "each song recomputes its own audio and body; no body reuse",
+    "artifact_root": "/mnt/lightsem-data/experiments/lightsem/audio_stereo_spatial_20261007_pilot_v1"
+  }
+}
