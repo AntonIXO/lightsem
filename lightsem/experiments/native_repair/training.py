@@ -54,7 +54,12 @@ def main():
     if not a.guarded:raise ValueError('Sequential GPU curator required')
     from scripts.motion.native_dynamics_guard import authenticate_guarded_job
     authenticate_guarded_job(Path(__file__).parents[3]/'scripts/motion/train_native_repair.py')
-    old.batch_losses=batch_losses
+    protocol=old.read(a.root/'TRAINING_PROTOCOL.json')
+    if 'repair_weights' not in protocol:
+        raise ValueError('Repair training requires explicit protocol repair_weights; refusing implicit recipe selection')
+    # The ordinary trainer resolves this same protocol for both preflight and
+    # train.  Do not replace its module-global loss function.
+    old.loss_spec_for_protocol(protocol)
     if a.stage=='train':result=old.train(a.root,'joint',a.seed)
     else:
         # Original performance-only preflight checks matched continued/joint;

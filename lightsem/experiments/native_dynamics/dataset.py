@@ -12,8 +12,48 @@ OLD=Path('/mnt/lightsem-data/experiments/lightsem/dynamic_dance_20261005_v1')
 CONTEXT_BINS=1024
 
 
+def fd_manifest_path(root, *, motion_only=False):
+    root=Path(root)
+    candidates=([root/'features/FD_MANIFEST.json'] if not motion_only else [])
+    candidates.append(root/'data/FD_MANIFEST.json')
+    if motion_only:candidates.extend([root/'data/FD_MOTION_OVERLAP_MANIFEST.json',root/'data/FD_MOTION_MANIFEST.json'])
+    for path in candidates:
+        if path.exists():return path
+    protocol=root/'TRAINING_PROTOCOL.json'
+    if protocol.exists():
+        protocol_value = read(protocol)
+        campaign = str(protocol_value.get('campaign_id', ''))
+        if (protocol_value.get('require_all_finedance')
+                or campaign.startswith(('native-full-data', 'native-full-fit'))):
+            raise ValueError(
+                'no legacy subset: Full-fit FineDance manifest required; refusing silent legacy subset fallback')
+    return OLD/'learning/cache/manifest.json'
+
+
+class SharedSongFeatures:
+    """Share immutable audio arrays across coaches with the exact same clock."""
+    def __init__(self):self.cache={}
+
+    def load(self, feature, target):
+        import hashlib
+        clock=hashlib.sha256(np.ascontiguousarray(target,dtype=np.float64).tobytes()).hexdigest()
+        key=(feature['timeline_sha256'],feature['base92_sha256'],clock)
+        if key not in self.cache:
+            timeline=MusicTimeline.load(feature['timeline_path'])
+            extra,_=model_features(timeline,target);extra=extra.astype(np.float16)
+            with np.load(feature['base92_path']) as z:
+                base=z['x30'].copy().astype(np.float32)
+                if not np.array_equal(z['time30'],target):raise ValueError('Base92 and pose clocks differ')
+            bins=(len(extra)+14)//15;pad=bins*15-len(extra)
+            padded=np.pad(extra.astype(np.float32),((0,pad),(0,0)))
+            coarse=(padded.reshape(bins,15,1061).sum(1)/np.minimum(15,len(extra)-np.arange(bins)*15)[:,None]).astype(np.float16)
+            for value in (base,extra,coarse):value.setflags(write=False)
+            self.cache[key]=(base,extra,coarse)
+        return self.cache[key]
+
+
 def prepare_supervision(root=ROOT):
-    root=Path(root);fd=read(OLD/'learning/cache/manifest.json');jd=read(root/'data/MANIFEST.json');rows=[]
+    root=Path(root);fd_path=fd_manifest_path(root,motion_only=True);fd=read(fd_path);jd=read(root/'data/MANIFEST.json');rows=[]
     for domain,entries in [('fd',fd['entries']),('jd',jd['entries'])]:
         for entry in entries:
             key=entry['key'];path=root/'data/supervision'/f'{domain}_{key}.npz'
@@ -28,7 +68,7 @@ def prepare_supervision(root=ROOT):
             save_npz(path,**result)
             rows.append({'domain':domain,'key':key,'partition':entry['partition'],'path':str(path),'sha256':sha(path),'bins':len(result['time']),'source_path':entry['path'] if domain=='fd' else entry['pose_cache'],'source_sha256':entry['sha256'] if domain=='fd' else entry['pose_cache_sha256']})
             print('SUPERVISION',domain,key,flush=True)
-    report={'entries':rows,'fd_manifest_sha256':sha(OLD/'learning/cache/manifest.json'),'jd_manifest_sha256':sha(root/'data/MANIFEST.json'),'kinematics_sha256':sha(Path(__file__).with_name('kinematics.py')),'context_bins':CONTEXT_BINS,'target_units':'projected torso-lengths/s, original30Hz timestamps; no metric3D claims forJD','targets_are_motion_only':True}
+    report={'entries':rows,'fd_manifest_path':str(fd_path),'fd_manifest_sha256':sha(fd_path),'jd_manifest_sha256':sha(root/'data/MANIFEST.json'),'kinematics_sha256':sha(Path(__file__).with_name('kinematics.py')),'context_bins':CONTEXT_BINS,'target_units':'projected torso-lengths/s, original30Hz timestamps; no metric3D claims forJD','targets_are_motion_only':True}
     write(root/'data/SUPERVISION.json',report);return report
 
 
@@ -36,11 +76,12 @@ class Records:
     """Read immutable raw features once; normalize only sampled GPU tensors."""
     def __init__(self,root=ROOT,partition='train',frames=480):
         self.root=Path(root);self.frames=frames;self.records={'fd':[],'jd':[]};self.groups={};self.inputs={}
-        fd=read(OLD/'learning/cache/manifest.json');jd=read(self.root/'data/MANIFEST.json');sup=read(self.root/'data/SUPERVISION.json');features=read(self.root/'features/COMPLETE.json')
+        fd=read(fd_manifest_path(self.root));jd=read(self.root/'data/MANIFEST.json');sup=read(self.root/'data/SUPERVISION.json');features=read(self.root/'features/COMPLETE.json')
+        shared_audio=SharedSongFeatures()
         supervised={(r['domain'],r['key']):r for r in sup['entries']};feature_rows={r['key']:r for r in features['entries']}
         for domain,entries in [('fd',fd['entries']),('jd',jd['entries'])]:
             for row in entries:
-                if row['partition']!=partition:continue
+                if partition not in ('all','fit') and row['partition']!=partition:continue
                 key=row['key'];s=supervised[domain,key]
                 if sha(s['path'])!=s['sha256']:raise ValueError('Changed dynamics supervision')
                 with np.load(s['path']) as z:labels={k:z[k].copy() for k in z.files}
@@ -55,21 +96,23 @@ class Records:
                 else:
                     f=feature_rows[key]
                     for path,digest in [(row['pose_cache'],row['pose_cache_sha256']),(f['timeline_path'],f['timeline_sha256']),(f['base92_path'],f['base92_sha256'])]:
-                        if sha(path)!=digest:raise ValueError('Changed JD input')
+                        if path in self.inputs:
+                            if self.inputs[path]!=digest:raise ValueError('Inconsistent JD input hash')
+                        elif sha(path)!=digest:raise ValueError('Changed JD input')
                         self.inputs[path]=digest
                     with np.load(row['pose_cache']) as z:pose=z['pose'].copy();mask=z['mask'].copy();starts=z['starts'].copy();target=z['time'].copy()
-                    timeline=MusicTimeline.load(f['timeline_path']);extra,_=model_features(timeline,target);extra=extra.astype(np.float16)
-                    with np.load(f['base92_path']) as z:base=z['x30'].copy().astype(np.float32)
+                    base,extra,coarse=shared_audio.load(f,target)
                     native=None;group=row['group']
                 length=len(base)
                 if extra.shape!=(length,1061) or base.shape!=(length,92):raise ValueError('Fixed paired audio schema required')
                 if domain=='fd' and len(native)!=length:raise ValueError('Native3D/audio lengths differ')
                 if domain=='jd' and len(pose)!=length:raise ValueError('Observed2D/audio lengths differ')
                 bins=(length+14)//15;pad=bins*15-length
-                padded=np.pad(extra.astype(np.float32),((0,pad),(0,0)))
-                coarse=padded.reshape(bins,15,1061).sum(1)/np.minimum(15,length-np.arange(bins)*15)[:,None]
+                if domain=='fd':
+                    padded=np.pad(extra.astype(np.float32),((0,pad),(0,0)))
+                    coarse=padded.reshape(bins,15,1061).sum(1)/np.minimum(15,length-np.arange(bins)*15)[:,None]
                 if bins>CONTEXT_BINS or len(labels['time'])!=bins:raise ValueError('Whole-song context/labels mismatch')
-                self.records[domain].append({'key':key,'group':group,'base':base,'extra':extra,'coarse':coarse.astype(np.float16),'native':native,'pose':pose,'mask':mask,'starts':starts,'labels':labels,'length':length,'bins':bins})
+                self.records[domain].append({'key':key,'group':group,'base':base,'extra':extra,'coarse':coarse.astype(np.float16,copy=False),'native':native,'pose':pose,'mask':mask,'starts':starts,'labels':labels,'length':length,'bins':bins})
             grouped=defaultdict(list)
             for i,row in enumerate(self.records[domain]):grouped[row['group']].append(i)
             self.groups[domain]=[grouped[k] for k in sorted(grouped)]

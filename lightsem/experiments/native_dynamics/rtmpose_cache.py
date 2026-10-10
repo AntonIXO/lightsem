@@ -175,6 +175,12 @@ class Backend:
         frames = list(frames)
         if not frames:
             return []
+        # The BF16 TensorRT wrapper intentionally exposes only the validated
+        # single-crop path (it has no rtmlib preprocess/postprocess methods).
+        # Always use that path here; entering the generic dynamic-batch branch
+        # would fabricate an API contract and fail before writing observations.
+        if POSE_PROFILE == 'bf16':
+            return [self(frame) for frame in frames]
         # The pinned OpenMMLab ONNX exports have a static batch dimension of
         # one. Do not reshape or pad it: a batch-size request falls back to
         # the exact single-frame path until a separately authenticated dynamic

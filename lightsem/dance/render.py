@@ -22,15 +22,70 @@ def render_video(body, root, audio, output, lighting, *, start=0., duration=None
     if output.exists():
         raise FileExistsError('Video already exists; choose another --out')
     source = sf.info(audio); song_duration = source.frames / source.samplerate
+    audio_digest = sha(audio)
+    body_audio = body.metadata.get('audio', {}).get('audio_sha256')
+    if body_audio != audio_digest:
+        raise ValueError('saved body belongs to a different waveform')
+    generation_path, lighting_path = root / 'GENERATION.json', root / 'LIGHTING.json'
+    if not generation_path.is_file() or not lighting_path.is_file():
+        raise ValueError('render requires generation and lighting provenance reports')
+    generation = json.loads(generation_path.read_text())
+    lighting_report = json.loads(lighting_path.read_text())
+    if generation.get('status') in {'failure_diagnostic', 'unqualified'}:
+        raise ValueError(f"refusing to render generation with status {generation.get('status')}")
+    if generation.get('body_sha256') != sha(root / 'body.npz') or lighting_report.get('body_sha256') != sha(root / 'body.npz'):
+        raise ValueError('saved body hash does not match generation/lighting provenance')
+    if lighting_report.get('lights_sha256') != sha(root / 'lights.npz'):
+        raise ValueError('saved lights hash does not match lighting provenance')
+    if lighting_report.get('patch_sha256') != sha(root / 'patch.json'):
+        raise ValueError('saved fixture patch hash does not match lighting provenance')
     if not np.isfinite(start) or start < 0 or abs(start * 30 - round(start * 30)) > 1e-7:
         raise ValueError('--start must be a nonnegative native30Hz frame boundary')
     duration = song_duration - start if duration is None else float(duration)
     if not np.isfinite(duration) or duration <= 0 or start + duration > song_duration + 1e-9:
         raise ValueError('Requested render interval must be within the original song')
     frames = int(math.ceil(duration * 30 - 1e-9))
-    indexes = np.minimum(round(start * 30) + np.arange(frames), len(body.time) - 1)
+    world = np.asarray(body.world)
+    body_time = np.asarray(body.time)
+    if world.ndim != 3 or world.shape[0] != len(body_time) or world.shape[1:] != (22, 3):
+        raise ValueError(f'body must have world shape (T, 22, 3) matching time; got {world.shape}')
+    if not np.all(np.isfinite(body_time)) or not np.all(np.isfinite(world)) or len(body_time) < 2 or np.any(np.diff(body_time) <= 0):
+        raise ValueError('body time/world must be finite with strictly increasing time')
+    expected_body_time = np.arange(len(body_time), dtype=np.float64) / 30.
+    if not np.allclose(body_time, expected_body_time, rtol=0., atol=1e-8):
+        raise ValueError('saved body must use the exact zero-based native 30 Hz clock')
+    first_index = round(start * 30)
+    last_index = first_index + frames - 1
+    if first_index < 0 or last_index >= len(body_time) or body_time[first_index] > start + 1e-6 or body_time[last_index] < start + (frames - 1) / 30 - 1e-6:
+        raise ValueError('requested render interval exceeds saved native body coverage')
+    indexes = first_index + np.arange(frames)
     times, patch, controls, _ = lighting
-    ticks = np.minimum(np.rint((start + np.arange(frames) / 30) * 40).astype(int), len(times) - 1)
+    times = np.asarray(times)
+    if times.ndim != 1 or len(times) == 0 or not np.all(np.isfinite(times)) or np.any(np.diff(times) <= 0):
+        raise ValueError('lighting times must be finite and strictly increasing')
+    if not np.allclose(times, np.arange(len(times), dtype=np.float64) / 40., rtol=0., atol=1e-8):
+        raise ValueError('emitted lights must use the exact zero-based 40 Hz clock')
+    if not (0 <= np.rint((start + np.arange(frames) / 30) * 40).astype(int)[-1] < len(times)):
+        raise ValueError('requested render interval exceeds emitted lighting coverage')
+    ticks = np.rint((start + np.arange(frames) / 30) * 40).astype(int)
+    if not all(k in controls for k in ('directions', 'rgb', 'dimmer')):
+        raise ValueError('lighting controls are missing required emitted DMX streams')
+    fixture_count = len(patch)
+    if not isinstance(patch, (list, tuple)) or fixture_count < 1:
+        raise ValueError('fixture patch must be a non-empty list')
+    moving_count = sum(f.get('kind') != 'bulb' for f in patch)
+    bulb_count = sum(f.get('kind') == 'bulb' for f in patch)
+    if moving_count > 16 or bulb_count > 128:
+        raise ValueError('fixture count exceeds the lit-body renderer limit (16 moving, 128 bulbs)')
+    for key in ('directions', 'rgb', 'dimmer'):
+        arr = np.asarray(controls[key])
+        expected_shape = (len(times), fixture_count, 3) if key in ('directions', 'rgb') else (len(times), fixture_count)
+        if arr.shape != expected_shape or not np.all(np.isfinite(arr)):
+            raise ValueError(f'lighting control {key} has invalid shape or non-finite values')
+        if key == 'rgb' and np.any((arr < 0) | (arr > 1)):
+            raise ValueError('emitted RGB values must be within [0, 1]')
+        if key == 'dimmer' and np.any((arr < 0) | (arr > 1)):
+            raise ValueError('emitted dimmer values must be within [0, 1]')
     raw = body_traces(body.world, body.time)
     movers = np.array([f['kind'] != 'bulb' for f in patch]); beams = np.array([f['kind'] == 'beam' for f in patch])
     rows = [(key, raw[key], label) for key, label in [('left_arm', 'Left arm (m/s)'), ('right_arm', 'Right arm (m/s)'),

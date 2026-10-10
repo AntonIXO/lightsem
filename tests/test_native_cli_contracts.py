@@ -12,6 +12,7 @@ import numpy as np
 import pytest
 
 from lightsem.dance import cli
+from lightsem.dance.pipeline import classify_generation_status
 
 
 def _render_args(tmp_path: Path) -> Namespace:
@@ -69,6 +70,15 @@ def test_do_render_refuses_failure_diagnostic_before_mapping_or_encoding(tmp_pat
         cli.do_render(args)
 
     assert not args.out.exists(), "a rejected generation must not leave media behind"
+
+
+def test_generation_status_preserves_unqualified_baseline_boundary():
+    metrics = {'finite': True, 'constant_body': False}
+    assert classify_generation_status(
+        {'qualification': {'status': 'user_selected_unqualified_full_data_branch'}}, metrics
+    ) == 'unqualified'
+    assert classify_generation_status({}, metrics) == 'finite_body_ready'
+    assert classify_generation_status({}, {'finite': True, 'constant_body': True}) == 'failure_diagnostic'
 
 
 def test_compile_world_uses_the_configured_mapper_id(monkeypatch):

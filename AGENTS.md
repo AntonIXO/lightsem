@@ -1,11 +1,15 @@
 # LightSem experiment and demo checks
 
-## Selected default — 2026-10-06
+## Selected default — 2026-10-11
 
-- The user explicitly selected repaired native C/HF16 seed0 as the motion
-  baseline and requested commit/push. `configs/dance/fixed_c.json` is the
-  active CLI definition. The historically pinned `configs/dance/baseline.json`
-  remains unchanged for completed experiment provenance.
+- The user explicitly selected the RTMPose BF16 full-fit seed0 checkpoint as
+  the new motion baseline and requested commit. `configs/dance/fixed_c.json`
+  is the active CLI definition. The previous fixed-C definition is preserved
+  as `configs/dance/fixed_c_20261007.json`; the historically pinned
+  `configs/dance/baseline.json` remains unchanged for completed provenance.
+- This baseline is user-selected, but its health evidence remains diagnostic
+  where input-sensitivity evidence is missing. Do not call it scientifically
+  qualified merely because it is the active baseline.
 - Frozen MuQ is required in the baseline and every option combination. D4-max
   (`--d4max`) and external D6 pacing (`--d6`) default OFF and are independently
   opt-in; D6 must also work without D4. Extra legacy D7/D8 overlays are off.
@@ -177,6 +181,18 @@ locks and the sequential curator for GPU jobs. Keep `/mnt/lightsem-data` above
 the 20 GiB free-space floor. External checkpoints, feature caches, full videos,
 and raw waveforms stay on `/mnt`; code, small manifests, receipts, and reports
 belong in the repository or the experiment root.
+
+## Artifact discipline
+
+- Do not generate large numbers of redundant JSON audits or reports. Write one
+  canonical receipt per stage and update the relevant manifest or delivery
+  index with its hash. Create an additional report only when it represents a
+  distinct protocol, correction, or independent audit; do not duplicate the
+  same facts under new filenames.
+- Keep large media, caches, checkpoints, and experiment payloads outside Git.
+  Commit code, tests, small manifests, configuration, and concise provenance
+  indexes; link to external artifact roots instead of copying them into the
+  repository.
 
 The active architecture is:
 

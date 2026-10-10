@@ -10,6 +10,7 @@ import numpy as np
 from lightsem.experiments.dynamic_dance.contracts import DancePlan, DanceResult, MusicTimeline
 from lightsem.experiments.dynamic_dance.audio import (
     extract_base92, extract_muq_stream, integrated_loudness, model_features, physical_observations,
+    _stitch_muq_chunks,
     mixture_observations, preselect_intervals, section_recurrence, source_attack_events,
     waveform_counterfactual,
 )
@@ -265,16 +266,33 @@ class PhysicalTests(unittest.TestCase):
             def __init__(self):
                 self.seen = []
             def extract_batch(self, waves):
-                self.seen.append(waves[0].copy())
-                return [(np.zeros((200, 1024), np.float32), np.arange(200) / 25)]
+                self.seen.append([wave.copy() for wave in waves])
+                return [(np.zeros((200, 1024), np.float32), np.arange(200) / 25)
+                        for _ in waves]
         extractor = FakeExtractor()
         wave = np.arange(17 * 24000 + 100, dtype=np.float32)
         z, t = extract_muq_stream(extractor, wave)
-        self.assertEqual(len(extractor.seen), 3)
-        np.testing.assert_array_equal(extractor.seen[-1], wave[-8 * 24000:])
+        self.assertEqual(len(extractor.seen), 1)
+        self.assertEqual(len(extractor.seen[0]), 3)
+        np.testing.assert_array_equal(extractor.seen[0][-1], wave[-8 * 24000:])
         self.assertTrue(np.all(np.diff(t) > 0))
         self.assertLess(wave.size / 24000 - t[-1], .041)
         self.assertEqual(z.shape[1], 1024)
+
+    def test_muq_overlap_stitch_averages_real_overlap_without_gaps(self):
+        t = np.arange(200) / 25
+        first = np.zeros((200, 1024), np.float32)
+        second = np.ones((200, 1024), np.float32)
+        value, time = _stitch_muq_chunks([(first, t), (second, t + 4.)])
+        self.assertTrue(np.all(np.diff(time) > 0))
+        overlap = (time >= 4.) & (time < 8.)
+        np.testing.assert_allclose(value[overlap], .5, atol=1e-6)
+
+    def test_muq_stitch_keeps_fractional_final_duration_endpoint(self):
+        t = np.arange(200) / 25
+        value, time = _stitch_muq_chunks([(np.zeros((200, 1024), np.float32), t)], target_end=8.)
+        self.assertAlmostEqual(float(time[-1]), 8.)
+        self.assertEqual(value.shape[0], 201)
 
 
 if __name__ == '__main__':

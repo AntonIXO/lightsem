@@ -1,0 +1,146 @@
+{
+  "schema_version": 1,
+  "id": "full-data-native-C-HF16-seed0-20261007",
+  "status": "user_selected_motion_baseline",
+  "selected_on": "2026-10-07",
+  "selection_scope": "User-selected full-data seed0 baseline. Complete demos and raw checks are preserved; no automatic scientific qualification or promotion claim.",
+  "checkpoint": {
+    "path": "/mnt/lightsem-data/experiments/lightsem/native_dynamics_full_20261007_recovery_seed0_v2/learning/runs/joint/seed_0/final.pt",
+    "sha256": "5384e4b189e40de3325fb6658bdf910ed351a785fa4ba2e2651f751534e9c30e"
+  },
+  "training_seed": 0,
+  "draw_seed": 7001,
+  "noise_reference_frames": 8320,
+  "solver_steps": 32,
+  "body_fps": 30,
+  "lighting_fps": 40,
+  "muq": {
+    "required": true,
+    "frozen": true,
+    "model_id": "OpenMuQ/MuQ-large-msd-iter",
+    "revision": "0562a57814f6f8bbd9fdea0a25921a2fce1a841a",
+    "weights_sha256": "273febab2be02872c37d2c37e48a9d6c52c1c9392f3eeeabd498efa281ccb7a6",
+    "layer": 9,
+    "native_hz": 25,
+    "chunk_seconds": 8
+  },
+  "addons": {
+    "d4max": {
+      "enabled": false,
+      "bars_per_motif": 2,
+      "audio_families": 6,
+      "takes_per_family": 3,
+      "descriptor_phases": 4,
+      "beam_width": 64,
+      "pose_gap_limit_m": 0.25,
+      "minimum_rate": 0.5,
+      "maximum_rate": 1.5,
+      "transition_s": 0.5,
+      "muq_weight": 0.7,
+      "source_weight": 0.3
+    },
+    "d6": {
+      "enabled": false,
+      "minimum_rate": 0.25,
+      "maximum_rate": 1.5,
+      "checkpoint": {
+        "path": "/mnt/lightsem-data/experiments/lightsem/dynamic_dance_20261005_v1/learning/runs/planner/seed_0/final.pt",
+        "sha256": "4a11594adb6c3f4c497907bdec153bb919e8b2a01ab8401f3d49f5c4936bb759"
+      },
+      "scope": "External common anchored clock. Optional with or withoutD4; not native speed learning."
+    }
+  },
+  "lighting": {
+    "color_config": "configs/light_layers/baseline.json",
+    "color_config_sha256": "ca039831a35c5bdc654cd2569c009875c2855e11f2c137138b38ad257f2d6d39",
+    "mapper": "01",
+    "transfer": {
+      "body_speed_scale": 2.0,
+      "fps": 40.0,
+      "maximum_acceleration_deg_s2": 360.0,
+      "maximum_speed_deg_s": 90.0,
+      "target_bound_u": 12.5,
+      "target_bound_x": 7.5,
+      "target_depth_gain": 3.0,
+      "target_height_gain": 4.0,
+      "target_x_gain": 6.0,
+      "apply_motion_limits": false
+    },
+    "counts": {
+      "beams": 8,
+      "bulbs": 50,
+      "lasers": 5
+    },
+    "brightness": "Restored historical full-song LUFS law and body modulation"
+  },
+  "extraction": {
+    "python": "/root/lightsem/.venv/night-access/bin/python",
+    "device": "cuda",
+    "structure_device": "cpu"
+  },
+  "trained_recipe": {
+    "FD_train_songgroups": 109,
+    "JD_train_songgroups": 147,
+    "JD_validation_songgroups": 24,
+    "native_training_updates": 60000,
+    "raw_3D_constraints": true,
+    "quiet_gradient_fix_in_checkpoint": true,
+    "full_JD_training": true,
+    "admission_manifest": "/mnt/lightsem-data/experiments/lightsem/native_dynamics_full_20261007/data/MANIFEST.json",
+    "feature_receipt": "/mnt/lightsem-data/experiments/lightsem/native_dynamics_full_20261007/features/COMPLETE.json"
+  },
+  "qualification": {
+    "status": "user_selected_unqualified_full_data_branch",
+    "experiment": "exp-native-full-data-speed-20261007",
+    "note": "Paired two-seed checkpoint/evaluation gate is not promoted automatically; seed1 remains retained for comparison."
+  },
+  "historical_reference_config": "configs/dance/baseline.json",
+  "cached_tracks": {
+    "shpongle": {
+      "audio_sha256": "95e4388424ef62950bdeae78e47b8e71839ed28c6e01189fe15f9ae6c902b6c0",
+      "timeline": {
+        "path": "/mnt/lightsem-data/experiments/lightsem/dynamic_dance_20261005_v1/features/timelines/shpongle.npz",
+        "sha256": "cfdecde6bfc08daa249b4dfad22c88fa4ee86d710342529936c9233b64b7b866"
+      },
+      "base92": {
+        "path": "/mnt/lightsem-data/experiments/lightsem/dynamic_dance_20261005_v1/features/base92/shpongle.npz",
+        "sha256": "2a2e33342e44ccc77c7e91df607a78df0486412a133a97e924a8ed8c212bc88f"
+      },
+      "colors": {
+        "path": "/mnt/lightsem-data/experiments/lightsem/native_dynamics_jd_20261005_v1/repair_review_v1/colors/shpongle/P2.npz",
+        "sha256": "eb5345d35f0970dad2a45f9fc6fdb03d135c4772afeac950b85a063d4c440ab0"
+      },
+      "color_report": {
+        "path": "/mnt/lightsem-data/experiments/lightsem/native_dynamics_jd_20261005_v1/repair_review_v1/colors/shpongle/REPORT.json",
+        "sha256": "673851c6a4631636700da575b4a3007241670b1934c468ebcb979546bee99806"
+      },
+      "loudness_receipt": {
+        "path": "/mnt/lightsem-data/experiments/lightsem/motion_native_audio_20260910/data/shpongle/loudness.json",
+        "sha256": "bf15c1b99424b2da7aee8201a57dc993353c5b3e90f1cc9f369bc41851029481"
+      }
+    },
+    "cure_for_me": {
+      "audio_sha256": "79fbcfbc5f99e200075801a4ef157055dfe2593a98ac2e545747f89b28f47a9f",
+      "timeline": {
+        "path": "/mnt/lightsem-data/experiments/lightsem/dynamic_dance_20261005_v1/features/timelines/cure_for_me.npz",
+        "sha256": "9f39a6ba971c449c30fa5c90952718d581f3259c01b19793479557a8f4281394"
+      },
+      "base92": {
+        "path": "/mnt/lightsem-data/experiments/lightsem/dynamic_dance_20261005_v1/features/base92/cure_for_me.npz",
+        "sha256": "cdda24c652dd77f3bdd3399d2e4fecd8fdab1997b91accbdfedfd5dc2f6ec0f6"
+      },
+      "colors": {
+        "path": "/mnt/lightsem-data/experiments/lightsem/native_dynamics_jd_20261005_v1/repair_review_v1/colors/cure_for_me/P2.npz",
+        "sha256": "e3ae8148e44fdd3913ce4b6d3e906b7132f282a38e87f8e1928fec86f0f915b0"
+      },
+      "color_report": {
+        "path": "/mnt/lightsem-data/experiments/lightsem/native_dynamics_jd_20261005_v1/repair_review_v1/colors/cure_for_me/REPORT.json",
+        "sha256": "e89ce12075a180a33db22499bb1786575c13d6403ddbc32224834252dee05a7a"
+      },
+      "loudness_receipt": {
+        "path": "/mnt/lightsem-data/experiments/lightsem/dynamic_dance_combo_20261005_v1/features/loudness/cure_for_me.json",
+        "sha256": "80a38fed0cf536f7adbb5ceea9e47c70aff06e7af79c1fdf670e8b0ca6f320a1"
+      }
+    }
+  }
+}

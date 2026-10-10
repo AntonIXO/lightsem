@@ -1,7 +1,7 @@
 """Matched native-dynamics fine-tuning; original time, real paired/weak labels."""
 from pathlib import Path
 from dataclasses import asdict
-import argparse,hashlib,json,math,time,os,copy
+import argparse,hashlib,json,math,time,os,copy,importlib.util
 import numpy as np
 import torch
 from .data import ROOT,read,write,sha
@@ -92,8 +92,53 @@ def state_hash(model):
     return h.hexdigest()
 
 
+def _validated_repair_weights(weights, expected):
+    if not isinstance(weights,dict) or set(weights)!=set(expected) or any(not isinstance(v,(int,float)) or not math.isfinite(v) or v<0 for v in weights.values()):
+        raise ValueError('Invalid raw-motion repair weights')
+    return {k:float(weights[k]) for k in sorted(weights)}
+
+
+def training_loss_for_protocol(protocol):
+    """Select the explicit raw-3D repair recipe without changing old runs."""
+    weights=protocol.get('repair_weights')
+    if weights is None:return batch_losses
+    from ..native_repair import training as repair
+    from ..native_repair.losses import WEIGHTS
+    validated=_validated_repair_weights(weights,WEIGHTS)
+    WEIGHTS.update(validated)
+    return repair.batch_losses
+
+
+def loss_spec_for_protocol(protocol):
+    """Return the effective loss recipe and the source files that define it.
+
+    The repair entry point used to replace ``batch_losses`` as a process-global
+    side effect.  That made the same protocol select different objectives
+    depending on which CLI imported it first.  Keep the recipe in the protocol
+    and bind its implementation hashes into every run identity instead.
+    """
+    weights=protocol.get('repair_weights')
+    source_paths=[Path(__file__),Path(__file__).with_name('kinematics.py'),
+                  Path(__file__).with_name('model.py'),
+                  Path(__file__).parents[1]/'motion_study/music_physical.py',
+                  Path(__file__).parents[1]/'motion_study/music_revision_model.py']
+    spec={'name':'native_dynamics','base_weights':dict(LOSS_WEIGHTS),
+          'repair_weights':None,
+          'source_hashes':{str(p.resolve()):sha(p) for p in source_paths}}
+    if weights is None:return spec
+    from ..native_repair import losses as repair_losses
+    from ..native_repair import training as repair_training
+    validated=_validated_repair_weights(weights,repair_losses.WEIGHTS)
+    repair_paths=[Path(repair_training.__file__).resolve(),Path(repair_losses.__file__).resolve()]
+    spec.update(name='native_repair',repair_weights=validated,
+                source_hashes={**spec['source_hashes'],**{str(p):sha(p) for p in repair_paths}})
+    return spec
+
+
 def preflight(root=ROOT):
-    root=Path(root);require_space(root,gb=20);records=Records(root,'train');rows=[]
+    root=Path(root);require_space(root,gb=20);protocol=read(root/'TRAINING_PROTOCOL.json')
+    loss_function=training_loss_for_protocol(protocol)
+    scope='all' if protocol.get('no_validation_split') else 'train'; records=Records(root,scope);rows=[]
     # Performance only. No DEV/showcase data or quality/acceptance scores.
     for fd_batch,jd_batch in [(8,4),(16,8)]:
         for arm in ['continued','joint']:
@@ -106,7 +151,7 @@ def preflight(root=ROOT):
                 domain='jd' if step%3==2 else 'fd';batch=records.sample(domain,jd_batch if domain=='jd' else fd_batch,rngs[domain]);batch=to_device(batch,*norms);batch=source_dropout(batch,drop)
                 noise=model.flow.noise(len(batch['audio']),480,generator=draw);tau=torch.rand(len(noise),device='cuda',generator=draw)
                 optimizer.zero_grad(set_to_none=True)
-                losses=batch_losses(model,teacher,batch,noise,tau,runtime,field);backward_checked(losses,model);optimizer.step();torch.cuda.synchronize()
+                losses=loss_function(model,teacher,batch,noise,tau,runtime,field);backward_checked(losses,model);optimizer.step();torch.cuda.synchronize()
                 if step>=9:durations[domain].append(time.monotonic()-start)
             row={'arm':arm,'fd_batch':fd_batch,'jd_batch':jd_batch,'seconds_per_update':(2*np.mean(durations['fd'])+np.mean(durations['jd']))/3,'fd_seconds':float(np.mean(durations['fd'])),'jd_seconds':float(np.mean(durations['jd'])),'peak_gpu_gib':torch.cuda.max_memory_allocated()/2**30,'warm_and_measure_seconds':time.monotonic()-warm,'finite_steps':18,'pilot_weights_retained':False}
             rows.append(row);print('PERFORMANCE',json.dumps(row),flush=True)
@@ -126,23 +171,26 @@ def preflight(root=ROOT):
     write(root/'learning/PREFLIGHT.json',report);return report
 
 
-def train(root,arm,seed):
-    root=Path(root);protocol=read(root/'TRAINING_PROTOCOL.json');config=protocol['training'];run=root/'learning/runs'/arm/f'seed_{seed}'
-    if arm not in ARMS or seed not in (0,1):raise ValueError('Unregistered arm/seed')
+def train(root,arm,seed,run_dir=None):
+    root=Path(root);protocol=read(root/'TRAINING_PROTOCOL.json');config=protocol['training'];run=Path(run_dir) if run_dir is not None else root/'learning/runs'/arm/f'seed_{seed}'
+    if arm not in protocol.get('arms',ARMS) or seed not in protocol.get('seeds',(0,1)):raise ValueError('Unregistered arm/seed')
+    loss_function=training_loss_for_protocol(protocol)
+    loss_spec=loss_spec_for_protocol(protocol)
     if run.exists():raise FileExistsError('Run exists; preserve and review, no implicitresume')
     require_space(root,gb=20);run.mkdir(parents=True);seed_all(seed);torch.set_num_threads(2)
     runtime=TrainingRuntime(precision='bf16',optimizer='adamw_fused',compile='default',prefetch=0);runtime.apply();torch.use_deterministic_algorithms(True);torch.backends.cuda.enable_flash_sdp(False);torch.backends.cuda.enable_mem_efficient_sdp(False);torch.backends.cuda.enable_math_sdp(True)
-    model,teacher,state,norms,initial=load_initial(arm,seed);records=Records(root,'train');optimizer=make_optimizer(model)
+    scope='all' if protocol.get('no_validation_split') else 'train'
+    model,teacher,state,norms,initial=load_initial(arm,seed);records=Records(root,scope);optimizer=make_optimizer(model)
     model.train();field=torch.compile(model.flow.prepared_vector_field,fullgraph=True,dynamic=False)
     rngs={'fd':np.random.default_rng(10000+seed),'jd':np.random.default_rng(11000+seed)}
     draw=torch.Generator(device='cuda').manual_seed(20000+seed);drop=torch.Generator(device='cuda').manual_seed(30000+seed)
     total=config['steps'];schedule=lambda step:min(1.,(step+1)/500)*(.1+.9*.5*(1+math.cos(math.pi*max(0,step-500)/max(1,total-500))))
-    scheduler=torch.optim.lr_scheduler.LambdaLR(optimizer,schedule);identity={'protocol_sha256':sha(root/'TRAINING_PROTOCOL.json'),'arm':arm,'seed':seed,'initial':initial,'initial_model_array_sha256':state_hash(model),'inputs':records.inputs,'implementation_sha256':sha(__file__)}
+    scheduler=torch.optim.lr_scheduler.LambdaLR(optimizer,schedule);identity={'protocol_sha256':sha(root/'TRAINING_PROTOCOL.json'),'arm':arm,'seed':seed,'initial':initial,'initial_model_array_sha256':state_hash(model),'inputs':records.inputs,'implementation_sha256':sha(__file__),'loss_spec':loss_spec}
     write(run/'IDENTITY.json',identity)
-    initial_path=run/'initial_weights.pt';atomic_torch(initial_path,{'model':model.state_dict(),'config':asdict(model.config),'identity':identity})
+    initial_path=run/'initial_weights.pt';atomic_torch(initial_path,{'model':model.state_dict(),'config':asdict(model.config),'identity':identity,'loss_spec':loss_spec})
     exposure=hashlib.sha256();seen={'fd':0,'jd':0};valid_frames={'fd':0,'jd':0};started=time.monotonic();torch.cuda.reset_peak_memory_stats()
     def checkpoint(step,final=False):
-        payload={'model':model.state_dict(),'config':asdict(model.config),'base_config':asdict(model.flow.config),'identity':identity,'step':step,'normalizers':state['normalizers'],'audio_normalizers':state['audio_normalizers'],'extra_normalizers':state['extra_normalizers'],'feature_names':state['feature_names'],'exposure_sha256':exposure.hexdigest(),'counts':seen.copy(),'valid_frames':valid_frames.copy()}
+        payload={'model':model.state_dict(),'config':asdict(model.config),'base_config':asdict(model.flow.config),'identity':identity,'loss_spec':loss_spec,'step':step,'normalizers':state['normalizers'],'audio_normalizers':state['audio_normalizers'],'extra_normalizers':state['extra_normalizers'],'feature_names':state['feature_names'],'exposure_sha256':exposure.hexdigest(),'counts':seen.copy(),'valid_frames':valid_frames.copy()}
         if final:atomic_torch(run/'final.pt',payload)
         else:
             payload.update(optimizer=optimizer.state_dict(),scheduler=scheduler.state_dict(),rngs={k:v.bit_generator.state for k,v in rngs.items()},draw_rng=draw.get_state(),drop_rng=drop.get_state())
@@ -153,23 +201,24 @@ def train(root,arm,seed):
                 domain='jd' if step%3==2 else 'fd';size=config['jd_batch'] if domain=='jd' else config['fd_batch']
                 batch=records.sample(domain,size,rngs[domain]);exposure.update(json.dumps([domain,batch['examples']],separators=(',',':')).encode());seen[domain]+=size;valid_frames[domain]+=int(batch['valid'].sum())
                 batch=to_device(batch,*norms);batch=source_dropout(batch,drop);noise=model.flow.noise(size,config['frames'],generator=draw);tau=torch.rand(size,device='cuda',generator=draw)
-                optimizer.zero_grad(set_to_none=True);losses=batch_losses(model,teacher,batch,noise,tau,runtime,field);grad=backward_checked(losses,model);optimizer.step();scheduler.step()
+                optimizer.zero_grad(set_to_none=True);losses=loss_function(model,teacher,batch,noise,tau,runtime,field);grad=backward_checked(losses,model);optimizer.step();scheduler.step()
                 if step==0 or (step+1)%100==0 or step+1==total:
                     row={'step':step+1,'arm':arm,'seed':seed,'domain':domain,'elapsed_s':time.monotonic()-started,'grad':float(grad),'exposure_sha256':exposure.hexdigest(),**{k:float(v.detach()) for k,v in losses.items()}}
                     log.write(json.dumps(row,allow_nan=False)+'\n');log.flush();atomic_json(run/'STATUS.json',row);print(json.dumps(row),flush=True)
                 if (step+1)%1000==0:require_space(root,gb=20);checkpoint(step+1)
             checkpoint(total,True)
-        report={'status':'complete','steps':total,'training_seconds':time.monotonic()-started,'identity':identity,'model_config':model.config_dict(),'parameters':sum(p.numel() for p in model.parameters()),'trainable_parameters':sum(p.numel() for p in model.parameters() if p.requires_grad),'exposure_sha256':exposure.hexdigest(),'counts':seen,'valid_frames':valid_frames,'peak_gpu_gib':torch.cuda.max_memory_allocated()/2**30,'no_posthoc_motion_processing':True,'JD3Dtargets_used':False,'artifacts':{str(p):sha(p) for p in [run/'final.pt',initial_path,run/'training.jsonl']}}
+        report={'status':'complete','steps':total,'training_seconds':time.monotonic()-started,'identity':identity,'loss_spec':loss_spec,'model_config':model.config_dict(),'parameters':sum(p.numel() for p in model.parameters()),'trainable_parameters':sum(p.numel() for p in model.parameters() if p.requires_grad),'exposure_sha256':exposure.hexdigest(),'counts':seen,'valid_frames':valid_frames,'peak_gpu_gib':torch.cuda.max_memory_allocated()/2**30,'no_posthoc_motion_processing':True,'JD3Dtargets_used':False,'artifacts':{str(p):sha(p) for p in [run/'final.pt',initial_path,run/'training.jsonl']}}
         write(run/'REPORT.json',report);return report
     except BaseException as e:
         write(run/f'FAILURE_{time.time_ns()}.json',{'type':type(e).__name__,'message':str(e),'last_saved_checkpoint':str(run/'latest.pt'),'elapsed_s':time.monotonic()-started,'artifacts_preserved':True});raise
 
 
 def main():
-    p=argparse.ArgumentParser();p.add_argument('stage',choices=['preflight','train']);p.add_argument('--root',type=Path,default=ROOT);p.add_argument('--arm',choices=ARMS);p.add_argument('--seed',type=int,default=0);p.add_argument('--guarded',action='store_true');a=p.parse_args()
+    p=argparse.ArgumentParser();p.add_argument('stage',choices=['preflight','train']);p.add_argument('--root',type=Path,default=ROOT);p.add_argument('--arm',choices=ARMS);p.add_argument('--seed',type=int,default=0);p.add_argument('--run-dir',type=Path);p.add_argument('--guarded',action='store_true');p.add_argument('--guard-script',type=Path);a=p.parse_args()
     if not a.guarded:raise ValueError('GPU guard required')
-    from scripts.motion.native_dynamics_guard import authenticate_guarded_job
-    authenticate_guarded_job(Path(__file__).parents[3]/'scripts/motion/train_native_dynamics.py')
-    result=preflight(a.root) if a.stage=='preflight' else train(a.root,a.arm,a.seed)
+    guard_path=a.guard_script or Path(__file__).parents[3]/'scripts/motion/native_dynamics_guard.py'
+    spec=importlib.util.spec_from_file_location('_native_training_guard',guard_path); guard=importlib.util.module_from_spec(spec); spec.loader.exec_module(guard)
+    guard.authenticate_guarded_job(Path(__file__).parents[3]/'scripts/motion/train_native_dynamics.py')
+    result=preflight(a.root) if a.stage=='preflight' else train(a.root,a.arm,a.seed,a.run_dir)
     print(json.dumps({k:v for k,v in result.items() if k in ['status','steps','training_seconds','selected_steps','estimated_training_seconds']}))
 if __name__=='__main__':main()

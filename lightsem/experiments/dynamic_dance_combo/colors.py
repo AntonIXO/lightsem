@@ -242,8 +242,8 @@ def two_group_stream(scores, frames, companion_rgb_source, prototypes):
         raise ValueError('Expected authenticated canonical RGB source')
     ids, cues = scores['generated_palette_ids'], scores['color_cues']
     count = len(ids)*4
-    if frames > count or frames < count-3:
-        raise ValueError('Only final padded inference block may be dropped')
+    if frames > count + 3 or frames < count - 3:
+        raise ValueError('Only the final four-frame padded block may differ from inference length')
     first = np.flatnonzero(cues)
     prefix_needed = count if not len(first) else min(count, int(first[0])*4+1)
     if prefix_needed > len(companion):
@@ -256,6 +256,11 @@ def two_group_stream(scores, frames, companion_rgb_source, prototypes):
     stream, delivery = color_delivery(zero, before, np.arange(count)/40., ids, cues, prototypes, layout='two_groups')
     if np.any(stream[:, ~mask]):
         raise ValueError('Color-only overlay changed non-RGB placeholders')
+    if frames > count:
+        # The decoded whole-song clock can contain up to three real terminal
+        # ticks beyond the last complete 4-frame model block.  Hold the last
+        # emitted color state over those ticks; no new cue is invented.
+        stream = np.concatenate((stream, np.repeat(stream[-1:], frames-count, axis=0)), axis=0)
     return stream[:frames].copy(), {**delivery, 'canonical_nonRGB_bytes_all_zero': True,
                                    'historical_RGB_used_only_before_first_new_cue': True}
 

@@ -46,7 +46,8 @@ def _normalise_counts(counts):
     return result
 
 
-def _load_p2_colors(color_path, audio_path, frames=None, *, allow_fixture_report=False):
+def _load_p2_colors(color_path, audio_path, frames=None, *, expected_sha256=None,
+                    allow_fixture_report=False):
     """Load an authenticated P2 stream and verify its 40 Hz schema/clock.
 
     Historical files use ``left``/``right``; a few early native files use the
@@ -63,7 +64,7 @@ def _load_p2_colors(color_path, audio_path, frames=None, *, allow_fixture_report
     if report.get('audio_sha256') != audio_digest and not (allow_fixture_report and fixture_report):
         raise ValueError('P2 colors belong to a different waveform')
     # Production reports seal the output either directly or through artifacts.
-    expected = report.get('P2_sha256')
+    expected = expected_sha256 or report.get('P2_sha256')
     artifacts = report.get('artifacts', {})
     if expected is None:
         expected = artifacts.get(str(color_path)) or artifacts.get(color_path.name)
@@ -141,7 +142,7 @@ def _resample_body_full_interval(world, clock, target_time):
 
 def _stream_duplicate_groups(controls):
     """Return exact duplicate emitted streams by fixture index."""
-    count = len(next(iter(controls.values())))
+    count = np.asarray(controls['dimmer']).shape[1]
     rows = {}
     for index in range(count):
         key = tuple(np.ascontiguousarray(controls[name][:, index]).tobytes()
@@ -150,8 +151,87 @@ def _stream_duplicate_groups(controls):
     return [indices for indices in rows.values() if len(indices) > 1]
 
 
+def _source_dependence_audit(world40, time, outputs, left, right, levels, transfer,
+                             mapper_id, intent, compile_world):
+    """Check frozen-body stability and assigned-joint response on a short prefix."""
+    from lightsem.conductor.body_transfer import decode
+
+    frames = min(len(world40), 120)
+    starts = sorted(set((0, max(0, (len(world40) - frames) // 2), max(0, len(world40) - frames))))
+    frozen_angle_range = 0.
+    frozen_direction_range = 0.
+    patch = None
+    dependencies = {}
+    moving_dependencies = {}
+    for output, joints in enumerate(intent.get('attribution', ())):
+        for joint in joints:
+            dependencies.setdefault(int(joint), []).append(output)
+            if output < len(outputs) and outputs[output].get('kind') != 'bulb':
+                moving_dependencies.setdefault(int(joint), []).append(output)
+    responses = {}
+    for start in starts:
+        body = np.asarray(world40[start:start + frames], dtype=np.float64)
+        clock = np.arange(frames, dtype=np.float64) / _LIGHTING_FPS
+        left_window, right_window = left[start:start + frames], right[start:start + frames]
+        frozen = np.repeat(body[:1], frames, axis=0)
+
+        def emit(value):
+            universes, current_patch, _, _, _ = compile_world(
+                value, clock, outputs, left_window, right_window, levels,
+                transfer, mapper_id=mapper_id)
+            return decode(universes, current_patch), current_patch
+
+        frozen_controls, patch = emit(frozen)
+        frozen_angle_range = max(frozen_angle_range, float(np.max(np.ptp(frozen_controls['angles_deg'], axis=0))) if len(frozen_controls['angles_deg']) else 0.)
+        frozen_direction_range = max(frozen_direction_range, float(np.max(np.ptp(frozen_controls['directions'], axis=0))) if len(frozen_controls['directions']) else 0.)
+        for joint, fixture_indices in sorted(dependencies.items()):
+            if joint == 0:
+                responses.setdefault(str(joint), {
+                    'fixture_indices': fixture_indices,
+                    'moving_fixture_indices': [index for index in fixture_indices if patch[index]['kind'] != 'bulb'],
+                    'responsive': None, 'moving_responsive': None,
+                    'unobservable': 'root translation is intentionally removed by the mapper reference frame',
+                })
+                continue
+            perturbed = frozen.copy(); perturbed[:, joint, 0] += .05
+            changed, _ = emit(perturbed)
+            moving_indices = [index for index in fixture_indices if patch[index]['kind'] != 'bulb']
+            delta = np.linalg.norm(changed['directions'][:, fixture_indices] - frozen_controls['directions'][:, fixture_indices], axis=-1)
+            dimmer_delta = np.abs(changed['dimmer'][:, fixture_indices] - frozen_controls['dimmer'][:, fixture_indices])
+            moving_delta = np.linalg.norm(changed['directions'][:, moving_indices] - frozen_controls['directions'][:, moving_indices], axis=-1)
+            row = responses.setdefault(str(joint), {
+                'fixture_indices': fixture_indices, 'moving_fixture_indices': moving_indices,
+                'max_direction_delta': 0., 'max_moving_direction_delta': 0., 'max_dimmer_delta': 0.,
+                'responsive': True, 'moving_responsive': True, 'windows': []})
+            response = max(float(np.max(delta)) if delta.size else 0., float(np.max(dimmer_delta)) if dimmer_delta.size else 0.)
+            row['max_direction_delta'] = max(row['max_direction_delta'], float(np.max(delta)) if delta.size else 0.)
+            row['max_moving_direction_delta'] = max(row['max_moving_direction_delta'], float(np.max(moving_delta)) if moving_delta.size else 0.)
+            row['max_dimmer_delta'] = max(row['max_dimmer_delta'], float(np.max(dimmer_delta)) if dimmer_delta.size else 0.)
+            row['responsive'] = row['responsive'] and response > 1e-7
+            row['moving_responsive'] = row['moving_responsive'] and (bool(moving_delta.size and np.max(moving_delta) > 1e-7) if moving_indices else True)
+            row['windows'].append({'start_frame': int(start), 'responsive': response > 1e-7,
+                                   'moving_responsive': bool(moving_delta.size and np.max(moving_delta) > 1e-7) if moving_indices else None})
+    frozen_stable = frozen_angle_range <= 1e-7 and frozen_direction_range <= 1e-7
+    assigned_responsive = bool(responses) and all(
+        row['moving_responsive'] if row.get('moving_fixture_indices') else row['responsive']
+        for row in responses.values() if not row.get('unobservable'))
+    return {
+        'status': 'pass' if frozen_stable and assigned_responsive else 'failed',
+        'scope': 'Three 120-frame frozen-body and assigned-joint perturbation windows (start/middle/end)',
+        'frozen_motion_stable': frozen_stable,
+        'frozen_angle_range_deg': frozen_angle_range,
+        'frozen_direction_range': frozen_direction_range,
+        'window_start_frames': starts,
+        'assigned_joint_responses': responses,
+        'uncovered_joints': sorted(set(range(22)) - set(dependencies)),
+        'moving_uncovered_joints': sorted(set(range(22)) - set(moving_dependencies)),
+        'moving_coverage_status': 'complete' if len(moving_dependencies) == 22 else 'partial',
+    }
+
+
 def prepare_colors(audio, root, config, *, color_path=None, audio_python=None, audio_device=None):
     _, cached = cached_track(config, audio)
+    expected_sha256 = cached['colors']['sha256'] if cached is not None else None
     if color_path is not None:
         color_path = Path(color_path).resolve()
     elif cached is not None:
@@ -167,7 +247,16 @@ def prepare_colors(audio, root, config, *, color_path=None, audio_python=None, a
     # inspected.  Loading here still verifies the report and clock; map_lights
     # performs the exact whole-song length check below.
     left, right, palette, active, identity = _load_p2_colors(
-        color_path, audio, allow_fixture_report=False)
+        color_path, audio, expected_sha256=expected_sha256, allow_fixture_report=False)
+    report = json.loads(Path(identity['report']).read_text())
+    recipe = str(report.get('recipe', '')).lower()
+    required_recipe_tokens = ('i_vr_p0', 'palette history', 'two groups', '300ms')
+    if not all(token in recipe for token in required_recipe_tokens):
+        raise ValueError('P2 report does not declare the accepted P2 recipe')
+    config_path = (REPO / config['lighting']['color_config']).resolve()
+    bindings = report.get('source_bindings', {})
+    if bindings.get(str(config_path)) != config['lighting']['color_config_sha256']:
+        raise ValueError('P2 report is not bound to the configured color recipe')
     identity['color_active_present'] = active is not None
     return left, right, palette, identity
 
@@ -198,6 +287,13 @@ def map_lights(body, audio, root, config, *, counts=None, color_path=None,
         raise ValueError('Audio must provide at least two lighting frames')
     left, right, palette, color_identity = prepare_colors(audio, root, config, color_path=color_path,
                                                          audio_python=audio_python, audio_device=audio_device)
+    color_active = None
+    color_cues10 = None
+    with np.load(color_identity['path'], allow_pickle=False) as color_arrays:
+        if 'color_active40' in color_arrays:
+            color_active = color_arrays['color_active40'].copy()
+        if 'color_cues10' in color_arrays:
+            color_cues10 = color_arrays['color_cues10'].copy()
     if len(left) != frames or len(right) != frames:
         raise ValueError('P2 colors must cover exactly the complete original 40 Hz song')
     time = np.arange(frames, dtype=np.float64) / _LIGHTING_FPS
@@ -213,34 +309,58 @@ def map_lights(body, audio, root, config, *, counts=None, color_path=None,
     controls = decode(universes, patch)
     if not all(np.isfinite(value).all() for value in controls.values()):
         raise ValueError('Nonfinite actual emitted DMX')
+    source_dependence = _source_dependence_audit(
+        world40, time, outputs, left, right, levels, config['lighting']['transfer'],
+        config['lighting']['mapper'], intent, compile_world)
+    from lightsem.conductor.body_transfer_v2.diagnostics import measure
+    transfer_diagnostics = measure(world40, intent, universes, patch, fps=_LIGHTING_FPS,
+                                   start_s=0., duration_s=len(time) / _LIGHTING_FPS)
     attribution = np.zeros((len(outputs), 22), dtype=np.uint8)
     for index, joints in enumerate(intent.get('attribution', ())):
         attribution[index, np.asarray(joints, dtype=int)] = 1
     duplicate_groups = _stream_duplicate_groups(controls)
+    duplicate_groups_named = [[patch[index]['name'] for index in group] for group in duplicate_groups]
+    moving_attribution = attribution[np.array([output['kind'] != 'bulb' for output in outputs])]
     with (root / 'lights.npz').open('xb') as stream:
-        np.savez_compressed(stream, time=time, body=world40, universes=universes,
-                            targets=intent['targets'], dimmer=intent['dimmer'],
-                            source_points=intent['source_points'], field_points=intent['field_points'],
-                            attribution_mask=attribution, palette_ids40=palette)
+        save_arrays = dict(time=time, body=world40, universes=universes,
+                           targets=intent['targets'], dimmer=intent['dimmer'],
+                           source_points=intent['source_points'], field_points=intent['field_points'],
+                           attribution_mask=attribution, palette_ids40=palette)
+        for key in ('bulb_field_centers', 'limb_speed', 'field_activity'):
+            if key in intent:
+                save_arrays[key] = intent[key]
+        if color_active is not None:
+            save_arrays['color_active40'] = color_active
+        if color_cues10 is not None:
+            save_arrays['color_cues10'] = color_cues10
+        np.savez_compressed(stream, **save_arrays)
     write_json(root / 'patch.json', patch)
     report = {'mapper': intent.get('algorithm_id', config['lighting']['mapper']), 'color': color_identity,
               'loudness': level_identity, 'counts': counts, 'fixture_motion_limits': False,
               'hard_checks': hard, 'lights_sha256': sha(root / 'lights.npz'),
+              'patch_sha256': sha(root / 'patch.json'),
               'body_sha256': sha(root / 'body.npz'),
               'brightness_scope': 'Historical full-song LUFS law with established body modulation',
               'palette_occupancy_ticks': {str(int(k)): int(v) for k, v in zip(*np.unique(palette, return_counts=True))},
               'actual_rgb_transition_ticks': int(np.any(np.diff(controls['rgb'], axis=0), axis=(1, 2)).sum()),
+              'palette_transition_ticks': int(np.count_nonzero(np.diff(palette))) if palette is not None and len(palette) > 1 else None,
+              'color_cue_count': int(np.count_nonzero(color_cues10)) if color_cues10 is not None else None,
+              'color_cue_clock_hz': 10.0 if color_cues10 is not None else None,
+              'color_active_ticks': int(np.count_nonzero(color_active)) if color_active is not None else None,
               'emitted_dimmer_min': float(controls['dimmer'].min()),
               'emitted_dimmer_max': float(controls['dimmer'].max()),
               'mapper_attribution': {'fixture_count': len(outputs),
                                      'covered_joint_count': int(np.count_nonzero(attribution.any(axis=0))),
                                      'uncovered_joints': np.flatnonzero(~attribution.any(axis=0)).tolist(),
-                                     'exact_duplicate_fixture_groups': duplicate_groups},
+                                     'moving_covered_joint_count': int(np.count_nonzero(moving_attribution.any(axis=0))) if len(moving_attribution) else 0,
+                                     'moving_uncovered_joints': np.flatnonzero(~moving_attribution.any(axis=0)).tolist() if len(moving_attribution) else list(range(22)),
+                                     'moving_coverage_status': source_dependence['moving_coverage_status'],
+                                     'exact_duplicate_fixture_groups': duplicate_groups,
+                                     'exact_duplicate_fixture_names': duplicate_groups_named},
+              'transfer_diagnostics': transfer_diagnostics,
               'finite': True,
-              # This function has no frozen-body/limb intervention input.  Do
-              # not claim that source-dependence was proven merely because the
-              # mapper is structurally source-based.
-              'source_dependence_checks': {'status': 'not_checked', 'no_autonomous_motion_source': None},
-              'no_autonomous_motion_source': None}
+              'source_dependence_checks': {**source_dependence,
+                                           'no_autonomous_motion_source': source_dependence['status'] == 'pass'},
+              'no_autonomous_motion_source': source_dependence['status'] == 'pass'}
     write_json(root / 'LIGHTING.json', report)
     return time, patch, controls, report

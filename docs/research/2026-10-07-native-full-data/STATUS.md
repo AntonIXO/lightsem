@@ -1,34 +1,36 @@
 # Native full-data expansion status
 
-The repeat admission audit covers 675 catalog recordings and 669 pose caches.
-It admits 600 recordings / 994 coach tracks after retaining protected
-development groups, quarantines, and the original 80%-coverage 16-second
-window gate. There are 272 duplicate-safe Just Dance song groups with paired
-waveforms, plus the existing 109 FineDance training groups (128 records).
+The admission and feature stages completed: 147 duplicate-resolved Just Dance TRAIN groups, 24 protected JD validation groups, and 109 FineDance TRAIN groups. All 171 JD tracks have finite native features. The per-track MuQ cache reused 95 verified historical native streams and GPU-extracted 76 new streams; the merged receipt is `native_dynamics_full_20261007/features/COMPLETE.json`.
 
-`FULL_DATA_MANIFEST.json` selects one independently tracked coach per Just
-Dance group, choosing the highest audited coverage. The result is 272 JD groups
-and 109 FD groups. It is explicitly an admission artifact; no checkpoint has
-been trained or promoted from it.
+Two sequential 60,000-update repaired native joint runs completed. Seed 0 was accidentally removed while preparing a symlinked demo copy; its receipts and evaluation remain preserved. At the user’s explicit request, the exact seed-0 recipe was retrained in `native_dynamics_full_20261007_recovery_seed0_v2`; seed 1 remains in the original full-data root. No third seed was run.
 
-The native speed path remains guarded by raw-motion checks. The stable
-logit-space quiet-loss and kinematic tests pass (`4 passed` for the new full
-data manifest and quiet-gradient checks); the broader native kinematics suite
-also passed in the prior repair verification. The expanded manifest does not
-claim that observed Just Dance poses are metric 3D labels.
+Complete diagnostic demos for both seeds and both songs are in [native_full_complete_demo_20261007](</mnt/lightsem-data/experiments/lightsem/native_full_complete_demo_20261007/README.md>). They use each song’s own generated body, original-speed audio, actual mapped DMX, native 30 Hz motion, and the 90–150 second review window. They are not automatically promoted to the product baseline; paired raw-motion, source-sensitivity, emitted-DMX, and cross-song gates still govern qualification.
 
-The current machine has only about 11 GiB free on `/` and 18 GiB on `/mnt`.
-Training and extraction are therefore not started: the configured 20 GiB
-free-space floor would be violated. Missing-waveform video sources remain
-listed for a separately storage-gated audio extraction step. Existing failed
-experiments and demos have not been deleted or overwritten. Idle review
-servers were stopped to release resources.
+The GPU batch-size observation remains recorded: BF16 `fd_batch=16`, `jd_batch=8` used about 2.1 GiB of 12.2 GiB VRAM at roughly 76% utilization. Do not alter this closed recipe; a larger-batch throughput pilot requires a new protocol and seed-matched verification.
 
-Existing two-song engineering demos remain available for review:
+The read-only Just Dance admission/extraction audit is recorded in
+`JUSTDANCE_ADMISSION_AUDIT_20261007.md` and the versioned artifact root
+`/mnt/lightsem-data/experiments/lightsem/native_admission_audit_20261007_v1/`.
+It preserves all Stage11 and existing held-out groups, separates masked-window
+eligibility from the strict whole-record gate, and does not promote a training
+baseline.
 
-- [review index](/mnt/lightsem-data/experiments/lightsem/body_transfer_20261004_v2/review/index.html)
-- [Shpongle schematic](/mnt/lightsem-data/experiments/lightsem/body_transfer_20261004_v2/media/01/shpongle/schematic.mp4)
-- [Cure For Me schematic](/mnt/lightsem-data/experiments/lightsem/body_transfer_20261004_v2/media/01/cure_for_me/schematic.mp4)
+The two-manifest admission package is in
+`/mnt/lightsem-data/experiments/lightsem/native_admission_package_20261007_v2/`.
+Strict TRAIN is 153 canonical groups; the maximum masked-window TRAIN receipt
+is 290 groups and remains explicitly unqualified. TEST payloads were not opened
+while building this package. Thirteen MuQ streams needed by the maximum
+manifest are storage-blocked until extraction can preserve the 20 GiB floor.
 
-They are transfer diagnostics with P2 color and source-body provenance, not
-evidence that the expanded training recipe is qualified.
+Storage maintenance: the sealed old visual-next example tree was moved from
+`/root/lightsem/runs/visual_next_20260929` to
+`/mnt/lightsem-data/archive/lightsem-runs/visual_next_20260929`. The archive
+contains 4,929 files (4,750,872,100 bytes); its path-list receipt is beside the
+archive. No native baseline, full-data receipt, or failed campaign artifact was
+deleted.
+
+On 2026-10-11 the user explicitly selected the newer RTMPose BF16 full-fit
+seed0 checkpoint as the active baseline. The active definition is
+`configs/dance/fixed_c.json`; the 2026-10-07 fixed-C definition is preserved as
+`configs/dance/fixed_c_20261007.json`. This is a user baseline selection, not a
+claim that the missing input-sensitivity gate has passed.

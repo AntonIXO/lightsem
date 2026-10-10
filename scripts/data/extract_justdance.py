@@ -131,24 +131,23 @@ class YoloPose:
 
 
 class RtmBody:
-    """rtmlib RTMPose (top-down, YOLOX detector), CPU through onnxruntime."""
-    def __init__(self, mode: str = "balanced"):
+    """RTMPose diagnostic adapter; detector-native boxes, scores retained."""
+    def __init__(self, mode: str = "balanced", device: str = "cpu"):
         from rtmlib import Body
-        self.b = Body(mode=mode, backend="onnxruntime", device="cpu", to_openpose=False)
-        self.name = f"rtmpose-{mode}"
+        self.body = Body(mode=mode, backend="onnxruntime", device=device,
+                         to_openpose=False)
+        self.name = f"rtmpose-{mode}-{device}"
+        if device == 'cuda':
+            for model in (self.body.det_model, self.body.pose_model):
+                if model.session.get_providers()[0] != 'CUDAExecutionProvider':
+                    raise RuntimeError('RTMPose silently fell back to CPU')
 
     def __call__(self, frames):
+        from lightsem.experiments.native_dynamics.rtmpose_cache import infer_people
         out = []
-        for f in frames:
-            k, c = self.b(f)
-            if k is None or len(k) == 0:
-                out.append((None, None, None)); continue
-            k = np.asarray(k); c = np.asarray(c)
-            vis = c > 0.3
-            b = np.stack([np.where(vis, k[..., 0], np.inf).min(1), np.where(vis, k[..., 1], np.inf).min(1),
-                          np.where(vis, k[..., 0], -np.inf).max(1), np.where(vis, k[..., 1], -np.inf).max(1)], 1)
-            b[~np.isfinite(b)] = 0
-            out.append((b, k, c))
+        for frame in frames:
+            b, k, c = infer_people(self.body.det_model, self.body.pose_model, frame)
+            out.append((b, k, c) if len(b) else (None, None, None))
         return out
 
 
@@ -475,6 +474,8 @@ def trial(args):
     start, n_out = args.start_s, args.frames
     keep = list(range(0, n_out, max(1, n_out // 6)))[:6]
     arms = [("yolo11m@960", lambda: YoloPose(str(POSE_MODELS / "yolo11m-pose.pt"), 960, conf=args.conf)),
+            ("yolo11m@640", lambda: YoloPose(str(POSE_MODELS / "yolo11m-pose.pt"), 640, conf=args.conf)),
+            ("yolo11x@960", lambda: YoloPose(str(POSE_MODELS / "yolo11x-pose.pt"), 960, conf=args.conf)),
             ("yolo26m@960", lambda: YoloPose(str(POSE_MODELS / "yolo26m-pose.pt"), 960, conf=args.conf)),
             ("yolo26m@640", lambda: YoloPose(str(POSE_MODELS / "yolo26m-pose.pt"), 640, conf=args.conf)),
             ("yolo26x@960", lambda: YoloPose(str(POSE_MODELS / "yolo26x-pose.pt"), 960, conf=args.conf))]
@@ -533,6 +534,7 @@ def trial(args):
             results[overlay_arm][short]["meta"]["beat"] = bc
             print(f"beat {short:22s} {bc}", flush=True)
     out["models"] = {arm: {s: r["meta"] for s, r in d.items()} for arm, d in results.items()}
+    SCRATCH.mkdir(parents=True, exist_ok=True)
     (SCRATCH / f"{args.tag}.json").write_text(json.dumps(out, indent=1, default=float))
     print("wrote", SCRATCH / f"{args.tag}.json")
 
@@ -621,8 +623,14 @@ def pose_complete(path: Path) -> bool:
         return False
 
 
-def refresh_manifest(workers: int = 12) -> list[dict]:
-    """Append probe rows for videos on disk that the manifest does not yet know."""
+def refresh_manifest(workers: int = 12, *, reprobe_audio: bool = False) -> list[dict]:
+    """Append probe rows and optionally refresh stale audio measurements.
+
+    Existing rows were historically treated as immutable, but that also kept
+    stale ``mean_db`` values and could exclude usable recordings forever.  The
+    opt-in refresh replaces only the probe fields for an existing source; the
+    default remains read-only for reproducibility.
+    """
     from multiprocessing import Pool
     rows = json.loads(MANIFEST.read_text()) if MANIFEST.exists() else []
     bak = MANIFEST.with_suffix(".json.bak")
@@ -632,16 +640,44 @@ def refresh_manifest(workers: int = 12) -> list[dict]:
     by_file = {r["file"]: r for r in rows}
     n_rename = 0
     todo = []
+    reprobe_files = []
     for yt, fn in list_captures():
         if yt and yt in by_id:
             if by_id[yt].get("file") != fn:
                 by_id[yt]["file"] = fn
                 n_rename += 1
+            if reprobe_audio:
+                # Probe known rows in parallel below.  The historical
+                # implementation decoded them serially, which made a full
+                # refresh take hours and encouraged stale audio admission.
+                reprobe_files.append((yt, fn))
             continue
         if fn in by_file:
             continue
         todo.append(fn)
-    print(f"manifest: {len(by_id)} known, {len(todo)} new to probe, {n_rename} renamed", flush=True)
+    print(f"manifest: {len(by_id)} known, {len(todo)} new to probe, {len(reprobe_files)} audio rows to refresh", flush=True)
+    if reprobe_files:
+        w = max(1, min(workers, len(reprobe_files)))
+        if w == 1:
+            refreshed_rows = [probe_capture(fn) for _, fn in reprobe_files]
+        else:
+            with Pool(w) as p:
+                refreshed_rows = list(p.imap_unordered(probe_capture, [fn for _, fn in reprobe_files]))
+        for i, refreshed in enumerate(refreshed_rows, 1):
+            yt = next((rid for rid, fn in reprobe_files if fn == refreshed.get("file")), refreshed.get("yt_id"))
+            prior = by_id.get(yt)
+            if prior is None:
+                continue
+            for key in ("duration_s", "size_mb", "vcodec", "width", "height", "fps",
+                        "n_audio", "acodec", "mean_db", "max_db", "error"):
+                if key in refreshed:
+                    prior[key] = refreshed[key]
+                elif key == "error":
+                    prior.pop(key, None)
+            n_rename += 1
+            if i == 1 or i % 25 == 0 or i == len(reprobe_files):
+                print(f"  reprobe [{i}/{len(reprobe_files)}] {refreshed.get('yt_id')} "
+                      f"mean_db={refreshed.get('mean_db')} max_db={refreshed.get('max_db')}", flush=True)
     if todo:
         w = max(1, min(workers, len(todo)))
         with Pool(w) as p:
@@ -675,17 +711,23 @@ def _save_pose(out: Path, r: dict):
 # ------------------------------------------------------------------ full run
 def _worker(job):
     """One process: own model, own file list. Writes one npz per file."""
-    model_name, imgsz, files, batch, wid, conf = job
+    model_name, imgsz, files, batch, wid, conf, pose_dir = job
     os.environ.setdefault("OMP_NUM_THREADS", "1")
     import warnings
     warnings.filterwarnings("ignore", message=".*half.*deprecated.*")
-    import torch
-    torch.set_num_threads(1)
-    torch.cuda.set_device(0)
-    model = YoloPose(model_name, imgsz, conf=conf)
+    if not model_name.startswith('rtmpose-m-'):
+        import torch
+        torch.set_num_threads(1)
+        torch.cuda.set_device(0)
+    if model_name.startswith('rtmpose-m-cuda'):
+        model = RtmBody('balanced', 'cuda')
+    elif model_name.startswith('rtmpose-m-cpu'):
+        model = RtmBody('balanced', 'cpu')
+    else:
+        model = YoloPose(model_name, imgsz, conf=conf)
     done = []
     for yt, fn in files:
-        out = POSE_DIR / f"{yt}.npz"
+        out = pose_dir / f"{yt}.npz"
         if pose_complete(out):
             continue
         if out.exists():
@@ -704,15 +746,24 @@ def _worker(job):
 
 def run(args):
     import multiprocessing as mp
-    POSE_DIR.mkdir(parents=True, exist_ok=True)
+    pose_dir = Path(args.pose_dir) if args.pose_dir else POSE_DIR
+    pose_dir.mkdir(parents=True, exist_ok=True)
     for pat in ("*.partial.npz", "*.npz.partial", "*.npz.partial.npz"):
-        for stale in POSE_DIR.glob(pat):
+        for stale in pose_dir.glob(pat):
             stale.unlink()
     rows = refresh_manifest(workers=max(8, args.workers * 2))
+    selected_ids = None
+    if args.ids_file:
+        selected_ids = {
+            line.strip() for line in Path(args.ids_file).read_text().splitlines()
+            if line.strip() and not line.lstrip().startswith('#')
+        }
     files = [(r["yt_id"], r["file"]) for r in rows
-             if r.get("yt_id") and "error" not in r and (r.get("mean_db") or -99) > -40]
+             if r.get("yt_id") and "error" not in r
+             and (selected_ids is None or r["yt_id"] in selected_ids)
+             and (args.include_quiet or (r.get("mean_db") or -99) > -40)]
     n_usable = len(files)
-    files = [f for f in files if not pose_complete(POSE_DIR / f"{f[0]}.npz")]
+    files = [f for f in files if not pose_complete(pose_dir / f"{f[0]}.npz")]
     n_skip = n_usable - len(files)
     if args.limit:
         files = files[:args.limit]
@@ -722,7 +773,7 @@ def run(args):
     dur = {r["yt_id"]: r.get("duration_s") or 0 for r in rows if r.get("yt_id")}
     files.sort(key=lambda f: -dur.get(f[0], 0), reverse=args.reverse)
     W = args.workers
-    jobs = [(args.model, args.imgsz, files[i::W], args.batch, i, args.conf) for i in range(W)]
+    jobs = [(args.model, args.imgsz, files[i::W], args.batch, i, args.conf, pose_dir) for i in range(W)]
     print(f"{len(files)} files to extract ({n_skip} already cached), {W} workers, "
           f"model {args.model}@{args.imgsz} batch {args.batch}", flush=True)
     if not files:
@@ -749,11 +800,17 @@ if __name__ == "__main__":
     r.add_argument("--imgsz", type=int, default=960); r.add_argument("--workers", type=int, default=3)
     r.add_argument("--batch", type=int, default=16); r.add_argument("--limit", type=int, default=0)
     r.add_argument("--reverse", action="store_true", help="shortest files first (a second run from the other end)")
+    r.add_argument("--ids-file", type=Path, help="newline-separated recording IDs to extract")
+    r.add_argument("--pose-dir", type=Path, help="output directory; isolates model revisions")
+    r.add_argument("--include-quiet", action="store_true",
+                    help="include selected sources below the historical -40 dB gate; silent audio is classified later")
     mf = sub.add_parser("manifest"); mf.add_argument("--workers", type=int, default=12)
+    mf.add_argument("--reprobe-audio", action="store_true",
+                    help="refresh codec/level measurements for existing rows")
     a = ap.parse_args()
     if a.cmd == "trial":
         trial(a)
     elif a.cmd == "manifest":
-        refresh_manifest(workers=a.workers)
+        refresh_manifest(workers=a.workers, reprobe_audio=a.reprobe_audio)
     else:
         run(a)

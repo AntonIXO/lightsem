@@ -429,7 +429,14 @@ def run_job(queue, job, queue_sha, limits):
         return 0
     if folder.exists() or folder.is_symlink():
         raise FileExistsError(f'Incomplete prior job; preserve and review: {folder}')
-    if any(path.exists() or path.is_symlink() for path in outputs):
+    existing_resume = bool(job.get('allow_existing_output')) and len(outputs) == 1
+    if existing_resume:
+        output = outputs[0]
+        if output != root / 'features' or (output / 'COMPLETE.json').exists():
+            raise FileExistsError('Existing-output resume is allowed only for an incomplete features directory')
+        if output.is_symlink():
+            raise ValueError('Existing resume output must not be a symlink')
+    if any(path.exists() or path.is_symlink() for path in outputs) and not existing_resume:
         raise FileExistsError('Expected output already exists; refusing adoption or overwrite')
     with ExitStack() as stack:
         if job['gpu']:
@@ -594,12 +601,18 @@ def run_queue(path, expected_sha):
         # Reject output reuse across independently frozen implementation phases.
         for started_path in (root / 'records/dynamic_jobs').glob('*/started.json'):
             identity = read_verified(started_path)['identity']
+            prior_halted = started_path.parent / 'halted.json'
             for job in jobs:
                 if job['id'] == identity['job_id']:
                     continue
                 for output in map(Path, job['outputs']):
                     if any(output.is_relative_to(Path(other)) or Path(other).is_relative_to(output)
                            for other in identity['outputs']):
+                        if (job.get('allow_existing_output') and prior_halted.is_file()
+                                and output == root / 'features'):
+                            continue
+                        if prior_halted.is_file() and not output.exists() and not output.is_symlink():
+                            continue
                         raise ValueError('Job output overlaps a prior phase claim')
         for job in jobs:
             run_job(queue, job, expected_sha, limits)

@@ -17,6 +17,7 @@ CONDITION_DIM=PLAN_DIM+MOTIF_DIM
 class Config:
     arm:str='joint'
     extra_dim:int=1061
+    stereo_dim:int=0
     planner_width:int=96
     planner_heads:int=4
     frames:int=480
@@ -27,6 +28,7 @@ class Config:
     def __post_init__(self):
         if self.arm not in ('continued','dynamics','joint'):raise ValueError('Unknown registered arm')
         if self.steps!=32 or not 1<=self.gradient_steps<=self.steps:raise ValueError('Declared32-step native solver required')
+        if self.extra_dim<1 or self.stereo_dim<0:raise ValueError('Invalid audio dimensions')
 
 
 class Planner(nn.Module):
@@ -65,16 +67,30 @@ class Flow(DynamicFlow):
         self.native_projection=nn.Linear(CONDITION_DIM,32)
         self.native_adapters=nn.ModuleList(nn.Linear(32,base_config.width) for _ in self.blocks)
         for layer in self.native_adapters:nn.init.zeros_(layer.weight);nn.init.zeros_(layer.bias)
+        self.stereo_projection=None
+        self.stereo_adapters=nn.ModuleList()
+        if config.stereo_dim:
+            self.stereo_projection=nn.Linear(config.stereo_dim,32)
+            self.stereo_adapters=nn.ModuleList(nn.Linear(32,base_config.width) for _ in self.blocks)
+            for layer in self.stereo_adapters:nn.init.zeros_(layer.weight);nn.init.zeros_(layer.bias)
     @property
-    def conditioning_dim(self):return 92+self.dynamic.extra_dim+CONDITION_DIM
+    def conditioning_dim(self):return 92+self.dynamic.extra_dim+CONDITION_DIM+self.native_config.stereo_dim
     def prepare_conditioning(self,audio):
+        if audio.ndim!=3 or audio.shape[-1]!=self.conditioning_dim:raise ValueError('Wrong native conditioning width')
         extra=audio[...,92:92+self.dynamic.extra_dim]
         conditioning=F.silu(self.audio_projection(extra))
-        native=F.silu(self.native_projection(audio[...,-CONDITION_DIM:])) if self.native_config.arm=='joint' else None
+        native_start=92+self.dynamic.extra_dim
+        native=F.silu(self.native_projection(audio[...,native_start:native_start+CONDITION_DIM])) if self.native_config.arm=='joint' else None
+        stereo_start=native_start+CONDITION_DIM
+        stereo=audio[...,stereo_start:stereo_start+self.native_config.stereo_dim] if self.native_config.stereo_dim else None
         biases=[]
-        for adapter,native_adapter in zip(self.adapters,self.native_adapters):
+        for index,(adapter,native_adapter) in enumerate(zip(self.adapters,self.native_adapters)):
             bias=self.dynamic.adapter_scale*torch.tanh(adapter(conditioning))
             if native is not None:bias=bias+self.native_config.adapter_scale*torch.tanh(native_adapter(native))
+            if stereo is not None:
+                if stereo.shape[-1]!=self.native_config.stereo_dim:raise ValueError('Stereo native context width mismatch')
+                stereo_hidden=F.silu(self.stereo_projection(stereo))
+                bias=bias+self.native_config.adapter_scale*torch.tanh(self.stereo_adapters[index](stereo_hidden))
             biases.append(bias.transpose(1,2))
         return audio[...,:92],torch.stack(biases,1)
     def prepared_vector_field(self,base,biases,state,t):
@@ -86,13 +102,17 @@ class Flow(DynamicFlow):
         return self.prepared_vector_field(*self.prepare_conditioning(audio),state,t)
 
     def config_dict(self):
-        return {**super().config_dict(),'native_control_channels':80,'legacy34_plan_projection_unused':True,'conditioning':'Base92+1061frozenaudio+48learneddynamics+32continuousmotif; onlyjointconsumescontrol','retiming':False}
+        return {**super().config_dict(),'native_control_channels':80,'legacy34_plan_projection_unused':True,'conditioning':'Base92+1061frozenaudio+48learneddynamics+32continuousmotif+optionalStereoV1; onlyjointconsumescontrol','stereo_dim':self.native_config.stereo_dim,'retiming':False}
 
 
 
 class NativeDynamicsModel(nn.Module):
     def __init__(self,base_config,normalizers,config=Config()):
         super().__init__();self.config=config;self.flow=Flow(base_config,normalizers,config);self.planner=Planner(config.extra_dim,config.planner_width,config.planner_heads)
+        self.stereo_plan=None
+        if config.stereo_dim:
+            self.stereo_plan=nn.Linear(config.stereo_dim,CONDITION_DIM)
+            nn.init.zeros_(self.stereo_plan.weight);nn.init.zeros_(self.stereo_plan.bias)
         # All arms retain identical pretrained early3D filters. Candidatelearns
         # its new adapters at every block, plus shared lateblocks/audioadapters.
         for block in self.flow.blocks[:config.freeze_early_blocks]:
@@ -101,16 +121,31 @@ class NativeDynamicsModel(nn.Module):
         if config.arm!='joint':
             for module in (self.flow.native_projection,self.flow.native_adapters):
                 for p in module.parameters():p.requires_grad_(False)
+            if self.flow.stereo_projection is not None:
+                for module in (self.flow.stereo_projection,self.flow.stereo_adapters):
+                    for p in module.parameters():p.requires_grad_(False)
     def warmstart(self,d7_state):
         result=self.flow.load_state_dict(d7_state,strict=False)
-        if result.unexpected_keys or any(not k.startswith(('native_projection.','native_adapters.')) for k in result.missing_keys):raise ValueError('D7 architecture/state mismatch')
-    def condition(self,fine_audio,coarse_audio,coarse_valid,frame_indices):
+        allowed=('native_projection.','native_adapters.')
+        if self.config.stereo_dim:allowed=allowed+('stereo_projection.','stereo_adapters.')
+        if result.unexpected_keys or any(not k.startswith(allowed) for k in result.missing_keys):raise ValueError('D7 architecture/state mismatch')
+    def condition(self,fine_audio,coarse_audio,coarse_valid,frame_indices,stereo_context=None,coarse_stereo=None):
         if fine_audio.shape[-1]!=92+self.config.extra_dim:raise ValueError('Wrong audio schema')
+        if self.config.stereo_dim:
+            if stereo_context is None or coarse_stereo is None:raise ValueError('Stereo context is required by this model arm')
+            if stereo_context.shape[:2]!=fine_audio.shape[:2] or stereo_context.shape[-1]!=self.config.stereo_dim:raise ValueError('Wrong fine stereo schema')
+            if coarse_stereo.shape[:2]!=coarse_audio.shape[:2] or coarse_stereo.shape[-1]!=self.config.stereo_dim:raise ValueError('Wrong coarse stereo schema')
+            if not torch.isfinite(stereo_context).all() or not torch.isfinite(coarse_stereo).all():raise ValueError('Nonfinite stereo context')
+        elif stereo_context is not None or coarse_stereo is not None:
+            raise ValueError('Stereo context supplied to a non-stereo model')
         # Observerplanner receives identical supervision in allarms. Only joint
         # connects its outputs to the decoder; this controls label exposure.
         plan=self.planner(coarse_audio,coarse_valid)
+        if self.stereo_plan is not None:plan['conditioning']=plan['conditioning']+self.stereo_plan(coarse_stereo)
         values=plan_at_frames(plan['conditioning'],coarse_valid,frame_indices)
-        return torch.cat((fine_audio,values),-1),plan
+        result=torch.cat((fine_audio,values),-1)
+        if stereo_context is not None:result=torch.cat((result,stereo_context),-1)
+        return result,plan
     def rollout(self,conditioning,noise,*,gradient_steps=None,field=None,teacher=None):
         """Exact32forwardsteps; gradients only through finaldeclaredsteps.
 
@@ -136,12 +171,13 @@ class NativeDynamicsModel(nn.Module):
         native=self.flow.codec.decode(state.float()*self.flow.std+self.flow.mean)
         return native,prior
     @torch.inference_mode()
-    def generate(self,fine_audio,coarse_audio,coarse_valid,frame_indices,noise,*,plan_override=None,core_frames=960):
-        conditioning,plan=self.condition(fine_audio,coarse_audio,coarse_valid,frame_indices)
+    def generate(self,fine_audio,coarse_audio,coarse_valid,frame_indices,noise,*,plan_override=None,core_frames=960,stereo_context=None,coarse_stereo=None):
+        conditioning,plan=self.condition(fine_audio,coarse_audio,coarse_valid,frame_indices,stereo_context=stereo_context,coarse_stereo=coarse_stereo)
         if plan_override is not None:
             if self.config.arm!='joint':raise ValueError('Plan intervention requires active joint architecture')
             values=plan_at_frames(plan_override,coarse_valid,frame_indices)
             conditioning=torch.cat((fine_audio,values),-1)
+            if stereo_context is not None:conditioning=torch.cat((conditioning,stereo_context),-1)
         base,biases=self.flow.prepare_conditioning(conditioning);state=noise.clone();halo=self.flow.halo
         for i in range(self.config.steps):
             time=state.new_full((len(state),),i/self.config.steps);parts=[]

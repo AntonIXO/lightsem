@@ -35,9 +35,9 @@ SHOWCASE = {
 }
 FREE_FLOOR = 20 * 1024 ** 3
 RECIPE = {
-    'version': 1, 'observation_hz': 30, 'muq_layer': 9, 'muq_native_hz': 25,
-    'muq_chunk_seconds': 8, 'muq_batch_size': 1,
-    'muq_boundary': 'nonoverlapping8s; final real8s crop contributes only timestamps after previous chunk',
+    'version': 2, 'observation_hz': 30, 'muq_layer': 9, 'muq_native_hz': 25,
+    'muq_chunk_seconds': 8, 'muq_batch_size': 4,
+    'muq_boundary': 'overlap-aware native25Hz grid; overlapping real8s crops are timestamp-aligned and averaged',
     'separator': 'pinned HTDemucs955717e8; shifts0,overlap0.25,splitTrue',
     'physical_frontend': 'mono arithmetic mean;22050Hz;2048Hann centeredSTFT;hop735;linear magnitude',
     'source_fields': list(SOURCE_FIELDS), 'mixture_fields': list(MIXTURE_FIELDS),
@@ -310,7 +310,46 @@ def waveform_counterfactual(mixture: np.ndarray, sr: int, intervention: dict,
     return result.astype(np.float32), meta
 
 
-def extract_muq_stream(extractor, mono_24k: np.ndarray) -> tuple[np.ndarray, np.ndarray]:
+def _stitch_muq_chunks(chunks: list[tuple[np.ndarray, np.ndarray]], native_hz: float = 25.,
+                       target_end: float | None = None) -> tuple[np.ndarray, np.ndarray]:
+    """Merge real MuQ crops on a native timestamp grid without filling gaps."""
+    if not chunks:
+        raise ValueError('MuQ export contains no chunks')
+    start = min(float(timestamp[0]) for _, timestamp in chunks)
+    end = max(float(timestamp[-1]) for _, timestamp in chunks)
+    if target_end is not None:
+        if end > float(target_end) + 1. / native_hz + 1e-6:
+            raise ValueError('MuQ chunk exceeds exact waveform duration')
+        end = max(end, float(target_end))
+    grid = np.arange(start, end + 0.5 / native_hz, 1. / native_hz, dtype=np.float64)
+    if grid[-1] < end - 1e-8:
+        # Keep the final real encoder timestamp when the last crop starts at a
+        # fractional sample offset; never extrapolate past the crop endpoint.
+        grid = np.concatenate((grid, np.asarray([end], np.float64)))
+    total = np.zeros((len(grid), 1024), np.float64)
+    count = np.zeros(len(grid), np.float64)
+    for value, timestamp in chunks:
+        timestamp = np.asarray(timestamp, np.float64)
+        value = np.asarray(value, np.float32)
+        # A fractional final crop can place the global endpoint less than one
+        # native hop after the encoder's last center. Carry that real endpoint
+        # onto the grid with the last encoder value; never bridge a larger gap.
+        right = timestamp[-1] + (1. / native_hz + 1e-6 if target_end is not None else 1e-8)
+        inside = (grid >= timestamp[0] - 1e-8) & (grid <= right)
+        if not inside.any():
+            continue
+        projected = np.stack([np.interp(grid[inside], timestamp, value[:, i])
+                              for i in range(value.shape[1])], axis=1)
+        total[inside] += projected
+        count[inside] += 1.
+    keep = count > 0
+    if not keep.any():
+        raise ValueError('MuQ crops do not overlap a native timestamp grid')
+    return (total[keep] / count[keep, None]).astype(np.float16), grid[keep]
+
+
+def extract_muq_stream(extractor, mono_24k: np.ndarray, batch_size: int = 4,
+                       target_duration_s: float | None = None) -> tuple[np.ndarray, np.ndarray]:
     wave = np.asarray(mono_24k, np.float32)
     size = 8 * 24000
     if len(wave) < size:
@@ -318,18 +357,27 @@ def extract_muq_stream(extractor, mono_24k: np.ndarray) -> tuple[np.ndarray, np.
     starts = list(range(0, len(wave) - size + 1, size))
     if starts[-1] != len(wave) - size:
         starts.append(len(wave) - size)
-    embeddings, timestamps = [], []
-    for start in starts:
-        value, native_time = extractor.extract_batch([wave[start:start + size]])[0]
-        absolute = native_time + start / 24000
-        keep = np.ones(len(absolute), bool) if not timestamps else absolute > timestamps[-1][-1] + 1e-8
-        if keep.any():
-            embeddings.append(value[keep])
-            timestamps.append(absolute[keep])
-    z, t = np.concatenate(embeddings).astype(np.float16), np.concatenate(timestamps).astype(np.float64)
+    chunks = []
+    for offset in range(0, len(starts), max(1, int(batch_size))):
+        crop_starts = starts[offset:offset + max(1, int(batch_size))]
+        exports = extractor.extract_batch([wave[start:start + size] for start in crop_starts])
+        for start, (value, native_time) in zip(crop_starts, exports):
+            chunks.append((value, np.asarray(native_time, np.float64) + start / 24000.))
+    duration = len(wave) / 24000. if target_duration_s is None else float(target_duration_s)
+    z, t = _stitch_muq_chunks(chunks, native_hz=25., target_end=duration - 1. / 25.)
     if z.shape != (len(t), 1024) or not np.isfinite(z).all() or np.any(np.diff(t) <= 0):
         raise ValueError('Invalid native MuQ export')
     return z, t
+
+
+def _resample_muq_input(waveform: np.ndarray, duration_s: float) -> np.ndarray:
+    """Resample to 24 kHz and bind the sample count to decoded duration."""
+    from scipy.signal import resample_poly
+    target_samples = int(round(float(duration_s) * 24000.))
+    value = resample_poly(np.asarray(waveform, np.float32), 80, 147).astype(np.float32)
+    if len(value) < target_samples:
+        raise ValueError('24 kHz resampling under-covers the decoded waveform')
+    return value[:target_samples]
 
 
 def load_waveform(path: str | Path, sample_rate: int = 44100) -> np.ndarray:
@@ -456,7 +504,10 @@ def extract_base92(wave: np.ndarray, target_time: np.ndarray, entry: dict,
     if path.exists():
         raise FileExistsError('Preserve unreceipted Base92 artifact')
     bus = extract_bus(y=np.asarray(wave, np.float32).mean(axis=0), sr=44100, fps_out=40, causal=True)
-    mel = bus.mel.astype(np.float16).astype(np.float32)
+    # Preserve the extractor's float32 mel values through interpolation. The
+    # old float16 round-trip quantized low-level tracks before they reached the
+    # native 30 Hz clock; v2 binds the unquantized values to this cache receipt.
+    mel = bus.mel.astype(np.float32, copy=False)
     features = np.concatenate((mel.T, np.stack([bus.channels[name] for name in AUDIO_SCALARS], axis=1)), axis=1).astype(np.float32)
     if features.shape[1] != 92 or not np.isfinite(features).all():
         raise ValueError('Invalid recomputed Base92 conditioning')
@@ -470,7 +521,7 @@ def extract_base92(wave: np.ndarray, target_time: np.ndarray, entry: dict,
                'analyzed_waveform_sha256': analyzed_waveform_sha256,
                'input_path': entry['wav_path'], 'input_sha256': entry['wav_sha256'],
                'intervention': intervention,
-               'recipe': 'existing extract_bus causalTrue40Hz; mel float16 roundtrip; exact30Hz interpolation',
+               'recipe': 'existing extract_bus causalTrue40Hz; mel float32; exact30Hz interpolation',
                'features': ['mel_' + str(i) for i in range(64)] + list(AUDIO_SCALARS),
                'flags': bus.flags,
                'timestamps': 'original analyzed waveform start0; explicit40Hz time and30Hz time30',
@@ -556,6 +607,10 @@ class AudioAnalyzer:
             start = time.monotonic()
             base92 = extract_base92(wave, target, entry, root, wave_id, counterfactual_meta)
             timings['base92_s'] = time.monotonic() - start
+        elif entry.get('base92_receipt'):
+            base92 = dict(entry['base92_receipt'])
+            if base92.get('npz_sha256') != sha256(base92['path']):
+                raise ValueError('Precomputed Base92 receipt does not match its artifact')
         elif entry.get('base92_path'):
             if sha256(entry['base92_path']) != entry['base92_sha256']:
                 raise ValueError('Frozen TRAIN/VAL Base92 identity changed')
@@ -563,7 +618,8 @@ class AudioAnalyzer:
                       'original_waveform_sha256': entry['wav_sha256'],
                       'provenance': entry.get('base92_provenance', 'authenticated FineDance audio manifest; no waveform intervention')}
         start = time.monotonic()
-        muq, muq_time = extract_muq_stream(self.muq(), resample_poly(wave.mean(0), 80, 147))
+        muq, muq_time = extract_muq_stream(self.muq(), _resample_muq_input(wave.mean(0), duration),
+                                           target_duration_s=duration)
         timings['muq_s'] = time.monotonic() - start
         start = time.monotonic()
         stems = self.separate(wave)
@@ -639,7 +695,9 @@ def extraction_preflight(keys: list[str], root: str | Path = CAMPAIGN_ROOT,
             raise ValueError('Preflight waveform drift')
         wave = load_waveform(entry['wav_path'])[:, :round(seconds * 44100)]
         begin = time.monotonic()
-        z, t = extract_muq_stream(analyzer.muq(), resample_poly(wave.mean(0), 80, 147))
+        crop_duration = wave.shape[-1] / 44100.
+        z, t = extract_muq_stream(analyzer.muq(), _resample_muq_input(wave.mean(0), crop_duration),
+                                  target_duration_s=crop_duration)
         muq_seconds = time.monotonic() - begin
         begin = time.monotonic()
         stems = analyzer.separate(wave)

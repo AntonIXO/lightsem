@@ -227,9 +227,18 @@ def _result(world: np.ndarray, result_world: np.ndarray, source_time: np.ndarray
     actual = np.concatenate((actual, actual[-1:]), axis=0)
     if actual.ndim == 1:
         actual = actual[:, None]
+    # ``time`` is the output/song clock.  ``source_time`` is a lookup into the
+    # supplied native body clock.  Keeping these domains explicit prevents
+    # downstream consumers from treating a target downbeat as a native-body
+    # timestamp (or vice versa).
     common = {"method": method, "fps": fps, "regions": list(REGIONS),
+              "time_domain": "output_song_seconds",
+              "source_time_domain": "native_body_seconds",
+              "anchor_time_domain": "output_song_seconds",
               "motion_origin": "provided same-song generated body", "independent_motion_source": False,
-              "source_time_unit": "seconds", "source_order_preserved": method != "D4", **metadata}
+              "source_time_unit": "seconds",
+              "source_order_preserved": method != "D4",
+              **metadata}
     if desired_rate is not None:
         common["requested_rate_mean"] = float(np.mean(desired_rate))
         common["duration_conservation_rate_adjustment_mean_abs"] = float(np.mean(np.abs(actual[:, 0]-desired_rate)))
@@ -309,6 +318,7 @@ def d1_event_retiming(world: np.ndarray, timeline: MusicTimeline, fps: float = 3
         if status == "accepted":
             accepted.append((target, source))
         anchors.append({"time": target, "source_time": source, "kind": "gesture_speed_apex_to_audio_attack",
+                        "time_domain": "output_song_seconds", "source_time_domain": "native_body_seconds",
                         "status": status, "audio_attack": float(np.interp(target, time, attack))})
     accepted.append((float(time[-1]), float(time[-1])))
     pairs = np.asarray(accepted)
@@ -341,6 +351,7 @@ def d2_phrase_retiming(world: np.ndarray, timeline: MusicTimeline, fps: float = 
         peaks = find_peaks(evidence[key], height=.1, distance=max(1, int(.5*fps)))[0]
         for index in peaks:
             events.append({"time": float(time[index]), "kind": key, "evidence": float(evidence[key][index]),
+                           "time_domain": "output_song_seconds",
                            "desired_rate": float(desired[index]), "actual_rate": float(actual[index])})
     return _result(world, resample_body(world, mapping, fps), mapping, timeline, "D2", fps,
                     {"intervention": "source texture and phrase preparation/release retiming", "control": control,
@@ -439,6 +450,7 @@ def d3_source_regional_retiming(world: np.ndarray, timeline: MusicTimeline, fps:
     anchors = np.unique(np.r_[0, np.rint(anchor_times*fps).astype(int), len(time)-1])
     mapping = regional_time_maps(desired, common, fps, anchors)
     details = [{"time": float(time[i]), "source_time": float(common[i]),
+                "time_domain": "output_song_seconds", "source_time_domain": "native_body_seconds",
                 "kind": "shared_support_or_phrase_anchor"} for i in anchors]
     return _result(world, resample_body(world, mapping, fps), mapping, timeline, "D3", fps,
                     {"intervention": "source-specific upper-body timing with shared support", "control": control,
@@ -458,6 +470,38 @@ def _blend_bodies(a: np.ndarray, b: np.ndarray, weight: np.ndarray) -> np.ndarra
         length = np.linalg.norm(av, axis=-1)
         result[:, joint] = result[:, parent] + _slerp(av, bv, weight)*length[:, None]
     return result
+
+
+def _raw_seam_diagnostics(result_world: np.ndarray, source_time: np.ndarray,
+                          fragment_provenance: list[dict[str, Any]], fps: float) -> list[dict[str, Any]]:
+    """Report the unfiltered frame jump at each recomposition boundary.
+
+    These are descriptive measurements of the emitted body, before any later
+    interpolation or fixture processing.  A seam fade can reduce the jump,
+    while a source-fragment clock jump can still be large; both values are
+    retained so a downstream chart cannot mistake the blended trace for the
+    underlying provenance transition.
+    """
+    body = np.asarray(result_world, dtype=np.float64)
+    clock = np.asarray(source_time, dtype=np.float64)
+    diagnostics: list[dict[str, Any]] = []
+    for row in fragment_provenance[1:]:
+        target_start = int(np.rint(float(row["target_seconds"][0]) * fps))
+        if target_start <= 0 or target_start >= len(body):
+            continue
+        delta = body[target_start] - body[target_start - 1]
+        joint_jump = np.linalg.norm(delta, axis=-1)
+        clock_delta = clock[target_start] - clock[target_start - 1]
+        diagnostics.append({
+            "target_time_s": float(target_start / fps),
+            "target_frame": target_start,
+            "raw_output_jump_rms_m": float(np.sqrt(np.mean(joint_jump ** 2))),
+            "raw_output_jump_max_m": float(np.max(joint_jump)),
+            "raw_output_root_jump_m": float(joint_jump[0]),
+            "source_clock_delta_s": np.asarray(clock_delta).tolist(),
+            "source_clock_jump_is_provenance_only": True,
+        })
+    return diagnostics
 
 
 def d4_motif_recomposition(world: np.ndarray, timeline: MusicTimeline, fps: float = 30.,
@@ -485,6 +529,12 @@ def d4_motif_recomposition(world: np.ndarray, timeline: MusicTimeline, fps: floa
                 "transition_seconds": .30, "independent_motion_source": False}
     if control in ("native", "frozen_music", "loudness") or _constant(world):
         metadata["diagnostic_reason"] = "constant source or requested identity comparator"
+        # This is an exact chronological identity comparator.  It has no
+        # fragment jumps, so reporting recomposition semantics here would make
+        # the provenance clock look reordered when it is not.
+        if control in ("native", "frozen_music"):
+            metadata["source_order_preserved"] = True
+            metadata["time_map_classification"] = "identity; chronological source clock"
         return _result(world, world.copy(), identity, timeline, "D4", fps, metadata)
     if control not in (None, "shuffle"):
         raise ValueError(f"Unknown diagnostic control: {control}")
@@ -498,6 +548,9 @@ def d4_motif_recomposition(world: np.ndarray, timeline: MusicTimeline, fps: floa
     boundaries += [time[-1]]
     if len(boundaries) == 2:
         metadata["diagnostic_reason"] = "no downbeat fragments; no invented rhythmic partition"
+        if control in ("native", "frozen_music"):
+            metadata["source_order_preserved"] = True
+            metadata["time_map_classification"] = "identity; chronological source clock"
         return _result(world, world.copy(), identity, timeline, "D4", fps, metadata)
     frames = np.unique(np.rint(np.asarray(boundaries)*fps).astype(int))
     relative = world-world[:, :1]
@@ -587,11 +640,18 @@ def d4_motif_recomposition(world: np.ndarray, timeline: MusicTimeline, fps: floa
     metadata["recomposed_fragment_count"] = changed
     metadata["graph_node_count"] = len(nodes)
     metadata["source_time_jumps_are_fragment_boundaries"] = True
+    metadata["raw_seam_diagnostics"] = _raw_seam_diagnostics(output, source_time,
+                                                               metadata["fragment_provenance"], fps)
+    metadata["raw_seam_metric_scope"] = "unfiltered emitted body at target fragment boundaries"
     # With no feasible recurrence preserve the untouched comparator exactly;
     # smoothing chronological transitions must not masquerade as recomposition.
     if changed == 0:
         output, source_time = world.copy(), identity
         metadata["diagnostic_reason"] = "no feasible recurring motif; exact baseline diagnostic"
+        # Keep the D4 intervention classification: this is an exact fallback
+        # because no recurrence was feasible, not an explicitly requested
+        # identity control.  The original D4 provenance remains available for
+        # audit while ``control='identity'`` above is marked chronological.
     result, plan = _result(world, output, source_time, timeline, "D4", fps, metadata)
     # Finite differences of a jumping provenance clock are not physical speed.
     effort = np.ones((len(time),1), dtype=np.float32)

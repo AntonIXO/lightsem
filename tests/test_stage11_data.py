@@ -11,7 +11,7 @@ import numpy as np
 
 from lightsem.experiments.stage11.stage11_data import (
     active_fingerprint, active_span, atomic_copy, canonicalize, fingerprint_candidates, fingerprint_score,
-    load_manifest, normalize_scene, normalize_title, reduce_histograms,
+    load_manifest, normalize_scene, normalize_title, reduce_histograms, _verify_artifacts,
     recording_mask_dilation, resize_mask, sha256,
 )
 
@@ -126,6 +126,48 @@ class Stage11DataTests(unittest.TestCase):
         reversed_result = canonicalize(list(reversed(rows)), {}, dict(reversed(list(fp.items()))), test_count=1, val_count=1)
         self.assertEqual(result['test'], reversed_result['test'])
         self.assertEqual(result['val'], reversed_result['val'])
+
+    def test_explicit_protected_partition_propagates_through_duplicate(self):
+        rng = np.random.default_rng(10)
+        rows = [
+            {'recording_id': 'old-val', 'source_path': '/x/Bad Boy.mp4', 'is_old': True,
+             'partition': 'val', 'coaches': [{}]},
+            {'recording_id': 'new-copy', 'source_path': '/x/Bad Boy alt.mp4', 'is_old': False,
+             'coaches': [{}]},
+            {'recording_id': 'new-test', 'source_path': '/x/Drum Go Dum.mp4', 'is_old': False,
+             'coaches': [{}]},
+            {'recording_id': 'new-val', 'source_path': '/x/Blinding Lights.mp4', 'is_old': False,
+             'coaches': [{}]},
+        ]
+        fp = {r['recording_id']: rng.integers(0, 2**32, 500, dtype=np.uint32) for r in rows}
+        fp['new-copy'] = fp['old-val'].copy()
+        result = canonicalize(rows, {}, fp, test_count=1, val_count=1)
+        self.assertEqual(result['records']['old-val']['partition'], 'val')
+        self.assertEqual(result['records']['new-copy']['partition'], 'val')
+        self.assertEqual(result['protected_group_counts']['val'], 1)
+
+    def test_title_containment_requires_audio_evidence(self):
+        rng = np.random.default_rng(11)
+        rows = [
+            {'recording_id': 'a', 'source_path': '/x/Make Me Feel.mp4', 'is_old': True, 'coaches': [{}]},
+            {'recording_id': 'b', 'source_path': '/x/You Make Me Feel.mp4', 'is_old': True, 'coaches': [{}]},
+            {'recording_id': 'c', 'source_path': '/x/Bad Boy.mp4', 'is_old': False, 'coaches': [{}]},
+            {'recording_id': 'd', 'source_path': '/x/Drum Go Dum.mp4', 'is_old': False, 'coaches': [{}]},
+        ]
+        fp = {r['recording_id']: rng.integers(0, 2**32, 500, dtype=np.uint32) for r in rows}
+        result = canonicalize(rows, {}, fp, test_count=1, val_count=1)
+        self.assertNotEqual(result['records']['a']['canonical_id'], result['records']['b']['canonical_id'])
+        self.assertFalse(any(e['reason'] == 'conservative_title_containment' for e in result['edges']))
+
+    def test_resume_artifact_hashes_are_verified(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            path = Path(tmp) / 'artifact.bin'
+            path.write_bytes(b'original')
+            expected = sha256(path)
+            _verify_artifacts({str(path): expected})
+            path.write_bytes(b'tampered')
+            with self.assertRaisesRegex(ValueError, 'hash mismatch'):
+                _verify_artifacts({str(path): expected})
 
     def test_inadequate_verified_holdout_fails(self):
         rows = [{'recording_id': 'unknown', 'source_path': '/x/Something unclear.mp4',

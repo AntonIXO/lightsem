@@ -79,6 +79,16 @@ def sha256(path: Path) -> str:
     return h.hexdigest()
 
 
+def _verify_artifacts(artifacts: dict[str, str], *, required=()) -> None:
+    """Resume only complete, unchanged artifacts; never repair a cache here."""
+    if not artifacts or not all(str(p) in artifacts for p in required):
+        raise ValueError('Incomplete artifact hash binding')
+    for filename, expected in artifacts.items():
+        path = Path(filename)
+        if not path.is_file() or sha256(path) != expected:
+            raise ValueError(f'Artifact missing or hash mismatch: {path}')
+
+
 def atomic_copy(source: Path, destination: Path) -> None:
     """Interrupted legacy-cache copies cannot masquerade as completed inputs."""
     partial = destination.with_suffix(destination.suffix+'.partial')
@@ -255,9 +265,23 @@ def active_fingerprint(fp: np.ndarray, start_s: float, end_s: float) -> np.ndarr
 
 
 def canonicalize(rows: list[dict], old_songs: dict, fingerprints: dict[str, np.ndarray],
-                 *, test_count: int = 40, val_count: int = 40) -> dict:
+                 *, test_count: int = 40, val_count: int = 40,
+                 protected_partitions: dict[str, str] | None = None) -> dict:
     """Freeze canonical components and a deterministic split without outcome data."""
     by_id = {r['recording_id']: r for r in rows}
+    protected = {}
+    def protect(rid, partition):
+        if rid not in by_id or partition not in ('val', 'test'):
+            return
+        if rid in protected and protected[rid] != partition:
+            raise ValueError(f'Conflicting protected partitions for {rid}')
+        protected[rid] = partition
+    for row in rows:
+        protect(row['recording_id'], row.get('partition'))
+    for row in old_songs.get('rows', []):
+        protect(row['yt_id'], row.get('partition'))
+    for rid, partition in (protected_partitions or {}).items():
+        protect(rid, partition)
     fingerprints = {rid: active_fingerprint(fp, by_id[rid]['active_start_s'], by_id[rid]['active_end_s'])
                     if 'active_start_s' in by_id[rid] else fp for rid, fp in fingerprints.items()}
     parent = {rid: rid for rid in by_id}
@@ -304,9 +328,10 @@ def canonicalize(rows: list[dict], old_songs: dict, fingerprints: dict[str, np.n
             readable[rid].append(phrase)
         for rid in ids[1:]:
             union(ids[0], rid, 'audited_title_phrase', title=phrase)
-    # Conservative broad title links: a multiword title contained in another
-    # filename can be an alternate arrangement. Merge rather than split it.
+    # A contained title is only a candidate: "Make Me Feel" and "You Make
+    # Me Feel" need not be the same song. Require aligned audio evidence.
     ids = sorted(by_id)
+    title_candidates = {}
     for i, a in enumerate(ids):
         ta = titles[a]
         for b in ids[i+1:]:
@@ -315,7 +340,7 @@ def canonicalize(rows: list[dict], old_songs: dict, fingerprints: dict[str, np.n
             if (len(shorter.split()) >= 2 and len(shorter) >= 8
                     and f' {shorter} ' in f' {longer} '
                     and len(shorter)/max(len(longer), 1) >= .45):
-                union(a, b, 'conservative_title_containment', title=shorter)
+                title_candidates[a, b] = shorter
 
     candidates = fingerprint_candidates(fingerprints)
     audio_checks = []
@@ -325,7 +350,11 @@ def canonicalize(rows: list[dict], old_songs: dict, fingerprints: dict[str, np.n
         best = min(scores, key=lambda s: s['bit_error'])
         audio_checks.append({'a': a, 'b': b, **best})
         if best['bit_error'] <= .18:
-            union(a, b, 'aligned_chromaprint', **best)
+            if (a, b) in title_candidates:
+                union(a, b, 'audio_confirmed_title_containment',
+                      title=title_candidates[a, b], **best)
+            else:
+                union(a, b, 'aligned_chromaprint', **best)
         elif best['bit_error'] <= .27:
             uncertain.update((a, b))
 
@@ -333,9 +362,16 @@ def canonicalize(rows: list[dict], old_songs: dict, fingerprints: dict[str, np.n
     for rid in ids:
         groups[find(rid)].append(rid)
     records, components, eligible = {}, [], []
+    protected_groups = {'test': set(), 'val': set()}
     for members in groups.values():
         canonical_id = 'jd-' + hashlib.sha256('\n'.join(sorted(members)).encode()).hexdigest()[:20]
         is_old = any(by_id[r]['is_old'] for r in members)
+        memberships = {protected[r] for r in members if r in protected}
+        if len(memberships) > 1:
+            raise ValueError('Duplicate component joins protected VAL and TEST: ' + ', '.join(sorted(members)))
+        protected_partition = next(iter(memberships), None)
+        if protected_partition is not None:
+            protected_groups[protected_partition].add(canonical_id)
         reasons = []
         if any(r not in fingerprints or len(fingerprints[r]) < 256 for r in members):
             reasons.append('missing_or_short_audio_fingerprint')
@@ -351,19 +387,22 @@ def canonicalize(rows: list[dict], old_songs: dict, fingerprints: dict[str, np.n
             reasons.append('no_qualified_coach')
         c = {'canonical_id': canonical_id, 'recording_ids': sorted(members), 'is_old': is_old,
              'audited_titles': known_titles, 'holdout_exclusion_reasons': reasons,
-             'eligible_new_holdout': not is_old and not reasons}
+             'protected_partition': protected_partition,
+             'eligible_new_holdout': not is_old and not reasons and protected_partition is None}
         components.append(c)
         if c['eligible_new_holdout']:
             eligible.append(canonical_id)
         for rid in members:
             records[rid] = {'canonical_id': canonical_id, 'identity_status': 'verified' if not reasons else 'conservative',
-                            'holdout_exclusion_reasons': reasons, 'title_normalized': titles[rid]}
+                            'holdout_exclusion_reasons': reasons, 'title_normalized': titles[rid],
+                            'protected_partition': protected_partition}
     needed = test_count + val_count
     if len(eligible) < needed:
         raise ValueError(f'Only {len(eligible)} verified new canonical families; require {needed} '
                          f'({test_count} test + {val_count} validation).')
     eligible.sort(key=lambda cid: hashlib.sha256((SPLIT_SALT+cid).encode()).hexdigest())
-    tests, vals = set(eligible[:test_count]), set(eligible[test_count:needed])
+    tests = set(eligible[:test_count]) | protected_groups['test']
+    vals = set(eligible[test_count:needed]) | protected_groups['val']
     for rid, r in records.items():
         r['partition'] = ('test' if r['canonical_id'] in tests else
                           'val' if r['canonical_id'] in vals else 'train')
@@ -373,6 +412,9 @@ def canonicalize(rows: list[dict], old_songs: dict, fingerprints: dict[str, np.n
             'components': sorted(components, key=lambda c: c['canonical_id']), 'edges': edges,
             'audio_checks': audio_checks, 'n_audio_candidates': len(candidates),
             'n_verified_new_families': len(eligible), 'test': sorted(tests), 'val': sorted(vals),
+            'partition_policy': 'Requested new holdouts plus explicit protected groups; protection propagates across duplicate components',
+            'protected_group_counts': {p: len(groups) for p, groups in protected_groups.items()},
+            'new_holdout_counts': {'test': test_count, 'val': val_count},
             'audio_method': {'tool': 'Chromaprint fpcalc', 'length_s': 600,
                              'candidate_min_offset_votes': 6, 'confirmed_bit_error_max': .18,
                              'ambiguous_bit_error_max': .27, 'window_frames': 256,
@@ -398,15 +440,19 @@ def _audio_job(job: dict) -> dict:
     try:
         if state_path.exists():
             old = json.loads(state_path.read_text())
-            if old.get('dependency_digest') == job['dependency_digest'] and all(Path(p).exists() for p in old['artifacts']):
+            if (old.get('dependency_digest') == job['dependency_digest'] and
+                    old.get('source_sha256') == job['source_sha256']):
+                _verify_artifacts(old.get('artifacts', {}))
                 return old
             raise ValueError('Prepared audio input drift: use a new versioned campaign directory')
+        if wav.exists() or bus_path.exists() or fp_path.exists():
+            raise ValueError(f'Unbound partial audio artifacts for {rid}; use a new versioned campaign directory')
         for p in (wav, bus_path, fp_path, state_path):
             p.parent.mkdir(parents=True, exist_ok=True)
         old_wav = CACHE/'justdance_wav'/f'{rid}.wav'
         if not wav.exists():
             if old_wav.exists():
-                atomic_copy(old_wav, wav)
+                raise ValueError(f'Unbound legacy waveform cache for {rid}; refusing implicit copy')
             else:
                 tmp = wav.with_suffix('.partial.wav')
                 subprocess.run(['ffmpeg', '-v', 'error', '-threads', '1', '-i', job['source_path'],
@@ -416,7 +462,7 @@ def _audio_job(job: dict) -> dict:
         old_bus = CACHE/'justdance_audio'/f'{rid}.npz'
         if not bus_path.exists():
             if old_bus.exists():
-                atomic_copy(old_bus, bus_path)
+                raise ValueError(f'Unbound legacy audio bus cache for {rid}; refusing implicit copy')
             else:
                 bus = extract_bus(str(wav), causal=True)
                 tmp = bus_path.with_suffix('.partial.npz')
@@ -440,6 +486,7 @@ def _audio_job(job: dict) -> dict:
         artifacts = {str(p): sha256(p) for p in (wav, bus_path, fp_path)}
         result = {'recording_id': rid, 'status': 'ok', 'dependency_digest': job['dependency_digest'],
                   'audio_path': str(bus_path), 'wav_path': str(wav), 'fingerprint_path': str(fp_path),
+                  'source_path': job['source_path'], 'source_sha256': job['source_sha256'],
                   'duration_s': float(bus.duration_s), 'elapsed_s': time.monotonic()-t0, 'artifacts': artifacts}
         _json(state_path, result)
         return result
@@ -549,6 +596,61 @@ def _histogram_video(row: dict, boxes: np.ndarray, pose_times: np.ndarray,
         'max_video_sampling_uncertainty_s': 1/max(float(pose_meta['fps_src']), 1.)}
 
 
+def _extract_coach_tracks(job: dict, k: np.ndarray, c: np.ndarray, f0: int, f1: int,
+                          offset: float, coverages: np.ndarray, meta: dict, bus, data: Path,
+                          *, to_skeleton_fn=None, extract_fn=None, phase_fn=None,
+                          save_fn=None) -> tuple[list[dict], list[dict]]:
+    """Extract each coach independently, retaining later coaches after a failure.
+
+    A descriptor failure belongs to that coach.  The old loop let one exception
+    escape the loop, which discarded all later coaches and the recording.  This
+    helper keeps the existing no-averaging policy and makes the per-coach failure
+    auditable in the feature result.
+    """
+    if to_skeleton_fn is None:
+        from lightsem.motion.pose2d import to_skeleton as to_skeleton_fn
+    if extract_fn is None:
+        from lightsem.motion.descriptors import extract as extract_fn
+    if phase_fn is None:
+        from lightsem.eval.bas import circular_phase as phase_fn
+    if save_fn is None:
+        from lightsem.motion.io import save_descriptors as save_fn
+
+    coaches, failures = [], []
+    for coach in job['coaches']:
+        pi, cid = coach['coach_index'], coach['coach_id']
+        path = data/'motion'/f'{cid}.npz'
+        try:
+            stats: dict = {}
+            sk = to_skeleton_fn(k[f0:f1, pi].astype(float), c[f0:f1, pi].astype(float),
+                                float(meta['fps_eff']), name=cid, stats=stats)
+            beats = bus.beats-offset
+            beats = beats[(beats >= 0) & (beats < sk.duration_s)]
+            d = extract_fn(sk, beats=beats, tempo=bus.tempo)
+            if any(not np.isfinite(v).all() for v in d.channels.values()):
+                raise ValueError(f'Nonfinite motion descriptor: {cid}')
+            ph = phase_fn(d.events['footfall'], beats)
+            fields = {'corpus': 'jd', 'genre': 'jd', 'setting': 'jd', 'camera': 'c',
+                      'dancer': cid, 'music_id': job['recording_id'], 'choreo_id': f'c{pi}',
+                      'song_key': job['canonical_id'], 'canonical_id': job['canonical_id'],
+                      'partition': job['partition'], 'n_coaches': int(k.shape[1]), 'coach_index': pi,
+                      'view': 'frontal', 'view_provenance': 'asserted', 'coverage': float(coverages[pi]),
+                      'start_s': offset, 'end_s': offset+sk.duration_s, 'duration_s': sk.duration_s,
+                      'fps_src': meta['fps_src'], 'fps_eff': meta['fps_eff'], 'pose_model': meta.get('model'),
+                      'pose_imgsz': meta.get('imgsz'), 'filled_frac': stats.get('filled_frac'),
+                      'long_gap_frac': stats.get('long_gap_frac'), 'tempo': float(bus.tempo),
+                      'beat_phase_R': float(ph['R']) if np.isfinite(ph['R']) else 0.,
+                      'beat_offset_s': float(ph['offset_s']) if np.isfinite(ph['offset_s']) else 0.}
+            d.meta.update(fields)
+            path.parent.mkdir(parents=True, exist_ok=True)
+            save_fn(d, path)
+            coaches.append({**coach, **fields, 'name': cid, 'motion_path': str(path)})
+        except Exception as error:  # noqa: BLE001 - preserve later independent tracks
+            failures.append({'coach_id': cid, 'coach_index': int(pi),
+                             'reason': f'{type(error).__name__}: {error}'})
+    return coaches, failures
+
+
 def _feature_job(job: dict) -> dict:
     from lightsem.motion.io import load_bus, save_descriptors
     from lightsem.motion.pose2d import to_skeleton
@@ -561,9 +663,16 @@ def _feature_job(job: dict) -> dict:
     try:
         if state_path.exists():
             prior = json.loads(state_path.read_text())
-            if prior.get('dependency_digest') == job['dependency_digest'] and all(Path(p).exists() for p in prior['artifacts']):
+            if (prior.get('dependency_digest') == job['dependency_digest'] and
+                    prior.get('source_sha256') == job['source_sha256'] and
+                    prior.get('pose_sha256') == job['pose_sha256']):
+                _verify_artifacts(prior.get('artifacts', {}))
                 return prior
             raise ValueError('Prepared feature input drift: use a new versioned campaign directory')
+        if sha256(Path(job['source_path'])) != job['source_sha256']:
+            raise ValueError('Source video changed after scan')
+        if sha256(Path(job['pose_path'])) != job['pose_sha256']:
+            raise ValueError('Pose cache changed after scan')
         with np.load(job['pose_path'], allow_pickle=False) as z:
             k, c, boxes, times = z['K'], z['C'], z['box'], z['t']
             meta = json.loads(str(z['meta']))
@@ -573,34 +682,11 @@ def _feature_job(job: dict) -> dict:
         if abs(offset-job['active_start_s']) > 1e-6:
             raise ValueError('Pose active offset changed after identity scan')
         bus = load_bus(job['audio_path'])
-        coaches = []
-        for coach in job['coaches']:
-            pi, cid = coach['coach_index'], coach['coach_id']
-            path = data/'motion'/f'{cid}.npz'
-            stats: dict = {}
-            sk = to_skeleton(k[f0:f1, pi].astype(float), c[f0:f1, pi].astype(float),
-                             float(meta['fps_eff']), name=cid, stats=stats)
-            beats = bus.beats-offset
-            beats = beats[(beats >= 0) & (beats < sk.duration_s)]
-            d = extract(sk, beats=beats, tempo=bus.tempo)
-            if any(not np.isfinite(v).all() for v in d.channels.values()):
-                raise ValueError(f'Nonfinite motion descriptor: {cid}')
-            ph = circular_phase(d.events['footfall'], beats)
-            fields = {'corpus': 'jd', 'genre': 'jd', 'setting': 'jd', 'camera': 'c',
-                      'dancer': cid, 'music_id': rid, 'choreo_id': f'c{pi}',
-                      'song_key': job['canonical_id'], 'canonical_id': job['canonical_id'],
-                      'partition': job['partition'], 'n_coaches': int(k.shape[1]), 'coach_index': pi,
-                      'view': 'frontal', 'view_provenance': 'asserted', 'coverage': float(coverages[pi]),
-                      'start_s': offset, 'end_s': offset+sk.duration_s, 'duration_s': sk.duration_s,
-                      'fps_src': meta['fps_src'], 'fps_eff': meta['fps_eff'], 'pose_model': meta.get('model'),
-                      'pose_imgsz': meta.get('imgsz'), 'filled_frac': stats.get('filled_frac'),
-                      'long_gap_frac': stats.get('long_gap_frac'), 'tempo': float(bus.tempo),
-                      'beat_phase_R': float(ph['R']) if np.isfinite(ph['R']) else 0.,
-                      'beat_offset_s': float(ph['offset_s']) if np.isfinite(ph['offset_s']) else 0.}
-            d.meta.update(fields)
-            path.parent.mkdir(parents=True, exist_ok=True)
-            save_descriptors(d, path)
-            coaches.append({**coach, **fields, 'name': cid, 'motion_path': str(path)})
+        coaches, coach_failures = _extract_coach_tracks(
+            job, k, c, f0, f1, offset, coverages, meta, bus, data)
+        if not coaches:
+            detail = '; '.join(x['reason'] for x in coach_failures)
+            raise ValueError(f'No coach descriptor survived independent extraction: {detail}')
         hist, absolute_times, visual_meta = _histogram_video(job, boxes, times, meta)
         raw_y = reduce_histograms(hist)
         y, y_mean, y_scale = normalize_scene(raw_y)
@@ -622,6 +708,8 @@ def _feature_job(job: dict) -> dict:
         artifacts = {str(p): sha256(p) for p in [visual_path]+[Path(c['motion_path']) for c in coaches]}
         result = {'recording_id': rid, 'status': 'ok', 'dependency_digest': job['dependency_digest'],
                   'visual_path': str(visual_path), 'visual_frames': len(y), 'coaches': coaches,
+                  'coach_failures': coach_failures,
+                  'source_sha256': job['source_sha256'], 'pose_sha256': job['pose_sha256'],
                   'artifacts': artifacts, 'elapsed_s': time.monotonic()-t0}
         _json(state_path, result)
         return result
@@ -721,7 +809,19 @@ def _prepare_data(root: Path, workers: int = 4) -> dict:
         row.update({k: a[k] for k in ('audio_path', 'wav_path', 'fingerprint_path')})
         fp = json.loads(Path(a['fingerprint_path']).read_text())['fingerprint']
         fingerprints[row['recording_id']] = np.asarray(fp, np.int64).astype(np.uint32)
-    identities = canonicalize(rows, old_songs, fingerprints)
+    # A prior split manifest is explicit partition metadata. Preserve only its
+    # VAL/TEST memberships while rebuilding canonical components; do not infer
+    # protection from an unrelated later study or from recording age.
+    protected_partitions = {}
+    prior_split_path = data/'split_manifest.json'
+    if prior_split_path.exists():
+        prior_split = json.loads(prior_split_path.read_text())
+        for rid, value in prior_split.get('recordings', {}).items():
+            partition = value.get('partition') if isinstance(value, dict) else None
+            if partition in ('val', 'test'):
+                protected_partitions[rid] = partition
+    identities = canonicalize(rows, old_songs, fingerprints,
+                              protected_partitions=protected_partitions)
     _json(data/'canonical_map.json', identities)
     split = {'schema_version': 1, 'salt': SPLIT_SALT, 'test': identities['test'], 'val': identities['val'],
              'recordings': {rid: {'canonical_id': v['canonical_id'], 'partition': v['partition']}
@@ -743,6 +843,7 @@ def _prepare_data(root: Path, workers: int = 4) -> dict:
         result = features.get(row['recording_id'])
         if result:
             row.update({k: result[k] for k in ('visual_path', 'coaches', 'visual_frames')})
+            row['coach_exclusions'].extend(result.get('coach_failures', []))
             artifacts.update(result['artifacts'])
             motion_index.extend(row['coaches'])
         else:

@@ -33,16 +33,46 @@ def hsv_to_rgb(h: np.ndarray, s: np.ndarray, v: np.ndarray):
 
 
 def _u8(x: np.ndarray) -> np.ndarray:
-    return (np.clip(x, 0.0, 1.0) * 255.0 + 0.5).astype(np.uint8)
+    x = np.asarray(x)
+    if not np.all(np.isfinite(x)) or np.any((x < 0.0) | (x > 1.0)):
+        raise ValueError('DMX normalised parameters must be finite and within [0, 1]')
+    return (x * 255.0 + 0.5).astype(np.uint8)
 
 
 def pack_universe(rig: Rig, params: dict[str, np.ndarray]) -> np.ndarray:
     """Pack ``{param: (T, n_fixtures)}`` into a (T, 512) uint8 universe stream."""
     n_fix = len(rig.fixtures)
-    T = int(next(iter(params.values())).shape[0])
+    occupied = np.zeros(UNIVERSE_SIZE, dtype=bool)
+    for f in rig.fixtures:
+        if f.kind not in {"moving_head", "wash", "blinder", "strobe", "projector"}:
+            raise ValueError(f"unknown fixture kind {f.kind}")
+        if isinstance(f.address, (bool, np.bool_)) or not isinstance(f.address, (int, np.integer)) or f.address < 1 or f.address + f.n_channels - 1 > UNIVERSE_SIZE:
+            raise ValueError(f"fixture {f.name!r} address range is outside the 512-channel universe")
+        span = slice(f.address - 1, f.address - 1 + f.n_channels)
+        if occupied[span].any():
+            raise ValueError(f"fixture {f.name!r} overlaps another fixture's DMX address range")
+        occupied[span] = True
+    if not params:
+        raise ValueError('at least one parameter array is required')
+    first = np.asarray(next(iter(params.values())))
+    if first.ndim != 2:
+        raise ValueError('parameter arrays must have shape (T, n_fixtures)')
+    T = int(first.shape[0])
+    if T <= 0:
+        raise ValueError('parameter arrays must contain at least one frame')
     for k, v in params.items():
+        if k not in PARAM_NAMES:
+            raise ValueError(f'unknown DMX parameter {k!r}')
+        v = np.asarray(v)
+        if not np.issubdtype(v.dtype, np.number) or not np.all(np.isfinite(v)):
+            raise ValueError(f'param {k} must contain finite numeric values')
         if v.shape != (T, n_fix):
             raise ValueError(f"param {k} has shape {v.shape}, expected {(T, n_fix)}")
+        lo, hi = (0.0, 255.0) if k == 'gobo' else (0.0, 1.0)
+        if k != 'hue' and np.any((v < lo) | (v > hi)):
+            raise ValueError(f'param {k} is outside [{lo}, {hi}]')
+        if k == 'gobo' and np.any(v != np.floor(v)):
+            raise ValueError('param gobo must contain integer channel values')
     get = lambda k, d: params.get(k, np.full((T, n_fix), d))   # noqa: E731
     dim, strobe = get("dimmer", 0.0), get("strobe", 0.0)
     hue, sat, val = get("hue", 0.0), get("sat", 1.0), get("val", 1.0)
@@ -54,8 +84,8 @@ def pack_universe(rig: Rig, params: dict[str, np.ndarray]) -> np.ndarray:
     for i, f in enumerate(rig.fixtures):
         a = f.address - 1
         if f.kind == "moving_head":
-            p16 = (np.clip(pan[:, i], 0, 1) * 65535).astype(np.uint32)
-            t16 = (np.clip(tilt[:, i], 0, 1) * 65535).astype(np.uint32)
+            p16 = (pan[:, i] * 65535).astype(np.uint32)
+            t16 = (tilt[:, i] * 65535).astype(np.uint32)
             out[:, a] = (p16 >> 8).astype(np.uint8)
             out[:, a + 1] = (p16 & 0xFF).astype(np.uint8)
             out[:, a + 2] = (t16 >> 8).astype(np.uint8)
@@ -64,7 +94,7 @@ def pack_universe(rig: Rig, params: dict[str, np.ndarray]) -> np.ndarray:
             out[:, a + 6] = _u8(r[:, i]); out[:, a + 7] = _u8(g[:, i])
             out[:, a + 8] = _u8(b[:, i]); out[:, a + 9] = _u8(zoom[:, i])
             out[:, a + 10] = _u8(np.full(T, 0.5))
-            out[:, a + 11] = np.clip(gobo[:, i], 0, 255).astype(np.uint8)
+            out[:, a + 11] = gobo[:, i].astype(np.uint8)
         elif f.kind == "wash":
             out[:, a] = _u8(dim[:, i]); out[:, a + 1] = _u8(strobe[:, i])
             out[:, a + 2] = _u8(r[:, i]); out[:, a + 3] = _u8(g[:, i])
@@ -80,7 +110,7 @@ def pack_universe(rig: Rig, params: dict[str, np.ndarray]) -> np.ndarray:
             out[:, a + 2] = _u8(r[:, i]); out[:, a + 3] = _u8(g[:, i])
             out[:, a + 4] = _u8(b[:, i]); out[:, a + 5] = _u8(zoom[:, i])
             out[:, a + 6] = _u8(np.full(T, 0.5))
-            out[:, a + 7] = np.clip(gobo[:, i], 0, 255).astype(np.uint8)
+            out[:, a + 7] = gobo[:, i].astype(np.uint8)
             out[:, a + 8] = _u8(pan[:, i]); out[:, a + 9] = _u8(tilt[:, i])
         else:
             raise ValueError(f"unknown fixture kind {f.kind}")

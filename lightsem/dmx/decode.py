@@ -41,12 +41,24 @@ def _rgb_to_hsv(r: np.ndarray, g: np.ndarray, b: np.ndarray):
 def decode_stream(rig: Rig, frames: np.ndarray) -> dict[str, np.ndarray]:
     """(T, 512) uint8 universe stream -> {param: (T, n_fixtures) float}."""
     frames = np.asarray(frames)
-    if frames.ndim != 2 or frames.shape[1] < 1:
-        raise ValueError(f"expected (T, 512) frames, got {frames.shape}")
+    if frames.ndim != 2 or frames.shape[1] != 512 or frames.shape[0] <= 0:
+        raise ValueError(f"expected non-empty (T, 512) frames, got {frames.shape}")
+    if not np.issubdtype(frames.dtype, np.integer) or np.any((frames < 0) | (frames > 255)):
+        raise ValueError('DMX frames must be integer channel values in [0, 255]')
     u = frames.astype(np.float64) / 255.0
     raw = frames.astype(np.float64)
     T = frames.shape[0]
     fx = rig.fixtures
+    occupied = np.zeros(512, dtype=bool)
+    for f in fx:
+        if f.kind not in {"moving_head", "wash", "blinder", "strobe", "projector"}:
+            raise ValueError(f"unknown fixture kind {f.kind}")
+        if isinstance(f.address, (bool, np.bool_)) or not isinstance(f.address, (int, np.integer)) or f.address < 1 or f.address + f.n_channels - 1 > 512:
+            raise ValueError(f"fixture {f.name!r} address range is outside the 512-channel universe")
+        span = slice(f.address - 1, f.address - 1 + f.n_channels)
+        if occupied[span].any():
+            raise ValueError(f"fixture {f.name!r} overlaps another fixture's DMX address range")
+        occupied[span] = True
     out = {p: np.zeros((T, len(fx))) for p in PARAMS}
     kinds = []
     for i, f in enumerate(fx):
@@ -55,7 +67,7 @@ def decode_stream(rig: Rig, frames: np.ndarray) -> dict[str, np.ndarray]:
 
         def ch(off: int) -> np.ndarray:
             j = a + off
-            return u[:, j] if 0 <= j < frames.shape[1] else np.zeros(T)
+            return u[:, j]
 
         if f.kind == "moving_head":
             pan = (raw[:, a] * 256 + raw[:, a + 1]) / 65535.0

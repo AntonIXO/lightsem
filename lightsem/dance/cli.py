@@ -60,8 +60,12 @@ def do_render(args):
         raise RuntimeError(f"Refusing to render generation with status {generation['status']}; inspect {root / 'GENERATION.json'}")
     counts = {key: getattr(args, key) if getattr(args, key) is not None else value
               for key, value in config['lighting']['counts'].items()}
+    if counts['beams'] + counts['lasers'] > 16 or counts['bulbs'] > 128:
+        raise RuntimeError('Requested fixture count exceeds the native renderer limit (16 moving, 128 bulbs)')
     lighting = map_lights(body, _audio(args), root, config, counts=counts, color_path=args.colors,
                          audio_python=args.audio_python, audio_device=args.audio_device)
+    if lighting[3].get('source_dependence_checks', {}).get('status') != 'pass':
+        raise RuntimeError(f"Refusing to render without source-dependence evidence; inspect {root / 'LIGHTING.json'}")
     render_video(body, root, _audio(args), output, lighting, start=args.start, duration=args.duration)
     print(json.dumps({'video': str(output), 'run': str(root), 'baseline': generation['baseline_id'],
                       'MuQ': True, 'd4max': args.d4max, 'd6': args.d6,

@@ -13,6 +13,7 @@ from typing import Any
 import numpy as np
 
 SCHEMA_VERSION = 1
+DIAGNOSTIC_PREFIX = "diagnostic__"
 SOURCE_NAMES = ("drums", "bass", "other", "vocals")
 SOURCE_FIELDS = ("rms", "onset", "flux", "sustain")
 MIXTURE_FIELDS = ("rms", "onset", "centroid", "flux")
@@ -70,6 +71,30 @@ def _retiming_clock(time: np.ndarray, source_time: np.ndarray, metadata: dict) -
 
 def _json_safe(value: Any) -> None:
     json.dumps(value, allow_nan=False)
+
+
+def _diagnostic_arrays(value: Any) -> dict[str, np.ndarray]:
+    """Validate optional numeric audit arrays and reserve their NPZ namespace."""
+    if value is None:
+        return {}
+    if not isinstance(value, dict):
+        raise ValueError("diagnostics must be a mapping of names to arrays")
+    result = {}
+    for name, array in value.items():
+        if not isinstance(name, str) or not name or name.startswith(DIAGNOSTIC_PREFIX):
+            raise ValueError("diagnostic names must be nonempty and omit the reserved prefix")
+        arr = np.asarray(array)
+        if arr.dtype.kind not in "fibu" or not np.isfinite(arr).all():
+            raise ValueError(f"diagnostic array {name!r} must contain finite numeric values")
+        result[name] = arr
+    return result
+
+
+def _split_diagnostics(arrays: dict[str, np.ndarray]) -> tuple[dict[str, np.ndarray], dict[str, np.ndarray]]:
+    diagnostics = {key[len(DIAGNOSTIC_PREFIX):]: value for key, value in arrays.items()
+                   if key.startswith(DIAGNOSTIC_PREFIX)}
+    primary = {key: value for key, value in arrays.items() if not key.startswith(DIAGNOSTIC_PREFIX)}
+    return primary, diagnostics
 
 
 def _save(path: str | Path, kind: str, arrays: dict[str, np.ndarray], details: dict) -> None:
@@ -188,6 +213,7 @@ class DancePlan:
     anchors: list[dict] = field(default_factory=list)
     events: list[dict] = field(default_factory=list)
     metadata: dict = field(default_factory=dict)
+    diagnostics: dict[str, np.ndarray] = field(default_factory=dict)
 
     def validate(self) -> "DancePlan":
         t = _time("time", self.time)
@@ -199,18 +225,23 @@ class DancePlan:
         if np.any(source < 0) or np.any(self.effort < 0):
             raise ValueError("Source times and effort must be nonnegative")
         _retiming_clock(t, source, self.metadata)
+        _diagnostic_arrays(self.diagnostics)
         _json_safe({"anchors": self.anchors, "events": self.events, "metadata": self.metadata})
         return self
 
     def save(self, path: str | Path) -> None:
         self.validate()
-        _save(path, "DancePlan", {k: np.asarray(getattr(self, k)) for k in ("time", "source_time", "effort")},
+        arrays = {k: np.asarray(getattr(self, k)) for k in ("time", "source_time", "effort")}
+        arrays.update({DIAGNOSTIC_PREFIX + key: value for key, value in _diagnostic_arrays(self.diagnostics).items()})
+        _save(path, "DancePlan", arrays,
               {"anchors": self.anchors, "events": self.events, "metadata": self.metadata})
 
     @classmethod
     def load(cls, path: str | Path) -> "DancePlan":
         arrays, details = _load(path, "DancePlan")
-        return cls(**arrays, **{k: details[k] for k in ("anchors", "events", "metadata")}).validate()
+        arrays, diagnostics = _split_diagnostics(arrays)
+        return cls(**arrays, **{k: details[k] for k in ("anchors", "events", "metadata")},
+                   diagnostics=diagnostics).validate()
 
 
 @dataclass
@@ -221,6 +252,7 @@ class DanceResult:
     source_time: np.ndarray | None = None
     native: np.ndarray | None = None
     metadata: dict = field(default_factory=dict)
+    diagnostics: dict[str, np.ndarray] = field(default_factory=dict)
 
     def validate(self) -> "DanceResult":
         t = _time("time", self.time)
@@ -240,15 +272,19 @@ class DanceResult:
             raise ValueError("Pure retiming requires its actual source clock")
         if self.native is not None:
             _finite("native", self.native, (len(t), 139))
+        _diagnostic_arrays(self.diagnostics)
         _json_safe(self.metadata)
         return self
 
     def save(self, path: str | Path) -> None:
         self.validate()
         names = ["time", "world", "contacts"] + [k for k in ("source_time", "native") if getattr(self, k) is not None]
-        _save(path, "DanceResult", {k: np.asarray(getattr(self, k)) for k in names}, {"metadata": self.metadata})
+        arrays = {k: np.asarray(getattr(self, k)) for k in names}
+        arrays.update({DIAGNOSTIC_PREFIX + key: value for key, value in _diagnostic_arrays(self.diagnostics).items()})
+        _save(path, "DanceResult", arrays, {"metadata": self.metadata})
 
     @classmethod
     def load(cls, path: str | Path) -> "DanceResult":
         arrays, details = _load(path, "DanceResult")
-        return cls(**arrays, metadata=details["metadata"]).validate()
+        arrays, diagnostics = _split_diagnostics(arrays)
+        return cls(**arrays, metadata=details["metadata"], diagnostics=diagnostics).validate()

@@ -4,7 +4,7 @@ import numpy as np
 import pytest
 
 from lightsem.experiments.native_dynamics.data import pose_observations
-from tests.test_native_dynamics_data import fixture
+from test_native_dynamics_data import fixture
 
 
 def multicoach(path):

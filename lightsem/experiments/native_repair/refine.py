@@ -9,7 +9,6 @@ import numpy as np
 import torch
 from ..native_dynamics import training as original
 from ..native_dynamics.data import read,sha
-from .training import batch_losses
 from .losses import WEIGHTS
 
 def main():
@@ -21,6 +20,7 @@ def main():
     if a.parent.resolve()!=Path(protocol['parent_root']).resolve():raise ValueError('Wrong parent')
     if set(WEIGHTS)!=set(protocol['repair_weights']):raise ValueError('Repair weight schema drift')
     WEIGHTS.update(protocol['repair_weights'])
+    original.loss_spec_for_protocol(protocol)
     original_load=original.load_initial
     def load_parent(arm,seed,device='cuda'):
         model,teacher,state,norms,teacher_identity=original_load(arm,seed,device)
@@ -33,7 +33,7 @@ def main():
                 if not np.array_equal(state[name][key],parent[name][key]):raise ValueError('Normalizer drift')
         model.load_state_dict(parent['model'],strict=True)
         return model,teacher,state,norms,{'checkpoint':str(path),'sha256':sha(path),'parent_updates':protocol.get('parent_total_updates',30000),'teacher_D7':teacher_identity,'continuation':'Fresh matched optimizer/RNG; matched fresh sample order forbothrecipes. Not pretending an exactoptimizerresume.'}
-    original.load_initial=load_parent;original.batch_losses=batch_losses
+    original.load_initial=load_parent
     report=original.train(a.root,'joint',a.seed)
     print(json.dumps({'status':report['status'],'recipe':a.recipe,'seed':a.seed,'phase_steps':report['steps'],'total_updates':protocol.get('parent_total_updates',30000)+report['steps']}))
 if __name__=='__main__':main()

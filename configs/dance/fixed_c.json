@@ -1,12 +1,12 @@
 {
   "schema_version": 1,
-  "id": "full-data-native-C-HF16-seed0-20261007",
+  "id": "native-bf16-rtmpose-full-fit-seed0-20261010",
   "status": "user_selected_motion_baseline",
   "selected_on": "2026-10-07",
-  "selection_scope": "User-selected full-data seed0 baseline. Complete demos and raw checks are preserved; no automatic scientific qualification or promotion claim.",
+  "selection_scope": "User-selected RTMPose BF16 full-fit seed0 baseline; full data is fit without a validation split. Health evidence remains diagnostic where intervention sensitivity is unmeasured.",
   "checkpoint": {
-    "path": "/mnt/lightsem-data/experiments/lightsem/native_dynamics_full_20261007_recovery_seed0_v2/learning/runs/joint/seed_0/final.pt",
-    "sha256": "5384e4b189e40de3325fb6658bdf910ed351a785fa4ba2e2651f751534e9c30e"
+    "path": "/mnt/lightsem-data/experiments/lightsem/native_bf16_v7b/learning/runs/joint/seed_0/final.pt",
+    "sha256": "affc85b4dde1b6501ac27fbdfa2df8a9810d9c13b02101fdbf3c6ac3f811e85b"
   },
   "training_seed": 0,
   "draw_seed": 7001,
@@ -80,66 +80,71 @@
   },
   "trained_recipe": {
     "FD_train_songgroups": 109,
-    "JD_train_songgroups": 147,
-    "JD_validation_songgroups": 24,
+    "JD_train_songgroups": "all admitted full-fit groups",
+    "admitted_recordings": 651,
+    "admitted_groups": 520,
+    "admitted_track_segments": 3688,
     "native_training_updates": 60000,
     "raw_3D_constraints": true,
-    "quiet_gradient_fix_in_checkpoint": true,
+    "quiet_gradient_fix_in_checkpoint": false,
     "full_JD_training": true,
-    "admission_manifest": "/mnt/lightsem-data/experiments/lightsem/native_dynamics_full_20261007/data/MANIFEST.json",
-    "feature_receipt": "/mnt/lightsem-data/experiments/lightsem/native_dynamics_full_20261007/features/COMPLETE.json"
+    "no_validation_split": true,
+    "pose_backend": "RTMPose-m TensorRT autocast BF16 + YOLOX-m HumanArt CUDA detector; scores metadata only",
+    "admission_manifest": "/mnt/lightsem-data/experiments/lightsem/native_bf16_v7b/data/MANIFEST.json",
+    "feature_receipt": "/mnt/lightsem-data/experiments/lightsem/native_bf16_v7b/features/COMPLETE.json",
+    "training_report": "/mnt/lightsem-data/experiments/lightsem/native_bf16_v7b/learning/runs/joint/seed_0/REPORT.json"
   },
   "qualification": {
-    "status": "user_selected_unqualified_full_data_branch",
-    "experiment": "exp-native-full-data-speed-20261007",
-    "note": "Paired two-seed checkpoint/evaluation gate is not promoted automatically; seed1 remains retained for comparison."
+    "status": "user_selected_motion_baseline",
+    "experiment": "native-full-fit-all-20261009-seed0-rtmpose-bf16-audio-v3",
+    "note": "Explicit user baseline selection. This designation does not convert missing input-sensitivity evidence into a qualification claim."
   },
-  "historical_reference_config": "configs/dance/baseline.json",
+  "historical_reference_config": "configs/dance/fixed_c_20261007.json",
   "cached_tracks": {
     "shpongle": {
       "audio_sha256": "95e4388424ef62950bdeae78e47b8e71839ed28c6e01189fe15f9ae6c902b6c0",
       "timeline": {
-        "path": "/mnt/lightsem-data/experiments/lightsem/dynamic_dance_20261005_v1/features/timelines/shpongle.npz",
-        "sha256": "cfdecde6bfc08daa249b4dfad22c88fa4ee86d710342529936c9233b64b7b866"
+        "path": "/mnt/lightsem-data/experiments/lightsem/native_bf16_v7b/demo_features/features/timelines/shpongle.npz",
+        "sha256": "c88dbc902c34ebdc89e44af7d3d0901782f5ab03852e3fc325373f7861b9fae8"
       },
       "base92": {
-        "path": "/mnt/lightsem-data/experiments/lightsem/dynamic_dance_20261005_v1/features/base92/shpongle.npz",
-        "sha256": "2a2e33342e44ccc77c7e91df607a78df0486412a133a97e924a8ed8c212bc88f"
+        "path": "/mnt/lightsem-data/experiments/lightsem/native_bf16_v7b/demo_features/features/base92/shpongle.npz",
+        "sha256": "f6de9adad1c3249ce0657f5d55a0b76fd39bd786bb0d9db6688742341fcbf5c3"
       },
       "colors": {
-        "path": "/mnt/lightsem-data/experiments/lightsem/native_dynamics_jd_20261005_v1/repair_review_v1/colors/shpongle/P2.npz",
-        "sha256": "eb5345d35f0970dad2a45f9fc6fdb03d135c4772afeac950b85a063d4c440ab0"
+        "path": "/mnt/lightsem-data/experiments/lightsem/native_bf16_v7b/demo_colors_v2/shpongle/P2.npz",
+        "sha256": "a688f9c7319c76f5cec3add94c8a5e605a202384659fa6d0d10ce4036116ff3e"
       },
       "color_report": {
-        "path": "/mnt/lightsem-data/experiments/lightsem/native_dynamics_jd_20261005_v1/repair_review_v1/colors/shpongle/REPORT.json",
-        "sha256": "673851c6a4631636700da575b4a3007241670b1934c468ebcb979546bee99806"
+        "path": "/mnt/lightsem-data/experiments/lightsem/native_bf16_v7b/demo_colors_v2/shpongle/REPORT.json",
+        "sha256": "41e15b7831ab964f0c2ee12641f28f926bf7ca699b4356bf0913d7d8560dcb3d"
       },
       "loudness_receipt": {
-        "path": "/mnt/lightsem-data/experiments/lightsem/motion_native_audio_20260910/data/shpongle/loudness.json",
-        "sha256": "bf15c1b99424b2da7aee8201a57dc993353c5b3e90f1cc9f369bc41851029481"
+        "path": "/mnt/lightsem-data/experiments/lightsem/native_bf16_v7b/demo_loudness/shpongle/loudness.json",
+        "sha256": "d624c71b9baa7c29dc50cb23bc14ee2b9aa98062a899009b124713c558080cd7"
       }
     },
     "cure_for_me": {
-      "audio_sha256": "79fbcfbc5f99e200075801a4ef157055dfe2593a98ac2e545747f89b28f47a9f",
+      "audio_sha256": "5363ce8314bf5e23cffb28657dd97f6f5755f8275db293366974bd01b3e2ddb8",
       "timeline": {
-        "path": "/mnt/lightsem-data/experiments/lightsem/dynamic_dance_20261005_v1/features/timelines/cure_for_me.npz",
-        "sha256": "9f39a6ba971c449c30fa5c90952718d581f3259c01b19793479557a8f4281394"
+        "path": "/mnt/lightsem-data/experiments/lightsem/native_bf16_v7b/demo_features/features/timelines/cure_for_me.npz",
+        "sha256": "e88458893fb79e6f7bf86b92e6b3083bfb00930c38728cd1a3e94a019b197c2c"
       },
       "base92": {
-        "path": "/mnt/lightsem-data/experiments/lightsem/dynamic_dance_20261005_v1/features/base92/cure_for_me.npz",
-        "sha256": "cdda24c652dd77f3bdd3399d2e4fecd8fdab1997b91accbdfedfd5dc2f6ec0f6"
+        "path": "/mnt/lightsem-data/experiments/lightsem/native_bf16_v7b/demo_features/features/base92/cure_for_me.npz",
+        "sha256": "43fccb2574e05348d60a1c037ec51a08bf718a4f677a3f21bc1acf2cc85bed65"
       },
       "colors": {
-        "path": "/mnt/lightsem-data/experiments/lightsem/native_dynamics_jd_20261005_v1/repair_review_v1/colors/cure_for_me/P2.npz",
-        "sha256": "e3ae8148e44fdd3913ce4b6d3e906b7132f282a38e87f8e1928fec86f0f915b0"
+        "path": "/mnt/lightsem-data/experiments/lightsem/native_bf16_v7b/demo_colors_v2/cure_for_me/P2.npz",
+        "sha256": "9d66a4d7a9b655accdc29dcfab96bb2e8f67c42db26a5127f4f0b0943bd43ad7"
       },
       "color_report": {
-        "path": "/mnt/lightsem-data/experiments/lightsem/native_dynamics_jd_20261005_v1/repair_review_v1/colors/cure_for_me/REPORT.json",
-        "sha256": "e89ce12075a180a33db22499bb1786575c13d6403ddbc32224834252dee05a7a"
+        "path": "/mnt/lightsem-data/experiments/lightsem/native_bf16_v7b/demo_colors_v2/cure_for_me/REPORT.json",
+        "sha256": "f1fe6b65de25ec274e4395b2573792f515313c9c6c322320c6cc72c904f2c52b"
       },
       "loudness_receipt": {
-        "path": "/mnt/lightsem-data/experiments/lightsem/dynamic_dance_combo_20261005_v1/features/loudness/cure_for_me.json",
-        "sha256": "80a38fed0cf536f7adbb5ceea9e47c70aff06e7af79c1fdf670e8b0ca6f320a1"
+        "path": "/mnt/lightsem-data/experiments/lightsem/native_bf16_v7b/demo_loudness/cure_for_me/loudness.json",
+        "sha256": "d5f4e6a2640c9d1a455afd00329cd12b1e4f8c8439f1b91cff7d23406dedde70"
       }
     }
   }

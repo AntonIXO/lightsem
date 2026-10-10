@@ -126,7 +126,8 @@ def native_body(music, base, config, *, device='cpu', checkpoint=None, draw_seed
                 'noise_sha256': sha_array(noise.cpu().numpy()), 'fps': 30.,
                 'motion_origin': 'Actual fixed native C generation', 'newly_generated_motion': True,
                 'retiming': False, 'motif_recomposition': False, 'd4max_enabled': False, 'd6_enabled': False,
-                'muq': music.metadata['muq'], 'quiet_gradient_fix_in_checkpoint': False}
+                'muq': music.metadata['muq'],
+                'quiet_gradient_fix_in_checkpoint': identity.get('quiet_gradient_fix_in_checkpoint')}
     body = DanceResult(time=np.arange(n) / 30., world=world, native=values,
                        contacts=values[:, -4:], metadata=metadata)
     return body, extra, {'time': (np.arange(bins) * 15 + 7) / 30,
@@ -136,6 +137,16 @@ def native_body(music, base, config, *, device='cpu', checkpoint=None, draw_seed
 def sha_array(value):
     import hashlib
     return hashlib.sha256(np.ascontiguousarray(value).tobytes()).hexdigest()
+
+
+def classify_generation_status(config, metrics):
+    """Classify a generated body before any mapper or renderer is invoked."""
+    if not metrics.get('finite', False) or metrics.get('constant_body', False):
+        return 'failure_diagnostic'
+    qualification_status = config.get('qualification', {}).get('status')
+    if isinstance(qualification_status, str) and 'unqualified' in qualification_status.lower():
+        return 'unqualified'
+    return 'finite_body_ready'
 
 
 def d6_prediction(extra, config, *, device='cpu', checkpoint=None):
@@ -165,8 +176,16 @@ def modify_body(source, music, config, *, d4max=False, d6=False, telemetry=None)
     options = config['addons']['d4max']
     cfg = Config(**{key: value for key, value in options.items() if key in Config.__dataclass_fields__})
     if d4max:
-        result, plan, _ = compose(source.world, music, cfg)
+        result, plan, bank = compose(source.world, music, cfg)
         result.metadata.update(source_library_label='fixed_native_C', motion_origin='D4-max recomposition of own-song fixed C')
+        # Keep the numeric motif-search inputs in the existing plan artifact so
+        # D4 selection is replayable without creating a per-step JSON report.
+        plan.diagnostics.update({
+            'd4_bank_features': np.asarray(bank.get('features', [])),
+            'd4_bank_medoids': np.asarray(bank.get('medoids', [])),
+            'd4_bank_labels': np.asarray(bank.get('labels', [])),
+            'd4_bank_node_bounds': np.asarray([[n['start'], n['end']] for n in bank.get('nodes', [])], dtype=np.int64),
+        })
     else:
         result = source
         nodes = phrase_nodes(music, len(source.world), cfg)
@@ -216,16 +235,29 @@ def generate(audio_path, root, *, baseline_config=None, d4max=False, d6=False, d
         source.metadata.update(audio=binding, d6_checkpoint=d6_identity)
         source.save(root / 'source/body.npz')
         result, plan = modify_body(source, music, config, d4max=d4max, d6=d6, telemetry=telemetry)
+        if native_plan:
+            plan.diagnostics.update({
+                'native_planner_time': np.asarray(native_plan['time']),
+                'native_planner_conditioning': np.asarray(native_plan['conditioning']),
+            })
+        if telemetry is not None:
+            plan.diagnostics.update({
+                'd6_coarse_time': np.asarray(telemetry['coarse_time']),
+                'd6_coarse_local_plan': np.asarray(telemetry['coarse_local_plan']),
+            })
         result.metadata.update(audio=binding, checkpoint=identity, d6_checkpoint=d6_identity)
         result.save(root / 'body.npz'); plan.save(root / 'plan.npz')
         from lightsem.experiments.native_repair.assessment import raw_metrics
         metrics = raw_metrics(result.world, source.world)
+        qualification_status = config.get('qualification', {}).get('status')
+        status = classify_generation_status(config, metrics)
         report = {'baseline_id': config['id'], 'baseline_config': str(config_path), 'baseline_config_sha256': sha(config_path),
                   'audio': binding, 'checkpoint': identity, 'd4max': d4max, 'd6': d6, 'muq_required': True,
                   'd6_checkpoint': d6_identity, 'raw_body': metrics, 'body_sha256': sha(root / 'body.npz'),
                   'source_body_sha256': sha(root / 'source/body.npz'),
-                  'status': 'finite_body_ready' if metrics['finite'] and not metrics['constant_body'] else 'failure_diagnostic',
-                  'musical_superiority_claim': False, 'quiet_gradient_fix_in_checkpoint': False}
+                  'status': status, 'qualification_status': qualification_status,
+                  'musical_superiority_claim': False,
+                  'quiet_gradient_fix_in_checkpoint': identity.get('quiet_gradient_fix_in_checkpoint')}
         write_json(root / 'GENERATION.json', report)
         return result, source, music, config, report
     except BaseException as error:

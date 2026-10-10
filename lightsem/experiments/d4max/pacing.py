@@ -40,7 +40,7 @@ def anchored_clock(proposals,anchors,fps=30.,edge_seconds=.4,minimum_rate=0.):
     actual=np.diff(clock)*fps
     if np.any(actual < minimum_rate-1e-9) or np.any(actual>1.5+1e-9):raise ValueError('Anchored time map violated fixed bounds')
     if not np.array_equal(clock[anchors],time[anchors]):raise ValueError('Musical motif anchors moved')
-    return clock,np.r_[actual,actual[-1]],{'segments':audit,'anchor_frames':anchors.tolist(),'anchor_max_error_s':0.,'rate_scope':'Single common body clock; five learned regional proposals pooled by median. Rate=1 at motif seams; endpoint integral preserved.','edge_seconds':edge_seconds,'minimum_rate':minimum_rate}
+    return clock,np.r_[actual,actual[-1]],{'segments':audit,'anchor_frames':anchors.tolist(),'anchor_domain':'target output/native body frames; source-body support transitions must be inverse-mapped before use','anchor_max_error_s':0.,'rate_scope':'Single common body clock; five learned regional proposals pooled by median. Rate=1 at motif seams; endpoint integral preserved.','edge_seconds':edge_seconds,'minimum_rate':minimum_rate}
 
 
 def apply_d6(body,plan,telemetry,music,control=None,*,minimum_rate=0.):
@@ -53,7 +53,24 @@ def apply_d6(body,plan,telemetry,music,control=None,*,minimum_rate=0.):
     anchors=np.array(plan.metadata.get('motif_anchor_frames',[0,len(time)-1]),int)
     clock,rates,audit=anchored_clock(proposals,anchors,minimum_rate=minimum_rate)
     world=body.world.copy() if np.array_equal(clock,time) else resample_body(body.world,clock,30.)
-    meta={**body.metadata,'method':'D4_max_D6','d6_enabled':True,'source_order_preserved':True,'source_clock_scope':'Monotone clock into D4-max; all motif boundaries stay at identical song time. Original D7 library jumps are separately retained.','fragment_clock_domain':'D4-max source time','pacing':audit,'control':control,'motion_origin':'D4-max motifs with learned within-motif global pacing'}
-    result=DanceResult(time=time,world=world.astype(np.float32),contacts=contacts_from_body(world),source_time=clock,metadata=meta)
-    planned=DancePlan(time=time,source_time=clock,effort=rates[:,None].astype(np.float32),metadata=meta)
+    input_source = None if body.source_time is None else np.asarray(body.source_time).copy()
+    input_order_preserved = bool(body.metadata.get('source_order_preserved', input_source is None))
+    is_composed = bool(body.metadata.get('motif_recomposition', False) or body.metadata.get('fragment_provenance'))
+    method = 'D4_max_D6' if is_composed else 'D6'
+    meta={**body.metadata,'method':method,'d6_enabled':True,
+          'source_order_preserved':input_order_preserved,
+          'source_clock_scope':'Monotone D6 output playback clock; it describes the immediate input body pacing.',
+          'composition_clock_scope':'Original composition clock retained separately in diagnostics[input_composition_source_time]; blend/jump seams are not playback-rate samples.' if is_composed else 'No prior composition clock; native source order is preserved.',
+          'composition_source_order_preserved':input_order_preserved,
+          'fragment_clock_domain':'D4 composition clock retained in diagnostics' if is_composed else None,
+          'pacing':audit,'control':control,
+          'motion_origin':('External D6 pacing of D4-max composition' if is_composed else 'External D6 pacing of fixed native C')}
+    diagnostics = dict(getattr(body, 'diagnostics', {}) or {})
+    if input_source is not None:
+        diagnostics['input_composition_source_time'] = input_source
+    diagnostics['d6_output_clock'] = clock.copy()
+    diagnostics['d6_rates'] = rates.copy()
+    result=DanceResult(time=time,world=world.astype(np.float32),contacts=contacts_from_body(world),source_time=clock,metadata=meta,diagnostics=diagnostics)
+    planned=DancePlan(time=time,source_time=clock,effort=rates[:,None].astype(np.float32),metadata=meta,
+                      diagnostics=diagnostics)
     result.validate();planned.validate();return result,planned,proposals

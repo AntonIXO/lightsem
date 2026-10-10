@@ -50,6 +50,15 @@ def validate_music(timeline, audio_path, config):
         raise ValueError('MusicTimeline belongs to a different audio input')
     if timeline.metadata.get('intervention') is not None:
         raise ValueError('Default generation requires the original waveform, not an intervention cache')
+    recipe = timeline.metadata.get('recipe')
+    if isinstance(recipe, dict):
+        expected_recipe = config['muq']
+        if (recipe.get('muq_layer') != expected_recipe['layer']
+                or recipe.get('muq_native_hz') != expected_recipe['native_hz']
+                or recipe.get('muq_chunk_seconds') != expected_recipe['chunk_seconds']
+                or 'All-In-One' not in str(recipe.get('structure', ''))
+                or 'pinned HTDemucs' not in str(recipe.get('separator', ''))):
+            raise ValueError('MusicTimeline extractor recipe is not the pinned native contract')
     muq = timeline.metadata.get('muq', {})
     receipt = muq.get('model_receipt', {})
     expected = config['muq']
@@ -96,7 +105,7 @@ def validate_checkpoint_state(state, *, expected_seed=None, expected_arm='joint'
         raise ValueError('Checkpoint feature_names are missing, duplicated, or mis-sized')
     for label in ('normalizers', 'audio_normalizers', 'extra_normalizers'):
         norms = state[label]
-        if not isinstance(norms, dict) or set(norms) != {'mean', 'std'}:
+        if not isinstance(norms, dict) or not {'mean', 'std'} <= set(norms):
             raise ValueError(f'Checkpoint {label} must contain mean and std')
         mean, std = np.asarray(norms['mean']), np.asarray(norms['std'])
         if mean.ndim != 1 or std.shape != mean.shape or not np.isfinite(mean).all() or not np.isfinite(std).all() or (std <= 0).any():

@@ -189,6 +189,8 @@ def map_one(root,song,method):
  duplicate_groups=_stream_duplicate_groups(decoded)
  folder=root/'timelines'/method/song;folder.mkdir(parents=True,exist_ok=False)
  data={'time':time,'body':world,'universes':dmx,'targets':intent['targets'],'dimmer':intent['dimmer'],'source_points':intent['source_points'],'field_points':intent['field_points'],'attribution_mask':attribution,'brightness_envelope':bright['level'] if 'level' in bright else bright['envelope']['level']}
+ for key in ('bulb_field_centers','limb_speed','field_activity'):
+  if key in intent:data[key]=intent[key]
  if palette is not None:data['palette_ids40']=palette
  if color_active is not None:data['color_active40']=color_active
  rate_roundoff=None

@@ -116,7 +116,10 @@ def build_bank(world,music,cfg=Config()):
             if len(chosen)>=cfg.takes_per_family:break
             if i not in chosen:chosen.append(i)
         takes[int(family)]=chosen
-    return {'nodes':nodes,'features':x,'feature_reference':reference,'medoids':medoids,'labels':labels,'takes':takes,'config':asdict(cfg),'audio_only_family_definition':True}
+    descriptor_variance = float(np.max(np.ptp(x, axis=0))) if x.size else 0.0
+    return {'nodes':nodes,'features':x,'feature_reference':reference,'medoids':medoids,'labels':labels,'takes':takes,'config':asdict(cfg),'audio_only_family_definition':True,
+            'audio_information_available': bool(descriptor_variance > 1e-12),
+            'descriptor_variance': descriptor_variance}
 
 
 def _edge(w,contact,previous,current,gap):
@@ -177,15 +180,19 @@ def select_path(world,bank,target_music,cfg=Config(),control=None):
 
 def compose(world,music,cfg=Config(),*,bank=None,target_music=None,control=None):
     w,time=_clock(world,30);bank=build_bank(w,music,cfg) if bank is None else bank;target_music=music if target_music is None else target_music
-    meta={'method':'D4_max','source_order_preserved':False,'independent_motion_source':False,'motion_origin':'audio-indexed recomposition of own-song D7 body','source_library_label':'D7','configuration':asdict(cfg),'selection':'Exact dynamic programming over last-donor states: lexicographically minimize nonbank fallback then acoustic/seam cost','time_map_classification':'recomposition; source jumps are not playback rates','control':control,'fragment_provenance':[]}
+    meta={'method':'D4_max','source_order_preserved':False,'independent_motion_source':False,'motion_origin':'audio-indexed recomposition of own-song fixed source body','source_library_label':'supplied own-song body','configuration':asdict(cfg),'selection':'Exact dynamic programming over last-donor states: lexicographically minimize nonbank fallback then acoustic/seam cost','time_map_classification':'recomposition; source jumps are not playback rates','control':control,'fragment_provenance':[]}
     if np.array_equal(w,np.broadcast_to(w[:1],w.shape)):
-        return DanceResult(time,w.astype(np.float32),contacts_from_body(w),time.copy(),metadata={**meta,'diagnostic_reason':'frozen source, no independent motion'}),DancePlan(time,time.copy(),np.ones((len(w),1)),metadata=meta),bank
+        identity={**meta,'source_order_preserved':True,'motion_origin':'identity: frozen source body','time_map_classification':'identity','diagnostic_reason':'frozen source, no independent motion'}
+        return DanceResult(time,w.astype(np.float32),contacts_from_body(w),time.copy(),metadata=identity),DancePlan(time,time.copy(),np.ones((len(w),1)),metadata=identity),bank
+    if not bank.get('audio_information_available', True):
+        identity={**meta,'source_order_preserved':True,'motion_origin':'identity: audio descriptors carry no information','time_map_classification':'identity','diagnostic_reason':'zero-information audio descriptors; recomposition disabled'}
+        return DanceResult(time,w.astype(np.float32),contacts_from_body(w),time.copy(),metadata=identity),DancePlan(time,time.copy(),np.ones((len(w),1)),metadata=identity),bank
     sources,nodes,path,families,search=select_path(w,bank,target_music,cfg,control)
     output=w.copy();clock=time.copy();rates=np.ones((len(w),1));translations=[];source_contacts=contacts_from_body(w)
     for index,(node,donor_id) in enumerate(zip(nodes,path)):
         donor=sources[donor_id];a,b=node['start'],node['end'];ds,de=donor['start'],donor['end']
         source_clock=np.linspace(ds/30,de/30,b-a+1);segment=resample_body(w,source_clock,30.)
-        shift=np.zeros(3)
+        shift=np.zeros(3); fade=0; seam_raw_rms=None; seam_output_rms=None
         if index:
             previous=sources[path[index-1]];common=source_contacts[ds].astype(bool)
             if common.any():shift=(output[a,np.asarray(FEET)[common]].mean(0)-segment[0,np.asarray(FEET)[common]].mean(0))
@@ -197,13 +204,19 @@ def compose(world,music,cfg=Config(),*,bank=None,target_music=None,control=None)
                 cont=np.minimum(previous['end']/30+np.arange(fade+1)/30*prev_rate,time[-1])
                 prior=resample_body(w,cont,30.)+translations[-1]
                 u=np.linspace(0,1,fade+1);weight=6*u**5-15*u**4+10*u**3
+                seam_raw_rms=float(np.sqrt(np.mean((prior[0]-segment[0])**2)))
                 segment[:fade+1]=_blend_bodies(prior,segment[:fade+1],weight)
+                seam_output_rms=float(np.sqrt(np.mean((segment[0]-prior[0])**2)))
         output[a:b+1]=segment;clock[a:b+1]=source_clock;rate=(de-ds)/(b-a);rates[a:b+1,0]=rate;translations.append(shift)
-        meta['fragment_provenance'].append({'target_fragment':index,'motif_family':int(families[index]),'source_fragment':int(donor_id),'target_seconds':[a/30,b/30],'source_seconds':[ds/30,de/30],'local_rate':rate,'canonical_bank_take':bool(donor_id<len(bank['nodes'])),'root_translation_m':shift.tolist(),'transition_s':min(cfg.transition_s,(b-a)/30/4) if index else 0.})
+        meta['fragment_provenance'].append({'target_fragment':index,'motif_family':int(families[index]),'source_fragment':int(donor_id),'target_seconds':[a/30,b/30],'source_seconds':[ds/30,de/30],'local_rate':rate,'canonical_bank_take':bool(donor_id<len(bank['nodes'])),'root_translation_m':shift.tolist(),'transition_s':min(cfg.transition_s,(b-a)/30/4) if index else 0.,
+            'blend_weight_start':0. if fade else None,'blend_weight_end':1. if fade else None,
+            'raw_seam_rms_m':seam_raw_rms,'output_start_vs_prior_rms_m':seam_output_rms,
+            'source_time_semantics':'donor clock; blended transition frames are not reconstructible from source_time alone' if fade else 'direct donor resample'})
     meta.update(search,bank_fragment_count=sum(x['canonical_bank_take'] for x in meta['fragment_provenance']),recomposed_fragment_count=sum(x['target_seconds']!=x['source_seconds'] for x in meta['fragment_provenance']),graph_node_count=len(nodes),bank_families=len(bank['medoids']),bank_take_count=sum(map(len,bank['takes'].values())),bank_source_nodes={str(k):v for k,v in bank['takes'].items()})
     meta['motif_anchor_frames']=[nodes[0]['start']]+[n['end'] for n in nodes]
     meta['selected_body_fraction_from_bank']=sum((n['end']-n['start']) for n,di in zip(nodes,path) if di<len(bank['nodes']))/(len(w)-1)
-    if meta['recomposed_fragment_count']==0:output=w.copy();clock=time.copy();rates[:]=1.;meta['diagnostic_reason']='no feasible canonical motif; identity preserved'
+    if meta['recomposed_fragment_count']==0:
+        output=w.copy();clock=time.copy();rates[:]=1.;meta.update(source_order_preserved=True,motion_origin='identity: no feasible canonical motif',time_map_classification='identity',diagnostic_reason='no feasible canonical motif; identity preserved')
     if not np.isfinite(output).all():raise ValueError('Nonfinite composed body')
     result=DanceResult(time=time,world=output.astype(np.float32),contacts=contacts_from_body(output),source_time=clock,metadata=meta)
     plan=DancePlan(time=time,source_time=clock,effort=rates.astype(np.float32),metadata=meta)
