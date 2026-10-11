@@ -132,7 +132,8 @@ def prepare(root: Path) -> None:
         'patch': str(patch_path),
         'patch_sha256': sha(patch_path),
         'review_start_s': 0.0,
-        'review_duration_s': 60.0,
+        # New review generations use 90 seconds; existing roots are immutable.
+        'review_duration_s': 90.0,
         'songs': rows,
         'scope': 'Presentation adapter over saved native body and decoded mapper-01 DMX; no body or DMX regeneration.',
     }
@@ -146,7 +147,7 @@ def render(root: Path, smoke: bool, song: str) -> None:
     out = root / song
     track = {'id': song, 'title': 'Shpongle' if song == 'shpongle' else 'AURORA — Cure For Me',
              'audio': row['audio']}
-    plan = {'review_start_s': 0.0, 'review_duration_s': 1.0 if smoke else 60.0}
+    plan = {'review_start_s': 0.0, 'review_duration_s': 1.0 if smoke else 90.0}
     render_one(out, track, plan)
     render_record = out / f'{song}_body_to_63_P2_1080p_av1_render.json'
     movie = out / f'{song}_body_to_63_P2_1080p_av1.mp4'
@@ -173,12 +174,12 @@ def audit(root: Path, song: str) -> None:
     ], text=True))
     video = next(s for s in probe['streams'] if s['codec_type'] == 'video')
     audio = next(s for s in probe['streams'] if s['codec_type'] == 'audio')
-    expected_frames = 60 * 30
+    expected_frames = 90 * 30
     if int(video.get('nb_read_frames', -1)) != expected_frames:
         raise ValueError(f'Frame count mismatch for {song}: {video.get("nb_read_frames")}')
     if video.get('r_frame_rate') != '30/1':
         raise ValueError(f'Video rate mismatch: {video.get("r_frame_rate")}')
-    if abs(float(video['duration']) - 60.0) > 1 / 30 or abs(float(audio['duration']) - 60.0) > .1:
+    if abs(float(video['duration']) - 90.0) > 1 / 30 or abs(float(audio['duration']) - 90.0) > .1:
         raise ValueError(f'Duration mismatch for {song}')
     frames = json.loads(subprocess.check_output([
         'ffprobe', '-v', 'error', '-select_streams', 'v:0', '-show_frames',

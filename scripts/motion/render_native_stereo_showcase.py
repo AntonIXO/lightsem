@@ -64,7 +64,9 @@ def stage_inputs(stage: Path, condition: str) -> None:
 
 
 def run_condition(condition: str, out_root: Path, duration: float, encoder: str, preset: str) -> dict:
-    stage = out_root.parent / f"showcase_video_inputs_{condition}"
+    # Bind staging to the output artifact root so an interrupted render can be
+    # preserved and a diagnosed rerun cannot accidentally reuse its links.
+    stage = out_root.parent / f"{out_root.name}_inputs_{condition}"
     stage_inputs(stage, condition)
     # The presentation module has a fixed historical ROOT; replace it only in
     # this isolated process so every input remains hash-linked and read-only.
@@ -92,17 +94,24 @@ def run_condition(condition: str, out_root: Path, duration: float, encoder: str,
         })
     return {"condition": condition, "status": "complete", "duration_s": duration, "rows": rows,
             "input_stage": str(stage), "diagnostic_only": True,
-            "scope": "20-second native 3D review; saved body and decoded mapper-01 DMX; no promotion"}
+            "scope": "native 3D review; saved body and decoded mapper-01 DMX; no promotion"}
 
 
 def main(argv: list[str] | None = None) -> int:
+    global STEREO_ROOT, BASELINE_ROOT
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--out-root", type=Path, required=True)
     parser.add_argument("--condition", choices=CONDITIONS, action="append")
-    parser.add_argument("--duration", type=float, default=20.0)
+    parser.add_argument("--stereo-root", type=Path, default=STEREO_ROOT,
+                        help="artifact root containing showcase_bodies_v2 and showcase_emission_v2")
+    parser.add_argument("--baseline-root", type=Path, default=BASELINE_ROOT)
+    # New review generations use 90 seconds; historical roots are immutable.
+    parser.add_argument("--duration", type=float, default=90.0)
     parser.add_argument("--encoder", choices=("h264_nvenc", "av1_nvenc", "libx264"), default="h264_nvenc")
     parser.add_argument("--preset", default="p4")
     args = parser.parse_args(argv)
+    STEREO_ROOT = args.stereo_root
+    BASELINE_ROOT = args.baseline_root
     conditions = tuple(args.condition or CONDITIONS)
     if args.out_root.exists():
         raise FileExistsError(f"refusing to overwrite showcase video root: {args.out_root}")

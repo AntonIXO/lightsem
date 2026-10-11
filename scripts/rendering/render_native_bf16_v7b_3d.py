@@ -21,8 +21,10 @@ SONGS = {
     'cure_for_me': ROOT / 'demo_audio/Cure_For_Me.wav',
 }
 FPS = 30
-DURATION = 60.0
-FRAMES = 1800
+# New review generations use a 90-second window. Historical receipts keep
+# their original 60-second scope; this only controls new renders.
+DURATION = 90.0
+FRAMES = int(DURATION * FPS)
 WIDTH, HEIGHT = 1280, 1024
 
 
@@ -251,7 +253,12 @@ def smoke(root: Path, song: str) -> None:
     out = root / song; samples = []; files = {}
     rs = renderers(patch)
     try:
-        for stamp in (0., 15., 30., 45., 59.):
+        # Cover the complete default review window, including its tail. The
+        # old 60-second smoke set missed the final third after the default was
+        # extended to 90 seconds.
+        stamps = tuple(sorted({0.0, 15.0, 30.0, 45.0, 60.0, 75.0,
+                               max(0.0, DURATION - 1.0)}))
+        for stamp in stamps:
             index, tick = round(stamp * 30), round(stamp * 40)
             pose = body[index].copy(); pose -= pose[:1] * np.array([1., 0., 1.])
             vals = tuple(decoded[k][tick] for k in ('directions', 'rgb', 'dimmer'))
@@ -328,16 +335,28 @@ def full_render(root: Path, song: str, video_encoder: str = 'h264_nvenc', video_
         partial.unlink()
         encoder = subprocess.Popen(command, stdin=subprocess.PIPE, stderr=subprocess.PIPE)
         try:
-            for frame in range(frames):
-                index, tick = frame, round(frame * 40 / 30)
-                pose = body[index].copy(); pose -= pose[:1] * np.array([1., 0., 1.])
-                vals = tuple(decoded[k][tick] for k in ('directions', 'rgb', 'dimmer'))
-                canvas = static_canvas.copy()
-                canvas.paste(Image.fromarray(rs[0].render_controls(*vals, pose)), (0, 84))
-                canvas.paste(Image.fromarray(rs[1].render_controls(*vals, pose)), (640, 84))
-                canvas.paste(chart_image, (0, 720))
-                ImageDraw.Draw(canvas).text((16, 690), f'{frame / 30:.2f}s | original audio speed | neutral fill separate from DMX', font=font, fill='#bacedd')
-                encoder.stdin.write(canvas.tobytes())
+            try:
+                for frame in range(frames):
+                    index, tick = frame, round(frame * 40 / 30)
+                    pose = body[index].copy(); pose -= pose[:1] * np.array([1., 0., 1.])
+                    vals = tuple(decoded[k][tick] for k in ('directions', 'rgb', 'dimmer'))
+                    canvas = static_canvas.copy()
+                    canvas.paste(Image.fromarray(rs[0].render_controls(*vals, pose)), (0, 84))
+                    canvas.paste(Image.fromarray(rs[1].render_controls(*vals, pose)), (640, 84))
+                    canvas.paste(chart_image, (0, 720))
+                    ImageDraw.Draw(canvas).text((16, 690), f'{frame / 30:.2f}s | original audio speed | neutral fill separate from DMX', font=font, fill='#bacedd')
+                    encoder.stdin.write(canvas.tobytes())
+            except BrokenPipeError as exc:
+                # Preserve the encoder's real diagnostic. Without this, a
+                # NVENC process failure was reported only as an opaque Python
+                # BrokenPipeError and the cause could not be audited.
+                try:
+                    encoder.stdin.close()
+                except BrokenPipeError:
+                    pass
+                stderr = encoder.stderr.read().decode(errors='replace')
+                encoder.wait()
+                raise RuntimeError(f'video encoder exited while receiving frame data: {stderr[-4000:]}') from exc
             encoder.stdin.close()
             stderr = encoder.stderr.read().decode(errors='replace')
             if encoder.wait() != 0: raise RuntimeError(stderr)
@@ -386,7 +405,7 @@ def main():
     ap = argparse.ArgumentParser(); ap.add_argument('action', choices=('prepare', 'smoke', 'render', 'audit')); ap.add_argument('--song', choices=tuple(SONGS)); ap.add_argument('--root', type=Path, required=True)
     ap.add_argument('--video-encoder', choices=('av1_nvenc', 'h264_nvenc', 'libx264'), default='av1_nvenc')
     ap.add_argument('--video-preset', default='p7', help='NVENC p1-p7 or libx264 preset; project default is AV1 p7')
-    ap.add_argument('--full', action='store_true', help='Render the complete saved song instead of the 60-second review window')
+    ap.add_argument('--full', action='store_true', help='Render the complete saved song instead of the 90-second review window')
     args = ap.parse_args()
     if args.action == 'prepare': prepare(args.root); return
     if not args.song: ap.error('--song required')
