@@ -38,6 +38,11 @@ def main(argv=None) -> int:
     rows=[]; args.out.mkdir(parents=True)
     for condition_dir in sorted(args.bodies_root.iterdir()):
         if not condition_dir.is_dir(): continue
+        # Artifact roots may contain logs, receipts, or other stage folders
+        # beside the method directories. Only map a directory that contains
+        # both independently generated own-song bodies.
+        if not all((condition_dir / f'{song}.npz').is_file() for song in SONGS):
+            continue
         for song,audio in SONGS.items():
             body_path=condition_dir/f'{song}.npz'
             if not body_path.is_file(): raise FileNotFoundError(body_path)
