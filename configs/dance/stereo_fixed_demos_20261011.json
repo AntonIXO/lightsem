@@ -1,0 +1,59 @@
+{
+  "schema_version": 1,
+  "id": "stereo-fixed-demos-20261011-v1",
+  "active_baseline": "dual_cross_attention",
+  "baseline_config": "configs/dance/fixed_c.json",
+  "tracks": ["shpongle", "cure_for_me"],
+  "methods": {
+    "dual_cross_attention": {
+      "status": "active_user_selected_baseline",
+      "artifact_root": "/mnt/lightsem-data/experiments/lightsem/native_stereo_counterfactual_20261011_v1",
+      "body_root": "/mnt/lightsem-data/experiments/lightsem/native_stereo_counterfactual_20261011_v1/showcase/dual_cross_attention",
+      "body_manifest_sha256": "58dee4bc46909a30f0d08845436bd3d5b54b2b11c36b36d220a62830b2dd5504",
+      "emission_manifest": "/mnt/lightsem-data/experiments/lightsem/native_stereo_counterfactual_20261011_v1/showcase_emission_v1/MANIFEST.json",
+      "video_manifest": "/mnt/lightsem-data/experiments/lightsem/native_stereo_counterfactual_20261011_v1/showcase_videos_full_v1/SHOWCASE_VIDEO_MANIFEST.json",
+      "video_manifest_sha256": "e28aeb1982cf4b0db31e8957ce592b1c85445ae57f24e3e5e261479b61ef83f9"
+    },
+    "role_specialized": {
+      "status": "diagnostic_fixed_demo",
+      "artifact_root": "/mnt/lightsem-data/experiments/lightsem/native_stereo_counterfactual_20261011_v1",
+      "body_root": "/mnt/lightsem-data/experiments/lightsem/native_stereo_counterfactual_20261011_v1/showcase/role_specialized",
+      "body_manifest_sha256": "ef4b6c3121d9bcc87a5553c08581dbe910e02048c4bc6948d25d453681f9362d",
+      "video_manifest": "/mnt/lightsem-data/experiments/lightsem/native_stereo_counterfactual_20261011_v1/showcase_videos_full_v1/SHOWCASE_VIDEO_MANIFEST.json",
+      "video_manifest_sha256": "e28aeb1982cf4b0db31e8957ce592b1c85445ae57f24e3e5e261479b61ef83f9"
+    },
+    "gated_residual": {
+      "status": "diagnostic_fixed_demo",
+      "artifact_root": "/mnt/lightsem-data/experiments/lightsem/native_stereo_fusion_top3_20261011_v1",
+      "body_root": "/mnt/lightsem-data/experiments/lightsem/native_stereo_fusion_top3_20261011_v1/showcase/gated_residual",
+      "video_manifest": "/mnt/lightsem-data/experiments/lightsem/native_stereo_fusion_top3_20261011_v1/showcase_videos_full_v2/SHOWCASE_VIDEO_MANIFEST.json",
+      "video_manifest_sha256": "8c2200fe6318050c3f5f363a0c923e960088171f52dceae8db0daaf8e7f529b6"
+    },
+    "concat_hybrid": {
+      "status": "diagnostic_fixed_demo",
+      "artifact_root": "/mnt/lightsem-data/experiments/lightsem/native_stereo_e2e_hybrid_20261011_v2",
+      "body_root": "/mnt/lightsem-data/experiments/lightsem/native_stereo_e2e_hybrid_20261011_v2/showcase/hybrid",
+      "video_manifest": "/mnt/lightsem-data/experiments/lightsem/native_stereo_e2e_hybrid_202614_v2/showcase_videos_full_v1/SHOWCASE_VIDEO_MANIFEST.json",
+      "video_manifest_sha256": "e9288a8f6a9e4b6974c64c6c82cd494cb0cf7e537952b2c70eb5e3bb5c892aaa"
+    },
+    "spain_teacher": {
+      "status": "diagnostic_fixed_demo",
+      "artifact_root": "/mnt/lightsem-data/experiments/lightsem/native_stereo_e2e_20261011_v1",
+      "video_manifest": "/mnt/lightsem-data/experiments/lightsem/native_stereo_e2e_20261011_v1/showcase_videos_v1/SHOWCASE_VIDEO_MANIFEST.json",
+      "video_manifest_sha256": "5e538b30c11bd2b5ca4adb5d87168b791789edf7a4902bb71880e764005d8b77"
+    },
+    "crw_teacher": {
+      "status": "diagnostic_fixed_demo",
+      "artifact_root": "/mnt/lightsem-data/experiments/lightsem/native_stereo_e2e_20261011_v1",
+      "video_manifest": "/mnt/lightsem-data/experiments/lightsem/native_stereo_e2e_20261011_v1/showcase_videos_v1/SHOWCASE_VIDEO_MANIFEST.json",
+      "video_manifest_sha256": "5e538b30c11bd2b5ca4adb5d87168b791789edf7a4902bb71880e764005d8b77"
+    },
+    "obsrnn_teacher": {
+      "status": "diagnostic_fixed_demo",
+      "artifact_root": "/mnt/lightsem-data/experiments/lightsem/native_stereo_e2e_20261011_v1",
+      "video_manifest": "/mnt/lightsem-data/experiments/lightsem/native_stereo_e2e_20261011_v1/showcase_videos_v1/SHOWCASE_VIDEO_MANIFEST.json",
+      "video_manifest_sha256": "5e538b30c11bd2b5ca4adb5d87168b791789edf7a4902bb71880e764005d8b77"
+    }
+  },
+  "scope": "own-song Shpongle/Cure For Me fixed mapper-01/P2/LUFS demos; diagnostics remain non-promotional except the user-selected active baseline identity"
+}

@@ -171,7 +171,7 @@ def native_body(music, base, config, *, stereo=None, device='cpu', checkpoint=No
             coarse_stereo = torch.zeros(1, coarse.shape[1], model.config.stereo_dim, device=device)
             coarse_stereo[0, :bins] = (torch.tensor(stereo_coarse, device=device) - stereo_mean) / stereo_std
             native, plan = model.generate(fine, coarse, valid, torch.arange(n, device=device)[None], noise,
-                                          stereo_context=stereo_t[None], coarse_stereo=coarse_stereo[None])
+                                          stereo_context=stereo_t[None], coarse_stereo=coarse_stereo)
         else:
             native, plan = model.generate(fine, coarse, valid, torch.arange(n, device=device)[None], noise)
         world = joints_from_features(native)[0].cpu().numpy()
