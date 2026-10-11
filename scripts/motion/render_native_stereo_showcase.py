@@ -19,7 +19,7 @@ REPO_ROOT = Path("/root/lightsem")
 BASELINE_ROOT = REPO_ROOT / "experiments/native_bf16_v7b"
 STEREO_ROOT = Path("/mnt/lightsem-data/experiments/lightsem/native_bf16_v7b_stereo_v3")
 SONGS = ("shpongle", "cure_for_me")
-CONDITIONS = ("baseline", "R1", "R2", "R2_zero", "R2_reverse", "spain", "crw", "bsrnn", "hybrid", "gated_residual", "role_specialized")
+CONDITIONS = ("baseline", "R1", "R2", "R2_zero", "R2_reverse", "spain", "crw", "bsrnn", "hybrid", "gated_residual", "role_specialized", "dual_cross_attention")
 
 
 def sha256(path: Path) -> str:
