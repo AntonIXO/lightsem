@@ -73,11 +73,11 @@ def equal_power_repan(stems: Tensor, angles_deg: Tensor) -> tuple[Tensor, Tensor
 
 def spain_reconstruction_loss(prediction: Tensor, target: Tensor, mixture: Tensor,
                               mixture_weight: float = 0.1, eps: float = 1e-8) -> Tensor:
-    """Scale-aware source loss that rejects the quiet-zero solution.
+    """Experimental gain-normalized source and mixture reconstruction loss.
 
-    Plain waveform MSE lets a model score well by shrinking every mask on
-    quiet MUSDB clips. Normalize source error by target energy and add mixture
-    consistency so source and spatial information remain in the objective.
+    Small absolute waveform MSE on quiet clips is not evidence of separation.
+    Normalization makes the error comparable across gains; it does not prove
+    source separation, avoid all collapse, or supervise dance quality.
     """
     if prediction.shape != target.shape or prediction.ndim != 4:
         raise ValueError("prediction and target must have shape [B,4,2,N]")
@@ -88,6 +88,16 @@ def spain_reconstruction_loss(prediction: Tensor, target: Tensor, mixture: Tenso
     mixture_energy = mixture.square().mean(dim=(1, 2)).clamp_min(eps)
     consistency = (prediction.sum(dim=1) - mixture).square().mean(dim=(1, 2)) / mixture_energy
     return source_error.mean() + float(mixture_weight) * consistency.mean()
+
+
+def slots_to_native_context(slots: Tensor, frame_count: int) -> Tensor:
+    """Resample B,S,T,D slots without mixing time and descriptor coordinates."""
+    if slots.ndim != 4 or frame_count < 1:
+        raise ValueError("Expected B,S,T,D slots and a positive frame count")
+    batch, sources, frames, width = slots.shape
+    channels = slots.permute(0, 1, 3, 2).reshape(batch, sources * width, frames)
+    return F.interpolate(channels, size=frame_count, mode="linear",
+                         align_corners=False).transpose(1, 2)
 
 
 class SpaInNet(nn.Module):
@@ -169,10 +179,7 @@ class SpaInNet(nn.Module):
             16,
         ).reshape(batch, self.config.sources, frames, 16)
         t30 = max(1, round(n_samples / self.config.sample_rate * 30))
-        descriptor = F.interpolate(
-            slot16.reshape(batch, self.config.sources * 16, frames), size=t30,
-            mode="linear", align_corners=False,
-        ).transpose(1, 2)
+        descriptor = slots_to_native_context(slot16, t30)
         features = {
             "native_descriptor": descriptor,
             "source_slots": slot16,
@@ -185,7 +192,8 @@ class SpaInNet(nn.Module):
         return separated, features
 
     def config_dict(self) -> dict[str, Any]:
-        return {"schema_version": 1, "architecture": "spain_net_d1_cat",
+        return {"schema_version": 2, "architecture": "spain_inspired_encoded_angle_xumx",
+                "descriptor_layout": "B,S,T,D -> B,S*D,T -> B,T30,S*D",
                 "pretrained": False, "config": asdict(self.config),
                 "reference_repo": REFERENCE_REPO, "reference_commit": REFERENCE_COMMIT,
                 "reference_paper": REFERENCE_PAPER,
