@@ -63,7 +63,7 @@ def stage_inputs(stage: Path, condition: str) -> None:
     link(stage / "demo_audio/Cure_For_Me.wav", BASELINE_ROOT / "demo_audio/Cure_For_Me.wav")
 
 
-def run_condition(condition: str, out_root: Path, duration: float, encoder: str, preset: str) -> dict:
+def run_condition(condition: str, out_root: Path, duration: float, encoder: str, preset: str, full: bool = False) -> dict:
     # Bind staging to the output artifact root so an interrupted render can be
     # preserved and a diagnosed rerun cannot accidentally reuse its links.
     stage = out_root.parent / f"{out_root.name}_inputs_{condition}"
@@ -80,7 +80,7 @@ def run_condition(condition: str, out_root: Path, duration: float, encoder: str,
     rows = []
     for song in SONGS:
         renderer.smoke(out_root, song)
-        renderer.full_render(out_root, song, video_encoder=encoder, video_preset=preset, full=False)
+        renderer.full_render(out_root, song, video_encoder=encoder, video_preset=preset, full=full)
         renderer.audit(out_root, song)
         render_record = json.loads((out_root / song / "RENDER.json").read_text())
         audit_record = json.loads((out_root / song / "AUDIT.json").read_text())
@@ -109,6 +109,7 @@ def main(argv: list[str] | None = None) -> int:
     parser.add_argument("--duration", type=float, default=120.0)
     parser.add_argument("--encoder", choices=("h264_nvenc", "av1_nvenc", "libx264"), default="h264_nvenc")
     parser.add_argument("--preset", default="p4")
+    parser.add_argument("--full", action="store_true", help="render complete saved songs instead of the 120-second review crop")
     args = parser.parse_args(argv)
     STEREO_ROOT = args.stereo_root
     BASELINE_ROOT = args.baseline_root
@@ -116,7 +117,7 @@ def main(argv: list[str] | None = None) -> int:
     if args.out_root.exists():
         raise FileExistsError(f"refusing to overwrite showcase video root: {args.out_root}")
     args.out_root.mkdir(parents=True)
-    rows = [run_condition(condition, args.out_root / condition, args.duration, args.encoder, args.preset)
+    rows = [run_condition(condition, args.out_root / condition, args.duration, args.encoder, args.preset, args.full)
             for condition in conditions]
     result = {"schema_version": 1, "status": "complete", "diagnostic_only": True,
               "conditions": list(conditions), "rows": rows,
