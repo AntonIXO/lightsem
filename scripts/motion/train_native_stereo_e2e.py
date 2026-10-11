@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""End-to-end native C training on an external 64-D spatial context.
+"""End-to-end native C training on an external spatial context.
 
 This branch trains the native planner, late flow blocks, audio readout, and
 zero-initialized stereo modules against paired native TRAIN poses. The first
@@ -44,16 +44,25 @@ def write(path: Path, value: dict) -> None:
 
 
 def pool(value: np.ndarray, bins: int) -> np.ndarray:
-    pad = bins * 15 - len(value)
-    padded = np.pad(value.astype(np.float32), ((0, max(0, pad)), (0, 0)), mode="edge")
-    return (padded.reshape(bins, 15, -1).mean(1)).astype(np.float32)
+    from scripts.motion.generate_native_stereo_demos import pool_native
+    if bins != (len(value) + 14) // 15:
+        raise ValueError("Coarse bin count mismatch")
+    return pool_native(value, len(value))
 
 
 class PilotRecords:
     def __init__(self, manifest_path: Path, context_manifest: Path, *, limit_frames: int = 480):
         manifest = json.loads(manifest_path.read_text())
         contexts = json.loads(context_manifest.read_text())
+        if manifest.get('test_access') is not False or contexts.get('test_access') is not False:
+            raise ValueError('TRAIN-only manifests required')
+        if any(r.get('partition') != 'train' for r in manifest['entries']) or any(r.get('split') != 'train' for r in contexts['rows']):
+            raise ValueError('Non-TRAIN data reached native training')
+        self.stereo_dim = int(contexts.get('feature_dim', 64))
+        self.schema = contexts.get('schema', 'legacy_external64')
         context_rows = {row["id"]: row for row in contexts["rows"]}
+        if len(context_rows) != len(contexts['rows']) or set(context_rows) != {r['key'] for r in manifest['entries']}:
+            raise ValueError('Native/context id sets differ')
         baseline_features = json.loads((Path("/mnt/lightsem-data/experiments/lightsem/native_bf16_v7b/features/COMPLETE.json")).read_text())
         feature_rows = {row["key"]: row for row in baseline_features["entries"]}
         self.rows = []
@@ -62,6 +71,10 @@ class PilotRecords:
             context = context_rows.get(row["key"])
             if feature is None or context is None:
                 raise ValueError(f"Missing paired audio/context for {row['key']}")
+            if sha(Path(row['pose_cache'])) != row['pose_cache_sha256'] or sha(Path(context['context_path'])) != context['context_sha256']:
+                raise ValueError('Changed pose/context cache')
+            if context.get('audio_sha256') and context['audio_sha256'] != row['wav_sha256']:
+                raise ValueError('Pose/context source audio differs')
             with np.load(row["pose_cache"], allow_pickle=False) as z:
                 pose = z["pose"].astype(np.float32); mask = z["mask"].astype(bool); starts = z["starts"].astype(np.int32); target = z["time"].astype(np.float64)
             timeline = MusicTimeline.load(feature["timeline_path"])
@@ -71,7 +84,9 @@ class PilotRecords:
                 if not np.array_equal(z["time30"], target):
                     raise ValueError("Base92 and RTMPose clocks differ")
             with np.load(context["context_path"], allow_pickle=False) as z:
-                stereo = np.stack([np.interp(target, z["time30"], z["fused30"][:, i]) for i in range(64)], 1).astype(np.float32)
+                stereo = np.stack([np.interp(target, z["time30"], z["fused30"][:, i]) for i in range(self.stereo_dim)], 1).astype(np.float32)
+            if not np.isfinite(stereo).all():
+                raise ValueError('Nonfinite training context')
             valid = np.isfinite(base).all(1) & np.isfinite(extra).all(1) & np.isfinite(stereo).all(1)
             self.rows.append({"key": row["key"], "group": row["group"], "base": base, "extra": extra.astype(np.float32),
                               "stereo": stereo, "pose": pose, "mask": mask, "valid": valid, "starts": starts, "length": len(target)})
@@ -95,10 +110,10 @@ class PilotRecords:
             chosen.append((row, start))
         b, t = len(chosen), self.frames
         result = {"base": np.zeros((b, t, 92), np.float32), "extra": np.zeros((b, t, 1061), np.float32),
-                  "stereo": np.zeros((b, t, 64), np.float32), "valid": np.zeros((b, t), bool),
+                  "stereo": np.zeros((b, t, self.stereo_dim), np.float32), "valid": np.zeros((b, t), bool),
                   "indices": np.zeros((b, t), np.int64), "pose": np.zeros((b, t, 13, 2), np.float32),
                   "pose_mask": np.zeros((b, t, 13), bool), "coarse": np.zeros((b, 1024, 1061), np.float32),
-                  "coarse_stereo": np.zeros((b, 1024, 64), np.float32), "coarse_valid": np.zeros((b, 1024), bool)}
+                  "coarse_stereo": np.zeros((b, 1024, self.stereo_dim), np.float32), "coarse_valid": np.zeros((b, 1024), bool)}
         for i, (row, start) in enumerate(chosen):
             n = min(t, row["length"] - start); end = start + n; bins = (row["length"] + 14) // 15
             result["base"][i, :n] = row["base"][start:end]
@@ -127,8 +142,12 @@ def main(argv=None) -> int:
     args = p.parse_args(argv)
     if args.out.exists():
         raise FileExistsError(f"Preserving existing end-to-end root: {args.out}")
+    from lightsem.experiments.native_dynamics.evaluation import setup
+    setup()
+    torch.manual_seed(args.seed)
+    records = PilotRecords(args.manifest, args.context_manifest)
     saved = torch.load(args.baseline, map_location="cpu", weights_only=False)
-    cfg = Config(**{**saved["config"], "stereo_dim": 64})
+    cfg = Config(**{**saved["config"], "stereo_dim": records.stereo_dim, "freeze_early_blocks": 6})
     model = NativeDynamicsModel(MusicConfig(**saved["base_config"]), saved["normalizers"], cfg)
     result = model.load_state_dict(saved["model"], strict=False)
     allowed_missing = ("flow.stereo_projection.", "flow.stereo_adapters.", "stereo_plan.")
@@ -150,7 +169,6 @@ def main(argv=None) -> int:
     if baseline_load.missing_keys or baseline_load.unexpected_keys:
         raise ValueError(f"Baseline model reload mismatch: {baseline_load}")
     baseline_model.requires_grad_(False)
-    records = PilotRecords(args.manifest, args.context_manifest)
     trainable = [parameter for parameter in model.parameters() if parameter.requires_grad]
     if not trainable:
         raise ValueError("End-to-end branch has no trainable parameters")
@@ -186,10 +204,19 @@ def main(argv=None) -> int:
             raise FloatingPointError(f"nonfinite step {step}")
         optimizer.zero_grad(set_to_none=True); loss.backward(); torch.nn.utils.clip_grad_norm_(trainable, 1.0); optimizer.step()
         losses.append(float(loss.detach().cpu())); raw_losses.append(float(raw_total.detach().cpu()))
+        if (step+1) % 100 == 0:
+            print(f'update {step+1}/{args.steps} loss={losses[-1]:.6f} raw_prior={raw_losses[-1]:.6f}', flush=True)
     args.out.mkdir(parents=True)
     checkpoint=args.out/"final.pt"
-    torch.save({"model":model.state_dict(),"config":asdict(cfg),"base_config":saved["base_config"],"normalizers":saved["normalizers"],"audio_normalizers":saved["audio_normalizers"],"extra_normalizers":saved["extra_normalizers"],"stereo_mean":records.stereo_mean,"stereo_std":records.stereo_std,"baseline_checkpoint":str(args.baseline),"baseline_sha256":sha(args.baseline),"context_manifest":str(args.context_manifest),"context_manifest_sha256":sha(args.context_manifest),"steps":args.steps,"seed":args.seed,"lr":args.lr,"training_mode":"native_c_end_to_end_external_spatial","frozen_first_flow_blocks":cfg.freeze_early_blocks},checkpoint)
-    report={"schema_version":1,"status":"complete","seed":args.seed,"steps":args.steps,"batch_size":args.batch_size,"lr":args.lr,"arm":json.loads(args.context_manifest.read_text()).get("method"),"baseline":str(args.baseline),"baseline_sha256":sha(args.baseline),"context_manifest":str(args.context_manifest),"context_manifest_sha256":sha(args.context_manifest),"checkpoint":str(checkpoint),"checkpoint_sha256":sha(checkpoint),"elapsed_s":time.monotonic()-started,"loss_first":losses[0],"loss_last":losses[-1],"raw_prior_first":raw_losses[0],"raw_prior_last":raw_losses[-1],"finite":True,"training_mode":"native C end-to-end with external spatial context; first six flow blocks and legacy plan projection frozen","diagnostic_only":True,"scope":"paired native TRAIN only; raw safety gate required before mapper/render; no baseline promotion"}
+    changed = [name for name, value in model.state_dict().items() if name in saved['model'] and not torch.equal(value.cpu(), saved['model'][name].cpu())]
+    forbidden = [f'flow.blocks.{i}.' for i in range(6)] + ['flow.plan_projection.']
+    if any(any(name.startswith(prefix) for prefix in forbidden) for name in changed):
+        raise ValueError('Frozen weights changed')
+    for prefix in ('planner.', 'flow.output.', 'flow.blocks.6.'):
+        if not any(name.startswith(prefix) for name in changed):
+            raise ValueError(f'Native weights did not learn: {prefix}')
+    torch.save({"model":model.state_dict(),"config":asdict(cfg),"base_config":saved["base_config"],"normalizers":saved["normalizers"],"audio_normalizers":saved["audio_normalizers"],"extra_normalizers":saved["extra_normalizers"],"stereo_mean":records.stereo_mean,"stereo_std":records.stereo_std,"baseline_checkpoint":str(args.baseline),"baseline_sha256":sha(args.baseline),"context_manifest":str(args.context_manifest),"context_manifest_sha256":sha(args.context_manifest),"steps":args.steps,"seed":args.seed,"lr":args.lr,"context_schema":records.schema,"training_manifest_sha256":sha(args.manifest),"changed_native_tensors":changed,"training_mode":"native_c_end_to_end_external_spatial","frozen_first_flow_blocks":cfg.freeze_early_blocks},checkpoint)
+    report={"schema_version":1,"status":"complete","seed":args.seed,"steps":args.steps,"batch_size":args.batch_size,"lr":args.lr,"arm":json.loads(args.context_manifest.read_text()).get("method"),"baseline":str(args.baseline),"baseline_sha256":sha(args.baseline),"context_manifest":str(args.context_manifest),"context_manifest_sha256":sha(args.context_manifest),"checkpoint":str(checkpoint),"checkpoint_sha256":sha(checkpoint),"elapsed_s":time.monotonic()-started,"loss_first":losses[0],"loss_last":losses[-1],"raw_prior_first":raw_losses[0],"raw_prior_last":raw_losses[-1],"finite":True,"context_schema":records.schema,"changed_native_tensors":changed,"torch_version":torch.__version__,"training_mode":"native C end-to-end with external spatial context; first six flow blocks and legacy plan projection frozen","diagnostic_only":True,"scope":"paired native TRAIN only; raw safety gate required before mapper/render; no baseline promotion"}
     write(args.out/"REPORT.json",report); print(json.dumps(report,sort_keys=True)); return 0
 
 

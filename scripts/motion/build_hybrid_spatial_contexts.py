@@ -1,49 +1,99 @@
 #!/usr/bin/env python3
-"""Build a TRAIN-statistics-normalized SpaIn+oBSRNN hybrid context.
+"""Keep SpaIn and oBSRNN in separate coordinates for learned native fusion.
 
-Both method streams remain visible to the native end-to-end model. The fusion
-is deterministic (per-method TRAIN z-score, timestamp interpolation, mean of
-the two 64-D streams); native C learns the downstream combination. Showcase
-contexts are transformed with TRAIN statistics only.
+Raw authenticated 64-D streams are concatenated (SpaIn first), never averaged.
+Training computes normalizers using paired TRAIN frames; the native planner
+and flow each learn a projection of the resulting 128-D condition. No
+showcase-specific normalization or feature fitting is permitted.
 """
 from __future__ import annotations
-import argparse, hashlib, json
+import argparse
+import hashlib
+import json
 from pathlib import Path
 import numpy as np
 
-TRAIN_NATIVE_MANIFEST = Path('/mnt/lightsem-data/experiments/lightsem/native_bf16_v7b_stereo_v1/STEREO_NATIVE_MANIFEST.json')
+SCHEMA = 'spain_obsrnn_concat128_v2'
+BRANCHES = {'spain': [0, 64], 'obsrnn': [64, 128]}
 
-def sha(p: Path) -> str: return hashlib.sha256(p.read_bytes()).hexdigest()
-def load_manifest(p: Path) -> dict: return json.loads(p.read_text())
-def load_ctx(row: dict) -> tuple[np.ndarray,np.ndarray]:
-    with np.load(row['context_path'],allow_pickle=False) as z: return z['time30'].astype('f8'), z['fused30'].astype('f4')
-def interp(t,x,target): return np.stack([np.interp(target,t,x[:,i]) for i in range(x.shape[1])],1).astype('f4')
+def sha(p):
+    return hashlib.sha256(Path(p).read_bytes()).hexdigest()
 
-def build(train_spain: Path, train_bsrnn: Path, show_spain: Path, show_bsrnn: Path, out: Path):
-    if out.exists(): raise FileExistsError(out)
-    sm,bm=load_manifest(train_spain),load_manifest(train_bsrnn)
-    sr={r['id']:r for r in sm['rows']}; br={r['id']:r for r in bm['rows']}
-    train_rows=[]; raw_s=[];raw_b=[]
-    for key in sorted(sr):
-        if key not in br: raise ValueError(f'missing hybrid row {key}')
-        ts,xs=load_ctx(sr[key]); tb,xb=load_ctx(br[key]); target=ts[(ts>=max(ts[0],tb[0]))&(ts<=min(ts[-1],tb[-1]))]
-        xs=interp(ts,xs,target); xb=interp(tb,xb,target); raw_s.append(xs);raw_b.append(xb);train_rows.append((key,target,xs,xb))
-    s_all=np.concatenate(raw_s);b_all=np.concatenate(raw_b)
-    smu,sstd=s_all.mean(0),np.maximum(s_all.std(0),1e-4);bmu,bstd=b_all.mean(0),np.maximum(b_all.std(0),1e-4)
+def read_manifest(path, split):
+    data = json.loads(Path(path).read_text())
+    if data.get('test_access') is not False or data.get('status') != 'complete':
+        raise ValueError(f'Unauthenticated manifest status/split: {path}')
+    if 'aligned' in str(path) or data.get('normalization'):
+        raise ValueError('Use raw method features, not per-song alignment')
+    rows = data['rows']
+    if not rows or len({r['id'] for r in rows}) != len(rows):
+        raise ValueError('Missing or duplicate ids')
+    if any(r.get('split', data.get('split')) != split for r in rows):
+        raise ValueError(f'Expected {split} rows: {path}')
+    return data, {r['id']: r for r in rows}
+
+def load_context(row):
+    path = Path(row['context_path'])
+    if sha(path) != row['context_sha256']:
+        raise ValueError(f'Changed source context: {path}')
+    with np.load(path, allow_pickle=False) as z:
+        t, x = z['time30'].astype('f8'), z['fused30'].astype('f4')
+    if x.shape != (len(t), 64) or len(t) < 2 or not np.isfinite(x).all() or not np.isfinite(t).all() or np.any(np.diff(t) <= 0):
+        raise ValueError(f'Invalid context clock/values: {path}')
+    return t, x
+
+def concatenate_contexts(ts, xs, tb, xb):
+    # Preserve the SpaIn native clock; BSRNN has 40 Hz frame-centred
+    # observations. Endpoint extension is bounded to 100 ms, recorded below.
+    if abs(ts[0]-tb[0]) > .1 or abs(ts[-1]-tb[-1]) > .1:
+        raise ValueError('Method clocks cover different source intervals')
+    b = np.stack([np.interp(ts, tb, xb[:, i]) for i in range(64)], 1)
+    return ts, np.concatenate((xs, b), axis=1).astype('f4')
+
+def build(train_spain, train_bsrnn, show_spain, show_bsrnn, out):
+    if out.exists():
+        raise FileExistsError(out)
+    # Authenticate every input before writing any new context.
+    prepared = []
+    checkpoint_pairs = []
+    for split, sp, bp in [('train', train_spain, train_bsrnn), ('showcase', show_spain, show_bsrnn)]:
+        sm, sr = read_manifest(sp, split); bm, br = read_manifest(bp, split)
+        if sr.keys() != br.keys():
+            raise ValueError('Hybrid source id sets differ')
+        checkpoint_pairs.append((sm['checkpoint_sha256'], bm['checkpoint_sha256']))
+        entries = []
+        for key in sorted(sr):
+            a, b = sr[key], br[key]
+            sa = a.get('audio_sha256', a.get('source_audio_sha256'))
+            sb = b.get('audio_sha256', b.get('source_audio_sha256'))
+            if sa is None or sa != sb:
+                raise ValueError(f'Audio identity mismatch: {key}')
+            t, x = concatenate_contexts(*load_context(a), *load_context(b))
+            entries.append((key, t, x, sa, a, b))
+        prepared.append((split, sp, bp, entries))
+    if checkpoint_pairs[0] != checkpoint_pairs[1]:
+        raise ValueError('TRAIN/showcase method checkpoints differ')
     out.mkdir(parents=True)
-    train_out=out/'train';train_out.mkdir()
-    rows=[]
-    for key,t,xs,xb in train_rows:
-        hybrid=(.5*((xs-smu)/sstd)+.5*((xb-bmu)/bstd)).astype('f4');p=train_out/f'{key}.npz';np.savez_compressed(p,time30=t,fused30=hybrid);rows.append({'id':key,'native_key':key,'split':'train','context_path':str(p),'context_sha256':sha(p),'frames30':len(t),'feature_dim':64})
-    train_payload={'schema_version':1,'status':'complete','method':'spain_plus_obsrnn_hybrid','rows':rows,'split':'train','test_access':False,'source_spain_manifest':str(train_spain),'source_spain_manifest_sha256':sha(train_spain),'source_bsrnn_manifest':str(train_bsrnn),'source_bsrnn_manifest_sha256':sha(train_bsrnn),'train_spain_mean':smu.tolist(),'train_spain_std':sstd.tolist(),'train_bsrnn_mean':bmu.tolist(),'train_bsrnn_std':bstd.tolist(),'scope':'TRAIN-only z-score fusion; no TEST/showcase statistics'}
-    (out/'CONTEXT_MANIFEST.json').write_text(json.dumps(train_payload,indent=2,sort_keys=True)+'\n');(out/'CONTEXT_MANIFEST.json.sha256.json').write_text(json.dumps({'sha256':sha(out/'CONTEXT_MANIFEST.json')})+'\n')
-    show_sm,show_bm=load_manifest(show_spain),load_manifest(show_bsrnn);show_sr={r['id']:r for r in show_sm['rows']};show_br={r['id']:r for r in show_bm['rows']};show_out=out/'showcase';show_out.mkdir()
-    show_rows=[]
-    for key in sorted(show_sr):
-        ts,xs=load_ctx(show_sr[key]);tb,xb=load_ctx(show_br[key]);target=ts[(ts>=max(ts[0],tb[0]))&(ts<=min(ts[-1],tb[-1]))];hybrid=(.5*((interp(ts,xs,target)-smu)/sstd)+.5*((interp(tb,xb,target)-bmu)/bstd)).astype('f4');p=show_out/f'{key}.npz';np.savez_compressed(p,time30=target,fused30=hybrid);show_rows.append({'id':key,'split':'showcase','context_path':str(p),'context_sha256':sha(p),'frames30':len(target),'feature_dim':64})
-    show_payload={'schema_version':1,'status':'complete','method':'spain_plus_obsrnn_hybrid','rows':show_rows,'split':'showcase','test_access':False,'train_manifest_sha256':sha(out/'CONTEXT_MANIFEST.json'),'scope':'showcase transform using frozen TRAIN statistics only'}
-    (out/'SHOWCASE_CONTEXT_MANIFEST.json').write_text(json.dumps(show_payload,indent=2,sort_keys=True)+'\n');(out/'SHOWCASE_CONTEXT_MANIFEST.json.sha256.json').write_text(json.dumps({'sha256':sha(out/'SHOWCASE_CONTEXT_MANIFEST.json')})+'\n')
+    for split, sp, bp, entries in prepared:
+        folder = out / split; folder.mkdir(); rows = []
+        for key, t, x, audio_hash, a, b in entries:
+            path = folder / f'{key}.npz'
+            np.savez_compressed(path, time30=t, fused30=x)
+            rows.append({'id': key, 'split': split, 'context_path': str(path), 'context_sha256': sha(path),
+                         'audio_sha256': audio_hash, 'feature_dim': 128, 'group': a.get('group'),
+                         'source_hashes': [a['context_sha256'], b['context_sha256']]})
+        payload = {'schema_version': 2, 'schema': SCHEMA, 'method': 'spain_obsrnn_learned_fusion',
+                   'feature_dim': 128, 'branches': BRANCHES, 'normalization': 'native TRAIN stats only',
+                   'status': 'complete', 'split': split, 'test_access': False, 'rows': rows,
+                   'source_manifests': {str(p): sha(p) for p in [sp, bp]},
+                   'method_checkpoint_sha256': list(checkpoint_pairs[0]), 'max_endpoint_extension_s': .1}
+        name = 'CONTEXT_MANIFEST.json' if split == 'train' else 'SHOWCASE_CONTEXT_MANIFEST.json'
+        (out/name).write_text(json.dumps(payload, indent=2, sort_keys=True)+'\n')
 
 def main():
- p=argparse.ArgumentParser();p.add_argument('--train-spain',type=Path,required=True);p.add_argument('--train-bsrnn',type=Path,required=True);p.add_argument('--show-spain',type=Path,required=True);p.add_argument('--show-bsrnn',type=Path,required=True);p.add_argument('--out',type=Path,required=True);a=p.parse_args();build(a.train_spain,a.train_bsrnn,a.show_spain,a.show_bsrnn,a.out);print(json.dumps({'status':'complete','out':str(a.out)}))
+    p=argparse.ArgumentParser()
+    for flag in ('train-spain','train-bsrnn','show-spain','show-bsrnn','out'):
+        p.add_argument('--'+flag,type=Path,required=True)
+    a=p.parse_args();build(a.train_spain,a.train_bsrnn,a.show_spain,a.show_bsrnn,a.out)
+    print('Built authenticated concat128 TRAIN and showcase contexts:', a.out)
 if __name__=='__main__':main()

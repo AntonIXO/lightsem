@@ -50,7 +50,7 @@ def main(argv=None) -> int:
     p.add_argument('--out', type=Path, required=True)
     p.add_argument('--device', default='cuda')
     p.add_argument('--condition', default='native_stereo')
-    p.add_argument('--stereo-mode', choices=('normal','zero','reverse'), default='normal')
+    p.add_argument('--stereo-mode', choices=('normal','zero','reverse','drop-spain','drop-obsrnn'), default='normal')
     p.add_argument('--adapter-scale', type=float, help='override native stereo adapter scale; recorded in provenance')
     p.add_argument('--stereo-adapter-scale', type=float,
                    help='override only stereo adapter scale; preserves native baseline adapter scale')
@@ -89,6 +89,10 @@ def main(argv=None) -> int:
     if load.missing_keys or load.unexpected_keys: raise ValueError(f'Adapter checkpoint mismatch: {load}')
     model.to(args.device).eval()
     context_manifest=json.loads(args.context_manifest.read_text()); context_rows={r['id']:r for r in context_manifest['rows']}
+    if saved.get('context_schema') and saved['context_schema'] != context_manifest.get('schema'):
+        raise ValueError('TRAIN/inference context schema mismatch')
+    if set(SONGS) - set(context_rows):
+        raise ValueError('Showcase contexts missing own-song rows')
     translator = None
     if args.translator is not None:
         with np.load(args.translator, allow_pickle=False) as z:
@@ -113,14 +117,23 @@ def main(argv=None) -> int:
             bx=z['x30'] if 'x30' in z else z['x']
         base=np.stack([np.interp(target,bt,bx[:,i]) for i in range(92)],axis=1).astype(np.float32)
         context=context_rows[song]
-        with np.load(context['context_path']) as z:
-            stereo=np.stack([np.interp(target,z['time30'],z['fused30'][:,i]) for i in range(64)],1).astype(np.float32)
+        if sha(Path(context['context_path'])) != context['context_sha256']:
+            raise ValueError('Context hash mismatch')
+        if context.get('audio_sha256', context.get('source_audio_sha256')) not in (None, sha(audio)):
+            raise ValueError('Context is bound to different audio')
+        with np.load(context['context_path'], allow_pickle=False) as z:
+            stereo=np.stack([np.interp(target,z['time30'],z['fused30'][:,i]) for i in range(cfg.stereo_dim)],1).astype(np.float32)
         if translator is not None:
             normalized=(stereo-translator['input_mean'])/np.maximum(translator['input_std'],1e-4)
             design=np.concatenate((normalized,np.ones((len(normalized),1),dtype=np.float32)),axis=1)
             stereo=(design@translator['weights']*translator['output_std']+translator['output_mean']).astype(np.float32)
             if not np.isfinite(stereo).all():
                 raise ValueError(f'Frozen translator emitted nonfinite context for {song}')
+        if args.stereo_mode in ('drop-spain', 'drop-obsrnn'):
+            if cfg.stereo_dim != 128 or context_manifest.get('schema') != 'spain_obsrnn_concat128_v2':
+                raise ValueError('Branch ablation requires concat128 schema')
+            sl = slice(0, 64) if args.stereo_mode == 'drop-spain' else slice(64, 128)
+            stereo[:,sl] = np.asarray(saved['stereo_mean'])[sl]
         if args.stereo_mode == 'zero':
             stereo[:] = stereo.mean(0, keepdims=True)
         elif args.stereo_mode == 'reverse':
@@ -135,6 +148,7 @@ def main(argv=None) -> int:
         valid=torch.ones(1,n,dtype=torch.bool,device=args.device); coarse_valid=torch.ones(1,bins,dtype=torch.bool,device=args.device)
         indices=torch.arange(n,device=args.device,dtype=torch.long)[None]
         noise=cpu_noise(model.flow,n,7001).to(args.device)
+        noise_sha256=hashlib.sha256(noise.cpu().numpy().tobytes()).hexdigest()
         with torch.inference_mode(): body,plan=model.generate(fine,coarse,coarse_valid,indices,noise,stereo_context=stereo_fine,coarse_stereo=coarse_stereo,core_frames=960)
         native=body[0].float().cpu().numpy(); body=joints_from_features(torch.from_numpy(native)[None])[0].cpu().numpy(); plan_np={k:v[0].float().cpu().numpy() for k,v in plan.items() if torch.is_tensor(v)}
         path=args.out/f'{song}.npz'; np.savez_compressed(path,time=target,body=body,native=native,**{f'plan_{k}':v for k,v in plan_np.items()})
@@ -146,7 +160,7 @@ def main(argv=None) -> int:
             ref_metrics=motion_metrics(ref,fps=30)
             safety.update({'reference_body':str(ref_path),'reference_speed_p95':ref_metrics['speed_p95'],'reference_acceleration_p95':ref_metrics['acceleration_raw']['p95'],'reference_jerk_p95':ref_metrics['jerk_raw']['p95'],'speed_ratio':metrics['speed_p95']/max(ref_metrics['speed_p95'],1e-6),'acceleration_ratio':metrics['acceleration_raw']['p95']/max(ref_metrics['acceleration_raw']['p95'],1e-6),'jerk_ratio':metrics['jerk_raw']['p95']/max(ref_metrics['jerk_raw']['p95'],1e-6)})
             safety['pass']=bool(safety['finite'] and safety['speed_ratio']<=args.max_speed_ratio and safety['acceleration_ratio']<=args.max_acceleration_ratio and safety['jerk_ratio']<=args.max_jerk_ratio)
-        rows[song]={'audio':str(audio),'audio_sha256':sha(audio),'adapter_checkpoint':str(args.adapter_checkpoint),'adapter_checkpoint_sha256':sha(args.adapter_checkpoint),'context_manifest':str(args.context_manifest),'context_manifest_sha256':sha(args.context_manifest),'translator':None if args.translator is None else str(args.translator),'translator_sha256':None if args.translator is None else sha(args.translator),'body':str(path),'body_sha256':sha(path),'frames':n,'body_fps':30,'condition':args.condition,'stereo_mode':args.stereo_mode,'adapter_scale':cfg.adapter_scale,'stereo_adapter_scale':cfg.stereo_adapter_scale,'source_body_used':False,'native_time':'original30Hz','d4max':False,'d6':False,'safety':safety,'diagnostic_only':True}
+        rows[song]={'audio':str(audio),'audio_sha256':sha(audio),'adapter_checkpoint':str(args.adapter_checkpoint),'adapter_checkpoint_sha256':sha(args.adapter_checkpoint),'context_manifest':str(args.context_manifest),'context_manifest_sha256':sha(args.context_manifest),'translator':None if args.translator is None else str(args.translator),'translator_sha256':None if args.translator is None else sha(args.translator),'body':str(path),'body_sha256':sha(path),'frames':n,'body_fps':30,'condition':args.condition,'stereo_mode':args.stereo_mode,'adapter_scale':cfg.adapter_scale,'stereo_adapter_scale':cfg.stereo_adapter_scale,'noise_sha256':noise_sha256,'context_schema':context_manifest.get('schema'),'source_body_used':False,'native_time':'original30Hz','d4max':False,'d6':False,'safety':safety,'diagnostic_only':True}
     safety_pass=all(row.get('safety',{}).get('pass',True) for row in rows.values())
     status='complete' if safety_pass else 'rejected_raw_safety'
     manifest={'schema_version':1,'status':status,'condition':args.condition,'stereo_mode':args.stereo_mode,'adapter_scale':cfg.adapter_scale,'stereo_adapter_scale':cfg.stereo_adapter_scale,'adapter_checkpoint':str(args.adapter_checkpoint),'adapter_checkpoint_sha256':sha(args.adapter_checkpoint),'translator':None if args.translator is None else str(args.translator),'translator_sha256':None if args.translator is None else sha(args.translator),'rows':rows,'raw_safety_gate':{'reference_root':None if args.safety_reference_root is None else str(args.safety_reference_root),'max_speed_ratio':args.max_speed_ratio,'max_acceleration_ratio':args.max_acceleration_ratio,'max_jerk_ratio':args.max_jerk_ratio,'pass':safety_pass},'scope':'Native RTMPose stereo-adapter body candidates; raw safety required before mapper/render'}
