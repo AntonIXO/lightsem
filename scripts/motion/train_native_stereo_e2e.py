@@ -151,7 +151,16 @@ def main(argv=None) -> int:
     cfg = Config(**{**saved["config"], "stereo_dim": records.stereo_dim, "stereo_fusion": args.fusion, "freeze_early_blocks": 6})
     model = NativeDynamicsModel(MusicConfig(**saved["base_config"]), saved["normalizers"], cfg)
     result = model.load_state_dict(saved["model"], strict=False)
-    allowed_missing = ("flow.stereo_projection.", "flow.stereo_adapters.", "stereo_plan.")
+    # Fusion candidates add their own zero-initialized modules on top of the
+    # frozen baseline.  They are intentionally absent from the baseline
+    # checkpoint and must be admitted here; all other missing/unexpected keys
+    # remain a hard architecture mismatch.
+    allowed_missing = (
+        "flow.stereo_projection.",
+        "flow.stereo_adapters.",
+        "flow.stereo_gate.",
+        "stereo_plan.",
+    )
     if result.unexpected_keys or any(not key.startswith(allowed_missing) for key in result.missing_keys):
         raise ValueError(f"Baseline state mismatch: missing={result.missing_keys}, unexpected={result.unexpected_keys}")
     # End-to-end means every native parameter outside the mandated early-flow
