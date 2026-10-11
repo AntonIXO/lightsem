@@ -21,9 +21,9 @@ SONGS = {
     'cure_for_me': ROOT / 'demo_audio/Cure_For_Me.wav',
 }
 FPS = 30
-# New review generations use a 90-second window. Historical receipts keep
-# their original 60-second scope; this only controls new renders.
-DURATION = 90.0
+# New review generations use a 120-second window. Historical receipts keep
+# their original scope; this only controls new renders.
+DURATION = 120.0
 FRAMES = int(DURATION * FPS)
 WIDTH, HEIGHT = 1280, 1024
 
@@ -254,8 +254,8 @@ def smoke(root: Path, song: str) -> None:
     rs = renderers(patch)
     try:
         # Cover the complete default review window, including its tail. The
-        # old 60-second smoke set missed the final third after the default was
-        # extended to 90 seconds.
+        # old smoke sets missed the final part after the review default was
+        # extended to 120 seconds.
         stamps = tuple(sorted({0.0, 15.0, 30.0, 45.0, 60.0, 75.0,
                                max(0.0, DURATION - 1.0)}))
         for stamp in stamps:
@@ -405,7 +405,7 @@ def main():
     ap = argparse.ArgumentParser(); ap.add_argument('action', choices=('prepare', 'smoke', 'render', 'audit')); ap.add_argument('--song', choices=tuple(SONGS)); ap.add_argument('--root', type=Path, required=True)
     ap.add_argument('--video-encoder', choices=('av1_nvenc', 'h264_nvenc', 'libx264'), default='av1_nvenc')
     ap.add_argument('--video-preset', default='p7', help='NVENC p1-p7 or libx264 preset; project default is AV1 p7')
-    ap.add_argument('--full', action='store_true', help='Render the complete saved song instead of the 90-second review window')
+    ap.add_argument('--full', action='store_true', help='Render the complete saved song instead of the 120-second review window')
     args = ap.parse_args()
     if args.action == 'prepare': prepare(args.root); return
     if not args.song: ap.error('--song required')

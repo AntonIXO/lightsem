@@ -105,8 +105,8 @@ def main(argv: list[str] | None = None) -> int:
     parser.add_argument("--stereo-root", type=Path, default=STEREO_ROOT,
                         help="artifact root containing showcase_bodies_v2 and showcase_emission_v2")
     parser.add_argument("--baseline-root", type=Path, default=BASELINE_ROOT)
-    # New review generations use 90 seconds; historical roots are immutable.
-    parser.add_argument("--duration", type=float, default=90.0)
+    # New review generations use 120 seconds; historical roots are immutable.
+    parser.add_argument("--duration", type=float, default=120.0)
     parser.add_argument("--encoder", choices=("h264_nvenc", "av1_nvenc", "libx264"), default="h264_nvenc")
     parser.add_argument("--preset", default="p4")
     args = parser.parse_args(argv)
