@@ -59,6 +59,18 @@ def source_data(song: str):
 
 
 def patch_for_saved_emission(song: str, emission_path: Path, audio: Path):
+    # Fixed-config rerenders may carry the exact patch used to produce the
+    # saved universes. Prefer it over reconstructing a historical combo patch;
+    # rebuilding can silently re-enable old motion limits or alter fixture
+    # geometry while leaving the universe shape unchanged.
+    saved_patch = emission_path.with_name(emission_path.stem + '.patch.json')
+    if saved_patch.is_file():
+        patch = json.loads(saved_patch.read_text())
+        with np.load(emission_path, allow_pickle=False) as z:
+            if 'targets' not in z.files:
+                raise ValueError(f'Saved emission patch has no targets: {emission_path}')
+            intent = {'targets': z['targets'].astype(np.float32, copy=True)}
+        return patch, intent
     from lightsem.conductor.body_transfer_v2 import make_outputs
     from lightsem.dance.lighting import _load_p2_colors
     from lightsem.experiments.dynamic_dance_combo.brightness import load_verified_loudness
