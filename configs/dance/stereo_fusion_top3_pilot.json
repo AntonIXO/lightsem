@@ -1,0 +1,36 @@
+{
+  "schema_version": 1,
+  "id": "native-c-stereo-fusion-top3-20261011-v1",
+  "status": "diagnostic_only",
+  "baseline_config": "configs/dance/fixed_c.json",
+  "baseline_checkpoint_sha256": "affc85b4dde1b6501ac27fbdfa2df8a9810d9c13b02101fdbf3c6ac3f811e85b",
+  "context_schema": "spain_obsrnn_concat128_v2",
+  "stereo_dim": 128,
+  "fusion_candidates": [
+    {"id": "concat", "description": "SpaIn and oBSRNN streams concatenated before shared adapters"},
+    {"id": "gated_residual", "description": "SpaIn fast stream plus learned gated oBSRNN residual"},
+    {"id": "dual_cross_attention", "description": "bidirectional cross-attention between the two 64-D streams"},
+    {"id": "role_specialized", "description": "retained diagnostic: SpaIn to flow, oBSRNN to planner"}
+  ],
+  "native": {
+    "body_fps": 30,
+    "flow_steps": 32,
+    "freeze_early_blocks": 6,
+    "zero_initialized_new_outputs": true,
+    "d4max": false,
+    "d6": false,
+    "fixture_speed_limits": false,
+    "mapper": "01",
+    "p2_color_fixed": true,
+    "brightness": "restored historical LUFS law"
+  },
+  "training": {
+    "dataset": "paired native TRAIN only",
+    "updates": 1000,
+    "seed": 0,
+    "seeds_for_promotion": 2,
+    "baseline_promotion": false
+  },
+  "artifact_root": "/mnt/lightsem-data/experiments/lightsem/native_stereo_fusion_top3_20261011_v1",
+  "showcase_tracks": ["shpongle", "cure_for_me"]
+}
