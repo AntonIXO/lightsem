@@ -71,6 +71,25 @@ def equal_power_repan(stems: Tensor, angles_deg: Tensor) -> tuple[Tensor, Tensor
     return target.sum(dim=1), target
 
 
+def spain_reconstruction_loss(prediction: Tensor, target: Tensor, mixture: Tensor,
+                              mixture_weight: float = 0.1, eps: float = 1e-8) -> Tensor:
+    """Scale-aware source loss that rejects the quiet-zero solution.
+
+    Plain waveform MSE lets a model score well by shrinking every mask on
+    quiet MUSDB clips. Normalize source error by target energy and add mixture
+    consistency so source and spatial information remain in the objective.
+    """
+    if prediction.shape != target.shape or prediction.ndim != 4:
+        raise ValueError("prediction and target must have shape [B,4,2,N]")
+    if mixture.shape != (prediction.shape[0], 2, prediction.shape[-1]):
+        raise ValueError("mixture must have shape [B,2,N]")
+    target_energy = target.square().mean(dim=(1, 2, 3)).clamp_min(eps)
+    source_error = (prediction - target).square().mean(dim=(1, 2, 3)) / target_energy
+    mixture_energy = mixture.square().mean(dim=(1, 2)).clamp_min(eps)
+    consistency = (prediction.sum(dim=1) - mixture).square().mean(dim=(1, 2)) / mixture_energy
+    return source_error.mean() + float(mixture_weight) * consistency.mean()
+
+
 class SpaInNet(nn.Module):
     """D1-CAT SpaIn-Net with differentiable waveform reconstruction."""
 
@@ -268,7 +287,7 @@ def train_manifest(manifest: str | Path, *, steps: int = 1, segment_samples: int
         angles = torch.empty(1, 4).uniform_(-45.0, 45.0)
         mixture, target = equal_power_repan(stems, angles)
         prediction, _ = model(mixture, angles)
-        loss = F.mse_loss(prediction, target)
+        loss = spain_reconstruction_loss(prediction, target, mixture)
         optimizer.zero_grad(set_to_none=True)
         loss.backward()
         optimizer.step()

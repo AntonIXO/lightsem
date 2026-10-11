@@ -5,6 +5,7 @@ from lightsem.experiments.audio_stereo.spain_pilot import (
     SpaInNet,
     SpaInNetConfig,
     equal_power_repan,
+    spain_reconstruction_loss,
     train_manifest,
 )
 
@@ -16,6 +17,14 @@ def test_equal_power_repan_preserves_constant_power():
     assert mixture.shape == (1, 2, 32)
     assert target.shape == (1, 4, 2, 32)
     assert torch.allclose(target.square().sum(dim=2), stems.square(), atol=1e-5)
+
+
+def test_reconstruction_loss_rejects_zero_source_solution():
+    stems = torch.ones(1, 4, 32) * .1
+    mixture, target = equal_power_repan(stems, torch.tensor([[-45., -15., 15., 45.]]))
+    zero = torch.zeros_like(target)
+    assert float(spain_reconstruction_loss(zero, target, mixture)) > .9
+    assert float(spain_reconstruction_loss(target, target, mixture)) < 1e-5
 
 
 def test_spain_forward_returns_waveforms_and_native_slots():
