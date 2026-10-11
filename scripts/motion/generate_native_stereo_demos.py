@@ -44,6 +44,8 @@ def main(argv=None) -> int:
     p = argparse.ArgumentParser(description=__doc__)
     p.add_argument('--adapter-checkpoint', type=Path, required=True)
     p.add_argument('--context-manifest', type=Path, required=True)
+    p.add_argument('--translator', type=Path,
+                   help='TRAIN-only frozen feature translator from SpaIn/CRW/oBSRNN to R2 context')
     p.add_argument('--base92-root', type=Path, default=Path('/mnt/lightsem-data/experiments/lightsem/native_bf16_v7b/demo_features/features'))
     p.add_argument('--out', type=Path, required=True)
     p.add_argument('--device', default='cuda')
@@ -87,6 +89,15 @@ def main(argv=None) -> int:
     if load.missing_keys or load.unexpected_keys: raise ValueError(f'Adapter checkpoint mismatch: {load}')
     model.to(args.device).eval()
     context_manifest=json.loads(args.context_manifest.read_text()); context_rows={r['id']:r for r in context_manifest['rows']}
+    translator = None
+    if args.translator is not None:
+        with np.load(args.translator, allow_pickle=False) as z:
+            required = ('weights', 'input_mean', 'input_std', 'output_mean', 'output_std')
+            if any(key not in z.files for key in required):
+                raise ValueError(f'Invalid frozen translator schema: {args.translator}')
+            translator = {key: z[key].astype(np.float32) for key in required}
+        if translator['weights'].shape != (65, 64) or any(value.shape != (64,) for key, value in translator.items() if key != 'weights'):
+            raise ValueError(f'Invalid frozen translator shapes: {args.translator}')
     base_mean=torch.tensor(saved['audio_normalizers']['mean'],device=args.device);base_std=torch.tensor(saved['audio_normalizers']['std'],device=args.device)
     extra_mean=torch.tensor(saved['extra_normalizers']['mean'],device=args.device);extra_std=torch.tensor(saved['extra_normalizers']['std'],device=args.device)
     stereo_mean=torch.tensor(saved['stereo_mean'],device=args.device);stereo_std=torch.tensor(saved['stereo_std'],device=args.device)
@@ -104,6 +115,12 @@ def main(argv=None) -> int:
         context=context_rows[song]
         with np.load(context['context_path']) as z:
             stereo=np.stack([np.interp(target,z['time30'],z['fused30'][:,i]) for i in range(64)],1).astype(np.float32)
+        if translator is not None:
+            normalized=(stereo-translator['input_mean'])/np.maximum(translator['input_std'],1e-4)
+            design=np.concatenate((normalized,np.ones((len(normalized),1),dtype=np.float32)),axis=1)
+            stereo=(design@translator['weights']*translator['output_std']+translator['output_mean']).astype(np.float32)
+            if not np.isfinite(stereo).all():
+                raise ValueError(f'Frozen translator emitted nonfinite context for {song}')
         if args.stereo_mode == 'zero':
             stereo[:] = stereo.mean(0, keepdims=True)
         elif args.stereo_mode == 'reverse':
@@ -129,10 +146,10 @@ def main(argv=None) -> int:
             ref_metrics=motion_metrics(ref,fps=30)
             safety.update({'reference_body':str(ref_path),'reference_speed_p95':ref_metrics['speed_p95'],'reference_acceleration_p95':ref_metrics['acceleration_raw']['p95'],'reference_jerk_p95':ref_metrics['jerk_raw']['p95'],'speed_ratio':metrics['speed_p95']/max(ref_metrics['speed_p95'],1e-6),'acceleration_ratio':metrics['acceleration_raw']['p95']/max(ref_metrics['acceleration_raw']['p95'],1e-6),'jerk_ratio':metrics['jerk_raw']['p95']/max(ref_metrics['jerk_raw']['p95'],1e-6)})
             safety['pass']=bool(safety['finite'] and safety['speed_ratio']<=args.max_speed_ratio and safety['acceleration_ratio']<=args.max_acceleration_ratio and safety['jerk_ratio']<=args.max_jerk_ratio)
-        rows[song]={'audio':str(audio),'audio_sha256':sha(audio),'adapter_checkpoint':str(args.adapter_checkpoint),'adapter_checkpoint_sha256':sha(args.adapter_checkpoint),'context_manifest':str(args.context_manifest),'context_manifest_sha256':sha(args.context_manifest),'body':str(path),'body_sha256':sha(path),'frames':n,'body_fps':30,'condition':args.condition,'stereo_mode':args.stereo_mode,'adapter_scale':cfg.adapter_scale,'stereo_adapter_scale':cfg.stereo_adapter_scale,'source_body_used':False,'native_time':'original30Hz','d4max':False,'d6':False,'safety':safety,'diagnostic_only':True}
+        rows[song]={'audio':str(audio),'audio_sha256':sha(audio),'adapter_checkpoint':str(args.adapter_checkpoint),'adapter_checkpoint_sha256':sha(args.adapter_checkpoint),'context_manifest':str(args.context_manifest),'context_manifest_sha256':sha(args.context_manifest),'translator':None if args.translator is None else str(args.translator),'translator_sha256':None if args.translator is None else sha(args.translator),'body':str(path),'body_sha256':sha(path),'frames':n,'body_fps':30,'condition':args.condition,'stereo_mode':args.stereo_mode,'adapter_scale':cfg.adapter_scale,'stereo_adapter_scale':cfg.stereo_adapter_scale,'source_body_used':False,'native_time':'original30Hz','d4max':False,'d6':False,'safety':safety,'diagnostic_only':True}
     safety_pass=all(row.get('safety',{}).get('pass',True) for row in rows.values())
     status='complete' if safety_pass else 'rejected_raw_safety'
-    manifest={'schema_version':1,'status':status,'condition':args.condition,'stereo_mode':args.stereo_mode,'adapter_scale':cfg.adapter_scale,'stereo_adapter_scale':cfg.stereo_adapter_scale,'adapter_checkpoint':str(args.adapter_checkpoint),'adapter_checkpoint_sha256':sha(args.adapter_checkpoint),'rows':rows,'raw_safety_gate':{'reference_root':None if args.safety_reference_root is None else str(args.safety_reference_root),'max_speed_ratio':args.max_speed_ratio,'max_acceleration_ratio':args.max_acceleration_ratio,'max_jerk_ratio':args.max_jerk_ratio,'pass':safety_pass},'scope':'Native RTMPose stereo-adapter body candidates; raw safety required before mapper/render'}
+    manifest={'schema_version':1,'status':status,'condition':args.condition,'stereo_mode':args.stereo_mode,'adapter_scale':cfg.adapter_scale,'stereo_adapter_scale':cfg.stereo_adapter_scale,'adapter_checkpoint':str(args.adapter_checkpoint),'adapter_checkpoint_sha256':sha(args.adapter_checkpoint),'translator':None if args.translator is None else str(args.translator),'translator_sha256':None if args.translator is None else sha(args.translator),'rows':rows,'raw_safety_gate':{'reference_root':None if args.safety_reference_root is None else str(args.safety_reference_root),'max_speed_ratio':args.max_speed_ratio,'max_acceleration_ratio':args.max_acceleration_ratio,'max_jerk_ratio':args.max_jerk_ratio,'pass':safety_pass},'scope':'Native RTMPose stereo-adapter body candidates; raw safety required before mapper/render'}
     mpath=args.out/'MANIFEST.json';mpath.write_text(json.dumps(manifest,indent=2,sort_keys=True)+'\n');mpath.with_name(mpath.name+'.sha256.json').write_text(json.dumps({'sha256':sha(mpath)})+'\n')
     print(json.dumps({'status':status,'condition':args.condition,'songs':list(rows)})); return 0
 
