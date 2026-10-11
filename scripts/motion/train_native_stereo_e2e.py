@@ -140,6 +140,9 @@ def main(argv=None) -> int:
     p.add_argument("--lr", type=float, default=1e-5)
     p.add_argument("--device", default="cuda")
     p.add_argument("--fusion", choices=("concat","gated_residual","role_specialized","dual_cross_attention"), default="concat")
+    p.add_argument("--stereo-scale", type=float, default=0.6)
+    p.add_argument("--counterfactual-weight", type=float, default=1.0)
+    p.add_argument("--counterfactual-margin", type=float, default=0.008)
     args = p.parse_args(argv)
     if args.out.exists():
         raise FileExistsError(f"Preserving existing end-to-end root: {args.out}")
@@ -148,7 +151,14 @@ def main(argv=None) -> int:
     torch.manual_seed(args.seed)
     records = PilotRecords(args.manifest, args.context_manifest)
     saved = torch.load(args.baseline, map_location="cpu", weights_only=False)
-    cfg = Config(**{**saved["config"], "stereo_dim": records.stereo_dim, "stereo_fusion": args.fusion, "freeze_early_blocks": 6})
+    if not 0.0 < args.stereo_scale <= 1.0:
+        raise ValueError("--stereo-scale must be in (0,1]")
+    if args.counterfactual_weight < 0.0 or args.counterfactual_margin < 0.0:
+        raise ValueError("Counterfactual settings must be nonnegative")
+    cfg = Config(**{**saved["config"], "stereo_dim": records.stereo_dim,
+                    "stereo_fusion": args.fusion, "freeze_early_blocks": 6,
+                    "stereo_adapter_scale": args.stereo_scale,
+                    "stereo_plan_scale": args.stereo_scale})
     model = NativeDynamicsModel(MusicConfig(**saved["base_config"]), saved["normalizers"], cfg)
     result = model.load_state_dict(saved["model"], strict=False)
     # Fusion candidates add their own zero-initialized modules on top of the
@@ -201,6 +211,18 @@ def main(argv=None) -> int:
         valid=values["valid"]; coarse_valid=values["coarse_valid"]
         condition,_=model.condition(fine,coarse,coarse_valid,values["indices"],stereo,coarse_stereo)
         generated,_=model.rollout(condition,noise,gradient_steps=cfg.gradient_steps,teacher=None)
+        # Drop exactly one learned stream while keeping audio, pose crop, and
+        # noise fixed. The counterfactual term below gives both streams a
+        # measurable root-relative effect instead of letting shared native
+        # weights absorb the intervention.
+        cf_stereo=stereo.clone(); dropped_stream='spain' if step % 2 == 0 else 'obsrnn'
+        cf_coarse_stereo=coarse_stereo.clone()
+        if dropped_stream == 'spain':
+            cf_stereo[..., :64] = 0.; cf_coarse_stereo[..., :64] = 0.
+        else:
+            cf_stereo[..., 64:] = 0.; cf_coarse_stereo[..., 64:] = 0.
+        cf_condition,_=model.condition(fine,coarse,coarse_valid,values["indices"],cf_stereo,cf_coarse_stereo)
+        counterfactual,_=model.rollout(cf_condition,noise,gradient_steps=cfg.gradient_steps,teacher=None)
         with torch.no_grad():
             base_condition,_=baseline_model.condition(fine,coarse,coarse_valid,values["indices"])
             baseline_native,_=baseline_model.rollout(base_condition,noise,gradient_steps=0,teacher=None)
@@ -209,9 +231,19 @@ def main(argv=None) -> int:
         dyn=dynamics_losses(projected,values["pose"],(values["pose_mask"]&valid[...,None]))
         raw_prior=raw_native_losses(generated,baseline_native,valid)
         raw_total=sum(RAW_WEIGHTS[name]*value for name,value in raw_prior.items())
+        cf_projected,_=project_native(counterfactual,valid)
+        # Fixed projected upper body: head, shoulders, elbows, wrists. The
+        # target is a small torso-unit response plus a term proportional to the
+        # removed stream's actual variation, so silent contexts are not forced
+        # into arbitrary motion.
+        response=torch.sqrt((projected[:,:,:7]-cf_projected[:,:,:7]).square().sum(-1)+1e-8).mean((1,2))
+        stream_delta=(stereo-cf_stereo).abs().mean((1,2)).detach()
+        response_target=args.counterfactual_margin + .002*stream_delta.clamp(max=4.)
+        counterfactual_loss=torch.relu(response_target-response).mean()
         # The raw prior is deliberately strong: end-to-end external conditioning
         # must learn the paired motion evidence without creating a new jitter mode.
         loss=pose_loss+.1*sum(dyn.values())+1.0*raw_total+.0001*sum(parameter.square().mean() for parameter in trainable)
+        loss=loss+args.counterfactual_weight*counterfactual_loss
         if not torch.isfinite(loss):
             raise FloatingPointError(f"nonfinite step {step}")
         optimizer.zero_grad(set_to_none=True); loss.backward(); torch.nn.utils.clip_grad_norm_(trainable, 1.0); optimizer.step()
@@ -227,8 +259,8 @@ def main(argv=None) -> int:
     for prefix in ('planner.', 'flow.output.', 'flow.blocks.6.'):
         if not any(name.startswith(prefix) for name in changed):
             raise ValueError(f'Native weights did not learn: {prefix}')
-    torch.save({"model":model.state_dict(),"config":asdict(cfg),"base_config":saved["base_config"],"normalizers":saved["normalizers"],"audio_normalizers":saved["audio_normalizers"],"extra_normalizers":saved["extra_normalizers"],"stereo_mean":records.stereo_mean,"stereo_std":records.stereo_std,"baseline_checkpoint":str(args.baseline),"baseline_sha256":sha(args.baseline),"context_manifest":str(args.context_manifest),"context_manifest_sha256":sha(args.context_manifest),"steps":args.steps,"seed":args.seed,"lr":args.lr,"fusion":args.fusion,"context_schema":records.schema,"training_manifest_sha256":sha(args.manifest),"changed_native_tensors":changed,"training_mode":"native_c_end_to_end_external_spatial","frozen_first_flow_blocks":cfg.freeze_early_blocks},checkpoint)
-    report={"schema_version":1,"status":"complete","seed":args.seed,"steps":args.steps,"batch_size":args.batch_size,"lr":args.lr,"arm":json.loads(args.context_manifest.read_text()).get("method"),"baseline":str(args.baseline),"baseline_sha256":sha(args.baseline),"context_manifest":str(args.context_manifest),"context_manifest_sha256":sha(args.context_manifest),"checkpoint":str(checkpoint),"checkpoint_sha256":sha(checkpoint),"elapsed_s":time.monotonic()-started,"loss_first":losses[0],"loss_last":losses[-1],"raw_prior_first":raw_losses[0],"raw_prior_last":raw_losses[-1],"finite":True,"fusion":args.fusion,"context_schema":records.schema,"changed_native_tensors":changed,"torch_version":torch.__version__,"training_mode":"native C end-to-end with external spatial context; first six flow blocks and legacy plan projection frozen","diagnostic_only":True,"scope":"paired native TRAIN only; raw safety gate required before mapper/render; no baseline promotion"}
+    torch.save({"model":model.state_dict(),"config":asdict(cfg),"base_config":saved["base_config"],"normalizers":saved["normalizers"],"audio_normalizers":saved["audio_normalizers"],"extra_normalizers":saved["extra_normalizers"],"stereo_mean":records.stereo_mean,"stereo_std":records.stereo_std,"baseline_checkpoint":str(args.baseline),"baseline_sha256":sha(args.baseline),"context_manifest":str(args.context_manifest),"context_manifest_sha256":sha(args.context_manifest),"steps":args.steps,"seed":args.seed,"lr":args.lr,"fusion":args.fusion,"stereo_scale":args.stereo_scale,"counterfactual_weight":args.counterfactual_weight,"counterfactual_margin":args.counterfactual_margin,"context_schema":records.schema,"training_manifest_sha256":sha(args.manifest),"changed_native_tensors":changed,"training_mode":"native_end_to_end_with_counterfactual_stereo_response","frozen_first_flow_blocks":cfg.freeze_early_blocks},checkpoint)
+    report={"schema_version":1,"status":"complete","seed":args.seed,"steps":args.steps,"batch_size":args.batch_size,"lr":args.lr,"arm":json.loads(args.context_manifest.read_text()).get("method"),"baseline":str(args.baseline),"baseline_sha256":sha(args.baseline),"context_manifest":str(args.context_manifest),"context_manifest_sha256":sha(args.context_manifest),"checkpoint":str(checkpoint),"checkpoint_sha256":sha(checkpoint),"elapsed_s":time.monotonic()-started,"loss_first":losses[0],"loss_last":losses[-1],"raw_prior_first":raw_losses[0],"raw_prior_last":raw_losses[-1],"finite":True,"fusion":args.fusion,"stereo_scale":args.stereo_scale,"counterfactual_weight":args.counterfactual_weight,"counterfactual_margin":args.counterfactual_margin,"context_schema":records.schema,"changed_native_tensors":changed,"torch_version":torch.__version__,"training_mode":"native end-to-end with counterfactual stereo response; first six flow blocks and legacy plan projection frozen","diagnostic_only":True,"scope":"paired native TRAIN only; raw safety gate required before mapper/render; no baseline promotion"}
     write(args.out/"REPORT.json",report); print(json.dumps(report,sort_keys=True)); return 0
 
 

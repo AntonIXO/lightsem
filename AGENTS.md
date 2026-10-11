@@ -293,3 +293,20 @@ The status record is `docs/research/2026-10-07-native-full-data/STATUS.md`.
 - Use the native-dance-light-pipeline procedure and the autonomous-training
   evaluation schema for every generation. Preserve the failed raw body and
   its provenance in a new artifact root; never present it as a demo.
+
+## Stereo fusion rejection — 2026-10-11
+
+- The user rejected concat, gated, role-specialized and dual-attention demos
+  as visually indistinguishable. Prior per-song rankings are withdrawn.
+- Nonzero world-space RMS and different body/DMX hashes cannot qualify stereo
+  influence: root drift dominated the previous ablation response. Measure
+  root-relative articulation, each teacher stream separately, and decoded
+  angular DMX. Byte differences in 16-bit coarse/fine DMX are not angular error.
+- The historical `zero` control means per-song temporal mean, not zero input.
+  Keep it reproducible; name new training-mean, time-shift, donor and channel
+  controls explicitly. Do not call feature masking actual source removal.
+- The requested follow-up compares native-trained role-specialized and
+  attention variants with both SpaIn and oBSRNN streams, causal counterfactual
+  checks, raw safety and full own-song videos. Use one seed. No arbitrary
+  output gain, posthoc choreography, smoothing or retiming to manufacture a
+  visible difference. Attention cost must be measured and bounded/cached.
