@@ -273,3 +273,23 @@ The status record is `docs/research/2026-10-07-native-full-data/STATUS.md`.
   independent. Never substitute oscillators, fallback motion, reused bodies, or
   post-hoc smoothing/D4/D6 for a failed native generator. Keep pair-scoped plots
   with signed candidate-minus-reference differences and all raw peaks.
+
+## Mandatory generation safety gate — 2026-10-11
+
+- Every native generation, including stereo-adapter candidates and every
+  review/demo export, must be audited from the saved raw 30 Hz body before
+  mapper, interpolation, DMX, or video. Measure speed, acceleration, jerk,
+  root/support, finite values, inactive frames, and exact duplicate streams;
+  compare the candidate against the selected baseline on the same song and
+  clock.
+- A candidate with a raw speed/jerk explosion, constant shaking, teleporting,
+  nonfinite values, or an unsafe ratio to the selected baseline is rejected
+  and quarantined. Do not render it, map it, lower the threshold, smooth it,
+  retime it, or hide it with fixture caps. A generation receipt must record
+  `rejected_raw_safety` and the measured ratios.
+- The check is mandatory even when the change is described as an audio,
+  stereo, color, mapper, or presentation experiment. Passing a video smoke or
+  decoded DMX audit cannot override a failed raw-body safety gate.
+- Use the native-dance-light-pipeline procedure and the autonomous-training
+  evaluation schema for every generation. Preserve the failed raw body and
+  its provenance in a new artifact root; never present it as a demo.

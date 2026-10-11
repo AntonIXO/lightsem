@@ -25,10 +25,12 @@ class Config:
     gradient_steps:int=4
     freeze_early_blocks:int=6
     adapter_scale:float=.2
+    stereo_adapter_scale:float|None=None
+    stereo_plan_scale:float|None=None
     def __post_init__(self):
         if self.arm not in ('continued','dynamics','joint'):raise ValueError('Unknown registered arm')
         if self.steps!=32 or not 1<=self.gradient_steps<=self.steps:raise ValueError('Declared32-step native solver required')
-        if self.extra_dim<1 or self.stereo_dim<0:raise ValueError('Invalid audio dimensions')
+        if self.extra_dim<1 or self.stereo_dim<0 or self.adapter_scale<=0 or (self.stereo_adapter_scale is not None and self.stereo_adapter_scale<=0) or (self.stereo_plan_scale is not None and self.stereo_plan_scale<=0):raise ValueError('Invalid audio dimensions/scales')
 
 
 class Planner(nn.Module):
@@ -90,7 +92,8 @@ class Flow(DynamicFlow):
             if stereo is not None:
                 if stereo.shape[-1]!=self.native_config.stereo_dim:raise ValueError('Stereo native context width mismatch')
                 stereo_hidden=F.silu(self.stereo_projection(stereo))
-                bias=bias+self.native_config.adapter_scale*torch.tanh(self.stereo_adapters[index](stereo_hidden))
+                stereo_scale=self.native_config.adapter_scale if self.native_config.stereo_adapter_scale is None else self.native_config.stereo_adapter_scale
+                bias=bias+stereo_scale*torch.tanh(self.stereo_adapters[index](stereo_hidden))
             biases.append(bias.transpose(1,2))
         return audio[...,:92],torch.stack(biases,1)
     def prepared_vector_field(self,base,biases,state,t):
@@ -141,7 +144,9 @@ class NativeDynamicsModel(nn.Module):
         # Observerplanner receives identical supervision in allarms. Only joint
         # connects its outputs to the decoder; this controls label exposure.
         plan=self.planner(coarse_audio,coarse_valid)
-        if self.stereo_plan is not None:plan['conditioning']=plan['conditioning']+self.stereo_plan(coarse_stereo)
+        if self.stereo_plan is not None:
+            plan_scale=1. if self.config.stereo_plan_scale is None else self.config.stereo_plan_scale
+            plan['conditioning']=plan['conditioning']+plan_scale*self.stereo_plan(coarse_stereo)
         values=plan_at_frames(plan['conditioning'],coarse_valid,frame_indices)
         result=torch.cat((fine_audio,values),-1)
         if stereo_context is not None:result=torch.cat((result,stereo_context),-1)
