@@ -40,6 +40,13 @@ def load_config(path=DEFAULT_CONFIG):
         raise ValueError('Unsupported mapper or external clock recipe; select the verified01/positive-D6 definition')
     if any(config['addons'][name]['enabled'] for name in ('d4max', 'd6')):
         raise ValueError('D4-max and D6 must be explicitly enabled at the CLI')
+    stereo = config.get('stereo_conditioning')
+    if stereo and stereo.get('enabled'):
+        if stereo.get('fusion') != 'dual_cross_attention' or stereo.get('feature_dim') != 128:
+            raise ValueError('The active stereo baseline must use authenticated dual 128-D conditioning')
+        manifest = Path(stereo.get('context_manifest', ''))
+        if not manifest.is_file() or sha(manifest) != stereo.get('context_manifest_sha256'):
+            raise ValueError('Active stereo context manifest is missing or hash-mismatched')
     return config, path
 
 
@@ -148,9 +155,17 @@ def load_model(config, device='cpu', checkpoint=None):
     model = model.to(device).eval().requires_grad_(False)
     norms = [tuple(torch.tensor(state[name][key], device=device, dtype=torch.float32)
                    for key in ('mean', 'std')) for name in ('audio_normalizers', 'extra_normalizers')]
+    if model_config.stereo_dim:
+        for name in ('stereo_mean', 'stereo_std'):
+            if name not in state:
+                raise ValueError(f'Stereo checkpoint is missing {name}')
+        norms.append((torch.tensor(state['stereo_mean'], device=device, dtype=torch.float32),
+                      torch.tensor(state['stereo_std'], device=device, dtype=torch.float32)))
     identity = state['identity']
     return model, norms, {'path': str(path), 'sha256': sha(path),
                           'training_seed': identity['seed'],
                           'arm': identity.get('arm'),
+                          'stereo_fusion': model_config.stereo_fusion,
+                          'stereo_dim': model_config.stereo_dim,
                           'protocol_sha256': identity.get('protocol_sha256'),
                           'quiet_gradient_fix_in_checkpoint': state.get('quiet_gradient_fix_in_checkpoint')}

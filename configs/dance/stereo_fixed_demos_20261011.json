@@ -12,7 +12,17 @@
       "body_manifest_sha256": "58dee4bc46909a30f0d08845436bd3d5b54b2b11c36b36d220a62830b2dd5504",
       "emission_manifest": "/mnt/lightsem-data/experiments/lightsem/native_stereo_counterfactual_20261011_v1/showcase_emission_v1/MANIFEST.json",
       "video_manifest": "/mnt/lightsem-data/experiments/lightsem/native_stereo_counterfactual_20261011_v1/showcase_videos_full_v1/SHOWCASE_VIDEO_MANIFEST.json",
-      "video_manifest_sha256": "e28aeb1982cf4b0db31e8957ce592b1c85445ae57f24e3e5e261479b61ef83f9"
+      "video_manifest_sha256": "e28aeb1982cf4b0db31e8957ce592b1c85445ae57f24e3e5e261479b61ef83f9",
+      "integrated_cli": {
+        "root": "/mnt/lightsem-data/experiments/lightsem/native_stereo_counterfactual_20261011_v1/production/cli_demos_retry4",
+        "config_sha256": "0f9fad8a9d4a3abc5f4696bf52af2873fee637551b7d3b599ab1b4ac7d15a374",
+        "songs": {
+          "shpongle": {"generation_sha256": "19dd21425549789edd3bfde6dacd31cf9c3291a6e4d51bb3593b8d86cb0762cd", "body_sha256": "40a158dc999eaf9ae4c445f7158c2cfa8022660ff546421aa8afdd024716bf56"},
+          "cure_for_me": {"generation_sha256": "c9859abd2c9850f22c6151432224ce06c3c9f0ccd52e37fba3d2f302538f68a3", "body_sha256": "74551c60351eea8a8b2dbe40c95a85ad25dcb5f38fcdaf7b5b29dbaf0592c597"}
+        },
+        "video_root": "/mnt/lightsem-data/experiments/lightsem/native_stereo_counterfactual_20261011_v1/production/active_baseline_showcase/videos_full_v1",
+        "video_manifest_sha256": "1e072d5ecc125020b40a21e728d9ef411c9958a1e7e664d27fbce447a650c55f"
+      }
     },
     "role_specialized": {
       "status": "diagnostic_fixed_demo",
