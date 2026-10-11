@@ -1,12 +1,12 @@
 {
   "schema_version": 1,
-  "id": "native-bf16-rtmpose-full-fit-seed0-20261010",
+  "id": "native-stereo-dual-cross-attention-counterfactual-seed0-20261011",
   "status": "user_selected_motion_baseline",
-  "selected_on": "2026-10-07",
-  "selection_scope": "User-selected RTMPose BF16 full-fit seed0 baseline; full data is fit without a validation split. Health evidence remains diagnostic where intervention sensitivity is unmeasured.",
+  "selected_on": "2026-10-11",
+  "selection_scope": "User-selected dual cross-attention stereo native-C baseline. The checkpoint is diagnostic and requires the authenticated showcase context manifest; two-seed confirmation remains open.",
   "checkpoint": {
-    "path": "/mnt/lightsem-data/experiments/lightsem/native_bf16_v7b/learning/runs/joint/seed_0/final.pt",
-    "sha256": "affc85b4dde1b6501ac27fbdfa2df8a9810d9c13b02101fdbf3c6ac3f811e85b"
+    "path": "/mnt/lightsem-data/experiments/lightsem/native_stereo_counterfactual_20261011_v1/production/dual_cross_attention/final.pt",
+    "sha256": "36526af73ff193c8d2482457619b57de602088424d20e286ba6cea02985e973f"
   },
   "training_seed": 0,
   "draw_seed": 7001,
@@ -92,14 +92,26 @@
     "pose_backend": "RTMPose-m TensorRT autocast BF16 + YOLOX-m HumanArt CUDA detector; scores metadata only",
     "admission_manifest": "/mnt/lightsem-data/experiments/lightsem/native_bf16_v7b/data/MANIFEST.json",
     "feature_receipt": "/mnt/lightsem-data/experiments/lightsem/native_bf16_v7b/features/COMPLETE.json",
-    "training_report": "/mnt/lightsem-data/experiments/lightsem/native_bf16_v7b/learning/runs/joint/seed_0/REPORT.json"
+    "training_report": "/mnt/lightsem-data/experiments/lightsem/native_bf16_v7b/learning/runs/joint/seed_0/REPORT.json",
+    "stereo_fusion": "dual_cross_attention",
+    "stereo_context_schema": "spain_obsrnn_concat128_v2",
+    "stereo_dim": 128,
+    "stereo_adapter_scale": 0.6,
+    "counterfactual_stream_drop": true,
+    "counterfactual_weight": 1.0,
+    "counterfactual_margin": 0.008,
+    "stereo_training_updates": 1000,
+    "stereo_training_report": "/mnt/lightsem-data/experiments/lightsem/native_stereo_counterfactual_20261011_v1/training/dual_cross_attention/REPORT.json",
+    "stereo_training_report_sha256": "f639aa6f29461cf58e786d4784a4db80698b14a6ea65833d995466991060e839",
+    "base_motion_checkpoint": "/mnt/lightsem-data/experiments/lightsem/native_bf16_v7b/learning/runs/joint/seed_0/final.pt",
+    "base_motion_checkpoint_sha256": "affc85b4dde1b6501ac27fbdfa2df8a9810d9c13b02101fdbf3c6ac3f811e85b"
   },
   "qualification": {
     "status": "user_selected_motion_baseline",
-    "experiment": "native-full-fit-all-20261009-seed0-rtmpose-bf16-audio-v3",
-    "note": "Explicit user baseline selection. This designation does not convert missing input-sensitivity evidence into a qualification claim."
+    "experiment": "native-stereo-counterfactual-20261011-dual-cross-attention-seed0",
+    "note": "User explicitly selected dual cross-attention as the active baseline. Raw safety and causal stereo response passed on two showcase songs; two-seed confirmation and broader context coverage remain open."
   },
-  "historical_reference_config": "configs/dance/fixed_c_20261007.json",
+  "historical_reference_config": "configs/dance/fixed_c_rtmpose_20261011.json",
   "cached_tracks": {
     "shpongle": {
       "audio_sha256": "95e4388424ef62950bdeae78e47b8e71839ed28c6e01189fe15f9ae6c902b6c0",
@@ -147,5 +159,14 @@
         "sha256": "d5f4e6a2640c9d1a455afd00329cd12b1e4f8c8439f1b91cff7d23406dedde70"
       }
     }
+  },
+  "stereo_conditioning": {
+    "enabled": true,
+    "fusion": "dual_cross_attention",
+    "schema": "spain_obsrnn_concat128_v2",
+    "feature_dim": 128,
+    "context_manifest": "/mnt/lightsem-data/experiments/lightsem/native_stereo_e2e_hybrid_20261011_v2/contexts/SHOWCASE_CONTEXT_MANIFEST.json",
+    "context_manifest_sha256": "7003648d7979d338f4a7e9eebb08ec2f28137c721ae23a31d8e4a2615feeb555",
+    "scope": "authenticated Shpongle and Cure For Me own-song contexts; no silent fallback"
   }
 }

@@ -56,6 +56,42 @@ def validate_base92_clock(base, base_time, timeline_time):
         raise ValueError('Invalid paired native30Hz Base92 features')
 
 
+def load_stereo_context(audio_path, music, config):
+    """Load the hash-bound 128-D external context for the active baseline."""
+    spec = config.get('stereo_conditioning')
+    if not spec or not spec.get('enabled'):
+        return None, None
+    manifest_path = Path(spec['context_manifest']).expanduser().resolve()
+    if sha(manifest_path) != spec['context_manifest_sha256']:
+        raise ValueError('Stereo context manifest hash mismatch')
+    manifest = json.loads(manifest_path.read_text())
+    if manifest.get('schema') != spec['schema'] or manifest.get('feature_dim') != 128:
+        raise ValueError('Active baseline stereo schema differs from context manifest')
+    rows = {row['id']: row for row in manifest.get('rows', [])}
+    audio_hash = sha(audio_path)
+    row = next((value for value in rows.values() if value.get('audio_sha256') == audio_hash), None)
+    if row is None:
+        raise FileNotFoundError(
+            f'No authenticated {spec["fusion"]} context for this waveform; '
+            'extract and register a new context before using the stereo baseline')
+    context_path = Path(row['context_path']).expanduser().resolve()
+    if sha(context_path) != row['context_sha256'] or row.get('audio_sha256') != audio_hash:
+        raise ValueError('Stereo context/audio binding mismatch')
+    with np.load(context_path, allow_pickle=False) as values:
+        source_time = np.asarray(values['time30'], dtype=np.float64)
+        source = np.asarray(values['fused30'], dtype=np.float32)
+    if source.ndim != 2 or source.shape[1] != 128 or len(source_time) != len(source):
+        raise ValueError('Invalid active stereo context shape')
+    if not np.isfinite(source).all() or not np.isfinite(source_time).all() or np.any(np.diff(source_time) <= 0):
+        raise ValueError('Invalid active stereo context values/clock')
+    target = np.asarray(music.time, dtype=np.float64)
+    stereo = np.stack([np.interp(target, source_time, source[:, i]) for i in range(128)], axis=1).astype(np.float32)
+    return stereo, {'manifest': str(manifest_path), 'manifest_sha256': sha(manifest_path),
+                    'context': str(context_path), 'context_sha256': sha(context_path),
+                    'audio_sha256': audio_hash, 'schema': manifest['schema'],
+                    'fusion': spec['fusion']}
+
+
 def music_input(audio_path, root, config, *, timeline_path=None, base92_path=None,
                 audio_python=None, audio_device=None, audio_cache=None):
     key, cached = cached_track(config, audio_path)
@@ -89,18 +125,26 @@ def music_input(audio_path, root, config, *, timeline_path=None, base92_path=Non
     duration = music.metadata.get('duration_s')
     if duration is not None and abs(float(duration) - len(base) / 30.) > 1 / 30. + 1e-6:
         raise ValueError('Base92/native body coverage differs from analyzed audio duration')
+    stereo, stereo_binding = load_stereo_context(audio_path, music, config)
     return music, base, {'timeline': str(timeline_path), 'timeline_sha256': sha(timeline_path),
                          'base92': str(base92_path.resolve()), 'base92_sha256': sha(base92_path),
-                         'audio_sha256': sha(audio_path), 'cached_track': key}
+                         'audio_sha256': sha(audio_path), 'cached_track': key,
+                         'stereo_conditioning': stereo_binding}, stereo
 
 
-def native_body(music, base, config, *, device='cpu', checkpoint=None, draw_seed=None):
+def native_body(music, base, config, *, stereo=None, device='cpu', checkpoint=None, draw_seed=None):
     import torch
     from lightsem.experiments.dynamic_dance.audio import model_features
     from lightsem.experiments.native_dynamics.evaluation import cpu_noise
     from lightsem.experiments.native_dynamics.dataset import CONTEXT_BINS
     from lightsem.experiments.motion_study.geometry import joints_from_features
     model, norms, identity = load_model(config, device, checkpoint)
+    if model.config.stereo_dim:
+        if stereo is None or len(norms) < 3 or stereo.shape != (len(base), model.config.stereo_dim):
+            raise ValueError('Active stereo baseline requires paired native stereo context')
+        stereo_mean, stereo_std = norms[2]
+    elif stereo is not None:
+        raise ValueError('Stereo context supplied to a non-stereo baseline')
     n = len(base); extra, names = model_features(music, np.arange(n) / 30.)
     bins, pad = (n + 14) // 15, (-n) % 15
     if bins > CONTEXT_BINS:
@@ -116,7 +160,20 @@ def native_body(music, base, config, *, device='cpu', checkpoint=None, draw_seed
         coarse[0, :bins] = (torch.tensor(pooled, device=device) - norms[1][0]) / norms[1][1]
         valid[0, :bins] = True
         noise = cpu_noise(model.flow, max(config['noise_reference_frames'], n), seed)[:, :n].contiguous().to(device)
-        native, plan = model.generate(fine, coarse, valid, torch.arange(n, device=device)[None], noise)
+        if model.config.stereo_dim:
+            stereo_t = (torch.tensor(stereo, device=device) - stereo_mean) / stereo_std
+            stereo_pad = np.pad(stereo, ((0, (-n) % 15), (0, 0)))
+            stereo_coarse = stereo_pad.reshape(bins, 15, model.config.stereo_dim).sum(1)
+            stereo_coarse /= np.minimum(15, n - np.arange(bins) * 15)[:, None]
+            # Native C keeps its planner tensors at CONTEXT_BINS=1024 even
+            # when the song occupies fewer bins.  Match that contract for the
+            # dual context; plan_at_frames only reads the valid prefix.
+            coarse_stereo = torch.zeros(1, coarse.shape[1], model.config.stereo_dim, device=device)
+            coarse_stereo[0, :bins] = (torch.tensor(stereo_coarse, device=device) - stereo_mean) / stereo_std
+            native, plan = model.generate(fine, coarse, valid, torch.arange(n, device=device)[None], noise,
+                                          stereo_context=stereo_t[None], coarse_stereo=coarse_stereo[None])
+        else:
+            native, plan = model.generate(fine, coarse, valid, torch.arange(n, device=device)[None], noise)
         world = joints_from_features(native)[0].cpu().numpy()
         values = native[0].cpu().numpy()
     if not np.isfinite(values).all() or not np.isfinite(world).all():
@@ -224,12 +281,12 @@ def generate(audio_path, root, *, baseline_config=None, d4max=False, d6=False, d
         raise FileExistsError(f'Run directory exists; preserve it and choose another --out: {root}')
     root.mkdir(parents=True)
     try:
-        music, base, binding = music_input(audio_path, root, config, timeline_path=timeline_path,
+        music, base, binding, stereo = music_input(audio_path, root, config, timeline_path=timeline_path,
                                          base92_path=base92_path, audio_python=audio_python, audio_device=audio_device,
                                          audio_cache=audio_cache)
         lock = accelerator_lock() if device.startswith('cuda') else nullcontext()
         with lock:
-            source, extra, native_plan, identity = native_body(music, base, config, device=device,
+            source, extra, native_plan, identity = native_body(music, base, config, stereo=stereo, device=device,
                                                              checkpoint=checkpoint, draw_seed=draw_seed)
             telemetry, d6_identity = d6_prediction(extra, config, device=device, checkpoint=d6_checkpoint) if d6 else (None, None)
         source.metadata.update(audio=binding, d6_checkpoint=d6_identity)
