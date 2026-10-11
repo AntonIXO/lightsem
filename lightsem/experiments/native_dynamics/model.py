@@ -32,7 +32,7 @@ class Config:
         if self.arm not in ('continued','dynamics','joint'):raise ValueError('Unknown registered arm')
         if self.steps!=32 or not 1<=self.gradient_steps<=self.steps:raise ValueError('Declared32-step native solver required')
         if self.extra_dim<1 or self.stereo_dim<0 or self.adapter_scale<=0 or (self.stereo_adapter_scale is not None and self.stereo_adapter_scale<=0) or (self.stereo_plan_scale is not None and self.stereo_plan_scale<=0):raise ValueError('Invalid audio dimensions/scales')
-        if self.stereo_fusion not in ('concat','gated_residual','role_specialized'):raise ValueError('Unknown stereo fusion')
+        if self.stereo_fusion not in ('concat','gated_residual','role_specialized','dual_cross_attention'):raise ValueError('Unknown stereo fusion')
         if self.stereo_fusion!='concat' and self.stereo_dim!=128:raise ValueError('Learned fusion requires concat128 context')
 
 
@@ -75,6 +75,8 @@ class Flow(DynamicFlow):
         self.stereo_projection=None
         self.stereo_adapters=nn.ModuleList()
         self.stereo_gate=None
+        self.stereo_cross_fast=None
+        self.stereo_cross_slow=None
         if config.stereo_dim:
             projection_dim=config.stereo_dim
             if config.stereo_fusion=='gated_residual':
@@ -83,6 +85,17 @@ class Flow(DynamicFlow):
                 projection_dim=64
             elif config.stereo_fusion=='role_specialized':
                 projection_dim=64
+            elif config.stereo_fusion=='dual_cross_attention':
+                # Keep the two learned streams separate, then let each stream
+                # attend to the other before the shared adapters.  Zeroing
+                # the attention output projections makes the new branch an
+                # exact concat control at initialization.
+                self.stereo_cross_fast=nn.MultiheadAttention(64,4,batch_first=True)
+                self.stereo_cross_slow=nn.MultiheadAttention(64,4,batch_first=True)
+                for attention in (self.stereo_cross_fast,self.stereo_cross_slow):
+                    nn.init.zeros_(attention.out_proj.weight)
+                    nn.init.zeros_(attention.out_proj.bias)
+                projection_dim=128
             self.stereo_projection=nn.Linear(projection_dim,32)
             self.stereo_adapters=nn.ModuleList(nn.Linear(32,base_config.width) for _ in self.blocks)
             for layer in self.stereo_adapters:nn.init.zeros_(layer.weight);nn.init.zeros_(layer.bias)
@@ -92,6 +105,11 @@ class Flow(DynamicFlow):
             return fast + torch.tanh(self.stereo_gate(value))*slow
         if self.native_config.stereo_fusion=='role_specialized':
             return value[...,:64]
+        if self.native_config.stereo_fusion=='dual_cross_attention':
+            fast,slow=value[...,:64],value[...,64:]
+            fast_from_slow,_=self.stereo_cross_fast(fast,slow,slow,need_weights=False)
+            slow_from_fast,_=self.stereo_cross_slow(slow,fast,fast,need_weights=False)
+            return torch.cat((fast+fast_from_slow,slow+slow_from_fast),-1)
         return value
     def planner_stereo(self,value):
         if self.native_config.stereo_fusion=='role_specialized':

@@ -139,7 +139,7 @@ def main(argv=None) -> int:
     p.add_argument("--seed", type=int, default=0)
     p.add_argument("--lr", type=float, default=1e-5)
     p.add_argument("--device", default="cuda")
-    p.add_argument("--fusion", choices=("concat","gated_residual","role_specialized"), default="concat")
+    p.add_argument("--fusion", choices=("concat","gated_residual","role_specialized","dual_cross_attention"), default="concat")
     args = p.parse_args(argv)
     if args.out.exists():
         raise FileExistsError(f"Preserving existing end-to-end root: {args.out}")
@@ -159,6 +159,8 @@ def main(argv=None) -> int:
         "flow.stereo_projection.",
         "flow.stereo_adapters.",
         "flow.stereo_gate.",
+        "flow.stereo_cross_fast.",
+        "flow.stereo_cross_slow.",
         "stereo_plan.",
     )
     if result.unexpected_keys or any(not key.startswith(allowed_missing) for key in result.missing_keys):
