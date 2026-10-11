@@ -1,0 +1,39 @@
+{
+  "schema_version": 2,
+  "id": "native-c-stereo-counterfactual-v2-20261011",
+  "status": "diagnostic_only",
+  "baseline_config": "configs/dance/fixed_c.json",
+  "context_schema": "spain_obsrnn_concat128_v2",
+  "fusion_variants": ["role_specialized", "dual_cross_attention"],
+  "native": {
+    "stereo_adapter_scale": 0.6,
+    "stereo_plan_scale": 0.6,
+    "counterfactual": {
+      "drop_one_stream_per_update": true,
+      "streams": ["spain", "obsrnn"],
+      "weight": 1.0,
+      "margin_torso_units": 0.008,
+      "same_noise_and_audio": true,
+      "upper_body_joints": "fixed_projected_head_shoulders_elbows_wrists"
+    },
+    "freeze_early_flow_blocks": 6,
+    "flow_steps": 32,
+    "body_fps": 30,
+    "mapper": "01",
+    "p2_color_fixed": true,
+    "brightness": "restored historical LUFS law",
+    "d4max": false,
+    "d6": false,
+    "fixture_motion_limits": false
+  },
+  "training": {
+    "split": "paired native TRAIN only",
+    "steps": 1000,
+    "seed": 0,
+    "confirmation_seeds_required": 2,
+    "raw_safety_gate_before_mapper": true,
+    "promotion": false
+  },
+  "artifact_root": "/mnt/lightsem-data/experiments/lightsem/native_stereo_counterfactual_20261011_v1",
+  "showcase_tracks": ["shpongle", "cure_for_me"]
+}
