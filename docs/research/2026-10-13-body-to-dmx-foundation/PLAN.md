@@ -49,7 +49,9 @@ The first corpus uses the existing 300 usable BeatSaver maps and the 699-song
 RPMC-L2 extraction. Split by song identity before windows, then audit artist,
 mapper, map hash and duplicate-song groups. BeatSaver target windows require a
 real map audio hash and a parseable authored-light file. RPMC windows use only
-the histogram target mask. No window from a song may appear in train and test.
+the histogram target mask. The v7 diagnostic adds a separate 512-D RPMC audio
+projection to the shared trunk and masks RPMC body, angle and event losses. No
+window from a song may appear in train and test.
 
 For each BeatSaver song, the saved waveform is passed through the pinned native
 audio extraction and an explicitly identified fixed-C body generator. Every raw
