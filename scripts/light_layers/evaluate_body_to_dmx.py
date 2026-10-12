@@ -27,6 +27,15 @@ def cosine_mean(x: np.ndarray) -> float:
     return float((x @ x.T)[np.triu_indices(len(x), 1)].mean())
 
 
+def average_precision(labels: np.ndarray, scores: np.ndarray) -> float:
+    labels = np.asarray(labels, int); scores = np.asarray(scores, float)
+    positives = int(labels.sum())
+    if positives == 0: return float("nan")
+    order = np.argsort(-scores, kind="mergesort"); hits = labels[order].cumsum()
+    precision = hits / np.arange(1, len(labels) + 1)
+    return float((precision * labels[order]).sum() / positives)
+
+
 def scene_to_metrics(scene, body_world, event, angles=None):
     rig = club_rig(); stream = scene_to_dmx(scene, body_world, rig, event, angles=angles); decoded = decode_stream(rig, stream)
     light = emitted_light(decoded); heads = np.array([i for i, f in enumerate(rig.fixtures) if f.kind == "moving_head"])
@@ -61,13 +70,13 @@ def main():
         scene = z["scene"][0].numpy(); add_scene = za["scene"][0].numpy(); angles = torch.sigmoid(z["angle_logit"])[0].numpy().reshape(n, 6, 2); h = z["h"][0].numpy(); all_h.append(h); all_scene.append(scene); all_add.append(add_scene)
         # Frozen-body intervention: keep the first body feature at every frame.
         frozen = body[:1].repeat(n, 1)
-        with torch.no_grad(): frozen_scene = model(((frozen - bm) / bs)[None], ((audio - am) / ass)[None])["scene"][0].numpy()
+        with torch.no_grad(): frozen_out = model(((frozen - bm) / bs)[None], ((audio - am) / ass)[None]); frozen_scene = frozen_out["scene"][0].numpy()
         # Limb intervention: modify the first hand/foot-associated feature block
         # in the explicit body vector; it is a sensitivity probe, not a semantic label.
         limb = body.clone(); limb[:, 66 + 18:66 + 24] += 0.35
-        with torch.no_grad(): limb_scene = model(((limb - bm) / bs)[None], ((audio - am) / ass)[None])["scene"][0].numpy()
+        with torch.no_grad(): limb_out = model(((limb - bm) / bs)[None], ((audio - am) / ass)[None]); limb_scene = limb_out["scene"][0].numpy()
         other = pairs[(pi + 1) % len(pairs)]; m = min(n, len(other["audio"]))
-        with torch.no_grad(): swap_scene = model(((body[:m] - bm) / bs)[None], ((torch.tensor(other["audio"][:m]) - am) / ass)[None])["scene"][0].numpy()
+        with torch.no_grad(): swap_out = model(((body[:m] - bm) / bs)[None], ((torch.tensor(other["audio"][:m]) - am) / ass)[None]); swap_scene = swap_out["scene"][0].numpy()
         def bounded(s):
             q = s.copy(); q[:, :2] = np.tanh(q[:, :2]); q[:, 2:] = 1 / (1 + np.exp(-q[:, 2:])); return q
         # World body is not needed for source tests; use normalized body motion
@@ -76,13 +85,17 @@ def main():
         # axes in the proxy; dropping y/z would manufacture zero tilt coverage.
         world_proxy = body[:, :66].numpy().reshape(n, 22, 3).astype(np.float32)
         metrics = scene_to_metrics(bounded(scene), world_proxy, 1 / (1 + np.exp(-z["event_logit"][0, :, 0].numpy())), angles=angles)
-        rows.append({"id": p["id"], **metrics, "frozen_body_scene_delta": float(np.mean(np.abs(scene - frozen_scene))),
+        event_scores = torch.sigmoid(z["event_logit"])[0, :, 0].numpy()
+        shifted_scores = torch.sigmoid(model(((body - bm) / bs)[None], ((torch.roll(audio, shifts=20, dims=0) - am) / ass)[None])["event_logit"])[0, :, 0].detach().numpy()
+        rows.append({"id": p["id"], **metrics, "event_ap": average_precision(p["event"], event_scores), "event_ap_shifted_audio": average_precision(p["event"], shifted_scores),
+                     "frozen_body_scene_delta": float(np.mean(np.abs(scene - frozen_scene))),
                      "limb_perturb_scene_delta": float(np.mean(np.abs(scene - limb_scene))), "audio_swap_scene_delta": float(np.mean(np.abs(scene[:m] - swap_scene))),
                      "full_vs_additive_scene_delta": float(np.mean(np.abs(scene - add_scene))), "latent_effective_rank": effective_rank(h)[0],
                      "latent_spectral_entropy": effective_rank(h)[1], "latent_mean_pairwise_cosine": cosine_mean(h)})
     hr, he = effective_rank(np.concatenate(all_h)); sr, se = effective_rank(np.concatenate(all_scene)); ar, ae = effective_rank(np.concatenate(all_add))
     report = {"schema_version": 1, "status": "diagnostic_only", "reason": "unseen-song bodies lack paired active-baseline safety evidence; public targets do not supervise physical angles", "model": str(args.run / "model.pt"), "model_sha256": hashlib.sha256((args.run / "model.pt").read_bytes()).hexdigest(), "pairs": rows,
               "aggregate": {"latent_effective_rank": hr, "latent_spectral_entropy": he, "scene_effective_rank": sr, "scene_spectral_entropy": se, "additive_scene_effective_rank": ar, "additive_scene_spectral_entropy": ae,
+                             "mean_event_ap": float(np.nanmean([r["event_ap"] for r in rows])), "mean_event_ap_shifted_audio": float(np.nanmean([r["event_ap_shifted_audio"] for r in rows])),
                              "mean_frozen_body_delta": float(np.mean([r["frozen_body_scene_delta"] for r in rows])), "mean_limb_delta": float(np.mean([r["limb_perturb_scene_delta"] for r in rows])), "mean_audio_swap_delta": float(np.mean([r["audio_swap_scene_delta"] for r in rows])), "mean_full_additive_delta": float(np.mean([r["full_vs_additive_scene_delta"] for r in rows]))}}
     args.out.parent.mkdir(parents=True, exist_ok=True); args.out.write_text(json.dumps(report, indent=2, allow_nan=False) + "\n"); print(json.dumps(report, indent=2))
 
