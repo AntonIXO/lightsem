@@ -20,6 +20,7 @@ class BodyToDMXConfig:
     # BeatSaver's causal operator features are 52-D; the native LightSem
     # 92-channel bus can be added in a later adapter without changing targets.
     audio_dim: int = 52
+    rpmc_audio_dim: int = 512
     d_model: int = 128
     layers: int = 3
     kernel: int = 7
@@ -57,6 +58,7 @@ class BodyToDMX(nn.Module):
         d = self.cfg.d_model
         self.body = nn.Sequential(nn.LayerNorm(self.cfg.body_dim), nn.Linear(self.cfg.body_dim, d), nn.SiLU())
         self.audio = nn.Sequential(nn.LayerNorm(self.cfg.audio_dim), nn.Linear(self.cfg.audio_dim, d), nn.SiLU())
+        self.rpmc_audio = nn.Sequential(nn.LayerNorm(self.cfg.rpmc_audio_dim), nn.Linear(self.cfg.rpmc_audio_dim, d), nn.SiLU())
         self.additive = nn.Sequential(nn.Linear(2 * d, d), nn.SiLU())
         self.mul_a = nn.Linear(d, d)
         self.mul_b = nn.Linear(d, d)
@@ -67,8 +69,15 @@ class BodyToDMX(nn.Module):
         self.event = nn.Linear(d, self.cfg.event_dim)
         self.angle = nn.Linear(d, self.cfg.angle_dim)
 
-    def encode(self, body: torch.Tensor, audio: torch.Tensor, *, additive: bool = False) -> torch.Tensor:
-        b, a = self.body(body), self.audio(audio)
+    def encode(self, body: torch.Tensor, audio: torch.Tensor, *, additive: bool = False,
+               audio_kind: str = "beatsaver", body_present: bool = True) -> torch.Tensor:
+        b = self.body(body) if body_present else torch.zeros(body.shape[0], body.shape[1], self.cfg.d_model, device=body.device, dtype=body.dtype)
+        if audio_kind == "beatsaver":
+            a = self.audio(audio)
+        elif audio_kind == "rpmc":
+            a = self.rpmc_audio(audio)
+        else:
+            raise ValueError(f"unknown audio_kind {audio_kind!r}")
         if additive:
             h = self.additive(torch.cat([b, a], dim=-1))
         else:
@@ -78,8 +87,9 @@ class BodyToDMX(nn.Module):
             h = block(h)
         return self.norm(h)
 
-    def forward(self, body: torch.Tensor, audio: torch.Tensor, *, additive: bool = False) -> dict[str, torch.Tensor]:
-        h = self.encode(body, audio, additive=additive)
+    def forward(self, body: torch.Tensor, audio: torch.Tensor, *, additive: bool = False,
+                audio_kind: str = "beatsaver", body_present: bool = True) -> dict[str, torch.Tensor]:
+        h = self.encode(body, audio, additive=additive, audio_kind=audio_kind, body_present=body_present)
         return {"h": h, "scene": self.scene(h), "event_logit": self.event(h), "angle_logit": self.angle(h)}
 
     def n_params(self) -> int:
@@ -97,13 +107,14 @@ def causality_probe(model: BodyToDMX, body: torch.Tensor, audio: torch.Tensor, c
     return float((ref[:, :cut] - changed[:, :cut]).abs().max().cpu())
 
 
-def masked_loss(pred: dict[str, torch.Tensor], scene: torch.Tensor, event: torch.Tensor,
+def masked_loss(pred: dict[str, torch.Tensor], scene: torch.Tensor, event: torch.Tensor | None = None,
                 scene_mask: torch.Tensor | None = None, angle: torch.Tensor | None = None) -> dict[str, torch.Tensor]:
     if scene_mask is None:
         scene_mask = torch.ones(scene.shape[:-1], dtype=torch.bool, device=scene.device)
     m = scene_mask.unsqueeze(-1).expand_as(scene)
     scene_l = F.smooth_l1_loss(pred["scene"][m], scene[m]) if m.any() else scene.sum() * 0
-    event_l = F.binary_cross_entropy_with_logits(pred["event_logit"].squeeze(-1), event.float())
+    event_l = (F.binary_cross_entropy_with_logits(pred["event_logit"].squeeze(-1), event.float())
+               if event is not None else scene.sum() * 0)
     if angle is None:
         angle_l = scene.sum() * 0
     else:

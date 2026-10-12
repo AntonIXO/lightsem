@@ -16,6 +16,9 @@ def test_body_to_dmx_model_is_causal_and_finite():
     assert out["angle_logit"].shape == (1, 32, 12)
     assert torch.isfinite(out["scene"]).all()
     assert causality_probe(model, body, audio, 16) == 0.0
+    rpmc = torch.randn(1, 32, cfg.rpmc_audio_dim)
+    rpmc_out = model(torch.zeros_like(body), rpmc, audio_kind="rpmc", body_present=False)
+    assert rpmc_out["scene"].shape == (1, 32, 6) and torch.isfinite(rpmc_out["scene"]).all()
 
 
 def test_scene_renderer_tracks_body_and_emits_decodable_dmx():

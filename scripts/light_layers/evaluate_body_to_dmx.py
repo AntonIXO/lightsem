@@ -46,7 +46,11 @@ def main():
     args = ap.parse_args()
     if args.out.exists(): raise FileExistsError(args.out)
     state = torch.load(args.run / "model.pt", map_location="cpu", weights_only=False); cfg = BodyToDMXConfig(**state["config"])
-    model = BodyToDMX(cfg); model.load_state_dict(state["model"], strict=True); model.eval(); bm, bs, am, ass = [torch.tensor(v) for v in state["stats"]]
+    model = BodyToDMX(cfg); model.load_state_dict(state["model"], strict=True); model.eval()
+    if isinstance(state["stats"], dict):
+        bm, bs, am, ass = [torch.tensor(state["stats"][k]) for k in ("body_mean", "body_std", "audio_mean", "audio_std")]
+    else:
+        bm, bs, am, ass = [torch.tensor(v) for v in state["stats"]]
     pairs = load_pairs(args.body_root, args.ids.split(","), args.cache, args.manifest)
     if len(pairs) < 2: raise RuntimeError("need at least two complete pairs")
     rows = []; all_h = []; all_scene = []; all_add = []
