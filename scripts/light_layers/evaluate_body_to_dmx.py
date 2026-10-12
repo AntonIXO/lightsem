@@ -27,8 +27,8 @@ def cosine_mean(x: np.ndarray) -> float:
     return float((x @ x.T)[np.triu_indices(len(x), 1)].mean())
 
 
-def scene_to_metrics(scene, body_world, event):
-    rig = club_rig(); stream = scene_to_dmx(scene, body_world, rig, event); decoded = decode_stream(rig, stream)
+def scene_to_metrics(scene, body_world, event, angles=None):
+    rig = club_rig(); stream = scene_to_dmx(scene, body_world, rig, event, angles=angles); decoded = decode_stream(rig, stream)
     light = emitted_light(decoded); heads = np.array([i for i, f in enumerate(rig.fixtures) if f.kind == "moving_head"])
     pan, tilt = decoded["pan"][:, heads], decoded["tilt"][:, heads]
     bins = np.unique(np.stack([np.floor(pan * 12), np.floor(tilt * 8)], -1).reshape(-1, 2), axis=0)
@@ -54,7 +54,7 @@ def main():
         body = torch.tensor(p["body"]); audio = torch.tensor(p["audio"]); n = len(body)
         with torch.no_grad():
             z = model(((body - bm) / bs)[None], ((audio - am) / ass)[None]); za = model(((body - bm) / bs)[None], ((audio - am) / ass)[None], additive=True)
-        scene = z["scene"][0].numpy(); add_scene = za["scene"][0].numpy(); h = z["h"][0].numpy(); all_h.append(h); all_scene.append(scene); all_add.append(add_scene)
+        scene = z["scene"][0].numpy(); add_scene = za["scene"][0].numpy(); angles = torch.sigmoid(z["angle_logit"])[0].numpy().reshape(n, 6, 2); h = z["h"][0].numpy(); all_h.append(h); all_scene.append(scene); all_add.append(add_scene)
         # Frozen-body intervention: keep the first body feature at every frame.
         frozen = body[:1].repeat(n, 1)
         with torch.no_grad(): frozen_scene = model(((frozen - bm) / bs)[None], ((audio - am) / ass)[None])["scene"][0].numpy()
@@ -71,7 +71,7 @@ def main():
         # The first 66 body features are root-relative xyz positions.  Keep all
         # axes in the proxy; dropping y/z would manufacture zero tilt coverage.
         world_proxy = body[:, :66].numpy().reshape(n, 22, 3).astype(np.float32)
-        metrics = scene_to_metrics(bounded(scene), world_proxy, 1 / (1 + np.exp(-z["event_logit"][0, :, 0].numpy())))
+        metrics = scene_to_metrics(bounded(scene), world_proxy, 1 / (1 + np.exp(-z["event_logit"][0, :, 0].numpy())), angles=angles)
         rows.append({"id": p["id"], **metrics, "frozen_body_scene_delta": float(np.mean(np.abs(scene - frozen_scene))),
                      "limb_perturb_scene_delta": float(np.mean(np.abs(scene - limb_scene))), "audio_swap_scene_delta": float(np.mean(np.abs(scene[:m] - swap_scene))),
                      "full_vs_additive_scene_delta": float(np.mean(np.abs(scene - add_scene))), "latent_effective_rank": effective_rank(h)[0],

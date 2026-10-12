@@ -54,6 +54,26 @@ def body_features(path: Path, times: np.ndarray) -> tuple[np.ndarray, dict]:
     return out.astype(np.float32), {"raw_metrics": raw_metrics(world), "body_sha256": sha(path)}
 
 
+def pseudo_angle_targets(path: Path, times: np.ndarray, n_heads: int = 6) -> np.ndarray:
+    """Weak body-geometry target for the canonical moving-head angle head.
+
+    This target is deliberately labelled pseudo supervision: it is derived from
+    source joints, not from authored physical DMX.  It trains a source-dependent
+    angle interface while the authored-light corpus supervises scene/value/colour
+    heads.  The target is not evidence of a human lighting operator.
+    """
+    with np.load(path, allow_pickle=False) as z:
+        t = np.asarray(z["time"], float); world = np.asarray(z["world"], np.float32)
+    rel = world - world[:, :1]
+    sampled = np.stack([np.interp(times, t, rel[:, j, k]) for j in range(22) for k in range(3)], 1).reshape(len(times), 22, 3)
+    out = np.full((len(times), n_heads, 2), .5, np.float32)
+    for i in range(n_heads):
+        j, k = (2 * i) % 22, (2 * i + 1) % 22
+        out[:, i, 0] = np.clip(.5 + .10 * np.tanh(sampled[:, j, 0] + .5 * sampled[:, k, 0]), 0., 1.)
+        out[:, i, 1] = np.clip(.5 + .10 * np.tanh(sampled[:, j, 1] + .5 * sampled[:, k, 1]), 0., 1.)
+    return out.reshape(len(times), -1).astype(np.float32)
+
+
 def load_pairs(body_root: Path, ids: list[str], cache: Path, manifest_path: Path):
     manifest = json.loads(manifest_path.read_text())
     pairs = []
@@ -75,10 +95,11 @@ def load_pairs(body_root: Path, ids: list[str], cache: Path, manifest_path: Path
             raise ValueError(f"invalid target {tp}")
         times = np.arange(len(x), dtype=np.float64) / 10.0
         b, bm = body_features(bp, times)
+        angle = pseudo_angle_targets(bp, times)
         n = min(len(b), len(x)); b, x, y, ev = b[:n], x[:n], y[:n], ev[:n]
         if n < 64 or not np.isfinite(np.concatenate([b, x, y, ev[:, None]], 1)).all():
             continue
-        pairs.append({"id": mid, "body": b, "audio": x, "scene": y, "event": ev,
+        pairs.append({"id": mid, "body": b, "audio": x, "scene": y, "event": ev, "angle": angle[:n],
                       "body_path": str(bp), "target_path": str(tp), **bm})
     return pairs
 
@@ -124,22 +145,22 @@ def main():
         n = len(p["body"]); start = 0 if n <= args.window else random.randrange(0, n - args.window)
         sl = slice(start, min(start + args.window, n))
         body = torch.from_numpy(p["body"][sl]).to(args.device); audio = torch.from_numpy(p["audio"][sl]).to(args.device)
-        scene = torch.from_numpy(p["scene"][sl]).to(args.device); event = torch.from_numpy(p["event"][sl]).to(args.device)
+        scene = torch.from_numpy(p["scene"][sl]).to(args.device); event = torch.from_numpy(p["event"][sl]).to(args.device); angle = torch.from_numpy(p["angle"][sl]).to(args.device)
         pred = model((body[None] - bm) / bs, (audio[None] - am) / ass)
-        losses = masked_loss(pred, scene[None], event[None]); opt.zero_grad(set_to_none=True); losses["total"].backward(); opt.step()
+        losses = masked_loss(pred, scene[None], event[None], angle=angle[None]); opt.zero_grad(set_to_none=True); losses["total"].backward(); opt.step()
         if step % max(1, args.steps // 20) == 0 or step == args.steps - 1:
             history.append({"step": step, **{k: float(v.detach().cpu()) for k, v in losses.items()}})
     model.eval()
     def evaluate(rows, tag):
-        scene_err, event_scores, ys, ps = [], [], [], []
+        scene_err, event_scores, angle_scores, ys, ps = [], [], [], [], []
         with torch.no_grad():
             for p in rows:
                 body = torch.from_numpy(p["body"]).to(args.device); audio = torch.from_numpy(p["audio"]).to(args.device)
                 z = model((body[None] - bm) / bs, (audio[None] - am) / ass)
-                q = z["scene"][0].cpu().numpy(); e = torch.sigmoid(z["event_logit"])[0, :, 0].cpu().numpy()
-                scene_err.append(float(np.mean(np.abs(q - p["scene"])))); event_scores.append(float(np.mean((e - p["event"]) ** 2)))
+                q = z["scene"][0].cpu().numpy(); e = torch.sigmoid(z["event_logit"])[0, :, 0].cpu().numpy(); a = torch.sigmoid(z["angle_logit"])[0].cpu().numpy()
+                scene_err.append(float(np.mean(np.abs(q - p["scene"])))); event_scores.append(float(np.mean((e - p["event"]) ** 2))); angle_scores.append(float(np.mean(np.abs(a - p["angle"]))))
                 ys.append(p["scene"]); ps.append(q)
-        return {"songs": len(rows), "scene_mae": float(np.mean(scene_err)), "event_brier": float(np.mean(event_scores)),
+        return {"songs": len(rows), "scene_mae": float(np.mean(scene_err)), "event_brier": float(np.mean(event_scores)), "angle_mae": float(np.mean(angle_scores)),
                 "prediction_effective_rank": float(np.linalg.matrix_rank(np.concatenate(ps), tol=1e-3)),
                 "target_effective_rank": float(np.linalg.matrix_rank(np.concatenate(ys), tol=1e-3))}
     report = {"schema_version": 1, "status": "diagnostic_only", "reason": "unconditioned fixed-C source bodies lack paired active stereo-baseline comparison",

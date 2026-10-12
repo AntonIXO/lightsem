@@ -13,6 +13,7 @@ def test_body_to_dmx_model_is_causal_and_finite():
     audio = torch.randn(1, 32, cfg.audio_dim)
     out = model(body, audio)
     assert out["scene"].shape == (1, 32, 6)
+    assert out["angle_logit"].shape == (1, 32, 12)
     assert torch.isfinite(out["scene"]).all()
     assert causality_probe(model, body, audio, 16) == 0.0
 
@@ -26,4 +27,7 @@ def test_scene_renderer_tracks_body_and_emits_decodable_dmx():
     assert stream.shape == (T, 512) and stream.dtype == np.uint8
     assert np.isfinite(stream).all()
     assert not np.array_equal(stream[0], stream[-1])
+    angles = np.full((T, 6, 2), .5)
+    angled = scene_to_dmx(scene, body, club_rig(), np.zeros(T), angles=angles)
+    assert angled.shape == stream.shape and np.isfinite(angled).all()
 

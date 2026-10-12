@@ -7,7 +7,8 @@ from lightsem.dmx.encode import pack_universe
 from lightsem.dmx.fixtures import Rig
 
 
-def scene_to_dmx(scene: np.ndarray, body: np.ndarray, rig: Rig, event: np.ndarray | None = None) -> np.ndarray:
+def scene_to_dmx(scene: np.ndarray, body: np.ndarray, rig: Rig, event: np.ndarray | None = None,
+                 angles: np.ndarray | None = None) -> np.ndarray:
     """Expand ``(hue_cos,hue_sin,sat,value,p90,concentration)`` to a rig.
 
     This renderer is intentionally simple and deterministic.  Colour/value and
@@ -44,5 +45,16 @@ def scene_to_dmx(scene: np.ndarray, body: np.ndarray, rig: Rig, event: np.ndarra
         y = np.clip(.5 + .10 * np.tanh(rel[:, j, 1] + .5 * rel[:, k, 1]), 0., 1.)
         params["pan"][:, i], params["tilt"][:, i] = x, y
     params["gobo"][:] = 0.
+    if angles is not None:
+        angles = np.asarray(angles, float)
+        n_heads = sum(f.kind == "moving_head" for f in rig.fixtures)
+        if angles.shape != (T, n_heads, 2) or not np.isfinite(angles).all() or np.any((angles < 0) | (angles > 1)):
+            raise ValueError(f"angles must be finite (T,{n_heads},2) values in [0,1]")
+        head_i = 0
+        for i, fixture in enumerate(rig.fixtures):
+            if fixture.kind == "moving_head":
+                params["pan"][:, i] = angles[:, head_i, 0]
+                params["tilt"][:, i] = angles[:, head_i, 1]
+                head_i += 1
     return pack_universe(rig, params)
 

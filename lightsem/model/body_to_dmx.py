@@ -25,6 +25,7 @@ class BodyToDMXConfig:
     kernel: int = 7
     scene_dim: int = 6
     event_dim: int = 1
+    angle_dim: int = 12                 # six canonical moving-head pan/tilt pairs
 
 
 class CausalBlock(nn.Module):
@@ -64,6 +65,7 @@ class BodyToDMX(nn.Module):
         self.norm = nn.LayerNorm(d)
         self.scene = nn.Linear(d, self.cfg.scene_dim)
         self.event = nn.Linear(d, self.cfg.event_dim)
+        self.angle = nn.Linear(d, self.cfg.angle_dim)
 
     def encode(self, body: torch.Tensor, audio: torch.Tensor, *, additive: bool = False) -> torch.Tensor:
         b, a = self.body(body), self.audio(audio)
@@ -78,7 +80,7 @@ class BodyToDMX(nn.Module):
 
     def forward(self, body: torch.Tensor, audio: torch.Tensor, *, additive: bool = False) -> dict[str, torch.Tensor]:
         h = self.encode(body, audio, additive=additive)
-        return {"h": h, "scene": self.scene(h), "event_logit": self.event(h)}
+        return {"h": h, "scene": self.scene(h), "event_logit": self.event(h), "angle_logit": self.angle(h)}
 
     def n_params(self) -> int:
         return sum(p.numel() for p in self.parameters())
@@ -96,11 +98,15 @@ def causality_probe(model: BodyToDMX, body: torch.Tensor, audio: torch.Tensor, c
 
 
 def masked_loss(pred: dict[str, torch.Tensor], scene: torch.Tensor, event: torch.Tensor,
-                scene_mask: torch.Tensor | None = None) -> dict[str, torch.Tensor]:
+                scene_mask: torch.Tensor | None = None, angle: torch.Tensor | None = None) -> dict[str, torch.Tensor]:
     if scene_mask is None:
         scene_mask = torch.ones(scene.shape[:-1], dtype=torch.bool, device=scene.device)
     m = scene_mask.unsqueeze(-1).expand_as(scene)
     scene_l = F.smooth_l1_loss(pred["scene"][m], scene[m]) if m.any() else scene.sum() * 0
     event_l = F.binary_cross_entropy_with_logits(pred["event_logit"].squeeze(-1), event.float())
-    return {"scene": scene_l, "event": event_l, "total": scene_l + 0.25 * event_l}
+    if angle is None:
+        angle_l = scene.sum() * 0
+    else:
+        angle_l = F.mse_loss(torch.sigmoid(pred["angle_logit"]), angle.float())
+    return {"scene": scene_l, "event": event_l, "angle": angle_l, "total": scene_l + 0.25 * event_l + 0.5 * angle_l}
 

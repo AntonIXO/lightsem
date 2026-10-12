@@ -34,8 +34,9 @@ def main():
     with torch.no_grad():
         pred = model(((torch.tensor(body) - bm) / bs)[None], ((torch.tensor(audio) - am) / ass)[None])
         scene = pred["scene"][0].numpy(); event = torch.sigmoid(pred["event_logit"][0, :, 0]).numpy()
+        angles = torch.sigmoid(pred["angle_logit"])[0].numpy().reshape(n, 6, 2)
     scene[:, :2] = np.tanh(scene[:, :2]); scene[:, 2:] = 1. / (1. + np.exp(-scene[:, 2:]))
-    rig = club_rig(); stream = scene_to_dmx(scene, world10, rig, event); decoded = decode_stream(rig, stream); light = emitted_light(decoded)
+    rig = club_rig(); stream = scene_to_dmx(scene, world10, rig, event, angles=angles); decoded = decode_stream(rig, stream); light = emitted_light(decoded)
     spans = []
     duplicate = 0
     for i, f in enumerate(rig.fixtures):

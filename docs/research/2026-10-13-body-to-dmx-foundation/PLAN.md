@@ -29,6 +29,9 @@ The MVP has a shared causal temporal trunk for body, audio and effort streams;
 separate modality projections; low-rank multiplicative cross-modal fusion; and a
 set decoder with group/capability tokens. The decoder emits:
 
+- six canonical moving-head pan/tilt pairs through an explicitly weak
+  body-geometry pseudo-target; this is not authored physical DMX supervision
+  and must be masked or replaced when real angle labels exist;
 - group aim/effect parameters only when the target and rig can observe them;
 - brightness/value and hue/saturation heads;
 - cue/event logits and effect rate/phase parameters;
