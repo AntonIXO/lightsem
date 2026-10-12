@@ -19,6 +19,21 @@ def derivative(value, fps):
     return np.diff(value, axis=0, prepend=value[:1]) * fps
 
 
+def effect_strength_head(features):
+    """Body-derived readout strength for lossy spatial descriptors.
+
+    This scalar is an instantaneous function of articulated displacement and
+    velocity. It controls how much of the source-local residual survives a
+    spatially compressive descriptor; it never creates motion when the body is
+    frozen and it has no audio, beat, clock, or random input.
+    """
+    joints = np.asarray([4, 5, 7, 8, 18, 19, 20, 21])
+    speed = np.linalg.norm(features.velocity[:, joints], axis=-1).mean(axis=-1)
+    displacement = np.linalg.norm(features.displacement[:, joints], axis=-1).mean(axis=-1)
+    drive = speed / .75 + .25 * displacement / .35
+    return .55 + .45 * np.tanh(drive)
+
+
 def canonical_pose():
     result = np.zeros((22, 3), dtype=float)
     result[0, 1] = 1.

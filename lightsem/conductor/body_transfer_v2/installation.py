@@ -5,7 +5,7 @@ the source role never depends on a song, frame index, or requested total count.
 """
 from __future__ import annotations
 import numpy as np
-from .common import ROLE_ORDER, NAMES, derivative
+from .common import ROLE_ORDER, NAMES, derivative, effect_strength_head
 
 
 def _count(n):
@@ -65,7 +65,13 @@ def make_outputs(beams=8, lasers=5, bulbs=50):
 def adapt_field(features, field, outputs):
     if not outputs or len({o['name'] for o in outputs}) != len(outputs):
         raise ValueError('Nonempty installation with unique fixture IDs required')
-    signal = field.points
+    signal = field.points.copy()
+    # Paper-inspired pooled/graph fields can erase the local articulated
+    # residual before the common installation readout. Restore a bounded,
+    # source-derived component for those fields only; the four methods with
+    # their own effect-strength head already include this residual upstream.
+    if str(field.meta.get('algorithm_id', field.meta.get('id', ''))) not in {'01', '02', '10', '12', '13', '15'}:
+        signal += .35 * effect_strength_head(features)[:, None, None] * features.displacement
     frames, count = len(signal), len(outputs)
     targets = np.empty((frames, count, 3))
     sources = np.zeros_like(targets)

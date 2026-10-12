@@ -67,6 +67,7 @@ def freeze():
         tracks.append({**t, 'v8_body': str(v8), 'v8_body_sha256': sha(v8), 'd7_reference_body': str(d7), 'd7_reference_body_sha256': sha(d7)})
     source_paths = [ROOT / 'scripts/motion/rebuild_native_portfolio_bone_preserving_20261012.py',
                     ROOT / 'lightsem/conductor/d7_amplitude_adapter.py', ROOT / 'lightsem/conductor/body_transfer_v2/installation.py',
+                    ROOT / 'lightsem/conductor/body_transfer_v2/common.py', ROOT / 'lightsem/conductor/body_transfer_v2/composition.py',
                     ROOT / 'lightsem/conductor/body_transfer.py', ROOT / 'configs/dance/fixed_c.json']
     files = {str(p.resolve()): sha(p) for p in source_paths}
     for t in tracks:

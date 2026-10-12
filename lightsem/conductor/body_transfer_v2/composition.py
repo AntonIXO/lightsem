@@ -24,6 +24,7 @@ from .common import (
     FieldResult,
     all_attribution,
     derivative,
+    effect_strength_head,
     skeleton_laplacian,
 )
 from .skeleton import PARENTS
@@ -79,16 +80,21 @@ def coherent_gaussian_body_deformation(features: Features) -> FieldResult:
     correspondences are GIVEN: W=(K+0.12I)^-1(P-P_ref), field=K_query W.
     No EM, correspondence inference, fitted bandwidth, or registration is run.
     """
+    strength = effect_strength_head(features)
     field = np.einsum("ij,tjc->tic", _cpd_operator(), features.displacement)
-    return FieldResult(field, all_attribution(), _meta(
+    field += (.65 * strength[:, None, None]) * features.displacement
+    meta = _meta(
         10, "coherent_gaussian_body_deformation", "https://arxiv.org/abs/0905.2635",
         "W=(K+lambda I)^-1(P-P_ref); D(Q)=K(Q,P_ref)W; fixed known correspondences",
         {"gaussian_width_m": 0.40, "ridge": 0.12,
          "part_query_depth_m": [0.10, 0.22, -0.22, -0.14, 0.14]},
         ["Gaussian smoothing may suppress localized articulation.",
          "Signed interpolation weights can overshoot between source joints.",
-         "This adapts the CPD kernel form, not its EM registration algorithm."],
-    ))
+         "This adapts the CPD kernel form, not its EM registration algorithm.",
+         "Effect-strength head is a body-derived local residual gate."],
+    )
+    meta['effect_strength_head'] = '0.55+0.45*tanh(articulated_speed/.75+.25*displacement/.35)'
+    return FieldResult(field, all_attribution(), meta)
 
 
 @lru_cache(maxsize=1)
@@ -127,7 +133,9 @@ def fixed_balanced_sinkhorn_transport(features: Features) -> FieldResult:
     explicit. Only the body deformation is time-dependent.
     """
     operator, plan = _transport_operator()
+    strength = effect_strength_head(features)
     field = np.einsum("ij,tjc->tic", operator, features.displacement)
+    field += (.60 * strength[:, None, None]) * features.displacement
     meta = _meta(
         11, "fixed_balanced_sinkhorn_transport", "https://arxiv.org/abs/1306.0895",
         "T=diag(u)exp(-C/epsilon)diag(v); field=row_normalize(T)(P-P_ref)",
@@ -207,7 +215,9 @@ def fixed_graph_spectrum_transfer(features: Features) -> FieldResult:
     spatial modes, not a claim that their anatomical semantics are identical.
     """
     source, _, operator = _spectral_operators()
+    strength = effect_strength_head(features)
     field = np.einsum("ij,tjc->tic", operator, features.displacement)
+    field += (.60 * strength[:, None, None]) * features.displacement
     coefficients = np.einsum("jk,tjc->tkc", source, features.displacement)
     total_energy = float(np.sum(features.displacement**2))
     retained = float(np.sum(coefficients**2))
@@ -374,7 +384,8 @@ def laban_instantaneous_shape_effort(features: Features) -> FieldResult:
     # Bounded metre-like expansion, with exactly zero at canonical volume.
     volume_change = 0.35 * np.tanh((volume - reference_volume) / 1.50)
     body_center_change = p.mean(axis=1) - REFERENCE.mean(axis=0)
-    field = (0.20 * features.displacement
+    strength = effect_strength_head(features)
+    field = ((0.35 + .95 * strength[:, None, None]) * features.displacement
              + 0.65 * span_change[:, None, :] * spatial_shape[None]
              + volume_change[:, None, None] * spatial_shape[None]
              + 0.20 * body_center_change[:, None, :])
@@ -392,7 +403,8 @@ def laban_instantaneous_shape_effort(features: Features) -> FieldResult:
         ["Axis-aligned spans are sensitive to body orientation and extremal joints.",
          "Envelope volume is not mesh volume; kinetic effort is not force or emotion.",
          "Global shape descriptors discard fine articulation; the local term retains some.",
-         "The first frame uses zero backward-difference velocity by common contract."],
+         "The first frame uses zero backward-difference velocity by common contract.",
+         "Effect-strength head restores source-local articulation after global shape pooling."],
     )
     return FieldResult(field, all_attribution(), meta, activity)
 
