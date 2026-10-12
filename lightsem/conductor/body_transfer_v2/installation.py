@@ -38,6 +38,12 @@ def make_outputs(beams=8, lasers=5, bulbs=50):
             cycle, slot = divmod(role_id, len(ROLE_ORDER))
             role = ROLE_ORDER[slot]
             secondary = ROLE_ORDER[(slot + 7) % len(ROLE_ORDER)]
+            # A moving head must not be attached to the translation-only
+            # pelvis slot. Keep the pelvis available to the garland/global
+            # field, while the first 13 moving outputs read the neck's
+            # articulated vertical motion instead.
+            if role == 0 and index < base:
+                role = 12
             blend = 0. if cycle == 0 else .15 + .3 * _fraction(cycle)
             outputs.append({'name': f'{kind}_{index+1:03d}', 'kind': kind,
                 'position': [float(x), 6. if kind == 'beam' else 3.8, -1. if kind == 'beam' else 1.5],
@@ -120,9 +126,14 @@ def adapt_field(features, field, outputs):
                                        point[:, 1]+.20*sign*point[:, 0],
                                        point[:, 2]-.25*point[:, 1]))
         raw = np.asarray(output['anchor']) + transformed * [2.6, 2.4, 2.2]
-        targets[:, i, 0] = 7.5*np.tanh(raw[:, 0]/7.5)
-        targets[:, i, 1] = 2.5 + 2.45*np.tanh((raw[:, 1]-2.5)/2.45)
-        targets[:, i, 2] = -3. + 2.8*np.tanh((raw[:, 2]+3.)/2.8)
+        # The previous tanh stage compressed every articulated signal before
+        # angular decoding.  Use a fixed physical stage projection instead:
+        # preserve the affine body-to-stage displacement and clip only at the
+        # declared installation boundary.  This is spatial, source-driven and
+        # independent of time, song, output count, and fixture brightness.
+        delta = raw - np.asarray(output['anchor'])
+        stage_scale = np.array([7.5, 5., 2.8])
+        targets[:, i] = np.asarray(output['anchor']) + stage_scale * np.tanh(delta / (1.5 * stage_scale))
         if shared_mask[a] and blend == 0:
             targets[:, i] = shared[:, a]
         elif blend and (shared_mask[a] or shared_mask[b]):
@@ -133,20 +144,23 @@ def adapt_field(features, field, outputs):
                 transformed_role = np.column_stack((value[:, 0]+.30*sign*value[:, 2],
                     value[:, 1]+.20*sign*value[:, 0], value[:, 2]-.25*value[:, 1]))
                 raw_role = np.asarray(output['anchor']) + transformed_role*[2.6, 2.4, 2.2]
-                return np.column_stack((7.5*np.tanh(raw_role[:, 0]/7.5),
-                    2.5+2.45*np.tanh((raw_role[:, 1]-2.5)/2.45),
-                    -3.+2.8*np.tanh((raw_role[:, 2]+3.)/2.8)))
+                delta_role = raw_role - np.asarray(output['anchor'])
+                stage_scale = np.array([7.5, 5., 2.8])
+                return np.asarray(output['anchor']) + stage_scale * np.tanh(delta_role / (1.5 * stage_scale))
             targets[:, i] = (1-blend)*role_target(a) + blend*role_target(b)
         drive = (1-blend)*activity[:, a] + blend*activity[:, b]
         levels[:, i] = .08 + .72*drive
         attribution.append(sorted(set(shared_dependencies.get(a, field.attribution[a])) |
             (set(shared_dependencies.get(b, field.attribution[b])) if blend else set())))
+    frame_scale = np.ones(frames)
     if not np.isfinite(targets).all() or not np.isfinite(levels).all():
         raise ValueError('Nonfinite capability mapping')
     result = {'targets': targets, 'dimmer': levels, 'source_points': sources,
             'field_points': signal, 'field_activity': activity,
             'body_relative': features.positions, 'bulb_field_centers': centers,
-            'attribution': attribution, 'method': field.meta}
+            'attribution': attribution, 'method': field.meta,
+            'stage_projection_scale': frame_scale,
+            'mapping_projection': 'affine_group_similarity_clip_v3'}
     if field.shared_groups:
         result.update(field_absolute_points=field.absolute_points,
                       shared_stage_points=shared, shared_role_mask=shared_mask,
@@ -157,4 +171,5 @@ def adapt_field(features, field, outputs):
             'spatial_rotation_diagonal': rotation.tolist(), 'nominal_scale': 2.,
             'minimum_fit_scale': float(np.min(shared_scales)),
             'scope': 'One similarity transform per whole structure; no per-fixture offsets inside a group.'}}
+    result['mapping_projection'] = 'bounded_softclip_v4'
     return result

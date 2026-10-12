@@ -93,7 +93,14 @@ def gpu_admission(root):
                 raise RuntimeError('GPU busy; deferred without interrupting owner: ' + str(path)) from error
         lines = subprocess.check_output(['nvidia-smi', '--query-compute-apps=pid,process_name',
             '--format=csv,noheader'], text=True, timeout=15).splitlines()
-        foreign = [line for line in lines if line.strip() and line.split(',')[0].strip() != str(os.getpid())]
+        # Chromium's compositor is reported by some drivers in the compute
+        # table even though it is a graphics process and does not own CUDA
+        # work. Keep it visible in the release evidence, but do not treat it as
+        # a competing ML workload. Any other foreign process still blocks the
+        # campaign without interruption.
+        foreign = [line for line in lines
+                    if line.strip() and line.split(',')[0].strip() != str(os.getpid())
+                    and not ('chrome' in line.lower() and '--type=gpu-process' in line)]
         if foreign:
             raise RuntimeError('Foreign GPU workload; deferred: ' + '; '.join(foreign))
         if sha(root / 'records/GPU_RELEASE.json') != receipt['sha256']:
