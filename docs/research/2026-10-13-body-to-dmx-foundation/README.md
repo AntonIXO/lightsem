@@ -49,7 +49,8 @@ active dual-attention baseline.
 No checkpoint is qualified by this document. A qualification decision requires
 the machine audit, paired controls, and the two-song LightSem delivery checks.
 
-The latest diagnostic checkpoint is `pilot_seed0_v4_laban_angle`: it adds a
+The latest diagnostic checkpoint is `pilot_seed0_v6_laban_angle_8songs`: it adds a
 trainable six-head pan/tilt interface with weak body-geometry supervision. Its
 DMX output is still quarantined because the unseen-song active-baseline safety
-pair and physical authored-angle targets are missing.
+pair and physical authored-angle targets are missing. The eight-song branch uses
+two development songs rather than a one-song validation split.
