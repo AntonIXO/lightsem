@@ -2,7 +2,7 @@ import numpy as np
 import torch
 
 from lightsem.conductor.body_to_dmx import scene_to_dmx
-from lightsem.dmx import club_rig
+from lightsem.dmx import club_rig, Fixture, Rig
 from lightsem.model.body_to_dmx import BodyToDMX, BodyToDMXConfig, causality_probe
 
 
@@ -30,4 +30,7 @@ def test_scene_renderer_tracks_body_and_emits_decodable_dmx():
     angles = np.full((T, 6, 2), .5)
     angled = scene_to_dmx(scene, body, club_rig(), np.zeros(T), angles=angles)
     assert angled.shape == stream.shape and np.isfinite(angled).all()
+    rig8 = Rig([Fixture(f"mh{i}", "moving_head", 1 + 12 * i, position=(float(i), 5., 0.)) for i in range(8)])
+    stream8 = scene_to_dmx(scene, body, rig8, np.zeros(T), angles=angles)
+    assert stream8.shape == (T, 512) and np.isfinite(stream8).all()
 

@@ -7,6 +7,22 @@ from lightsem.dmx.encode import pack_universe
 from lightsem.dmx.fixtures import Rig
 
 
+def expand_canonical_angles(angles: np.ndarray, n_heads: int) -> np.ndarray:
+    """Resample six learned canonical heads to an arbitrary moving-head count."""
+    angles = np.asarray(angles, float)
+    if angles.ndim != 3 or angles.shape[2] != 2 or not np.isfinite(angles).all():
+        raise ValueError("angles must have shape (T,N,2) and finite values")
+    if np.any((angles < 0) | (angles > 1)) or n_heads < 0:
+        raise ValueError("angles must be within [0,1] and n_heads nonnegative")
+    if angles.shape[1] == n_heads:
+        return angles
+    if angles.shape[1] < 2 or n_heads == 0:
+        return np.repeat(angles[:, :1], n_heads, axis=1)
+    source = np.linspace(0., 1., angles.shape[1]); target = np.linspace(0., 1., n_heads)
+    return np.stack([np.stack([np.interp(target, source, angles[t, :, axis]) for axis in range(2)], 1)
+                     for t in range(len(angles))], 0)
+
+
 def scene_to_dmx(scene: np.ndarray, body: np.ndarray, rig: Rig, event: np.ndarray | None = None,
                  angles: np.ndarray | None = None) -> np.ndarray:
     """Expand ``(hue_cos,hue_sin,sat,value,p90,concentration)`` to a rig.
@@ -48,8 +64,9 @@ def scene_to_dmx(scene: np.ndarray, body: np.ndarray, rig: Rig, event: np.ndarra
     if angles is not None:
         angles = np.asarray(angles, float)
         n_heads = sum(f.kind == "moving_head" for f in rig.fixtures)
-        if angles.shape != (T, n_heads, 2) or not np.isfinite(angles).all() or np.any((angles < 0) | (angles > 1)):
-            raise ValueError(f"angles must be finite (T,{n_heads},2) values in [0,1]")
+        if angles.shape[0] != T or angles.shape[2] != 2:
+            raise ValueError(f"angles must be finite (T,N,2) values in [0,1]")
+        angles = expand_canonical_angles(angles, n_heads)
         head_i = 0
         for i, fixture in enumerate(rig.fixtures):
             if fixture.kind == "moving_head":
