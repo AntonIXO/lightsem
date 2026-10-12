@@ -277,6 +277,10 @@ def scene_vector_fast(inten, rgb):
 def one(job):
     mid, v = job
     key = f"{song_key(v)}={mid}"
+    # Workers are independent processes; create every output directory here
+    # rather than relying on a parent-side mkdir race.
+    for sub in ("beatsaver_light", "beatsaver_audio", "beatsaver_audio_offline", "beatsaver_visual"):
+        (CACHE / sub).mkdir(parents=True, exist_ok=True)
     out_l = CACHE / "beatsaver_light" / f"{key}.npz"
     if out_l.exists() and (CACHE / "beatsaver_visual" / f"{key}.npz").exists() and \
             (CACHE / "beatsaver_audio_offline" / f"{key}.npz").exists():
