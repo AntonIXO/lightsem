@@ -131,7 +131,9 @@ def main():
     pairs = load_pairs(args.body_root, ids, args.cache, args.manifest)
     if len(pairs) < 2: raise RuntimeError(f"need at least 2 complete body/light pairs, got {len(pairs)}")
     pairs.sort(key=lambda p: p["id"])
-    n_val = max(1, len(pairs) // 5); train, val = pairs[:-n_val], pairs[-n_val:]
+    # Keep at least two song groups in the development split; a one-song
+    # validation number is too unstable to support a cross-song claim.
+    n_val = max(2, int(np.ceil(len(pairs) * 0.2))); train, val = pairs[:-n_val], pairs[-n_val:]
     stats = normalize(train)
     bm, bs, am, ass = [torch.tensor(v, device=args.device) for v in stats]
     audio_dim = int(train[0]["audio"].shape[1])
