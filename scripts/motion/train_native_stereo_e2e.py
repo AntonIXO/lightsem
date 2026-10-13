@@ -153,6 +153,8 @@ def main(argv=None) -> int:
                    help="Weight paired raw-motion prior against the frozen baseline")
     p.add_argument("--freeze-incumbent", action="store_true",
                    help="Train only native/stereo conditioning adapters; freeze the incumbent backbone")
+    p.add_argument("--quiet-adapter-only", action="store_true",
+                   help="Add a zero-initialized quiet adapter and train only its parameters")
     args = p.parse_args(argv)
     if args.out.exists():
         raise FileExistsError(f"Preserving existing end-to-end root: {args.out}")
@@ -174,7 +176,8 @@ def main(argv=None) -> int:
     cfg = Config(**{**saved["config"], "stereo_dim": records.stereo_dim,
                     "stereo_fusion": args.fusion, "freeze_early_blocks": 6,
                     "stereo_adapter_scale": args.stereo_scale,
-                    "stereo_plan_scale": args.stereo_scale})
+                    "stereo_plan_scale": args.stereo_scale,
+                    "quiet_adapter": bool(args.quiet_adapter_only)})
     model = NativeDynamicsModel(MusicConfig(**saved["base_config"]), saved["normalizers"], cfg)
     result = model.load_state_dict(saved["model"], strict=False)
     # Fusion candidates add their own zero-initialized modules on top of the
@@ -188,6 +191,8 @@ def main(argv=None) -> int:
         "flow.stereo_cross_fast.",
         "flow.stereo_cross_slow.",
         "stereo_plan.",
+        "flow.quiet_projection.",
+        "flow.quiet_adapters.",
     )
     if result.unexpected_keys or any(not key.startswith(allowed_missing) for key in result.missing_keys):
         raise ValueError(f"Baseline state mismatch: missing={result.missing_keys}, unexpected={result.unexpected_keys}")
@@ -201,7 +206,11 @@ def main(argv=None) -> int:
             parameter.requires_grad_(False)
     for parameter in model.flow.plan_projection.parameters():
         parameter.requires_grad_(False)
-    if args.freeze_incumbent:
+    if args.quiet_adapter_only:
+        allowed = ("flow.quiet_projection.", "flow.quiet_adapters.")
+        for name, parameter in model.named_parameters():
+            parameter.requires_grad_(name.startswith(allowed))
+    elif args.freeze_incumbent:
         allowed = ("flow.native_adapters.", "flow.stereo_adapters.", "stereo_plan.")
         for name, parameter in model.named_parameters():
             parameter.requires_grad_(name.startswith(allowed))
@@ -305,16 +314,17 @@ def main(argv=None) -> int:
             print(f'update {step+1}/{args.steps} loss={losses[-1]:.6f} raw_prior={raw_losses[-1]:.6f} quiet={quiet_losses[-1]:.6f} active={float(active_preserve_loss.detach().cpu()):.6f}', flush=True)
     args.out.mkdir(parents=True)
     checkpoint=args.out/"final.pt"
-    changed = [name for name, value in model.state_dict().items() if name in saved['model'] and not torch.equal(value.cpu(), saved['model'][name].cpu())]
+    changed = [name for name, value in model.state_dict().items()
+               if name not in saved['model'] or not torch.equal(value.cpu(), saved['model'][name].cpu())]
     forbidden = [f'flow.blocks.{i}.' for i in range(6)] + ['flow.plan_projection.']
     if any(any(name.startswith(prefix) for prefix in forbidden) for name in changed):
         raise ValueError('Frozen weights changed')
-    required_prefixes = ('flow.native_adapters.', 'flow.stereo_adapters.', 'stereo_plan.') if args.freeze_incumbent else ('planner.', 'flow.output.', 'flow.blocks.6.')
+    required_prefixes = ('flow.quiet_adapters.',) if args.quiet_adapter_only else (('flow.native_adapters.', 'flow.stereo_adapters.', 'stereo_plan.') if args.freeze_incumbent else ('planner.', 'flow.output.', 'flow.blocks.6.'))
     for prefix in required_prefixes:
         if not any(name.startswith(prefix) for name in changed):
             raise ValueError(f'Native weights did not learn: {prefix}')
     torch.save({"model":model.state_dict(),"config":asdict(cfg),"base_config":saved["base_config"],"normalizers":saved["normalizers"],"audio_normalizers":saved["audio_normalizers"],"extra_normalizers":saved["extra_normalizers"],"stereo_mean":records.stereo_mean,"stereo_std":records.stereo_std,"baseline_checkpoint":str(args.baseline),"baseline_sha256":sha(args.baseline),"context_manifest":str(args.context_manifest),"context_manifest_sha256":sha(args.context_manifest),"steps":args.steps,"seed":args.seed,"lr":args.lr,"fusion":args.fusion,"stereo_scale":args.stereo_scale,"counterfactual_weight":args.counterfactual_weight,"counterfactual_margin":args.counterfactual_margin,"context_schema":records.schema,"training_manifest_sha256":sha(args.manifest),"changed_native_tensors":changed,"training_mode":"native_end_to_end_with_counterfactual_stereo_response","frozen_first_flow_blocks":cfg.freeze_early_blocks},checkpoint)
-    report={"schema_version":1,"status":"complete","seed":args.seed,"steps":args.steps,"batch_size":args.batch_size,"lr":args.lr,"arm":json.loads(args.context_manifest.read_text()).get("method"),"baseline":str(args.baseline),"baseline_sha256":sha(args.baseline),"context_manifest":str(args.context_manifest),"context_manifest_sha256":sha(args.context_manifest),"checkpoint":str(checkpoint),"checkpoint_sha256":sha(checkpoint),"elapsed_s":time.monotonic()-started,"loss_first":losses[0],"loss_last":losses[-1],"raw_prior_first":raw_losses[0],"raw_prior_last":raw_losses[-1],"quiet_weight":args.quiet_weight,"quiet_active_weight":args.quiet_active_weight,"quiet_margin":args.quiet_margin,"raw_prior_weight":args.raw_prior_weight,"freeze_incumbent":args.freeze_incumbent,"quiet_loss_first":quiet_losses[0],"quiet_loss_last":quiet_losses[-1],"finite":True,"fusion":args.fusion,"stereo_scale":args.stereo_scale,"counterfactual_weight":args.counterfactual_weight,"counterfactual_margin":args.counterfactual_margin,"context_schema":records.schema,"changed_native_tensors":changed,"torch_version":torch.__version__,"training_mode":"native end-to-end with counterfactual stereo response plus excess-only observed-2D quiet loss, active baseline preservation, and strengthened raw prior; incumbent backbone optionally frozen","diagnostic_only":True,"scope":"paired native TRAIN only; raw safety gate required before mapper/render; no baseline promotion"}
+    report={"schema_version":1,"status":"complete","seed":args.seed,"steps":args.steps,"batch_size":args.batch_size,"lr":args.lr,"arm":json.loads(args.context_manifest.read_text()).get("method"),"baseline":str(args.baseline),"baseline_sha256":sha(args.baseline),"context_manifest":str(args.context_manifest),"context_manifest_sha256":sha(args.context_manifest),"checkpoint":str(checkpoint),"checkpoint_sha256":sha(checkpoint),"elapsed_s":time.monotonic()-started,"loss_first":losses[0],"loss_last":losses[-1],"raw_prior_first":raw_losses[0],"raw_prior_last":raw_losses[-1],"quiet_weight":args.quiet_weight,"quiet_active_weight":args.quiet_active_weight,"quiet_margin":args.quiet_margin,"raw_prior_weight":args.raw_prior_weight,"freeze_incumbent":args.freeze_incumbent,"quiet_adapter_only":args.quiet_adapter_only,"quiet_loss_first":quiet_losses[0],"quiet_loss_last":quiet_losses[-1],"finite":True,"fusion":args.fusion,"stereo_scale":args.stereo_scale,"counterfactual_weight":args.counterfactual_weight,"counterfactual_margin":args.counterfactual_margin,"context_schema":records.schema,"changed_native_tensors":changed,"torch_version":torch.__version__,"training_mode":"native end-to-end with zero-initialized quiet adapter, counterfactual stereo response, excess-only observed-2D quiet loss, and active baseline preservation","diagnostic_only":True,"scope":"paired native TRAIN only; raw safety gate required before mapper/render; no baseline promotion"}
     write(args.out/"REPORT.json",report); print(json.dumps(report,sort_keys=True)); return 0
 
 

@@ -27,6 +27,8 @@ class Config:
     adapter_scale:float=.2
     stereo_adapter_scale:float|None=None
     stereo_plan_scale:float|None=None
+    quiet_adapter:bool=False
+    quiet_adapter_scale:float=.2
     stereo_fusion:str='concat'
     def __post_init__(self):
         if self.arm not in ('continued','dynamics','joint'):raise ValueError('Unknown registered arm')
@@ -34,6 +36,7 @@ class Config:
         if self.extra_dim<1 or self.stereo_dim<0 or self.adapter_scale<=0 or (self.stereo_adapter_scale is not None and self.stereo_adapter_scale<=0) or (self.stereo_plan_scale is not None and self.stereo_plan_scale<=0):raise ValueError('Invalid audio dimensions/scales')
         if self.stereo_fusion not in ('concat','gated_residual','role_specialized','dual_cross_attention'):raise ValueError('Unknown stereo fusion')
         if self.stereo_fusion!='concat' and self.stereo_dim!=128:raise ValueError('Learned fusion requires concat128 context')
+        if self.quiet_adapter_scale<=0 or self.quiet_adapter_scale>1:raise ValueError('Invalid quiet adapter scale')
 
 
 class Planner(nn.Module):
@@ -77,6 +80,8 @@ class Flow(DynamicFlow):
         self.stereo_gate=None
         self.stereo_cross_fast=None
         self.stereo_cross_slow=None
+        self.quiet_projection=None
+        self.quiet_adapters=nn.ModuleList()
         if config.stereo_dim:
             projection_dim=config.stereo_dim
             if config.stereo_fusion=='gated_residual':
@@ -99,6 +104,11 @@ class Flow(DynamicFlow):
             self.stereo_projection=nn.Linear(projection_dim,32)
             self.stereo_adapters=nn.ModuleList(nn.Linear(32,base_config.width) for _ in self.blocks)
             for layer in self.stereo_adapters:nn.init.zeros_(layer.weight);nn.init.zeros_(layer.bias)
+        if config.quiet_adapter:
+            self.quiet_projection=nn.Linear(config.extra_dim,32)
+            self.quiet_adapters=nn.ModuleList(nn.Linear(32,base_config.width) for _ in self.blocks)
+            for layer in self.quiet_adapters:
+                nn.init.zeros_(layer.weight);nn.init.zeros_(layer.bias)
     def flow_stereo(self,value):
         if self.native_config.stereo_fusion=='gated_residual':
             fast, slow = value[...,:64], value[...,64:]
@@ -134,6 +144,9 @@ class Flow(DynamicFlow):
                 stereo_hidden=F.silu(self.stereo_projection(self.flow_stereo(stereo)))
                 stereo_scale=self.native_config.adapter_scale if self.native_config.stereo_adapter_scale is None else self.native_config.stereo_adapter_scale
                 bias=bias+stereo_scale*torch.tanh(self.stereo_adapters[index](stereo_hidden))
+            if self.quiet_projection is not None:
+                quiet_hidden=F.silu(self.quiet_projection(extra))
+                bias=bias+self.native_config.quiet_adapter_scale*torch.tanh(self.quiet_adapters[index](quiet_hidden))
             biases.append(bias.transpose(1,2))
         return audio[...,:92],torch.stack(biases,1)
     def prepared_vector_field(self,base,biases,state,t):
@@ -145,7 +158,7 @@ class Flow(DynamicFlow):
         return self.prepared_vector_field(*self.prepare_conditioning(audio),state,t)
 
     def config_dict(self):
-        return {**super().config_dict(),'native_control_channels':80,'legacy34_plan_projection_unused':True,'conditioning':'Base92+1061frozenaudio+48learneddynamics+32continuousmotif+optionalStereoV1; onlyjointconsumescontrol','stereo_dim':self.native_config.stereo_dim,'stereo_fusion':self.native_config.stereo_fusion,'retiming':False}
+        return {**super().config_dict(),'native_control_channels':80,'legacy34_plan_projection_unused':True,'conditioning':'Base92+1061frozenaudio+48learneddynamics+32continuousmotif+optionalStereoV1+optionalQuietAdapter; onlyjointconsumescontrol','stereo_dim':self.native_config.stereo_dim,'stereo_fusion':self.native_config.stereo_fusion,'quiet_adapter':self.native_config.quiet_adapter,'retiming':False}
 
 
 
