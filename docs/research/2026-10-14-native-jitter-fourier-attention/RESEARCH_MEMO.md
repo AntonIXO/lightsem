@@ -35,3 +35,15 @@ Use song-level splits and the complete current descriptor as the comparator. Fit
 - [Complex-domain onset detection, DOI 10.1109/LSP.2004.827951](https://doi.org/10.1109/LSP.2004.827951): phase-prediction residuals for musical onset evidence.
 
 All papers were verified through the arXiv MCP where an arXiv identifier exists. No claim above establishes choreography or emitted-light quality without LightSem's raw-body and decoded-DMX gates.
+
+## Pilot corrections
+
+The first implementation draft requested a 16 Hz component from a 30 Hz
+descriptor grid. That exceeds the 15 Hz Nyquist limit and is excluded from
+selection; the implementation now uses 14 Hz as its highest 0.5 s-window
+component. The first run remains preserved as flawed exploratory evidence.
+
+The separate active-baseline quiet-speed pilot reduced quiet residuals but also
+reduced high-energy mean speed to 0.873 (Shpongle) and 0.815 (Cure For Me) of
+the baseline. It is rejected as a uniformly slowed jitter fix. A follow-up
+must use an excess-only quiet penalty plus an active-motion preservation gate.
