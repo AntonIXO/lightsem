@@ -145,6 +145,14 @@ def main(argv=None) -> int:
     p.add_argument("--counterfactual-margin", type=float, default=0.008)
     p.add_argument("--quiet-weight", type=float, default=0.0,
                    help="Weight observed-2D low-speed loss; zero preserves the historical pilot")
+    p.add_argument("--quiet-active-weight", type=float, default=0.0,
+                   help="Preserve active baseline speed while reducing quiet excess motion")
+    p.add_argument("--quiet-margin", type=float, default=0.02,
+                   help="Observed projected-speed excess margin for the quiet gate")
+    p.add_argument("--raw-prior-weight", type=float, default=1.0,
+                   help="Weight paired raw-motion prior against the frozen baseline")
+    p.add_argument("--freeze-incumbent", action="store_true",
+                   help="Train only native/stereo conditioning adapters; freeze the incumbent backbone")
     args = p.parse_args(argv)
     if args.out.exists():
         raise FileExistsError(f"Preserving existing end-to-end root: {args.out}")
@@ -159,6 +167,10 @@ def main(argv=None) -> int:
         raise ValueError("Counterfactual settings must be nonnegative")
     if args.quiet_weight < 0.0:
         raise ValueError("Quiet loss weight must be nonnegative")
+    if args.quiet_active_weight < 0.0 or args.quiet_margin < 0.0:
+        raise ValueError("Quiet active weight and margin must be nonnegative")
+    if args.raw_prior_weight < 0.0:
+        raise ValueError("Raw prior weight must be nonnegative")
     cfg = Config(**{**saved["config"], "stereo_dim": records.stereo_dim,
                     "stereo_fusion": args.fusion, "freeze_early_blocks": 6,
                     "stereo_adapter_scale": args.stereo_scale,
@@ -189,6 +201,10 @@ def main(argv=None) -> int:
             parameter.requires_grad_(False)
     for parameter in model.flow.plan_projection.parameters():
         parameter.requires_grad_(False)
+    if args.freeze_incumbent:
+        allowed = ("flow.native_adapters.", "flow.stereo_adapters.", "stereo_plan.")
+        for name, parameter in model.named_parameters():
+            parameter.requires_grad_(name.startswith(allowed))
     model.to(args.device).train()
     baseline_model = NativeDynamicsModel(MusicConfig(**saved["base_config"]), saved["normalizers"], Config(**saved["config"])).to(args.device).eval()
     baseline_load = baseline_model.load_state_dict(saved["model"], strict=True)
@@ -234,6 +250,7 @@ def main(argv=None) -> int:
         pose_loss=reprojection_loss(projected,values["pose"],values["pose_mask"]&valid[...,None])
         dyn=dynamics_losses(projected,values["pose"],(values["pose_mask"]&valid[...,None]))
         quiet_loss=generated.sum()*0
+        active_preserve_loss=generated.sum()*0
         if args.quiet_weight:
             # Observed 2D is a masked front-end, not metric 3D truth.  Use it
             # only to identify low-speed holds and compare raw generated
@@ -246,11 +263,21 @@ def main(argv=None) -> int:
             gspeed=torch.sqrt(gvel.square().sum(-1)+1e-8)
             tspeed=torch.sqrt(tvel.square().sum(-1)+1e-8)
             observed_quiet=(tspeed < 0.10) & edge
+            observed_active=(tspeed >= 0.10) & edge
             counts=observed_quiet.sum((-1,-2))
             enough=counts >= 4
-            frame_loss=torch.where(observed_quiet, torch.nn.functional.smooth_l1_loss(
-                torch.log1p(gspeed), torch.log1p(tspeed), reduction='none'), torch.zeros_like(gspeed))
-            quiet_loss=(frame_loss.sum((-1,-2)) / counts.clamp_min(1)).masked_select(enough).mean() if enough.any() else generated.sum()*0
+            # Penalize only excess speed above the observed quiet proxy. A
+            # symmetric regression here encourages a uniformly slowed body.
+            quiet_excess=torch.relu(gspeed-tspeed-args.quiet_margin)
+            quiet_frame_loss=torch.where(observed_quiet, quiet_excess.square(), torch.zeros_like(quiet_excess))
+            quiet_loss=(quiet_frame_loss.sum((-1,-2)) / counts.clamp_min(1)).masked_select(enough).mean() if enough.any() else generated.sum()*0
+            base_projected,_=project_native(baseline_native,valid)
+            base_speed=torch.sqrt(((base_projected[:,1:]-base_projected[:,:-1])*30.).square().sum(-1)+1e-8)
+            active_counts=observed_active.sum((-1,-2))
+            active_enough=active_counts >= 4
+            active_frame_loss=torch.where(observed_active, torch.nn.functional.smooth_l1_loss(
+                torch.log1p(gspeed), torch.log1p(base_speed), reduction='none'), torch.zeros_like(gspeed))
+            active_preserve_loss=(active_frame_loss.sum((-1,-2)) / active_counts.clamp_min(1)).masked_select(active_enough).mean() if active_enough.any() else generated.sum()*0
         raw_prior=raw_native_losses(generated,baseline_native,valid)
         raw_total=sum(RAW_WEIGHTS[name]*value for name,value in raw_prior.items())
         cf_projected,_=project_native(counterfactual,valid)
@@ -264,7 +291,7 @@ def main(argv=None) -> int:
         counterfactual_loss=torch.relu(response_target-response).mean()
         # The raw prior is deliberately strong: end-to-end external conditioning
         # must learn the paired motion evidence without creating a new jitter mode.
-        loss=pose_loss+.1*sum(dyn.values())+args.quiet_weight*quiet_loss+1.0*raw_total+.0001*sum(parameter.square().mean() for parameter in trainable)
+        loss=pose_loss+.1*sum(dyn.values())+args.quiet_weight*quiet_loss+args.quiet_active_weight*active_preserve_loss+args.raw_prior_weight*raw_total+.0001*sum(parameter.square().mean() for parameter in trainable)
         loss=loss+args.counterfactual_weight*counterfactual_loss
         if not torch.isfinite(loss):
             raise FloatingPointError(f"nonfinite step {step}")
@@ -272,18 +299,19 @@ def main(argv=None) -> int:
         losses.append(float(loss.detach().cpu())); raw_losses.append(float(raw_total.detach().cpu()))
         quiet_losses.append(float(quiet_loss.detach().cpu()))
         if (step+1) % 100 == 0:
-            print(f'update {step+1}/{args.steps} loss={losses[-1]:.6f} raw_prior={raw_losses[-1]:.6f} quiet={quiet_losses[-1]:.6f}', flush=True)
+            print(f'update {step+1}/{args.steps} loss={losses[-1]:.6f} raw_prior={raw_losses[-1]:.6f} quiet={quiet_losses[-1]:.6f} active={float(active_preserve_loss.detach().cpu()):.6f}', flush=True)
     args.out.mkdir(parents=True)
     checkpoint=args.out/"final.pt"
     changed = [name for name, value in model.state_dict().items() if name in saved['model'] and not torch.equal(value.cpu(), saved['model'][name].cpu())]
     forbidden = [f'flow.blocks.{i}.' for i in range(6)] + ['flow.plan_projection.']
     if any(any(name.startswith(prefix) for prefix in forbidden) for name in changed):
         raise ValueError('Frozen weights changed')
-    for prefix in ('planner.', 'flow.output.', 'flow.blocks.6.'):
+    required_prefixes = ('flow.native_adapters.', 'flow.stereo_adapters.', 'stereo_plan.') if args.freeze_incumbent else ('planner.', 'flow.output.', 'flow.blocks.6.')
+    for prefix in required_prefixes:
         if not any(name.startswith(prefix) for name in changed):
             raise ValueError(f'Native weights did not learn: {prefix}')
     torch.save({"model":model.state_dict(),"config":asdict(cfg),"base_config":saved["base_config"],"normalizers":saved["normalizers"],"audio_normalizers":saved["audio_normalizers"],"extra_normalizers":saved["extra_normalizers"],"stereo_mean":records.stereo_mean,"stereo_std":records.stereo_std,"baseline_checkpoint":str(args.baseline),"baseline_sha256":sha(args.baseline),"context_manifest":str(args.context_manifest),"context_manifest_sha256":sha(args.context_manifest),"steps":args.steps,"seed":args.seed,"lr":args.lr,"fusion":args.fusion,"stereo_scale":args.stereo_scale,"counterfactual_weight":args.counterfactual_weight,"counterfactual_margin":args.counterfactual_margin,"context_schema":records.schema,"training_manifest_sha256":sha(args.manifest),"changed_native_tensors":changed,"training_mode":"native_end_to_end_with_counterfactual_stereo_response","frozen_first_flow_blocks":cfg.freeze_early_blocks},checkpoint)
-    report={"schema_version":1,"status":"complete","seed":args.seed,"steps":args.steps,"batch_size":args.batch_size,"lr":args.lr,"arm":json.loads(args.context_manifest.read_text()).get("method"),"baseline":str(args.baseline),"baseline_sha256":sha(args.baseline),"context_manifest":str(args.context_manifest),"context_manifest_sha256":sha(args.context_manifest),"checkpoint":str(checkpoint),"checkpoint_sha256":sha(checkpoint),"elapsed_s":time.monotonic()-started,"loss_first":losses[0],"loss_last":losses[-1],"raw_prior_first":raw_losses[0],"raw_prior_last":raw_losses[-1],"quiet_weight":args.quiet_weight,"quiet_loss_first":quiet_losses[0],"quiet_loss_last":quiet_losses[-1],"finite":True,"fusion":args.fusion,"stereo_scale":args.stereo_scale,"counterfactual_weight":args.counterfactual_weight,"counterfactual_margin":args.counterfactual_margin,"context_schema":records.schema,"changed_native_tensors":changed,"torch_version":torch.__version__,"training_mode":"native end-to-end with counterfactual stereo response plus observed-2D quiet-speed term; first six flow blocks and legacy plan projection frozen","diagnostic_only":True,"scope":"paired native TRAIN only; raw safety gate required before mapper/render; no baseline promotion"}
+    report={"schema_version":1,"status":"complete","seed":args.seed,"steps":args.steps,"batch_size":args.batch_size,"lr":args.lr,"arm":json.loads(args.context_manifest.read_text()).get("method"),"baseline":str(args.baseline),"baseline_sha256":sha(args.baseline),"context_manifest":str(args.context_manifest),"context_manifest_sha256":sha(args.context_manifest),"checkpoint":str(checkpoint),"checkpoint_sha256":sha(checkpoint),"elapsed_s":time.monotonic()-started,"loss_first":losses[0],"loss_last":losses[-1],"raw_prior_first":raw_losses[0],"raw_prior_last":raw_losses[-1],"quiet_weight":args.quiet_weight,"quiet_active_weight":args.quiet_active_weight,"quiet_margin":args.quiet_margin,"raw_prior_weight":args.raw_prior_weight,"freeze_incumbent":args.freeze_incumbent,"quiet_loss_first":quiet_losses[0],"quiet_loss_last":quiet_losses[-1],"finite":True,"fusion":args.fusion,"stereo_scale":args.stereo_scale,"counterfactual_weight":args.counterfactual_weight,"counterfactual_margin":args.counterfactual_margin,"context_schema":records.schema,"changed_native_tensors":changed,"torch_version":torch.__version__,"training_mode":"native end-to-end with counterfactual stereo response plus excess-only observed-2D quiet loss, active baseline preservation, and strengthened raw prior; incumbent backbone optionally frozen","diagnostic_only":True,"scope":"paired native TRAIN only; raw safety gate required before mapper/render; no baseline promotion"}
     write(args.out/"REPORT.json",report); print(json.dumps(report,sort_keys=True)); return 0
 
 
