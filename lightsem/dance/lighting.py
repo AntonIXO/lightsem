@@ -229,6 +229,40 @@ def _source_dependence_audit(world40, time, outputs, left, right, levels, transf
     }
 
 
+def _validate_p2_recipe_report(report, color_path, config_path, config_sha256):
+    """Accept both sealed P2 receipt schemas used by the native cache.
+
+    The current P2 producer stores the recipe as structured delivery fields,
+    while older receipts encoded the same contract in a descriptive string and
+    a source binding.  Both forms remain authenticated by ``_load_p2_colors``;
+    this check only verifies that the accepted P2 layout is the one configured
+    for native rendering.
+    """
+    recipe = str(report.get('recipe', '')).lower()
+    legacy = all(token in recipe for token in
+                 ('i_vr_p0', 'palette history', 'two groups', '300ms'))
+    delivery = report.get('delivery', {})
+    try:
+        fade_s = float(delivery.get('fade_s', -1.0))
+    except (TypeError, ValueError):
+        fade_s = -1.0
+    compact = (
+        report.get('recipe') == 'P2'
+        and delivery.get('layout') == 'two_groups'
+        and abs(fade_s - 0.3) <= 1e-9
+        and delivery.get('history') == 'own_generated_state'
+        and report.get('P2_sha256') == sha(color_path)
+    )
+    if not (legacy or compact):
+        raise ValueError('P2 report does not declare the accepted P2 recipe')
+    bindings = report.get('source_bindings', {})
+    if bindings:
+        if bindings.get(str(config_path)) != config_sha256:
+            raise ValueError('P2 report is not bound to the configured color recipe')
+    elif not compact:
+        raise ValueError('P2 report is not bound to the configured color recipe')
+
+
 def prepare_colors(audio, root, config, *, color_path=None, audio_python=None, audio_device=None):
     _, cached = cached_track(config, audio)
     expected_sha256 = cached['colors']['sha256'] if cached is not None else None
@@ -249,14 +283,9 @@ def prepare_colors(audio, root, config, *, color_path=None, audio_python=None, a
     left, right, palette, active, identity = _load_p2_colors(
         color_path, audio, expected_sha256=expected_sha256, allow_fixture_report=False)
     report = json.loads(Path(identity['report']).read_text())
-    recipe = str(report.get('recipe', '')).lower()
-    required_recipe_tokens = ('i_vr_p0', 'palette history', 'two groups', '300ms')
-    if not all(token in recipe for token in required_recipe_tokens):
-        raise ValueError('P2 report does not declare the accepted P2 recipe')
     config_path = (REPO / config['lighting']['color_config']).resolve()
-    bindings = report.get('source_bindings', {})
-    if bindings.get(str(config_path)) != config['lighting']['color_config_sha256']:
-        raise ValueError('P2 report is not bound to the configured color recipe')
+    _validate_p2_recipe_report(report, color_path, config_path,
+                               config['lighting']['color_config_sha256'])
     identity['color_active_present'] = active is not None
     return left, right, palette, identity
 
