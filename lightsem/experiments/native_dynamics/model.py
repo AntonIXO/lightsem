@@ -29,6 +29,9 @@ class Config:
     stereo_plan_scale:float|None=None
     quiet_adapter:bool=False
     quiet_adapter_scale:float=.2
+    quiet_energy_gate:bool=False
+    quiet_energy_threshold:float=0.0
+    quiet_energy_temperature:float=.5
     stereo_fusion:str='concat'
     def __post_init__(self):
         if self.arm not in ('continued','dynamics','joint'):raise ValueError('Unknown registered arm')
@@ -37,6 +40,7 @@ class Config:
         if self.stereo_fusion not in ('concat','gated_residual','role_specialized','dual_cross_attention'):raise ValueError('Unknown stereo fusion')
         if self.stereo_fusion!='concat' and self.stereo_dim!=128:raise ValueError('Learned fusion requires concat128 context')
         if self.quiet_adapter_scale<=0 or self.quiet_adapter_scale>1:raise ValueError('Invalid quiet adapter scale')
+        if self.quiet_energy_temperature<=0:raise ValueError('Invalid quiet energy temperature')
 
 
 class Planner(nn.Module):
@@ -146,6 +150,10 @@ class Flow(DynamicFlow):
                 bias=bias+stereo_scale*torch.tanh(self.stereo_adapters[index](stereo_hidden))
             if self.quiet_projection is not None:
                 quiet_hidden=F.silu(self.quiet_projection(extra))
+                if self.native_config.quiet_energy_gate:
+                    energy=extra[...,1040:1041]
+                    quiet_gate=torch.sigmoid((self.native_config.quiet_energy_threshold-energy)/self.native_config.quiet_energy_temperature)
+                    quiet_hidden=quiet_hidden*quiet_gate
                 bias=bias+self.native_config.quiet_adapter_scale*torch.tanh(self.quiet_adapters[index](quiet_hidden))
             biases.append(bias.transpose(1,2))
         return audio[...,:92],torch.stack(biases,1)

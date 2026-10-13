@@ -155,6 +155,10 @@ def main(argv=None) -> int:
                    help="Train only native/stereo conditioning adapters; freeze the incumbent backbone")
     p.add_argument("--quiet-adapter-only", action="store_true",
                    help="Add a zero-initialized quiet adapter and train only its parameters")
+    p.add_argument("--quiet-energy-gate", action="store_true",
+                   help="Gate the quiet adapter on low normalized mixture RMS")
+    p.add_argument("--quiet-energy-quantile", type=float, default=.30,
+                   help="TRAIN quantile defining the low-energy quiet-adapter gate")
     args = p.parse_args(argv)
     if args.out.exists():
         raise FileExistsError(f"Preserving existing end-to-end root: {args.out}")
@@ -173,11 +177,20 @@ def main(argv=None) -> int:
         raise ValueError("Quiet active weight and margin must be nonnegative")
     if args.raw_prior_weight < 0.0:
         raise ValueError("Raw prior weight must be nonnegative")
+    if not 0.0 < args.quiet_energy_quantile < 1.0:
+        raise ValueError("Quiet energy quantile must be in (0,1)")
+    quiet_threshold=0.0
+    if args.quiet_energy_gate:
+        mean=float(saved["extra_normalizers"]["mean"][1040]); std=float(saved["extra_normalizers"]["std"][1040])
+        values=np.concatenate([row["extra"][:,1040] for row in records.rows])
+        quiet_threshold=float(np.quantile((values-mean)/max(std,1e-6), args.quiet_energy_quantile))
     cfg = Config(**{**saved["config"], "stereo_dim": records.stereo_dim,
                     "stereo_fusion": args.fusion, "freeze_early_blocks": 6,
                     "stereo_adapter_scale": args.stereo_scale,
                     "stereo_plan_scale": args.stereo_scale,
-                    "quiet_adapter": bool(args.quiet_adapter_only)})
+                    "quiet_adapter": bool(args.quiet_adapter_only),
+                    "quiet_energy_gate": bool(args.quiet_energy_gate),
+                    "quiet_energy_threshold": quiet_threshold})
     model = NativeDynamicsModel(MusicConfig(**saved["base_config"]), saved["normalizers"], cfg)
     result = model.load_state_dict(saved["model"], strict=False)
     # Fusion candidates add their own zero-initialized modules on top of the
@@ -324,7 +337,7 @@ def main(argv=None) -> int:
         if not any(name.startswith(prefix) for name in changed):
             raise ValueError(f'Native weights did not learn: {prefix}')
     torch.save({"model":model.state_dict(),"config":asdict(cfg),"base_config":saved["base_config"],"normalizers":saved["normalizers"],"audio_normalizers":saved["audio_normalizers"],"extra_normalizers":saved["extra_normalizers"],"stereo_mean":records.stereo_mean,"stereo_std":records.stereo_std,"baseline_checkpoint":str(args.baseline),"baseline_sha256":sha(args.baseline),"context_manifest":str(args.context_manifest),"context_manifest_sha256":sha(args.context_manifest),"steps":args.steps,"seed":args.seed,"lr":args.lr,"fusion":args.fusion,"stereo_scale":args.stereo_scale,"counterfactual_weight":args.counterfactual_weight,"counterfactual_margin":args.counterfactual_margin,"context_schema":records.schema,"training_manifest_sha256":sha(args.manifest),"changed_native_tensors":changed,"training_mode":"native_end_to_end_with_counterfactual_stereo_response","frozen_first_flow_blocks":cfg.freeze_early_blocks},checkpoint)
-    report={"schema_version":1,"status":"complete","seed":args.seed,"steps":args.steps,"batch_size":args.batch_size,"lr":args.lr,"arm":json.loads(args.context_manifest.read_text()).get("method"),"baseline":str(args.baseline),"baseline_sha256":sha(args.baseline),"context_manifest":str(args.context_manifest),"context_manifest_sha256":sha(args.context_manifest),"checkpoint":str(checkpoint),"checkpoint_sha256":sha(checkpoint),"elapsed_s":time.monotonic()-started,"loss_first":losses[0],"loss_last":losses[-1],"raw_prior_first":raw_losses[0],"raw_prior_last":raw_losses[-1],"quiet_weight":args.quiet_weight,"quiet_active_weight":args.quiet_active_weight,"quiet_margin":args.quiet_margin,"raw_prior_weight":args.raw_prior_weight,"freeze_incumbent":args.freeze_incumbent,"quiet_adapter_only":args.quiet_adapter_only,"quiet_loss_first":quiet_losses[0],"quiet_loss_last":quiet_losses[-1],"finite":True,"fusion":args.fusion,"stereo_scale":args.stereo_scale,"counterfactual_weight":args.counterfactual_weight,"counterfactual_margin":args.counterfactual_margin,"context_schema":records.schema,"changed_native_tensors":changed,"torch_version":torch.__version__,"training_mode":"native end-to-end with zero-initialized quiet adapter, counterfactual stereo response, excess-only observed-2D quiet loss, and active baseline preservation","diagnostic_only":True,"scope":"paired native TRAIN only; raw safety gate required before mapper/render; no baseline promotion"}
+    report={"schema_version":1,"status":"complete","seed":args.seed,"steps":args.steps,"batch_size":args.batch_size,"lr":args.lr,"arm":json.loads(args.context_manifest.read_text()).get("method"),"baseline":str(args.baseline),"baseline_sha256":sha(args.baseline),"context_manifest":str(args.context_manifest),"context_manifest_sha256":sha(args.context_manifest),"checkpoint":str(checkpoint),"checkpoint_sha256":sha(checkpoint),"elapsed_s":time.monotonic()-started,"loss_first":losses[0],"loss_last":losses[-1],"raw_prior_first":raw_losses[0],"raw_prior_last":raw_losses[-1],"quiet_weight":args.quiet_weight,"quiet_active_weight":args.quiet_active_weight,"quiet_margin":args.quiet_margin,"raw_prior_weight":args.raw_prior_weight,"freeze_incumbent":args.freeze_incumbent,"quiet_adapter_only":args.quiet_adapter_only,"quiet_energy_gate":args.quiet_energy_gate,"quiet_energy_quantile":args.quiet_energy_quantile,"quiet_energy_threshold":quiet_threshold,"quiet_loss_first":quiet_losses[0],"quiet_loss_last":quiet_losses[-1],"finite":True,"fusion":args.fusion,"stereo_scale":args.stereo_scale,"counterfactual_weight":args.counterfactual_weight,"counterfactual_margin":args.counterfactual_margin,"context_schema":records.schema,"changed_native_tensors":changed,"torch_version":torch.__version__,"training_mode":"native end-to-end with zero-initialized gated quiet adapter, counterfactual stereo response, excess-only observed-2D quiet loss, and active baseline preservation","diagnostic_only":True,"scope":"paired native TRAIN only; raw safety gate required before mapper/render; no baseline promotion"}
     write(args.out/"REPORT.json",report); print(json.dumps(report,sort_keys=True)); return 0
 
 
