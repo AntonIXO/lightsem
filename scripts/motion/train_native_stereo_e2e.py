@@ -244,7 +244,10 @@ def main(argv=None) -> int:
         cf_condition,_=model.condition(fine,coarse,coarse_valid,values["indices"],cf_stereo,cf_coarse_stereo)
         counterfactual,_=model.rollout(cf_condition,noise,gradient_steps=cfg.gradient_steps,teacher=None)
         with torch.no_grad():
-            base_condition,_=baseline_model.condition(fine,coarse,coarse_valid,values["indices"],stereo,coarse_stereo)
+            if baseline_model.config.stereo_dim:
+                base_condition,_=baseline_model.condition(fine,coarse,coarse_valid,values["indices"],stereo,coarse_stereo)
+            else:
+                base_condition,_=baseline_model.condition(fine,coarse,coarse_valid,values["indices"])
             baseline_native,_=baseline_model.rollout(base_condition,noise,gradient_steps=0,teacher=None)
         projected,_=project_native(generated,valid)
         pose_loss=reprojection_loss(projected,values["pose"],values["pose_mask"]&valid[...,None])
