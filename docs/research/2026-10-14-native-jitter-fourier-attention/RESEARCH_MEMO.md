@@ -47,3 +47,11 @@ The separate active-baseline quiet-speed pilot reduced quiet residuals but also
 reduced high-energy mean speed to 0.873 (Shpongle) and 0.815 (Cure For Me) of
 the baseline. It is rejected as a uniformly slowed jitter fix. A follow-up
 must use an excess-only quiet penalty plus an active-motion preservation gate.
+
+The corrected Fourier candidate passed raw safety and source-dependence gates,
+so it received labeled full-song diagnostic renders. Canonical health receipts
+are `native_local_fourier_context_20261014_v5/health/*_candidate_v5.json`.
+Shpongle raw p95 jerk improved (507.64 versus 581.92 baseline); Cure For Me
+regressed (852.64 versus 683.04), so no promotion was earned. A separate
+waveform phase-prediction probe is stored beside the renders and remains a
+frozen CPU diagnostic.
