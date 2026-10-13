@@ -33,7 +33,7 @@ def local_fourier(x: np.ndarray) -> np.ndarray:
     # 2 s: .5, 1, 2, 4 Hz; .5 s: 2, 4, 8, 16 Hz.  The latter deliberately
     # exposes fast transients and is retained as a diagnostic even when the
     # downstream raw-jerk gate rejects a candidate.
-    for width in (60, 15):
+    for width, harmonics in ((60, (1, 2, 4, 8)), (15, (1, 2, 4, 7))):
         window = np.hanning(width).astype(np.float32)
         window /= max(float(np.linalg.norm(window)), 1e-8)
         padded = np.pad(x, ((width // 2, width - 1 - width // 2), (0, 0)), mode="edge")
@@ -43,7 +43,7 @@ def local_fourier(x: np.ndarray) -> np.ndarray:
         frames = np.moveaxis(frames, -1, 1)
         if frames.shape != (len(x), width, 8):
             raise ValueError(f"unexpected local window shape {frames.shape}")
-        for harmonic in (1, 2, 4, 8):
+        for harmonic in harmonics:
             phase = 2.0 * np.pi * harmonic * np.arange(width, dtype=np.float32) / width
             cosine = (window * np.cos(phase))[None, :, None]
             sine = (window * np.sin(phase))[None, :, None]
@@ -109,7 +109,7 @@ def build(args: argparse.Namespace) -> dict:
         "schema": "local_fourier_128_v1",
         "feature_dim": 128,
         "windows_frames": [60, 15],
-        "frequencies_hz": {"60": [0.5, 1.0, 2.0, 4.0], "15": [2.0, 4.0, 8.0, 16.0]},
+        "frequencies_hz": {"60": [0.5, 1.0, 2.0, 4.0], "15": [2.0, 4.0, 8.0, 14.0]},
         "channels": "mixture_rms/onset/centroid/flux plus four source_flux channels",
         "normalization": "native TRAIN-only adapter normalization",
         "split": "train",
