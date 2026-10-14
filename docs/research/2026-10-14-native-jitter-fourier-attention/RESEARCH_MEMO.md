@@ -238,3 +238,13 @@ jerk-proxy loss disabled. Matched results were active speed `0.979/0.982`, raw
 jerk safety `0.935/0.919`, and quiet jerk `0.870/0.874`. The Fourier objective
 is therefore causal and safe but does not meet the frozen `0.85` quiet-jerk
 gate; it remains diagnostic-only and was not rendered.
+
+## Quiet-gated temporal Fourier/jerk fusion (2026-10-17)
+
+A native temporal residual was gated by the normalized mixture-RMS quiet
+signal inside the vector field, then trained with both the raw jerk excess and
+the quiet-window velocity FFT loss. This lets the adapter act in rests without
+an active-passage rate controller. Matched audits gave active speed
+`0.983/0.985`, raw jerk safety `0.941/0.925`, and quiet jerk `0.873/0.868`
+for Shpongle/Cure. The architecture is finite and raw-safe but misses the
+frozen `0.85` quiet-jerk gate on both songs; it was not mapped or rendered.
