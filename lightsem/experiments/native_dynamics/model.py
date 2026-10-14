@@ -10,6 +10,7 @@ import torch.nn.functional as F
 from ..dynamic_dance.learning import DynamicFlow,DynamicFlowConfig
 from ..motion_study.music_model import MusicConfig
 from .kinematics import PLAN_DIM,masked_mean
+from .local_audio_fusion import LocalAudioFusion
 MOTIF_DIM=32
 CONDITION_DIM=PLAN_DIM+MOTIF_DIM
 
@@ -33,6 +34,10 @@ class Config:
     quiet_energy_threshold:float=0.0
     quiet_energy_temperature:float=.5
     stereo_fusion:str='concat'
+    audio_fusion:str='none'
+    audio_cross_width:int=64
+    audio_cross_heads:int=4
+    audio_cross_scale:float=.2
     def __post_init__(self):
         if self.arm not in ('continued','dynamics','joint'):raise ValueError('Unknown registered arm')
         if self.steps!=32 or not 1<=self.gradient_steps<=self.steps:raise ValueError('Declared32-step native solver required')
@@ -41,6 +46,9 @@ class Config:
         if self.stereo_fusion!='concat' and self.stereo_dim!=128:raise ValueError('Learned fusion requires concat128 context')
         if self.quiet_adapter_scale<=0 or self.quiet_adapter_scale>1:raise ValueError('Invalid quiet adapter scale')
         if self.quiet_energy_temperature<=0:raise ValueError('Invalid quiet energy temperature')
+        if self.audio_fusion not in ('none','attention','film'):raise ValueError('Unknown local audio fusion')
+        if self.audio_cross_width<8 or self.audio_cross_heads<1 or self.audio_cross_width%self.audio_cross_heads!=0:raise ValueError('Invalid audio cross-attention dimensions')
+        if self.audio_cross_scale<=0 or self.audio_cross_scale>1:raise ValueError('Invalid audio cross-attention scale')
 
 
 class Planner(nn.Module):
@@ -86,6 +94,7 @@ class Flow(DynamicFlow):
         self.stereo_cross_slow=None
         self.quiet_projection=None
         self.quiet_adapters=nn.ModuleList()
+        self.local_audio=None
         if config.stereo_dim:
             projection_dim=config.stereo_dim
             if config.stereo_fusion=='gated_residual':
@@ -113,6 +122,9 @@ class Flow(DynamicFlow):
             self.quiet_adapters=nn.ModuleList(nn.Linear(32,base_config.width) for _ in self.blocks)
             for layer in self.quiet_adapters:
                 nn.init.zeros_(layer.weight);nn.init.zeros_(layer.bias)
+        if config.audio_fusion!='none':
+            self.local_audio=LocalAudioFusion(config.extra_dim,base_config.width,
+                config.audio_cross_width,config.audio_cross_heads,config.audio_fusion)
     def flow_stereo(self,value):
         if self.native_config.stereo_fusion=='gated_residual':
             fast, slow = value[...,:64], value[...,64:]
@@ -157,13 +169,19 @@ class Flow(DynamicFlow):
                 bias=bias+self.native_config.quiet_adapter_scale*torch.tanh(self.quiet_adapters[index](quiet_hidden))
             biases.append(bias.transpose(1,2))
         return audio[...,:92],torch.stack(biases,1)
-    def prepared_vector_field(self,base,biases,state,t):
+    def prepare_audio_context(self,audio,valid=None):
+        if self.local_audio is None:return None
+        return self.local_audio.prepare(audio[...,92:92+self.dynamic.extra_dim],valid)
+    def prepared_vector_field(self,base,biases,state,t,audio_context=None):
         phase=t[:,None]*self.frequencies[None];time=self.time(torch.cat((phase.sin(),phase.cos()),-1))
         x=self.input(torch.cat((base,state),-1).transpose(1,2))
         for i,block in enumerate(self.blocks):x=block(x+biases[:,i],time)
+        if self.local_audio is not None:
+            if audio_context is None:raise ValueError('Local audio context required; silent bypass forbidden')
+            x=x+self.native_config.audio_cross_scale*self.local_audio(x.transpose(1,2),audio_context).transpose(1,2)
         return self.output(F.silu(x)).transpose(1,2).float()
     def vector_field(self,audio,state,t):
-        return self.prepared_vector_field(*self.prepare_conditioning(audio),state,t)
+        return self.prepared_vector_field(*self.prepare_conditioning(audio),state,t,self.prepare_audio_context(audio))
 
     def config_dict(self):
         return {**super().config_dict(),'native_control_channels':80,'legacy34_plan_projection_unused':True,'conditioning':'Base92+1061frozenaudio+48learneddynamics+32continuousmotif+optionalStereoV1+optionalQuietAdapter; onlyjointconsumescontrol','stereo_dim':self.native_config.stereo_dim,'stereo_fusion':self.native_config.stereo_fusion,'quiet_adapter':self.native_config.quiet_adapter,'retiming':False}
@@ -213,7 +231,7 @@ class NativeDynamicsModel(nn.Module):
         result=torch.cat((fine_audio,values),-1)
         if stereo_context is not None:result=torch.cat((result,stereo_context),-1)
         return result,plan
-    def rollout(self,conditioning,noise,*,gradient_steps=None,field=None,teacher=None):
+    def rollout(self,conditioning,noise,*,gradient_steps=None,field=None,teacher=None,audio_valid=None):
         """Exact32forwardsteps; gradients only through finaldeclaredsteps.
 
         The detached prefix uses the CURRENT model, not fabricated3Dtargets.
@@ -222,15 +240,18 @@ class NativeDynamicsModel(nn.Module):
         """
         steps=self.config.steps;grad_steps=self.config.gradient_steps if gradient_steps is None else gradient_steps
         fn=self.flow.prepared_vector_field if field is None else field;base_audio,biases=self.flow.prepare_conditioning(conditioning);state=noise.clone();prior=state.sum()*0
+        audio_context=self.flow.prepare_audio_context(conditioning,audio_valid)
+        context_kwargs={} if audio_context is None else {'audio_context':audio_context}
+        detached_kwargs={} if audio_context is None else {'audio_context':tuple(x.detach() for x in audio_context)}
         teacher_audio=None
         if teacher is not None:
             teacher_audio=torch.cat((conditioning[...,:92+self.config.extra_dim].detach(),conditioning.new_zeros((*conditioning.shape[:2],34))),-1)
         for i in range(steps):
             t=state.new_full((len(state),),i/steps)
             if i<steps-grad_steps:
-                with torch.no_grad():state=state+fn(base_audio.detach(),biases.detach(),state,t)/steps
+                with torch.no_grad():state=state+fn(base_audio.detach(),biases.detach(),state,t,**detached_kwargs)/steps
             else:
-                velocity=fn(base_audio,biases,state,t)
+                velocity=fn(base_audio,biases,state,t,**context_kwargs)
                 if teacher is not None:
                     with torch.no_grad():base=teacher.vector_field(teacher_audio,state.detach(),t)
                     prior=prior+(velocity-base).square().mean()/max(grad_steps,1)
@@ -246,11 +267,13 @@ class NativeDynamicsModel(nn.Module):
             conditioning=torch.cat((fine_audio,values),-1)
             if stereo_context is not None:conditioning=torch.cat((conditioning,stereo_context),-1)
         base,biases=self.flow.prepare_conditioning(conditioning);state=noise.clone();halo=self.flow.halo
+        audio_context=self.flow.prepare_audio_context(conditioning)
         for i in range(self.config.steps):
             time=state.new_full((len(state),),i/self.config.steps);parts=[]
             for start in range(0,state.shape[1],core_frames):
                 end=min(start+core_frames,state.shape[1]);lo=max(0,start-halo);hi=min(state.shape[1],end+halo)
-                velocity=self.flow.prepared_vector_field(base[:,lo:hi],biases[:,:,:,lo:hi],state[:,lo:hi],time)
+                context_kwargs={} if audio_context is None else {'audio_context':tuple(x[:,lo:hi] for x in audio_context)}
+                velocity=self.flow.prepared_vector_field(base[:,lo:hi],biases[:,:,:,lo:hi],state[:,lo:hi],time,**context_kwargs)
                 parts.append(velocity[:,start-lo:end-lo])
             state=state+torch.cat(parts,1)/self.config.steps
         return self.flow.codec.decode(state.float()*self.flow.std+self.flow.mean),plan

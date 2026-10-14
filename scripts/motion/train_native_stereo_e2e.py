@@ -167,9 +167,13 @@ def main(argv=None) -> int:
                    help="Absolute jerk floor in m/s^3 for the quiet excess budget")
     p.add_argument("--quiet-adapter-scale", type=float, default=.2,
                    help="Maximum gated quiet adapter contribution")
+    p.add_argument("--local-audio-fusion", choices=('none','attention','film'), default='none',
+                   help="Train only a new motion-query local audio fusion module")
     args = p.parse_args(argv)
     if args.out.exists():
         raise FileExistsError(f"Preserving existing end-to-end root: {args.out}")
+    if args.local_audio_fusion!='none' and (args.quiet_adapter_only or args.freeze_incumbent):
+        raise ValueError('Local fusion is an isolated arm; incompatible with other adapter-only switches')
     from lightsem.experiments.native_dynamics.evaluation import setup
     setup()
     torch.manual_seed(args.seed)
@@ -196,7 +200,7 @@ def main(argv=None) -> int:
     if not 0.0 < args.quiet_energy_quantile < 1.0:
         raise ValueError("Quiet energy quantile must be in (0,1)")
     quiet_threshold=0.0
-    if args.quiet_energy_gate:
+    if args.quiet_energy_gate or args.quiet_jerk_weight:
         mean=float(saved["extra_normalizers"]["mean"][1040]); std=float(saved["extra_normalizers"]["std"][1040])
         values=np.concatenate([row["extra"][:,1040] for row in records.rows])
         quiet_threshold=float(np.quantile((values-mean)/max(std,1e-6), args.quiet_energy_quantile))
@@ -207,7 +211,8 @@ def main(argv=None) -> int:
                     "quiet_adapter": bool(args.quiet_adapter_only),
                     "quiet_adapter_scale": args.quiet_adapter_scale,
                     "quiet_energy_gate": bool(args.quiet_energy_gate),
-                    "quiet_energy_threshold": quiet_threshold})
+                    "quiet_energy_threshold": quiet_threshold,
+                    "audio_fusion":args.local_audio_fusion})
     model = NativeDynamicsModel(MusicConfig(**saved["base_config"]), saved["normalizers"], cfg)
     result = model.load_state_dict(saved["model"], strict=False)
     # Fusion candidates add their own zero-initialized modules on top of the
@@ -223,6 +228,7 @@ def main(argv=None) -> int:
         "stereo_plan.",
         "flow.quiet_projection.",
         "flow.quiet_adapters.",
+        "flow.local_audio.",
     )
     if result.unexpected_keys or any(not key.startswith(allowed_missing) for key in result.missing_keys):
         raise ValueError(f"Baseline state mismatch: missing={result.missing_keys}, unexpected={result.unexpected_keys}")
@@ -236,7 +242,10 @@ def main(argv=None) -> int:
             parameter.requires_grad_(False)
     for parameter in model.flow.plan_projection.parameters():
         parameter.requires_grad_(False)
-    if args.quiet_adapter_only:
+    if args.local_audio_fusion!='none':
+        for name, parameter in model.named_parameters():
+            parameter.requires_grad_(name.startswith('flow.local_audio.'))
+    elif args.quiet_adapter_only:
         allowed = ("flow.quiet_projection.", "flow.quiet_adapters.")
         for name, parameter in model.named_parameters():
             parameter.requires_grad_(name.startswith(allowed))
@@ -269,7 +278,7 @@ def main(argv=None) -> int:
         noise=model.flow.noise(args.batch_size,480,generator=torch.Generator(device=args.device).manual_seed(args.seed+step))
         valid=values["valid"]; coarse_valid=values["coarse_valid"]
         condition,_=model.condition(fine,coarse,coarse_valid,values["indices"],stereo,coarse_stereo)
-        generated,_=model.rollout(condition,noise,gradient_steps=cfg.gradient_steps,teacher=None)
+        generated,_=model.rollout(condition,noise,gradient_steps=cfg.gradient_steps,teacher=None,audio_valid=valid)
         # Drop exactly one learned stream while keeping audio, pose crop, and
         # noise fixed. The counterfactual term below gives both streams a
         # measurable root-relative effect instead of letting shared native
@@ -281,7 +290,7 @@ def main(argv=None) -> int:
         else:
             cf_stereo[..., 64:] = 0.; cf_coarse_stereo[..., 64:] = 0.
         cf_condition,_=model.condition(fine,coarse,coarse_valid,values["indices"],cf_stereo,cf_coarse_stereo)
-        counterfactual,_=model.rollout(cf_condition,noise,gradient_steps=cfg.gradient_steps,teacher=None)
+        counterfactual,_=model.rollout(cf_condition,noise,gradient_steps=cfg.gradient_steps,teacher=None,audio_valid=valid)
         with torch.no_grad():
             if baseline_model.config.stereo_dim:
                 base_condition,_=baseline_model.condition(fine,coarse,coarse_valid,values["indices"],stereo,coarse_stereo)
@@ -377,12 +386,21 @@ def main(argv=None) -> int:
     forbidden = [f'flow.blocks.{i}.' for i in range(6)] + ['flow.plan_projection.']
     if any(any(name.startswith(prefix) for prefix in forbidden) for name in changed):
         raise ValueError('Frozen weights changed')
-    required_prefixes = ('flow.quiet_adapters.',) if args.quiet_adapter_only else (('flow.native_adapters.', 'flow.stereo_adapters.', 'stereo_plan.') if args.freeze_incumbent else ('planner.', 'flow.output.', 'flow.blocks.6.'))
+    required_prefixes = ('flow.local_audio.output.',) if args.local_audio_fusion!='none' else (('flow.quiet_adapters.',) if args.quiet_adapter_only else (('flow.native_adapters.', 'flow.stereo_adapters.', 'stereo_plan.') if args.freeze_incumbent else ('planner.', 'flow.output.', 'flow.blocks.6.')))
+    if args.local_audio_fusion!='none' and any(not k.startswith('flow.local_audio.') for k in changed):
+        raise ValueError('Isolated local audio arm changed incumbent weights')
     for prefix in required_prefixes:
         if not any(name.startswith(prefix) for name in changed):
             raise ValueError(f'Native weights did not learn: {prefix}')
     torch.save({"model":model.state_dict(),"config":asdict(cfg),"base_config":saved["base_config"],"normalizers":saved["normalizers"],"audio_normalizers":saved["audio_normalizers"],"extra_normalizers":saved["extra_normalizers"],"stereo_mean":records.stereo_mean,"stereo_std":records.stereo_std,"baseline_checkpoint":str(args.baseline),"baseline_sha256":sha(args.baseline),"context_manifest":str(args.context_manifest),"context_manifest_sha256":sha(args.context_manifest),"steps":args.steps,"seed":args.seed,"lr":args.lr,"fusion":args.fusion,"stereo_scale":args.stereo_scale,"counterfactual_weight":args.counterfactual_weight,"counterfactual_margin":args.counterfactual_margin,"context_schema":records.schema,"training_manifest_sha256":sha(args.manifest),"changed_native_tensors":changed,"training_mode":"native_end_to_end_with_counterfactual_stereo_response","frozen_first_flow_blocks":cfg.freeze_early_blocks},checkpoint)
     report={"schema_version":1,"status":"complete","seed":args.seed,"steps":args.steps,"batch_size":args.batch_size,"lr":args.lr,"arm":json.loads(args.context_manifest.read_text()).get("method"),"baseline":str(args.baseline),"baseline_sha256":sha(args.baseline),"context_manifest":str(args.context_manifest),"context_manifest_sha256":sha(args.context_manifest),"checkpoint":str(checkpoint),"checkpoint_sha256":sha(checkpoint),"elapsed_s":time.monotonic()-started,"loss_first":losses[0],"loss_last":losses[-1],"raw_prior_first":raw_losses[0],"raw_prior_last":raw_losses[-1],"quiet_weight":args.quiet_weight,"quiet_active_weight":args.quiet_active_weight,"quiet_margin":args.quiet_margin,"quiet_jerk_weight":args.quiet_jerk_weight,"quiet_jerk_target_ratio":args.quiet_jerk_target_ratio,"quiet_jerk_floor":args.quiet_jerk_floor,"quiet_adapter_scale":args.quiet_adapter_scale,"quiet_jerk_loss_first":quiet_jerk_losses[0],"quiet_jerk_loss_last":quiet_jerk_losses[-1],"raw_prior_weight":args.raw_prior_weight,"freeze_incumbent":args.freeze_incumbent,"quiet_adapter_only":args.quiet_adapter_only,"quiet_energy_gate":args.quiet_energy_gate,"quiet_energy_quantile":args.quiet_energy_quantile,"quiet_energy_threshold":quiet_threshold,"quiet_loss_first":quiet_losses[0],"quiet_loss_last":quiet_losses[-1],"finite":True,"fusion":args.fusion,"stereo_scale":args.stereo_scale,"counterfactual_weight":args.counterfactual_weight,"counterfactual_margin":args.counterfactual_margin,"context_schema":records.schema,"changed_native_tensors":changed,"torch_version":torch.__version__,"training_mode":"native end-to-end with zero-initialized gated quiet adapter, counterfactual stereo response, excess-only observed-2D quiet loss, low-energy root-relative jerk excess, and active baseline preservation","diagnostic_only":True,"scope":"paired native TRAIN only; raw safety gate required before mapper/render; no baseline promotion"}
+    report.update(local_audio_fusion=args.local_audio_fusion,parameter_count=sum(p.numel() for p in model.parameters()),
+                  trainable_parameter_count=sum(p.numel() for p in trainable),
+                  training_arguments={k:str(v) if isinstance(v,Path) else v for k,v in vars(args).items()},
+                  precision='float32; evaluation.setup disables TF32',
+                  peak_allocated_gpu_bytes=torch.cuda.max_memory_allocated() if args.device.startswith('cuda') else None)
+    if args.local_audio_fusion!='none':
+        report['training_mode']='incumbent frozen; isolated local audio '+args.local_audio_fusion+' with matched losses'
     write(args.out/"REPORT.json",report); print(json.dumps(report,sort_keys=True)); return 0
 
 
