@@ -36,19 +36,21 @@ def test_learned_temporal_adapter_has_gradients_and_preserves_chunk_boundaries()
     model=NativeDynamicsModel(base.flow.config,norm,
         Config(**{**base.config.__dict__,'temporal_adapter':True}))
     model.load_state_dict(base.state_dict(),strict=False)
-    assert model.flow.halo == base.flow.halo + 2
+    assert model.flow.halo == base.flow.halo + 4
     for name,parameter in model.named_parameters():
         parameter.requires_grad_(name.startswith('flow.temporal_adapter.'))
     with torch.no_grad():
-        model.flow.temporal_adapter.weight.normal_(std=.3)
+        for parameter in model.flow.temporal_adapter.parameters():
+            parameter.normal_(std=.3)
     fine=torch.randn(1,96,102);coarse=torch.randn(1,8,10)
     valid=torch.ones(1,8,dtype=torch.bool);idx=torch.arange(96)[None]
     cond,_=model.condition(fine,coarse,valid,idx)
     state=torch.randn(1,96,139);time=torch.tensor([.5])
     field=model.flow.vector_field(cond,state,time)
     field.diff(n=3,dim=1).square().mean().backward()
-    gradient=model.flow.temporal_adapter.weight.grad
-    assert gradient is not None and torch.isfinite(gradient).all() and gradient.abs().sum()>0
+    gradients=[parameter.grad for parameter in model.flow.temporal_adapter.parameters()]
+    assert all(g is not None and torch.isfinite(g).all() for g in gradients)
+    assert sum(g.abs().sum() for g in gradients)>0
     with torch.no_grad():
         chunked=model.flow.vector_field_chunked(cond,state,time,core_frames=13)
         torch.testing.assert_close(field,chunked,rtol=1e-5,atol=1e-7)

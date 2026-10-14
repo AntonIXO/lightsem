@@ -46,6 +46,7 @@ class Config:
     audio_energy_smooth_frames:int=1
     temporal_adapter:bool=False
     temporal_adapter_scale:float=.1
+    temporal_adapter_hidden:int=64
     temporal_energy_gate:bool=False
     temporal_energy_threshold:float=0.0
     temporal_energy_temperature:float=.5
@@ -68,6 +69,7 @@ class Config:
         if not 0.0<self.audio_energy_quantile<1.0:raise ValueError('Invalid audio energy quantile')
         if self.audio_energy_smooth_frames<1 or self.audio_energy_smooth_frames%2==0:raise ValueError('Energy smoothing width must be odd and positive')
         if self.temporal_adapter_scale<=0 or self.temporal_adapter_scale>1:raise ValueError('Invalid temporal adapter scale')
+        if self.temporal_adapter_hidden<4:raise ValueError('Temporal adapter hidden width must be >=4')
         if self.temporal_energy_gate and self.extra_dim<=1040:raise ValueError('Temporal energy gate requires the native mixture-RMS channel')
         if self.temporal_energy_temperature<=0:raise ValueError('Invalid temporal energy temperature')
         if self.noise_energy_temperature<=0 or self.noise_energy_max_reduction<=0 or self.noise_energy_max_reduction>1:raise ValueError('Invalid noise energy gate')
@@ -156,11 +158,17 @@ class Flow(DynamicFlow):
                 energy_quantile=config.audio_energy_quantile,
                 energy_smooth_frames=config.audio_energy_smooth_frames)
         if config.temporal_adapter:
-            # Zero-init residual temporal mixing is part of the vector field.
-            # It is an optimizable finite-difference basis, never post-hoc body
-            # smoothing, and preserves the incumbent exactly at initialization.
-            self.temporal_adapter=nn.Conv1d(base_config.width,base_config.width,5,padding=2,groups=base_config.width)
-            nn.init.zeros_(self.temporal_adapter.weight);nn.init.zeros_(self.temporal_adapter.bias)
+            # A channel-mixing temporal residual gives the Fourier/jerk
+            # objective enough capacity to separate articulated modes. Only
+            # the final projection is zero-init, preserving the incumbent
+            # exactly before training; this is native vector-field behavior,
+            # never post-hoc body smoothing.
+            hidden=min(config.temporal_adapter_hidden,base_config.width)
+            self.temporal_adapter=nn.Sequential(
+                nn.Conv1d(base_config.width,hidden,1),nn.SiLU(),
+                nn.Conv1d(hidden,hidden,9,padding=4,groups=hidden),nn.SiLU(),
+                nn.Conv1d(hidden,base_config.width,1))
+            nn.init.zeros_(self.temporal_adapter[-1].weight);nn.init.zeros_(self.temporal_adapter[-1].bias)
     def flow_stereo(self,value):
         if self.native_config.stereo_fusion=='gated_residual':
             fast, slow = value[...,:64], value[...,64:]
@@ -179,9 +187,9 @@ class Flow(DynamicFlow):
         return self.flow_stereo(value)
     @property
     def halo(self):
-        # The depthwise kernel adds two frames on each side of the incumbent
+        # The 9-tap depthwise kernel adds four frames on each side of the incumbent
         # receptive field. Chunked inference must include the same neighbors.
-        return super().halo + (2 if self.native_config.temporal_adapter else 0)
+        return super().halo + (4 if self.native_config.temporal_adapter else 0)
     @property
     def conditioning_dim(self):return 92+self.dynamic.extra_dim+CONDITION_DIM+self.native_config.stereo_dim
     def prepare_conditioning(self,audio):
