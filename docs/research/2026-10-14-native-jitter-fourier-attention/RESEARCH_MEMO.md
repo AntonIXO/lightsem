@@ -227,3 +227,14 @@ exactly zero. The corrected arm backpropagated through all 32 native steps and
 learned a finite nonzero scalar (`0.0009445`), but matched audits were
 unchanged: active speed `0.983/0.986` and quiet jerk `0.874/0.878`. It is
 rejected as a quiet-jerk repair; no render was authorized.
+
+## Direct quiet-window Fourier objective (2026-10-16)
+
+The spectral probe was promoted into a differentiable native training loss:
+raw 30 Hz velocity FFT power above 6 Hz is measured in 1-second low-energy
+windows, with no body smoothing or retiming. A temporal adapter trained only
+with this Fourier loss had nonzero loss on every logged update and kept the
+jerk-proxy loss disabled. Matched results were active speed `0.979/0.982`, raw
+jerk safety `0.935/0.919`, and quiet jerk `0.870/0.874`. The Fourier objective
+is therefore causal and safe but does not meet the frozen `0.85` quiet-jerk
+gate; it remains diagnostic-only and was not rendered.
