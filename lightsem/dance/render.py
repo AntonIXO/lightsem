@@ -158,7 +158,8 @@ def render_video(body, root, audio, output, lighting, *, start=0., duration=None
                         modifiers = (' + D4-max' if body.metadata['d4max_enabled'] else '') + (' + D6' if body.metadata['d6_enabled'] else '')
                         display_title = str(body.metadata.get('display_title', 'Fixed C'))
                         text.text((16, 8), display_title + modifiers, font=large, fill='white')
-                        text.text((16, 40), 'P2 | historical brightness | actual emitted DMX | fixture motion limits OFF', font=font, fill='#c1d2e2')
+                        display_color = str(lighting_report.get('display_label', 'P2'))
+                        text.text((16, 40), display_color + ' | historical brightness | actual emitted DMX | fixture motion limits OFF', font=font, fill='#c1d2e2')
                         text.text((16, 65), 'OWN-SONG 3D BODY', font=font, fill='#c1d2e2')
                         text.text((656, 65), 'ACTUAL EMITTED LIGHTS', font=font, fill='#c1d2e2')
                         for x, renderer in zip((0, 640), renderers):

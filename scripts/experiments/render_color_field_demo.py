@@ -27,6 +27,7 @@ AUDIO = {
     'shpongle': Path('/mnt/lightsem-data/experiments/lightsem/d4max_20261005_v1/audio/shpongle/reference.m4a'),
     'cure_for_me': Path('/root/lightsem/experiments/native_bf16_v7b/demo_audio/Cure_For_Me.wav'),
 }
+DEFAULT_STARTS = {'shpongle': 106., 'cure_for_me': 23.}
 
 
 def write(path, value):
@@ -34,14 +35,14 @@ def write(path, value):
     path.write_text(json.dumps(value, indent=2, sort_keys=True, allow_nan=False) + '\n')
 
 
-def one(song, out, duration):
+def one(song, experiment_root, out, duration, start):
     source_body_path = BODY_ROOT / song / 'body.npz'
     source = DanceResult.load(source_body_path)
     audio = AUDIO[song]
     if not audio.is_file():
         raise FileNotFoundError(audio)
-    field = COLOR_ROOT / song / 'color_field.npz'
-    patch_path = COLOR_ROOT / song / 'color_field_patch.json'
+    field = experiment_root / song / 'color_field.npz'
+    patch_path = experiment_root / song / 'color_field_patch.json'
     with np.load(field, allow_pickle=False) as z:
         dmx = z['dmx'].copy()
         time = z['time'].copy()
@@ -80,17 +81,19 @@ def one(song, out, duration):
     })
     write(root / 'LIGHTING.json', {
         'schema_version': 1, 'status': 'diagnostic_only', 'mapper': '01_distributed_gain',
-        'color_experiment': str(COLOR_ROOT / song / 'COLOR_FIELD.json'),
-        'color_experiment_sha256': sha(COLOR_ROOT / song / 'COLOR_FIELD.json'),
+        'display_label': 'OKLab flowing gradient | source-driven color field',
+        'color_experiment': str(experiment_root / song / 'COLOR_FIELD.json'),
+        'color_experiment_sha256': sha(experiment_root / song / 'COLOR_FIELD.json'),
         'lights_sha256': sha(root / 'lights.npz'), 'patch_sha256': sha(root / 'patch.json'),
         'body_sha256': sha(body_path), 'fixture_motion_limits': False,
         'actual_dmx_decoded': True, 'source_dependence_status': 'pass',
         'brightness_scope': 'historical LUFS/body dimmer; color and brightness audited separately',
     })
     output = root / f'{song}_continuous_oklab_gradient.mp4'
-    render_video(body, root, audio, output, (time, patch, controls, {}), start=0., duration=duration)
+    render_video(body, root, audio, output, (time, patch, controls, {}), start=start, duration=duration)
     return {'song': song, 'video': str(output), 'video_sha256': sha(output),
-            'body_sha256': sha(body_path), 'audio': str(audio), 'duration_s': duration}
+            'body_sha256': sha(body_path), 'audio': str(audio), 'start_s': start,
+            'duration_s': duration}
 
 
 def main():
@@ -98,13 +101,16 @@ def main():
     ap.add_argument('--root', type=Path, default=COLOR_ROOT)
     ap.add_argument('--out', type=Path)
     ap.add_argument('--duration', type=float, default=18.)
+    ap.add_argument('--start', type=float, help='override the active-song start for both previews')
     args = ap.parse_args()
     root = args.root.expanduser().resolve()
     out = (args.out or root / 'demo').expanduser().resolve()
     if out.exists():
         raise FileExistsError(f'preserve existing demo root: {out}')
     out.mkdir(parents=True)
-    rows = [one(song, out, args.duration) for song in ('shpongle', 'cure_for_me')]
+    rows = [one(song, root, out, args.duration,
+                DEFAULT_STARTS[song] if args.start is None else args.start)
+            for song in ('shpongle', 'cure_for_me')]
     write(out / 'REPORT.json', {'status': 'diagnostic_only', 'rows': rows,
         'scope': '18-second own-song previews of saved actual emitted DMX; no baseline promotion'})
     print(json.dumps({'out': str(out), 'status': 'diagnostic_only', 'rows': rows}, indent=2))

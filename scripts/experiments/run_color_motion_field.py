@@ -32,6 +32,7 @@ ARTIFACT_DEFAULT = Path('/mnt/lightsem-data/experiments/lightsem/color_motion_fi
 BASE_ROOT = Path('/mnt/lightsem-data/experiments/lightsem/native_full_native_repair_20261018_v2')
 SONGS = ('shpongle', 'cure_for_me')
 MAPPERS = ('01', '06', '11', '12', '13', '15')
+SENSUAL_PALETTE = ('#25105f', '#6f1ab6', '#e52e88', '#ff78a9', '#ffd6e7')
 
 
 def _write(path: Path, value):
@@ -217,11 +218,15 @@ def run_song(config, song, out):
         world40, time, outputs, left, right, levels, transfer, mapper, result[2],
         lambda w, t, o, l, r, lv, tr, mapper_id=None: _run_distributed(w, t, o, l, r, lv, tr)[0])
     dmx, patch, intent, brightness, hard = result
-    fixture_rgb, color_meta = continuous_color_field(world40, left, right, outputs)
+    fixture_rgb, color_meta = continuous_color_field(
+        world40, left, right, outputs, palette=SENSUAL_PALETTE,
+        spatial_cycles=.95, temporal_gain=6.0, breath_depth=.10)
     colored, c_controls = _run_distributed(world40, time, outputs, left, right, levels, transfer,
                                             fixture_rgb=fixture_rgb)
     c_dmx, c_patch, c_intent, c_brightness, c_hard = colored
-    c_metrics = color_field_metrics(fixture_rgb, dimmer=c_controls['dimmer'])
+    c_metrics = color_field_metrics(
+        fixture_rgb, dimmer=c_controls['dimmer'],
+        fixture_positions=np.asarray([float(o.get('position', [i, 0, 0])[0]) for i, o in enumerate(outputs)]))
     c_source = _source_dependence_audit(
         world40, time, outputs, left, right, levels, transfer, mapper, c_intent,
         lambda w, t, o, l, r, lv, tr, mapper_id=None: _run_distributed(

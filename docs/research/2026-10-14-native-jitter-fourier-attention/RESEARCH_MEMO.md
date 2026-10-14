@@ -342,3 +342,23 @@ papers still do not provide our combination of arbitrary fixture count, body
 provenance, raw kinematics, laser constraints, and decoded-DMX gates. The full
 deep-research response is recorded by task
 `resp_05e3eecbd9402789016acffe8f805c87d29a9fd8cf92b5afba`.
+
+## Gradient repair after visual review (2026-10-15)
+
+The first color-field preview failed the visual requirement even though its
+numeric stream-diversity checks passed: it used cyclic palette interpolation,
+small temporal phase drift, and the renderer still labeled the output `P2`.
+The result looked like separate monochrome beams rather than a flowing field.
+The repair removes cyclic wrap discontinuities, traverses the palette with a
+continuous source-driven smooth-triangle phase, increases the spatial span,
+adds a small body-effort chroma/lightness breath, and labels the actual emitted
+stream as `OKLab flowing gradient | source-driven color field`. Dimmer remains
+separate and the phase stops when the source body/audio flow stops.
+
+The repaired preview uses active windows (Shpongle 106 s, Cure For Me 23 s)
+so the color is visible in the emitted-light panel. Visual inspection confirms
+purple-to-pink-to-white spatial gradients across the moving heads, with the
+source body and actual DMX visible. The artifact is
+`/mnt/lightsem-data/experiments/lightsem/color_motion_field_20261015_v9/` and
+its previews are under `demo_peak/`. It remains diagnostic-only; the active P2
+baseline is unchanged.

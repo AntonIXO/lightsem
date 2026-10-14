@@ -106,6 +106,23 @@ def _cyclic_interpolate(palette_lab: np.ndarray, positions: np.ndarray) -> np.nd
     return (1. - weight)[..., None] * palette_lab[left] + weight[..., None] * palette_lab[right]
 
 
+def _linear_interpolate(palette_lab: np.ndarray, positions: np.ndarray) -> np.ndarray:
+    """Interpolate once through the palette without a hue-wrap discontinuity."""
+    count = len(palette_lab)
+    scaled = np.clip(positions, 0., 1.) * (count - 1)
+    left = np.floor(scaled).astype(np.int64)
+    weight = scaled - left
+    right = np.minimum(left + 1, count - 1)
+    return (1. - weight)[..., None] * palette_lab[left] + weight[..., None] * palette_lab[right]
+
+
+def _smooth_triangle(value: np.ndarray) -> np.ndarray:
+    """A continuous palette traversal; phase only advances with source flow."""
+    wrapped = np.mod(value, 2.)
+    x = np.where(wrapped <= 1., wrapped, 2. - wrapped)
+    return x * x * (3. - 2. * x)
+
+
 def _source_flow(world40: np.ndarray, left: np.ndarray, right: np.ndarray) -> tuple[np.ndarray, np.ndarray]:
     world = np.asarray(world40, dtype=np.float64)
     if world.ndim != 3 or world.shape[1:] != (22, 3) or not np.isfinite(world).all():
@@ -129,7 +146,7 @@ def _source_flow(world40: np.ndarray, left: np.ndarray, right: np.ndarray) -> tu
 
 def continuous_color_field(world40: np.ndarray, left_rgb: np.ndarray, right_rgb: np.ndarray,
                            outputs, *, palette=DEFAULT_PALETTE, spatial_cycles=1.35,
-                           temporal_gain=1.0) -> tuple[np.ndarray, dict]:
+                           temporal_gain=1.0, breath_depth=0.0) -> tuple[np.ndarray, dict]:
     """Return quantized ``[T,N,3]`` RGB for arbitrary fixture counts.
 
     The left/right P2 stream contributes the audio-conditioned hue anchor;
@@ -157,13 +174,22 @@ def continuous_color_field(world40: np.ndarray, left_rgb: np.ndarray, right_rgb:
     anchor_hue = np.arctan2((base_left[:, 2] + base_right[:, 2]) * .5,
                             (base_left[:, 1] + base_right[:, 1]) * .5)
     anchor_hue = np.mod(anchor_hue / (2. * np.pi), 1.)
-    positions = (anchor_hue[:, None] + temporal_gain * phase[:, None] * .055
-                 + spatial_cycles * coordinates[None, :]) % 1.
-    lab = _cyclic_interpolate(palette_lab, positions)
+    # Keep one continuous traversal through the supplied palette. A bounded
+    # source-driven center replaces cyclic hue wrapping, which otherwise makes
+    # an apparently random jump whenever a fixture crosses palette index 0.
+    source_phase = .20 * (anchor_hue - .5) + .015 * temporal_gain * phase
+    center = .08 + .84 * _smooth_triangle(source_phase)
+    positions = np.clip(center[:, None] + spatial_cycles * (coordinates[None, :] - .5), .02, .98)
+    lab = _linear_interpolate(palette_lab, positions)
     # Preserve the source's audio-conditioned left/right lightness envelope
     # without coupling it to dimmer; this is a color appearance parameter.
     source_lightness = np.clip(.72 * (base_left[:, 0] + base_right[:, 0]) * .5 + .14, .18, .92)
-    lab[..., 0] = np.clip(.74 * lab[..., 0] + .26 * source_lightness[:, None], .12, .96)
+    lab[..., 0] = np.clip(.74 * lab[..., 0] + .26 * source_lightness[:, None]
+                          + float(breath_depth) * (activity[:, None] - .5), .12, .96)
+    # Chroma breathes with the same source-derived effort signal. This changes
+    # color appearance only; the independently computed fixture dimmer remains
+    # untouched.
+    lab[..., 1:] *= (1. + .18 * (activity[:, None, None] - .5))
     rgb = np.rint(_gamut_map(lab) * 255.).astype(np.uint8)
     metadata = {
         'schema_version': 1,
@@ -172,6 +198,7 @@ def continuous_color_field(world40: np.ndarray, left_rgb: np.ndarray, right_rgb:
         'fixture_count': n,
         'spatial_cycles': float(spatial_cycles),
         'temporal_gain': float(temporal_gain),
+        'breath_depth': float(breath_depth),
         'temporal_source': 'saved body displacement/speed plus authenticated P2 RGB changes',
         'brightness_separate': True,
         'arbitrary_n': True,
@@ -182,7 +209,7 @@ def continuous_color_field(world40: np.ndarray, left_rgb: np.ndarray, right_rgb:
     return rgb, metadata
 
 
-def color_field_metrics(rgb: np.ndarray, *, dimmer=None) -> dict:
+def color_field_metrics(rgb: np.ndarray, *, dimmer=None, fixture_positions=None) -> dict:
     """Diagnostics for flow, diversity and color/brightness separation."""
     values = np.asarray(rgb, dtype=np.float64) / 255.
     if values.ndim != 3 or values.shape[-1] != 3 or not np.isfinite(values).all():
@@ -207,6 +234,16 @@ def color_field_metrics(rgb: np.ndarray, *, dimmer=None) -> dict:
         'exact_duplicate_stream_fraction': float(1. - unique_streams / rgb.shape[1]),
         'rgb_min': float(values.min()), 'rgb_max': float(values.max()),
     }
+    if fixture_positions is not None:
+        positions = np.asarray(fixture_positions, dtype=np.float64)
+        if positions.shape != (values.shape[1],) or not np.isfinite(positions).all():
+            raise ValueError('fixture_positions must be finite [N]')
+        order = np.argsort(positions, kind='stable')
+        ordered = lab[:, order]
+        gradient = np.linalg.norm(np.diff(ordered, axis=1), axis=-1) if len(order) > 1 else np.empty((len(lab), 0))
+        report['position_sorted_oklab_gradient_mean'] = float(gradient.mean()) if gradient.size else 0.
+        report['position_sorted_gradient_active_fraction'] = float(np.mean(gradient > .01)) if gradient.size else 0.
+        report['position_sorted_fixture_order'] = order.tolist()
     if dimmer is not None:
         dim = np.asarray(dimmer, dtype=np.float64)
         if dim.shape != values.shape[:2] or not np.isfinite(dim).all():
