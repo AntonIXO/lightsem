@@ -136,7 +136,7 @@ def postprocess(root,song,condition='correct'):
  save(root/'generation'/song/condition/'POSTPROCESS.json',{'source':str(source_path),'source_sha256':sha(source_path),'C3':str(c3),'C3_sha256':sha(c3),'C4':str(c4),'C4_sha256':sha(c4),'condition':condition})
  return ['C3'+s,'C4'+s]+(['C3_shuffled','C4_loudness','C4_shifted'] if condition=='correct' else [])
 
-def compile_world(world40,time,outputs,left,right,loudness,transfer,mapper_id=None):
+def compile_world(world40,time,outputs,left,right,loudness,transfer,mapper_id=None,*,fixture_rgb=None):
  from lightsem.conductor.body_transfer_v2 import map_body
  from lightsem.conductor.body_transfer import TransferConfig,compile_intent
  from scripts.motion.run_body_portfolio import hard_checks
@@ -153,7 +153,7 @@ def compile_world(world40,time,outputs,left,right,loudness,transfer,mapper_id=No
  cfg=TransferConfig(**transfer)
  intent=map_body(world40,outputs,mapper_id,40.)
  restored,trace=apply_brightness(world40,time,outputs,intent,loudness)
- dmx,patch,final=compile_intent(restored,outputs,left,right,cfg)
+ dmx,patch,final=compile_intent(restored,outputs,left,right,cfg,fixture_rgb=fixture_rgb)
  hard=hard_checks(dmx,patch,final,40.,enforce_motion_limits=cfg.apply_motion_limits)
  # Keep mapper identity and attribution attached to the intent that actually
  # reached DMX; reports must never infer it from a requested config alone.

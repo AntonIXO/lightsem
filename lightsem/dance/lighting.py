@@ -291,7 +291,8 @@ def prepare_colors(audio, root, config, *, color_path=None, audio_python=None, a
 
 
 def map_lights(body, audio, root, config, *, counts=None, color_path=None,
-               audio_python=None, audio_device=None):
+               audio_python=None, audio_device=None, fixture_rgb=None,
+               color_experiment=None):
     from lightsem.experiments.dynamic_dance_combo.campaign import compile_world
     from lightsem.experiments.dynamic_dance_combo.brightness import load_verified_loudness
     from lightsem.experiments.motion_study.audio_dynamics import loudness
@@ -332,9 +333,14 @@ def map_lights(body, audio, root, config, *, counts=None, color_path=None,
     world40 = _resample_body_full_interval(world, body_time, time)
     counts = _normalise_counts(config['lighting']['counts'] if counts is None else counts)
     outputs = make_outputs(**counts)
+    if fixture_rgb is not None:
+        fixture_rgb = np.asarray(fixture_rgb)
+        if fixture_rgb.shape != (frames, len(outputs), 3) or fixture_rgb.dtype != np.uint8:
+            raise ValueError('fixture_rgb must be uint8 (lighting_frames, fixture_count, 3)')
     universes, patch, intent, brightness, hard = compile_world(world40, time, outputs, left, right,
                                                              levels, config['lighting']['transfer'],
-                                                             mapper_id=config['lighting']['mapper'])
+                                                             mapper_id=config['lighting']['mapper'],
+                                                             fixture_rgb=fixture_rgb)
     controls = decode(universes, patch)
     if not all(np.isfinite(value).all() for value in controls.values()):
         raise ValueError('Nonfinite actual emitted DMX')
@@ -355,6 +361,8 @@ def map_lights(body, audio, root, config, *, counts=None, color_path=None,
                            targets=intent['targets'], dimmer=intent['dimmer'],
                            source_points=intent['source_points'], field_points=intent['field_points'],
                            attribution_mask=attribution, palette_ids40=palette)
+        if fixture_rgb is not None:
+            save_arrays['fixture_rgb_experiment'] = fixture_rgb
         for key in ('bulb_field_centers', 'limb_speed', 'field_activity'):
             if key in intent:
                 save_arrays[key] = intent[key]
@@ -365,6 +373,7 @@ def map_lights(body, audio, root, config, *, counts=None, color_path=None,
         np.savez_compressed(stream, **save_arrays)
     write_json(root / 'patch.json', patch)
     report = {'mapper': intent.get('algorithm_id', config['lighting']['mapper']), 'color': color_identity,
+              'color_experiment': color_experiment,
               'loudness': level_identity, 'counts': counts, 'fixture_motion_limits': False,
               'hard_checks': hard, 'lights_sha256': sha(root / 'lights.npz'),
               'patch_sha256': sha(root / 'patch.json'),
@@ -372,6 +381,7 @@ def map_lights(body, audio, root, config, *, counts=None, color_path=None,
               'brightness_scope': 'Historical full-song LUFS law with established body modulation',
               'palette_occupancy_ticks': {str(int(k)): int(v) for k, v in zip(*np.unique(palette, return_counts=True))},
               'actual_rgb_transition_ticks': int(np.any(np.diff(controls['rgb'], axis=0), axis=(1, 2)).sum()),
+              'actual_rgb_unique_fixture_streams': int(len({np.ascontiguousarray(controls['rgb'][:, i]).tobytes() for i in range(len(outputs))})),
               'palette_transition_ticks': int(np.count_nonzero(np.diff(palette))) if palette is not None and len(palette) > 1 else None,
               'color_cue_count': int(np.count_nonzero(color_cues10)) if color_cues10 is not None else None,
               'color_cue_clock_hz': 10.0 if color_cues10 is not None else None,

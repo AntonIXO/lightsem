@@ -159,17 +159,18 @@ def raw_transfer(body, outputs, config=None):
             'limb_speed': speed[:, [20, 10, 11, 21]]}
 
 
-def constrained_transfer(body, outputs, left_rgb, right_rgb, config=None):
+def constrained_transfer(body, outputs, left_rgb, right_rgb, config=None, *, fixture_rgb=None):
     """Fit body targets to emitted 16-bit pan/tilt; pack arbitrary DMX universes.
 
     Mechanical fitting is a projection of supplied targets, not a replacement
     trajectory. The preview and audit must decode these bytes, not raw targets.
     """
     cfg = config or TransferConfig()
-    return compile_intent(raw_transfer(body, outputs, cfg), outputs, left_rgb, right_rgb, cfg)
+    return compile_intent(raw_transfer(body, outputs, cfg), outputs, left_rgb, right_rgb, cfg,
+                          fixture_rgb=fixture_rgb)
 
 
-def compile_intent(result, outputs, left_rgb, right_rgb, config=None):
+def compile_intent(result, outputs, left_rgb, right_rgb, config=None, *, fixture_rgb=None):
     """Compile supplied spatial intent through the same V1 mechanics and patch.
 
     This boundary permits alternative body mappings without changing V1 raw
@@ -210,6 +211,10 @@ def compile_intent(result, outputs, left_rgb, right_rgb, config=None):
         raise ValueError('One RGB color per side at every body timestamp required')
     if left_rgb.dtype != np.uint8 or right_rgb.dtype != np.uint8:
         raise ValueError('Use actual quantized color-layer RGB')
+    if fixture_rgb is not None:
+        fixture_rgb = np.asarray(fixture_rgb)
+        if fixture_rgb.shape != (frames, len(outputs), 3) or fixture_rgb.dtype != np.uint8:
+            raise ValueError('fixture_rgb must be uint8 with shape (frames, fixture_count, 3)')
     controls, patch = [], []
     universe, address = 0, 0
     constraints = SimpleNamespace(fps=cfg.fps, maximum_speed_deg_s=cfg.maximum_speed_deg_s,
@@ -240,7 +245,12 @@ def compile_intent(result, outputs, left_rgb, right_rgb, config=None):
                                       ticks[:, 1] >> 8, ticks[:, 1] & 255), 1)
             offset = 4
         values[:, offset] = np.rint(levels[:, index] * 255).astype(np.uint8)
-        values[:, offset + 1:offset + 4] = left_rgb if output['position'][0] < 0 else right_rgb
+        if fixture_rgb is None:
+            values[:, offset + 1:offset + 4] = left_rgb if output['position'][0] < 0 else right_rgb
+        else:
+            # Experimental arbitrary-N color fields are already quantized and
+            # fixture-indexed. Dimmer remains an independent channel.
+            values[:, offset + 1:offset + 4] = fixture_rgb[:, index]
         controls.append(values)
         patch.append({**output, 'universe': universe, 'address': address + 1, 'n_channels': width,
                       'channels': (['pan_coarse', 'pan_fine', 'tilt_coarse', 'tilt_fine'] if offset else []) + ['dimmer', 'red', 'green', 'blue']})

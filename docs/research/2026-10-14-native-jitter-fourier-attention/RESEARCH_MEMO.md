@@ -258,3 +258,87 @@ raw jerk safety `0.85625`; Cure For Me active speed `0.96145`, quiet jerk
 for both, so full P2/LUFS/mapper-01 videos were rendered. They decode cleanly at
 1280x1024/30fps with own-song AAC and remain diagnostic-only; fixed C is not
 promoted.
+
+## Continuous color and distributed-motion follow-up (2026-10-15)
+
+The requested “more separated beams” question was tested without retraining or
+adding a temporal controller. On the same saved full-native bodies, mapper-01
+had the largest decoded moving-head angular span (median 19.35/18.04 degrees
+for Shpongle/Cure) and the lowest mean absolute zero-lag velocity correlation
+(0.210/0.199) among the tested historical readouts. Graph-spectral mapper-12
+and the Sinkhorn mapper-11 reduced span and increased correlation; the old
+relational mapper-06 failed assigned moving-fixture source dependence and was
+rejected. Laban mapper-15 passed source dependence but did not widen the
+output. A reversible `01_distributed_gain` readout stretches the existing
+mapper-01 targets around fixed per-fixture temporal medians; it keeps the same
+body-derived timing and is therefore a spatial presentation experiment, not a
+new source of motion. Its 63-fixture color preview has median moving-head
+angular spans of 26.66/24.70 degrees and remains diagnostic-only.
+
+The color arm is a separate arbitrary-N decoder in
+`lightsem/dance/color_field.py`. It interpolates a user-editable palette in
+OKLab, queries the field at each fixture's fixed spatial coordinate, and drives
+the transport phase only from saved body displacement/speed and authenticated
+P2 RGB changes. Dimmer is passed through the historical LUFS/body law and is
+audited separately. On both songs, all adjacent fixture pairs had an active
+OKLab spatial gradient; 61/63 fixture streams were unique, effective color
+rank was 6.03/6.31, and RGB lightness/dimmer correlation was 0.059/0.114.
+The emitted 8-beam + 5-laser + 50-bulb streams were finite and source checks
+passed. This demonstrates a continuous gradient renderer, not a trained color
+foundation model; palette learning and independent human color labels remain
+open.
+
+The color design follows the [CSS Color 4 OKLab specification](https://www.w3.org/TR/css-color/)
+and [Ottosson's OKLab derivation](https://bottosson.github.io/posts/oklab/).
+The fixture-query and transport framing is consistent with [Sinkhorn optimal
+transport](https://arxiv.org/abs/1306.0895), while the cross-modal conditioning
+research sweep points to query-based attention as the next learned decoder
+ablation. The lighting-specific search also surfaced [SeqLight](https://arxiv.org/abs/2605.03660),
+[Skip-BART](https://arxiv.org/abs/2506.01482), [Graph Signal Representation
+with Wasserstein Barycenters](https://arxiv.org/abs/1812.05517), and
+[DiffDance](https://arxiv.org/abs/2308.02915). These papers motivate an
+attention/graph-field comparison but do not supply paired DMX labels for this
+repository.
+
+Current saved bodies were also passed through D4, D6, and D4+D6 using the
+authenticated native timeline and planner. All raw speed/jerk checks and all
+mapper/source/finite-DMX checks passed on both songs, with D6 reducing raw
+jerk ratios to 0.916/0.983 and D4+D6 to 0.894/0.949 (Shpongle/Cure). These
+are modifier diagnostics only: D4/D6 do not repair the native generator, no
+fixture caps or smoothing were enabled, and none is promoted to the active
+baseline.
+
+Artifacts: `/mnt/lightsem-data/experiments/lightsem/color_motion_field_20261015_v4/`,
+`/mnt/lightsem-data/experiments/lightsem/current_d4_d6_20261015_v1/`, and
+`/mnt/lightsem-data/experiments/lightsem/current_d4_d6_20261015_v1_mapped/`.
+
+## Second deep-research sweep: arbitrary-N attention and beam independence (2026-10-15)
+
+The repository-context research sweep recommends a query-based, typed fixture
+decoder rather than a larger shared beam latent. The proposed input is a set
+of raw body-joint tokens (position/velocity/acceleration plus anatomical type),
+audio tokens, and fixture queries containing calibrated position/orientation,
+capabilities, limits, and current state. The decoder must be permutation
+equivariant over fixture order and count, so extra outputs are queries over the
+same source evidence rather than duplicated channels. Relevant primary
+references are [Deep Sets](https://arxiv.org/abs/1703.06114), [Set
+Transformer](https://proceedings.mlr.press/v97/lee19d.html), [Perceiver
+IO](https://arxiv.org/abs/2107.14795), [BLIP-2/Q-Former](https://proceedings.mlr.press/v202/li23q/li23q.pdf),
+and [Point Transformer](https://openaccess.thecvf.com/content/ICCV2021/html/Zhao_Point_Transformer_ICCV_2021_paper.html).
+
+The sweep's important safety conclusion is to predict bounded physical state
+updates (pan/tilt jerk, acceleration, velocity, position) inside the decoder's
+feasible interval, then encode DMX. Clipping or smoothing a finished trajectory
+cannot certify raw kinematics. For diversity, condition a residual-decorrelation
+loss on expressive body energy, combine it with body-region coverage and
+geometry-aware attention, and report angular separation, velocity correlation,
+effective rank, exact/near duplicates, and body/audio counterfactual deltas.
+Do not force separation during holds or add a free-running oscillator.
+
+For color, the sweep supports the current OKLab/graph-field direction and
+recommends entropy-regularized OT barycenters followed by graph smoothness,
+with chroma-reduction gamut mapping. It also highlights that recent stage-light
+papers still do not provide our combination of arbitrary fixture count, body
+provenance, raw kinematics, laser constraints, and decoded-DMX gates. The full
+deep-research response is recorded by task
+`resp_05e3eecbd9402789016acffe8f805c87d29a9fd8cf92b5afba`.
