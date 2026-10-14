@@ -184,7 +184,7 @@ class Flow(DynamicFlow):
         return self.prepared_vector_field(*self.prepare_conditioning(audio),state,t,self.prepare_audio_context(audio))
 
     def config_dict(self):
-        return {**super().config_dict(),'native_control_channels':80,'legacy34_plan_projection_unused':True,'conditioning':'Base92+1061frozenaudio+48learneddynamics+32continuousmotif+optionalStereoV1+optionalQuietAdapter; onlyjointconsumescontrol','stereo_dim':self.native_config.stereo_dim,'stereo_fusion':self.native_config.stereo_fusion,'quiet_adapter':self.native_config.quiet_adapter,'retiming':False}
+        return {**super().config_dict(),'native_control_channels':80,'legacy34_plan_projection_unused':True,'conditioning':'Base92+1061frozenaudio+48learneddynamics+32continuousmotif+optionalStereoV1+optionalQuietAdapter+optionalLocalAudioFusion; onlyjointconsumescontrol','stereo_dim':self.native_config.stereo_dim,'stereo_fusion':self.native_config.stereo_fusion,'quiet_adapter':self.native_config.quiet_adapter,'audio_fusion':self.native_config.audio_fusion,'audio_context':'fine native audio with +/-60,+/-30,+/-15,+/-5,0 frame offsets; no playback clock','retiming':False}
 
 
 
