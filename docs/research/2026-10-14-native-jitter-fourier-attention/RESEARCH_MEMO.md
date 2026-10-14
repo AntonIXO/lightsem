@@ -197,3 +197,9 @@ while bounded adapters preserve motion but leave residual high-frequency noise.
 No threshold was lowered and no post-hoc smoothing, retiming, fixture cap, D4,
 or D6 was used. The only newly rendered candidate remains the
 renderer-authenticated smoothed diagnostic described above.
+
+The final v6 bounded pass kept active speed at `0.979/0.982` and raw safety
+below baseline, but quiet jerk remained `0.857/0.859`, just above the frozen
+`0.85` gate. The bounded sweep is closed: no candidate satisfies both quiet
+jerk and active-speed gates on both songs, and no additional threshold or
+post-hoc processing is allowed.
