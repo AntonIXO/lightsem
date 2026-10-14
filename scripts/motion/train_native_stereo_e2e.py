@@ -157,6 +157,8 @@ def main(argv=None) -> int:
                    help="Train only native/stereo conditioning adapters; freeze the incumbent backbone")
     p.add_argument("--quiet-adapter-only", action="store_true",
                    help="Add a zero-initialized quiet adapter and train only its parameters")
+    p.add_argument("--train-quiet-adapter", action="store_true",
+                   help="Train the quiet adapter alongside an active local audio fusion module")
     p.add_argument("--quiet-energy-gate", action="store_true",
                    help="Gate the quiet adapter on low normalized mixture RMS")
     p.add_argument("--quiet-energy-quantile", type=float, default=.30,
@@ -184,7 +186,7 @@ def main(argv=None) -> int:
     args = p.parse_args(argv)
     if args.out.exists():
         raise FileExistsError(f"Preserving existing end-to-end root: {args.out}")
-    if args.local_audio_fusion!='none' and (args.quiet_adapter_only or args.freeze_incumbent):
+    if args.local_audio_fusion!='none' and (args.freeze_incumbent or (args.quiet_adapter_only and not args.train_quiet_adapter)):
         raise ValueError('Local fusion is an isolated arm; incompatible with other adapter-only switches')
     from lightsem.experiments.native_dynamics.evaluation import setup
     setup()
@@ -231,7 +233,7 @@ def main(argv=None) -> int:
                     "stereo_fusion": args.fusion, "freeze_early_blocks": 6,
                     "stereo_adapter_scale": args.stereo_scale,
                     "stereo_plan_scale": args.stereo_scale,
-                    "quiet_adapter": bool(args.quiet_adapter_only),
+                    "quiet_adapter": bool(args.quiet_adapter_only or args.train_quiet_adapter),
                     "quiet_adapter_scale": args.quiet_adapter_scale,
                     "quiet_energy_gate": bool(args.quiet_energy_gate),
                     "quiet_energy_threshold": quiet_threshold,
@@ -273,7 +275,10 @@ def main(argv=None) -> int:
         parameter.requires_grad_(False)
     if args.local_audio_fusion!='none':
         for name, parameter in model.named_parameters():
-            parameter.requires_grad_(name.startswith('flow.local_audio.'))
+            allowed=('flow.local_audio.',)
+            if args.train_quiet_adapter:
+                allowed += ('flow.quiet_projection.','flow.quiet_adapters.')
+            parameter.requires_grad_(name.startswith(allowed))
     elif args.quiet_adapter_only:
         allowed = ("flow.quiet_projection.", "flow.quiet_adapters.")
         for name, parameter in model.named_parameters():
@@ -416,9 +421,13 @@ def main(argv=None) -> int:
     forbidden = [f'flow.blocks.{i}.' for i in range(6)] + ['flow.plan_projection.']
     if any(any(name.startswith(prefix) for prefix in forbidden) for name in changed):
         raise ValueError('Frozen weights changed')
-    required_prefixes = ('flow.local_audio.output.',) if args.local_audio_fusion!='none' else (('flow.quiet_adapters.',) if args.quiet_adapter_only else (('flow.native_adapters.', 'flow.stereo_adapters.', 'stereo_plan.') if args.freeze_incumbent else ('planner.', 'flow.output.', 'flow.blocks.6.')))
-    if args.local_audio_fusion!='none' and any(not k.startswith('flow.local_audio.') for k in changed):
-        raise ValueError('Isolated local audio arm changed incumbent weights')
+    required_prefixes = (('flow.local_audio.output.','flow.quiet_adapters.') if args.train_quiet_adapter else ('flow.local_audio.output.',)) if args.local_audio_fusion!='none' else (('flow.quiet_adapters.',) if args.quiet_adapter_only else (('flow.native_adapters.', 'flow.stereo_adapters.', 'stereo_plan.') if args.freeze_incumbent else ('planner.', 'flow.output.', 'flow.blocks.6.')))
+    if args.local_audio_fusion!='none':
+        allowed_changed=('flow.local_audio.',)
+        if args.train_quiet_adapter:
+            allowed_changed += ('flow.quiet_projection.','flow.quiet_adapters.')
+        if any(not k.startswith(allowed_changed) for k in changed):
+            raise ValueError('Combined local/quiet arm changed incumbent weights')
     for prefix in required_prefixes:
         if not any(name.startswith(prefix) for name in changed):
             raise ValueError(f'Native weights did not learn: {prefix}')
@@ -427,7 +436,8 @@ def main(argv=None) -> int:
     report.update(local_audio_fusion=args.local_audio_fusion,audio_cross_scale=args.audio_cross_scale,
                   audio_energy_gate=args.local_audio_energy_gate,audio_energy_relative=args.local_audio_energy_relative,
                   audio_energy_quantile=args.local_audio_energy_quantile,
-                  audio_energy_threshold=audio_threshold,parameter_count=sum(p.numel() for p in model.parameters()),
+                  audio_energy_threshold=audio_threshold,train_quiet_adapter=args.train_quiet_adapter,
+                  parameter_count=sum(p.numel() for p in model.parameters()),
                   trainable_parameter_count=sum(p.numel() for p in trainable),
                   training_arguments={k:str(v) if isinstance(v,Path) else v for k,v in vars(args).items()},
                   precision='float32; evaluation.setup disables TF32',
