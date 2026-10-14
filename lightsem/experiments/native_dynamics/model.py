@@ -167,6 +167,11 @@ class Flow(DynamicFlow):
             return value[...,64:]
         return self.flow_stereo(value)
     @property
+    def halo(self):
+        # The depthwise kernel adds two frames on each side of the incumbent
+        # receptive field. Chunked inference must include the same neighbors.
+        return super().halo + (2 if self.native_config.temporal_adapter else 0)
+    @property
     def conditioning_dim(self):return 92+self.dynamic.extra_dim+CONDITION_DIM+self.native_config.stereo_dim
     def prepare_conditioning(self,audio):
         if audio.ndim!=3 or audio.shape[-1]!=self.conditioning_dim:raise ValueError('Wrong native conditioning width')

@@ -30,6 +30,33 @@ def test_zero_temporal_adapter_preserves_native_vector_field_exactly():
     state=torch.randn(1,48,139);time=torch.tensor([.4])
     torch.testing.assert_close(model.flow.vector_field(cond,state,time),temporal.flow.vector_field(temporal_cond,state,time),rtol=0,atol=0)
 
+def test_learned_temporal_adapter_has_gradients_and_preserves_chunk_boundaries():
+    _,base=models()
+    norm={'mean':[0.]*139,'std':[1.]*139,'delta_scale':[1.]*139}
+    model=NativeDynamicsModel(base.flow.config,norm,
+        Config(**{**base.config.__dict__,'temporal_adapter':True}))
+    model.load_state_dict(base.state_dict(),strict=False)
+    assert model.flow.halo == base.flow.halo + 2
+    for name,parameter in model.named_parameters():
+        parameter.requires_grad_(name.startswith('flow.temporal_adapter.'))
+    with torch.no_grad():
+        model.flow.temporal_adapter.weight.normal_(std=.3)
+    fine=torch.randn(1,96,102);coarse=torch.randn(1,8,10)
+    valid=torch.ones(1,8,dtype=torch.bool);idx=torch.arange(96)[None]
+    cond,_=model.condition(fine,coarse,valid,idx)
+    state=torch.randn(1,96,139);time=torch.tensor([.5])
+    field=model.flow.vector_field(cond,state,time)
+    field.diff(n=3,dim=1).square().mean().backward()
+    gradient=model.flow.temporal_adapter.weight.grad
+    assert gradient is not None and torch.isfinite(gradient).all() and gradient.abs().sum()>0
+    with torch.no_grad():
+        chunked=model.flow.vector_field_chunked(cond,state,time,core_frames=13)
+        torch.testing.assert_close(field,chunked,rtol=1e-5,atol=1e-7)
+        noise=model.flow.noise(1,96,generator=torch.Generator().manual_seed(7001))
+        whole,_=model.generate(fine,coarse,valid,idx,noise,core_frames=960)
+        chunk,_=model.generate(fine,coarse,valid,idx,noise,core_frames=13)
+        torch.testing.assert_close(whole,chunk,rtol=1e-5,atol=1e-5)
+
 def test_training_rollout_and_inference_share_actual32step_forward():
     teacher,model=models();fine=torch.randn(1,48,102);cond,_=model.condition(fine,torch.randn(1,8,10),torch.ones(1,8,dtype=torch.bool),torch.arange(48)[None]);noise=model.flow.noise(1,48,generator=torch.Generator().manual_seed(7001))
     train,prior=model.rollout(cond,noise,gradient_steps=4,teacher=teacher);infer,_=model.rollout(cond,noise,gradient_steps=0)
