@@ -51,7 +51,7 @@ def pool(value: np.ndarray, bins: int) -> np.ndarray:
 
 
 class PilotRecords:
-    def __init__(self, manifest_path: Path, context_manifest: Path, *, limit_frames: int = 480, energy_quantile: float = .30):
+    def __init__(self, manifest_path: Path, context_manifest: Path, *, limit_frames: int = 480, energy_quantile: float = .30, energy_smooth_frames: int = 1):
         manifest = json.loads(manifest_path.read_text())
         contexts = json.loads(context_manifest.read_text())
         if manifest.get('test_access') is not False or contexts.get('test_access') is not False:
@@ -90,7 +90,7 @@ class PilotRecords:
             valid = np.isfinite(base).all(1) & np.isfinite(extra).all(1) & np.isfinite(stereo).all(1)
             self.rows.append({"key": row["key"], "group": row["group"], "base": base, "extra": extra.astype(np.float32),
                               "stereo": stereo, "pose": pose, "mask": mask, "valid": valid, "starts": starts, "length": len(target),
-                              "energy_quantile":np.float32(np.quantile(extra[valid,1040],energy_quantile))})
+                              "energy_quantile":np.float32(np.quantile(np.convolve(extra[:,1040],np.ones(energy_smooth_frames)/energy_smooth_frames,mode='same')[valid],energy_quantile))})
         if not self.rows:
             raise ValueError("No stereo pilot records")
         values = np.concatenate([row["stereo"] for row in self.rows], axis=0)
@@ -179,6 +179,8 @@ def main(argv=None) -> int:
                    help="Use the whole song's valid-frame energy quantile, shared by all its training crops")
     p.add_argument("--local-audio-energy-quantile", type=float, default=.30,
                    help="TRAIN quantile for the local audio energy gate")
+    p.add_argument("--local-audio-energy-smooth-frames", type=int, default=1,
+                   help="Odd native-frame moving-average width for the local audio gate")
     args = p.parse_args(argv)
     if args.out.exists():
         raise FileExistsError(f"Preserving existing end-to-end root: {args.out}")
@@ -187,7 +189,7 @@ def main(argv=None) -> int:
     from lightsem.experiments.native_dynamics.evaluation import setup
     setup()
     torch.manual_seed(args.seed)
-    records = PilotRecords(args.manifest, args.context_manifest, energy_quantile=args.local_audio_energy_quantile)
+    records = PilotRecords(args.manifest, args.context_manifest, energy_quantile=args.local_audio_energy_quantile, energy_smooth_frames=args.local_audio_energy_smooth_frames)
     saved = torch.load(args.baseline, map_location="cpu", weights_only=False)
     if not 0.0 < args.stereo_scale <= 1.0:
         raise ValueError("--stereo-scale must be in (0,1]")
@@ -213,6 +215,8 @@ def main(argv=None) -> int:
         raise ValueError("Audio cross scale must be in (0,1]")
     if not 0.0 < args.local_audio_energy_quantile < 1.0:
         raise ValueError("Local audio energy quantile must be in (0,1)")
+    if args.local_audio_energy_smooth_frames<1 or args.local_audio_energy_smooth_frames%2==0:
+        raise ValueError("Local audio energy smoothing width must be odd and positive")
     quiet_threshold=0.0
     if args.quiet_energy_gate or args.quiet_jerk_weight:
         mean=float(saved["extra_normalizers"]["mean"][1040]); std=float(saved["extra_normalizers"]["std"][1040])
@@ -236,6 +240,7 @@ def main(argv=None) -> int:
                     "audio_energy_threshold": audio_threshold,
                     "audio_energy_relative": bool(args.local_audio_energy_relative),
                     "audio_energy_quantile": args.local_audio_energy_quantile,
+                    "audio_energy_smooth_frames": args.local_audio_energy_smooth_frames,
                     "audio_fusion":args.local_audio_fusion})
     model = NativeDynamicsModel(MusicConfig(**saved["base_config"]), saved["normalizers"], cfg)
     result = model.load_state_dict(saved["model"], strict=False)

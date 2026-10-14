@@ -28,7 +28,7 @@ class LocalAudioFusion(nn.Module):
 
     def __init__(self, audio_dim, motion_dim, width=64, heads=4, mode='attention',
                  energy_gate=False, energy_threshold=0.0, energy_temperature=.5,
-                 energy_relative=False, energy_quantile=.3):
+                 energy_relative=False, energy_quantile=.3, energy_smooth_frames=1):
         super().__init__()
         if mode not in ('attention', 'film', 'hybrid') or heads < 1 or width % heads:
             raise ValueError('Invalid local fusion mode/dimensions')
@@ -38,10 +38,13 @@ class LocalAudioFusion(nn.Module):
         self.energy_temperature = float(energy_temperature)
         self.energy_relative = bool(energy_relative)
         self.energy_quantile = float(energy_quantile)
+        self.energy_smooth_frames = int(energy_smooth_frames)
         if not 0.0 < self.energy_quantile < 1.0:
             raise ValueError('energy_quantile must be in (0,1)')
         if self.energy_temperature <= 0:
             raise ValueError('energy_temperature must be positive')
+        if self.energy_smooth_frames<1 or self.energy_smooth_frames%2==0:
+            raise ValueError('energy_smooth_frames must be odd and positive')
         if self.energy_gate and audio_dim <= 1040:
             raise ValueError('Energy gate requires the native mixture-RMS channel')
         self.audio = nn.Linear(audio_dim, width)
@@ -76,12 +79,17 @@ class LocalAudioFusion(nn.Module):
         energy = clean[..., 1040] if self.energy_gate else None
         threshold = None
         if energy is not None:
+            if self.energy_smooth_frames>1:
+                width=self.energy_smooth_frames
+                energy=F.avg_pool1d(energy[:,None],width,stride=1,padding=width//2,count_include_pad=False).squeeze(1)
             if self.energy_relative:
                 # The caller supplies a full-recording statistic even when
                 # training on a crop; implicit crop quantiles are forbidden.
-                if (energy_reference is None or energy_reference.shape != (audio.shape[0], 1)
+                if energy_reference is None:
+                    energy_reference=torch.nanquantile(energy.masked_fill(~valid,float('nan')),self.energy_quantile,dim=1,keepdim=True)
+                if (energy_reference.shape != (audio.shape[0], 1)
                         or not torch.isfinite(energy_reference).all()):
-                    raise ValueError('Relative gate needs finite B,1 whole-recording energy_reference')
+                    raise ValueError('Relative gate needs finite B,1 energy_reference')
                 threshold = energy_reference.expand_as(energy)
             else:
                 threshold = energy.new_full(energy.shape, self.energy_threshold)

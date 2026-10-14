@@ -43,6 +43,7 @@ class Config:
     audio_energy_temperature:float=.5
     audio_energy_relative:bool=False
     audio_energy_quantile:float=.3
+    audio_energy_smooth_frames:int=1
     def __post_init__(self):
         if self.arm not in ('continued','dynamics','joint'):raise ValueError('Unknown registered arm')
         if self.steps!=32 or not 1<=self.gradient_steps<=self.steps:raise ValueError('Declared32-step native solver required')
@@ -56,6 +57,7 @@ class Config:
         if self.audio_cross_scale<=0 or self.audio_cross_scale>1:raise ValueError('Invalid audio cross-attention scale')
         if self.audio_energy_temperature<=0:raise ValueError('Invalid audio energy temperature')
         if not 0.0<self.audio_energy_quantile<1.0:raise ValueError('Invalid audio energy quantile')
+        if self.audio_energy_smooth_frames<1 or self.audio_energy_smooth_frames%2==0:raise ValueError('Energy smoothing width must be odd and positive')
 
 
 class Planner(nn.Module):
@@ -136,7 +138,8 @@ class Flow(DynamicFlow):
                 energy_threshold=config.audio_energy_threshold,
                 energy_temperature=config.audio_energy_temperature,
                 energy_relative=config.audio_energy_relative,
-                energy_quantile=config.audio_energy_quantile)
+                energy_quantile=config.audio_energy_quantile,
+                energy_smooth_frames=config.audio_energy_smooth_frames)
     def flow_stereo(self,value):
         if self.native_config.stereo_fusion=='gated_residual':
             fast, slow = value[...,:64], value[...,64:]

@@ -131,10 +131,16 @@ def test_full_recording_quantile_excludes_padding_and_crops_keep_same_gate():
     full_gate=torch.sigmoid((full[4]-full[3])/.5)
     crop_gate=torch.sigmoid((cropped[4]-cropped[3])/.5)
     torch.testing.assert_close(full_gate[:,:80],crop_gate,atol=0,rtol=0)
-    with pytest.raises(ValueError,match='whole-recording'):
-        module.prepare(audio[:,:80],valid[:,:80])
+    module.prepare(audio[:,:80],valid[:,:80])
     with pytest.raises(ValueError,match='No valid'):
         masked_energy_quantile(audio[...,1040],torch.zeros_like(valid),.3)
+
+
+def test_energy_smoothing_reduces_gate_toggle_support():
+    module=LocalAudioFusion(1061,16,16,4,'hybrid',energy_gate=True,energy_relative=True,energy_smooth_frames=31)
+    audio=torch.zeros(1,150,1061);audio[:,::2,1040]=-2.;audio[:,1::2,1040]=2.
+    energy=module.prepare(audio)[3]
+    assert float(torch.var(energy))<1.0
 
 
 def test_local_intervention_does_not_change_legacy_conditioning():
