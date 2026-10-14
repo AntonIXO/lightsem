@@ -353,7 +353,12 @@ def main(argv=None) -> int:
         noise=model.flow.noise(args.batch_size,480,generator=torch.Generator(device=args.device).manual_seed(args.seed+step))
         valid=values["valid"]; coarse_valid=values["coarse_valid"]
         condition,_=model.condition(fine,coarse,coarse_valid,values["indices"],stereo,coarse_stereo)
-        generated,_=model.rollout(condition,noise,gradient_steps=cfg.gradient_steps,teacher=None,audio_valid=valid,energy_reference=energy_reference)
+        # The latent-noise gate acts on the initial state. Truncating the
+        # graph to the final four solver steps would detach that intervention
+        # before it can learn, so this isolated arm uses the exact full 32-step
+        # forward graph. All other arms retain the historical truncation.
+        rollout_gradient_steps=cfg.steps if args.train_noise_gate else cfg.gradient_steps
+        generated,_=model.rollout(condition,noise,gradient_steps=rollout_gradient_steps,teacher=None,audio_valid=valid,energy_reference=energy_reference)
         # Drop exactly one learned stream while keeping audio, pose crop, and
         # noise fixed. The counterfactual term below gives both streams a
         # measurable root-relative effect instead of letting shared native
@@ -365,7 +370,7 @@ def main(argv=None) -> int:
         else:
             cf_stereo[..., 64:] = 0.; cf_coarse_stereo[..., 64:] = 0.
         cf_condition,_=model.condition(fine,coarse,coarse_valid,values["indices"],cf_stereo,cf_coarse_stereo)
-        counterfactual,_=model.rollout(cf_condition,noise,gradient_steps=cfg.gradient_steps,teacher=None,audio_valid=valid,energy_reference=energy_reference)
+        counterfactual,_=model.rollout(cf_condition,noise,gradient_steps=rollout_gradient_steps,teacher=None,audio_valid=valid,energy_reference=energy_reference)
         with torch.no_grad():
             if baseline_model.config.stereo_dim:
                 base_condition,_=baseline_model.condition(fine,coarse,coarse_valid,values["indices"],stereo,coarse_stereo)
@@ -497,6 +502,7 @@ def main(argv=None) -> int:
                   noise_energy_gate=args.noise_energy_gate or args.train_noise_gate,
                   train_noise_gate=args.train_noise_gate,
                   noise_energy_max_reduction=args.noise_energy_max_reduction,
+                  rollout_gradient_steps=(cfg.steps if args.train_noise_gate else cfg.gradient_steps),
                   parameter_count=sum(p.numel() for p in model.parameters()),
                   trainable_parameter_count=sum(p.numel() for p in trainable),
                   training_arguments={k:str(v) if isinstance(v,Path) else v for k,v in vars(args).items()},
