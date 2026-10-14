@@ -223,6 +223,10 @@ def main(argv=None) -> int:
                    help="Train the native temporal adapter while keeping other modules frozen")
     p.add_argument("--temporal-adapter-scale", type=float, default=.1,
                    help="Bounded residual scale of the native temporal adapter")
+    p.add_argument("--temporal-energy-gate", action="store_true",
+                   help="Gate the native temporal adapter by low normalized mixture RMS")
+    p.add_argument("--temporal-energy-temperature", type=float, default=.5,
+                   help="Temperature for the native temporal quiet gate")
     p.add_argument("--freeze-local-audio", action="store_true",
                    help="Keep an existing local-audio fusion module frozen while training another adapter")
     p.add_argument("--noise-energy-gate", action="store_true",
@@ -271,6 +275,8 @@ def main(argv=None) -> int:
         raise ValueError("Local audio energy quantile must be in (0,1)")
     if not 0.0 < args.temporal_adapter_scale <= 1.0:
         raise ValueError("Temporal adapter scale must be in (0,1]")
+    if args.temporal_energy_temperature <= 0.0:
+        raise ValueError("Temporal energy temperature must be positive")
     if not 0.0 < args.noise_energy_max_reduction <= 1.0:
         raise ValueError("Noise energy max reduction must be in (0,1]")
     if args.local_audio_energy_smooth_frames<1 or args.local_audio_energy_smooth_frames%2==0:
@@ -302,6 +308,9 @@ def main(argv=None) -> int:
                     "audio_fusion":args.local_audio_fusion,
                     "temporal_adapter": bool(args.temporal_adapter or args.train_temporal_adapter),
                     "temporal_adapter_scale": args.temporal_adapter_scale,
+                    "temporal_energy_gate": bool(args.temporal_energy_gate),
+                    "temporal_energy_threshold": quiet_threshold,
+                    "temporal_energy_temperature": args.temporal_energy_temperature,
                     "noise_energy_gate": bool(args.noise_energy_gate or args.train_noise_gate),
                     "noise_energy_threshold": quiet_threshold,
                     "noise_energy_temperature": .5,
@@ -547,6 +556,8 @@ def main(argv=None) -> int:
                   train_temporal_adapter=args.train_temporal_adapter,freeze_local_audio=args.freeze_local_audio,
                   temporal_adapter=args.temporal_adapter or args.train_temporal_adapter,
                   temporal_adapter_scale=args.temporal_adapter_scale,
+                  temporal_energy_gate=args.temporal_energy_gate,
+                  temporal_energy_temperature=args.temporal_energy_temperature,
                   noise_energy_gate=args.noise_energy_gate or args.train_noise_gate,
                   train_noise_gate=args.train_noise_gate,
                   noise_energy_max_reduction=args.noise_energy_max_reduction,

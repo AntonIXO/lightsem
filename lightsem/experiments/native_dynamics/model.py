@@ -46,6 +46,9 @@ class Config:
     audio_energy_smooth_frames:int=1
     temporal_adapter:bool=False
     temporal_adapter_scale:float=.1
+    temporal_energy_gate:bool=False
+    temporal_energy_threshold:float=0.0
+    temporal_energy_temperature:float=.5
     noise_energy_gate:bool=False
     noise_energy_threshold:float=0.0
     noise_energy_temperature:float=.5
@@ -65,6 +68,8 @@ class Config:
         if not 0.0<self.audio_energy_quantile<1.0:raise ValueError('Invalid audio energy quantile')
         if self.audio_energy_smooth_frames<1 or self.audio_energy_smooth_frames%2==0:raise ValueError('Energy smoothing width must be odd and positive')
         if self.temporal_adapter_scale<=0 or self.temporal_adapter_scale>1:raise ValueError('Invalid temporal adapter scale')
+        if self.temporal_energy_gate and self.extra_dim<=1040:raise ValueError('Temporal energy gate requires the native mixture-RMS channel')
+        if self.temporal_energy_temperature<=0:raise ValueError('Invalid temporal energy temperature')
         if self.noise_energy_temperature<=0 or self.noise_energy_max_reduction<=0 or self.noise_energy_max_reduction>1:raise ValueError('Invalid noise energy gate')
         if self.noise_energy_gate and self.extra_dim<=1040:raise ValueError('Noise energy gate requires the native mixture-RMS channel')
 
@@ -208,12 +213,18 @@ class Flow(DynamicFlow):
     def prepare_audio_context(self,audio,valid=None,*,energy_reference=None):
         if self.local_audio is None:return None
         return self.local_audio.prepare(audio[...,92:92+self.dynamic.extra_dim],valid,energy_reference=energy_reference)
-    def prepared_vector_field(self,base,biases,state,t,audio_context=None):
+    def prepared_vector_field(self,base,biases,state,t,audio_context=None,temporal_energy=None):
         phase=t[:,None]*self.frequencies[None];time=self.time(torch.cat((phase.sin(),phase.cos()),-1))
         x=self.input(torch.cat((base,state),-1).transpose(1,2))
         for i,block in enumerate(self.blocks):x=block(x+biases[:,i],time)
         if self.temporal_adapter is not None:
-            x=x+self.native_config.temporal_adapter_scale*torch.tanh(self.temporal_adapter(x))
+            temporal_residual=torch.tanh(self.temporal_adapter(x))
+            if self.native_config.temporal_energy_gate:
+                if temporal_energy is None:
+                    raise ValueError('Temporal energy context required')
+                gate=torch.sigmoid((self.native_config.temporal_energy_threshold-temporal_energy)/self.native_config.temporal_energy_temperature)
+                temporal_residual=temporal_residual*gate[:,None]
+            x=x+self.native_config.temporal_adapter_scale*temporal_residual
         if self.local_audio is not None:
             if audio_context is None:raise ValueError('Local audio context required; silent bypass forbidden')
             x=x+self.native_config.audio_cross_scale*self.local_audio(x.transpose(1,2),audio_context).transpose(1,2)
@@ -280,8 +291,11 @@ class NativeDynamicsModel(nn.Module):
         steps=self.config.steps;grad_steps=self.config.gradient_steps if gradient_steps is None else gradient_steps
         fn=self.flow.prepared_vector_field if field is None else field;base_audio,biases=self.flow.prepare_conditioning(conditioning);state=self._gate_noise(conditioning,noise);prior=state.sum()*0
         audio_context=self.flow.prepare_audio_context(conditioning,audio_valid,energy_reference=energy_reference)
+        temporal_energy=conditioning[...,92+1040] if self.config.temporal_energy_gate else None
         context_kwargs={} if audio_context is None else {'audio_context':audio_context}
+        if temporal_energy is not None: context_kwargs['temporal_energy']=temporal_energy
         detached_kwargs={} if audio_context is None else {'audio_context':tuple(x.detach() if torch.is_tensor(x) else None for x in audio_context)}
+        if temporal_energy is not None: detached_kwargs['temporal_energy']=temporal_energy.detach()
         teacher_audio=None
         if teacher is not None:
             teacher_audio=torch.cat((conditioning[...,:92+self.config.extra_dim].detach(),conditioning.new_zeros((*conditioning.shape[:2],34))),-1)
@@ -327,6 +341,8 @@ class NativeDynamicsModel(nn.Module):
             for start in range(0,state.shape[1],core_frames):
                 end=min(start+core_frames,state.shape[1]);lo=max(0,start-halo);hi=min(state.shape[1],end+halo)
                 context_kwargs={} if audio_context is None else {'audio_context':tuple(x[:,lo:hi] if torch.is_tensor(x) else None for x in audio_context)}
+                if self.config.temporal_energy_gate:
+                    context_kwargs['temporal_energy']=conditioning[:,lo:hi,92+1040]
                 velocity=self.flow.prepared_vector_field(base[:,lo:hi],biases[:,:,:,lo:hi],state[:,lo:hi],time,**context_kwargs)
                 parts.append(velocity[:,start-lo:end-lo])
             state=state+torch.cat(parts,1)/self.config.steps
