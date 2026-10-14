@@ -83,3 +83,34 @@ gated adapters. Scale 0.2 produced quiet-jerk ratios 0.970/0.982 and active
 speed ratios 0.986/0.986; scale 0.8 produced 0.920/0.933 and 0.951/0.951
 (Shpongle/Cure). Both are raw-safe, but Cure still has about 230 m/s3 quiet
 jerk and the active slowdown is measurable. No arm is promoted or rendered.
+
+## Local motion-query fusion campaign
+
+The matched local-fusion campaign added nine native-frame audio support points
+(`-60,-30,-15,-5,0,5,15,30,60`) to a motion-state query. Attention and FiLM
+use the same width and trainable parameter count; hybrid concatenates their
+hidden states. The branch is zero-initialized, so the incumbent is exact before
+training. The attention arm preserved active speed at 0.991/0.992 and produced
+quiet-jerk ratios 0.997/0.984 (Shpongle/Cure). FiLM produced 0.956/0.958 active
+speed and 0.949/0.946 quiet jerk. A hybrid arm produced 0.959/0.961 active
+speed and 0.951/0.950 quiet jerk. These responses are not feature-count
+placebos: zeroing only the local fine audio descriptor while holding planner,
+stereo, and noise fixed changed root-relative body RMS by 0.0045--0.0108 m.
+
+A strict hybrid follow-up used active-preservation weight 8 and a 0.70 quiet
+jerk target. It remained raw-safe, but active speed was still 0.955/0.958 and
+quiet jerk 0.946/0.942. The branch is therefore a useful diagnostic fusion
+candidate, not a qualified jitter repair or replacement baseline.
+
+The strict hybrid passed the required pre-render raw and source-response gates,
+so it was rendered as an explicitly diagnostic-only artifact with the canonical
+P2/LUFS/mapper-01 path. Full own-song videos, with actual emitted universes and
+no fixture speed caps, are:
+
+- `native_local_audio_fusion_hybrid_v2_full_20261014_v3/shpongle/shpongle_local_hybrid_strict_full.mp4`
+- `native_local_audio_fusion_hybrid_v2_full_20261014_v3/cure_for_me/cure_for_me_local_hybrid_strict_full.mp4`
+
+Both decode at 30 Hz with own-song AAC. Post-render health reports have finite,
+raw-dynamics, stream, diversity, input-sensitivity, and provenance checks
+passing, while the delivery remains diagnostic-only because active-motion
+preservation and artistic choreography are not qualified.
