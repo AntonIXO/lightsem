@@ -216,3 +216,14 @@ active speed `0.978/0.981`, yet quiet jerk remained `0.870/0.874`. Both arms
 were rejected before mapping/rendering. The intervention is therefore a valid
 native temporal module with no chunk-boundary artifact, but it does not solve
 the residual low-energy jitter.
+
+## Audio-energy latent-noise gate (2026-10-16)
+
+A zero-init scalar gate was added inside native rollout to reduce the fixed
+latent noise only in low-energy frames; this preserves the audio clock and is
+not post-hoc body smoothing. The first arm was invalid because the historical
+four-step truncated graph detached the initial noise, leaving the parameter at
+exactly zero. The corrected arm backpropagated through all 32 native steps and
+learned a finite nonzero scalar (`0.0009445`), but matched audits were
+unchanged: active speed `0.983/0.986` and quiet jerk `0.874/0.878`. It is
+rejected as a quiet-jerk repair; no render was authorized.
