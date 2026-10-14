@@ -51,7 +51,7 @@ def pool(value: np.ndarray, bins: int) -> np.ndarray:
 
 
 class PilotRecords:
-    def __init__(self, manifest_path: Path, context_manifest: Path, *, limit_frames: int = 480):
+    def __init__(self, manifest_path: Path, context_manifest: Path, *, limit_frames: int = 480, energy_quantile: float = .30):
         manifest = json.loads(manifest_path.read_text())
         contexts = json.loads(context_manifest.read_text())
         if manifest.get('test_access') is not False or contexts.get('test_access') is not False:
@@ -89,7 +89,8 @@ class PilotRecords:
                 raise ValueError('Nonfinite training context')
             valid = np.isfinite(base).all(1) & np.isfinite(extra).all(1) & np.isfinite(stereo).all(1)
             self.rows.append({"key": row["key"], "group": row["group"], "base": base, "extra": extra.astype(np.float32),
-                              "stereo": stereo, "pose": pose, "mask": mask, "valid": valid, "starts": starts, "length": len(target)})
+                              "stereo": stereo, "pose": pose, "mask": mask, "valid": valid, "starts": starts, "length": len(target),
+                              "energy_quantile":np.float32(np.quantile(extra[valid,1040],energy_quantile))})
         if not self.rows:
             raise ValueError("No stereo pilot records")
         values = np.concatenate([row["stereo"] for row in self.rows], axis=0)
@@ -109,12 +110,13 @@ class PilotRecords:
             start = int(starts[int(rng.integers(len(starts)))])
             chosen.append((row, start))
         b, t = len(chosen), self.frames
-        result = {"base": np.zeros((b, t, 92), np.float32), "extra": np.zeros((b, t, 1061), np.float32),
+        result = {"energy_quantile":np.zeros((b,1),np.float32), "base": np.zeros((b, t, 92), np.float32), "extra": np.zeros((b, t, 1061), np.float32),
                   "stereo": np.zeros((b, t, self.stereo_dim), np.float32), "valid": np.zeros((b, t), bool),
                   "indices": np.zeros((b, t), np.int64), "pose": np.zeros((b, t, 13, 2), np.float32),
                   "pose_mask": np.zeros((b, t, 13), bool), "coarse": np.zeros((b, 1024, 1061), np.float32),
                   "coarse_stereo": np.zeros((b, 1024, self.stereo_dim), np.float32), "coarse_valid": np.zeros((b, 1024), bool)}
         for i, (row, start) in enumerate(chosen):
+            result['energy_quantile'][i]=row['energy_quantile']
             n = min(t, row["length"] - start); end = start + n; bins = (row["length"] + 14) // 15
             result["base"][i, :n] = row["base"][start:end]
             result["extra"][i, :n] = row["extra"][start:end]
@@ -173,6 +175,8 @@ def main(argv=None) -> int:
                    help="Bounded local audio fusion contribution")
     p.add_argument("--local-audio-energy-gate", action="store_true",
                    help="Gate local audio fusion by low normalized mixture RMS")
+    p.add_argument("--local-audio-energy-relative", action="store_true",
+                   help="Use the whole song's valid-frame energy quantile, shared by all its training crops")
     p.add_argument("--local-audio-energy-quantile", type=float, default=.30,
                    help="TRAIN quantile for the local audio energy gate")
     args = p.parse_args(argv)
@@ -183,7 +187,7 @@ def main(argv=None) -> int:
     from lightsem.experiments.native_dynamics.evaluation import setup
     setup()
     torch.manual_seed(args.seed)
-    records = PilotRecords(args.manifest, args.context_manifest)
+    records = PilotRecords(args.manifest, args.context_manifest, energy_quantile=args.local_audio_energy_quantile)
     saved = torch.load(args.baseline, map_location="cpu", weights_only=False)
     if not 0.0 < args.stereo_scale <= 1.0:
         raise ValueError("--stereo-scale must be in (0,1]")
@@ -230,6 +234,8 @@ def main(argv=None) -> int:
                     "audio_cross_scale": args.audio_cross_scale,
                     "audio_energy_gate": bool(args.local_audio_energy_gate),
                     "audio_energy_threshold": audio_threshold,
+                    "audio_energy_relative": bool(args.local_audio_energy_relative),
+                    "audio_energy_quantile": args.local_audio_energy_quantile,
                     "audio_fusion":args.local_audio_fusion})
     model = NativeDynamicsModel(MusicConfig(**saved["base_config"]), saved["normalizers"], cfg)
     result = model.load_state_dict(saved["model"], strict=False)
@@ -287,6 +293,7 @@ def main(argv=None) -> int:
         batch = records.batch(rng, args.batch_size)
         values = {key: torch.from_numpy(value).to(args.device) for key, value in batch.items()}
         base_stats=saved["audio_normalizers"]; extra_stats=saved["extra_normalizers"]
+        energy_reference=(values.pop('energy_quantile')-float(extra_stats['mean'][1040]))/float(extra_stats['std'][1040]) if args.local_audio_energy_relative else None
         base=(values.pop("base")-torch.tensor(base_stats["mean"],device=args.device))/torch.tensor(base_stats["std"],device=args.device)
         extra=(values.pop("extra")-torch.tensor(extra_stats["mean"],device=args.device))/torch.tensor(extra_stats["std"],device=args.device)
         stereo=(values.pop("stereo")-torch.tensor(records.stereo_mean,device=args.device))/torch.tensor(records.stereo_std,device=args.device)
@@ -296,7 +303,7 @@ def main(argv=None) -> int:
         noise=model.flow.noise(args.batch_size,480,generator=torch.Generator(device=args.device).manual_seed(args.seed+step))
         valid=values["valid"]; coarse_valid=values["coarse_valid"]
         condition,_=model.condition(fine,coarse,coarse_valid,values["indices"],stereo,coarse_stereo)
-        generated,_=model.rollout(condition,noise,gradient_steps=cfg.gradient_steps,teacher=None,audio_valid=valid)
+        generated,_=model.rollout(condition,noise,gradient_steps=cfg.gradient_steps,teacher=None,audio_valid=valid,energy_reference=energy_reference)
         # Drop exactly one learned stream while keeping audio, pose crop, and
         # noise fixed. The counterfactual term below gives both streams a
         # measurable root-relative effect instead of letting shared native
@@ -308,7 +315,7 @@ def main(argv=None) -> int:
         else:
             cf_stereo[..., 64:] = 0.; cf_coarse_stereo[..., 64:] = 0.
         cf_condition,_=model.condition(fine,coarse,coarse_valid,values["indices"],cf_stereo,cf_coarse_stereo)
-        counterfactual,_=model.rollout(cf_condition,noise,gradient_steps=cfg.gradient_steps,teacher=None,audio_valid=valid)
+        counterfactual,_=model.rollout(cf_condition,noise,gradient_steps=cfg.gradient_steps,teacher=None,audio_valid=valid,energy_reference=energy_reference)
         with torch.no_grad():
             if baseline_model.config.stereo_dim:
                 base_condition,_=baseline_model.condition(fine,coarse,coarse_valid,values["indices"],stereo,coarse_stereo)
@@ -362,7 +369,7 @@ def main(argv=None) -> int:
                 generated_jerk = generated_relative
                 baseline_jerk = baseline_relative
                 jerk_valid = valid
-                quiet_energy = extra[..., 1040] <= quiet_threshold
+                quiet_energy = extra[..., 1040] <= (energy_reference if energy_reference is not None else quiet_threshold)
                 for _ in range(3):
                     generated_jerk = torch.diff(generated_jerk, dim=1) * 30.
                     baseline_jerk = torch.diff(baseline_jerk, dim=1) * 30.
@@ -413,7 +420,8 @@ def main(argv=None) -> int:
     torch.save({"model":model.state_dict(),"config":asdict(cfg),"base_config":saved["base_config"],"normalizers":saved["normalizers"],"audio_normalizers":saved["audio_normalizers"],"extra_normalizers":saved["extra_normalizers"],"stereo_mean":records.stereo_mean,"stereo_std":records.stereo_std,"baseline_checkpoint":str(args.baseline),"baseline_sha256":sha(args.baseline),"context_manifest":str(args.context_manifest),"context_manifest_sha256":sha(args.context_manifest),"steps":args.steps,"seed":args.seed,"lr":args.lr,"fusion":args.fusion,"stereo_scale":args.stereo_scale,"counterfactual_weight":args.counterfactual_weight,"counterfactual_margin":args.counterfactual_margin,"context_schema":records.schema,"training_manifest_sha256":sha(args.manifest),"changed_native_tensors":changed,"training_mode":"native_end_to_end_with_counterfactual_stereo_response","frozen_first_flow_blocks":cfg.freeze_early_blocks},checkpoint)
     report={"schema_version":1,"status":"complete","seed":args.seed,"steps":args.steps,"batch_size":args.batch_size,"lr":args.lr,"arm":json.loads(args.context_manifest.read_text()).get("method"),"baseline":str(args.baseline),"baseline_sha256":sha(args.baseline),"context_manifest":str(args.context_manifest),"context_manifest_sha256":sha(args.context_manifest),"checkpoint":str(checkpoint),"checkpoint_sha256":sha(checkpoint),"elapsed_s":time.monotonic()-started,"loss_first":losses[0],"loss_last":losses[-1],"raw_prior_first":raw_losses[0],"raw_prior_last":raw_losses[-1],"quiet_weight":args.quiet_weight,"quiet_active_weight":args.quiet_active_weight,"quiet_margin":args.quiet_margin,"quiet_jerk_weight":args.quiet_jerk_weight,"quiet_jerk_target_ratio":args.quiet_jerk_target_ratio,"quiet_jerk_floor":args.quiet_jerk_floor,"quiet_adapter_scale":args.quiet_adapter_scale,"quiet_jerk_loss_first":quiet_jerk_losses[0],"quiet_jerk_loss_last":quiet_jerk_losses[-1],"raw_prior_weight":args.raw_prior_weight,"freeze_incumbent":args.freeze_incumbent,"quiet_adapter_only":args.quiet_adapter_only,"quiet_energy_gate":args.quiet_energy_gate,"quiet_energy_quantile":args.quiet_energy_quantile,"quiet_energy_threshold":quiet_threshold,"quiet_loss_first":quiet_losses[0],"quiet_loss_last":quiet_losses[-1],"finite":True,"fusion":args.fusion,"stereo_scale":args.stereo_scale,"counterfactual_weight":args.counterfactual_weight,"counterfactual_margin":args.counterfactual_margin,"context_schema":records.schema,"changed_native_tensors":changed,"torch_version":torch.__version__,"training_mode":"native end-to-end with zero-initialized gated quiet adapter, counterfactual stereo response, excess-only observed-2D quiet loss, low-energy root-relative jerk excess, and active baseline preservation","diagnostic_only":True,"scope":"paired native TRAIN only; raw safety gate required before mapper/render; no baseline promotion"}
     report.update(local_audio_fusion=args.local_audio_fusion,audio_cross_scale=args.audio_cross_scale,
-                  audio_energy_gate=args.local_audio_energy_gate,audio_energy_quantile=args.local_audio_energy_quantile,
+                  audio_energy_gate=args.local_audio_energy_gate,audio_energy_relative=args.local_audio_energy_relative,
+                  audio_energy_quantile=args.local_audio_energy_quantile,
                   audio_energy_threshold=audio_threshold,parameter_count=sum(p.numel() for p in model.parameters()),
                   trainable_parameter_count=sum(p.numel() for p in trainable),
                   training_arguments={k:str(v) if isinstance(v,Path) else v for k,v in vars(args).items()},

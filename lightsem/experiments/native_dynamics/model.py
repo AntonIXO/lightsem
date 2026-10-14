@@ -10,7 +10,7 @@ import torch.nn.functional as F
 from ..dynamic_dance.learning import DynamicFlow,DynamicFlowConfig
 from ..motion_study.music_model import MusicConfig
 from .kinematics import PLAN_DIM,masked_mean
-from .local_audio_fusion import LocalAudioFusion
+from .local_audio_fusion import LocalAudioFusion,masked_energy_quantile
 MOTIF_DIM=32
 CONDITION_DIM=PLAN_DIM+MOTIF_DIM
 
@@ -41,6 +41,8 @@ class Config:
     audio_energy_gate:bool=False
     audio_energy_threshold:float=0.0
     audio_energy_temperature:float=.5
+    audio_energy_relative:bool=False
+    audio_energy_quantile:float=.3
     def __post_init__(self):
         if self.arm not in ('continued','dynamics','joint'):raise ValueError('Unknown registered arm')
         if self.steps!=32 or not 1<=self.gradient_steps<=self.steps:raise ValueError('Declared32-step native solver required')
@@ -53,6 +55,7 @@ class Config:
         if self.audio_cross_width<8 or self.audio_cross_heads<1 or self.audio_cross_width%self.audio_cross_heads!=0:raise ValueError('Invalid audio cross-attention dimensions')
         if self.audio_cross_scale<=0 or self.audio_cross_scale>1:raise ValueError('Invalid audio cross-attention scale')
         if self.audio_energy_temperature<=0:raise ValueError('Invalid audio energy temperature')
+        if not 0.0<self.audio_energy_quantile<1.0:raise ValueError('Invalid audio energy quantile')
 
 
 class Planner(nn.Module):
@@ -131,7 +134,9 @@ class Flow(DynamicFlow):
                 config.audio_cross_width,config.audio_cross_heads,config.audio_fusion,
                 energy_gate=config.audio_energy_gate,
                 energy_threshold=config.audio_energy_threshold,
-                energy_temperature=config.audio_energy_temperature)
+                energy_temperature=config.audio_energy_temperature,
+                energy_relative=config.audio_energy_relative,
+                energy_quantile=config.audio_energy_quantile)
     def flow_stereo(self,value):
         if self.native_config.stereo_fusion=='gated_residual':
             fast, slow = value[...,:64], value[...,64:]
@@ -176,9 +181,9 @@ class Flow(DynamicFlow):
                 bias=bias+self.native_config.quiet_adapter_scale*torch.tanh(self.quiet_adapters[index](quiet_hidden))
             biases.append(bias.transpose(1,2))
         return audio[...,:92],torch.stack(biases,1)
-    def prepare_audio_context(self,audio,valid=None):
+    def prepare_audio_context(self,audio,valid=None,*,energy_reference=None):
         if self.local_audio is None:return None
-        return self.local_audio.prepare(audio[...,92:92+self.dynamic.extra_dim],valid)
+        return self.local_audio.prepare(audio[...,92:92+self.dynamic.extra_dim],valid,energy_reference=energy_reference)
     def prepared_vector_field(self,base,biases,state,t,audio_context=None):
         phase=t[:,None]*self.frequencies[None];time=self.time(torch.cat((phase.sin(),phase.cos()),-1))
         x=self.input(torch.cat((base,state),-1).transpose(1,2))
@@ -238,7 +243,7 @@ class NativeDynamicsModel(nn.Module):
         result=torch.cat((fine_audio,values),-1)
         if stereo_context is not None:result=torch.cat((result,stereo_context),-1)
         return result,plan
-    def rollout(self,conditioning,noise,*,gradient_steps=None,field=None,teacher=None,audio_valid=None):
+    def rollout(self,conditioning,noise,*,gradient_steps=None,field=None,teacher=None,audio_valid=None,energy_reference=None):
         """Exact32forwardsteps; gradients only through finaldeclaredsteps.
 
         The detached prefix uses the CURRENT model, not fabricated3Dtargets.
@@ -247,7 +252,7 @@ class NativeDynamicsModel(nn.Module):
         """
         steps=self.config.steps;grad_steps=self.config.gradient_steps if gradient_steps is None else gradient_steps
         fn=self.flow.prepared_vector_field if field is None else field;base_audio,biases=self.flow.prepare_conditioning(conditioning);state=noise.clone();prior=state.sum()*0
-        audio_context=self.flow.prepare_audio_context(conditioning,audio_valid)
+        audio_context=self.flow.prepare_audio_context(conditioning,audio_valid,energy_reference=energy_reference)
         context_kwargs={} if audio_context is None else {'audio_context':audio_context}
         detached_kwargs={} if audio_context is None else {'audio_context':tuple(x.detach() if torch.is_tensor(x) else None for x in audio_context)}
         teacher_audio=None
@@ -266,7 +271,7 @@ class NativeDynamicsModel(nn.Module):
         native=self.flow.codec.decode(state.float()*self.flow.std+self.flow.mean)
         return native,prior
     @torch.inference_mode()
-    def generate(self,fine_audio,coarse_audio,coarse_valid,frame_indices,noise,*,plan_override=None,core_frames=960,stereo_context=None,coarse_stereo=None):
+    def generate(self,fine_audio,coarse_audio,coarse_valid,frame_indices,noise,*,plan_override=None,core_frames=960,stereo_context=None,coarse_stereo=None,local_context_override=None,energy_reference=None):
         conditioning,plan=self.condition(fine_audio,coarse_audio,coarse_valid,frame_indices,stereo_context=stereo_context,coarse_stereo=coarse_stereo)
         if plan_override is not None:
             if self.config.arm!='joint':raise ValueError('Plan intervention requires active joint architecture')
@@ -274,7 +279,12 @@ class NativeDynamicsModel(nn.Module):
             conditioning=torch.cat((fine_audio,values),-1)
             if stereo_context is not None:conditioning=torch.cat((conditioning,stereo_context),-1)
         base,biases=self.flow.prepare_conditioning(conditioning);state=noise.clone();halo=self.flow.halo
-        audio_context=self.flow.prepare_audio_context(conditioning)
+        if self.config.audio_energy_relative and energy_reference is None:
+            energy_reference=masked_energy_quantile(fine_audio[...,92+1040],torch.ones_like(frame_indices,dtype=torch.bool),self.config.audio_energy_quantile)
+        audio_context=self.flow.prepare_audio_context(conditioning,energy_reference=energy_reference)
+        if local_context_override is not None:
+            if self.flow.local_audio is None:raise ValueError('Local audio intervention on a model without local fusion')
+            audio_context=local_context_override
         for i in range(self.config.steps):
             time=state.new_full((len(state),),i/self.config.steps);parts=[]
             for start in range(0,state.shape[1],core_frames):

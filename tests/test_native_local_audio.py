@@ -1,7 +1,7 @@
 """Functional contracts for local audio-to-motion fusion, including padding."""
 import pytest
 import torch
-from lightsem.experiments.native_dynamics.local_audio_fusion import LocalAudioFusion
+from lightsem.experiments.native_dynamics.local_audio_fusion import LocalAudioFusion, masked_energy_quantile
 from lightsem.experiments.native_dynamics.model import Config, NativeDynamicsModel
 from lightsem.experiments.motion_study.music_model import MusicConfig
 
@@ -104,3 +104,56 @@ def test_energy_gate_suppresses_high_energy_local_fusion_response():
     motion = torch.ones(1, 150, 16)
     output = module(motion, module.prepare(audio))
     assert output[:, 0].abs().sum() > output[:, 100].abs().sum() * 10
+
+
+def test_relative_energy_gate_uses_valid_song_quantile():
+    module = LocalAudioFusion(1061, 16, 16, 4, 'hybrid', energy_gate=True,
+                              energy_temperature=.1, energy_relative=True,
+                              energy_quantile=.3)
+    torch.nn.init.normal_(module.output.weight, std=.1)
+    audio = torch.zeros(1, 150, 1061)
+    audio[:, :, 1040] = torch.linspace(-2., 2., 150)
+    reference=masked_energy_quantile(audio[...,1040],torch.ones(1,150,dtype=torch.bool),.3)
+    output = module(torch.ones(1, 150, 16), module.prepare(audio,energy_reference=reference))
+    assert output[:, 0].abs().sum() > output[:, -1].abs().sum() * 10
+
+
+def test_full_recording_quantile_excludes_padding_and_crops_keep_same_gate():
+    module=LocalAudioFusion(1061,16,16,4,'hybrid',energy_gate=True,energy_relative=True)
+    audio=torch.randn(2,200,1061)
+    valid=torch.zeros(2,200,dtype=torch.bool);valid[0,:170]=True;valid[1,:20]=True
+    audio[~valid]=float('nan')
+    ref=masked_energy_quantile(audio[...,1040],valid,.3)
+    torch.testing.assert_close(ref[0,0],torch.quantile(audio[0,:170,1040],.3))
+    torch.testing.assert_close(ref[1,0],torch.quantile(audio[1,:20,1040],.3))
+    full=module.prepare(audio,valid,energy_reference=ref)
+    cropped=module.prepare(audio[:,:80],valid[:,:80],energy_reference=ref)
+    full_gate=torch.sigmoid((full[4]-full[3])/.5)
+    crop_gate=torch.sigmoid((cropped[4]-cropped[3])/.5)
+    torch.testing.assert_close(full_gate[:,:80],crop_gate,atol=0,rtol=0)
+    with pytest.raises(ValueError,match='whole-recording'):
+        module.prepare(audio[:,:80],valid[:,:80])
+    with pytest.raises(ValueError,match='No valid'):
+        masked_energy_quantile(audio[...,1040],torch.zeros_like(valid),.3)
+
+
+def test_local_intervention_does_not_change_legacy_conditioning():
+    m=model('attention').eval()
+    torch.nn.init.normal_(m.flow.output.weight,std=.01)
+    # Activate the incumbent audio adapter: a broken intervention that edits
+    # fine_audio now changes the result even when the new module is zero.
+    torch.nn.init.normal_(m.flow.adapters[0].weight,std=.1)
+    fine,coarse=torch.randn(1,150,102),torch.randn(1,12,10)
+    valid,indices=torch.ones(1,12,dtype=torch.bool),torch.arange(150)[None]
+    noise=m.flow.noise(1,150)
+    zero_context=m.flow.local_audio.prepare(torch.zeros(1,150,10))
+    baseline,_=m.generate(fine,coarse,valid,indices,noise)
+    isolated,_=m.generate(fine,coarse,valid,indices,noise,local_context_override=zero_context)
+    torch.testing.assert_close(baseline,isolated,atol=0,rtol=0)
+    altered=fine.clone();altered[...,92:]=0
+    confounded,_=m.generate(altered,coarse,valid,indices,noise)
+    assert (confounded-baseline).abs().max()>1e-5
+    torch.nn.init.normal_(m.flow.local_audio.output.weight,std=.1)
+    baseline,_=m.generate(fine,coarse,valid,indices,noise)
+    isolated,_=m.generate(fine,coarse,valid,indices,noise,local_context_override=zero_context)
+    assert (isolated-baseline).abs().max()>1e-5

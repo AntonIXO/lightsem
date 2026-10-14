@@ -10,11 +10,25 @@ from torch import nn
 import torch.nn.functional as F
 
 
+def masked_energy_quantile(energy, valid, quantile):
+    """One B,1 quantile over valid whole-recording samples (never padding)."""
+    if energy.ndim != 2 or valid.shape != energy.shape or valid.dtype != torch.bool:
+        raise ValueError('Expected matching B,T energy and boolean mask')
+    if not 0. < quantile < 1.:
+        raise ValueError('Invalid quantile')
+    if not torch.isfinite(torch.where(valid, energy, 0.)).all():
+        raise ValueError('Nonfinite valid energy')
+    if not valid.any(dim=1).all():
+        raise ValueError('No valid recording energy')
+    return torch.nanquantile(energy.masked_fill(~valid, float('nan')), quantile, dim=1, keepdim=True)
+
+
 class LocalAudioFusion(nn.Module):
     OFFSETS = (-60, -30, -15, -5, 0, 5, 15, 30, 60)
 
     def __init__(self, audio_dim, motion_dim, width=64, heads=4, mode='attention',
-                 energy_gate=False, energy_threshold=0.0, energy_temperature=.5):
+                 energy_gate=False, energy_threshold=0.0, energy_temperature=.5,
+                 energy_relative=False, energy_quantile=.3):
         super().__init__()
         if mode not in ('attention', 'film', 'hybrid') or heads < 1 or width % heads:
             raise ValueError('Invalid local fusion mode/dimensions')
@@ -22,8 +36,14 @@ class LocalAudioFusion(nn.Module):
         self.energy_gate = bool(energy_gate)
         self.energy_threshold = float(energy_threshold)
         self.energy_temperature = float(energy_temperature)
+        self.energy_relative = bool(energy_relative)
+        self.energy_quantile = float(energy_quantile)
+        if not 0.0 < self.energy_quantile < 1.0:
+            raise ValueError('energy_quantile must be in (0,1)')
         if self.energy_temperature <= 0:
             raise ValueError('energy_temperature must be positive')
+        if self.energy_gate and audio_dim <= 1040:
+            raise ValueError('Energy gate requires the native mixture-RMS channel')
         self.audio = nn.Linear(audio_dim, width)
         self.query = nn.Linear(motion_dim, width)
         self.key = nn.Linear(width, width)
@@ -33,7 +53,7 @@ class LocalAudioFusion(nn.Module):
         nn.init.zeros_(self.output.weight)
         nn.init.zeros_(self.output.bias)
 
-    def prepare(self, audio, valid=None):
+    def prepare(self, audio, valid=None, *, energy_reference=None):
         if audio.ndim != 3 or audio.shape[1] == 0:
             raise ValueError('Expected nonempty B,T,F audio')
         if valid is None:
@@ -54,10 +74,21 @@ class LocalAudioFusion(nn.Module):
         key = torch.where(mask[..., None], key, 0.).reshape(shape).transpose(2, 3)
         value = torch.where(mask[..., None], value, 0.).reshape(shape).transpose(2, 3)
         energy = clean[..., 1040] if self.energy_gate else None
-        return key, value, mask, energy
+        threshold = None
+        if energy is not None:
+            if self.energy_relative:
+                # The caller supplies a full-recording statistic even when
+                # training on a crop; implicit crop quantiles are forbidden.
+                if (energy_reference is None or energy_reference.shape != (audio.shape[0], 1)
+                        or not torch.isfinite(energy_reference).all()):
+                    raise ValueError('Relative gate needs finite B,1 whole-recording energy_reference')
+                threshold = energy_reference.expand_as(energy)
+            else:
+                threshold = energy.new_full(energy.shape, self.energy_threshold)
+        return key, value, mask, energy, threshold
 
     def forward(self, motion, context):
-        key, value, mask, energy = context
+        key, value, mask, energy, threshold = context
         if motion.shape[:2] != mask.shape[:2]:
             raise ValueError('Motion and cached audio clocks differ')
         query = self.query(motion).reshape(*motion.shape[:2], self.heads, 1, self.width // self.heads)
@@ -80,6 +111,6 @@ class LocalAudioFusion(nn.Module):
             hidden = torch.cat((attention_hidden, film_hidden), -1)
         result = self.output(hidden.flatten(-2))
         if energy is not None:
-            gate = torch.sigmoid((self.energy_threshold - energy) / self.energy_temperature)
+            gate = torch.sigmoid((threshold - energy) / self.energy_temperature)
             result = result * gate[..., None]
         return torch.where(mask.any(-1, keepdim=True), result, 0.)
