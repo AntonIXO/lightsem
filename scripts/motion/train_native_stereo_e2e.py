@@ -229,6 +229,8 @@ def main(argv=None) -> int:
                    help="Temperature for the native temporal quiet gate")
     p.add_argument("--freeze-local-audio", action="store_true",
                    help="Keep an existing local-audio fusion module frozen while training another adapter")
+    p.add_argument("--train-backbone", action="store_true",
+                   help="Train all native parameters after the mandated early-flow/plan freeze")
     p.add_argument("--noise-energy-gate", action="store_true",
                    help="Enable the zero-init audio-energy gate on native rollout noise")
     p.add_argument("--train-noise-gate", action="store_true",
@@ -238,7 +240,7 @@ def main(argv=None) -> int:
     args = p.parse_args(argv)
     if args.out.exists():
         raise FileExistsError(f"Preserving existing end-to-end root: {args.out}")
-    if args.local_audio_fusion!='none' and (args.freeze_incumbent or (args.quiet_adapter_only and not args.train_quiet_adapter)) and not args.train_temporal_adapter:
+    if args.local_audio_fusion!='none' and (args.freeze_incumbent or (args.quiet_adapter_only and not args.train_quiet_adapter)) and not args.train_temporal_adapter and not args.train_backbone:
         raise ValueError('Local fusion is an isolated arm; incompatible with other adapter-only switches')
     from lightsem.experiments.native_dynamics.evaluation import setup
     setup()
@@ -346,7 +348,12 @@ def main(argv=None) -> int:
             parameter.requires_grad_(False)
     for parameter in model.flow.plan_projection.parameters():
         parameter.requires_grad_(False)
-    if args.local_audio_fusion!='none':
+    if args.train_backbone:
+        # Full native repair: the mandatory early blocks and legacy plan
+        # projection remain frozen below; all other parameters participate.
+        for parameter in model.parameters():
+            parameter.requires_grad_(True)
+    elif args.local_audio_fusion!='none':
         for name, parameter in model.named_parameters():
             allowed=() if args.freeze_local_audio else ('flow.local_audio.',)
             if args.train_quiet_adapter:
@@ -524,7 +531,9 @@ def main(argv=None) -> int:
     if any(any(name.startswith(prefix) for prefix in forbidden) for name in changed):
         raise ValueError('Frozen weights changed')
     required_prefixes = []
-    if args.local_audio_fusion!='none' and not args.freeze_local_audio:
+    if args.train_backbone:
+        required_prefixes.extend(('planner.', 'flow.output.', 'flow.blocks.6.'))
+    elif args.local_audio_fusion!='none' and not args.freeze_local_audio:
         required_prefixes.append('flow.local_audio.output.')
     if args.train_quiet_adapter:
         required_prefixes.append('flow.quiet_adapters.')
@@ -534,7 +543,11 @@ def main(argv=None) -> int:
         required_prefixes.append('noise_energy_scale')
     if not required_prefixes:
         required_prefixes = list(('flow.quiet_adapters.',) if args.quiet_adapter_only else (('flow.native_adapters.', 'flow.stereo_adapters.', 'stereo_plan.') if args.freeze_incumbent else ('planner.', 'flow.output.', 'flow.blocks.6.')))
-    if args.local_audio_fusion!='none':
+    if args.train_backbone:
+        forbidden = [f'flow.blocks.{i}.' for i in range(cfg.freeze_early_blocks)] + ['flow.plan_projection.']
+        if any(any(name.startswith(prefix) for prefix in forbidden) for name in changed):
+            raise ValueError('Full backbone arm changed mandated frozen parameters')
+    elif args.local_audio_fusion!='none':
         allowed_changed=() if args.freeze_local_audio else ('flow.local_audio.',)
         if args.train_quiet_adapter:
             allowed_changed += ('flow.quiet_projection.','flow.quiet_adapters.')
@@ -554,6 +567,7 @@ def main(argv=None) -> int:
                   audio_energy_quantile=args.local_audio_energy_quantile,
                   audio_energy_threshold=audio_threshold,train_quiet_adapter=args.train_quiet_adapter,
                   train_temporal_adapter=args.train_temporal_adapter,freeze_local_audio=args.freeze_local_audio,
+                  train_backbone=args.train_backbone,
                   temporal_adapter=args.temporal_adapter or args.train_temporal_adapter,
                   temporal_adapter_scale=args.temporal_adapter_scale,
                   temporal_energy_gate=args.temporal_energy_gate,
