@@ -46,7 +46,7 @@ class Config:
         if self.stereo_fusion!='concat' and self.stereo_dim!=128:raise ValueError('Learned fusion requires concat128 context')
         if self.quiet_adapter_scale<=0 or self.quiet_adapter_scale>1:raise ValueError('Invalid quiet adapter scale')
         if self.quiet_energy_temperature<=0:raise ValueError('Invalid quiet energy temperature')
-        if self.audio_fusion not in ('none','attention','film'):raise ValueError('Unknown local audio fusion')
+        if self.audio_fusion not in ('none','attention','film','hybrid'):raise ValueError('Unknown local audio fusion')
         if self.audio_cross_width<8 or self.audio_cross_heads<1 or self.audio_cross_width%self.audio_cross_heads!=0:raise ValueError('Invalid audio cross-attention dimensions')
         if self.audio_cross_scale<=0 or self.audio_cross_scale>1:raise ValueError('Invalid audio cross-attention scale')
 

@@ -167,7 +167,7 @@ def main(argv=None) -> int:
                    help="Absolute jerk floor in m/s^3 for the quiet excess budget")
     p.add_argument("--quiet-adapter-scale", type=float, default=.2,
                    help="Maximum gated quiet adapter contribution")
-    p.add_argument("--local-audio-fusion", choices=('none','attention','film'), default='none',
+    p.add_argument("--local-audio-fusion", choices=('none','attention','film','hybrid'), default='none',
                    help="Train only a new motion-query local audio fusion module")
     args = p.parse_args(argv)
     if args.out.exists():

@@ -14,7 +14,7 @@ def model(mode='none'):
         Config(extra_dim=10, planner_width=16, audio_fusion=mode, audio_cross_width=16))
 
 
-@pytest.mark.parametrize('mode', ['attention', 'film'])
+@pytest.mark.parametrize('mode', ['attention', 'film', 'hybrid'])
 def test_zero_initialization_preserves_incumbent_generation(mode):
     torch.manual_seed(0)
     incumbent, candidate = model(), model(mode)
@@ -30,7 +30,7 @@ def test_zero_initialization_preserves_incumbent_generation(mode):
     torch.testing.assert_close(a, b, rtol=0, atol=0)
 
 
-@pytest.mark.parametrize('mode', ['attention', 'film'])
+@pytest.mark.parametrize('mode', ['attention', 'film', 'hybrid'])
 def test_audio_padding_does_not_leak_and_no_valid_audio_is_zero(mode):
     module = LocalAudioFusion(10, 16, 16, 4, mode)
     torch.nn.init.normal_(module.output.weight, std=.1)
@@ -46,7 +46,7 @@ def test_audio_padding_does_not_leak_and_no_valid_audio_is_zero(mode):
     assert all(p.grad is None or torch.isfinite(p.grad).all() for p in module.parameters())
 
 
-@pytest.mark.parametrize('mode', ['attention', 'film'])
+@pytest.mark.parametrize('mode', ['attention', 'film', 'hybrid'])
 def test_local_audio_support_and_motion_query_gradients(mode):
     module = LocalAudioFusion(10, 16, 16, 4, mode)
     torch.nn.init.normal_(module.output.weight, std=.1)
@@ -62,7 +62,7 @@ def test_local_audio_support_and_motion_query_gradients(mode):
     assert not torch.equal(output[:, 75], module(motion, module.prepare(altered))[:, 75])
 
 
-@pytest.mark.parametrize('mode', ['attention', 'film'])
+@pytest.mark.parametrize('mode', ['attention', 'film', 'hybrid'])
 def test_rollout_and_chunked_generation_use_identical_audio_support(mode):
     torch.manual_seed(12)
     m = model(mode).eval()

@@ -15,7 +15,7 @@ class LocalAudioFusion(nn.Module):
 
     def __init__(self, audio_dim, motion_dim, width=64, heads=4, mode='attention'):
         super().__init__()
-        if mode not in ('attention', 'film') or heads < 1 or width % heads:
+        if mode not in ('attention', 'film', 'hybrid') or heads < 1 or width % heads:
             raise ValueError('Invalid local fusion mode/dimensions')
         self.mode, self.width, self.heads = mode, width, heads
         self.audio = nn.Linear(audio_dim, width)
@@ -23,7 +23,7 @@ class LocalAudioFusion(nn.Module):
         self.key = nn.Linear(width, width)
         self.value = nn.Linear(width, width)
         self.relative_position = nn.Parameter(torch.zeros(len(self.OFFSETS), width))
-        self.output = nn.Linear(width, motion_dim)
+        self.output = nn.Linear(width * (2 if mode == 'hybrid' else 1), motion_dim)
         nn.init.zeros_(self.output.weight)
         nn.init.zeros_(self.output.bias)
 
@@ -54,14 +54,22 @@ class LocalAudioFusion(nn.Module):
         if motion.shape[:2] != mask.shape[:2]:
             raise ValueError('Motion and cached audio clocks differ')
         query = self.query(motion).reshape(*motion.shape[:2], self.heads, 1, self.width // self.heads)
-        if self.mode == 'attention':
+        attended = F.scaled_dot_product_attention(query, key, value,
+            attn_mask=mask[:, :, None, None, :], dropout_p=0.).squeeze(-2)
+        if self.mode in ('attention', 'hybrid'):
             # SDPA returns zero for all-masked rows; suppress output bias too.
-            hidden = F.scaled_dot_product_attention(query, key, value,
-                attn_mask=mask[:, :, None, None, :], dropout_p=0.).squeeze(-2)
+            attention_hidden = attended
         else:
+            attention_hidden = None
+        if self.mode in ('film', 'hybrid'):
             count = mask.sum(-1).clamp_min(1)[:, :, None, None]
             shift = value.sum(-2) / count
             scale = key.sum(-2) / count
-            hidden = torch.tanh(query.squeeze(-2)) * torch.sigmoid(scale) + shift
+            film_hidden = torch.tanh(query.squeeze(-2)) * torch.sigmoid(scale) + shift
+        else:
+            film_hidden = None
+        hidden = attention_hidden if self.mode == 'attention' else film_hidden
+        if self.mode == 'hybrid':
+            hidden = torch.cat((attention_hidden, film_hidden), -1)
         result = self.output(hidden.flatten(-2))
         return torch.where(mask.any(-1, keepdim=True), result, 0.)
