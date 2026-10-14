@@ -159,6 +159,14 @@ def main(argv=None) -> int:
                    help="Gate the quiet adapter on low normalized mixture RMS")
     p.add_argument("--quiet-energy-quantile", type=float, default=.30,
                    help="TRAIN quantile defining the low-energy quiet-adapter gate")
+    p.add_argument("--quiet-jerk-weight", type=float, default=0.0,
+                   help="Weight low-energy root-relative jerk excess; zero preserves prior objectives")
+    p.add_argument("--quiet-jerk-target-ratio", type=float, default=.85,
+                   help="Allowed fraction of paired baseline quiet jerk before the excess penalty")
+    p.add_argument("--quiet-jerk-floor", type=float, default=25.0,
+                   help="Absolute jerk floor in m/s^3 for the quiet excess budget")
+    p.add_argument("--quiet-adapter-scale", type=float, default=.2,
+                   help="Maximum gated quiet adapter contribution")
     args = p.parse_args(argv)
     if args.out.exists():
         raise FileExistsError(f"Preserving existing end-to-end root: {args.out}")
@@ -177,6 +185,14 @@ def main(argv=None) -> int:
         raise ValueError("Quiet active weight and margin must be nonnegative")
     if args.raw_prior_weight < 0.0:
         raise ValueError("Raw prior weight must be nonnegative")
+    if args.quiet_jerk_weight < 0.0:
+        raise ValueError("Quiet jerk weight must be nonnegative")
+    if not 0.0 < args.quiet_jerk_target_ratio <= 1.0:
+        raise ValueError("Quiet jerk target ratio must be in (0,1]")
+    if args.quiet_jerk_floor < 0.0:
+        raise ValueError("Quiet jerk floor must be nonnegative")
+    if not 0.0 < args.quiet_adapter_scale <= 1.0:
+        raise ValueError("Quiet adapter scale must be in (0,1]")
     if not 0.0 < args.quiet_energy_quantile < 1.0:
         raise ValueError("Quiet energy quantile must be in (0,1)")
     quiet_threshold=0.0
@@ -189,6 +205,7 @@ def main(argv=None) -> int:
                     "stereo_adapter_scale": args.stereo_scale,
                     "stereo_plan_scale": args.stereo_scale,
                     "quiet_adapter": bool(args.quiet_adapter_only),
+                    "quiet_adapter_scale": args.quiet_adapter_scale,
                     "quiet_energy_gate": bool(args.quiet_energy_gate),
                     "quiet_energy_threshold": quiet_threshold})
     model = NativeDynamicsModel(MusicConfig(**saved["base_config"]), saved["normalizers"], cfg)
@@ -238,7 +255,7 @@ def main(argv=None) -> int:
         raise ValueError("End-to-end branch has no trainable parameters")
     optimizer = torch.optim.AdamW(trainable, lr=args.lr, weight_decay=.01)
     rng = np.random.default_rng(args.seed); torch.manual_seed(args.seed)
-    started = time.monotonic(); losses=[]; raw_losses=[]; quiet_losses=[]
+    started = time.monotonic(); losses=[]; raw_losses=[]; quiet_losses=[]; quiet_jerk_losses=[]
     for step in range(args.steps):
         batch = records.batch(rng, args.batch_size)
         values = {key: torch.from_numpy(value).to(args.device) for key, value in batch.items()}
@@ -275,8 +292,9 @@ def main(argv=None) -> int:
         pose_loss=reprojection_loss(projected,values["pose"],values["pose_mask"]&valid[...,None])
         dyn=dynamics_losses(projected,values["pose"],(values["pose_mask"]&valid[...,None]))
         quiet_loss=generated.sum()*0
+        quiet_jerk_loss=generated.sum()*0
         active_preserve_loss=generated.sum()*0
-        if args.quiet_weight:
+        if args.quiet_weight or args.quiet_jerk_weight:
             # Observed 2D is a masked front-end, not metric 3D truth.  Use it
             # only to identify low-speed holds and compare raw generated
             # projected speed on the same valid joints.  No generated smoothing
@@ -303,6 +321,32 @@ def main(argv=None) -> int:
             active_frame_loss=torch.where(observed_active, torch.nn.functional.smooth_l1_loss(
                 torch.log1p(gspeed), torch.log1p(base_speed), reduction='none'), torch.zeros_like(gspeed))
             active_preserve_loss=(active_frame_loss.sum((-1,-2)) / active_counts.clamp_min(1)).masked_select(active_enough).mean() if active_enough.any() else generated.sum()*0
+            if args.quiet_jerk_weight:
+                # Penalize only high-frequency articulated jerk in low-energy
+                # frames. Root translation is removed so this cannot be paid
+                # for by suppressing musical travel. The detached incumbent
+                # sets a local budget; active windows remain governed by the
+                # separate observed-speed preservation term.
+                from lightsem.experiments.motion_study.music_physical import motion_kinematics
+                generated_positions = motion_kinematics(generated, valid)["positions"]
+                baseline_positions = motion_kinematics(baseline_native, valid)["positions"].detach()
+                generated_relative = generated_positions - generated_positions[:, :, :1]
+                baseline_relative = baseline_positions - baseline_positions[:, :, :1]
+                generated_jerk = generated_relative
+                baseline_jerk = baseline_relative
+                jerk_valid = valid
+                quiet_energy = extra[..., 1040] <= quiet_threshold
+                for _ in range(3):
+                    generated_jerk = torch.diff(generated_jerk, dim=1) * 30.
+                    baseline_jerk = torch.diff(baseline_jerk, dim=1) * 30.
+                    jerk_valid = jerk_valid[:, :-1] & jerk_valid[:, 1:]
+                    quiet_energy = quiet_energy[:, :-1] & quiet_energy[:, 1:]
+                generated_norm = generated_jerk.square().sum(-1).add(1e-8).sqrt().mean(-1)
+                baseline_norm = baseline_jerk.square().sum(-1).add(1e-8).sqrt().mean(-1)
+                budget = args.quiet_jerk_target_ratio * baseline_norm.detach() + args.quiet_jerk_floor
+                excess = torch.relu(generated_norm - budget) / budget.clamp_min(1.)
+                quiet_jerk_mask = jerk_valid & quiet_energy
+                quiet_jerk_loss = torch.where(quiet_jerk_mask, excess.square(), torch.zeros_like(excess)).sum() / quiet_jerk_mask.sum().clamp_min(1)
         raw_prior=raw_native_losses(generated,baseline_native,valid)
         raw_total=sum(RAW_WEIGHTS[name]*value for name,value in raw_prior.items())
         cf_projected,_=project_native(counterfactual,valid)
@@ -316,15 +360,16 @@ def main(argv=None) -> int:
         counterfactual_loss=torch.relu(response_target-response).mean()
         # The raw prior is deliberately strong: end-to-end external conditioning
         # must learn the paired motion evidence without creating a new jitter mode.
-        loss=pose_loss+.1*sum(dyn.values())+args.quiet_weight*quiet_loss+args.quiet_active_weight*active_preserve_loss+args.raw_prior_weight*raw_total+.0001*sum(parameter.square().mean() for parameter in trainable)
+        loss=pose_loss+.1*sum(dyn.values())+args.quiet_weight*quiet_loss+args.quiet_jerk_weight*quiet_jerk_loss+args.quiet_active_weight*active_preserve_loss+args.raw_prior_weight*raw_total+.0001*sum(parameter.square().mean() for parameter in trainable)
         loss=loss+args.counterfactual_weight*counterfactual_loss
         if not torch.isfinite(loss):
             raise FloatingPointError(f"nonfinite step {step}")
         optimizer.zero_grad(set_to_none=True); loss.backward(); torch.nn.utils.clip_grad_norm_(trainable, 1.0); optimizer.step()
         losses.append(float(loss.detach().cpu())); raw_losses.append(float(raw_total.detach().cpu()))
         quiet_losses.append(float(quiet_loss.detach().cpu()))
+        quiet_jerk_losses.append(float(quiet_jerk_loss.detach().cpu()))
         if (step+1) % 100 == 0:
-            print(f'update {step+1}/{args.steps} loss={losses[-1]:.6f} raw_prior={raw_losses[-1]:.6f} quiet={quiet_losses[-1]:.6f} active={float(active_preserve_loss.detach().cpu()):.6f}', flush=True)
+            print(f'update {step+1}/{args.steps} loss={losses[-1]:.6f} raw_prior={raw_losses[-1]:.6f} quiet={quiet_losses[-1]:.6f} quiet_jerk={quiet_jerk_losses[-1]:.6f} active={float(active_preserve_loss.detach().cpu()):.6f}', flush=True)
     args.out.mkdir(parents=True)
     checkpoint=args.out/"final.pt"
     changed = [name for name, value in model.state_dict().items()
@@ -337,7 +382,7 @@ def main(argv=None) -> int:
         if not any(name.startswith(prefix) for name in changed):
             raise ValueError(f'Native weights did not learn: {prefix}')
     torch.save({"model":model.state_dict(),"config":asdict(cfg),"base_config":saved["base_config"],"normalizers":saved["normalizers"],"audio_normalizers":saved["audio_normalizers"],"extra_normalizers":saved["extra_normalizers"],"stereo_mean":records.stereo_mean,"stereo_std":records.stereo_std,"baseline_checkpoint":str(args.baseline),"baseline_sha256":sha(args.baseline),"context_manifest":str(args.context_manifest),"context_manifest_sha256":sha(args.context_manifest),"steps":args.steps,"seed":args.seed,"lr":args.lr,"fusion":args.fusion,"stereo_scale":args.stereo_scale,"counterfactual_weight":args.counterfactual_weight,"counterfactual_margin":args.counterfactual_margin,"context_schema":records.schema,"training_manifest_sha256":sha(args.manifest),"changed_native_tensors":changed,"training_mode":"native_end_to_end_with_counterfactual_stereo_response","frozen_first_flow_blocks":cfg.freeze_early_blocks},checkpoint)
-    report={"schema_version":1,"status":"complete","seed":args.seed,"steps":args.steps,"batch_size":args.batch_size,"lr":args.lr,"arm":json.loads(args.context_manifest.read_text()).get("method"),"baseline":str(args.baseline),"baseline_sha256":sha(args.baseline),"context_manifest":str(args.context_manifest),"context_manifest_sha256":sha(args.context_manifest),"checkpoint":str(checkpoint),"checkpoint_sha256":sha(checkpoint),"elapsed_s":time.monotonic()-started,"loss_first":losses[0],"loss_last":losses[-1],"raw_prior_first":raw_losses[0],"raw_prior_last":raw_losses[-1],"quiet_weight":args.quiet_weight,"quiet_active_weight":args.quiet_active_weight,"quiet_margin":args.quiet_margin,"raw_prior_weight":args.raw_prior_weight,"freeze_incumbent":args.freeze_incumbent,"quiet_adapter_only":args.quiet_adapter_only,"quiet_energy_gate":args.quiet_energy_gate,"quiet_energy_quantile":args.quiet_energy_quantile,"quiet_energy_threshold":quiet_threshold,"quiet_loss_first":quiet_losses[0],"quiet_loss_last":quiet_losses[-1],"finite":True,"fusion":args.fusion,"stereo_scale":args.stereo_scale,"counterfactual_weight":args.counterfactual_weight,"counterfactual_margin":args.counterfactual_margin,"context_schema":records.schema,"changed_native_tensors":changed,"torch_version":torch.__version__,"training_mode":"native end-to-end with zero-initialized gated quiet adapter, counterfactual stereo response, excess-only observed-2D quiet loss, and active baseline preservation","diagnostic_only":True,"scope":"paired native TRAIN only; raw safety gate required before mapper/render; no baseline promotion"}
+    report={"schema_version":1,"status":"complete","seed":args.seed,"steps":args.steps,"batch_size":args.batch_size,"lr":args.lr,"arm":json.loads(args.context_manifest.read_text()).get("method"),"baseline":str(args.baseline),"baseline_sha256":sha(args.baseline),"context_manifest":str(args.context_manifest),"context_manifest_sha256":sha(args.context_manifest),"checkpoint":str(checkpoint),"checkpoint_sha256":sha(checkpoint),"elapsed_s":time.monotonic()-started,"loss_first":losses[0],"loss_last":losses[-1],"raw_prior_first":raw_losses[0],"raw_prior_last":raw_losses[-1],"quiet_weight":args.quiet_weight,"quiet_active_weight":args.quiet_active_weight,"quiet_margin":args.quiet_margin,"quiet_jerk_weight":args.quiet_jerk_weight,"quiet_jerk_target_ratio":args.quiet_jerk_target_ratio,"quiet_jerk_floor":args.quiet_jerk_floor,"quiet_adapter_scale":args.quiet_adapter_scale,"quiet_jerk_loss_first":quiet_jerk_losses[0],"quiet_jerk_loss_last":quiet_jerk_losses[-1],"raw_prior_weight":args.raw_prior_weight,"freeze_incumbent":args.freeze_incumbent,"quiet_adapter_only":args.quiet_adapter_only,"quiet_energy_gate":args.quiet_energy_gate,"quiet_energy_quantile":args.quiet_energy_quantile,"quiet_energy_threshold":quiet_threshold,"quiet_loss_first":quiet_losses[0],"quiet_loss_last":quiet_losses[-1],"finite":True,"fusion":args.fusion,"stereo_scale":args.stereo_scale,"counterfactual_weight":args.counterfactual_weight,"counterfactual_margin":args.counterfactual_margin,"context_schema":records.schema,"changed_native_tensors":changed,"torch_version":torch.__version__,"training_mode":"native end-to-end with zero-initialized gated quiet adapter, counterfactual stereo response, excess-only observed-2D quiet loss, low-energy root-relative jerk excess, and active baseline preservation","diagnostic_only":True,"scope":"paired native TRAIN only; raw safety gate required before mapper/render; no baseline promotion"}
     write(args.out/"REPORT.json",report); print(json.dumps(report,sort_keys=True)); return 0
 
 

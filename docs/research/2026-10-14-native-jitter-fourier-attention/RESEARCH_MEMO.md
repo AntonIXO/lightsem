@@ -55,3 +55,31 @@ Shpongle raw p95 jerk improved (507.64 versus 581.92 baseline); Cure For Me
 regressed (852.64 versus 683.04), so no promotion was earned. A separate
 waveform phase-prediction probe is stored beside the renders and remains a
 frozen CPU diagnostic.
+
+## Corrected pairing and feature-group evidence
+
+The first Cure comparisons were re-run after discovering that the experimental
+generator drew only `n` noise frames while production draws the fixed
+`noise_reference_frames=8320` field and takes its prefix. The corrected protocol
+is `native_pairing_correction_20261014_v4`; its identity arm is exactly the
+saved production body for both songs. The Fourier arm remains mixed after this
+correction: quiet jerk is 0.700x baseline for Shpongle and 1.534x for Cure For
+Me. The previous unpaired Cure numbers are withdrawn as causal evidence.
+
+The matched mean-ablation report is
+`native_feature_group_audit_20261014_v2/REPORT.json`. With the selected
+checkpoint, removing all 1024 MuQ channels changes root-relative body RMS by
+0.0463 m and 0.0401 m on Shpongle/Cure. Removing the 16 source channels changes
+0.00142/0.00159 m; the four mixture channels 0.00139/0.00122 m; and the 17
+event/section channels 0.00341/0.00276 m. The result is a property of this
+checkpoint and readout, not a claim that MuQ is the only useful representation.
+The direct audio path compresses 1061 channels through a width-32 pointwise
+projection, while planner attention is self-attention over audio-derived plan
+bins. A real audio-query cross-attention test must expose local audio tokens to
+motion-state queries and compare against a matched additive/FiLM control.
+
+The new low-energy root-relative jerk objective was tested with zero-initialized
+gated adapters. Scale 0.2 produced quiet-jerk ratios 0.970/0.982 and active
+speed ratios 0.986/0.986; scale 0.8 produced 0.920/0.933 and 0.951/0.951
+(Shpongle/Cure). Both are raw-safe, but Cure still has about 230 m/s3 quiet
+jerk and the active slowdown is measurable. No arm is promoted or rendered.
