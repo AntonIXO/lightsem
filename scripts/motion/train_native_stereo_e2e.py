@@ -183,10 +183,18 @@ def main(argv=None) -> int:
                    help="TRAIN quantile for the local audio energy gate")
     p.add_argument("--local-audio-energy-smooth-frames", type=int, default=1,
                    help="Odd native-frame moving-average width for the local audio gate")
+    p.add_argument("--temporal-adapter", action="store_true",
+                   help="Add a zero-initialized temporal adapter inside the native vector field")
+    p.add_argument("--train-temporal-adapter", action="store_true",
+                   help="Train the native temporal adapter while keeping other modules frozen")
+    p.add_argument("--temporal-adapter-scale", type=float, default=.1,
+                   help="Bounded residual scale of the native temporal adapter")
+    p.add_argument("--freeze-local-audio", action="store_true",
+                   help="Keep an existing local-audio fusion module frozen while training another adapter")
     args = p.parse_args(argv)
     if args.out.exists():
         raise FileExistsError(f"Preserving existing end-to-end root: {args.out}")
-    if args.local_audio_fusion!='none' and (args.freeze_incumbent or (args.quiet_adapter_only and not args.train_quiet_adapter)):
+    if args.local_audio_fusion!='none' and (args.freeze_incumbent or (args.quiet_adapter_only and not args.train_quiet_adapter)) and not args.train_temporal_adapter:
         raise ValueError('Local fusion is an isolated arm; incompatible with other adapter-only switches')
     from lightsem.experiments.native_dynamics.evaluation import setup
     setup()
@@ -217,6 +225,8 @@ def main(argv=None) -> int:
         raise ValueError("Audio cross scale must be in (0,1]")
     if not 0.0 < args.local_audio_energy_quantile < 1.0:
         raise ValueError("Local audio energy quantile must be in (0,1)")
+    if not 0.0 < args.temporal_adapter_scale <= 1.0:
+        raise ValueError("Temporal adapter scale must be in (0,1]")
     if args.local_audio_energy_smooth_frames<1 or args.local_audio_energy_smooth_frames%2==0:
         raise ValueError("Local audio energy smoothing width must be odd and positive")
     quiet_threshold=0.0
@@ -243,7 +253,9 @@ def main(argv=None) -> int:
                     "audio_energy_relative": bool(args.local_audio_energy_relative),
                     "audio_energy_quantile": args.local_audio_energy_quantile,
                     "audio_energy_smooth_frames": args.local_audio_energy_smooth_frames,
-                    "audio_fusion":args.local_audio_fusion})
+                    "audio_fusion":args.local_audio_fusion,
+                    "temporal_adapter": bool(args.temporal_adapter or args.train_temporal_adapter),
+                    "temporal_adapter_scale": args.temporal_adapter_scale})
     model = NativeDynamicsModel(MusicConfig(**saved["base_config"]), saved["normalizers"], cfg)
     result = model.load_state_dict(saved["model"], strict=False)
     # Fusion candidates add their own zero-initialized modules on top of the
@@ -260,6 +272,7 @@ def main(argv=None) -> int:
         "flow.quiet_projection.",
         "flow.quiet_adapters.",
         "flow.local_audio.",
+        "flow.temporal_adapter.",
     )
     if result.unexpected_keys or any(not key.startswith(allowed_missing) for key in result.missing_keys):
         raise ValueError(f"Baseline state mismatch: missing={result.missing_keys}, unexpected={result.unexpected_keys}")
@@ -275,14 +288,21 @@ def main(argv=None) -> int:
         parameter.requires_grad_(False)
     if args.local_audio_fusion!='none':
         for name, parameter in model.named_parameters():
-            allowed=('flow.local_audio.',)
+            allowed=() if args.freeze_local_audio else ('flow.local_audio.',)
             if args.train_quiet_adapter:
                 allowed += ('flow.quiet_projection.','flow.quiet_adapters.')
+            if args.train_temporal_adapter:
+                allowed += ('flow.temporal_adapter.',)
             parameter.requires_grad_(name.startswith(allowed))
     elif args.quiet_adapter_only:
         allowed = ("flow.quiet_projection.", "flow.quiet_adapters.")
+        if args.train_temporal_adapter:
+            allowed += ('flow.temporal_adapter.',)
         for name, parameter in model.named_parameters():
             parameter.requires_grad_(name.startswith(allowed))
+    elif args.train_temporal_adapter:
+        for name, parameter in model.named_parameters():
+            parameter.requires_grad_(name.startswith(('flow.temporal_adapter.',)))
     elif args.freeze_incumbent:
         allowed = ("flow.native_adapters.", "flow.stereo_adapters.", "stereo_plan.")
         for name, parameter in model.named_parameters():
@@ -421,13 +441,23 @@ def main(argv=None) -> int:
     forbidden = [f'flow.blocks.{i}.' for i in range(6)] + ['flow.plan_projection.']
     if any(any(name.startswith(prefix) for prefix in forbidden) for name in changed):
         raise ValueError('Frozen weights changed')
-    required_prefixes = (('flow.local_audio.output.','flow.quiet_adapters.') if args.train_quiet_adapter else ('flow.local_audio.output.',)) if args.local_audio_fusion!='none' else (('flow.quiet_adapters.',) if args.quiet_adapter_only else (('flow.native_adapters.', 'flow.stereo_adapters.', 'stereo_plan.') if args.freeze_incumbent else ('planner.', 'flow.output.', 'flow.blocks.6.')))
+    required_prefixes = []
+    if args.local_audio_fusion!='none' and not args.freeze_local_audio:
+        required_prefixes.append('flow.local_audio.output.')
+    if args.train_quiet_adapter:
+        required_prefixes.append('flow.quiet_adapters.')
+    if args.train_temporal_adapter:
+        required_prefixes.append('flow.temporal_adapter.')
+    if not required_prefixes:
+        required_prefixes = list(('flow.quiet_adapters.',) if args.quiet_adapter_only else (('flow.native_adapters.', 'flow.stereo_adapters.', 'stereo_plan.') if args.freeze_incumbent else ('planner.', 'flow.output.', 'flow.blocks.6.')))
     if args.local_audio_fusion!='none':
-        allowed_changed=('flow.local_audio.',)
+        allowed_changed=() if args.freeze_local_audio else ('flow.local_audio.',)
         if args.train_quiet_adapter:
             allowed_changed += ('flow.quiet_projection.','flow.quiet_adapters.')
+        if args.train_temporal_adapter:
+            allowed_changed += ('flow.temporal_adapter.',)
         if any(not k.startswith(allowed_changed) for k in changed):
-            raise ValueError('Combined local/quiet arm changed incumbent weights')
+            raise ValueError('Adapter arm changed incumbent weights')
     for prefix in required_prefixes:
         if not any(name.startswith(prefix) for name in changed):
             raise ValueError(f'Native weights did not learn: {prefix}')
@@ -437,6 +467,9 @@ def main(argv=None) -> int:
                   audio_energy_gate=args.local_audio_energy_gate,audio_energy_relative=args.local_audio_energy_relative,
                   audio_energy_quantile=args.local_audio_energy_quantile,
                   audio_energy_threshold=audio_threshold,train_quiet_adapter=args.train_quiet_adapter,
+                  train_temporal_adapter=args.train_temporal_adapter,freeze_local_audio=args.freeze_local_audio,
+                  temporal_adapter=args.temporal_adapter or args.train_temporal_adapter,
+                  temporal_adapter_scale=args.temporal_adapter_scale,
                   parameter_count=sum(p.numel() for p in model.parameters()),
                   trainable_parameter_count=sum(p.numel() for p in trainable),
                   training_arguments={k:str(v) if isinstance(v,Path) else v for k,v in vars(args).items()},

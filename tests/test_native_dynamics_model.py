@@ -16,6 +16,20 @@ def test_zero_adapters_preserve_existing_generator_exactly():
     packed,plan=model.condition(fine,coarse,valid,idx);old=torch.cat([fine,torch.zeros(2,48,34)],-1);state=torch.randn(2,48,139);t=torch.tensor([.2,.7])
     torch.testing.assert_close(model.flow.vector_field(packed,state,t),teacher.vector_field(old,state,t),rtol=0,atol=0)
 
+def test_zero_temporal_adapter_preserves_native_vector_field_exactly():
+    _,model=models(); cfg=model.config
+    base_cfg=MusicConfig(width=16,frames=48,dilations=(1,2),steps=32)
+    norm={'mean':[0.]*139,'std':[1.]*139,'delta_scale':[1.]*139}
+    temporal=NativeDynamicsModel(base_cfg,norm,
+        Config(**{**cfg.__dict__,'temporal_adapter':True,'temporal_adapter_scale':.1}))
+    loaded=temporal.load_state_dict(model.state_dict(),strict=False)
+    assert loaded.unexpected_keys==[]
+    assert loaded.missing_keys and all(k.startswith('flow.temporal_adapter.') for k in loaded.missing_keys)
+    fine=torch.randn(1,48,102);coarse=torch.randn(1,8,10);valid=torch.ones(1,8,dtype=torch.bool);idx=torch.arange(48)[None]
+    cond,_=model.condition(fine,coarse,valid,idx);temporal_cond,_=temporal.condition(fine,coarse,valid,idx)
+    state=torch.randn(1,48,139);time=torch.tensor([.4])
+    torch.testing.assert_close(model.flow.vector_field(cond,state,time),temporal.flow.vector_field(temporal_cond,state,time),rtol=0,atol=0)
+
 def test_training_rollout_and_inference_share_actual32step_forward():
     teacher,model=models();fine=torch.randn(1,48,102);cond,_=model.condition(fine,torch.randn(1,8,10),torch.ones(1,8,dtype=torch.bool),torch.arange(48)[None]);noise=model.flow.noise(1,48,generator=torch.Generator().manual_seed(7001))
     train,prior=model.rollout(cond,noise,gradient_steps=4,teacher=teacher);infer,_=model.rollout(cond,noise,gradient_steps=0)
