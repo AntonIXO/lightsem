@@ -168,6 +168,9 @@ def generate(protocol_path):
                 passed = measured['raw']['finite'] and all(safety[k] <= v for k, v in protocol['safety_ratios'].items())
                 rec = dict(arm=arm['id'], song=song, body_path=str(path), body_sha256=sha(path),
                     checkpoint_path=arm['checkpoint'], checkpoint_sha256=sha(arm['checkpoint']),
+                    baseline_body=str(out / 'baseline' / f'{song}.npz'),
+                    baseline_body_sha256=sha(out / 'baseline' / f'{song}.npz'),
+                    finite=bool(np.isfinite(world).all() and np.isfinite(native.cpu().numpy()).all()),
                     noise_sha256=array_sha(noise), noise_reference_frames=max(config['noise_reference_frames'], len(base)),
                     planner_context_bins=CONTEXT_BINS, incumbent_weights_unchanged=unchanged,
                     inputs={**binding, 'normalized_fine_sha256': array_sha(args[0]),
