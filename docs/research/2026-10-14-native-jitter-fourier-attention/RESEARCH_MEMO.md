@@ -131,3 +131,18 @@ duplicate checks, and post-render health audits. Full own-song diagnostic videos
 
 - `native_local_audio_fusion_energy_full_20261014/shpongle/shpongle_local_hybrid_energy_full.mp4`
 - `native_local_audio_fusion_energy_full_20261014/cure_for_me/cure_for_me_local_hybrid_energy_full.mp4`
+
+## Gate calibration correction
+
+The first local-audio intervention also changed legacy audio adapters because it
+zeroed the entire fine descriptor. The corrected audit now replaces only the
+new module's cached keys/values and requires both baseline and local-bypass
+identity. Its local response is smaller but causal; all incumbent bypass deltas
+are below `1e-5` m.
+
+The whole-recording relative-q30 gate was then trained with one seed. It did
+activate per-song as intended, but produced quiet-jerk ratios 0.898/1.057 and
+active-speed ratios 0.987/0.989 (Shpongle/Cure). This refutes the simple
+threshold-calibration explanation for Cure and remains an unrendered failed
+diagnostic. The global energy-gated arm is still the best mixed result, not a
+qualified two-song repair.
