@@ -173,3 +173,27 @@ active-speed ratios 0.987/0.989 (Shpongle/Cure). This refutes the simple
 threshold-calibration explanation for Cure and remains an unrendered failed
 diagnostic. The global energy-gated arm is still the best mixed result, not a
 qualified two-song repair.
+
+## Raw temporal repair campaign (2026-10-15)
+
+The first end-to-end raw temporal arm lowered quiet jerk to `0.490/0.503` of
+the matched baseline, but active speed fell to `0.752/0.765`; this is the
+uniform-slowdown failure and was rejected before mapping. A localized quiet
+adapter preserved more motion (`0.946/0.946` active speed) but remained above
+the quiet-jerk target (`0.914/0.929`).
+
+The combined smoothed-local-hybrid plus quiet-adapter arm was the strongest
+trade-off: Cure For Me passed the frozen engineering gates and Shpongle missed
+active speed by `0.00090` (`0.94910`). A continuation then regressed active
+speed on both songs (`0.94520/0.94884`). The final bounded arm restored active
+speed (`0.98038/0.98287`) and raw safety, but quiet jerk remained just above
+the pre-registered target (`0.86265/0.86395` versus `0.85`). These arms remain
+diagnostic-only; none is mapped or rendered. Their sealed protocols and
+verdicts are under `/mnt/lightsem-data/experiments/lightsem/native_raw_temporal_repair_20261015_v{1,2,3,4,5}/`.
+
+This sequence establishes the current trade-off rather than proving a solved
+jitter repair: aggressive raw jerk reduction suppresses musical movement,
+while bounded adapters preserve motion but leave residual high-frequency noise.
+No threshold was lowered and no post-hoc smoothing, retiming, fixture cap, D4,
+or D6 was used. The only newly rendered candidate remains the
+renderer-authenticated smoothed diagnostic described above.
