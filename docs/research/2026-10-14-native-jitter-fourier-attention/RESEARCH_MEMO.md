@@ -115,6 +115,23 @@ raw-dynamics, stream, diversity, input-sensitivity, and provenance checks
 passing, while the delivery remains diagnostic-only because active-motion
 preservation and artistic choreography are not qualified.
 
+## Smoothed relative-gate result
+
+The follow-up added a 31-frame native moving average to the **energy control
+signal only**, while leaving generated 30 Hz motion raw. With the corrected
+local intervention audit, quiet-jerk ratios became 0.874/0.878 and active-speed
+ratios 0.983/0.986 for Shpongle/Cure; raw jerk safety ratios were 0.942/0.926.
+Baseline and local-bypass identity deltas stayed below `1e-5` m. This is the
+first two-song candidate that improves the quiet-jerk metric while preserving
+active motion within the fixed engineering gate. It remains diagnostic-only
+until a held-out/confirmation study and choreography review; it is not silently
+promoted over fixed C.
+
+Full diagnostic videos:
+
+- `native_local_audio_fusion_smoothed_full_20261014/shpongle/shpongle_local_hybrid_smoothed_full.mp4`
+- `native_local_audio_fusion_smoothed_full_20261014/cure_for_me/cure_for_me_local_hybrid_smoothed_full.mp4`
+
 ## Energy-gated local fusion follow-up
 
 The final native repair arm gates the local hybrid fusion by the TRAIN
