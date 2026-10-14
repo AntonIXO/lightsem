@@ -1,12 +1,12 @@
 {
   "schema_version": 1,
-  "id": "native-stereo-dual-cross-attention-counterfactual-seed0-20261011",
+  "id": "native-full-native-repair-seed0-20261018",
   "status": "user_selected_motion_baseline",
-  "selected_on": "2026-10-11",
-  "selection_scope": "User-selected dual cross-attention stereo native-C baseline. The checkpoint is diagnostic and requires the authenticated showcase context manifest; two-seed confirmation remains open.",
+  "selected_on": "2026-10-14",
+  "selection_scope": "User-promoted full-native repair baseline from the 2026-10-18 own-song raw-safety/source-dependence campaign. Engineering gates pass on Shpongle and AURORA \u2014 Cure For Me; held-out/artistic qualification remains open.",
   "checkpoint": {
-    "path": "/mnt/lightsem-data/experiments/lightsem/native_stereo_counterfactual_20261011_v1/production/dual_cross_attention/final.pt",
-    "sha256": "36526af73ff193c8d2482457619b57de602088424d20e286ba6cea02985e973f"
+    "path": "/mnt/lightsem-data/experiments/lightsem/native_full_native_repair_20261018_v2/training/full_native/final.pt",
+    "sha256": "044f0e5400815e53521e6e367de6d905f554105bc0b850ba2b544df6b48b3223"
   },
   "training_seed": 0,
   "draw_seed": 7001,
@@ -104,12 +104,26 @@
     "stereo_training_report": "/mnt/lightsem-data/experiments/lightsem/native_stereo_counterfactual_20261011_v1/training/dual_cross_attention/REPORT.json",
     "stereo_training_report_sha256": "f639aa6f29461cf58e786d4784a4db80698b14a6ea65833d995466991060e839",
     "base_motion_checkpoint": "/mnt/lightsem-data/experiments/lightsem/native_bf16_v7b/learning/runs/joint/seed_0/final.pt",
-    "base_motion_checkpoint_sha256": "affc85b4dde1b6501ac27fbdfa2df8a9810d9c13b02101fdbf3c6ac3f811e85b"
+    "base_motion_checkpoint_sha256": "affc85b4dde1b6501ac27fbdfa2df8a9810d9c13b02101fdbf3c6ac3f811e85b",
+    "repair_parent_checkpoint": "/mnt/lightsem-data/experiments/lightsem/native_local_audio_fusion_smoothed_20261014_v1/training/hybrid_smoothed/seed0/final.pt",
+    "repair_parent_checkpoint_sha256": "7e44c631585258710ab6c6b25f9fb6c7febd54cc4230d1688ce13194bc3f3b87",
+    "repair_protocol": "/mnt/lightsem-data/experiments/lightsem/native_full_native_repair_20261018_v2/PROTOCOL.json",
+    "repair_protocol_sha256": "516f068cff60a6092d875c11a14d1037c668587368e7f2fbe156b816b44d4865",
+    "repair_training_report": "/mnt/lightsem-data/experiments/lightsem/native_full_native_repair_20261018_v2/training/full_native/REPORT.json",
+    "repair_training_report_sha256": "4f042460955198f02a09a4c9782ef2f430d52757d57a4a68c2bee0348a8946eb",
+    "repair_completion": "/mnt/lightsem-data/experiments/lightsem/native_full_native_repair_20261018_v2/COMPLETION.json",
+    "repair_completion_sha256": "606c7c9f940e106d5f7633e6a980be31e81ccadcf4d98adebd95c88a8a19037f",
+    "repair_raw_audit": "/mnt/lightsem-data/experiments/lightsem/native_full_native_repair_20261018_v2/paired_audit/REPORT.json",
+    "repair_raw_audit_sha256": "5715824c9f2dfef198e96f6f6150024e0a8899005c31e880e3759496fbb94a95",
+    "repair_source_dependence": "pass for both own-song mapper audits",
+    "repair_status": "engineering_gates_passed_diagnostic_only",
+    "repair_updates": 500,
+    "repair_trainable_scope": "post-early-flow native/planner/local modules; flow.blocks.0-5 and flow.plan_projection frozen"
   },
   "qualification": {
     "status": "user_selected_motion_baseline",
-    "experiment": "native-stereo-counterfactual-20261011-dual-cross-attention-seed0",
-    "note": "User explicitly selected dual cross-attention as the active baseline. Raw safety and causal stereo response passed on two showcase songs; two-seed confirmation and broader context coverage remain open."
+    "experiment": "native-full-native-repair-20261018-seed0",
+    "note": "User explicitly promoted this full-native repair as the active dance-to-light baseline. Own-song raw 30Hz and source-dependence gates passed; held-out/choreography acceptance remains separate."
   },
   "historical_reference_config": "configs/dance/fixed_c_rtmpose_20261011.json",
   "cached_tracks": {
@@ -168,5 +182,11 @@
     "context_manifest": "/mnt/lightsem-data/experiments/lightsem/native_stereo_e2e_hybrid_20261011_v2/contexts/SHOWCASE_CONTEXT_MANIFEST.json",
     "context_manifest_sha256": "7003648d7979d338f4a7e9eebb08ec2f28137c721ae23a31d8e4a2615feeb555",
     "scope": "authenticated Shpongle and Cure For Me own-song contexts; no silent fallback"
+  },
+  "active_promotion": {
+    "promoted_on": "2026-10-14",
+    "previous_config_snapshot": "configs/dance/fixed_c_stereo_20261011.json",
+    "previous_config_sha256": "0f9fad8a9d4a3abc5f4696bf52af2873fee637551b7d3b599ab1b4ac7d15a374",
+    "promotion_receipt": "docs/research/2026-10-14-native-jitter-fourier-attention/BASELINE_PROMOTION_20261018.json"
   }
 }

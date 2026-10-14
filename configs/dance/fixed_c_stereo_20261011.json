@@ -1,0 +1,172 @@
+{
+  "schema_version": 1,
+  "id": "native-stereo-dual-cross-attention-counterfactual-seed0-20261011",
+  "status": "user_selected_motion_baseline",
+  "selected_on": "2026-10-11",
+  "selection_scope": "User-selected dual cross-attention stereo native-C baseline. The checkpoint is diagnostic and requires the authenticated showcase context manifest; two-seed confirmation remains open.",
+  "checkpoint": {
+    "path": "/mnt/lightsem-data/experiments/lightsem/native_stereo_counterfactual_20261011_v1/production/dual_cross_attention/final.pt",
+    "sha256": "36526af73ff193c8d2482457619b57de602088424d20e286ba6cea02985e973f"
+  },
+  "training_seed": 0,
+  "draw_seed": 7001,
+  "noise_reference_frames": 8320,
+  "solver_steps": 32,
+  "body_fps": 30,
+  "lighting_fps": 40,
+  "muq": {
+    "required": true,
+    "frozen": true,
+    "model_id": "OpenMuQ/MuQ-large-msd-iter",
+    "revision": "0562a57814f6f8bbd9fdea0a25921a2fce1a841a",
+    "weights_sha256": "273febab2be02872c37d2c37e48a9d6c52c1c9392f3eeeabd498efa281ccb7a6",
+    "layer": 9,
+    "native_hz": 25,
+    "chunk_seconds": 8
+  },
+  "addons": {
+    "d4max": {
+      "enabled": false,
+      "bars_per_motif": 2,
+      "audio_families": 6,
+      "takes_per_family": 3,
+      "descriptor_phases": 4,
+      "beam_width": 64,
+      "pose_gap_limit_m": 0.25,
+      "minimum_rate": 0.5,
+      "maximum_rate": 1.5,
+      "transition_s": 0.5,
+      "muq_weight": 0.7,
+      "source_weight": 0.3
+    },
+    "d6": {
+      "enabled": false,
+      "minimum_rate": 0.25,
+      "maximum_rate": 1.5,
+      "checkpoint": {
+        "path": "/mnt/lightsem-data/experiments/lightsem/dynamic_dance_20261005_v1/learning/runs/planner/seed_0/final.pt",
+        "sha256": "4a11594adb6c3f4c497907bdec153bb919e8b2a01ab8401f3d49f5c4936bb759"
+      },
+      "scope": "External common anchored clock. Optional with or withoutD4; not native speed learning."
+    }
+  },
+  "lighting": {
+    "color_config": "configs/light_layers/baseline.json",
+    "color_config_sha256": "ca039831a35c5bdc654cd2569c009875c2855e11f2c137138b38ad257f2d6d39",
+    "mapper": "01",
+    "transfer": {
+      "body_speed_scale": 2.0,
+      "fps": 40.0,
+      "maximum_acceleration_deg_s2": 360.0,
+      "maximum_speed_deg_s": 90.0,
+      "target_bound_u": 12.5,
+      "target_bound_x": 7.5,
+      "target_depth_gain": 3.0,
+      "target_height_gain": 4.0,
+      "target_x_gain": 6.0,
+      "apply_motion_limits": false
+    },
+    "counts": {
+      "beams": 8,
+      "bulbs": 50,
+      "lasers": 5
+    },
+    "brightness": "Restored historical full-song LUFS law and body modulation"
+  },
+  "extraction": {
+    "python": "/root/lightsem/.venv/night-access/bin/python",
+    "device": "cuda",
+    "structure_device": "cpu"
+  },
+  "trained_recipe": {
+    "FD_train_songgroups": 109,
+    "JD_train_songgroups": "all admitted full-fit groups",
+    "admitted_recordings": 651,
+    "admitted_groups": 520,
+    "admitted_track_segments": 3688,
+    "native_training_updates": 60000,
+    "raw_3D_constraints": true,
+    "quiet_gradient_fix_in_checkpoint": false,
+    "full_JD_training": true,
+    "no_validation_split": true,
+    "pose_backend": "RTMPose-m TensorRT autocast BF16 + YOLOX-m HumanArt CUDA detector; scores metadata only",
+    "admission_manifest": "/mnt/lightsem-data/experiments/lightsem/native_bf16_v7b/data/MANIFEST.json",
+    "feature_receipt": "/mnt/lightsem-data/experiments/lightsem/native_bf16_v7b/features/COMPLETE.json",
+    "training_report": "/mnt/lightsem-data/experiments/lightsem/native_bf16_v7b/learning/runs/joint/seed_0/REPORT.json",
+    "stereo_fusion": "dual_cross_attention",
+    "stereo_context_schema": "spain_obsrnn_concat128_v2",
+    "stereo_dim": 128,
+    "stereo_adapter_scale": 0.6,
+    "counterfactual_stream_drop": true,
+    "counterfactual_weight": 1.0,
+    "counterfactual_margin": 0.008,
+    "stereo_training_updates": 1000,
+    "stereo_training_report": "/mnt/lightsem-data/experiments/lightsem/native_stereo_counterfactual_20261011_v1/training/dual_cross_attention/REPORT.json",
+    "stereo_training_report_sha256": "f639aa6f29461cf58e786d4784a4db80698b14a6ea65833d995466991060e839",
+    "base_motion_checkpoint": "/mnt/lightsem-data/experiments/lightsem/native_bf16_v7b/learning/runs/joint/seed_0/final.pt",
+    "base_motion_checkpoint_sha256": "affc85b4dde1b6501ac27fbdfa2df8a9810d9c13b02101fdbf3c6ac3f811e85b"
+  },
+  "qualification": {
+    "status": "user_selected_motion_baseline",
+    "experiment": "native-stereo-counterfactual-20261011-dual-cross-attention-seed0",
+    "note": "User explicitly selected dual cross-attention as the active baseline. Raw safety and causal stereo response passed on two showcase songs; two-seed confirmation and broader context coverage remain open."
+  },
+  "historical_reference_config": "configs/dance/fixed_c_rtmpose_20261011.json",
+  "cached_tracks": {
+    "shpongle": {
+      "audio_sha256": "95e4388424ef62950bdeae78e47b8e71839ed28c6e01189fe15f9ae6c902b6c0",
+      "timeline": {
+        "path": "/mnt/lightsem-data/experiments/lightsem/native_bf16_v7b/demo_features/features/timelines/shpongle.npz",
+        "sha256": "c88dbc902c34ebdc89e44af7d3d0901782f5ab03852e3fc325373f7861b9fae8"
+      },
+      "base92": {
+        "path": "/mnt/lightsem-data/experiments/lightsem/native_bf16_v7b/demo_features/features/base92/shpongle.npz",
+        "sha256": "f6de9adad1c3249ce0657f5d55a0b76fd39bd786bb0d9db6688742341fcbf5c3"
+      },
+      "colors": {
+        "path": "/mnt/lightsem-data/experiments/lightsem/native_bf16_v7b/demo_colors_v2/shpongle/P2.npz",
+        "sha256": "a688f9c7319c76f5cec3add94c8a5e605a202384659fa6d0d10ce4036116ff3e"
+      },
+      "color_report": {
+        "path": "/mnt/lightsem-data/experiments/lightsem/native_bf16_v7b/demo_colors_v2/shpongle/REPORT.json",
+        "sha256": "41e15b7831ab964f0c2ee12641f28f926bf7ca699b4356bf0913d7d8560dcb3d"
+      },
+      "loudness_receipt": {
+        "path": "/mnt/lightsem-data/experiments/lightsem/native_bf16_v7b/demo_loudness/shpongle/loudness.json",
+        "sha256": "d624c71b9baa7c29dc50cb23bc14ee2b9aa98062a899009b124713c558080cd7"
+      }
+    },
+    "cure_for_me": {
+      "audio_sha256": "5363ce8314bf5e23cffb28657dd97f6f5755f8275db293366974bd01b3e2ddb8",
+      "timeline": {
+        "path": "/mnt/lightsem-data/experiments/lightsem/native_bf16_v7b/demo_features/features/timelines/cure_for_me.npz",
+        "sha256": "e88458893fb79e6f7bf86b92e6b3083bfb00930c38728cd1a3e94a019b197c2c"
+      },
+      "base92": {
+        "path": "/mnt/lightsem-data/experiments/lightsem/native_bf16_v7b/demo_features/features/base92/cure_for_me.npz",
+        "sha256": "43fccb2574e05348d60a1c037ec51a08bf718a4f677a3f21bc1acf2cc85bed65"
+      },
+      "colors": {
+        "path": "/mnt/lightsem-data/experiments/lightsem/native_bf16_v7b/demo_colors_v2/cure_for_me/P2.npz",
+        "sha256": "9d66a4d7a9b655accdc29dcfab96bb2e8f67c42db26a5127f4f0b0943bd43ad7"
+      },
+      "color_report": {
+        "path": "/mnt/lightsem-data/experiments/lightsem/native_bf16_v7b/demo_colors_v2/cure_for_me/REPORT.json",
+        "sha256": "f1fe6b65de25ec274e4395b2573792f515313c9c6c322320c6cc72c904f2c52b"
+      },
+      "loudness_receipt": {
+        "path": "/mnt/lightsem-data/experiments/lightsem/native_bf16_v7b/demo_loudness/cure_for_me/loudness.json",
+        "sha256": "d5f4e6a2640c9d1a455afd00329cd12b1e4f8c8439f1b91cff7d23406dedde70"
+      }
+    }
+  },
+  "stereo_conditioning": {
+    "enabled": true,
+    "fusion": "dual_cross_attention",
+    "schema": "spain_obsrnn_concat128_v2",
+    "feature_dim": 128,
+    "context_manifest": "/mnt/lightsem-data/experiments/lightsem/native_stereo_e2e_hybrid_20261011_v2/contexts/SHOWCASE_CONTEXT_MANIFEST.json",
+    "context_manifest_sha256": "7003648d7979d338f4a7e9eebb08ec2f28137c721ae23a31d8e4a2615feeb555",
+    "scope": "authenticated Shpongle and Cure For Me own-song contexts; no silent fallback"
+  }
+}

@@ -1,0 +1,48 @@
+{
+  "schema": "lightsem.baseline_promotion.v1",
+  "status": "user_promoted_engineering_baseline",
+  "promoted_on": "2026-10-14",
+  "config": "configs/dance/fixed_c.json",
+  "config_sha256": "001c560255eb245aef10228e28d193bf437ca155e6d9d892bc8fc9e5c69ef493",
+  "previous_config": "configs/dance/fixed_c_stereo_20261011.json",
+  "previous_config_sha256": "0f9fad8a9d4a3abc5f4696bf52af2873fee637551b7d3b599ab1b4ac7d15a374",
+  "checkpoint": "/mnt/lightsem-data/experiments/lightsem/native_full_native_repair_20261018_v2/training/full_native/final.pt",
+  "checkpoint_sha256": "044f0e5400815e53521e6e367de6d905f554105bc0b850ba2b544df6b48b3223",
+  "training_report": "/mnt/lightsem-data/experiments/lightsem/native_full_native_repair_20261018_v2/training/full_native/REPORT.json",
+  "training_report_sha256": "4f042460955198f02a09a4c9782ef2f430d52757d57a4a68c2bee0348a8946eb",
+  "completion_receipt": "/mnt/lightsem-data/experiments/lightsem/native_full_native_repair_20261018_v2/COMPLETION.json",
+  "completion_sha256": "606c7c9f940e106d5f7633e6a980be31e81ccadcf4d98adebd95c88a8a19037f",
+  "raw_audit": "/mnt/lightsem-data/experiments/lightsem/native_full_native_repair_20261018_v2/paired_audit/REPORT.json",
+  "raw_audit_sha256": "5715824c9f2dfef198e96f6f6150024e0a8899005c31e880e3759496fbb94a95",
+  "raw_gate_results": {
+    "shpongle": {
+      "active_speed_ratio": 0.9574841772041818,
+      "quiet_jerk_ratio": 0.7877253444222073,
+      "raw_speed_ratio": 0.9535659569194542,
+      "raw_acceleration_ratio": 0.896727437292676,
+      "raw_jerk_ratio": 0.8562546730741721
+    },
+    "cure_for_me": {
+      "active_speed_ratio": 0.9614532053752771,
+      "quiet_jerk_ratio": 0.7896715030998718,
+      "raw_speed_ratio": 0.9467315899092521,
+      "raw_acceleration_ratio": 0.8765973032984892,
+      "raw_jerk_ratio": 0.8394655419076756
+    }
+  },
+  "source_dependence": {
+    "shpongle": "pass",
+    "cure_for_me": "pass"
+  },
+  "delivery": {
+    "shpongle": {
+      "path": "/mnt/lightsem-data/experiments/lightsem/native_full_native_repair_20261018_v2/render_full/shpongle/shpongle_local_full_native_full.mp4",
+      "sha256": "45a8e75681519c40bbc21f7128160bf045602af1de5d12cf3fcc61b77a65cb81"
+    },
+    "cure_for_me": {
+      "path": "/mnt/lightsem-data/experiments/lightsem/native_full_native_repair_20261018_v2/render_full/cure_for_me/cure_for_me_local_full_native_full.mp4",
+      "sha256": "6f9da8c49c23033ef033011f15dec153e7f440f4ab403f4a0c3305a1fa243e5b"
+    }
+  },
+  "qualification": "Engineering baseline promotion only; fixed C remains diagnostic for held-out/artistic qualification; MuQ/P2/LUFS/mapper/D4/D6 invariants unchanged."
+}
