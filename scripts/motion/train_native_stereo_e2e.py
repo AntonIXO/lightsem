@@ -191,6 +191,12 @@ def main(argv=None) -> int:
                    help="Bounded residual scale of the native temporal adapter")
     p.add_argument("--freeze-local-audio", action="store_true",
                    help="Keep an existing local-audio fusion module frozen while training another adapter")
+    p.add_argument("--noise-energy-gate", action="store_true",
+                   help="Enable the zero-init audio-energy gate on native rollout noise")
+    p.add_argument("--train-noise-gate", action="store_true",
+                   help="Train the scalar native rollout noise-energy gate")
+    p.add_argument("--noise-energy-max-reduction", type=float, default=.5,
+                   help="Maximum bounded latent-noise reduction in quiet frames")
     args = p.parse_args(argv)
     if args.out.exists():
         raise FileExistsError(f"Preserving existing end-to-end root: {args.out}")
@@ -227,6 +233,8 @@ def main(argv=None) -> int:
         raise ValueError("Local audio energy quantile must be in (0,1)")
     if not 0.0 < args.temporal_adapter_scale <= 1.0:
         raise ValueError("Temporal adapter scale must be in (0,1]")
+    if not 0.0 < args.noise_energy_max_reduction <= 1.0:
+        raise ValueError("Noise energy max reduction must be in (0,1]")
     if args.local_audio_energy_smooth_frames<1 or args.local_audio_energy_smooth_frames%2==0:
         raise ValueError("Local audio energy smoothing width must be odd and positive")
     quiet_threshold=0.0
@@ -255,7 +263,11 @@ def main(argv=None) -> int:
                     "audio_energy_smooth_frames": args.local_audio_energy_smooth_frames,
                     "audio_fusion":args.local_audio_fusion,
                     "temporal_adapter": bool(args.temporal_adapter or args.train_temporal_adapter),
-                    "temporal_adapter_scale": args.temporal_adapter_scale})
+                    "temporal_adapter_scale": args.temporal_adapter_scale,
+                    "noise_energy_gate": bool(args.noise_energy_gate or args.train_noise_gate),
+                    "noise_energy_threshold": quiet_threshold,
+                    "noise_energy_temperature": .5,
+                    "noise_energy_max_reduction": args.noise_energy_max_reduction})
     model = NativeDynamicsModel(MusicConfig(**saved["base_config"]), saved["normalizers"], cfg)
     result = model.load_state_dict(saved["model"], strict=False)
     # Fusion candidates add their own zero-initialized modules on top of the
@@ -273,6 +285,7 @@ def main(argv=None) -> int:
         "flow.quiet_adapters.",
         "flow.local_audio.",
         "flow.temporal_adapter.",
+        "noise_energy_scale",
     )
     if result.unexpected_keys or any(not key.startswith(allowed_missing) for key in result.missing_keys):
         raise ValueError(f"Baseline state mismatch: missing={result.missing_keys}, unexpected={result.unexpected_keys}")
@@ -293,16 +306,23 @@ def main(argv=None) -> int:
                 allowed += ('flow.quiet_projection.','flow.quiet_adapters.')
             if args.train_temporal_adapter:
                 allowed += ('flow.temporal_adapter.',)
+            if args.train_noise_gate:
+                allowed += ('noise_energy_scale',)
             parameter.requires_grad_(name.startswith(allowed))
     elif args.quiet_adapter_only:
         allowed = ("flow.quiet_projection.", "flow.quiet_adapters.")
         if args.train_temporal_adapter:
             allowed += ('flow.temporal_adapter.',)
+        if args.train_noise_gate:
+            allowed += ('noise_energy_scale',)
         for name, parameter in model.named_parameters():
             parameter.requires_grad_(name.startswith(allowed))
     elif args.train_temporal_adapter:
         for name, parameter in model.named_parameters():
             parameter.requires_grad_(name.startswith(('flow.temporal_adapter.',)))
+    elif args.train_noise_gate:
+        for name, parameter in model.named_parameters():
+            parameter.requires_grad_(name == 'noise_energy_scale')
     elif args.freeze_incumbent:
         allowed = ("flow.native_adapters.", "flow.stereo_adapters.", "stereo_plan.")
         for name, parameter in model.named_parameters():
@@ -448,6 +468,8 @@ def main(argv=None) -> int:
         required_prefixes.append('flow.quiet_adapters.')
     if args.train_temporal_adapter:
         required_prefixes.append('flow.temporal_adapter.')
+    if args.train_noise_gate:
+        required_prefixes.append('noise_energy_scale')
     if not required_prefixes:
         required_prefixes = list(('flow.quiet_adapters.',) if args.quiet_adapter_only else (('flow.native_adapters.', 'flow.stereo_adapters.', 'stereo_plan.') if args.freeze_incumbent else ('planner.', 'flow.output.', 'flow.blocks.6.')))
     if args.local_audio_fusion!='none':
@@ -456,6 +478,8 @@ def main(argv=None) -> int:
             allowed_changed += ('flow.quiet_projection.','flow.quiet_adapters.')
         if args.train_temporal_adapter:
             allowed_changed += ('flow.temporal_adapter.',)
+        if args.train_noise_gate:
+            allowed_changed += ('noise_energy_scale',)
         if any(not k.startswith(allowed_changed) for k in changed):
             raise ValueError('Adapter arm changed incumbent weights')
     for prefix in required_prefixes:
@@ -470,6 +494,9 @@ def main(argv=None) -> int:
                   train_temporal_adapter=args.train_temporal_adapter,freeze_local_audio=args.freeze_local_audio,
                   temporal_adapter=args.temporal_adapter or args.train_temporal_adapter,
                   temporal_adapter_scale=args.temporal_adapter_scale,
+                  noise_energy_gate=args.noise_energy_gate or args.train_noise_gate,
+                  train_noise_gate=args.train_noise_gate,
+                  noise_energy_max_reduction=args.noise_energy_max_reduction,
                   parameter_count=sum(p.numel() for p in model.parameters()),
                   trainable_parameter_count=sum(p.numel() for p in trainable),
                   training_arguments={k:str(v) if isinstance(v,Path) else v for k,v in vars(args).items()},

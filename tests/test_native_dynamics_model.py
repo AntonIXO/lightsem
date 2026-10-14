@@ -57,6 +57,22 @@ def test_learned_temporal_adapter_has_gradients_and_preserves_chunk_boundaries()
         chunk,_=model.generate(fine,coarse,valid,idx,noise,core_frames=13)
         torch.testing.assert_close(whole,chunk,rtol=1e-5,atol=1e-5)
 
+def test_zero_noise_energy_gate_is_identity_and_trainable():
+    base_cfg=MusicConfig(width=16,frames=48,dilations=(1,2),steps=32)
+    norm={'mean':[0.]*139,'std':[1.]*139,'delta_scale':[1.]*139}
+    plain=NativeDynamicsModel(base_cfg,norm,Config(extra_dim=1061,planner_width=16,planner_heads=4,frames=48))
+    gated=NativeDynamicsModel(base_cfg,norm,Config(extra_dim=1061,planner_width=16,planner_heads=4,frames=48,noise_energy_gate=True))
+    loaded=gated.load_state_dict(plain.state_dict(),strict=False)
+    assert loaded.unexpected_keys==[] and loaded.missing_keys==['noise_energy_scale']
+    fine=torch.randn(1,48,1153);coarse=torch.randn(1,8,1061);valid=torch.ones(1,8,dtype=torch.bool);idx=torch.arange(48)[None]
+    cond,_=plain.condition(fine,coarse,valid,idx);gated_cond,_=gated.condition(fine,coarse,valid,idx)
+    noise=plain.flow.noise(1,48,generator=torch.Generator().manual_seed(7001))
+    plain_out,_=plain.rollout(cond,noise,gradient_steps=0)
+    gated_out,_=gated.rollout(gated_cond,noise,gradient_steps=0)
+    torch.testing.assert_close(plain_out,gated_out,rtol=0,atol=0)
+    loss=gated._gate_noise(gated_cond,noise).square().mean()
+    loss.backward();assert gated.noise_energy_scale.grad is not None and torch.isfinite(gated.noise_energy_scale.grad)
+
 def test_training_rollout_and_inference_share_actual32step_forward():
     teacher,model=models();fine=torch.randn(1,48,102);cond,_=model.condition(fine,torch.randn(1,8,10),torch.ones(1,8,dtype=torch.bool),torch.arange(48)[None]);noise=model.flow.noise(1,48,generator=torch.Generator().manual_seed(7001))
     train,prior=model.rollout(cond,noise,gradient_steps=4,teacher=teacher);infer,_=model.rollout(cond,noise,gradient_steps=0)

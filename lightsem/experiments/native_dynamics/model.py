@@ -46,6 +46,10 @@ class Config:
     audio_energy_smooth_frames:int=1
     temporal_adapter:bool=False
     temporal_adapter_scale:float=.1
+    noise_energy_gate:bool=False
+    noise_energy_threshold:float=0.0
+    noise_energy_temperature:float=.5
+    noise_energy_max_reduction:float=.5
     def __post_init__(self):
         if self.arm not in ('continued','dynamics','joint'):raise ValueError('Unknown registered arm')
         if self.steps!=32 or not 1<=self.gradient_steps<=self.steps:raise ValueError('Declared32-step native solver required')
@@ -61,6 +65,8 @@ class Config:
         if not 0.0<self.audio_energy_quantile<1.0:raise ValueError('Invalid audio energy quantile')
         if self.audio_energy_smooth_frames<1 or self.audio_energy_smooth_frames%2==0:raise ValueError('Energy smoothing width must be odd and positive')
         if self.temporal_adapter_scale<=0 or self.temporal_adapter_scale>1:raise ValueError('Invalid temporal adapter scale')
+        if self.noise_energy_temperature<=0 or self.noise_energy_max_reduction<=0 or self.noise_energy_max_reduction>1:raise ValueError('Invalid noise energy gate')
+        if self.noise_energy_gate and self.extra_dim<=1040:raise ValueError('Noise energy gate requires the native mixture-RMS channel')
 
 
 class Planner(nn.Module):
@@ -223,6 +229,7 @@ class Flow(DynamicFlow):
 class NativeDynamicsModel(nn.Module):
     def __init__(self,base_config,normalizers,config=Config()):
         super().__init__();self.config=config;self.flow=Flow(base_config,normalizers,config);self.planner=Planner(config.extra_dim,config.planner_width,config.planner_heads)
+        self.noise_energy_scale=nn.Parameter(torch.zeros(())) if config.noise_energy_gate else None
         self.stereo_plan=None
         if config.stereo_dim:
             plan_dim=64 if config.stereo_fusion in ('gated_residual','role_specialized') else config.stereo_dim
@@ -271,7 +278,7 @@ class NativeDynamicsModel(nn.Module):
         derivative estimation. A frozen D7 field is an explicit soft prior.
         """
         steps=self.config.steps;grad_steps=self.config.gradient_steps if gradient_steps is None else gradient_steps
-        fn=self.flow.prepared_vector_field if field is None else field;base_audio,biases=self.flow.prepare_conditioning(conditioning);state=noise.clone();prior=state.sum()*0
+        fn=self.flow.prepared_vector_field if field is None else field;base_audio,biases=self.flow.prepare_conditioning(conditioning);state=self._gate_noise(conditioning,noise);prior=state.sum()*0
         audio_context=self.flow.prepare_audio_context(conditioning,audio_valid,energy_reference=energy_reference)
         context_kwargs={} if audio_context is None else {'audio_context':audio_context}
         detached_kwargs={} if audio_context is None else {'audio_context':tuple(x.detach() if torch.is_tensor(x) else None for x in audio_context)}
@@ -290,6 +297,16 @@ class NativeDynamicsModel(nn.Module):
                 state=state+velocity/steps
         native=self.flow.codec.decode(state.float()*self.flow.std+self.flow.mean)
         return native,prior
+    def _gate_noise(self,conditioning,noise):
+        if not self.config.noise_energy_gate:
+            return noise.clone()
+        energy=conditioning[...,92+1040]
+        gate=torch.sigmoid((self.config.noise_energy_threshold-energy)/self.config.noise_energy_temperature)
+        # The centered sigmoid is exactly zero at the zero-init parameter. It
+        # can learn a bounded reduction (or increase) while preserving the
+        # fixed noise draw and all active audio timing.
+        reduction=self.config.noise_energy_max_reduction*(torch.sigmoid(self.noise_energy_scale)-.5)
+        return noise*(1.-reduction*gate[...,None])
     @torch.inference_mode()
     def generate(self,fine_audio,coarse_audio,coarse_valid,frame_indices,noise,*,plan_override=None,core_frames=960,stereo_context=None,coarse_stereo=None,local_context_override=None,energy_reference=None):
         conditioning,plan=self.condition(fine_audio,coarse_audio,coarse_valid,frame_indices,stereo_context=stereo_context,coarse_stereo=coarse_stereo)
@@ -298,7 +315,7 @@ class NativeDynamicsModel(nn.Module):
             values=plan_at_frames(plan_override,coarse_valid,frame_indices)
             conditioning=torch.cat((fine_audio,values),-1)
             if stereo_context is not None:conditioning=torch.cat((conditioning,stereo_context),-1)
-        base,biases=self.flow.prepare_conditioning(conditioning);state=noise.clone();halo=self.flow.halo
+        base,biases=self.flow.prepare_conditioning(conditioning);state=self._gate_noise(conditioning,noise);halo=self.flow.halo
         if self.config.audio_energy_relative and energy_reference is None:
             energy_reference=masked_energy_quantile(fine_audio[...,92+1040],torch.ones_like(frame_indices,dtype=torch.bool),self.config.audio_energy_quantile)
         audio_context=self.flow.prepare_audio_context(conditioning,energy_reference=energy_reference)
