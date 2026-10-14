@@ -203,3 +203,16 @@ below baseline, but quiet jerk remained `0.857/0.859`, just above the frozen
 `0.85` gate. The bounded sweep is closed: no candidate satisfies both quiet
 jerk and active-speed gates on both songs, and no additional threshold or
 post-hoc processing is allowed.
+
+## Native temporal-adapter follow-up (2026-10-16)
+
+To test a model-level remedy rather than post-hoc smoothing, a zero-initialized
+depthwise five-tap temporal adapter was inserted inside the native flow vector
+field. Its two-frame context halo is now part of chunked inference; full versus
+chunked generation is exact in tests. Local attention/audio weights stayed
+frozen. Scale `0.1` preserved active speed at `0.981/0.983` and raw safety, but
+quiet jerk was `0.872/0.876`. A scale `0.2`, higher-jerk-weight follow-up kept
+active speed `0.978/0.981`, yet quiet jerk remained `0.870/0.874`. Both arms
+were rejected before mapping/rendering. The intervention is therefore a valid
+native temporal module with no chunk-boundary artifact, but it does not solve
+the residual low-energy jitter.
