@@ -102,6 +102,8 @@ def generate(protocol_path):
         if sha(name) != digest:
             raise ValueError('Frozen input changed: ' + name)
     out = Path(protocol['output'])
+    identity_root = Path(protocol.get('identity_root', protocol['reference_root']))
+    comparison_root = Path(protocol.get('comparison_root', protocol['reference_root']))
     if out.exists():
         raise FileExistsError(out)
     out.mkdir(parents=True)
@@ -116,21 +118,29 @@ def generate(protocol_path):
         for song, audio in protocol['songs'].items():
             music, base, binding, stereo = music_input(Path(audio), out, config)
             body, _, _, _ = native_body(music, base, config, stereo=stereo, device='cuda')
-            reference_file = Path(protocol['reference_root']) / f'{song}.npz'
-            with np.load(reference_file) as z:
+            identity_file = identity_root / f'{song}.npz'
+            with np.load(identity_file) as z:
                 ref = z['body'].copy()
                 if not np.array_equal(z['time'], body.time):
-                    raise ValueError('Reference clock differs')
+                    raise ValueError('Identity clock differs')
             mismatch = float(np.max(np.abs(body.world - ref)))
             if mismatch > protocol['identity_max_abs_m']:
                 raise ValueError(f'Canonical identity test failed: {song} {mismatch}')
+            reference_file = comparison_root / f'{song}.npz'
+            with np.load(reference_file) as z:
+                ref = z['body'].copy()
+                comparison_world = ref
+                comparison_native = z['native'].copy() if 'native' in z.files else body.native
+                if not np.array_equal(z['time'], body.time):
+                    raise ValueError('Comparison clock differs')
             energy, quiet, active = acoustic_masks(audio, body.time)
             folder = out / 'baseline'; folder.mkdir(exist_ok=True)
-            np.savez_compressed(folder / f'{song}.npz', time=body.time, body=body.world,
-                                native=body.native, energy=energy, quiet=quiet, active=active)
-            song_inputs[song] = music, base, stereo, body, binding, quiet, active
-            report.setdefault('identity', {})[song] = dict(reference_path=str(reference_file),
-                reference_sha256=sha(reference_file), maximum_absolute_difference_m=mismatch,
+            np.savez_compressed(folder / f'{song}.npz', time=body.time, body=comparison_world,
+                                native=comparison_native, energy=energy, quiet=quiet, active=active)
+            song_inputs[song] = music, base, stereo, body, comparison_world, binding, quiet, active
+            report.setdefault('identity', {})[song] = dict(reference_path=str(identity_file),
+                reference_sha256=sha(identity_file), comparison_path=str(reference_file),
+                comparison_sha256=sha(reference_file), maximum_absolute_difference_m=mismatch,
                 noise_sha256=body.metadata['noise_sha256'])
         for arm in protocol['arms']:
             state = torch.load(arm['checkpoint'], weights_only=False, map_location='cpu')
@@ -139,7 +149,7 @@ def generate(protocol_path):
             model.cuda().eval().requires_grad_(False)
             unchanged = all(torch.equal(v, base_state['model'][k]) for k, v in state['model'].items()
                             if k in base_state['model'])
-            for song, (music, base, stereo, baseline, binding, quiet, active) in song_inputs.items():
+            for song, (music, base, stereo, baseline, comparison_world, binding, quiet, active) in song_inputs.items():
                 arm_stereo = stereo
                 if arm.get('context_manifest'):
                     manifest = json.loads(Path(arm['context_manifest']).read_text())
@@ -159,7 +169,7 @@ def generate(protocol_path):
                 folder = out / arm['id']; folder.mkdir(exist_ok=True)
                 path = folder / f'{song}.npz'
                 np.savez_compressed(path, time=baseline.time, body=world, native=native[0].cpu().numpy())
-                measured, reference = conditional_motion(world, quiet, active), conditional_motion(baseline.world, quiet, active)
+                measured, reference = conditional_motion(world, quiet, active), conditional_motion(comparison_world, quiet, active)
                 ratios = {k: measured[k] / max(reference[k], 1e-12)
                           for k in ('quiet_speed', 'active_speed', 'quiet_jerk_p95', 'quiet_active_ratio')}
                 safety = dict(speed=measured['world']['speed_p95'] / reference['world']['speed_p95'],
