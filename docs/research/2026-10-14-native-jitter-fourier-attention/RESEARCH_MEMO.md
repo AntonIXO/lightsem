@@ -129,8 +129,18 @@ promoted over fixed C.
 
 Full diagnostic videos:
 
-- `native_local_audio_fusion_smoothed_full_20261014/shpongle/shpongle_local_hybrid_smoothed_full.mp4`
-- `native_local_audio_fusion_smoothed_full_20261014/cure_for_me/cure_for_me_local_hybrid_smoothed_full.mp4`
+- `native_local_audio_fusion_smoothed_full_20261014_v4/shpongle/shpongle_local_hybrid_smoothed_full.mp4`, SHA256 `e76154482afa9e08e446314ea96c071a9bb897f7fd46fd81a48b358a933e8e71`.
+- `native_local_audio_fusion_smoothed_full_20261014_v4/cure_for_me/cure_for_me_local_hybrid_smoothed_full.mp4`, SHA256 `d2e5d622486cebba8409ce19ddbfa5b587771c53d75eea9cd7ad55605e74c5f4`.
+
+The videos were regenerated after commit `945dc0e` with a renderer-side raw gate
+that recomputes finite values and speed/acceleration/jerk ratios from the saved
+30 Hz body, binds the audit to the candidate and selected-baseline body hashes,
+checkpoint hash, and own-song audio hash, and rejects before mapper/video on any
+mismatch. Both own-song renders passed this gate, decoded cleanly at 1280x1024,
+30 Hz with AAC, and passed the autonomous health manifest with
+`healthy_checks_passed`. The frame diagnostics still show a noisy raw body; the
+engineering improvement is real but this is not evidence of artistic
+qualification or a fully repaired dancer.
 
 ## Energy-gated local fusion follow-up
 
