@@ -248,3 +248,13 @@ an active-passage rate controller. Matched audits gave active speed
 `0.983/0.985`, raw jerk safety `0.941/0.925`, and quiet jerk `0.873/0.868`
 for Shpongle/Cure. The architecture is finite and raw-safe but misses the
 frozen `0.85` quiet-jerk gate on both songs; it was not mapped or rendered.
+
+## Full-native repair demo (2026-10-18)
+
+The first full-native post-early-flow repair arm passed the frozen raw gates on
+both own-song inputs: Shpongle active speed `0.95748`, quiet jerk `0.78773`,
+raw jerk safety `0.85625`; Cure For Me active speed `0.96145`, quiet jerk
+`0.78967`, raw jerk safety `0.83947`. The mapper source-dependence gate passed
+for both, so full P2/LUFS/mapper-01 videos were rendered. They decode cleanly at
+1280x1024/30fps with own-song AAC and remain diagnostic-only; fixed C is not
+promoted.
