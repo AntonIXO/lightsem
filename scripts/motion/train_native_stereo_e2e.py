@@ -169,6 +169,12 @@ def main(argv=None) -> int:
                    help="Maximum gated quiet adapter contribution")
     p.add_argument("--local-audio-fusion", choices=('none','attention','film','hybrid'), default='none',
                    help="Train only a new motion-query local audio fusion module")
+    p.add_argument("--audio-cross-scale", type=float, default=.2,
+                   help="Bounded local audio fusion contribution")
+    p.add_argument("--local-audio-energy-gate", action="store_true",
+                   help="Gate local audio fusion by low normalized mixture RMS")
+    p.add_argument("--local-audio-energy-quantile", type=float, default=.30,
+                   help="TRAIN quantile for the local audio energy gate")
     args = p.parse_args(argv)
     if args.out.exists():
         raise FileExistsError(f"Preserving existing end-to-end root: {args.out}")
@@ -199,11 +205,20 @@ def main(argv=None) -> int:
         raise ValueError("Quiet adapter scale must be in (0,1]")
     if not 0.0 < args.quiet_energy_quantile < 1.0:
         raise ValueError("Quiet energy quantile must be in (0,1)")
+    if not 0.0 < args.audio_cross_scale <= 1.0:
+        raise ValueError("Audio cross scale must be in (0,1]")
+    if not 0.0 < args.local_audio_energy_quantile < 1.0:
+        raise ValueError("Local audio energy quantile must be in (0,1)")
     quiet_threshold=0.0
     if args.quiet_energy_gate or args.quiet_jerk_weight:
         mean=float(saved["extra_normalizers"]["mean"][1040]); std=float(saved["extra_normalizers"]["std"][1040])
         values=np.concatenate([row["extra"][:,1040] for row in records.rows])
         quiet_threshold=float(np.quantile((values-mean)/max(std,1e-6), args.quiet_energy_quantile))
+    audio_threshold=0.0
+    if args.local_audio_energy_gate:
+        mean=float(saved["extra_normalizers"]["mean"][1040]); std=float(saved["extra_normalizers"]["std"][1040])
+        values=np.concatenate([row["extra"][:,1040] for row in records.rows])
+        audio_threshold=float(np.quantile((values-mean)/max(std,1e-6), args.local_audio_energy_quantile))
     cfg = Config(**{**saved["config"], "stereo_dim": records.stereo_dim,
                     "stereo_fusion": args.fusion, "freeze_early_blocks": 6,
                     "stereo_adapter_scale": args.stereo_scale,
@@ -212,6 +227,9 @@ def main(argv=None) -> int:
                     "quiet_adapter_scale": args.quiet_adapter_scale,
                     "quiet_energy_gate": bool(args.quiet_energy_gate),
                     "quiet_energy_threshold": quiet_threshold,
+                    "audio_cross_scale": args.audio_cross_scale,
+                    "audio_energy_gate": bool(args.local_audio_energy_gate),
+                    "audio_energy_threshold": audio_threshold,
                     "audio_fusion":args.local_audio_fusion})
     model = NativeDynamicsModel(MusicConfig(**saved["base_config"]), saved["normalizers"], cfg)
     result = model.load_state_dict(saved["model"], strict=False)
@@ -394,7 +412,9 @@ def main(argv=None) -> int:
             raise ValueError(f'Native weights did not learn: {prefix}')
     torch.save({"model":model.state_dict(),"config":asdict(cfg),"base_config":saved["base_config"],"normalizers":saved["normalizers"],"audio_normalizers":saved["audio_normalizers"],"extra_normalizers":saved["extra_normalizers"],"stereo_mean":records.stereo_mean,"stereo_std":records.stereo_std,"baseline_checkpoint":str(args.baseline),"baseline_sha256":sha(args.baseline),"context_manifest":str(args.context_manifest),"context_manifest_sha256":sha(args.context_manifest),"steps":args.steps,"seed":args.seed,"lr":args.lr,"fusion":args.fusion,"stereo_scale":args.stereo_scale,"counterfactual_weight":args.counterfactual_weight,"counterfactual_margin":args.counterfactual_margin,"context_schema":records.schema,"training_manifest_sha256":sha(args.manifest),"changed_native_tensors":changed,"training_mode":"native_end_to_end_with_counterfactual_stereo_response","frozen_first_flow_blocks":cfg.freeze_early_blocks},checkpoint)
     report={"schema_version":1,"status":"complete","seed":args.seed,"steps":args.steps,"batch_size":args.batch_size,"lr":args.lr,"arm":json.loads(args.context_manifest.read_text()).get("method"),"baseline":str(args.baseline),"baseline_sha256":sha(args.baseline),"context_manifest":str(args.context_manifest),"context_manifest_sha256":sha(args.context_manifest),"checkpoint":str(checkpoint),"checkpoint_sha256":sha(checkpoint),"elapsed_s":time.monotonic()-started,"loss_first":losses[0],"loss_last":losses[-1],"raw_prior_first":raw_losses[0],"raw_prior_last":raw_losses[-1],"quiet_weight":args.quiet_weight,"quiet_active_weight":args.quiet_active_weight,"quiet_margin":args.quiet_margin,"quiet_jerk_weight":args.quiet_jerk_weight,"quiet_jerk_target_ratio":args.quiet_jerk_target_ratio,"quiet_jerk_floor":args.quiet_jerk_floor,"quiet_adapter_scale":args.quiet_adapter_scale,"quiet_jerk_loss_first":quiet_jerk_losses[0],"quiet_jerk_loss_last":quiet_jerk_losses[-1],"raw_prior_weight":args.raw_prior_weight,"freeze_incumbent":args.freeze_incumbent,"quiet_adapter_only":args.quiet_adapter_only,"quiet_energy_gate":args.quiet_energy_gate,"quiet_energy_quantile":args.quiet_energy_quantile,"quiet_energy_threshold":quiet_threshold,"quiet_loss_first":quiet_losses[0],"quiet_loss_last":quiet_losses[-1],"finite":True,"fusion":args.fusion,"stereo_scale":args.stereo_scale,"counterfactual_weight":args.counterfactual_weight,"counterfactual_margin":args.counterfactual_margin,"context_schema":records.schema,"changed_native_tensors":changed,"torch_version":torch.__version__,"training_mode":"native end-to-end with zero-initialized gated quiet adapter, counterfactual stereo response, excess-only observed-2D quiet loss, low-energy root-relative jerk excess, and active baseline preservation","diagnostic_only":True,"scope":"paired native TRAIN only; raw safety gate required before mapper/render; no baseline promotion"}
-    report.update(local_audio_fusion=args.local_audio_fusion,parameter_count=sum(p.numel() for p in model.parameters()),
+    report.update(local_audio_fusion=args.local_audio_fusion,audio_cross_scale=args.audio_cross_scale,
+                  audio_energy_gate=args.local_audio_energy_gate,audio_energy_quantile=args.local_audio_energy_quantile,
+                  audio_energy_threshold=audio_threshold,parameter_count=sum(p.numel() for p in model.parameters()),
                   trainable_parameter_count=sum(p.numel() for p in trainable),
                   training_arguments={k:str(v) if isinstance(v,Path) else v for k,v in vars(args).items()},
                   precision='float32; evaluation.setup disables TF32',

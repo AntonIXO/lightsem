@@ -93,3 +93,14 @@ def test_missing_context_fails_instead_of_bypassing_trained_fusion():
     base, bias = m.flow.prepare_conditioning(condition)
     with pytest.raises(ValueError, match='silent bypass'):
         m.flow.prepared_vector_field(base, bias, torch.randn(1, 10, 139), torch.tensor([.5]))
+
+
+def test_energy_gate_suppresses_high_energy_local_fusion_response():
+    module = LocalAudioFusion(1061, 16, 16, 4, 'hybrid', energy_gate=True,
+                              energy_threshold=0.0, energy_temperature=.1)
+    torch.nn.init.normal_(module.output.weight, std=.1)
+    audio = torch.zeros(1, 150, 1061)
+    audio[:, :, 1040] = torch.tensor([-3.0] + [3.0] * 149)
+    motion = torch.ones(1, 150, 16)
+    output = module(motion, module.prepare(audio))
+    assert output[:, 0].abs().sum() > output[:, 100].abs().sum() * 10

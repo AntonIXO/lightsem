@@ -38,6 +38,9 @@ class Config:
     audio_cross_width:int=64
     audio_cross_heads:int=4
     audio_cross_scale:float=.2
+    audio_energy_gate:bool=False
+    audio_energy_threshold:float=0.0
+    audio_energy_temperature:float=.5
     def __post_init__(self):
         if self.arm not in ('continued','dynamics','joint'):raise ValueError('Unknown registered arm')
         if self.steps!=32 or not 1<=self.gradient_steps<=self.steps:raise ValueError('Declared32-step native solver required')
@@ -49,6 +52,7 @@ class Config:
         if self.audio_fusion not in ('none','attention','film','hybrid'):raise ValueError('Unknown local audio fusion')
         if self.audio_cross_width<8 or self.audio_cross_heads<1 or self.audio_cross_width%self.audio_cross_heads!=0:raise ValueError('Invalid audio cross-attention dimensions')
         if self.audio_cross_scale<=0 or self.audio_cross_scale>1:raise ValueError('Invalid audio cross-attention scale')
+        if self.audio_energy_temperature<=0:raise ValueError('Invalid audio energy temperature')
 
 
 class Planner(nn.Module):
@@ -124,7 +128,10 @@ class Flow(DynamicFlow):
                 nn.init.zeros_(layer.weight);nn.init.zeros_(layer.bias)
         if config.audio_fusion!='none':
             self.local_audio=LocalAudioFusion(config.extra_dim,base_config.width,
-                config.audio_cross_width,config.audio_cross_heads,config.audio_fusion)
+                config.audio_cross_width,config.audio_cross_heads,config.audio_fusion,
+                energy_gate=config.audio_energy_gate,
+                energy_threshold=config.audio_energy_threshold,
+                energy_temperature=config.audio_energy_temperature)
     def flow_stereo(self,value):
         if self.native_config.stereo_fusion=='gated_residual':
             fast, slow = value[...,:64], value[...,64:]
@@ -242,7 +249,7 @@ class NativeDynamicsModel(nn.Module):
         fn=self.flow.prepared_vector_field if field is None else field;base_audio,biases=self.flow.prepare_conditioning(conditioning);state=noise.clone();prior=state.sum()*0
         audio_context=self.flow.prepare_audio_context(conditioning,audio_valid)
         context_kwargs={} if audio_context is None else {'audio_context':audio_context}
-        detached_kwargs={} if audio_context is None else {'audio_context':tuple(x.detach() for x in audio_context)}
+        detached_kwargs={} if audio_context is None else {'audio_context':tuple(x.detach() if torch.is_tensor(x) else None for x in audio_context)}
         teacher_audio=None
         if teacher is not None:
             teacher_audio=torch.cat((conditioning[...,:92+self.config.extra_dim].detach(),conditioning.new_zeros((*conditioning.shape[:2],34))),-1)
@@ -272,7 +279,7 @@ class NativeDynamicsModel(nn.Module):
             time=state.new_full((len(state),),i/self.config.steps);parts=[]
             for start in range(0,state.shape[1],core_frames):
                 end=min(start+core_frames,state.shape[1]);lo=max(0,start-halo);hi=min(state.shape[1],end+halo)
-                context_kwargs={} if audio_context is None else {'audio_context':tuple(x[:,lo:hi] for x in audio_context)}
+                context_kwargs={} if audio_context is None else {'audio_context':tuple(x[:,lo:hi] if torch.is_tensor(x) else None for x in audio_context)}
                 velocity=self.flow.prepared_vector_field(base[:,lo:hi],biases[:,:,:,lo:hi],state[:,lo:hi],time,**context_kwargs)
                 parts.append(velocity[:,start-lo:end-lo])
             state=state+torch.cat(parts,1)/self.config.steps

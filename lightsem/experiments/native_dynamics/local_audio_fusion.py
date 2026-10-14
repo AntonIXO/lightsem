@@ -13,11 +13,17 @@ import torch.nn.functional as F
 class LocalAudioFusion(nn.Module):
     OFFSETS = (-60, -30, -15, -5, 0, 5, 15, 30, 60)
 
-    def __init__(self, audio_dim, motion_dim, width=64, heads=4, mode='attention'):
+    def __init__(self, audio_dim, motion_dim, width=64, heads=4, mode='attention',
+                 energy_gate=False, energy_threshold=0.0, energy_temperature=.5):
         super().__init__()
         if mode not in ('attention', 'film', 'hybrid') or heads < 1 or width % heads:
             raise ValueError('Invalid local fusion mode/dimensions')
         self.mode, self.width, self.heads = mode, width, heads
+        self.energy_gate = bool(energy_gate)
+        self.energy_threshold = float(energy_threshold)
+        self.energy_temperature = float(energy_temperature)
+        if self.energy_temperature <= 0:
+            raise ValueError('energy_temperature must be positive')
         self.audio = nn.Linear(audio_dim, width)
         self.query = nn.Linear(motion_dim, width)
         self.key = nn.Linear(width, width)
@@ -47,10 +53,11 @@ class LocalAudioFusion(nn.Module):
         shape = (*key.shape[:3], self.heads, self.width // self.heads)
         key = torch.where(mask[..., None], key, 0.).reshape(shape).transpose(2, 3)
         value = torch.where(mask[..., None], value, 0.).reshape(shape).transpose(2, 3)
-        return key, value, mask
+        energy = clean[..., 1040] if self.energy_gate else None
+        return key, value, mask, energy
 
     def forward(self, motion, context):
-        key, value, mask = context
+        key, value, mask, energy = context
         if motion.shape[:2] != mask.shape[:2]:
             raise ValueError('Motion and cached audio clocks differ')
         query = self.query(motion).reshape(*motion.shape[:2], self.heads, 1, self.width // self.heads)
@@ -72,4 +79,7 @@ class LocalAudioFusion(nn.Module):
         if self.mode == 'hybrid':
             hidden = torch.cat((attention_hidden, film_hidden), -1)
         result = self.output(hidden.flatten(-2))
+        if energy is not None:
+            gate = torch.sigmoid((self.energy_threshold - energy) / self.energy_temperature)
+            result = result * gate[..., None]
         return torch.where(mask.any(-1, keepdim=True), result, 0.)
