@@ -151,6 +151,11 @@ def generate(protocol_path):
                             if k in base_state['model'])
             for song, (music, base, stereo, baseline, comparison_world, binding, quiet, active) in song_inputs.items():
                 arm_stereo = stereo
+                # Historical repaired native checkpoints predate stereo
+                # conditioning. Keep their own-song Base92/MuQ path intact and
+                # do not silently feed an external 128-D context to them.
+                if not Config(**state['config']).stereo_dim:
+                    arm_stereo = None
                 if arm.get('context_manifest'):
                     manifest = json.loads(Path(arm['context_manifest']).read_text())
                     row = next(r for r in manifest['rows'] if r['id'] == song)
