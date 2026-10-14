@@ -351,8 +351,9 @@ def main(argv=None) -> int:
     if args.train_backbone:
         # Full native repair: the mandatory early blocks and legacy plan
         # projection remain frozen below; all other parameters participate.
-        for parameter in model.parameters():
-            parameter.requires_grad_(True)
+        frozen_prefixes=tuple([f'flow.blocks.{i}.' for i in range(cfg.freeze_early_blocks)] + ['flow.plan_projection.'])
+        for name, parameter in model.named_parameters():
+            parameter.requires_grad_(not name.startswith(frozen_prefixes))
     elif args.local_audio_fusion!='none':
         for name, parameter in model.named_parameters():
             allowed=() if args.freeze_local_audio else ('flow.local_audio.',)
