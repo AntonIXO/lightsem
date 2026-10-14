@@ -114,3 +114,20 @@ Both decode at 30 Hz with own-song AAC. Post-render health reports have finite,
 raw-dynamics, stream, diversity, input-sensitivity, and provenance checks
 passing, while the delivery remains diagnostic-only because active-motion
 preservation and artistic choreography are not qualified.
+
+## Energy-gated local fusion follow-up
+
+The final native repair arm gates the local hybrid fusion by the TRAIN
+30th-percentile normalized mixture-RMS and raises its bounded contribution to
+0.8. Under the same canonical noise/context pairing, active speed is preserved
+at 0.996/0.997 of baseline for Shpongle/Cure. Quiet jerk changes to 0.932/0.996
+of baseline: the gate removes the cross-song uniform slowdown, but Cure still
+does not improve materially. The arm remains diagnostic-only, with mixed
+song-level evidence rather than a promoted fix.
+
+It passed raw safety, local-audio input response (0.00506/0.01038 m
+root-relative zero-local RMS), mapper source dependence, actual DMX finite/
+duplicate checks, and post-render health audits. Full own-song diagnostic videos:
+
+- `native_local_audio_fusion_energy_full_20261014/shpongle/shpongle_local_hybrid_energy_full.mp4`
+- `native_local_audio_fusion_energy_full_20261014/cure_for_me/cure_for_me_local_hybrid_energy_full.mp4`
