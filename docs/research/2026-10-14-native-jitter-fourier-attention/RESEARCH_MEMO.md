@@ -362,3 +362,5 @@ source body and actual DMX visible. The artifact is
 `/mnt/lightsem-data/experiments/lightsem/color_motion_field_20261015_v9/` and
 its previews are under `demo_peak/`. It remains diagnostic-only; the active P2
 baseline is unchanged.
+
+The provenance-correct delivery receipt is `color_motion_field_20261015_v9/demo_peak_v2/` (24-second active windows). The prior `demo_peak/REPORT.json` had a stale 18-second scope string and is superseded; the media bytes are identical.
