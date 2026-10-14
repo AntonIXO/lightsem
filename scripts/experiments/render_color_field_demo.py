@@ -112,7 +112,7 @@ def main():
                 DEFAULT_STARTS[song] if args.start is None else args.start)
             for song in ('shpongle', 'cure_for_me')]
     write(out / 'REPORT.json', {'status': 'diagnostic_only', 'rows': rows,
-        'scope': '18-second own-song previews of saved actual emitted DMX; no baseline promotion'})
+        'scope': f'{args.duration:g}-second own-song previews of saved actual emitted DMX; no baseline promotion'})
     print(json.dumps({'out': str(out), 'status': 'diagnostic_only', 'rows': rows}, indent=2))
 
 
