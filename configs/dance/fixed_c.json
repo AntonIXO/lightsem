@@ -3,10 +3,10 @@
   "id": "native-full-native-repair-seed0-20261018",
   "status": "user_selected_motion_baseline",
   "selected_on": "2026-10-14",
-  "selection_scope": "User-promoted full-native repair baseline from the 2026-10-18 own-song raw-safety/source-dependence campaign. Engineering gates pass on Shpongle and AURORA \u2014 Cure For Me; held-out/artistic qualification remains open.",
+  "selection_scope": "User-promoted full-native repair baseline from the 2026-10-18 own-song raw-safety/source-dependence campaign. Engineering gates pass on Shpongle and AURORA — Cure For Me; held-out/artistic qualification remains open.",
   "checkpoint": {
-    "path": "/mnt/lightsem-data/experiments/lightsem/native_full_native_repair_20261018_v2/training/full_native/final.pt",
-    "sha256": "044f0e5400815e53521e6e367de6d905f554105bc0b850ba2b544df6b48b3223"
+    "path": "/mnt/lightsem-data/experiments/lightsem/native_full_native_repair_20261018_v2/training/full_native/final_with_provenance.pt",
+    "sha256": "75a5969dd0116c19ce5886e9cb51b6250b9238fad86d91baac5f8926d067ba52"
   },
   "training_seed": 0,
   "draw_seed": 7001,
@@ -118,7 +118,9 @@
     "repair_source_dependence": "pass for both own-song mapper audits",
     "repair_status": "engineering_gates_passed_diagnostic_only",
     "repair_updates": 500,
-    "repair_trainable_scope": "post-early-flow native/planner/local modules; flow.blocks.0-5 and flow.plan_projection frozen"
+    "repair_trainable_scope": "post-early-flow native/planner/local modules; flow.blocks.0-5 and flow.plan_projection frozen",
+    "checkpoint_provenance_compatibility": "/mnt/lightsem-data/experiments/lightsem/native_full_native_repair_20261018_v2/training/full_native/PROVENANCE_COMPATIBILITY.json",
+    "checkpoint_provenance_compatibility_sha256": "a25e784ef68d26b7f9708044a171cfd6a6a455c898ca6a1f64986c9b274435ea"
   },
   "qualification": {
     "status": "user_selected_motion_baseline",
