@@ -56,7 +56,30 @@ def validate_base92_clock(base, base_time, timeline_time):
         raise ValueError('Invalid paired native30Hz Base92 features')
 
 
-def load_stereo_context(audio_path, music, config):
+def _load_stereo_manifest(path, *, audio_hash, schema, allow_automatic=False):
+    """Validate and select one exact-waveform row from a stereo manifest."""
+    path = Path(path).expanduser().resolve()
+    manifest = json.loads(path.read_text())
+    if manifest.get('schema') != schema or manifest.get('feature_dim') != 128:
+        raise ValueError('Stereo context manifest schema differs from the active baseline')
+    if manifest.get('status') != 'complete' or manifest.get('test_access') is not False:
+        raise ValueError('Stereo context manifest is not an authenticated complete artifact')
+    if allow_automatic and manifest.get('automatic_for_waveform') is not True:
+        raise ValueError('Automatic stereo context is missing its waveform extraction marker')
+    if allow_automatic:
+        checkpoint_pair = manifest.get('method_checkpoint_sha256')
+        if checkpoint_pair is not None:
+            if not isinstance(checkpoint_pair, list) or len(checkpoint_pair) != 2:
+                raise ValueError('Automatic stereo context teacher hash pair is invalid')
+        for key in ('spain_checkpoint_sha256', 'obsrnn_checkpoint_sha256', 'obsrnn_source_commit'):
+            if not manifest.get(key):
+                raise ValueError(f'Automatic stereo context is missing {key}')
+    rows = {row['id']: row for row in manifest.get('rows', [])}
+    row = next((value for value in rows.values() if value.get('audio_sha256') == audio_hash), None)
+    return manifest, row
+
+
+def load_stereo_context(audio_path, music, config, *, automatic_manifest=None):
     """Load the hash-bound 128-D external context for the active baseline."""
     spec = config.get('stereo_conditioning')
     if not spec or not spec.get('enabled'):
@@ -64,16 +87,19 @@ def load_stereo_context(audio_path, music, config):
     manifest_path = Path(spec['context_manifest']).expanduser().resolve()
     if sha(manifest_path) != spec['context_manifest_sha256']:
         raise ValueError('Stereo context manifest hash mismatch')
-    manifest = json.loads(manifest_path.read_text())
-    if manifest.get('schema') != spec['schema'] or manifest.get('feature_dim') != 128:
-        raise ValueError('Active baseline stereo schema differs from context manifest')
-    rows = {row['id']: row for row in manifest.get('rows', [])}
     audio_hash = sha(audio_path)
-    row = next((value for value in rows.values() if value.get('audio_sha256') == audio_hash), None)
+    manifest, row = _load_stereo_manifest(manifest_path, audio_hash=audio_hash, schema=spec['schema'])
+    if row is None and automatic_manifest is not None:
+        manifest_path = Path(automatic_manifest).expanduser().resolve()
+        manifest, row = _load_stereo_manifest(manifest_path, audio_hash=audio_hash,
+                                               schema=spec['schema'], allow_automatic=True)
+        expected_teachers = json.loads(Path(spec['context_manifest']).read_text()).get('method_checkpoint_sha256')
+        if (not isinstance(expected_teachers, list) or len(expected_teachers) != 2
+                or manifest.get('spain_checkpoint_sha256') != expected_teachers[0]
+                or manifest.get('obsrnn_checkpoint_sha256') != expected_teachers[1]):
+            raise ValueError('Automatic stereo context teacher checkpoints differ from the active baseline')
     if row is None:
-        raise FileNotFoundError(
-            f'No authenticated {spec["fusion"]} context for this waveform; '
-            'extract and register a new context before using the stereo baseline')
+        raise FileNotFoundError(f'No authenticated {spec["fusion"]} context for waveform {audio_hash}')
     context_path = Path(row['context_path']).expanduser().resolve()
     if sha(context_path) != row['context_sha256'] or row.get('audio_sha256') != audio_hash:
         raise ValueError('Stereo context/audio binding mismatch')
@@ -89,12 +115,52 @@ def load_stereo_context(audio_path, music, config):
     return stereo, {'manifest': str(manifest_path), 'manifest_sha256': sha(manifest_path),
                     'context': str(context_path), 'context_sha256': sha(context_path),
                     'audio_sha256': audio_hash, 'schema': manifest['schema'],
-                    'fusion': spec['fusion']}
+                    'fusion': spec['fusion'], 'automatic_for_waveform': bool(manifest.get('automatic_for_waveform'))}
+
+
+def _manifest_has_audio(path, audio_hash, schema):
+    try:
+        _, row = _load_stereo_manifest(path, audio_hash=audio_hash, schema=schema)
+        return row is not None
+    except (FileNotFoundError, KeyError, ValueError, json.JSONDecodeError):
+        return False
+
+
+def ensure_automatic_stereo_context(audio_path, feature_root, config, *, audio_python, device):
+    """Extract raw SpaIn/oBSRNN context once for an unregistered waveform."""
+    spec = config.get('stereo_conditioning')
+    if not spec or not spec.get('enabled'):
+        return None
+    audio_hash = sha(audio_path)
+    reference = Path(spec['context_manifest']).expanduser().resolve()
+    if _manifest_has_audio(reference, audio_hash, spec['schema']):
+        return None
+    context_root = Path(feature_root) / 'stereo_context'
+    manifest_path = context_root / 'CONTEXT_MANIFEST.json'
+    if manifest_path.is_file() and _manifest_has_audio(manifest_path, audio_hash, spec['schema']):
+        return manifest_path
+    if context_root.exists() and any(context_root.iterdir()):
+        raise FileExistsError(f'Preserving incomplete automatic stereo context: {context_root}')
+    interpreter = audio_python or config['extraction']['python']
+    command = [str(interpreter), '-m', 'lightsem.dance.extract_stereo_context',
+               '--wav', str(Path(audio_path).resolve()), '--out', str(context_root), '--device', device]
+    environment = {**os.environ, 'PYTHONPATH': str(REPO), 'PYTHONDONTWRITEBYTECODE': '1'}
+    try:
+        subprocess.run(command, cwd=REPO, env=environment, check=True)
+    except BaseException as error:
+        write_json(context_root / 'FAILURE.json', {'error': f'{type(error).__name__}: {error}',
+                                                   'audio_sha256': audio_hash, 'fallback': False})
+        raise
+    if not manifest_path.is_file():
+        raise FileNotFoundError(f'Automatic stereo context did not produce {manifest_path}')
+    return manifest_path
 
 
 def music_input(audio_path, root, config, *, timeline_path=None, base92_path=None,
                 audio_python=None, audio_device=None, audio_cache=None):
     key, cached = cached_track(config, audio_path)
+    feature_root = Path(audio_cache or '/mnt/lightsem-data/cache/native_c_cli') / sha(audio_path)
+    feature_root.mkdir(parents=True, exist_ok=True)
     if timeline_path is not None:
         timeline_path = Path(timeline_path).expanduser().resolve()
     elif cached is not None:
@@ -102,8 +168,6 @@ def music_input(audio_path, root, config, *, timeline_path=None, base92_path=Non
         base92_path = base92_path or checked_asset(cached['base92'])
     else:
         interpreter = audio_python or config['extraction']['python']
-        feature_root = Path(audio_cache or '/mnt/lightsem-data/cache/native_c_cli') / sha(audio_path)
-        feature_root.mkdir(parents=True, exist_ok=True)
         command = [str(interpreter), '-m', 'lightsem.dance.extract', '--wav', str(audio_path),
                    '--root', str(feature_root), '--device', audio_device or config['extraction']['device']]
         environment = {**os.environ, 'PYTHONPATH': str(REPO), 'PYTHONDONTWRITEBYTECODE': '1'}
@@ -125,7 +189,12 @@ def music_input(audio_path, root, config, *, timeline_path=None, base92_path=Non
     duration = music.metadata.get('duration_s')
     if duration is not None and abs(float(duration) - len(base) / 30.) > 1 / 30. + 1e-6:
         raise ValueError('Base92/native body coverage differs from analyzed audio duration')
-    stereo, stereo_binding = load_stereo_context(audio_path, music, config)
+    automatic_manifest = ensure_automatic_stereo_context(
+        audio_path, feature_root, config,
+        audio_python=audio_python or config['extraction']['python'],
+        device=audio_device or config['extraction']['device'])
+    stereo, stereo_binding = load_stereo_context(audio_path, music, config,
+                                                 automatic_manifest=automatic_manifest)
     return music, base, {'timeline': str(timeline_path), 'timeline_sha256': sha(timeline_path),
                          'base92': str(base92_path.resolve()), 'base92_sha256': sha(base92_path),
                          'audio_sha256': sha(audio_path), 'cached_track': key,
