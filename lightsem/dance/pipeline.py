@@ -140,7 +140,17 @@ def ensure_automatic_stereo_context(audio_path, feature_root, config, *, audio_p
     if manifest_path.is_file() and _manifest_has_audio(manifest_path, audio_hash, spec['schema']):
         return manifest_path
     if context_root.exists() and any(context_root.iterdir()):
-        raise FileExistsError(f'Preserving incomplete automatic stereo context: {context_root}')
+        if (context_root / 'FAILURE.json').is_file():
+            retry = 1
+            while True:
+                candidate = Path(feature_root) / f'stereo_context_retry{retry}'
+                if not candidate.exists():
+                    context_root = candidate
+                    manifest_path = context_root / 'CONTEXT_MANIFEST.json'
+                    break
+                retry += 1
+        else:
+            raise FileExistsError(f'Preserving incomplete automatic stereo context: {context_root}')
     interpreter = audio_python or config['extraction']['python']
     command = [str(interpreter), '-m', 'lightsem.dance.extract_stereo_context',
                '--wav', str(Path(audio_path).resolve()), '--out', str(context_root), '--device', device]
