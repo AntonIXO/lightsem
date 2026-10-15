@@ -333,6 +333,16 @@ def map_lights(body, audio, root, config, *, counts=None, color_path=None,
     world40 = _resample_body_full_interval(world, body_time, time)
     counts = _normalise_counts(config['lighting']['counts'] if counts is None else counts)
     outputs = make_outputs(**counts)
+    color_experiment_report = color_experiment
+    if fixture_rgb is None and config['lighting'].get('color_experiment'):
+        from .color_field import continuous_color_field
+        spec = config['lighting']['color_experiment']
+        fixture_rgb, color_experiment_report = continuous_color_field(
+            world40, left, right, outputs,
+            palette=tuple(spec['palette']),
+            spatial_cycles=float(spec['spatial_cycles']),
+            temporal_gain=float(spec['temporal_gain']),
+            breath_depth=float(spec['breath_depth']))
     if fixture_rgb is not None:
         fixture_rgb = np.asarray(fixture_rgb)
         if fixture_rgb.shape != (frames, len(outputs), 3) or fixture_rgb.dtype != np.uint8:
@@ -373,7 +383,9 @@ def map_lights(body, audio, root, config, *, counts=None, color_path=None,
         np.savez_compressed(stream, **save_arrays)
     write_json(root / 'patch.json', patch)
     report = {'mapper': intent.get('algorithm_id', config['lighting']['mapper']), 'color': color_identity,
-              'color_experiment': color_experiment,
+              'color_experiment': color_experiment_report,
+              'display_label': ('OKLab flowing gradient | source-driven color field'
+                                if color_experiment_report is not None else 'P2'),
               'loudness': level_identity, 'counts': counts, 'fixture_motion_limits': False,
               'hard_checks': hard, 'lights_sha256': sha(root / 'lights.npz'),
               'patch_sha256': sha(root / 'patch.json'),

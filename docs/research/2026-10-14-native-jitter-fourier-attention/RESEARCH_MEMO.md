@@ -364,3 +364,18 @@ its previews are under `demo_peak/`. It remains diagnostic-only; the active P2
 baseline is unchanged.
 
 The provenance-correct delivery receipt is `color_motion_field_20261015_v9/demo_peak_v2/` (24-second active windows). The prior `demo_peak/REPORT.json` had a stale 18-second scope string and is superseded; the media bytes are identical.
+
+## Gradient flow baseline promotion (2026-10-15)
+
+The user explicitly promoted the source-driven OKLab gradient field as the
+active color baseline. The prior P2-only fixed-C config is preserved at
+`configs/dance/fixed_c_p2_20261015.json`. The active CLI now generates the
+continuous fixture field from the authenticated P2/audio seed and saved native
+body, with palette `[25105f,6f1ab6,e52e88,ff78a9,ffd6e7]`, spatial span `0.95`,
+temporal gain `6.0`, and effort breath depth `0.10`; historical LUFS/body
+brightness remains a separate dimmer path. Native motion remains mapper-01 C;
+the distributed-gain readout remains diagnostic-only.
+
+Both CLI smoke renders passed source-dependence, finite decoded DMX and actual
+RGB-stream checks and software decode. Promotion receipt:
+`docs/research/2026-10-14-native-jitter-fourier-attention/BASELINE_PROMOTION_GRADIENT_20261015.json`.
