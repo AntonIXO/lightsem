@@ -52,6 +52,27 @@ def read_audio(path: Path, sample_rate: int) -> np.ndarray:
     return wave.astype(np.float32)
 
 
+def prepare_teacher_audio(path: Path, out: Path) -> tuple[Path, dict]:
+    """Normalize only the stereo-teacher input; preserve the source waveform hash."""
+    info = sf.info(str(path))
+    if info.channels not in (1, 2):
+        raise ValueError(f"Stereo teachers accept mono or stereo input, got {info.channels} channels")
+    if info.samplerate == 44100 and info.channels == 2:
+        return path, {"resampled": False, "channels_in": 2, "sample_rate_in": 44100}
+    wave, rate = sf.read(path, dtype="float32", always_2d=True)
+    if wave.shape[1] == 1:
+        wave = np.repeat(wave, 2, axis=1)
+    if rate != 44100:
+        wave = np.stack([resample_poly(wave[:, channel], 44100, rate) for channel in range(2)], axis=1)
+    if not np.isfinite(wave).all() or not np.any(np.abs(wave) > 0):
+        raise ValueError("Teacher-normalized audio is empty or non-finite")
+    teacher_path = out / "teacher_input_44100_stereo.wav"
+    sf.write(teacher_path, wave.astype(np.float32), 44100, subtype="PCM_16")
+    return teacher_path, {"resampled": True, "channels_in": int(info.channels),
+                          "sample_rate_in": int(info.samplerate), "teacher_path": str(teacher_path),
+                          "teacher_sha256": sha(teacher_path)}
+
+
 def spain_features(path: Path, device: str) -> tuple[np.ndarray, np.ndarray, str]:
     raw = torch.load(SPAIN_CHECKPOINT, map_location="cpu", weights_only=False)
     cfg_values = raw["config"]["config"]
@@ -131,8 +152,9 @@ def main(argv=None) -> int:
     if args.device == "cuda" and not torch.cuda.is_available():
         raise RuntimeError("Stereo context extraction requested CUDA but no GPU is available")
     args.out.mkdir(parents=True)
-    spain_time, spain, spain_sha = spain_features(audio, args.device)
-    bsrnn_time, bsrnn, bsrnn_meta = bsrnn_features(audio, args.device)
+    teacher_audio, teacher_audio_meta = prepare_teacher_audio(audio, args.out)
+    spain_time, spain, spain_sha = spain_features(teacher_audio, args.device)
+    bsrnn_time, bsrnn, bsrnn_meta = bsrnn_features(teacher_audio, args.device)
     # Interpolate the oBSRNN stream on the shared 30 Hz SpaIn clock.
     bsrnn_on_spain = interpolate(bsrnn_time, np.asarray(bsrnn, dtype=np.float32), spain_time)
     fused = np.concatenate((np.asarray(spain, dtype=np.float32), bsrnn_on_spain), axis=1)
@@ -162,6 +184,7 @@ def main(argv=None) -> int:
         ],
         "audio_path": str(audio),
         "audio_sha256": sha(audio),
+        "teacher_audio": teacher_audio_meta,
         "spain_checkpoint": str(SPAIN_CHECKPOINT),
         "spain_checkpoint_sha256": spain_sha,
         "obsrnn_checkpoint": str(BSRNN_CHECKPOINT),
