@@ -433,7 +433,58 @@ Training/evaluation tasks:
 
 The current gradient field is the first production-wired step toward this model. It supplies a continuous arbitrary-N color target and an explicit separation between color and brightness while leaving the native body and hard DMX contracts inspectable.
 
-## 9. Historical code and non-current paths
+## 9. Glossary
+
+| Term | Meaning in this repository |
+|---|---|
+| **Active baseline** | The configuration currently used by `lightsem.cli render`: [`configs/dance/fixed_c.json`](configs/dance/fixed_c.json). It selects native C motion, the distributed spatial readout, the OKLab gradient field, P2 as the authenticated color seed, and separate LUFS/body dimmer. |
+| **Native C** | The current audio-conditioned native flow body generator. It produces a complete 30 Hz, 22-joint 3D trajectory before lighting mapping. “C” is a model-generation label, not a DMX protocol. |
+| **Native body** | `world[T,22,3]` joint positions plus native channels, contacts, timestamps and provenance. It is the source of motion; it is not a video pose overlay. |
+| **MuQ** | Frozen music representation model `OpenMuQ/MuQ-large-msd-iter`. The active recipe pins model ID, revision, layer 9 and weight SHA. |
+| **Base92** | Native audio feature vector used by the motion path: 92 channels on the 30 Hz body clock. It is paired to the exact waveform through a hash and timestamp contract. |
+| **1061-D audio features** | The larger native planner/flow feature vector used internally with Base92. It contains the frozen audio/source/structure representation required by the native planner. |
+| **HTDemucs** | Frozen source-separation stage used during native audio extraction. It separates stems/features; it does not generate lighting. |
+| **BeatThis** | Frozen beat/downbeat estimator used as part of the timing representation. Beat probabilities are features, not an autonomous lamp-motion clock. |
+| **All-In-One** | Frozen music-structure model used to produce section/structure features for the native extraction recipe. |
+| **Stereo context** | Authenticated 128-D SpaIn/oBSRNN context aligned to the song. It is an additional audio representation; it is not a second body or a second motion generator. |
+| **SpaIn / oBSRNN** | The two teacher/context streams fused into the active 128-D stereo context. Their hashes and audio binding are recorded in the context manifest. |
+| **D4-max / D4** | Optional own-song motif/phrase recomposition applied after native C generation. It changes a saved trajectory; it does not retrain native C. |
+| **D6** | Optional external learned pacing clock applied after native C (and optionally after D4). It is bounded by the configured positive rate range and is independent of D4. |
+| **P2** | Historical user-selected color seed: palette history, 300 ms causal RGB transitions and two spatial source groups. In the current baseline P2 supplies authenticated left/right RGB inputs to the continuous field. |
+| **Rich96 / I_VR_P0** | The historical learned P2 color-model representation/recipe: 96-dimensional visual targets, independent audio branches, visual auxiliary loss and no pose auxiliary. It remains the P2 source model, not the final arbitrary-N fixture decoder. |
+| **OKLab** | Perceptual color space used for continuous interpolation and color-field diagnostics. Interpolation occurs in OKLab before gamut mapping to sRGB/DMX RGB. |
+| **OKLCH** | Cylindrical form of OKLab, useful for hue/chroma/lightness controls. The current field stores/interpolates OKLab vectors and uses gamut-safe conversion. |
+| **RGB** | Red/green/blue color channels written into fixture DMX slots. RGB is separate from dimmer; an RGB change alone does not prove motion activation. |
+| **LUFS** | Loudness Units relative to Full Scale, the loudness unit used by the historical full-song brightness law. LUFS drives the dimmer envelope together with body effort; it is not the color model. |
+| **Brightness / dimmer** | Per-fixture emitted intensity channel. The current path computes it from historical LUFS/body equations independently of the OKLab color field. |
+| **Color field** | `continuous_color_field()` in [`lightsem/dance/color_field.py`](lightsem/dance/color_field.py): an arbitrary-N, spatially continuous RGB generator conditioned on body flow and P2 RGB changes. |
+| **Source flow / smooth-triangle phase** | The color field’s temporal phase. It advances from body limb speed, signed articulation and P2 changes; when the source is frozen, it stops. It is not a free-running sine or beat oscillator. |
+| **Fixture** | One simulated or physical light output: beam, simulated laser, bulb or another capability-specific device. A fixture has position, type, channels and limits. |
+| **Arbitrary-N** | The decoder accepts a requested number `N` of fixtures. More fixtures query the same source field; they do not create `N` independent dance decisions. |
+| **Mapper** | Body-to-fixture field that converts the 22-joint body into target points and source attribution. The active mapper ID is `01` (bone-direction field). |
+| **01_distributed_gain** | Active spatial readout layered on mapper 01. It expands each moving fixture target around its fixed temporal median using a static position-dependent gain. It changes spatial spread, not temporal source content. |
+| **Readout** | The capability-specific conversion from an anatomical field to fixture target points, dimmers and attribution. `native` is the unexpanded mapper output; `distributed_gain` is the current promoted spatial readout. |
+| **Pan / tilt** | Horizontal/vertical moving-head angles. Each is encoded as a 16-bit coarse/fine DMX pair and must be decoded before angular metrics are computed. |
+| **DMX** | Digital Multiplex, the byte-level lighting-control protocol. In this project a body-transfer frame is one or more 512-channel universes. |
+| **Universe** | A 512-channel DMX address space. The body-transfer compiler allocates complete fixtures into successive universes. |
+| **Patch** | JSON mapping from fixture identity to universe, channel address, channel width and capability. Without the patch, DMX bytes are ambiguous. |
+| **Decoded DMX** | Physical controls reconstructed from emitted bytes: angles, directions, RGB and dimmer. It is the authoritative lighting signal for audits and rendering. |
+| **Raw safety** | Audit of the saved native 30 Hz body before interpolation, mapper, DMX or video: finite values, speed, acceleration, jerk, root/support and baseline ratios. |
+| **Source dependence** | Frozen-body, limb-perturbation and attribution tests proving that decoded fixture motion responds to the supplied body and does not run autonomously. |
+| **Exact duplicate stream** | Two fixtures with byte/decoded streams that are identical over the audited interval. This is reported separately from representation collapse and from intentional fixed controls. |
+| **Effective rank** | Diversity diagnostic computed from fixture trajectory/color covariance. A low value means many outputs share a small number of modes; it is not by itself an artistic-quality score. |
+| **Jerk** | Third temporal derivative of position/angle. Raw jerk is audited because filtered motion can hide high-frequency native instability. |
+| **RMS** | Root-mean-square magnitude, used for energy, speed, residual and error summaries. It is a magnitude statistic, not a semantic choreography metric. |
+| **AIST / FD / JD** | AIST++/AIST Dance, FineDance, and Just Dance data families. Their masks, coach identities, duplicate groups and paired/unpaired limits are separate from user-song demos. |
+| **Provenance receipt** | JSON record binding paths and SHA-256 hashes for audio, features, checkpoint, body, DMX, patch, code and video. A receipt is evidence for one immutable artifact root. |
+| **SHA-256** | Cryptographic content hash used to detect changed files and bind artifacts. A matching hash proves byte identity, not artistic quality. |
+| **OCLEP** | No canonical definition or runtime use was found in the current repository, baseline config or architecture code. It must not be expanded as a fact. If `OCLEP` refers to an external paper, service or internal acronym, its source must be added before documenting a meaning. |
+| **Native `render`** | Current MuQ → native body → body-to-DMX → decoded-DMX → 3D video command. |
+| **`legacy-render`** | Historical rule-driven audio/scene renderer. It is retained for reproducing old studies and is not the active native baseline. |
+
+Abbreviations that describe a historical experiment do not automatically describe the active product path. In particular, P2, D4 and D6 have explicit scopes above; “different hash,” “changed color” or “more output fixtures” is not equivalent to demonstrated new choreography.
+
+## 10. Historical code and non-current paths
 
 - `lightsem/model/light_layers/`: original learned P2 color model and training/evaluation tools.
 - `lightsem/conductor/body_transfer.py`: original V1 body transfer and shared DMX compiler.
