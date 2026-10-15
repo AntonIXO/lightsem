@@ -55,6 +55,17 @@ def do_render(args):
     output = (args.out or REPO / 'runs/dance' / (str(time.time_ns()) + '.mp4')).expanduser().resolve()
     output.parent.mkdir(parents=True, exist_ok=True)
     root = output.with_name(output.stem + '_run')
+    # Preserve an earlier failed attempt, but allow the same one-command
+    # invocation to retry when no video was produced. Completed run roots and
+    # existing videos remain immutable.
+    if root.exists() and (root / 'FAILURE.json').is_file() and not output.exists():
+        retry = 1
+        while True:
+            candidate = output.with_name(f'{output.stem}_run_retry{retry}')
+            if not candidate.exists():
+                root = candidate
+                break
+            retry += 1
     body, _, _, config, generation = _generate(args, root)
     if generation['status'] in {'failure_diagnostic', 'unqualified'}:
         raise RuntimeError(f"Refusing to render generation with status {generation['status']}; inspect {root / 'GENERATION.json'}")
