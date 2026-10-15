@@ -3,7 +3,7 @@
   "id": "native-full-native-repair-gradient-flow-v9-20261015",
   "status": "user_selected_motion_baseline",
   "selected_on": "2026-10-14",
-  "selection_scope": "User-promoted source-driven OKLab gradient color field on the gate-passing native motion baseline. Motion remains native C mapper-01; color is generated per fixture over arbitrary N with separate LUFS/body dimmer.",
+  "selection_scope": "User-promoted source-driven OKLab gradient color field on the gate-passing native motion baseline. Motion remains native C with source-derived 01_distributed_gain readout; color is generated per fixture over arbitrary N with separate LUFS/body dimmer.",
   "checkpoint": {
     "path": "/mnt/lightsem-data/experiments/lightsem/native_full_native_repair_20261018_v2/training/full_native/final_with_provenance.pt",
     "sha256": "75a5969dd0116c19ce5886e9cb51b6250b9238fad86d91baac5f8926d067ba52"
@@ -55,6 +55,7 @@
     "color_config_sha256": "ca039831a35c5bdc654cd2569c009875c2855e11f2c137138b38ad257f2d6d39",
     "mapper": "01",
     "transfer": {
+      "readout": "distributed_gain",
       "body_speed_scale": 2.0,
       "fps": 40.0,
       "maximum_acceleration_deg_s2": 360.0,
@@ -93,7 +94,8 @@
         "shpongle",
         "cure_for_me"
       ]
-    }
+    },
+    "readout": "01_distributed_gain"
   },
   "extraction": {
     "python": "/root/lightsem/.venv/night-access/bin/python",
@@ -147,7 +149,7 @@
   "qualification": {
     "status": "user_selected_motion_and_gradient_color_baseline",
     "experiment": "native-full-native-repair-20261018-seed0",
-    "note": "User explicitly promoted the v9 source-driven OKLab gradient color field as the active color baseline. Native raw/source gates remain inherited from the selected motion baseline; held-out/artistic qualification remains separate."
+    "note": "User explicitly promoted the v9 source-driven OKLab gradient color field as the active color baseline. Native raw/source gates remain inherited from the selected motion baseline, and the 01_distributed_gain readout is rechecked at CLI emission; held-out/artistic qualification remains separate."
   },
   "historical_reference_config": "configs/dance/fixed_c_rtmpose_20261011.json",
   "cached_tracks": {

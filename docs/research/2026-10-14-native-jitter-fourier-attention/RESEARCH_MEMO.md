@@ -379,3 +379,11 @@ the distributed-gain readout remains diagnostic-only.
 Both CLI smoke renders passed source-dependence, finite decoded DMX and actual
 RGB-stream checks and software decode. Promotion receipt:
 `docs/research/2026-10-14-native-jitter-fourier-attention/BASELINE_PROMOTION_GRADIENT_20261015.json`.
+
+The promoted CLI recipe now includes the source-derived `01_distributed_gain`
+readout used in the inspected v9 visual result. It stretches mapper-01 targets
+around fixed per-fixture temporal centers without adding an independent temporal
+source. Shpongle and Cure For Me CLI smoke runs report mapper
+`01_distributed_gain`, source-dependence `pass`, 61 unique fixture RGB streams,
+and software-decode success. The historical P2-only fixed-C snapshot remains
+`configs/dance/fixed_c_p2_20261015.json`.

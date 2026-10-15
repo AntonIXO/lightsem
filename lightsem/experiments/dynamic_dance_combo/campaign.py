@@ -144,6 +144,7 @@ def compile_world(world40,time,outputs,left,right,loudness,transfer,mapper_id=No
  # files carried it beside the transfer settings, so accept that spelling too
  # without allowing it to leak into TransferConfig.
  transfer=dict(transfer)
+ readout=transfer.pop('readout', 'native')
  if mapper_id is None: mapper_id=transfer.pop('mapper', '01')
  else: transfer.pop('mapper', None)
  mapper_id=str(mapper_id).zfill(2)
@@ -152,12 +153,24 @@ def compile_world(world40,time,outputs,left,right,loudness,transfer,mapper_id=No
   raise ValueError(f'Unknown body mapper {mapper_id!r}')
  cfg=TransferConfig(**transfer)
  intent=map_body(world40,outputs,mapper_id,40.)
+ if readout == 'distributed_gain':
+  targets=np.asarray(intent['targets']).copy()
+  for index, output in enumerate(outputs):
+   if output['kind'] == 'bulb':
+    continue
+   center=np.median(targets[:, index], axis=0, keepdims=True)
+   x=float(output['position'][0])
+   gain=1.22+.20*min(1., abs(x)/6.5)
+   targets[:, index]=center+gain*(targets[:, index]-center)
+  intent={**intent,'targets':targets,'readout':'01_distributed_gain'}
+ elif readout != 'native':
+  raise ValueError(f'Unknown body readout {readout!r}')
  restored,trace=apply_brightness(world40,time,outputs,intent,loudness)
  dmx,patch,final=compile_intent(restored,outputs,left,right,cfg,fixture_rgb=fixture_rgb)
  hard=hard_checks(dmx,patch,final,40.,enforce_motion_limits=cfg.apply_motion_limits)
  # Keep mapper identity and attribution attached to the intent that actually
  # reached DMX; reports must never infer it from a requested config alone.
- final['algorithm_id']=mapper_id
+ final['algorithm_id']='01_distributed_gain' if readout == 'distributed_gain' else mapper_id
  return dmx,patch,final,trace,hard
 
 def map_one(root,song,method):

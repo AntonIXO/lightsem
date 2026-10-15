@@ -6,7 +6,7 @@
   "previous_config": "configs/dance/fixed_c_p2_20261015.json",
   "previous_config_sha256": "662dac53df7620bcb8e07b44bdadb60263b82c5b8355953cf8a7a8c4ee2c46c0",
   "active_config": "configs/dance/fixed_c.json",
-  "active_config_sha256": "8f54feb8cb36263e7928d936691e91bd102bc9b32f11f1cb11ca25803a8ed4d0",
+  "active_config_sha256": "6e287d9e6c6114a757d32a7578c7c7caf40e7db56658c54c070a68e6d6f5d33e",
   "experiment_root": "/mnt/lightsem-data/experiments/lightsem/color_motion_field_20261015_v9",
   "experiment_root_note": "diagnostic artifact; canonical recipe is now wired into active CLI",
   "algorithm": "oklab_continuous_fixture_field",
@@ -200,7 +200,7 @@
       "full_song_color_npz_sha256": "7b5467f8f368de2337d05c4bb3f95540a7b2e88e7641f00408fc7436950b4205"
     }
   },
-  "motion_scope": "native C mapper-01 remains selected; distributed gain stays diagnostic-only",
+  "motion_scope": "native C body with source-derived 01_distributed_gain spatial readout; no independent temporal source",
   "brightness_scope": "historical LUFS/body dimmer, separate from color lightness",
   "qualification": "user-selected engineering baseline; held-out/artistic acceptance remains separate"
 }
