@@ -66,19 +66,29 @@ def do_render(args):
                 root = candidate
                 break
             retry += 1
-    body, _, _, config, generation = _generate(args, root)
+    body, _, music, config, generation = _generate(args, root)
     if generation['status'] in {'failure_diagnostic', 'unqualified'}:
         raise RuntimeError(f"Refusing to render generation with status {generation['status']}; inspect {root / 'GENERATION.json'}")
     counts = {key: getattr(args, key) if getattr(args, key) is not None else value
               for key, value in config['lighting']['counts'].items()}
     if counts['beams'] + counts['lasers'] > 16 or counts['bulbs'] > 128:
         raise RuntimeError('Requested fixture count exceeds the native renderer limit (16 moving, 128 bulbs)')
+    ssl_light = None
+    if getattr(args, 'ssl_light', False):
+        spec = dict(config.get('ssl_light', {}))
+        checkpoint = getattr(args, 'ssl_light_checkpoint', None) or spec.get('checkpoint')
+        if not checkpoint:
+            raise RuntimeError('SSL light is enabled but no checkpoint is configured')
+        spec['checkpoint'] = str(Path(checkpoint).expanduser().resolve())
+        ssl_light = spec
     lighting = map_lights(body, _audio(args), root, config, counts=counts, color_path=args.colors,
-                         audio_python=args.audio_python, audio_device=args.audio_device)
+                         audio_python=args.audio_python, audio_device=args.audio_device,
+                         music=music, ssl_light=ssl_light)
     if lighting[3].get('source_dependence_checks', {}).get('status') != 'pass':
         raise RuntimeError(f"Refusing to render without source-dependence evidence; inspect {root / 'LIGHTING.json'}")
     render_video(body, root, _audio(args), output, lighting, start=args.start, duration=args.duration)
     print(json.dumps({'video': str(output), 'run': str(root), 'baseline': generation['baseline_id'],
                       'MuQ': True, 'd4max': args.d4max, 'd6': args.d6,
+                      'ssl_light': bool(ssl_light),
                       'fixture_motion_limits': False, 'status': generation['status']}, indent=2))
     return 0

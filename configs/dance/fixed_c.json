@@ -221,5 +221,17 @@
       "status": "user_selected_gradient_color_baseline"
     }
   },
-  "color_baseline_status": "user_selected_gradient_color_baseline"
+  "color_baseline_status": "user_selected_gradient_color_baseline",
+  "ssl_light": {
+    "enabled": false,
+    "checkpoint": "/mnt/lightsem-data/experiments/lightsem/body_light_ssl_20261015_v1/checkpoint.pt",
+    "checkpoint_sha256": "87410f10f0914eca30ff099e84c19299a0bb379796a971fb96bcae4345b72f1f",
+    "train_ids": ["1023", "10dcc", "1181f", "11b01", "1672d", "210e3"],
+    "max_residual_deg": 1.0,
+    "max_speed_deg_s": 20.0,
+    "max_accel_deg_s2": 40.0,
+    "max_candidate_baseline_ratio": 1.25,
+    "controls_fixed": ["P2_rgb", "restored_lufs_dimmer"],
+    "scope": "Opt-in SSL latent pan/tilt residual on plain native-C mapper-01 DMX; no body replacement"
+  }
 }

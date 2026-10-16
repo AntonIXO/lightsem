@@ -170,6 +170,10 @@ def main(argv=None) -> int:
     pn.add_argument("--start", type=float, default=0., help="Render start in source seconds; generate/analyze complete song first")
     pn.add_argument("--duration", type=float, default=None, help="Render-only crop in seconds; original audio speed")
     pn.add_argument("--colors", type=Path, help="Own-song P2 color cache with authenticated REPORT.json")
+    pn.add_argument("--ssl-light", action="store_true",
+                    help="Use the opt-in SSL latent light adapter on top of native-C mapper-01 DMX")
+    pn.add_argument("--ssl-light-checkpoint", type=Path,
+                    help="Override the authenticated SSL light checkpoint")
     for name in ("beams", "lasers", "bulbs"):
         pn.add_argument("--" + name, type=int, default=None)
     pn.set_defaults(func=do_native_render)

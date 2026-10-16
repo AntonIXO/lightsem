@@ -3,6 +3,7 @@ from pathlib import Path
 import json
 import os
 import subprocess
+from contextlib import nullcontext
 import numpy as np
 
 from .baseline import REPO, checked_asset, sha
@@ -292,7 +293,7 @@ def prepare_colors(audio, root, config, *, color_path=None, audio_python=None, a
 
 def map_lights(body, audio, root, config, *, counts=None, color_path=None,
                audio_python=None, audio_device=None, fixture_rgb=None,
-               color_experiment=None):
+               color_experiment=None, music=None, ssl_light=None):
     from lightsem.experiments.dynamic_dance_combo.campaign import compile_world
     from lightsem.experiments.dynamic_dance_combo.brightness import load_verified_loudness
     from lightsem.experiments.motion_study.audio_dynamics import loudness
@@ -351,6 +352,31 @@ def map_lights(body, audio, root, config, *, counts=None, color_path=None,
                                                              levels, config['lighting']['transfer'],
                                                              mapper_id=config['lighting']['mapper'],
                                                              fixture_rgb=fixture_rgb)
+    ssl_report = None
+    if ssl_light is not None:
+        if music is None:
+            raise ValueError('SSL light adapter requires the authenticated MusicTimeline')
+        if body.metadata.get('d4max_enabled') or body.metadata.get('d6_enabled'):
+            raise ValueError('SSL light adapter is only admitted on the plain native-C clock')
+        import torch
+        from lightsem.experiments.body_light_ssl.adapter import SSLAdapter
+        checkpoint = Path(ssl_light['checkpoint']).expanduser().resolve()
+        expected_checkpoint = ssl_light.get('checkpoint_sha256')
+        if expected_checkpoint is not None and sha(checkpoint) != expected_checkpoint:
+            raise ValueError('SSL light checkpoint SHA256 mismatch')
+        device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
+        from lightsem.experiments.stage11.stage11_common import gpu_lock
+        with gpu_lock() if device.type == 'cuda' else nullcontext():
+            adapter = SSLAdapter.load(checkpoint, device, tuple(ssl_light.get('train_ids', ())))
+            universes, ssl_report = adapter.apply(
+                body_world=world, music=music,
+                base92_path=Path(body.metadata['audio']['base92']),
+                controls=decode(universes, patch), universes=universes, patch=patch,
+                time40=time, color_active40=color_active, device=device,
+                max_residual_deg=float(ssl_light.get('max_residual_deg', 1.0)),
+                max_speed=float(ssl_light.get('max_speed_deg_s', 20.0)),
+                max_accel=float(ssl_light.get('max_accel_deg_s2', 40.0)),
+                max_ratio=float(ssl_light.get('max_candidate_baseline_ratio', 1.25)))
     controls = decode(universes, patch)
     if not all(np.isfinite(value).all() for value in controls.values()):
         raise ValueError('Nonfinite actual emitted DMX')
@@ -409,6 +435,7 @@ def map_lights(body, audio, root, config, *, counts=None, color_path=None,
                                      'exact_duplicate_fixture_groups': duplicate_groups,
                                      'exact_duplicate_fixture_names': duplicate_groups_named},
               'transfer_diagnostics': transfer_diagnostics,
+              'ssl_light': ssl_report,
               'finite': True,
               'source_dependence_checks': {**source_dependence,
                                            'no_autonomous_motion_source': source_dependence['status'] == 'pass'},
