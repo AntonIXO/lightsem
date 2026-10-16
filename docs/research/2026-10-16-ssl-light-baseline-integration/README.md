@@ -15,10 +15,11 @@ speed or acceleration ratio above 1.25. The baseline remains unchanged unless
 The saved full-song integration receipt is
 `/mnt/lightsem-data/experiments/lightsem/body_light_ssl_baseline_integration_20261016_v1/INTEGRATION.json`.
 Both Shpongle and AURORA — Cure For Me passed the raw gate. The saved native
-CLI smoke could not be run in this environment because the original
-`/root/shpongle.flac` waveform is absent; the baseline correctly refuses an
-alternate file hash. The data-level run uses the saved full-song native body,
-emitted DMX, frozen MuQ timeline and Base92 caches without substituting audio.
+CLI run now uses `/root/shpongle.wav` with its matching cached MuQ/Base92
+features. The full Shpongle baseline and SSL videos are sealed in the receipt;
+the side-by-side is labeled BEFORE/AFTER. The SSL decoder used CPU because a
+shared WhisperX service held the GPU lock. The data-level run still covers both
+songs using saved full-song native body/DMX artifacts.
 
 This remains `diagnostic_only`; no baseline promotion or artistic-quality claim
 is made by the engineering gate.
