@@ -364,7 +364,12 @@ def map_lights(body, audio, root, config, *, counts=None, color_path=None,
         expected_checkpoint = ssl_light.get('checkpoint_sha256')
         if expected_checkpoint is not None and sha(checkpoint) != expected_checkpoint:
             raise ValueError('SSL light checkpoint SHA256 mismatch')
-        device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
+        requested_device = str(ssl_light.get('device', 'auto')).lower()
+        if requested_device not in {'auto', 'cpu', 'cuda'}:
+            raise ValueError('SSL light device must be auto, cpu or cuda')
+        if requested_device == 'cuda' and not torch.cuda.is_available():
+            raise RuntimeError('SSL light requested cuda but CUDA is unavailable')
+        device = torch.device('cuda' if requested_device == 'cuda' or (requested_device == 'auto' and torch.cuda.is_available()) else 'cpu')
         from lightsem.experiments.stage11.stage11_common import gpu_lock
         with gpu_lock() if device.type == 'cuda' else nullcontext():
             adapter = SSLAdapter.load(checkpoint, device, tuple(ssl_light.get('train_ids', ())))

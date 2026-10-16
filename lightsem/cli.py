@@ -174,6 +174,8 @@ def main(argv=None) -> int:
                     help="Use the opt-in SSL latent light adapter on top of native-C mapper-01 DMX")
     pn.add_argument("--ssl-light-checkpoint", type=Path,
                     help="Override the authenticated SSL light checkpoint")
+    pn.add_argument("--ssl-light-device", choices=("auto", "cpu", "cuda"), default="auto",
+                    help="Device for SSL decoder fitting/inference; use cpu when the shared GPU lock is occupied")
     for name in ("beams", "lasers", "bulbs"):
         pn.add_argument("--" + name, type=int, default=None)
     pn.set_defaults(func=do_native_render)

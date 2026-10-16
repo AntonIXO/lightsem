@@ -80,6 +80,7 @@ def do_render(args):
         if not checkpoint:
             raise RuntimeError('SSL light is enabled but no checkpoint is configured')
         spec['checkpoint'] = str(Path(checkpoint).expanduser().resolve())
+        spec['device'] = getattr(args, 'ssl_light_device', 'auto')
         ssl_light = spec
     lighting = map_lights(body, _audio(args), root, config, counts=counts, color_path=args.colors,
                          audio_python=args.audio_python, audio_device=args.audio_device,
