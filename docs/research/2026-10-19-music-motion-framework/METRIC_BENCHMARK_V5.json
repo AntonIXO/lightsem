@@ -1,0 +1,541 @@
+{
+  "interpretation": [
+    "BAS must be read with its metronome and circular-shift null.",
+    "Beat-bin and within-bar metrics are required to reject a constant BPM metronome.",
+    "The conditioning matrix is required to reject reused bodies/shared priors.",
+    "Root-relative motion is required to reject root-only movement.",
+    "Latent effective rank diagnoses geometry and cannot establish musical conditioning."
+  ],
+  "protocol": {
+    "benchmark_version": 2,
+    "bpm": 120,
+    "duration_s": 24.0,
+    "fps": 30,
+    "note": "synthetic metric sanity check; no model or product evidence",
+    "null_draws": 120,
+    "songs": [
+      "a",
+      "b"
+    ]
+  },
+  "results": {
+    "accent_conditioned": {
+      "conditioning": {
+        "bas_matrix": [
+          [
+            0.8007374029168091,
+            0.8007374029168091
+          ],
+          [
+            0.8007374029168091,
+            0.8007374029168091
+          ]
+        ],
+        "details": {
+          "a": {
+            "a": {
+              "bar_cosine": 0.9939042257560764,
+              "bas": 0.8007374029168091,
+              "beat_bin_rank_correlation": 0.9456900544204387,
+              "best_lag_s": -0.05999999999999872
+            },
+            "b": {
+              "bar_cosine": 0.910726695735061,
+              "bas": 0.8007374029168091,
+              "beat_bin_rank_correlation": -0.47454282128639247,
+              "best_lag_s": 0.4399999999999906
+            }
+          },
+          "b": {
+            "a": {
+              "bar_cosine": 0.9099869111764356,
+              "bas": 0.8007374029168091,
+              "beat_bin_rank_correlation": -0.5045639580337681,
+              "best_lag_s": -0.5599999999999881
+            },
+            "b": {
+              "bar_cosine": 0.9945282592152925,
+              "bas": 0.8007374029168091,
+              "beat_bin_rank_correlation": 0.9370952821461609,
+              "best_lag_s": -0.05999999999999872
+            }
+          }
+        },
+        "diagonal_margin": 0.26644415600054216,
+        "diagonal_mean": 0.9218833265147146,
+        "evidence_matrix": [
+          [
+            0.922495551961035,
+            0.6580642293362247
+          ],
+          [
+            0.6528141116921202,
+            0.921271101068394
+          ]
+        ],
+        "labels": [
+          "a",
+          "b"
+        ],
+        "off_diagonal_mean": 0.6554391705141724,
+        "pair_rows": [
+          {
+            "body": "a",
+            "margin": 0.2644313226248104,
+            "own_audio_bas": 0.8007374029168091,
+            "own_audio_evidence": 0.922495551961035,
+            "wrong_audio_bas_mean": 0.8007374029168091,
+            "wrong_audio_evidence_mean": 0.6580642293362247
+          },
+          {
+            "body": "b",
+            "margin": 0.2684569893762738,
+            "own_audio_bas": 0.8007374029168091,
+            "own_audio_evidence": 0.921271101068394,
+            "wrong_audio_bas_mean": 0.8007374029168091,
+            "wrong_audio_evidence_mean": 0.6528141116921202
+          }
+        ],
+        "scope": "same evaluator, same clock, every body against every song; diagonal is own-song conditioning evidence",
+        "status": "measured"
+      },
+      "expected_mechanism": "responsive",
+      "per_song": {
+        "a": {
+          "active_fraction": 0.9832869080779945,
+          "bar_cosine": 0.9939042257560764,
+          "bas": 0.8007374029168091,
+          "bas_null_z": 1.1451871513578875,
+          "beat_bin_null_z": 1.8059708412452375,
+          "phrase_novelty_null_z": 1.919980086223669,
+          "phrase_recurrence_null_z": 2.408210841514136,
+          "predictive_gain": 0.018311762678543658,
+          "predictive_shuffle_z": 0.37131081396429216
+        },
+        "b": {
+          "active_fraction": 0.9818941504178273,
+          "bar_cosine": 0.9945282592152925,
+          "bas": 0.8007374029168091,
+          "bas_null_z": 1.147678109665874,
+          "beat_bin_null_z": 1.706153257020414,
+          "phrase_novelty_null_z": 2.0962103992300167,
+          "phrase_recurrence_null_z": 2.8617543781896866,
+          "predictive_gain": -0.03229954675809037,
+          "predictive_shuffle_z": 0.8851362078923632
+        }
+      }
+    },
+    "actor_calibration": {
+      "actor_like": {
+        "descriptor_dim": 30,
+        "generated_distance_percentile_vs_real": 0.0,
+        "generated_nearest_reference_distance": 0.0,
+        "real_leave_one_out_nearest_median": 1.736795317485701,
+        "reference_count": 3,
+        "scope": "actor distribution calibration; no framewise imitation or choreography proof",
+        "status": "measured"
+      },
+      "actor_outlier": {
+        "descriptor_dim": 30,
+        "generated_distance_percentile_vs_real": 66.66666666666666,
+        "generated_nearest_reference_distance": 2.701410192431488,
+        "real_leave_one_out_nearest_median": 1.736795317485701,
+        "reference_count": 3,
+        "scope": "actor distribution calibration; no framewise imitation or choreography proof",
+        "status": "measured"
+      },
+      "expected": "distributional_calibration_only"
+    },
+    "bpm_only_metronome": {
+      "conditioning": {
+        "bas_matrix": [
+          [
+            0.8007374029168091,
+            0.8007374029168091
+          ],
+          [
+            0.8007374029168091,
+            0.8007374029168091
+          ]
+        ],
+        "details": {
+          "a": {
+            "a": {
+              "bar_cosine": 0.9782737084517451,
+              "bas": 0.8007374029168091,
+              "beat_bin_rank_correlation": null,
+              "best_lag_s": -0.05999999999999872
+            },
+            "b": {
+              "bar_cosine": 0.9864289685525335,
+              "bas": 0.8007374029168091,
+              "beat_bin_rank_correlation": null,
+              "best_lag_s": -0.5599999999999881
+            }
+          },
+          "b": {
+            "a": {
+              "bar_cosine": 0.9782737084517451,
+              "bas": 0.8007374029168091,
+              "beat_bin_rank_correlation": null,
+              "best_lag_s": -0.05999999999999872
+            },
+            "b": {
+              "bar_cosine": 0.9864289685525335,
+              "bas": 0.8007374029168091,
+              "beat_bin_rank_correlation": null,
+              "best_lag_s": -0.5599999999999881
+            }
+          }
+        },
+        "diagonal_margin": 0.0,
+        "diagonal_mean": 0.8915443707094741,
+        "evidence_matrix": [
+          [
+            0.889505555684277,
+            0.8935831857346712
+          ],
+          [
+            0.889505555684277,
+            0.8935831857346712
+          ]
+        ],
+        "labels": [
+          "a",
+          "b"
+        ],
+        "off_diagonal_mean": 0.8915443707094741,
+        "pair_rows": [
+          {
+            "body": "a",
+            "margin": -0.004077630050394188,
+            "own_audio_bas": 0.8007374029168091,
+            "own_audio_evidence": 0.889505555684277,
+            "wrong_audio_bas_mean": 0.8007374029168091,
+            "wrong_audio_evidence_mean": 0.8935831857346712
+          },
+          {
+            "body": "b",
+            "margin": 0.004077630050394188,
+            "own_audio_bas": 0.8007374029168091,
+            "own_audio_evidence": 0.8935831857346712,
+            "wrong_audio_bas_mean": 0.8007374029168091,
+            "wrong_audio_evidence_mean": 0.889505555684277
+          }
+        ],
+        "scope": "same evaluator, same clock, every body against every song; diagonal is own-song conditioning evidence",
+        "status": "measured"
+      },
+      "expected_mechanism": "beat_only",
+      "per_song": {
+        "a": {
+          "active_fraction": 0.9832869080779945,
+          "bar_cosine": 0.9782737084517451,
+          "bas": 0.8007374029168091,
+          "bas_null_z": 1.146874722017694,
+          "beat_bin_null_z": null,
+          "phrase_novelty_null_z": 1.4912372689873727,
+          "phrase_recurrence_null_z": 1.4505057602061275,
+          "predictive_gain": -0.07906191913608533,
+          "predictive_shuffle_z": -2.919708177690764
+        },
+        "b": {
+          "active_fraction": 0.9832869080779945,
+          "bar_cosine": 0.9864289685525335,
+          "bas": 0.8007374029168091,
+          "bas_null_z": 1.146874722017694,
+          "beat_bin_null_z": null,
+          "phrase_novelty_null_z": -1.1624612681031115,
+          "phrase_recurrence_null_z": -0.03643368694119973,
+          "predictive_gain": 0.018996719023854376,
+          "predictive_shuffle_z": 1.324633559770558
+        }
+      }
+    },
+    "feature_families": {
+      "advanced_muq_layer_like": {
+        "feature_augmented_mse": 4.204744709221027e-05,
+        "feature_dim": 32,
+        "folds": 5,
+        "frames": 225,
+        "history_mse": 4.445324435373082e-05,
+        "history_s": 1.0,
+        "horizon_s": 0.5,
+        "incremental_gain": 0.05411972278956145,
+        "pca_components": 8,
+        "scope": "blocked ridge + train-only PCA; feature-family incremental audio predictive proxy",
+        "shuffle_gain_mean": 0.0287585848373733,
+        "shuffle_gain_sd": 0.03133565773643729,
+        "shuffle_gain_z": 0.8093379805683182,
+        "status": "measured",
+        "target_fps": 10.0
+      },
+      "interpretation": "synthetic layer-like comparison only; no claim about real MuQ layer ranking",
+      "simple_base92_like": {
+        "feature_augmented_mse": 3.7806466994870566e-05,
+        "feature_dim": 3,
+        "folds": 5,
+        "frames": 225,
+        "history_mse": 4.445324435373082e-05,
+        "history_s": 1.0,
+        "horizon_s": 0.5,
+        "incremental_gain": 0.14952288534824146,
+        "pca_components": 3,
+        "scope": "blocked ridge + train-only PCA; feature-family incremental audio predictive proxy",
+        "shuffle_gain_mean": 0.11109263009861858,
+        "shuffle_gain_sd": 0.04573769014396632,
+        "shuffle_gain_z": 0.8402316585874322,
+        "status": "measured",
+        "target_fps": 10.0
+      }
+    },
+    "latent_geometry": {
+      "collapsed": {
+        "channel_std_p50": 0.0,
+        "channel_std_p95": 0.0,
+        "constant_channel_fraction": 1.0,
+        "effective_rank": 0.0,
+        "finite": true,
+        "rank_fraction": 0.0,
+        "sampled_pairwise_cosine_median": 0.9999999999999998,
+        "scope": "saved native foundation latent; effective rank is a geometry diagnostic, not audio-conditioning proof",
+        "shape": [
+          720,
+          8,
+          16
+        ],
+        "temporal_delta_rms": 0.0
+      },
+      "expected": "latent_rank_separates_geometry_only",
+      "healthy": {
+        "channel_std_p50": 0.9947963369114952,
+        "channel_std_p95": 1.0372889365610962,
+        "constant_channel_fraction": 0.0,
+        "effective_rank": 116.96317341062111,
+        "finite": true,
+        "rank_fraction": 0.9137747922704774,
+        "sampled_pairwise_cosine_median": -0.00046537115608111907,
+        "scope": "saved native foundation latent; effective rank is a geometry diagnostic, not audio-conditioning proof",
+        "shape": [
+          720,
+          8,
+          16
+        ],
+        "temporal_delta_rms": 1.412620631009671
+      }
+    },
+    "reused_body": {
+      "conditioning": {
+        "bas_matrix": [
+          [
+            0.8007374029168091,
+            0.8007374029168091
+          ],
+          [
+            0.8007374029168091,
+            0.8007374029168091
+          ]
+        ],
+        "details": {
+          "a": {
+            "a": {
+              "bar_cosine": 0.9939042257560764,
+              "bas": 0.8007374029168091,
+              "beat_bin_rank_correlation": 0.9456900544204387,
+              "best_lag_s": -0.05999999999999872
+            },
+            "b": {
+              "bar_cosine": 0.910726695735061,
+              "bas": 0.8007374029168091,
+              "beat_bin_rank_correlation": -0.47454282128639247,
+              "best_lag_s": 0.4399999999999906
+            }
+          },
+          "b": {
+            "a": {
+              "bar_cosine": 0.9939042257560764,
+              "bas": 0.8007374029168091,
+              "beat_bin_rank_correlation": 0.9456900544204387,
+              "best_lag_s": -0.05999999999999872
+            },
+            "b": {
+              "bar_cosine": 0.910726695735061,
+              "bas": 0.8007374029168091,
+              "beat_bin_rank_correlation": -0.47454282128639247,
+              "best_lag_s": 0.4399999999999906
+            }
+          }
+        },
+        "diagonal_margin": 0.0,
+        "diagonal_mean": 0.7902798906486299,
+        "evidence_matrix": [
+          [
+            0.922495551961035,
+            0.6580642293362247
+          ],
+          [
+            0.922495551961035,
+            0.6580642293362247
+          ]
+        ],
+        "labels": [
+          "a",
+          "b"
+        ],
+        "off_diagonal_mean": 0.7902798906486299,
+        "pair_rows": [
+          {
+            "body": "a",
+            "margin": 0.2644313226248104,
+            "own_audio_bas": 0.8007374029168091,
+            "own_audio_evidence": 0.922495551961035,
+            "wrong_audio_bas_mean": 0.8007374029168091,
+            "wrong_audio_evidence_mean": 0.6580642293362247
+          },
+          {
+            "body": "b",
+            "margin": -0.2644313226248104,
+            "own_audio_bas": 0.8007374029168091,
+            "own_audio_evidence": 0.6580642293362247,
+            "wrong_audio_bas_mean": 0.8007374029168091,
+            "wrong_audio_evidence_mean": 0.922495551961035
+          }
+        ],
+        "scope": "same evaluator, same clock, every body against every song; diagonal is own-song conditioning evidence",
+        "status": "measured"
+      },
+      "expected_mechanism": "shared_prior",
+      "per_song": {
+        "a": {
+          "active_fraction": 0.9832869080779945,
+          "bar_cosine": 0.9939042257560764,
+          "bas": 0.8007374029168091,
+          "bas_null_z": 1.1451871513578875,
+          "beat_bin_null_z": 1.8059708412452375,
+          "phrase_novelty_null_z": 1.919980086223669,
+          "phrase_recurrence_null_z": 2.408210841514136,
+          "predictive_gain": 0.018311762678543658,
+          "predictive_shuffle_z": 0.37131081396429216
+        },
+        "b": {
+          "active_fraction": 0.9832869080779945,
+          "bar_cosine": 0.910726695735061,
+          "bas": 0.8007374029168091,
+          "bas_null_z": 1.1451871513578875,
+          "beat_bin_null_z": -0.9157574389985476,
+          "phrase_novelty_null_z": -1.9197572027102412,
+          "phrase_recurrence_null_z": 2.2075459758486895,
+          "predictive_gain": 0.10020119096873571,
+          "predictive_shuffle_z": 0.8365237550020066
+        }
+      }
+    },
+    "root_only": {
+      "conditioning": {
+        "bas_matrix": [
+          [
+            null,
+            null
+          ],
+          [
+            null,
+            null
+          ]
+        ],
+        "details": {
+          "a": {
+            "a": {
+              "bar_cosine": null,
+              "bas": null,
+              "beat_bin_rank_correlation": null,
+              "best_lag_s": null
+            },
+            "b": {
+              "bar_cosine": null,
+              "bas": null,
+              "beat_bin_rank_correlation": null,
+              "best_lag_s": null
+            }
+          },
+          "b": {
+            "a": {
+              "bar_cosine": null,
+              "bas": null,
+              "beat_bin_rank_correlation": null,
+              "best_lag_s": null
+            },
+            "b": {
+              "bar_cosine": null,
+              "bas": null,
+              "beat_bin_rank_correlation": null,
+              "best_lag_s": null
+            }
+          }
+        },
+        "diagonal_margin": null,
+        "diagonal_mean": null,
+        "evidence_matrix": [
+          [
+            null,
+            null
+          ],
+          [
+            null,
+            null
+          ]
+        ],
+        "labels": [
+          "a",
+          "b"
+        ],
+        "off_diagonal_mean": null,
+        "pair_rows": [
+          {
+            "body": "a",
+            "margin": null,
+            "own_audio_bas": null,
+            "own_audio_evidence": null,
+            "wrong_audio_bas_mean": null,
+            "wrong_audio_evidence_mean": null
+          },
+          {
+            "body": "b",
+            "margin": null,
+            "own_audio_bas": null,
+            "own_audio_evidence": null,
+            "wrong_audio_bas_mean": null,
+            "wrong_audio_evidence_mean": null
+          }
+        ],
+        "scope": "same evaluator, same clock, every body against every song; diagonal is own-song conditioning evidence",
+        "status": "unqualified_nonfinite_score"
+      },
+      "expected_mechanism": "root_failure",
+      "per_song": {
+        "a": {
+          "active_fraction": 0.0,
+          "bar_cosine": null,
+          "bas": null,
+          "bas_null_z": null,
+          "beat_bin_null_z": null,
+          "phrase_novelty_null_z": null,
+          "phrase_recurrence_null_z": null,
+          "predictive_gain": 0.0,
+          "predictive_shuffle_z": 0.0
+        },
+        "b": {
+          "active_fraction": 0.0,
+          "bar_cosine": null,
+          "bas": null,
+          "bas_null_z": null,
+          "beat_bin_null_z": null,
+          "phrase_novelty_null_z": null,
+          "phrase_recurrence_null_z": null,
+          "predictive_gain": 0.0,
+          "predictive_shuffle_z": 0.0
+        }
+      }
+    }
+  },
+  "schema": "lightsem.music_motion.metric_benchmark.v2"
+}

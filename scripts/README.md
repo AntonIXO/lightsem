@@ -6,6 +6,7 @@ Run these from the repository root through `run.sh` or `run_torch.sh`. The two w
 | --- | --- |
 | `light_layers/` | September 22 cohort, feature, training, evaluation, and campaign drivers |
 | `motion/` | Motion-study and rhythm-companion drivers and audits |
+| `evaluation/` | CPU raw-health and music–motion causal audits |
 | `legacy_stages/` | Earlier numbered stage and Oslo campaign launchers |
 | `data/` | Download, extraction, and cache builders |
 | `training/` | Earlier model trainers and calibration |

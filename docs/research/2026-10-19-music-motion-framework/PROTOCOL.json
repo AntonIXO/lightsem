@@ -1,0 +1,72 @@
+{
+  "schema": "lightsem.music_motion.protocol.v1",
+  "protocol_id": "mmca-native-body-20261019-v1",
+  "status": "design_and_cpu_smoke",
+  "scope": "raw native 30Hz body musicality and audio-conditioning audit before mapper/DMX/video",
+  "required_inputs": {
+    "songs": ["Shpongle", "AURORA - Cure For Me"],
+    "per_song": ["own_song_audio_features", "own_song_latent", "own_song_raw_body", "body_provenance"],
+    "audio_arrays": ["time", "onset", "beats"],
+    "body_shape": "T x 22 x 3",
+    "body_clock_hz": 30
+  },
+  "controls": [
+    "same_seed_audio_swap",
+    "same_bpm_donor_audio",
+    "beat_jitter",
+    "circular_time_shift",
+    "frozen_body_soundtrack_swap",
+    "assigned_limb_intervention",
+    "actor_split_half",
+    "metronome_upper_reference",
+    "periodic_one_bar_cheat_control"
+  ],
+  "metrics": {
+    "raw_health": "existing autonomous-training-evaluation audit",
+    "beat": ["bas", "metronome_ratio", "circular_shift_null_z", "phase_R", "signed_phase_offset_s"],
+    "continuous": ["onset_energy_zero_lag_corr", "best_lag_corr", "best_lag_s", "shift_null_z"],
+    "beat_bins": ["spearman", "circular_bin_null_z"],
+    "bar": ["within_bar_cosine", "within_bar_rank_corr", "phrase_recurrence_null_z", "phrase_novelty_null_z"],
+    "conditioning": ["own_song_diagonal_mean", "wrong_song_off_diagonal_mean", "diagonal_margin"],
+    "foundation": ["latent_effective_rank", "constant_channel_fraction", "audio_predictive_gain", "shuffle_gain_z"],
+    "feature_families": ["Base92", "MuQ_layer9", "other_saved_MuQ_layers", "MuQ_plus_Base92", "explicit_ablation"],
+    "actor": ["real_leave_one_out_nearest_floor", "generated_reference_percentile"],
+    "future_work": ["decoded_dmx_retention", "conditional_audio_predictive_gain", "MDSC_like_style_encoder"]
+  },
+  "initial_engineering_thresholds": {
+    "min_bas_null_z": 2.0,
+    "min_conditioning_margin": 0.03,
+    "min_bar_cosine": 0.60,
+    "note": "Smoke priors only; freeze and calibrate before any qualification claim"
+  },
+  "verdicts": [
+    "failed_safety",
+    "collapsed_motion",
+    "output_collapsed",
+    "unconditioned_or_shared_prior",
+    "beat_locked_only",
+    "unqualified_musicality",
+    "diagnostic_music_aligned"
+  ],
+  "forbidden": [
+    "posthoc_smoothing",
+    "retiming",
+    "D4_or_D6_rescue",
+    "reused_body_with_new_soundtrack",
+    "autonomous_oscillator_fallback",
+    "threshold_tuning_after_candidate_observation",
+    "single_scalar_musicality_claim"
+  ],
+  "implementation": {
+    "module": "lightsem.eval.music_motion",
+    "cli": "scripts/evaluation/audit_music_motion.py",
+    "runtime": "CPU via bash run.sh",
+    "output_schema": "lightsem.music_motion.v1"
+  },
+  "literature": [
+    "https://openaccess.thecvf.com/content/ICCV2021/papers/Li_AI_Choreographer_Music_Conditioned_3D_Dance_Generation_With_AIST_ICCV_2021_paper.pdf",
+    "https://arxiv.org/abs/2309.01340",
+    "https://arxiv.org/abs/2510.13244",
+    "https://github.com/tencent-ailab/MuQ"
+  ]
+}

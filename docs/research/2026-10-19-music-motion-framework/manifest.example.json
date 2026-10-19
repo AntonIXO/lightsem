@@ -1,0 +1,34 @@
+{
+  "schema": "lightsem.music_motion.manifest.v1",
+  "protocol_id": "mmca-native-body-20261019-v1",
+  "fps": 30,
+  "n_null": 200,
+  "seed": 0,
+  "thresholds": {
+    "min_bas_null_z": 2.0,
+    "min_conditioning_margin": 0.03,
+    "min_bar_cosine": 0.60
+  },
+  "pairs": {
+    "shpongle": {
+      "body": "/mnt/lightsem-data/experiments/<run>/bodies/shpongle/body.npz",
+      "audio": "/mnt/lightsem-data/experiments/<run>/features/shpongle_audio.npz",
+      "latent": "/mnt/lightsem-data/experiments/<run>/native/shpongle_latent.npz",
+      "reference_body": "/mnt/lightsem-data/experiments/<actor>/shpongle/body.npz",
+      "reference_bodies": [
+        "/mnt/lightsem-data/experiments/<actor>/shpongle/body.npz",
+        "/mnt/lightsem-data/experiments/<actor>/shpongle_alt/body.npz"
+      ]
+    },
+    "cure_for_me": {
+      "body": "/mnt/lightsem-data/experiments/<run>/bodies/cure_for_me/body.npz",
+      "audio": "/mnt/lightsem-data/experiments/<run>/features/cure_for_me_audio.npz",
+      "latent": "/mnt/lightsem-data/experiments/<run>/native/cure_for_me_latent.npz",
+      "reference_body": "/mnt/lightsem-data/experiments/<actor>/cure_for_me/body.npz",
+      "reference_bodies": [
+        "/mnt/lightsem-data/experiments/<actor>/cure_for_me/body.npz",
+        "/mnt/lightsem-data/experiments/<actor>/cure_for_me_alt/body.npz"
+      ]
+    }
+  }
+}

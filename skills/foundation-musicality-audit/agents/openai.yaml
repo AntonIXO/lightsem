@@ -1,0 +1,4 @@
+interface:
+  display_name: "Foundation Musicality Audit"
+  short_description: "Audit foundation musical conditioning"
+  default_prompt: "Audit this foundation-model generation with raw safety, simple rhythm controls, latent geometry, and advanced audio-layer probes."
