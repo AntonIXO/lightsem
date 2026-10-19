@@ -1,5 +1,38 @@
 # LightSem experiment and demo checks
 
+## Required skills by task
+
+Skills are part of the LightSem procedure. Read the applicable skill before
+acting; do not replace its gates with an informal checklist. Use the repository
+copy when present and the global path otherwise.
+
+- **New foundation model, checkpoint comparison, or foundation demo:** read
+  [`skills/foundation-musicality-audit/SKILL.md`](skills/foundation-musicality-audit/SKILL.md)
+  and [`skills/autonomous-training-evaluation/SKILL.md`](skills/autonomous-training-evaluation/SKILL.md).
+  The foundation audit is mandatory even when the proposed change is described
+  as a MuQ layer, audio feature, attention, color, mapper, or presentation
+  experiment. It must run on saved latent/raw outputs before mapper or video.
+- **Native C generation, body transfer, DMX, or demo rendering:** read
+  `/root/.codex/skills/native-dance-light-pipeline/SKILL.md` and
+  `skills/autonomous-training-evaluation/SKILL.md`. Apply
+  `foundation-musicality-audit` as well when the source is a new foundation
+  model or its learned head.
+- **A research hypothesis, paper-derived metric, or experiment with a
+  conclusion:** read `/root/.codex/skills/vibescience-mcp-workflow/SKILL.md`.
+  Recall negative results first, register diagnostics/interventions, commit
+  predictions before measurement, and store the result in `/root/lightsem-vault`.
+- **Representation, objective, encoder-layer, CKA/HSIC/CCA, or cross-modal
+  loss study:** read `/root/.codex/skills/run-cross-modal-loss-studies/SKILL.md`.
+  Preserve untrained/incumbent/alternative controls, native-versus-projected
+  geometry, split and duplicate audits, and the pilot/confirmation gates.
+- **Creating or changing a reusable Codex skill:** read
+  `/root/.codex/skills/.system/skill-creator/SKILL.md`, validate with its
+  `quick_validate.py`, and keep the skill discoverable. The committed
+  foundation skill is `skills/foundation-musicality-audit/`.
+
+Do not load unrelated skills merely because they are available. If multiple
+rules apply, use all listed skills and preserve the strictest shared gate.
+
 ## Selected default — 2026-10-11
 
 - The user explicitly selected the RTMPose BF16 full-fit seed0 checkpoint as
