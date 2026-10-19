@@ -58,7 +58,8 @@ def do_render(args):
     # Preserve an earlier failed attempt, but allow the same one-command
     # invocation to retry when no video was produced. Completed run roots and
     # existing videos remain immutable.
-    if root.exists() and (root / 'FAILURE.json').is_file() and not output.exists():
+    if root.exists() and not output.exists() and (
+            (root / 'FAILURE.json').is_file() or (root / 'GENERATION.json').is_file()):
         retry = 1
         while True:
             candidate = output.with_name(f'{output.stem}_run_retry{retry}')

@@ -16,6 +16,21 @@ def test_full_source_frame_coverage_is_ceil_not_round():
         colors.frame_count(float('nan'))
 
 
+def test_p2_audio_resamples_source_rate_without_changing_duration(tmp_path):
+    import soundfile as sf
+
+    source = tmp_path / 'track_48k.wav'
+    wave = np.zeros((48000, 2), dtype=np.float32)
+    wave[1000, 0] = .25
+    sf.write(source, wave, 48000)
+    normalized, rate, info = colors.read_p2_audio(source)
+    assert rate == 44100
+    assert normalized.ndim == 2 and normalized.shape[1] == 2
+    assert abs(len(normalized) / rate - 1.0) < 1.0 / rate
+    assert info == {'source_rate_hz': 48000, 'analysis_rate_hz': 44100,
+                    'source_duration_s': 1.0}
+
+
 def test_only_fractional_endpoint_hold_is_allowed():
     source = np.arange(12, dtype=np.uint8).reshape(4, 3)
     result = colors.extend_endpoint(source, 5)

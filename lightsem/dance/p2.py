@@ -11,7 +11,6 @@ from .pipeline import accelerator_lock, write_json
 
 def generate(audio, output, device):
     import torch
-    import soundfile as sf
     from beat_this.inference import Audio2Frames
     from beat_this.model.postprocessor import Postprocessor
     from lightsem.experiments.dynamic_dance_combo import colors as helpers
@@ -26,7 +25,7 @@ def generate(audio, output, device):
             or sha(helpers.TRANSFORMS) != helpers.PINNED[str(helpers.TRANSFORMS)]):
         raise ValueError('P2 or BeatThis checkpoint mismatch')
     preparation = helpers.prepare_input_cpu(audio, output / 'input')
-    wave, rate = sf.read(audio, dtype='float32', always_2d=False)
+    wave, rate, _ = helpers.read_p2_audio(audio)
     with torch.inference_mode():
         predictor = Audio2Frames(checkpoint_path=str(helpers.BEAT_CHECKPOINT), device=device, float16=False)
         beat, downbeat = predictor(wave, rate)
@@ -48,7 +47,11 @@ def generate(audio, output, device):
     if metadata['config']['recipe'] != 'I_VR_P0':
         raise ValueError('P2 recipe mismatch')
     with torch.inference_mode():
-        predicted = model(torch.from_numpy(normalized[None]).to(device))
+        # The deployed Rich96 model intentionally rejects a single forward
+        # beyond 12,000 lighting ticks.  Its offline trunk has a finite
+        # receptive field, so use the model's verified halo chunker for longer
+        # own-song inputs instead of truncating the song or changing its clock.
+        predicted = model.forward_chunked(torch.from_numpy(normalized[None]).to(device))
         capture = FinitePaletteCapture(model)
         rollout = generated_history(capture, predicted['context10'], predicted['chromatic_change_logit'],
                                     initial_ids=None, state_ablation=False, cue_threshold=.5, initialize=True)
@@ -66,6 +69,9 @@ def generate(audio, output, device):
         np.savez_compressed(target, time=np.arange(len(left)) / 40, left=left, right=right,
                             palette_ids40=palette, color_active40=active, color_cues10=scores['color_cues'])
     write_json(output / 'REPORT.json', {'audio': str(audio), 'audio_sha256': sha(audio),
+                                        'audio_preparation': {key: preparation[key] for key in (
+                                            'audio_duration_s', 'source_sample_rate_hz',
+                                            'analysis_sample_rate_hz', 'lighting_frames')},
                                         'checkpoint_sha256': sha(checkpoint), 'recipe': 'P2',
                                         'initial_rgb': 'Fixed black before first generated color cue; no historical soundtrack/controller substituted',
                                         'diagnostics': metrics, 'delivery': delivery,

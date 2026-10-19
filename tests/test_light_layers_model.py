@@ -101,6 +101,18 @@ class LightLayersModelTests(unittest.TestCase):
         self.assertEqual(model(torch.randn(1, 4, 10))["accent_logit"].shape, (1, 4))
         self.assertEqual(model(torch.randn(1, 64, 10))["context10"].shape[1], 16)
 
+    def test_receptive_field_chunking_matches_long_whole_forward(self):
+        short_cfg = small_config(max_frames40=64)
+        long_cfg = small_config(max_frames40=128)
+        chunked = SharedLightLayers(short_cfg).eval()
+        whole = SharedLightLayers(long_cfg).eval()
+        whole.load_state_dict(chunked.state_dict())
+        audio = torch.randn(1, 96, 10)
+        expected = whole(audio)
+        actual = chunked.forward_chunked(audio)
+        for key in expected:
+            torch.testing.assert_close(actual[key], expected[key], rtol=2e-5, atol=2e-6)
+
     def test_no_target_modality_inference_input(self):
         for cls in (SharedLightLayers, IndependentLightLayers):
             signature = inspect.signature(cls.forward)

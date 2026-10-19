@@ -85,6 +85,31 @@ def frame_count(duration_s, fps=40):
     return int(math.ceil(float(duration_s)*fps-1e-9))
 
 
+def read_p2_audio(audio):
+    """Read a source and normalize the P2 analysis rate to 44.1 kHz.
+
+    The native MuQ path accepts arbitrary source rates, but the historical P2
+    bus and BeatThis input are defined at 44.1 kHz.  Keep the original path,
+    hash, and duration in the receipt while resampling only the analysis copy.
+    """
+    import soundfile as sf
+    from scipy.signal import resample_poly
+
+    wave, source_rate = sf.read(audio, dtype='float32', always_2d=False)
+    wave = np.asarray(wave, dtype=np.float32)
+    if wave.ndim not in (1, 2) or not len(wave) or not np.isfinite(wave).all():
+        raise ValueError('Expected finite nonempty mono or multichannel source')
+    source_rate = int(source_rate)
+    if source_rate <= 0:
+        raise ValueError('Source sample rate must be positive')
+    duration_s = len(wave) / source_rate
+    if source_rate != 44100:
+        wave = resample_poly(wave, 44100, source_rate, axis=0).astype(np.float32)
+    return wave, 44100, {'source_rate_hz': source_rate,
+                         'analysis_rate_hz': 44100,
+                         'source_duration_s': float(duration_s)}
+
+
 def extend_endpoint(values, frames):
     """At most one extra native tick, only for a final fractional audio frame."""
     values = np.asarray(values)
@@ -113,7 +138,6 @@ def canonical_slots():
 
 def prepare_input_cpu(audio, outputdir):
     """Extract historical float32 P2 bus (not the dancer's float16 Base92)."""
-    import soundfile as sf
     from lightsem.audio.online import extract_bus
     from lightsem.model.light_layers.training import AUDIO_SCALARS
     outputdir = Path(outputdir)
@@ -126,9 +150,9 @@ def prepare_input_cpu(audio, outputdir):
         return report
     if bus_path.exists():
         raise FileExistsError('Preserve unreceipted P2 bus')
-    wave, sample_rate = sf.read(audio, dtype='float32', always_2d=True)
-    if sample_rate != 44100 or not len(wave) or not np.isfinite(wave).all():
-        raise ValueError('Expected finite full 44.1 kHz source')
+    wave, sample_rate, audio_info = read_p2_audio(audio)
+    if wave.ndim == 1:
+        wave = wave[:, None]
     bus = extract_bus(y=wave.mean(1), sr=sample_rate, causal=True)
     values = {'times': bus.times.astype(np.float32), 'mel': bus.mel.astype(np.float32),
               'meta': np.asarray(json.dumps({'fps': bus.fps, 'tempo': bus.tempo,
@@ -136,8 +160,10 @@ def prepare_input_cpu(audio, outputdir):
     values.update({'ch__'+key: bus.channels[key].astype(np.float32) for key in AUDIO_SCALARS})
     _npz(bus_path, **values)
     report = {'audio': str(audio), 'audio_sha256': sha(audio), 'bus': str(bus_path),
-              'bus_sha256': sha(bus_path), 'audio_duration_s': len(wave)/sample_rate,
-              'bus_frames': len(bus.times), 'lighting_frames': frame_count(len(wave)/sample_rate),
+              'bus_sha256': sha(bus_path), 'audio_duration_s': audio_info['source_duration_s'],
+              'source_sample_rate_hz': audio_info['source_rate_hz'],
+              'analysis_sample_rate_hz': audio_info['analysis_rate_hz'],
+              'bus_frames': len(bus.times), 'lighting_frames': frame_count(audio_info['source_duration_s']),
               'mel_dtype': 'float32; no float16 round trip', 'causal_spectral': True,
               'oracle_beat_grid': True, 'source_sha256': sha(__file__)}
     _json(report_path, report)

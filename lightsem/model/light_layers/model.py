@@ -9,9 +9,10 @@ an offline Conformer at 10 Hz. The accent head also sees the original acoustic
 features at 40 Hz. Shared and independent models have identical temporal
 support. The independent model changes only width, not depth/window/pooling.
 
-Forward handles a whole input up to ``max_frames40``. Longer inputs fail rather
-than silently truncate or apply an unverified chunking approximation. Attention
-still allocates a quadratic mask; the length limit is not a memory guarantee.
+Forward handles a whole input up to ``max_frames40``. Longer inputs fail on the
+direct API; callers that need a complete long song can use ``forward_chunked``
+with its finite receptive-field halo. Attention still allocates a quadratic
+mask per chunk; the length limit is not a memory guarantee.
 """
 
 from __future__ import annotations
@@ -152,7 +153,7 @@ class _LightLayers(nn.Module):
         self.pose_aux_head = (nn.Linear(cfg.d_model, cfg.pose_aux_dim)
                               if cfg.pose_aux_dim else None)
 
-    def _validate_audio(self, audio40: torch.Tensor) -> None:
+    def _validate_audio(self, audio40: torch.Tensor, *, enforce_limit: bool = True) -> None:
         if not isinstance(audio40, torch.Tensor) or audio40.ndim != 3:
             raise ValueError("audio40 must be a tensor of shape (B, T40, in_dim)")
         b, t, f = audio40.shape
@@ -160,11 +161,54 @@ class _LightLayers(nn.Module):
             raise ValueError("audio40 needs a nonempty batch and T40 divisible by four")
         if f != self.cfg.in_dim:
             raise ValueError(f"expected {self.cfg.in_dim} acoustic features, got {f}")
-        if t > self.cfg.max_frames40:
+        if enforce_limit and t > self.cfg.max_frames40:
             raise ValueError(f"T40={t} exceeds max_frames40={self.cfg.max_frames40}; "
                              "chunking is not implemented")
         if not audio40.is_floating_point():
             raise ValueError("audio40 must be floating point")
+
+    @torch.no_grad()
+    def forward_chunked(self, audio40: torch.Tensor, *, chunk_frames40: int | None = None) -> dict[str, torch.Tensor]:
+        """Run an exact offline forward for an input longer than the model limit.
+
+        The trunk is offline, but every block has a finite symmetric receptive
+        field.  Each chunk therefore includes a context10 halo large enough to
+        cover all three Conformer blocks; only the core is retained.  This is
+        equivalent to a whole-song forward up to normal floating-point
+        reduction order and keeps the public ``forward`` length guard intact.
+        ``chunk_frames40`` is primarily useful for seam tests and must not
+        exceed the configured maximum.
+        """
+        self._validate_audio(audio40, enforce_limit=False)
+        _, total40, _ = audio40.shape
+        limit40 = self.cfg.max_frames40 if chunk_frames40 is None else chunk_frames40
+        if type(limit40) is not int or limit40 <= 0 or limit40 % 4:
+            raise ValueError("chunk_frames40 must be a positive multiple of four")
+        if limit40 > self.cfg.max_frames40:
+            raise ValueError("chunk_frames40 cannot exceed max_frames40")
+        if total40 <= limit40:
+            return self(audio40)
+
+        halo10 = self.cfg.context_radius10
+        limit10 = limit40 // 4
+        core10 = limit10 - 2 * halo10
+        if core10 <= 0:
+            raise ValueError("max_frames40 is too short for the model receptive-field halo")
+        total10 = total40 // 4
+        pieces: dict[str, list[torch.Tensor]] = {}
+        for start10 in range(0, total10, core10):
+            end10 = min(total10, start10 + core10)
+            left10 = max(0, start10 - halo10)
+            right10 = min(total10, end10 + halo10)
+            chunk = self(audio40[:, left10 * 4:right10 * 4])
+            keep = slice(start10 - left10, end10 - left10)
+            for key, value in chunk.items():
+                # accent is 40 Hz; the other outputs are 10 Hz context streams.
+                if value.shape[1] == (right10 - left10) * 4:
+                    pieces.setdefault(key, []).append(value[:, keep.start * 4:keep.stop * 4])
+                else:
+                    pieces.setdefault(key, []).append(value[:, keep])
+        return {key: torch.cat(values, dim=1) for key, values in pieces.items()}
 
     def forward(self, audio40: torch.Tensor) -> dict[str, torch.Tensor]:
         """Return raw logits and palette context; no thresholding or sampling.
