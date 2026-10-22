@@ -1,0 +1,63 @@
+{
+  "schema_version": 1,
+  "id": "body-to-dmx-all-source-v10-20261022",
+  "status": "user_selected_body_to_dmx_baseline",
+  "selected_on": "2026-10-22",
+  "selection_scope": "Committed old dance/body generator -> BodyToDMX second neural network -> scene/event/weak-angle heads -> DMX/renderer, jointly trained with the maximum admitted BeatSaver, RPMC-L2 and Roskilde appearance contracts.",
+  "checkpoint": {
+    "path": "/mnt/lightsem-data/experiments/lightsem/body_to_dmx_foundation_20261022/pilot_seed0_v10_full_rpmc_roskilde/model.pt",
+    "sha256": "d41809080c62c514bbe78e6fa7f0078ff1e6670e1c162b542e6443fc6a17312b"
+  },
+  "training_receipt": {
+    "path": "/mnt/lightsem-data/experiments/lightsem/body_to_dmx_foundation_20261022/pilot_seed0_v10_full_rpmc_roskilde/REPORT.json",
+    "sha256": "cff696764ee56b5d44be3f9584168067cd8259c5dff00e4f59109cc80d5659b0"
+  },
+  "training": {
+    "seed": 0,
+    "steps": 1200,
+    "beatsaver_pairs": 8,
+    "rpmc_samples": 699,
+    "roskilde_samples": 224,
+    "open_loss_weight": 1.0,
+    "source_masks": {
+      "beatsaver": ["scene", "event", "weak_angle", "body"],
+      "rpmc": ["scene"],
+      "roskilde": ["abstract_light_60d"]
+    }
+  },
+  "datasets": {
+    "rpmc": {
+      "path": "/mnt/lightsem-data/rpmc_l2/RPMC_L2.h5",
+      "sha256": "ff0e49adf9b0ef4c1604b4adede74ae24902c0aab8e9a77839d59ff4d74d3ea8"
+    },
+    "roskilde": {
+      "path": "/mnt/lightsem-data/open_datasets/roskilde_2023/songs.pkl",
+      "sha256": "b644c4ae89ca6b73b880124339593ecc81463a2ee116a743d6d20fe585b50ca1"
+    },
+    "beatsaver_body_root": "/mnt/lightsem-data/experiments/lightsem/body_to_dmx_foundation_20261013"
+  },
+  "code": {
+    "entrypoint": "scripts/light_layers/train_body_to_dmx_all_source_masked.py",
+    "entrypoint_sha256": "91aa992d5db789078a1fad341822665a99b7ca2c71435b3a218e83282e5397db",
+    "trainer": "scripts/light_layers/train_body_to_dmx_multisource_roskilde.py",
+    "trainer_sha256": "469ddd8d18fd910d11d0702aaeacdf1095edb85c383814fc4f9dfbff1f3537c3",
+    "commit": "38180dc1383888dc38ce3566566d0fb89170b28e"
+  },
+  "evaluation": {
+    "beatsaver_scene_mae_baseline": 0.324438214302063,
+    "beatsaver_scene_mae_selected": 0.35396747291088104,
+    "beatsaver_percent_change": -9.101658592327633,
+    "rpmc_scene_mae_baseline": 0.27473190586481777,
+    "rpmc_scene_mae_selected": 0.27516495002259456,
+    "rpmc_percent_change": -0.15762426879893054,
+    "roskilde_abstract_mae_mean_baseline": 0.8164997087283568,
+    "roskilde_abstract_mae_selected": 0.7464460283517838,
+    "roskilde_percent_change": 8.579755709365394
+  },
+  "qualification": {
+    "status": "diagnostic_only",
+    "physical_motion_claim": false,
+    "native_dmx_claim": false,
+    "note": "User-selected baseline for this BodyToDMX campaign; BeatSaver regression remains disclosed and blocks scientific qualification."
+  }
+}

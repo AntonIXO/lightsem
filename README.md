@@ -12,6 +12,21 @@ and movies remain external assets; restore the documented data/model mount or
 use `--checkpoint`, `--d6-checkpoint`, `--features` and `--base92` to relocate
 the exact authenticated assets. There is no alternate-encoder fallback.
 
+## User-selected BodyToDMX all-source baseline
+
+For the committed old dance/body baseline campaign, the selected path is
+`dance/body generator -> BodyToDMX second neural network -> scene/event/weak-angle heads -> DMX/renderer`.
+Its immutable selection is recorded in
+[`configs/dance/body_to_dmx_all_source.json`](configs/dance/body_to_dmx_all_source.json).
+The selected arm uses all admitted local sources: BeatSaver body/audio pairs,
+all 699 RPMC-L2 songs, and all 224 Roskilde abstract-light songs. BeatSaver
+supervises scene/event/weak-angle/body; RPMC supervises only its six-dimensional
+scene target; Roskilde supervises only its abstract 60-D lighting head. Neither
+open source supervises physical body motion, pan/tilt, or native DMX. The arm is
+user-selected but remains diagnostic-only because its BeatSaver scene MAE is
+9.10% worse than the prior committed pilot; do not silently relabel that result
+as scientific qualification.
+
 ```bash
 # Default: fixed C + MuQ, P2 color and restored historical brightness.
 bash run_torch.sh -m lightsem.cli render --wav /root/shpongle.flac --out runs/fixed_c.mp4
