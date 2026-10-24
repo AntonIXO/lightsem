@@ -1,0 +1,13 @@
+{
+  "status": "single_engine_pose_stage_comparison",
+  "fp32_engine": "rtmpose_m_fp32.plan",
+  "bf16_engine": "rtmpose_m_autocast_bf16.plan",
+  "fp32_median_pose_calls_per_second": 596.2833964,
+  "bf16_median_pose_calls_per_second": 1114.2777324,
+  "pose_stage_speedup": 1.868,
+  "bf16_finite_fraction": 1.0,
+  "bf16_vs_fp32_mean_keypoint_difference_px": [1.7544,2.2200,2.5579,2.2560],
+  "scope": "4 clips, 60 frames each, precomputed identical FP32 detector boxes; excludes detector and decode",
+  "bf16_engine_sha256": "daed55a96dc083d9b6eacd8431759707f247050e42d430e7d81ae378a2a4dd2a",
+  "note": "Use the artifact file hash for the FP32 engine; no placeholder hash is recorded."
+}

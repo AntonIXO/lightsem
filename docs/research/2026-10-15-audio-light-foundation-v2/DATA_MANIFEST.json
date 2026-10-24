@@ -1,0 +1,10 @@
+{
+  "source_root": "/mnt/lightsem-data/experiments/lightsem/body_to_dmx_foundation_20261013",
+  "rows": ["1023", "10dcc", "1181f", "11b01", "1672d", "210e3", "21c3a", "3b4ab"],
+  "split": {"train": ["1023", "10dcc", "1181f", "11b01", "1672d", "210e3"], "validation": ["21c3a", "3b4ab"]},
+  "primary_targets": ["BeatSaver authored RGB groups", "BeatSaver group intensity", "BeatSaver event target"],
+  "auxiliary_targets": ["saved native-C body latent", "body-derived fixture aim proxy", "body-derived angular speed/acceleration proxy"],
+  "audio_provenance": "each row uses its authenticated pinned MuQ timeline and paired Base92 cache",
+  "limitations": ["eight songs", "virtual groups are not physical pan/tilt labels", "body-derived motion target is a mapper proxy", "BeatSaver rights remain per-map and research-only"],
+  "no_cross_song_reuse": true
+}

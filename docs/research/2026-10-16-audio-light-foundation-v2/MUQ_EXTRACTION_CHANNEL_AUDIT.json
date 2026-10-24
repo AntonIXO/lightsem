@@ -1,0 +1,249 @@
+{
+  "canonical_extraction": {
+    "all_finite": true,
+    "all_muqs_1024d": true,
+    "all_timestamps_strict": true,
+    "extra_ids": [],
+    "layer": 9,
+    "missing_wav_ids": [],
+    "model_id": "OpenMuQ/MuQ-large-msd-iter",
+    "native_hz": 25,
+    "nonfinite": [],
+    "receipt": "/mnt/lightsem-data/experiments/lightsem/audio_light_foundation_v2_muq_20261016_v3/COMPLETE_V2.json",
+    "receipt_sha256": "f6c6944c9147210a7bc005adc48118c3b11831c22eba8e6ca44111b341c96bd4",
+    "records": 300,
+    "revision": "0562a57814f6f8bbd9fdea0a25921a2fce1a841a",
+    "sample_rate_hz": 24000,
+    "saved_dtype": "float16",
+    "shape_bad": [],
+    "timestamp_bad": [],
+    "unique_wav_sha256": 298,
+    "wav_records": 300
+  },
+  "channel_contract": {
+    "base92_dim": 92,
+    "base92_layout": "mel64+scalar28 at 40Hz, timestamp-aligned to 10Hz",
+    "legacy_visual_52d_forbidden": true,
+    "muq_dim": 1024,
+    "muq_layout": "layer9 at 25Hz, timestamp-aligned to 10Hz",
+    "total_dim": 1116,
+    "zero_padding_forbidden": true
+  },
+  "old_experiment_reconciliation": {
+    "old_cache_is_not_reused": true,
+    "old_native_cache_rows": 8,
+    "reason": "old native cache used 8s overlap-aware crops; canonical v2 uses 30s/20s/5s windows. Same model/revision and shape do not imply byte-equivalent context-boundary values; all 300 rows were re-extracted under one canonical protocol.",
+    "rows": [
+      {
+        "flattened_corr": 0.8968059997475015,
+        "id": "1023",
+        "max_abs_error": 16.71875,
+        "mean_abs_error": 0.6064077019691467,
+        "new_protocol": {
+          "chunk_seconds": 30,
+          "context_seconds": 5,
+          "core_seconds": 20,
+          "overlap_stitch": "5s context discard",
+          "path": "/mnt/lightsem-data/experiments/lightsem/audio_light_foundation_v2_muq_20261016_v3/1023.npz"
+        },
+        "new_shape": [
+          4303,
+          1024
+        ],
+        "old_protocol": {
+          "chunk_seconds": 8,
+          "overlap_stitch": "timestamp-aligned average",
+          "path": "/mnt/lightsem-data/cache/native_c_cli/f85a80079adcc3adfba153a1580f9c4c15b0207cbc98a1551fac3adbaf12c2df/features/timelines/input.npz"
+        },
+        "old_shape": [
+          4303,
+          1024
+        ]
+      },
+      {
+        "flattened_corr": 0.8687834390983198,
+        "id": "10dcc",
+        "max_abs_error": 9.92578125,
+        "mean_abs_error": 0.6349542737007141,
+        "new_protocol": {
+          "chunk_seconds": 30,
+          "context_seconds": 5,
+          "core_seconds": 20,
+          "overlap_stitch": "5s context discard",
+          "path": "/mnt/lightsem-data/experiments/lightsem/audio_light_foundation_v2_muq_20261016_v3/10dcc.npz"
+        },
+        "new_shape": [
+          593,
+          1024
+        ],
+        "old_protocol": {
+          "chunk_seconds": 8,
+          "overlap_stitch": "timestamp-aligned average",
+          "path": "/mnt/lightsem-data/cache/native_c_cli/422ed144250b4de757b0608ab8cb4de91d6ad501d7dadf8c5e9c39b3ce9f5e18/features/timelines/input.npz"
+        },
+        "old_shape": [
+          593,
+          1024
+        ]
+      },
+      {
+        "flattened_corr": 0.8896377780066087,
+        "id": "1181f",
+        "max_abs_error": 11.74609375,
+        "mean_abs_error": 0.6264373660087585,
+        "new_protocol": {
+          "chunk_seconds": 30,
+          "context_seconds": 5,
+          "core_seconds": 20,
+          "overlap_stitch": "5s context discard",
+          "path": "/mnt/lightsem-data/experiments/lightsem/audio_light_foundation_v2_muq_20261016_v3/1181f.npz"
+        },
+        "new_shape": [
+          4034,
+          1024
+        ],
+        "old_protocol": {
+          "chunk_seconds": 8,
+          "overlap_stitch": "timestamp-aligned average",
+          "path": "/mnt/lightsem-data/cache/native_c_cli/f02de44a206a859822ac451b862bd955a21443a0b34f16cb420a325a26580bc7/features/timelines/input.npz"
+        },
+        "old_shape": [
+          4034,
+          1024
+        ]
+      },
+      {
+        "flattened_corr": 0.8948102188444355,
+        "id": "11b01",
+        "max_abs_error": 12.09375,
+        "mean_abs_error": 0.6068676710128784,
+        "new_protocol": {
+          "chunk_seconds": 30,
+          "context_seconds": 5,
+          "core_seconds": 20,
+          "overlap_stitch": "5s context discard",
+          "path": "/mnt/lightsem-data/experiments/lightsem/audio_light_foundation_v2_muq_20261016_v3/11b01.npz"
+        },
+        "new_shape": [
+          7734,
+          1024
+        ],
+        "old_protocol": {
+          "chunk_seconds": 8,
+          "overlap_stitch": "timestamp-aligned average",
+          "path": "/mnt/lightsem-data/cache/native_c_cli/df38a50565844983e07a5e46db8b98dcad2180bf3b838e27e8b5539aff4331eb/features/timelines/input.npz"
+        },
+        "old_shape": [
+          7734,
+          1024
+        ]
+      },
+      {
+        "flattened_corr": 0.9234592241853659,
+        "id": "1672d",
+        "max_abs_error": 15.34423828125,
+        "mean_abs_error": 0.5243850350379944,
+        "new_protocol": {
+          "chunk_seconds": 30,
+          "context_seconds": 5,
+          "core_seconds": 20,
+          "overlap_stitch": "5s context discard",
+          "path": "/mnt/lightsem-data/experiments/lightsem/audio_light_foundation_v2_muq_20261016_v3/1672d.npz"
+        },
+        "new_shape": [
+          4408,
+          1024
+        ],
+        "old_protocol": {
+          "chunk_seconds": 8,
+          "overlap_stitch": "timestamp-aligned average",
+          "path": "/mnt/lightsem-data/cache/native_c_cli/153d4acb1b1d77c6835939bdfcf79eec5faab1c0a722d6a03ecccf1a5d110cc6/features/timelines/input.npz"
+        },
+        "old_shape": [
+          4408,
+          1024
+        ]
+      },
+      {
+        "flattened_corr": 0.9112048423984469,
+        "id": "210e3",
+        "max_abs_error": 13.390625,
+        "mean_abs_error": 0.5616945028305054,
+        "new_protocol": {
+          "chunk_seconds": 30,
+          "context_seconds": 5,
+          "core_seconds": 20,
+          "overlap_stitch": "5s context discard",
+          "path": "/mnt/lightsem-data/experiments/lightsem/audio_light_foundation_v2_muq_20261016_v3/210e3.npz"
+        },
+        "new_shape": [
+          4089,
+          1024
+        ],
+        "old_protocol": {
+          "chunk_seconds": 8,
+          "overlap_stitch": "timestamp-aligned average",
+          "path": "/mnt/lightsem-data/cache/native_c_cli/b3a0682fdd6d266bb407adac9527b69b87c03b2228f660cfa378621089a2677a/features/timelines/input.npz"
+        },
+        "old_shape": [
+          4089,
+          1024
+        ]
+      },
+      {
+        "flattened_corr": 0.906809973346884,
+        "id": "21c3a",
+        "max_abs_error": 17.52734375,
+        "mean_abs_error": 0.5697180032730103,
+        "new_protocol": {
+          "chunk_seconds": 30,
+          "context_seconds": 5,
+          "core_seconds": 20,
+          "overlap_stitch": "5s context discard",
+          "path": "/mnt/lightsem-data/experiments/lightsem/audio_light_foundation_v2_muq_20261016_v3/21c3a.npz"
+        },
+        "new_shape": [
+          2452,
+          1024
+        ],
+        "old_protocol": {
+          "chunk_seconds": 8,
+          "overlap_stitch": "timestamp-aligned average",
+          "path": "/mnt/lightsem-data/cache/native_c_cli/6d6a837017c51601b2c99cb31c18d0a9e20b54615bedb3d0e389db22845bfc96/features/timelines/input.npz"
+        },
+        "old_shape": [
+          2452,
+          1024
+        ]
+      },
+      {
+        "flattened_corr": 0.905536949993966,
+        "id": "3b4ab",
+        "max_abs_error": 16.68359375,
+        "mean_abs_error": 0.5811607837677002,
+        "new_protocol": {
+          "chunk_seconds": 30,
+          "context_seconds": 5,
+          "core_seconds": 20,
+          "overlap_stitch": "5s context discard",
+          "path": "/mnt/lightsem-data/experiments/lightsem/audio_light_foundation_v2_muq_20261016_v3/3b4ab.npz"
+        },
+        "new_shape": [
+          6021,
+          1024
+        ],
+        "old_protocol": {
+          "chunk_seconds": 8,
+          "overlap_stitch": "timestamp-aligned average",
+          "path": "/mnt/lightsem-data/cache/native_c_cli/d10b3b52ca278ff6c15b69ee9973aff3498e93aba2d1faab03679b761046fc12/features/timelines/input.npz"
+        },
+        "old_shape": [
+          6021,
+          1024
+        ]
+      }
+    ]
+  },
+  "protocol": "audio-light-foundation-v2-muq-channel-audit-20261016-v2",
+  "schema_version": 1
+}

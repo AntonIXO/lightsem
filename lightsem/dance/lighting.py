@@ -194,24 +194,48 @@ def _source_dependence_audit(world40, time, outputs, left, right, levels, transf
                     'unobservable': 'root translation is intentionally removed by the mapper reference frame',
                 })
                 continue
-            perturbed = frozen.copy(); perturbed[:, joint, 0] += .05
-            changed, _ = emit(perturbed)
             moving_indices = [index for index in fixture_indices if patch[index]['kind'] != 'bulb']
-            delta = np.linalg.norm(changed['directions'][:, fixture_indices] - frozen_controls['directions'][:, fixture_indices], axis=-1)
-            dimmer_delta = np.abs(changed['dimmer'][:, fixture_indices] - frozen_controls['dimmer'][:, fixture_indices])
-            moving_delta = np.linalg.norm(changed['directions'][:, moving_indices] - frozen_controls['directions'][:, moving_indices], axis=-1)
             row = responses.setdefault(str(joint), {
                 'fixture_indices': fixture_indices, 'moving_fixture_indices': moving_indices,
                 'max_direction_delta': 0., 'max_moving_direction_delta': 0., 'max_dimmer_delta': 0.,
                 'responsive': True, 'moving_responsive': True, 'windows': []})
-            response = max(float(np.max(delta)) if delta.size else 0., float(np.max(dimmer_delta)) if dimmer_delta.size else 0.)
-            row['max_direction_delta'] = max(row['max_direction_delta'], float(np.max(delta)) if delta.size else 0.)
-            row['max_moving_direction_delta'] = max(row['max_moving_direction_delta'], float(np.max(moving_delta)) if moving_delta.size else 0.)
-            row['max_dimmer_delta'] = max(row['max_dimmer_delta'], float(np.max(dimmer_delta)) if dimmer_delta.size else 0.)
-            row['responsive'] = row['responsive'] and response > 1e-7
-            row['moving_responsive'] = row['moving_responsive'] and (bool(moving_delta.size and np.max(moving_delta) > 1e-7) if moving_indices else True)
-            row['windows'].append({'start_frame': int(start), 'responsive': response > 1e-7,
-                                   'moving_responsive': bool(moving_delta.size and np.max(moving_delta) > 1e-7) if moving_indices else None})
+            # A fixed X-only perturbation can be geometrically unobservable
+            # for a valid source-dependent field (D6 exposed this for two
+            # joints in the middle window). Probe each spatial component and
+            # retain the axis-specific evidence instead of turning that
+            # coordinate choice into a mapper failure.
+            axis_responses = []
+            window_responsive = False
+            window_moving_responsive = False if moving_indices else None
+            for axis in range(3):
+                perturbed = frozen.copy(); perturbed[:, joint, axis] += .05
+                changed, _ = emit(perturbed)
+                delta = np.linalg.norm(changed['directions'][:, fixture_indices] - frozen_controls['directions'][:, fixture_indices], axis=-1)
+                dimmer_delta = np.abs(changed['dimmer'][:, fixture_indices] - frozen_controls['dimmer'][:, fixture_indices])
+                moving_delta = np.linalg.norm(changed['directions'][:, moving_indices] - frozen_controls['directions'][:, moving_indices], axis=-1)
+                max_direction_delta = float(np.max(delta)) if delta.size else 0.
+                max_moving_direction_delta = float(np.max(moving_delta)) if moving_delta.size else 0.
+                max_dimmer_delta = float(np.max(dimmer_delta)) if dimmer_delta.size else 0.
+                response = max(max_direction_delta, max_dimmer_delta)
+                moving_response = bool(moving_delta.size and max_moving_direction_delta > 1e-7) if moving_indices else None
+                responsive = response > 1e-7
+                axis_responses.append({'axis': axis,
+                                       'max_direction_delta': max_direction_delta,
+                                       'max_moving_direction_delta': max_moving_direction_delta,
+                                       'max_dimmer_delta': max_dimmer_delta,
+                                       'responsive': responsive,
+                                       'moving_responsive': moving_response})
+                window_responsive = window_responsive or responsive
+                if moving_indices:
+                    window_moving_responsive = window_moving_responsive or moving_response
+                row['max_direction_delta'] = max(row['max_direction_delta'], max_direction_delta)
+                row['max_moving_direction_delta'] = max(row['max_moving_direction_delta'], max_moving_direction_delta)
+                row['max_dimmer_delta'] = max(row['max_dimmer_delta'], max_dimmer_delta)
+            row['responsive'] = row['responsive'] and window_responsive
+            row['moving_responsive'] = row['moving_responsive'] and (window_moving_responsive if moving_indices else True)
+            row['windows'].append({'start_frame': int(start), 'responsive': window_responsive,
+                                   'moving_responsive': window_moving_responsive,
+                                   'axis_responses': axis_responses})
     frozen_stable = frozen_angle_range <= 1e-7 and frozen_direction_range <= 1e-7
     assigned_responsive = bool(responses) and all(
         row['moving_responsive'] if row.get('moving_fixture_indices') else row['responsive']

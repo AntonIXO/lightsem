@@ -169,17 +169,27 @@ class Flow(DynamicFlow):
                 nn.Conv1d(hidden,hidden,9,padding=4,groups=hidden),nn.SiLU(),
                 nn.Conv1d(hidden,base_config.width,1))
             nn.init.zeros_(self.temporal_adapter[-1].weight);nn.init.zeros_(self.temporal_adapter[-1].bias)
-    def flow_stereo(self,value):
+    def flow_stereo(self,value,*,chunk_frames=None):
         if self.native_config.stereo_fusion=='gated_residual':
             fast, slow = value[...,:64], value[...,64:]
             return fast + torch.tanh(self.stereo_gate(value))*slow
         if self.native_config.stereo_fusion=='role_specialized':
             return value[...,:64]
         if self.native_config.stereo_fusion=='dual_cross_attention':
-            fast,slow=value[...,:64],value[...,64:]
-            fast_from_slow,_=self.stereo_cross_fast(fast,slow,slow,need_weights=False)
-            slow_from_fast,_=self.stereo_cross_slow(slow,fast,fast,need_weights=False)
-            return torch.cat((fast+fast_from_slow,slow+slow_from_fast),-1)
+            def attend(chunk):
+                fast,slow=chunk[...,:64],chunk[...,64:]
+                fast_from_slow,_=self.stereo_cross_fast(fast,slow,slow,need_weights=False)
+                slow_from_fast,_=self.stereo_cross_slow(slow,fast,fast,need_weights=False)
+                return torch.cat((fast+fast_from_slow,slow+slow_from_fast),-1)
+            if chunk_frames is not None and (type(chunk_frames) is not int or chunk_frames < 1):
+                raise ValueError('Stereo attention chunk_frames must be a positive integer')
+            if chunk_frames is None or value.shape[1] <= chunk_frames:
+                return attend(value)
+            # The trained stereo attention window is finite.  Apply it per
+            # native chunk for long songs so quadratic memory stays bounded;
+            # no cross-chunk values are invented or dropped.
+            return torch.cat([attend(value[:, start:start+chunk_frames])
+                              for start in range(0, value.shape[1], chunk_frames)], dim=1)
         return value
     def planner_stereo(self,value):
         if self.native_config.stereo_fusion=='role_specialized':
@@ -206,7 +216,8 @@ class Flow(DynamicFlow):
             if native is not None:bias=bias+self.native_config.adapter_scale*torch.tanh(native_adapter(native))
             if stereo is not None:
                 if stereo.shape[-1]!=self.native_config.stereo_dim:raise ValueError('Stereo native context width mismatch')
-                stereo_hidden=F.silu(self.stereo_projection(self.flow_stereo(stereo)))
+                stereo_hidden=F.silu(self.stereo_projection(
+                    self.flow_stereo(stereo, chunk_frames=self.native_config.frames)))
                 stereo_scale=self.native_config.adapter_scale if self.native_config.stereo_adapter_scale is None else self.native_config.stereo_adapter_scale
                 bias=bias+stereo_scale*torch.tanh(self.stereo_adapters[index](stereo_hidden))
             if self.quiet_projection is not None:
@@ -241,7 +252,7 @@ class Flow(DynamicFlow):
         return self.prepared_vector_field(*self.prepare_conditioning(audio),state,t,self.prepare_audio_context(audio))
 
     def config_dict(self):
-        return {**super().config_dict(),'native_control_channels':80,'legacy34_plan_projection_unused':True,'conditioning':'Base92+1061frozenaudio+48learneddynamics+32continuousmotif+optionalStereoV1+optionalQuietAdapter+optionalLocalAudioFusion+optionalTemporalAdapter; onlyjointconsumescontrol','stereo_dim':self.native_config.stereo_dim,'stereo_fusion':self.native_config.stereo_fusion,'quiet_adapter':self.native_config.quiet_adapter,'audio_fusion':self.native_config.audio_fusion,'temporal_adapter':self.native_config.temporal_adapter,'audio_context':'fine native audio with +/-60,+/-30,+/-15,+/-5,0 frame offsets; no playback clock','retiming':False}
+        return {**super().config_dict(),'native_control_channels':80,'legacy34_plan_projection_unused':True,'conditioning':'Base92+1061frozenaudio+48learneddynamics+32continuousmotif+optionalStereoV1+optionalQuietAdapter+optionalLocalAudioFusion+optionalTemporalAdapter; onlyjointconsumescontrol','stereo_dim':self.native_config.stereo_dim,'stereo_fusion':self.native_config.stereo_fusion,'stereo_attention_window_frames':self.native_config.frames if self.native_config.stereo_fusion=='dual_cross_attention' else None,'quiet_adapter':self.native_config.quiet_adapter,'audio_fusion':self.native_config.audio_fusion,'temporal_adapter':self.native_config.temporal_adapter,'audio_context':'fine native audio with +/-60,+/-30,+/-15,+/-5,0 frame offsets; no playback clock','retiming':False}
 
 
 

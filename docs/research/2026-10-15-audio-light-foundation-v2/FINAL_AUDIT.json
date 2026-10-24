@@ -1,0 +1,84 @@
+{
+  "candidate": "v15",
+  "checkpoint": "/mnt/lightsem-data/experiments/lightsem/audio_light_foundation_privileged_dance_20261015_v15/target_plus_dance_aux_spread/model.pt",
+  "checkpoint_sha256": "b98b749f9c12e31d484923cc66ffd5a4a08c4513a3cdc03eccb5e18a675dd394",
+  "color_brightness": {
+    "21c3a": {
+      "brightness_max": 0.4363400638103485,
+      "brightness_min": 4.481052656046813e-06,
+      "brightness_time_std": 0.08778969943523407,
+      "rgb_max": 0.6075910329818726,
+      "rgb_min": 0.0009100001771003008,
+      "rgb_time_std": 0.08120135217905045
+    },
+    "3b4ab": {
+      "brightness_max": 0.81449294090271,
+      "brightness_min": 7.387992354779271e-06,
+      "brightness_time_std": 0.23285764455795288,
+      "rgb_max": 0.5691816210746765,
+      "rgb_min": 0.001026469748467207,
+      "rgb_time_std": 0.08061114698648453
+    }
+  },
+  "conditioning": {
+    "audio_shuffle_aim_delta": 0.04837453365325928,
+    "audio_shuffle_brightness_delta": 0.3153577446937561,
+    "audio_shuffle_rgb_delta": 0.07212945818901062,
+    "cross_song_aim_abs": 0.030883081257343292,
+    "cross_song_aim_corr": 0.9962906112747564
+  },
+  "dance_input_at_inference": false,
+  "frames_inspected": [
+    "/mnt/lightsem-data/experiments/lightsem/audio_light_foundation_privileged_dance_20261015_v15/demo_3b4ab_render/frames/frame_0000.png",
+    "/mnt/lightsem-data/experiments/lightsem/audio_light_foundation_privileged_dance_20261015_v15/demo_3b4ab_render/frames/frame_0192.png",
+    "/mnt/lightsem-data/experiments/lightsem/audio_light_foundation_privileged_dance_20261015_v15/demo_3b4ab_render/frames/frame_0383.png",
+    "/mnt/lightsem-data/experiments/lightsem/audio_light_foundation_privileged_dance_20261015_v15/demo_21c3a_render/frames/frame_0000.png",
+    "/mnt/lightsem-data/experiments/lightsem/audio_light_foundation_privileged_dance_20261015_v15/demo_21c3a_render/frames/frame_0192.png",
+    "/mnt/lightsem-data/experiments/lightsem/audio_light_foundation_privileged_dance_20261015_v15/demo_21c3a_render/frames/frame_0383.png"
+  ],
+  "inference_modalities": [
+    "MuQ layer 9",
+    "Base92",
+    "fixture metadata"
+  ],
+  "motion": {
+    "21c3a": {
+      "aim_mae": 0.1364343762397766,
+      "aim_mse": 0.05734099820256233,
+      "pred_mean_pairwise": 0.7875542640686035,
+      "pred_temporal_std": 0.06481609493494034,
+      "spread_ratio": 0.8846461597606676,
+      "target_mean_pairwise": 0.8902477622032166,
+      "target_temporal_std": 0.19724023342132568
+    },
+    "3b4ab": {
+      "aim_mae": 0.13734225928783417,
+      "aim_mse": 0.05214075744152069,
+      "pred_mean_pairwise": 0.809249222278595,
+      "pred_temporal_std": 0.06203020364046097,
+      "spread_ratio": 1.0163830909510947,
+      "target_mean_pairwise": 0.7962049245834351,
+      "target_temporal_std": 0.18440434336662292
+    }
+  },
+  "native_body_or_dmx": false,
+  "protocol_id": "audio-light-foundation-privileged-dance-20261015-v1",
+  "reason": "The candidate has finite outputs, visible time-varying aim, RGB and brightness, and passes the basic spatial spread ratio on both held-out songs. However, cross-song aim correlation is near identity; the two songs receive nearly the same movement trajectory. This fails the required music-conditioning gate. No native DMX/body promotion is allowed.",
+  "schema_version": 1,
+  "seed": 0,
+  "songs": [
+    "3b4ab",
+    "21c3a"
+  ],
+  "verdict": "diagnostic_only_rejected_music_conditioning",
+  "videos": {
+    "21c3a": {
+      "path": "/mnt/lightsem-data/experiments/lightsem/audio_light_foundation_privileged_dance_20261015_v15/demo_21c3a_render/demo.mp4",
+      "sha256": "e7cd052fcaee9c55157fc0c9e5191c52d91e62e0b7cab79c3a5a0f962d45a9b7"
+    },
+    "3b4ab": {
+      "path": "/mnt/lightsem-data/experiments/lightsem/audio_light_foundation_privileged_dance_20261015_v15/demo_3b4ab_render/demo.mp4",
+      "sha256": "9cf5de569577c82bea7f31a7410e74de82ac98cc252999787a4a461d31910266"
+    }
+  }
+}

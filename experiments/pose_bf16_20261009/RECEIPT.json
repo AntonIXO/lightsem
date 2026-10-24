@@ -1,0 +1,26 @@
+{
+  "status": "pose_stage_complete_end_to_end_pending",
+  "precision": "mixed BF16/FP32 via ModelOpt AutoCast + TensorRT",
+  "tensorrt": "11.4.0.106",
+  "engine": "rtmpose_m_autocast_bf16.plan",
+  "engine_sha256": "daed55a96dc083d9b6eacd8431759707f247050e42d430e7d81ae378a2a4dd2a",
+  "converted_graph_sha256": "d48b8d15543565507700916311d1f358727a8580ba3ceaeb1bbcc35121f0f904",
+  "converted_nodes": "251/254 pose nodes BF16; sensitive nodes retained FP32",
+  "clips": 4,
+  "frames_per_clip": 60,
+  "finite_fraction": 1.0,
+  "mean_keypoint_difference_px": {
+    "bl399rfzD5s": 1.7544413,
+    "-G-6DNPGEfk": 2.2199756,
+    "kQzKKB1E9ZA": 2.5579138,
+    "zWnvxM5cs8g": 2.2560130
+  },
+  "pose_calls_per_second": {
+    "bl399rfzD5s": 1068.79,
+    "-G-6DNPGEfk": 1088.12,
+    "kQzKKB1E9ZA": 1116.91,
+    "zWnvxM5cs8g": 1056.94
+  },
+  "detector": "FP32 detector boxes loaded from authenticated RTMPose reference cache; detector BF16 TensorRT build pending",
+  "promotion": "not qualified for full pipeline"
+}

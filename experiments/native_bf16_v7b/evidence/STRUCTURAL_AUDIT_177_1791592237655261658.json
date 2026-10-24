@@ -1,0 +1,11 @@
+{
+  "scope": "partial cache structural audit; not tracking or choreography qualification",
+  "checked_unix": 1791592237.6552413,
+  "completed_files": 177,
+  "requested_files": 675,
+  "frames": 1208950,
+  "models": {
+    "rtmpose-m-body7-bf16": 177
+  },
+  "issues": []
+}

@@ -4,6 +4,14 @@
 __pycache__/
 *.pyc
 
+# Local runtime environments and external data mounts are not repository
+# artifacts.  Keep them out of commits even when they are created at the repo
+# root by a dependency setup or a data-mount helper.
+/.bf16_pydeps/
+/.hermes/
+/.modelopt_env/
+/data
+
 # Datasets and caches (7.5 GB): rebuild with build_caches.py / build_targets.py.
 # Anchored with a leading slash: a bare "data/" also matches lightsem/data/,
 # which is source code, and git ignores it without saying so.

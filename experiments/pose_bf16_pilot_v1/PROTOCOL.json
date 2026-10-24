@@ -1,0 +1,1 @@
+{"schema_version":1,"model":"RTMPose-m body17","pose_profile":"bf16","backend":"TensorRT autocast BF16, FP32 I/O","detector":"YOLOX-m HumanArt CUDA ONNX","confidence_admission_gate":false,"frames_per_recording":120,"source_ids":["--74o20SmOs","-G-6DNPGEfk"]}

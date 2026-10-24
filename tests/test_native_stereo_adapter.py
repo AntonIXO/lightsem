@@ -66,3 +66,19 @@ def test_dual_cross_attention_preserves_two_stream_width_at_zero_output_init():
     # The two MHA output projections are zero-initialized, so the new branch
     # starts as an exact concat control before end-to-end updates.
     torch.testing.assert_close(fused, value, rtol=0, atol=0)
+
+
+def test_dual_cross_attention_chunks_long_fine_context_without_changing_each_window():
+    config = MusicConfig(width=16, frames=48, dilations=(1, 2), steps=32)
+    norms = {"mean": [0.] * 139, "std": [1.] * 139, "delta_scale": [1.] * 139}
+    model = NativeDynamicsModel(
+        config, norms,
+        Config(arm="joint", extra_dim=10, stereo_dim=128,
+               stereo_fusion="dual_cross_attention", planner_width=16,
+               planner_heads=4, frames=12),
+    ).eval()
+    value = torch.randn(1, 31, 128)
+    expected = torch.cat([model.flow.flow_stereo(value[:, start:start + 12])
+                          for start in range(0, len(value[0]), 12)], dim=1)
+    actual = model.flow.flow_stereo(value, chunk_frames=12)
+    torch.testing.assert_close(actual, expected, rtol=0, atol=0)

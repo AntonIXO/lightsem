@@ -1,0 +1,9 @@
+{
+  "artifact": "/mnt/lightsem-data/experiments/lightsem/audio_light_foundation_privileged_dance_20261015_v15/FINAL_AUDIT.json",
+  "candidate": "v15",
+  "protocol_id": "audio-light-foundation-privileged-dance-20261015-v1",
+  "qualification": "forbidden",
+  "reason": "The repaired seed-0 model has finite, visibly time-varying aim and target-relative spatial spread on both held-out songs, plus audio-dependent RGB/brightness. Its two held-out aim trajectories remain nearly identical (cross-song correlation 0.9963; mean absolute difference 0.0309), so the required music-conditioning gate fails. The pilot emits no native body or DMX and must not be promoted.",
+  "verdict": "diagnostic_only_rejected_music_conditioning",
+  "vibescience": "MCP recall remains blocked by a pre-existing malformed Experiment record; manual vault lineage is retained."
+}

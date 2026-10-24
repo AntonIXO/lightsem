@@ -1,0 +1,15 @@
+{
+  "audio_dim": 1024,
+  "body_dim": 66,
+  "fixture_dim": 8,
+  "width": 96,
+  "attention_heads": 4,
+  "local_window": 32,
+  "latent_slots": 8,
+  "state": "persistent GRU hidden state plus latent array",
+  "clock": "10 Hz aligned pilot clock; nearest native timestamps from pinned MuQ layer 9 remain physical seconds",
+  "body": "saved native-C world positions converted to root-relative coordinates; no body generation",
+  "color": "bounded OKLab field head; RGB is a diagnostic projection only",
+  "motion": "body-effort gated jerk proposal followed by bounded dynamics projection",
+  "fixture_equivariance": "metadata shared per fixture, no fixture index embedding"
+}

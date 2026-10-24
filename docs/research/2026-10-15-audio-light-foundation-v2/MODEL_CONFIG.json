@@ -1,0 +1,19 @@
+{
+  "audio_inputs": {
+    "muq": {"model_id": "OpenMuQ/MuQ-large-msd-iter", "revision": "0562a57814f6f8bbd9fdea0a25921a2fce1a841a", "layer": 9, "dimension": 1024},
+    "base92": {"dimension": 92, "clock_hz": 30},
+    "pilot_clock_hz": 10
+  },
+  "audio_encoder": "typed projection + bounded local causal attention + persistent GRUCell state + Perceiver latent slots",
+  "privileged_teacher": "body encoder used only to form dance latent and body-derived fixture motion proxy targets",
+  "inference_contract": "audio + fixture metadata; no body tensor",
+  "output_heads": {
+    "aim": "bounded pan/tilt proposal",
+    "angular_speed": "positive learned speed",
+    "angular_acceleration": "learned acceleration proposal",
+    "rgb": "learned uint8-compatible RGB field",
+    "brightness": "independent learned dimmer",
+    "cue_event": "learned event probability"
+  },
+  "target_scope": "authored BeatSaver RGB/intensity/events are primary; body-derived motion is auxiliary proxy and is labeled as such"
+}

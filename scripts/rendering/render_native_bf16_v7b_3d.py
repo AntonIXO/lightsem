@@ -15,7 +15,8 @@ from pathlib import Path
 import numpy as np
 from PIL import Image, ImageDraw, ImageFont
 
-ROOT = Path('/root/lightsem/experiments/native_bf16_v7b')
+DEFAULT_SOURCE_ROOT = Path('/root/lightsem/experiments/native_bf16_v7b')
+ROOT = DEFAULT_SOURCE_ROOT
 SONGS = {
     'shpongle': Path('/root/shpongle.flac'),
     'cure_for_me': ROOT / 'demo_audio/Cure_For_Me.wav',
@@ -296,7 +297,7 @@ def prepare_audio(root: Path, song: str, duration: float) -> Path:
     return out
 
 
-def full_render(root: Path, song: str, video_encoder: str = 'h264_nvenc', video_preset: str = 'p4', full: bool = False) -> None:
+def full_render(root: Path, song: str, video_encoder: str = 'h264_nvenc', video_preset: str = 'p4', full: bool = False, label: str = 'native C candidate') -> None:
     body_path, _, body, _, _, _, _ = source_data(song)
     patch, time40, _, decoded, _ = controls(song, root)
     manifest_row = json.loads((root / 'MANIFEST.json').read_text())['songs'][song]
@@ -325,7 +326,7 @@ def full_render(root: Path, song: str, video_encoder: str = 'h264_nvenc', video_
     chart_image = Image.open(chart['chart']).convert('RGB').resize((WIDTH, 304), Image.Resampling.BILINEAR)
     static_canvas = Image.new('RGB', (WIDTH, HEIGHT), (7, 10, 16))
     static_draw = ImageDraw.Draw(static_canvas)
-    static_draw.text((16, 8), f'RTMPose BF16 / native C candidate | {song}', font=large, fill='white')
+    static_draw.text((16, 8), f'RTMPose BF16 / {label} | {song}', font=large, fill='white')
     static_draw.text((16, 40), 'P2 | restored brightness | actual emitted DMX | diagnostic only', font=font, fill='#c1d2e2')
     static_draw.text((16, 65), 'OWN-SONG BODY', font=font, fill='#c1d2e2')
     static_draw.text((656, 65), 'ACTUAL EMITTED LIGHTS', font=font, fill='#c1d2e2')
@@ -369,7 +370,7 @@ def full_render(root: Path, song: str, video_encoder: str = 'h264_nvenc', video_
         'frames': frames, 'duration_s': duration, 'full_song': full,
         'audio_reference_sha256': sha(audio), 'source_audio_sha256': sha(Path(row_audio(root, song))),
         'body_sha256': sha(body_path), 'timeline_sha256': sha(out / 'timeline.npz'), 'patch_sha256': sha(out / 'patch.json'), 'chart': chart,
-        'renderer': 'LitBodyStageRenderer 2 views, actual decoded mapper-01 DMX',
+        'renderer': 'LitBodyStageRenderer 2 views, actual decoded mapper-01 DMX', 'label': label,
         'video_encoder': video_encoder, 'video_preset': video_preset, 'command': command})
 
 
@@ -402,15 +403,24 @@ def audit(root: Path, song: str) -> None:
 
 
 def main():
+    global ROOT, SONGS
     ap = argparse.ArgumentParser(); ap.add_argument('action', choices=('prepare', 'smoke', 'render', 'audit')); ap.add_argument('--song', choices=tuple(SONGS)); ap.add_argument('--root', type=Path, required=True)
+    ap.add_argument('--source-root', type=Path, default=DEFAULT_SOURCE_ROOT,
+                    help='Prepared native source tree; defaults to the selected v7b tree')
     ap.add_argument('--video-encoder', choices=('av1_nvenc', 'h264_nvenc', 'libx264'), default='av1_nvenc')
     ap.add_argument('--video-preset', default='p7', help='NVENC p1-p7 or libx264 preset; project default is AV1 p7')
     ap.add_argument('--full', action='store_true', help='Render the complete saved song instead of the 120-second review window')
+    ap.add_argument('--label', default='native C candidate', help='On-video arm label for review provenance')
     args = ap.parse_args()
+    ROOT = args.source_root
+    SONGS = {
+        'shpongle': (ROOT / 'demo_audio/shpongle.flac') if (ROOT / 'demo_audio/shpongle.flac').is_file() else Path('/root/shpongle.flac'),
+        'cure_for_me': ROOT / 'demo_audio/Cure_For_Me.wav',
+    }
     if args.action == 'prepare': prepare(args.root); return
     if not args.song: ap.error('--song required')
     if args.action == 'smoke': smoke(args.root, args.song)
-    elif args.action == 'render': full_render(args.root, args.song, args.video_encoder, args.video_preset, args.full)
+    elif args.action == 'render': full_render(args.root, args.song, args.video_encoder, args.video_preset, args.full, args.label)
     else: audit(args.root, args.song)
 
 

@@ -1,0 +1,16 @@
+{
+  "source_path": "/mnt/lightsem-data/justdance/JUST DANCE MIX (PC)\uff1a Jump In The Line by The Sunlight Shakers [12999 LMAO] [-G-6DNPGEfk].webm",
+  "source_sha256": "9ec2b900c402a10efd6428639e653fb25913399388e2da4d366b71c335d7eb5d",
+  "cache": "/root/lightsem/experiments/native_bf16_v7b/raw/pose_rtmpose_bf16_prod/-G-6DNPGEfk.npz",
+  "cache_sha256": "738c6053d068a1bb2e7df0be88fb80164670f2ae8550bd74082777f459553dc0",
+  "frames": {
+    "tracked": 3856,
+    "missing": 7637
+  },
+  "decoded_pts": {
+    "3856": 128.533,
+    "7637": 254.567
+  },
+  "output": "/root/lightsem/experiments/native_bf16_v7b/evidence/jump_in_the_line.png",
+  "output_sha256": "a6e16be6a6f82c28ea0877a7616ff32d601b4920de68fd74d397064d47007e36"
+}

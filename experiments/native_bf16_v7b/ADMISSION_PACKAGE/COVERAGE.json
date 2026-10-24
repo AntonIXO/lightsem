@@ -1,0 +1,16 @@
+{
+  "requested_recordings": 675,
+  "completed_pose_recordings": 675,
+  "audio_source_minutes": 2590.677840136055,
+  "non_silent_audio_minutes": 2586.973840136054,
+  "recording_union_observed_minutes": 2253.487222222222,
+  "recording_union_usable_window_minutes": 1880.1044444444444,
+  "coach_observed_minutes": 2984.9950000000003,
+  "coach_usable_window_minutes": 2979.292222222222,
+  "coach_usable_minutes_after_whole_record_80pct": 611.6761111111111,
+  "whole_record_gate_usable_minutes_lost": 2367.6161111111114,
+  "admitted_recordings": 651,
+  "admitted_groups": 520,
+  "admitted_track_segments": 3688,
+  "units": "Recording unions count simultaneous coaches once; coach-minutes keep people separate; overlapping windows counted once."
+}

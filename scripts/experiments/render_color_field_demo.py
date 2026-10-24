@@ -25,7 +25,7 @@ COLOR_ROOT = Path('/mnt/lightsem-data/experiments/lightsem/color_motion_field_20
 BODY_ROOT = Path('/mnt/lightsem-data/experiments/lightsem/native_full_native_repair_20261018_v2/render_full')
 AUDIO = {
     'shpongle': Path('/mnt/lightsem-data/experiments/lightsem/d4max_20261005_v1/audio/shpongle/reference.m4a'),
-    'cure_for_me': Path('/root/lightsem/experiments/native_bf16_v7b/demo_audio/Cure_For_Me.wav'),
+    'cure_for_me': Path('/mnt/lightsem-data/experiments/lightsem/native_portfolio_20261012_v8/audio_reference/cure_for_me.m4a'),
 }
 DEFAULT_STARTS = {'shpongle': 106., 'cure_for_me': 23.}
 
@@ -102,6 +102,7 @@ def main():
     ap.add_argument('--out', type=Path)
     ap.add_argument('--duration', type=float, default=18.)
     ap.add_argument('--start', type=float, help='override the active-song start for both previews')
+    ap.add_argument('--song', choices=('shpongle', 'cure_for_me'), help='render one song instead of requiring both assets')
     args = ap.parse_args()
     root = args.root.expanduser().resolve()
     out = (args.out or root / 'demo').expanduser().resolve()
@@ -110,7 +111,7 @@ def main():
     out.mkdir(parents=True)
     rows = [one(song, root, out, args.duration,
                 DEFAULT_STARTS[song] if args.start is None else args.start)
-            for song in ('shpongle', 'cure_for_me')]
+            for song in ((args.song,) if args.song else ('shpongle', 'cure_for_me'))]
     write(out / 'REPORT.json', {'status': 'diagnostic_only', 'rows': rows,
         'scope': f'{args.duration:g}-second own-song previews of saved actual emitted DMX; no baseline promotion'})
     print(json.dumps({'out': str(out), 'status': 'diagnostic_only', 'rows': rows}, indent=2))

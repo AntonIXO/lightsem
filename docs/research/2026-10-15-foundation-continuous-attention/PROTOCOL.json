@@ -1,0 +1,35 @@
+{
+  "protocol_id": "foundation-audio-light-continuous-attention-20261015-v1",
+  "status": "diagnostic_only",
+  "seed": 0,
+  "architecture": {
+    "audio_dim": 1024,
+    "audio_source": "pinned MuQ layer 9 nearest-time samples",
+    "audio_rate_hz": 10,
+    "body_rate_hz": 10,
+    "native_body_source_rate_hz": 30,
+    "dmx_rate_hz": 40,
+    "local_window_frames": 32,
+    "recurrent_state": "GRU",
+    "latent_slots": 8,
+    "fixture_decoder": "shared permutation-equivariant query",
+    "heads": ["motion", "oklab_color", "brightness", "scene", "event"]
+  },
+  "data": {
+    "songs": ["1023", "10dcc", "1181f", "11b01", "1672d", "210e3", "21c3a", "3b4ab"],
+    "split": {"train": ["1023", "10dcc", "1181f", "11b01", "1672d", "210e3"], "validation": ["21c3a", "3b4ab"]},
+    "window_frames": 128,
+    "window_rate_hz": 10,
+    "fixture_count": 8,
+    "target_scope": "BeatSaver virtual group RGB/intensity and event/scene diagnostics"
+  },
+  "gates_frozen_before_run": {
+    "finite_saved_body": true,
+    "chunk_scene_max_abs_engineering_threshold": 0.00001,
+    "fixture_permutation_max_abs_engineering_threshold": 0.00001,
+    "frozen_body_angle_max_abs_engineering_threshold": 0.000001,
+    "note": "thresholds are engineering assumptions, not literature constants"
+  },
+  "forbidden": ["procedural_motion", "cross_song_body_reuse", "posthoc_smoothing", "retiming", "automatic_promotion", "render_after_raw_safety_failure"],
+  "artifact_root": "/mnt/lightsem-data/experiments/lightsem/foundation_audio_light_20261015_v1"
+}

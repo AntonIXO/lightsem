@@ -13,6 +13,23 @@ from .baseline import sha
 from .pipeline import accelerator_lock, write_json
 
 
+def modifier_rate_label(metadata):
+    """Name the saved clock trace according to the modifier that owns it.
+
+    D4-max is a motif recomposition.  Its saved plan can legitimately stay at
+    1× when donor and target fragments have the same duration; D6 is the
+    modifier that supplies the learned playback pacing.  The old generic label
+    made a flat D4 trace look like a missing modifier.
+    """
+    d4 = bool(metadata.get('d4max_enabled', False))
+    d6 = bool(metadata.get('d6_enabled', False))
+    if d6:
+        return 'Recorded D6 playback rate (×)'
+    if d4:
+        return 'Recorded D4 local fragment rate (×)'
+    return 'Native clock (×)'
+
+
 def render_video(body, root, audio, output, lighting, *, start=0., duration=None):
     from lightsem.sim.lit_body_renderer import LitBodyStageRenderer
     from lightsem.sim.renderer import RenderConfig
@@ -96,7 +113,28 @@ def render_video(body, root, audio, output, lighting, *, start=0., duration=None
     if beams.any():
         rows.append(('dimmer', (times, controls['dimmer'][:, beams].mean(1)), 'Actual beam dimmer'))
     with np.load(root / 'plan.npz', allow_pickle=False) as planned:
-        rows.append(('rate', (planned['time'], planned['effort'].mean(1)), 'Recorded modifier rate (×)'))
+        plan_time = planned['time']
+        rows.append(('rate', (plan_time, planned['effort'].mean(1)), modifier_rate_label(body.metadata)))
+        d4_clock = None
+        d4_clock_label = 'D4 source clock (s)'
+        if body.metadata.get('d4max_enabled', False):
+            # With D4+D6, the primary source_time is the D6 output clock;
+            # retain the original D4 composition clock as a separate trace.
+            if body.metadata.get('d6_enabled', False) and 'diagnostic__input_composition_source_time' in planned:
+                d4_clock = planned['diagnostic__input_composition_source_time']
+            elif body.metadata.get('d6_enabled', False):
+                # Older sealed plans predate this diagnostic array.  Keep the
+                # available clock visible without misnaming it as D4 time.
+                d4_clock = planned['source_time']
+                d4_clock_label = 'D6 output clock (s)'
+            else:
+                d4_clock = planned['source_time']
+            d4_clock = np.asarray(d4_clock)
+            if d4_clock.ndim == 2:
+                d4_clock = d4_clock[:, 0]
+            if d4_clock.ndim != 1 or len(d4_clock) != len(plan_time) or not np.isfinite(d4_clock).all():
+                raise ValueError('D4 source clock has invalid shape or values')
+            rows.append(('d4_clock', (plan_time, d4_clock), d4_clock_label))
     font = ImageFont.truetype('/usr/share/fonts/truetype/dejavu/DejaVuSans.ttf', 12)
     large = ImageFont.truetype('/usr/share/fonts/truetype/dejavu/DejaVuSans.ttf', 22)
     strip = Image.new('RGB', (1280, 304), (12, 18, 27)); draw = ImageDraw.Draw(strip)
@@ -119,6 +157,19 @@ def render_video(body, root, audio, output, lighting, *, start=0., duration=None
             draw.line((278 + int(x), y + 24 - (low[x] - lo) / (hi - lo) * 22,
                        278 + int(x), y + 24 - (high[x] - lo) / (hi - lo) * 22), fill='#4bd6e6')
         exports[key + '_time'] = time[mask]; exports[key + '_raw'] = selected
+    if body.metadata.get('d4max_enabled', False):
+        # Mark target-fragment boundaries so motif recomposition remains visible
+        # even when every local fragment rate is exactly 1×.
+        fragments = body.metadata.get('fragment_provenance', [])
+        bottom = min(303, 32 + len(rows) * 30)
+        for fragment in fragments:
+            bounds = fragment.get('target_seconds', [])
+            if len(bounds) != 2:
+                continue
+            stamp = float(bounds[0])
+            if start <= stamp <= start + duration:
+                x = 278 + round((stamp - start) / max(duration, 1e-12) * 995)
+                draw.line((x, 28, x, bottom), fill='#ffd06a', width=1)
     with (root / 'RAW_TRACE.npz').open('xb') as target:
         np.savez_compressed(target, **exports)
     video_duration = frames / 30

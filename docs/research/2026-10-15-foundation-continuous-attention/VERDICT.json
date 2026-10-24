@@ -1,0 +1,7 @@
+{
+  "protocol_id": "foundation-audio-light-continuous-attention-20261015-v1",
+  "verdict": "diagnostic_only_passes_architecture_smoke",
+  "qualification": "forbidden",
+  "reason": "Local/recurrent/latent streaming and fixture permutation checks pass in the pinned-MuQ v4 receipt, but the model is still a one-seed decoder diagnostic. No checkpoint may be promoted before raw-body, decoded-DMX, source-dependence, arbitrary-N and own-song evidence are complete.",
+  "perplexity_backend": "completed deep research; report was returned as an attachment and its verified corrections are archived in RESEARCH_MEMO.md"
+}

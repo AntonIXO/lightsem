@@ -154,7 +154,10 @@ def prepare_input_cpu(audio, outputdir):
     if wave.ndim == 1:
         wave = wave[:, None]
     bus = extract_bus(y=wave.mean(1), sr=sample_rate, causal=True)
-    values = {'times': bus.times.astype(np.float32), 'mel': bus.mel.astype(np.float32),
+    # Keep the control clock in float64.  A 40 Hz float32 timestamp accumulates
+    # enough rounding over long songs to exceed SourceStore's 30 us uniformity
+    # tolerance, even though the underlying grid is exact.
+    values = {'times': bus.times.astype(np.float64), 'mel': bus.mel.astype(np.float32),
               'meta': np.asarray(json.dumps({'fps': bus.fps, 'tempo': bus.tempo,
                   'duration_s': bus.duration_s, 'flags': bus.flags, **bus.meta}))}
     values.update({'ch__'+key: bus.channels[key].astype(np.float32) for key in AUDIO_SCALARS})

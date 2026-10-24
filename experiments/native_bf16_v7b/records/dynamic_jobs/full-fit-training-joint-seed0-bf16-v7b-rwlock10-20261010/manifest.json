@@ -1,0 +1,38 @@
+{
+  "/root/lightsem/experiments/native_bf16_v7b/learning/runs/joint/seed_0/IDENTITY.json": {
+    "bytes": 871398,
+    "sha256": "583737493e50824aec2cc12b1663708cbedd6ee53227a8bebf8bc56f0990ebc5"
+  },
+  "/root/lightsem/experiments/native_bf16_v7b/learning/runs/joint/seed_0/IDENTITY.json.sha256.json": {
+    "bytes": 78,
+    "sha256": "5bb01493327d12a57aa4a43ea2259041bbd96cdf147f17bf106abc6da6b7d703"
+  },
+  "/root/lightsem/experiments/native_bf16_v7b/learning/runs/joint/seed_0/REPORT.json": {
+    "bytes": 887552,
+    "sha256": "bb24f9b52e276c91265e2f2fba7f5ae0ca6848dbd1ffd6011c71454c6c3fa544"
+  },
+  "/root/lightsem/experiments/native_bf16_v7b/learning/runs/joint/seed_0/REPORT.json.sha256.json": {
+    "bytes": 78,
+    "sha256": "9ddd1346e6352a76c174efca7eb49928063f256aece067674c6bd24b03454531"
+  },
+  "/root/lightsem/experiments/native_bf16_v7b/learning/runs/joint/seed_0/STATUS.json": {
+    "bytes": 956,
+    "sha256": "3ecd33ffdd10567a7e126527de03c30c7b690a98ed02cd1eed22ccb637f142e4"
+  },
+  "/root/lightsem/experiments/native_bf16_v7b/learning/runs/joint/seed_0/final.pt": {
+    "bytes": 18165384,
+    "sha256": "affc85b4dde1b6501ac27fbdfa2df8a9810d9c13b02101fdbf3c6ac3f811e85b"
+  },
+  "/root/lightsem/experiments/native_bf16_v7b/learning/runs/joint/seed_0/initial_weights.pt": {
+    "bytes": 18103550,
+    "sha256": "e25c552ae697d96402d73cac9776dfc0f44dda164e0c9c69158959d097842881"
+  },
+  "/root/lightsem/experiments/native_bf16_v7b/learning/runs/joint/seed_0/latest.pt": {
+    "bytes": 30455479,
+    "sha256": "9f20412cf00ecccb666de7d4879c26b376fbe029bfbeedbcad20d5af09541403"
+  },
+  "/root/lightsem/experiments/native_bf16_v7b/learning/runs/joint/seed_0/training.jsonl": {
+    "bytes": 650336,
+    "sha256": "c6f665cdeb5e86eec88412e769a958f091c15d2891710d5dbc067147c1821469"
+  }
+}

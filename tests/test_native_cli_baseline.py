@@ -10,6 +10,16 @@ from lightsem.dance.baseline import load_config, validate_music, sha
 from lightsem.dance.cli import add_options
 from lightsem.dance.pipeline import modify_body
 from lightsem.experiments.dynamic_dance.contracts import MusicTimeline, DanceResult
+from lightsem.dance.render import modifier_rate_label
+
+
+def test_render_accepts_underscore_ssl_light_alias(capsys):
+    from lightsem.cli import main
+
+    with pytest.raises(SystemExit) as exc:
+        main(['render', '--wav', 'song.wav', '--ssl_light', '--help'])
+    assert exc.value.code == 0
+    assert '--ssl_light' in capsys.readouterr().out
 
 
 def music(tmp_path, config):
@@ -37,6 +47,14 @@ def test_options_are_independent_and_default_to_plain_C():
     assert both.d4max and both.d6
     with pytest.raises(SystemExit):
         parser.parse_args(['--wav', 'song.wav', '--no-muq'])
+
+
+def test_modifier_rate_label_distinguishes_d4_recomposition_from_d6_pacing():
+    assert modifier_rate_label({}) == 'Native clock (×)'
+    assert (modifier_rate_label({'d4max_enabled': True, 'd6_enabled': False})
+            == 'Recorded D4 local fragment rate (×)')
+    assert (modifier_rate_label({'d4max_enabled': True, 'd6_enabled': True})
+            == 'Recorded D6 playback rate (×)')
 
 
 def test_wrong_waveform_and_alternate_encoder_are_rejected(tmp_path):
@@ -91,3 +109,88 @@ def test_D6_never_enables_D4_implicitly(tmp_path, monkeypatch):
                  'coarse_local_plan': np.zeros((20, 34), np.float32)}
     result, _ = modify_body(body, timeline, config, d6=True, telemetry=telemetry)
     assert result.metadata['d6_enabled'] and not result.metadata['d4max_enabled']
+
+
+def test_source_dependence_probe_checks_all_spatial_axes(monkeypatch):
+    """A valid mapper must not fail because its response is Y/Z-only."""
+    import lightsem.conductor.body_transfer as transfer
+    from lightsem.dance.lighting import _source_dependence_audit
+
+    state = {}
+
+    def compile_world(world, *args, **kwargs):
+        state['world'] = np.asarray(world)
+        return None, [{'kind': 'bulb'}], None, None, None
+
+    def decode(*args, **kwargs):
+        world = state['world']
+        # This synthetic source intentionally responds only to joint 3's Y
+        # coordinate. The old X-only probe incorrectly rejected it.
+        value = world[:, 3, 1]
+        return {'directions': np.stack((value, value * 0, value * 0), axis=-1)[:, None],
+                'angles_deg': np.zeros((len(world), 1, 2)),
+                'dimmer': np.zeros((len(world), 1))}
+
+    monkeypatch.setattr(transfer, 'decode', decode)
+    world = np.zeros((8, 22, 3), dtype=np.float64)
+    result = _source_dependence_audit(
+        world, np.arange(len(world)) / 40., [{'kind': 'bulb'}],
+        np.zeros((len(world), 3), dtype=np.uint8),
+        np.zeros((len(world), 3), dtype=np.uint8),
+        {'time': np.arange(32) / 40., 'momentary': np.zeros(32), 'short_term': np.zeros(32)},
+        {}, '01', {'attribution': [[3]]}, compile_world)
+    assert result['status'] == 'pass'
+    assert result['assigned_joint_responses']['3']['windows'][0]['axis_responses'][1]['responsive']
+
+
+def test_native_body_grows_planner_context_for_long_songs(monkeypatch):
+    """Inference keeps all planner bins when a song exceeds the training pad."""
+    import torch
+    import lightsem.dance.pipeline as pipeline
+    import lightsem.experiments.dynamic_dance.audio as audio_features
+    import lightsem.experiments.motion_study.geometry as geometry
+    import lightsem.experiments.native_dynamics.evaluation as native_evaluation
+
+    config, _ = load_config()
+    frames = 1024 * 15 + 1
+    base = np.zeros((frames, 92), np.float32)
+    extra = np.zeros((frames, 1061), np.float32)
+    captured = {}
+
+    class ModelConfig:
+        stereo_dim = 0
+        stereo_fusion = 'concat'
+        frames = 48
+
+    class Model:
+        config = ModelConfig()
+        flow = object()
+
+        def generate(self, fine, coarse, valid, indices, noise):
+            captured['coarse_shape'] = tuple(coarse.shape)
+            captured['valid_count'] = int(valid.sum())
+            captured['frame_count'] = int(indices.shape[1])
+            plan = {'conditioning': torch.zeros(1, coarse.shape[1], 80)}
+            native = torch.zeros(1, indices.shape[1], 139)
+            return native, plan
+
+    norms = [
+        (torch.zeros(92), torch.ones(92)),
+        (torch.zeros(1061), torch.ones(1061)),
+    ]
+    monkeypatch.setattr(pipeline, 'load_model', lambda *args, **kwargs: (Model(), norms, {}))
+    monkeypatch.setattr(audio_features, 'model_features', lambda *args, **kwargs: (extra, []))
+    monkeypatch.setattr(native_evaluation, 'cpu_noise', lambda *args, **kwargs: torch.zeros(1, frames, 139))
+    monkeypatch.setattr(geometry, 'joints_from_features', lambda value: torch.zeros(value.shape[0], value.shape[1], 22, 3))
+
+    timeline = type('Music', (), {'metadata': {'muq': {}}})()
+    body, _, plan, _ = pipeline.native_body(timeline, base, config)
+
+    expected_bins = (frames + 14) // 15
+    assert captured == {
+        'coarse_shape': (1, expected_bins, 1061),
+        'valid_count': expected_bins,
+        'frame_count': frames,
+    }
+    assert plan['planner_context_bins'] == expected_bins
+    assert len(body.time) == frames

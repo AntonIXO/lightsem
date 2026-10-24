@@ -1,0 +1,49 @@
+{
+  "aim": {
+    "per_fixture_exact_duplicate_streams": false
+  },
+  "brightness": {
+    "max": 0.5362288951873779,
+    "mean": 0.44524356722831726,
+    "min": 0.0017370037967339158,
+    "std": 0.07214905321598053
+  },
+  "checkpoint": "/mnt/lightsem-data/experiments/lightsem/audio_light_all300_base92_targetonly_20261016_v1/model.pt",
+  "classification": "output_collapse",
+  "event": {
+    "entropy_mean": 0.6880990266799927,
+    "probability_max": 0.49368157982826233,
+    "probability_mean": 0.4532807767391205,
+    "probability_min": 0.05914642661809921
+  },
+  "finite": true,
+  "latent": {
+    "effective_rank": 9.516860961914062,
+    "sampled_vectors": 20000,
+    "singular_nonzero_fraction": 1.0
+  },
+  "protocol": "audio-light-foundation-v2-contract-20261016-v1",
+  "reason": "RGB is near-constant at the output head; this is not called representation collapse without a separate latent-collapse gate.",
+  "rgb": {
+    "exact_duplicate_streams": false,
+    "fraction_below_0.01": 1.0,
+    "max": 0.001977937761694193,
+    "mean": 4.026513852295466e-05,
+    "min": 7.141840683289047e-07,
+    "per_fixture_std": [
+      5.026367216487415e-05,
+      4.063622691319324e-05,
+      2.474912253092043e-05,
+      2.283875619468745e-05,
+      2.1765101337223314e-05,
+      2.1238440240267664e-05,
+      2.536195097491145e-05,
+      3.6757977795787156e-05
+    ],
+    "std": 3.481598469079472e-05
+  },
+  "schema_version": 1,
+  "scope": "collapse-only audit of the prior all300 checkpoint; not a v2 result",
+  "status": "pre_v2_negative_control",
+  "validation_windows": 851
+}

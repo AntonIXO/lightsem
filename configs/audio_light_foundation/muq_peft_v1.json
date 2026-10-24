@@ -1,0 +1,38 @@
+{
+  "schema": "lightsem.muq_peft_config.v1",
+  "protocol_id": "muq-peft-pilot-20261019-v1",
+  "input_contract": {
+    "model_id": "OpenMuQ/MuQ-large-msd-iter",
+    "revision": "0562a57814f6f8bbd9fdea0a25921a2fce1a841a",
+    "selected_layer": 9,
+    "muq_dimension": 1024,
+    "base92_dimension": 92,
+    "clock_hz": 10,
+    "zero_padding": false
+  },
+  "arms": {
+    "frozen_heads": {"adapter_kind": "none", "muq_scope": "frozen"},
+    "local_adapter": {"adapter_kind": "local_conv", "muq_scope": "frozen"},
+    "causal_adapter": {"adapter_kind": "causal_transformer", "muq_scope": "frozen"},
+    "hierarchical_adapter": {"adapter_kind": "hierarchical", "muq_scope": "frozen"},
+    "last_two_muq_blocks": {"adapter_kind": "none", "muq_scope": "last_blocks", "requires_live_muq": true},
+    "full_muq": {"adapter_kind": "none", "muq_scope": "full", "requires_live_muq": true}
+  },
+  "diagnostic_thresholds": {
+    "bas_null_z": 2.0,
+    "conditioning_margin": 0.03,
+    "within_bar_cosine": 0.60,
+    "note": "engineering priors; freeze/calibrate before candidate scoring"
+  },
+  "forbidden_rescues": [
+    "posthoc_smoothing",
+    "retiming",
+    "oscillator_fallback",
+    "reused_body_or_soundtrack",
+    "d4",
+    "d6",
+    "fixture_caps",
+    "arbitrary_gain"
+  ],
+  "promotion": "forbidden_until_raw_safety_conditioning_and_decoded_dmx_gates"
+}

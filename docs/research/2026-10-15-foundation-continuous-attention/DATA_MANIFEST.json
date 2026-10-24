@@ -1,0 +1,10 @@
+{
+  "source_receipt": "/mnt/lightsem-data/experiments/lightsem/body_to_dmx_foundation_20261013/DATASET_RECEIPT.json",
+  "source_status": "prepared diagnostic corpus; not a qualified foundation dataset",
+  "rows": ["1023", "10dcc", "1181f", "11b01", "1672d", "210e3", "21c3a", "3b4ab"],
+  "body_generator": "configs/dance/fixed_c_rtmpose_20261011.json",
+  "body_role": "preserved unconditioned fixed-C source for diagnostic corpus preparation",
+  "audio_encoder": "pinned MuQ layer-9 tokens from each body.json timeline, 1024-D nearest-time sampled to the 10 Hz pilot clock; no alternate encoder substituted",
+  "target_limitations": ["BeatSaver virtual groups are not physical fixture geometry", "RPMC/BeatSaver data do not provide a complete paired professional DMX corpus", "one seed and eight songs cannot establish generalisation"],
+  "provenance_rule": "hash body, audio feature, visual target and light target files in the external run receipt"
+}

@@ -1,0 +1,17 @@
+{
+  "verified_by": ["Perplexity paper sweep", "arXiv MCP get_abstract/download_paper/read_paper_section"],
+  "keepers": [
+    {"id":"1511.03643","title":"Unifying Distillation and Privileged Information","role":"formal generalized distillation/LUPI framework","url":"https://arxiv.org/abs/1511.03643"},
+    {"id":"2302.02845","title":"Audio Representation Learning by Distilling Video as Privileged Information","role":"audio-only inference with training-only video teacher embeddings","url":"https://arxiv.org/abs/2302.02845"},
+    {"id":"2301.12618","title":"ForkMerge: Mitigating Negative Transfer in Auxiliary-Task Learning","role":"target-validation control for auxiliary-task negative transfer","url":"https://arxiv.org/abs/2301.12618"},
+    {"id":"2412.11449","title":"Whisper-GPT - Continuous Discrete Hybrid Representation Language Models For Speech And Music","role":"causal continuous spectrogram plus discrete acoustic representation","url":"https://arxiv.org/abs/2412.11449"},
+    {"id":"2506.01482","title":"Automatic Stage Lighting Control: Is it a Rule-Driven Process or Generative Task?","role":"audio-to-HSV hue/value lighting target and limited-data pretraining","url":"https://arxiv.org/abs/2506.01482"},
+    {"id":"2605.03660","title":"Stage Light is Sequence$^2$: Multi-Light Control via Imitation Learning","role":"multi-light HSV decomposition from RPMC-L2","url":"https://arxiv.org/abs/2605.03660"},
+    {"id":"2505.14222","title":"MATHDance: Mamba-Transformer Architecture with Uniform Tokenization for High-Quality 3D Dance Generation","role":"MuQ-conditioned kinematic/dynamic dance tokenization","url":"https://arxiv.org/abs/2505.14222"},
+    {"id":"2309.01202","title":"MAGMA: Music Aligned Generative Motion Autodecoder","role":"motion primitives plus Transformer sequencing and long-sequence controls","url":"https://arxiv.org/abs/2309.01202"},
+    {"id":"2603.27314","title":"TokenDance: Token-to-Token Music-to-Dance Generation with Bidirectional Mamba","role":"dual music/dance tokenization and local-global generation","url":"https://arxiv.org/abs/2603.27314"}
+  ],
+  "excluded_or_unverified": [
+    {"id":"2610.11792","reason":"new AuraLuxMuse/Musilux claim; release, code, license and dataset were not independently verified"}
+  ]
+}

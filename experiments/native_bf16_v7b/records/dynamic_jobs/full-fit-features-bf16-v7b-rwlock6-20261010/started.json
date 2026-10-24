@@ -1,0 +1,87 @@
+{
+  "gpu_usage_before": {
+    "evaluation": 0.0,
+    "features": 3030.4051788409997,
+    "rendering": 0.0,
+    "training": 0.0
+  },
+  "guard_pid": 2609633,
+  "guard_start_ticks": 8304871,
+  "identity": {
+    "budget_group": "features",
+    "command": [
+      "/root/lightsem/.venv/night-access/bin/python",
+      "/root/lightsem/scripts/motion/native_dynamics_features_reuse.py",
+      "--root",
+      "/root/lightsem/experiments/native_bf16_v7b",
+      "--reuse-root",
+      "/mnt/lightsem-data/experiments/lightsem/native_dynamics_full_all_20261007_seed0_v5",
+      "--guarded",
+      "--guard-script",
+      "/root/lightsem/scripts/motion/native_full_fit_guard_bf16_v7b_rwlock.py",
+      "--partial-root",
+      "/root/lightsem/experiments/native_bf16_v7b"
+    ],
+    "cwd": "/root/lightsem",
+    "env": {
+      "MKL_NUM_THREADS": "2",
+      "OMP_NUM_THREADS": "2",
+      "PYTHONPATH": "/root/lightsem",
+      "RTMPOSE_POSE_PROFILE": "bf16",
+      "TORCH_HOME": "/mnt/lightsem-data/torch-home"
+    },
+    "gpu": true,
+    "guard_sha256": "bc070313c580dd5f23d149e2f1214f6c332ebaa68461acba56d3455557e91c40",
+    "imports": {
+      "lightsem.experiments.dynamic_dance.audio": "/root/lightsem/lightsem/experiments/dynamic_dance/audio.py",
+      "lightsem.experiments.dynamic_dance.contracts": "/root/lightsem/lightsem/experiments/dynamic_dance/contracts.py",
+      "lightsem.experiments.dynamic_dance.structure": "/root/lightsem/lightsem/experiments/dynamic_dance/structure.py",
+      "lightsem.experiments.native_dynamics.data": "/root/lightsem/lightsem/experiments/native_dynamics/data.py",
+      "lightsem.experiments.native_dynamics.feature_cache": "/root/lightsem/lightsem/experiments/native_dynamics/feature_cache.py",
+      "lightsem.experiments.native_dynamics.full_fit_admission": "/root/lightsem/lightsem/experiments/native_dynamics/full_fit_admission.py"
+    },
+    "inputs": {
+      "/mnt/lightsem-data/experiments/lightsem/native_dynamics_full_all_20261007_seed0_v5/features/BASE92_MUQ_BINDING.json": "4e0e677ea01878a1fc6a911da7775e7f04fc888a5f2ac4a0da5bdc1c5019c1aa",
+      "/mnt/lightsem-data/experiments/lightsem/native_dynamics_full_all_20261007_seed0_v5/features/COMPLETE.json": "c6d24c963ae24b3898c66c970504ec381f9c04f33f383dc914ba96d429cb5475",
+      "/mnt/lightsem-data/experiments/lightsem/native_dynamics_full_all_20261007_seed0_v5/features/MUQ_IDENTITY_AUDIT.json": "a57eef982178fd2a341ee2a553c83d499e7e4e775403545f1396ff52cf027a3a",
+      "/root/lightsem/experiments/native_bf16_v7b/TRAINING_PROTOCOL.json": "9d9b6bc69657d69bb341ce8f1b16f3ef82e8b77442a6f49535dd912d9e0769c3",
+      "/root/lightsem/experiments/native_bf16_v7b/data/FD_MANIFEST.json": "b273233c22232a6720550a2fe9beb36253bdd92341173f9030b661ee0a84ca1e",
+      "/root/lightsem/experiments/native_bf16_v7b/data/FD_MOTION_OVERLAP_MANIFEST.json": "014995c2882a264777f3d431d495618cd304c2dc536799da2616d7c22e886bde",
+      "/root/lightsem/experiments/native_bf16_v7b/data/MANIFEST.json": "7e891b45b05e5b960bc832144dfa366c66ac8e299fbbff98060f458f36d27ac3",
+      "/root/lightsem/experiments/native_bf16_v7b/raw/audio/MANIFEST.json": "ceb3dffb10012763a3f0f99903ea8094d816a7a69f5e09ead3e92e40a98012cb"
+    },
+    "job_id": "full-fit-features-bf16-v7b-rwlock6-20261010",
+    "job_sha256": "20a3196015b78f1f0f033faa99e7b2b8af5109e87a3f597bf74dc74d938a2acb",
+    "outputs": [
+      "/root/lightsem/experiments/native_bf16_v7b/features"
+    ],
+    "python": "/root/lightsem/.venv/night-access/bin/python",
+    "queue_id": "native-bf16-v7b-features-rwlock6-20261010",
+    "queue_sha256": "bf04aaab30b96e7455fe3455fcf73a564fac79e05eee25e680dafb3679bb665b",
+    "source_files": {
+      "/root/lightsem/lightsem/audio/online.py": "c39a6597bb2146c226330488b7e88351723ff1038d6e0048705b38e29b1b0ec3",
+      "/root/lightsem/lightsem/experiments/dynamic_dance/audio.py": "28c6fe8e012eec5ba56ce45515eb55e122698c1ee75343904fdd2d59fbde9636",
+      "/root/lightsem/lightsem/experiments/dynamic_dance/contracts.py": "d177a1527888d8b8e0f049c72b22efa760ec3ec876bad49e54b6c2e290002eb9",
+      "/root/lightsem/lightsem/experiments/dynamic_dance/structure.py": "29f1525199a96d6d8458c5be3577ae1907567e9e028556b4bb661fd85b3c0c79",
+      "/root/lightsem/lightsem/experiments/native_dynamics/data.py": "9156c3afcb8e92714447c7decc3b53358d27833f1d2a2e1f11f04ca1caa0765e",
+      "/root/lightsem/lightsem/experiments/native_dynamics/feature_cache.py": "8363fc9e352e6a04f9f15e40e85af14a655bd35403935e2a57d5d986596e8377",
+      "/root/lightsem/lightsem/experiments/native_dynamics/full_fit_admission.py": "dd86c58b2a05a41dd7f6b4a9b1ee0c544d5f79b4a758090a2333047001570250",
+      "/root/lightsem/scripts/motion/dynamic_dance_guard.py": "d8a5bb1f3bad992640ee9f09dcf33a42c86b08b1035a964e54b7008929e02bae",
+      "/root/lightsem/scripts/motion/native_dynamics_features_reuse.py": "782cf0b2fa1b1d4e82b690873a9c1eb449f9e821b5cfe6820d88b5c55a233a93",
+      "/root/lightsem/scripts/motion/native_full_fit_guard_bf16_v7b_rwlock.py": "bc070313c580dd5f23d149e2f1214f6c332ebaa68461acba56d3455557e91c40"
+    },
+    "timeout_seconds": 82800
+  },
+  "limits": {
+    "max_rss_bytes": null,
+    "min_available_memory_bytes": 1073741824,
+    "min_free_bytes": 21474836480,
+    "poll_seconds": 2.0
+  },
+  "resource_before": {
+    "available_memory_bytes": 29469843456,
+    "free_bytes": 27395149824
+  },
+  "started_at": "2026-10-10T17:15:10.884759+00:00",
+  "token_sha256": "e42febe3c95e559d8b6b20466e764c42cdc1de5e88c34161ac78a6ab03243899"
+}

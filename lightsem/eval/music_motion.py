@@ -407,6 +407,7 @@ def feature_family_predictive_gain(
     ridge: float = 1e-2,
     n_shuffle: int = 20,
     seed: int = 0,
+    groups: Any | None = None,
 ) -> dict[str, Any]:
     """Compare a simple or foundation feature family above motion history.
 
@@ -427,6 +428,10 @@ def feature_family_predictive_gain(
     motion = _finite_1d(motion_signal, "motion_signal")
     if len(mt) != len(motion):
         raise ValueError("motion_time and motion_signal lengths differ")
+    if groups is not None:
+        groups = np.asarray(groups)
+        if groups.ndim != 1 or len(groups) != len(at):
+            raise ValueError("groups must have one value per audio frame")
     if history_s <= 0 or horizon_s <= 0 or target_fps <= 0 or folds < 2:
         raise ValueError("history_s, horizon_s, target_fps and folds must be valid")
     lo, hi = max(at[0], mt[0]), min(at[-1], mt[-1])
@@ -438,18 +443,31 @@ def feature_family_predictive_gain(
     f = max(1, int(round(horizon_s * target_fps)))
     motion_lags = np.unique(np.linspace(1, h, min(h, 8)).round().astype(int))
     feature_lags = np.unique(np.linspace(0, h, min(h + 1, 4)).round().astype(int))
-    rows_motion, rows_audio, targets = [], [], []
+    rows_motion, rows_audio, targets, row_groups = [], [], [], []
+    group_grid = None
+    if groups is not None:
+        nearest = np.searchsorted(at, grid, side="left").clip(0, len(at) - 1)
+        left = np.maximum(nearest - 1, 0)
+        choose_left = np.abs(at[left] - grid) <= np.abs(at[nearest] - grid)
+        group_grid = groups[np.where(choose_left, left, nearest)]
     for t in range(h, len(grid) - f):
         rows_motion.append(mv[t - motion_lags])
         rows_audio.append(np.concatenate([av[t - lag] for lag in feature_lags]))
         targets.append(mv[t + f])
+        if group_grid is not None:
+            row_groups.append(group_grid[t])
     hm = np.asarray(rows_motion, dtype=float)
     ha = np.asarray(rows_audio, dtype=float)
     y = np.asarray(targets, dtype=float)
     if len(y) < max(20, folds * 4):
         return {"status": "unqualified_insufficient_frames", "frames": int(len(y)),
                 "feature_dim": int(features.shape[1])}
-    fold_ids = np.minimum((np.arange(len(y)) * folds) // len(y), folds - 1)
+    if row_groups:
+        unique_groups = list(dict.fromkeys(row_groups))
+        group_to_fold = {group: index % folds for index, group in enumerate(unique_groups)}
+        fold_ids = np.asarray([group_to_fold[group] for group in row_groups], dtype=int)
+    else:
+        fold_ids = np.minimum((np.arange(len(y)) * folds) // len(y), folds - 1)
 
     def project(train: np.ndarray, test: np.ndarray) -> tuple[np.ndarray, np.ndarray]:
         mu, sd = train.mean(0), train.std(0)
@@ -496,6 +514,7 @@ def feature_family_predictive_gain(
         "shuffle_gain_z": float((gain - null.mean()) / max(null.std(), EPS)) if null.size else None,
         "history_s": float(history_s), "horizon_s": float(horizon_s),
         "target_fps": float(target_fps), "folds": int(folds), "frames": int(len(y)),
+        "grouped_folds": bool(groups is not None),
         "scope": "blocked ridge + train-only PCA; feature-family incremental audio predictive proxy",
     }
 

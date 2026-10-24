@@ -1,0 +1,41 @@
+{
+  "protocol_id": "foundation-audio-light-continuous-attention-20261015-v1",
+  "artifact_root": "/mnt/lightsem-data/experiments/lightsem/foundation_audio_light_20261015_v4",
+  "artifact_hashes": {
+    "results_sha256": "8197aad68c4cf417ff4a961a8a5e0a6076b5bde52b67b6bc962656a92491bfe6",
+    "model_sha256": "c462b75ef466bcb7259f220381aa7f9a66ae9c10ae5b2205ec15a19af6d1b2a2",
+    "config_sha256": "ce9f0ee69fe09097928410e10a1117adc4e10dbf8e40b3db3464ae85ba8d07cf"
+  },
+  "status": "diagnostic_only",
+  "seed": 0,
+  "device": "cuda",
+  "steps": 80,
+  "train_songs": ["1023", "10dcc", "1181f", "11b01", "1672d", "210e3"],
+  "validation_songs": ["21c3a", "3b4ab"],
+  "checks": {
+    "chunk_scene_max_abs": 5.960464477539062e-07,
+    "fixture_permutation_max_abs": 0.0,
+    "frozen_body_angle_max_abs": 0.0,
+    "assigned_limb_angle_response": 0.005693110171705484
+  },
+  "validation_losses": {
+    "scene": 0.25239959359169006,
+    "event": 0.7077376246452332,
+    "color_rgb": 0.3267740309238434,
+    "brightness": 0.5846104025840759,
+    "total": 0.467880427837371
+  },
+  "interpretation": [
+    "The bounded local/recurrent/latent path is chunk-consistent under the frozen engineering threshold when conditioned on the pinned MuQ layer-9 tokens.",
+    "Fixture queries are exactly permutation-equivariant in the tested output.",
+    "Frozen body blocks motion angles, and a body perturbation changes assigned motion, which is an input-sensitivity smoke result only.",
+    "No decoded DMX, own-song Shpongle/Cure For Me render, or native body generation was performed.",
+    "The result cannot establish choreography, music fit, broad generalisation, or product qualification."
+  ],
+  "failed_superseded_receipts": [
+    {"artifact_root": "/mnt/lightsem-data/experiments/lightsem/foundation_audio_light_20261015_v1", "failure": "unbounded body-audio attention produced chunk_scene_max_abs=0.31665608286857605"},
+    {"artifact_root": "/mnt/lightsem-data/experiments/lightsem/foundation_audio_light_20261015_v2", "failure": "fused GRU kernel produced chunk_scene_max_abs=3.629922866821289e-05"},
+    {"artifact_root": "/mnt/lightsem-data/experiments/lightsem/foundation_audio_light_20261015_v3", "failure": "valid decoder smoke but used 52-D BeatSaver visual bus rather than the pinned MuQ input; retained as a non-MuQ control"}
+  ],
+  "promotion": "forbidden"
+}

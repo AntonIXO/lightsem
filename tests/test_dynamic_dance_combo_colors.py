@@ -56,6 +56,33 @@ def test_model_padding_preserves_raw_prefix_and_only_completes_last_block():
         colors.pad_feature_block(np.zeros((8, 92)))
 
 
+def test_long_p2_bus_keeps_a_precise_uniform_clock(tmp_path, monkeypatch):
+    from types import SimpleNamespace
+    import lightsem.audio.online as online
+    from lightsem.model.light_layers.training import AUDIO_SCALARS
+
+    source = tmp_path / 'long.wav'
+    source.write_bytes(b'waveform')
+    frames = 25026
+    bus = SimpleNamespace(
+        times=np.arange(frames, dtype=np.float64) / 40.,
+        mel=np.zeros((64, frames), dtype=np.float32),
+        channels={name: np.zeros(frames, dtype=np.float32) for name in AUDIO_SCALARS},
+        fps=40., tempo=128., duration_s=frames / 40., flags={}, meta={},
+    )
+    monkeypatch.setattr(colors, 'read_p2_audio', lambda _audio: (
+        np.zeros((1, 1), dtype=np.float32), 44100,
+        {'source_rate_hz': 44100, 'analysis_rate_hz': 44100,
+         'source_duration_s': frames / 40.}))
+    monkeypatch.setattr(online, 'extract_bus', lambda **_kwargs: bus)
+
+    report = colors.prepare_input_cpu(source, tmp_path / 'prepared')
+    with np.load(report['bus'], allow_pickle=False) as values:
+        times = values['times']
+        assert times.dtype == np.float64
+        assert np.max(np.abs(np.diff(times) - 1. / 40.)) < 1e-12
+
+
 def test_diagnostics_count_palette_changes_separately_from_rgb_fades():
     left = np.array([[0, 0, 0], [0, 0, 0], [0, 0, 0], [0, 0, 0],
                      [1, 0, 0], [2, 0, 0], [3, 0, 0], [4, 0, 0]], np.uint8)

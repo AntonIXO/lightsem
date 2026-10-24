@@ -226,16 +226,20 @@ def native_body(music, base, config, *, stereo=None, device='cpu', checkpoint=No
         raise ValueError('Stereo context supplied to a non-stereo baseline')
     n = len(base); extra, names = model_features(music, np.arange(n) / 30.)
     bins, pad = (n + 14) // 15, (-n) % 15
-    if bins > CONTEXT_BINS:
-        raise ValueError('Song exceeds the selected planner\'s 512-second context; no silent truncation')
+    # CONTEXT_BINS is the fixed padded width used by the training batches, not
+    # an architectural limit at inference.  The native planner has no learned
+    # positional table and accepts any finite valid prefix.  Grow the tensors
+    # for longer songs so the complete analyzed timeline reaches the planner;
+    # never truncate a song to the training width.
+    planner_bins = max(CONTEXT_BINS, bins)
     pooled = np.pad(extra, ((0, pad), (0, 0))).reshape(bins, 15, 1061).sum(1)
     pooled /= np.minimum(15, n - np.arange(bins) * 15)[:, None]
     seed = config['draw_seed'] if draw_seed is None else draw_seed
     with torch.inference_mode():
         fine = torch.cat(((torch.tensor(base, device=device) - norms[0][0]) / norms[0][1],
                           (torch.tensor(extra, device=device) - norms[1][0]) / norms[1][1]), -1)[None]
-        coarse = torch.zeros(1, CONTEXT_BINS, 1061, device=device)
-        valid = torch.zeros(1, CONTEXT_BINS, dtype=torch.bool, device=device)
+        coarse = torch.zeros(1, planner_bins, 1061, device=device)
+        valid = torch.zeros(1, planner_bins, dtype=torch.bool, device=device)
         coarse[0, :bins] = (torch.tensor(pooled, device=device) - norms[1][0]) / norms[1][1]
         valid[0, :bins] = True
         noise = cpu_noise(model.flow, max(config['noise_reference_frames'], n), seed)[:, :n].contiguous().to(device)
@@ -244,9 +248,8 @@ def native_body(music, base, config, *, stereo=None, device='cpu', checkpoint=No
             stereo_pad = np.pad(stereo, ((0, (-n) % 15), (0, 0)))
             stereo_coarse = stereo_pad.reshape(bins, 15, model.config.stereo_dim).sum(1)
             stereo_coarse /= np.minimum(15, n - np.arange(bins) * 15)[:, None]
-            # Native C keeps its planner tensors at CONTEXT_BINS=1024 even
-            # when the song occupies fewer bins.  Match that contract for the
-            # dual context; plan_at_frames only reads the valid prefix.
+            # Keep the stereo planner tensor aligned with the full valid
+            # planner span; plan_at_frames only reads the valid prefix.
             coarse_stereo = torch.zeros(1, coarse.shape[1], model.config.stereo_dim, device=device)
             coarse_stereo[0, :bins] = (torch.tensor(stereo_coarse, device=device) - stereo_mean) / stereo_std
             native, plan = model.generate(fine, coarse, valid, torch.arange(n, device=device)[None], noise,
@@ -267,7 +270,11 @@ def native_body(music, base, config, *, stereo=None, device='cpu', checkpoint=No
     body = DanceResult(time=np.arange(n) / 30., world=world, native=values,
                        contacts=values[:, -4:], metadata=metadata)
     return body, extra, {'time': (np.arange(bins) * 15 + 7) / 30,
-                         'conditioning': plan['conditioning'][0, :bins].cpu().numpy()}, identity
+                         'conditioning': plan['conditioning'][0, :bins].cpu().numpy(),
+                         'planner_context_bins': planner_bins,
+                         'stereo_attention_window_frames': (
+                             int(model.config.frames)
+                             if model.config.stereo_fusion == 'dual_cross_attention' else None)}, identity
 
 
 def sha_array(value):
@@ -372,10 +379,15 @@ def generate(audio_path, root, *, baseline_config=None, d4max=False, d6=False, d
         source.save(root / 'source/body.npz')
         result, plan = modify_body(source, music, config, d4max=d4max, d6=d6, telemetry=telemetry)
         if native_plan:
-            plan.diagnostics.update({
+            native_diagnostics = {
                 'native_planner_time': np.asarray(native_plan['time']),
                 'native_planner_conditioning': np.asarray(native_plan['conditioning']),
-            })
+                'native_planner_context_bins': int(native_plan['planner_context_bins']),
+            }
+            if native_plan['stereo_attention_window_frames'] is not None:
+                native_diagnostics['native_stereo_attention_window_frames'] = int(
+                    native_plan['stereo_attention_window_frames'])
+            plan.diagnostics.update(native_diagnostics)
         if telemetry is not None:
             plan.diagnostics.update({
                 'd6_coarse_time': np.asarray(telemetry['coarse_time']),

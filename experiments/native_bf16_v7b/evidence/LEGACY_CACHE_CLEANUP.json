@@ -1,0 +1,34 @@
+{
+  "schema_version": 1,
+  "created_unix": 1791660734.4766629,
+  "status": "removed",
+  "rows": [
+    {
+      "path": "/mnt/lightsem-data/cache/justdance_pose",
+      "bytes_before": 4583078,
+      "files_before": 3,
+      "exists_after": false
+    },
+    {
+      "path": "/mnt/lightsem-data/cache/justdance_audio",
+      "bytes_before": 46353669,
+      "files_before": 26,
+      "exists_after": false
+    },
+    {
+      "path": "/mnt/lightsem-data/cache/justdance_wav",
+      "bytes_before": 656002270,
+      "files_before": 32,
+      "exists_after": false
+    }
+  ],
+  "policy": "Legacy pose/audio/compute caches are not inputs to native_bf16_v7b; deletion was attempted only after current-manifest reference audit.",
+  "remount_attempt": {
+    "command": "mount -o remount,rw /mnt",
+    "status": "failed",
+    "error": "ntfs3: Volume is dirty and force flag is not set; mount remains read-only",
+    "force_remount_attempted": false
+  },
+  "updated_unix": 1791660974.7335541,
+  "deleted_unix": 1791661364.671294
+}

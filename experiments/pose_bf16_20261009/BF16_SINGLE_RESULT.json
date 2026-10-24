@@ -1,0 +1,52 @@
+{
+  "status": "real_bf16_tensorrt_pose_engine",
+  "engine_sha256": "4607dd97196947291a61d2a1430b1e8a516ff128f571459dcd790c0972e2247c",
+  "rows": [
+    {
+      "recording_id": "bl399rfzD5s",
+      "frames": 60,
+      "pose_calls": 181,
+      "fps_source_frames": 339.1876825850636,
+      "pose_calls_per_sec": 1023.2161757982752,
+      "mean_instances": 3.0166666666666666,
+      "finite_pose_fraction": 1.0,
+      "first_pts": 60.027,
+      "last_pts": 61.995
+    },
+    {
+      "recording_id": "-G-6DNPGEfk",
+      "frames": 60,
+      "pose_calls": 123,
+      "fps_source_frames": 551.1229451497791,
+      "pose_calls_per_sec": 1129.802037557047,
+      "mean_instances": 2.05,
+      "finite_pose_fraction": 1.0,
+      "first_pts": 60.0,
+      "last_pts": 61.967
+    },
+    {
+      "recording_id": "kQzKKB1E9ZA",
+      "frames": 60,
+      "pose_calls": 556,
+      "fps_source_frames": 120.7445082228521,
+      "pose_calls_per_sec": 1118.8991095317629,
+      "mean_instances": 9.266666666666667,
+      "finite_pose_fraction": 1.0,
+      "first_pts": 60.0,
+      "last_pts": 61.967
+    },
+    {
+      "recording_id": "zWnvxM5cs8g",
+      "frames": 60,
+      "pose_calls": 68,
+      "fps_source_frames": 979.1085487524498,
+      "pose_calls_per_sec": 1109.6563552527764,
+      "mean_instances": 1.1333333333333333,
+      "finite_pose_fraction": 1.0,
+      "first_pts": 60.027,
+      "last_pts": 61.995
+    }
+  ],
+  "trt_version": "11.4.0.106",
+  "protocol_sha256": "f104625a58f692b9d6ed1bd6796c290cc2506685aacc41004214bf3fc680f3c4"
+}

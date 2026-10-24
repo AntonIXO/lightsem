@@ -1,0 +1,35 @@
+{
+  "protocol_id": "audio-light-foundation-privileged-dance-20261015-v1",
+  "status": "diagnostic_only",
+  "seed": 0,
+  "primary_task": "audio_to_learned_stage_light_controls",
+  "inference_modalities": ["pinned MuQ layer 9", "Base92 audio features", "fixture metadata"],
+  "training_only_auxiliary_modality": "saved dance body teacher",
+  "heads": ["aim", "angular_speed", "angular_acceleration", "rgb", "brightness", "cue_event"],
+  "audio_clock_hz": 10,
+  "body_teacher_clock_hz": 10,
+  "light_target_clock_hz": 10,
+  "native_muq_hz": 25,
+  "native_body_hz": 30,
+  "native_dmx_hz": 40,
+  "local_attention_window_frames": 32,
+  "latent_slots": 8,
+  "fixture_count_train": 8,
+  "fixture_count_eval": [5, 8, 50],
+  "arms": [
+    {"id": "target_only", "dance_auxiliary": false, "feature_set": "muq_base92"},
+    {"id": "target_plus_dance_aux", "dance_auxiliary": true, "feature_set": "muq_base92"}
+  ],
+  "selection": "target_plus_dance_aux may be retained only if held-out target metrics do not regress and auxiliary motion sensitivity passes",
+  "gates": {
+    "finite": true,
+    "chunk_continuity_max_abs": 0.0001,
+    "fixture_permutation_max_abs": 0.00001,
+    "frozen_audio_motion_inactivity": "reported; zero motion is not collapse",
+    "target_color_brightness_event_regression": "auxiliary arm may not regress target-only validation beyond preregistered tolerance",
+    "motion_proxy_response": "assigned-joint perturbation must alter assigned aim/speed outputs",
+    "collapse": "effective rank, pairwise cosine, inactivity, saturation and exact duplicates are separate diagnostics"
+  },
+  "forbidden": ["dance_at_inference", "procedural_motion", "posthoc_smoothing", "retiming", "audio_replacement", "automatic_promotion", "DMX_render_after_failed_raw_safety"],
+  "artifact_root": "/mnt/lightsem-data/experiments/lightsem/audio_light_foundation_privileged_dance_20261015_v1"
+}

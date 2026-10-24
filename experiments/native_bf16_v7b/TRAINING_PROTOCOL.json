@@ -1,0 +1,83 @@
+{
+  "arms": [
+    "joint"
+  ],
+  "audio_pose_binding": "Frame0-to-waveform t0; if released tails differ, crop to min finite overlap and record both original durations; no fitted offset or tail fill.",
+  "baseline_promoted": false,
+  "campaign_id": "native-full-fit-all-20261009-seed0-rtmpose-bf16-audio-v3",
+  "created_unix": 1791577552.891973,
+  "dataset_policy": "All finite exact-waveform paired tracks with an overlap-bound timestamp window; duration tails are measured and cropped, never synthesized or silently discarded. All admitted rows are fit/train; coaches remain separate.",
+  "feature_policy": "One exact native MuQ per recording waveform, shared by independent coaches only after receipt verification; no aggregate matrix",
+  "feature_recipe_version": 2,
+  "fresh_audio_manifest": "raw/audio/MANIFEST.json",
+  "inputs": {
+    "fd_motion_manifest": "/root/lightsem/experiments/native_bf16_v7b/data/FD_MOTION_OVERLAP_MANIFEST.json",
+    "fresh_audio_manifest": "/root/lightsem/experiments/native_bf16_v7b/raw/audio/MANIFEST.json",
+    "fresh_pose_dir": "/root/lightsem/experiments/native_bf16_v7b/raw/pose_rtmpose_bf16_prod",
+    "muq_reuse_report": "new authenticated reuse report",
+    "pose_method_review": "/mnt/lightsem-data/experiments/lightsem/native_dynamics_full_all_20261007_seed0_v5/POSE_METHOD_RESEARCH.json",
+    "stage_manifest": "/mnt/lightsem-data/experiments/lightsem/stage11_20260908/data/manifest.json"
+  },
+  "muq": {
+    "chunk_seconds": 8,
+    "frozen": true,
+    "layer": 9,
+    "model_id": "OpenMuQ/MuQ-large-msd-iter",
+    "native_hz": 25,
+    "required": true,
+    "revision": "0562a57814f6f8bbd9fdea0a25921a2fce1a841a",
+    "weights_sha256": "273febab2be02872c37d2c37e48a9d6c52c1c9392f3eeeabd498efa281ccb7a6"
+  },
+  "no_validation_split": true,
+  "partition_policy": "All finite exact-waveform paired tracks are fit/train for this explicit full-fit request; original partition labels retained only as metadata; historical manifests untouched.",
+  "pose_cache": "raw/pose_rtmpose_bf16_prod",
+  "pose_method": "RTMPose-m body7 TensorRT autocast BF16 + YOLOX-m HumanArt CUDA detector; keypoint scores metadata only; no confidence admission gate",
+  "repair_recipe_source": {
+    "path": "/mnt/lightsem-data/experiments/lightsem/native_dynamics_jd_20261005_v1/repair_refine_v2/strong/TRAINING_PROTOCOL.json",
+    "sha256": "cad2da47dec52d5b3578a7d0e6c765e3b07c94809175b702b818f2df178ecac4"
+  },
+  "repair_reference": "FP32 frozen D7 same audio/noise prior for JD; paired native3D FD; raw HF16/jerk/root/support/floor losses on both domains",
+  "repair_weights": {
+    "floor_prior": 1.0,
+    "raw_high_frequency": 16.0,
+    "raw_jerk": 0.5,
+    "root_height_prior": 0.5,
+    "support_velocity": 0.1
+  },
+  "require_all_finedance": true,
+  "schema_version": 1,
+  "seed_policy": "single seed 0; no seed selection or retry",
+  "seeds": [
+    0
+  ],
+  "status": "unqualified_full_fit_rtmpose_bf16_audio_v3_pending",
+  "test_payload_opened": true,
+  "training": {
+    "domain_order": [
+      "fd",
+      "fd",
+      "jd"
+    ],
+    "fd_batch": 16,
+    "frames": 480,
+    "initialization": "Frozen D7 seed0 initialization; same pinned teacher as repair recipe; selected CLI baseline unchanged",
+    "jd_batch": 8,
+    "loss_weights": {
+      "acceleration_distribution": 0.1,
+      "base_prior": 0.05,
+      "duration": 0.1,
+      "fd_dynamics_scale": 0.1,
+      "low_speed": 0.05,
+      "planner": 0.2,
+      "profile": 0.4,
+      "recurrence": 0.1,
+      "reprojection": 0.1,
+      "speed_distribution": 0.4
+    },
+    "quiet_loss": "stable logit-space BCE correction in code",
+    "ratio": "2FDupdates:1JDupdate",
+    "runtime": "BF16NN;FP32 measurements; deterministic algorithms; math SDPA; compiled prepared vector field; 32-step forward; JD BPTT last 4",
+    "steps": 60000
+  },
+  "updated_unix": 1791577552.8919737
+}

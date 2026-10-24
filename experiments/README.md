@@ -4,6 +4,7 @@ Campaign directories group preserved `records/` and any repository-local `output
 
 | Campaign | Start here |
 | --- | --- |
+| **Latest native dual-attention baseline: 30 rebuilt body-to-light demos** | [2026-10-12-native-portfolio](2026-10-12-native-portfolio/README.md) |
 | **Fifteen body-to-light mappings: current V3 comparison** | [2026-10-04-body-transfer](2026-10-04-body-transfer/README.md) |
 | **Current color baseline P2; body-to-N-light transfer** | [2026-09-30-body-transfer](2026-09-30-body-transfer/README.md) |
 | Historical baseline C and color A/B | [2026-09-29-baseline](2026-09-29-baseline/README.md) |
