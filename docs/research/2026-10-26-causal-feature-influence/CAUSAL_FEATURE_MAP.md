@@ -32,6 +32,7 @@ finite native bodies. The measured cached noise floor is root-relative RMS
 | Same audio masks through fixed P2 RGB delivery | Decoded RGB | Shpongle max 0.2694 8-bit RMS; Cure For Me max 0.4110. |
 | Same audio masks through fixed P2 delivery | Emitted luma | Shpongle 0.00628–0.01603; Cure For Me 0.00016–0.00315. Luma is dimmer × max(RGB). |
 | Same audio masks with body/mapper fixed | Angular DMX / dimmer bytes | Exactly zero effect. Audio masks do not create pan/tilt motion in this fixed-body path. |
+| Opposite-song cached LightLayers donor through fixed P2 delivery | Decoded RGB / emitted luma | Shpongle target + Cure donor: 0.47458 8-bit RGB RMS, 0.007761 luma RMS; Cure target + Shpongle donor: 0.42122 RGB, 0.014428 luma. Angular pan/tilt and dimmer RMS are exactly zero in both directions; finite and duplicate rate 0.0. Cached endpoint evidence only. |
 
 Every lighting arm was finite, exact duplicate fixture rate was **0.0**, and
 selected-body raw speed/acceleration/jerk receipts passed. These are cached
