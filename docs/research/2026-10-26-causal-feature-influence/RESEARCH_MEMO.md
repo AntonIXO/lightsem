@@ -338,6 +338,13 @@ target); alpha=.25 stayed below the 0.05 screen. This is safer cached evidence
 that audio identity is a causal native-dance lever, while full waveform phrase
 qualification remains open.
 
+The alpha=.75 interpolation then exceeded both matched 15-second shift controls
+while remaining raw-safe: standardized effects **0.1044** (Shpongle) and
+**0.0961** (Cure For Me), with speed/acceleration/jerk ratios below 2x in both
+directions. This is the strongest cached audio-identity arm, but it remains
+diagnostic-only until the authenticated waveforms and phrase-level controls are
+available.
+
 The paired cached-body mapper diagnostic also patched the left arm before
 mapper-01. Decoded assigned left-wrist/elbow/shoulder fixtures moved **3.91° RMS**
 on both songs versus **1.88°** for unassigned moving fixtures (ratio **2.08x**);
@@ -398,3 +405,24 @@ An input audit found legacy 60-second `.m4a` clips, but their provenance hashes
 do not match the current authenticated waveform identities (Cure For Me
 `79fbcf...` versus timeline `5363ce...`; Shpongle is an older `95e438...`
 segment). They remain archival references, not admissible full-waveform inputs.
+
+## Additional primary-source method (2026-10-30)
+
+**Motion Attribution for Video Generation / Motive** (arXiv:2601.08828)
+uses motion-weighted loss masks, frame-length correction and normalized
+gradient aggregation to attribute training-window influence on temporal
+dynamics. It is adjacent training-data attribution, not frozen-input causal
+evidence. The transferable LightSem protocol is to screen windows that affect
+raw velocity, acceleration, jerk and phrase consistency, then validate with
+held-out leave-one-group-out or retraining runs; gradient scores alone do not
+establish MuQ/Base92 or lighting-bus causality.
+
+The corrected cached LightLayers donor endpoint was also executed. With target
+body, mapper, P2 delivery and dimmer fixed, opposite-song audio buses changed
+RGB RMS by **0.47458** (Shpongle target) and **0.42122** (Cure For Me target),
+and emitted-luma RMS by **0.007761** and **0.014428**. Decoded pan/tilt and
+dimmer effects were exactly zero in both songs, with finite DMX and duplicate
+fixture rate 0.0. The authoritative receipt is
+`/mnt/lightsem-data/experiments/lightsem/light_audio_donor_causal_cached_20261030_v2/PORTFOLIO_RECEIPT.json`.
+This is cached output-stage RGB/luma evidence only; the earlier v1 receipt is
+superseded because its overlay contaminated angular/dimmer measurements.
