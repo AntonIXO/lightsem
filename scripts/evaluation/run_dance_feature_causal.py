@@ -76,13 +76,81 @@ def _load_config(path: Path) -> tuple[dict, Path]:
     return config, resolved
 
 
-def _load_inputs(audio: Path, timeline_path: Path, base92_path: Path, config: dict):
+def _validate_cached_timeline(timeline, config: dict) -> None:
+    """Validate the pinned MuQ contract without opening the source waveform."""
+    if timeline.metadata.get("intervention") is not None:
+        raise ValueError("Cached-only mode refuses an intervention timeline")
+    recipe = timeline.metadata.get("recipe")
+    expected_recipe = config["muq"]
+    if isinstance(recipe, dict) and (
+        recipe.get("muq_layer") != expected_recipe["layer"]
+        or recipe.get("muq_native_hz") != expected_recipe["native_hz"]
+        or recipe.get("muq_chunk_seconds") != expected_recipe["chunk_seconds"]
+        or "All-In-One" not in str(recipe.get("structure", ""))
+        or "pinned HTDemucs" not in str(recipe.get("separator", ""))
+    ):
+        raise ValueError("Cached timeline extractor recipe is not the pinned native contract")
+    muq = timeline.metadata.get("muq", {})
+    receipt = muq.get("model_receipt", {})
+    weights = receipt.get("artifacts", {}).get("model.safetensors", {}).get("sha256")
+    if (muq.get("representation") != "muq" or muq.get("layer") != expected_recipe["layer"]
+            or receipt.get("model_id") != expected_recipe["model_id"]
+            or receipt.get("revision") != expected_recipe["revision"]
+            or weights != expected_recipe["weights_sha256"]):
+        raise ValueError("Cached timeline does not contain the pinned MuQ checkpoint/layer")
+    for name in ("input_sha256", "analyzed_waveform_sha256"):
+        value = timeline.metadata.get(name)
+        if not isinstance(value, str) or len(value) != 64:
+            raise ValueError(f"Cached-only mode requires timeline metadata {name}")
+
+
+def _load_cached_stereo_context(timeline, config: dict):
+    """Load authenticated stereo context by cached waveform hash only."""
+    from lightsem.dance.baseline import sha as baseline_sha
+    spec = config.get("stereo_conditioning")
+    if not spec or not spec.get("enabled"):
+        return None, None
+    manifest_path = Path(spec["context_manifest"]).expanduser().resolve()
+    if baseline_sha(manifest_path) != spec["context_manifest_sha256"]:
+        raise ValueError("Stereo context manifest hash mismatch")
+    manifest = json.loads(manifest_path.read_text())
+    audio_hash = timeline.metadata["input_sha256"]
+    row = next((value for value in manifest.get("rows", [])
+                if value.get("audio_sha256") == audio_hash), None)
+    if row is None:
+        raise FileNotFoundError(f"No authenticated stereo context for cached waveform {audio_hash}")
+    context_path = Path(row["context_path"]).expanduser().resolve()
+    if baseline_sha(context_path) != row.get("context_sha256"):
+        raise ValueError("Stereo context cache hash mismatch")
+    with np.load(context_path, allow_pickle=False) as values:
+        source_time = np.asarray(values["time30"], dtype=np.float64)
+        source = np.asarray(values["fused30"], dtype=np.float32)
+    if (source.ndim != 2 or source.shape[1] != int(spec["feature_dim"])
+            or len(source_time) != len(source) or not np.isfinite(source).all()
+            or not np.isfinite(source_time).all() or np.any(np.diff(source_time) <= 0)):
+        raise ValueError("Invalid cached stereo context values/clock")
+    target = np.asarray(timeline.time, dtype=np.float64)
+    stereo = np.stack([np.interp(target, source_time, source[:, i]) for i in range(source.shape[1])], axis=1).astype(np.float32)
+    binding = {"manifest": str(manifest_path), "manifest_sha256": baseline_sha(manifest_path),
+               "context": str(context_path), "context_sha256": baseline_sha(context_path),
+               "audio_sha256": audio_hash, "schema": manifest.get("schema"),
+               "fusion": manifest.get("fusion"), "automatic_for_waveform": bool(manifest.get("automatic_for_waveform")),
+               "cached_only": True}
+    return stereo, binding
+
+
+def _load_inputs(audio: Path | None, timeline_path: Path, base92_path: Path, config: dict, *, cached_only: bool = False):
     from lightsem.dance.baseline import validate_music, sha as baseline_sha
     from lightsem.dance.pipeline import validate_base92_clock
     from lightsem.experiments.dynamic_dance.contracts import MusicTimeline
 
     timeline = MusicTimeline.load(timeline_path)
-    validate_music(timeline, audio, config)
+    if cached_only:
+        _validate_cached_timeline(timeline, config)
+    else:
+        if audio is None:
+            raise ValueError("--audio is required unless --cached-only is set")
+        validate_music(timeline, audio, config)
     _validate_audio_binding(timeline, base92_path)
     with np.load(base92_path, allow_pickle=False) as values:
         if "x30" not in values or "time30" not in values:
@@ -90,7 +158,7 @@ def _load_inputs(audio: Path, timeline_path: Path, base92_path: Path, config: di
         base = np.asarray(values["x30"], dtype=np.float32)
         base_time = np.asarray(values["time30"], dtype=np.float64)
     validate_base92_clock(base, base_time, timeline.time)
-    audio_hash = baseline_sha(audio)
+    audio_hash = timeline.metadata.get("input_sha256") if cached_only else baseline_sha(audio)
     cached = None
     for key, row in config.get("cached_tracks", {}).items():
         if row.get("audio_sha256") == audio_hash:
@@ -100,8 +168,11 @@ def _load_inputs(audio: Path, timeline_path: Path, base92_path: Path, config: di
         _strict_hash(timeline_path, cached["timeline"]["sha256"], "timeline")
         _strict_hash(base92_path, cached["base92"]["sha256"], "Base92")
     return timeline, base, {
-        "audio_path": str(audio),
+        "audio_path": None if cached_only else str(audio),
         "audio_sha256": audio_hash,
+        "analyzed_waveform_sha256": timeline.metadata.get("analyzed_waveform_sha256"),
+        "raw_waveform_present": bool(audio is not None and Path(audio).is_file()),
+        "cached_only": bool(cached_only),
         "timeline_path": str(timeline_path),
         "timeline_sha256": baseline_sha(timeline_path),
         "base92_path": str(base92_path),
@@ -259,26 +330,35 @@ def _ratios(candidate: dict, baseline: dict) -> dict[str, float | None]:
 def run_song(args, config, config_path):
     import torch
     from lightsem.dance.baseline import load_model, sha as baseline_sha
-    from lightsem.dance.pipeline import load_stereo_context
     from lightsem.experiments.dynamic_dance.audio import model_features
     from lightsem.experiments.dynamic_dance.contracts import DanceResult
     from lightsem.experiments.native_dynamics.evaluation import cpu_noise, setup
     from lightsem.experiments.motion_study.geometry import joints_from_features
 
-    if args.device != "cpu":
-        raise ValueError("This runner is CPU-only; GPU execution is deliberately unsupported")
-    audio = Path(args.audio).expanduser().resolve()
+    audio = None if args.audio is None else Path(args.audio).expanduser().resolve()
     timeline_path = Path(args.timeline).expanduser().resolve()
     base92_path = Path(args.base92).expanduser().resolve()
-    timeline, base, input_identity = _load_inputs(audio, timeline_path, base92_path, config)
+    timeline, base, input_identity = _load_inputs(audio, timeline_path, base92_path, config,
+                                                  cached_only=args.cached_only)
     n = len(base)
+    if args.max_frames is not None:
+        if args.max_frames < 1:
+            raise ValueError("--max-frames must be positive")
+        n = min(n, int(args.max_frames))
+        base = base[:n]
     target_time = np.arange(n, dtype=np.float64) / FPS
     extra, names = model_features(timeline, target_time=target_time)
     if list(names) != _expected_names() or extra.shape != (n, EXTRA_DIM):
         raise ValueError("Native feature schema differs from the fixed 1061-D contract")
     config_path = Path(config_path).resolve()
     model, norms, checkpoint_identity = load_model(config, device="cpu", checkpoint=args.checkpoint)
-    stereo, stereo_identity = load_stereo_context(audio, timeline, config)
+    if args.cached_only:
+        stereo, stereo_identity = _load_cached_stereo_context(timeline, config)
+    else:
+        from lightsem.dance.pipeline import load_stereo_context
+        stereo, stereo_identity = load_stereo_context(audio, timeline, config)
+    if stereo is not None and len(stereo) >= n and stereo.shape[1] == model.config.stereo_dim:
+        stereo = stereo[:n]
     if stereo is not None and stereo.shape != (n, model.config.stereo_dim):
         raise ValueError("Authenticated stereo context does not match the Base92 clock")
     setup()
@@ -346,6 +426,9 @@ def run_song(args, config, config_path):
             "noise_floor": {"repeat_count": int(args.repeat_count), "repeats": repeat_deltas,
                              "pass": all(row["exact_native"] for row in repeat_deltas)},
             "scope": "Raw native 30 Hz body only; no mapper, interpolation, DMX or video",
+            "cached_only": bool(args.cached_only),
+            "coverage_frames": int(n),
+            "coverage_seconds": float(n / FPS),
         }
         if finite:
             result = DanceResult(time=target_time, world=world_t, contacts=contacts, native=native_np,
@@ -365,7 +448,8 @@ def run_song(args, config, config_path):
     receipt = {
         "schema_version": 1,
         "protocol": "dance-feature-causal-fixed-c-cpu-20261027-v1",
-        "status": "complete",
+        "status": "diagnostic_only" if args.cached_only else "complete",
+        "qualification_status": "unqualified_missing_raw_waveform" if args.cached_only else "diagnostic_only",
         "song": args.label,
         "device": "cpu",
         "arms": arm_receipts,
@@ -374,7 +458,10 @@ def run_song(args, config, config_path):
         "checkpoint": checkpoint_identity,
         "draw_seed": seed,
         "repeat_count": int(args.repeat_count),
+        "max_frames": None if args.max_frames is None else int(args.max_frames),
         "no_gpu": True,
+        "cached_only": bool(args.cached_only),
+        "raw_waveform_required_for_own_song_recompute": bool(args.cached_only),
         "downstream": "blocked until raw safety/collapse audit; no mapper/DMX/video",
     }
     write_json(out / "CAUSAL_RECEIPT.json", receipt)
@@ -383,7 +470,8 @@ def run_song(args, config, config_path):
 
 def main(argv: list[str] | None = None) -> None:
     parser = argparse.ArgumentParser(description=__doc__)
-    parser.add_argument("--audio", type=Path, required=True)
+    parser.add_argument("--audio", type=Path,
+                        help="Original waveform; required unless --cached-only is set")
     parser.add_argument("--timeline", type=Path, required=True)
     parser.add_argument("--base92", type=Path, required=True)
     parser.add_argument("--out", type=Path, required=True)
@@ -394,10 +482,13 @@ def main(argv: list[str] | None = None) -> None:
                         help="comma-separated arms: full,zero_muq,zero_base92,zero_sources,zero_source_<name>")
     parser.add_argument("--draw-seed", type=int, default=7001)
     parser.add_argument("--repeat-count", type=int, default=2)
+    parser.add_argument("--max-frames", type=int, help="optional short cached-window diagnostic")
     parser.add_argument("--max-speed-ratio", type=float, default=1.5)
     parser.add_argument("--max-accel-ratio", type=float, default=2.0)
     parser.add_argument("--max-jerk-ratio", type=float, default=2.0)
     parser.add_argument("--dry-run", action="store_true", help="validate pinned inputs without loading weights or writing artifacts")
+    parser.add_argument("--cached-only", action="store_true",
+                        help="Use authenticated timeline/Base92/stereo caches without opening the raw waveform")
     args = parser.parse_args(argv)
     if args.repeat_count < 1 or args.draw_seed < 0:
         raise SystemExit("repeat-count must be >=1 and draw-seed must be nonnegative")
@@ -406,10 +497,14 @@ def main(argv: list[str] | None = None) -> None:
         raise SystemExit("at least one arm is required")
     if "full" not in args.arms:
         raise SystemExit("the full arm is required as the matched raw-body reference")
+    if args.audio is None and not args.cached_only:
+        raise SystemExit("--audio is required unless --cached-only is set")
     config, config_path = _load_config(args.baseline.resolve())
     if args.dry_run:
-        _load_inputs(args.audio.resolve(), args.timeline.resolve(), args.base92.resolve(), config)
+        _load_inputs(None if args.audio is None else args.audio.resolve(), args.timeline.resolve(),
+                     args.base92.resolve(), config, cached_only=args.cached_only)
         print(json.dumps({"status": "validated", "device": "cpu", "arms": args.arms,
+                          "cached_only": bool(args.cached_only),
                           "baseline": str(config_path)}, sort_keys=True))
         return
     result = run_song(args, config, config_path)
