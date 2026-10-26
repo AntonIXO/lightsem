@@ -410,6 +410,8 @@ A current filesystem re-audit also found `/root/shpongle.wav` (SHA256
 `d547ea...`, 277.307 s, “When Shall I Be Free”) and `/root/4 - Cure For Me.m4a`
 (SHA256 `872e73...`, 201.689 s). Neither matches the active fixed-C bindings
 (`95e438...` and `5363ce...`), so neither was substituted into the causal run.
+An exhaustive scan of 109 song-named audio files under `/root` and
+`/mnt/lightsem-data` found no exact hash match for either active binding.
 
 ## Additional primary-source method (2026-10-30)
 
