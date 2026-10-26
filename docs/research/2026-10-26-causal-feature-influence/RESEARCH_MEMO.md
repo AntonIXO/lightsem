@@ -258,7 +258,8 @@ prior LightSem work and are retained as controls.
 Problem: `lightsem-causal-feature-influence-20261026`
 
 Synthesis: current state recorded in Vibescience on 2026-10-27
-Three diagnostics have executed; full-waveform confirmation remains queued.
+The cached dance, mapper, and palette-state diagnostics have executed; full-waveform
+confirmation and decoded-DMX audio-group retention remain queued.
 
 ## Executed cache-backed diagnostic (2026-10-27)
 
@@ -297,10 +298,15 @@ body windows measured root-relative RMS sigma **0.00351 m** and standardized-eff
 sigma approximately **0.01157**; these measured floors are registered in
 Vibescience while full-waveform confirmation remains pending.
 
-A single-song cached LightLayers screen also ran on the sealed Cure For Me 94-D
-bus. Zeroing mel, energy, timbre or rhythm groups changed generated palette IDs by
-**0.334**, **0.992**, **0.663** and **0.987** of 10 Hz states respectively. This
-shows strong dependence of the lighting network's internal palette state on the
-audio bus, but it is only a one-song palette proxy: it does not establish decoded
-DMX, RGB/brightness retention, or two-song audio conditioning. The Shpongle 94-D
-bus cache is still missing, so the full lighting hypothesis remains open.
+A two-song cached LightLayers screen ran on sealed 94-D buses with the same frozen
+P2/Rich96 checkpoint and isolated mean masks. On Shpongle, zeroing mel, energy,
+timbre or rhythm changed palette IDs by **0.567**, **0.402**, **0.013** and
+**0.834** of 10 Hz states; on Cure For Me the corresponding changes were
+**0.334**, **0.992**, **0.663** and **0.987**. All ten arms were finite, and each
+song exceeded the preregistered 0.20 screen MDE. This supports audio-group
+dependence at the palette-state seam, with rhythm dominant for Shpongle and
+energy/rhythm dominant for Cure For Me. It remains a diagnostic-only proxy: no
+decoded DMX, RGB, brightness, body, choreography, or full-waveform own-audio
+claim follows. The next admissible lighting run must carry matched group
+retain/remove interventions through the mapper and emitted DMX while keeping the
+body fixed.
