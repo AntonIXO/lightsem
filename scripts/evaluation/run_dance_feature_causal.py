@@ -238,6 +238,22 @@ def _apply_arm(base: np.ndarray, extra: np.ndarray, arm: str) -> tuple[np.ndarra
         start = MUQ_DIM + SOURCE_NAMES.index(source) * len(SOURCE_FIELDS)
         extra[:, start:start + len(SOURCE_FIELDS)] = 0.0
         changed = [source]
+    elif arm == "zero_mixture":
+        start = MUQ_DIM + len(SOURCE_NAMES) * len(SOURCE_FIELDS)
+        extra[:, start:start + 4] = 0.0
+        changed = ["mixture_rms", "mixture_onset", "mixture_centroid", "mixture_flux"]
+    elif arm == "zero_events":
+        start = MUQ_DIM + len(SOURCE_NAMES) * len(SOURCE_FIELDS) + 4
+        extra[:, start:start + 6] = 0.0
+        changed = ["beat/downbeat/section previous-next offsets"]
+    elif arm == "zero_sections":
+        start = MUQ_DIM + len(SOURCE_NAMES) * len(SOURCE_FIELDS) + 4 + 6
+        extra[:, start:start + 11] = 0.0
+        changed = ["section labels"]
+    elif arm == "zero_timing":
+        start = MUQ_DIM + len(SOURCE_NAMES) * len(SOURCE_FIELDS)
+        extra[:, start:] = 0.0
+        changed = ["mixture", "beat/downbeat/section offsets", "section labels"]
     else:
         raise ValueError(f"Unknown arm {arm!r}")
     return base, extra, {"arm": arm, "replacement": "normalized TRAIN mean (zero)", "changed_groups": changed}
