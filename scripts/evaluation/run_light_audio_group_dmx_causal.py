@@ -53,6 +53,11 @@ def _metrics(base_dmx: np.ndarray, candidate_dmx: np.ndarray, patch: list[dict])
     moving = [i for i, fixture in enumerate(patch) if fixture["kind"] in ("beam", "laser")]
     rgb_delta = cand["rgb"].astype(np.float64) - base["rgb"].astype(np.float64)
     dim_delta = cand["dimmer"] - base["dimmer"]
+    # body_transfer.decode returns normalized RGB/dimmer arrays but no HSV
+    # value field; reproduce dmx.decode.emitted_light with max(R,G,B).
+    base_luma = (base["dimmer"] * np.maximum(np.max(base["rgb"], axis=-1), 1e-6)).mean(axis=1)
+    cand_luma = (cand["dimmer"] * np.maximum(np.max(cand["rgb"], axis=-1), 1e-6)).mean(axis=1)
+    luma_delta = cand_luma - base_luma
     duplicate_rate, duplicate_groups = duplicate_fraction(candidate_dmx, patch)
     return {
         "finite_dmx": bool(np.isfinite(candidate_dmx).all()),
@@ -61,8 +66,10 @@ def _metrics(base_dmx: np.ndarray, candidate_dmx: np.ndarray, patch: list[dict])
         "angular_rms_deg_moving": float(np.sqrt(np.mean(angular[:, moving] ** 2))) if moving else 0.0,
         "angular_max_deg": float(np.max(angular)) if angular.size else 0.0,
         "rgb_rms_8bit": float(np.sqrt(np.mean(rgb_delta ** 2))),
-        "brightness_rms": float(np.sqrt(np.mean(dim_delta ** 2))),
-        "brightness_mean": float(np.mean(cand["dimmer"])),
+        "brightness_rms": float(np.sqrt(np.mean(luma_delta ** 2))),
+        "dimmer_rms": float(np.sqrt(np.mean(dim_delta ** 2))),
+        "brightness_mean": float(np.mean(cand_luma)),
+        "dimmer_mean": float(np.mean(cand["dimmer"])),
         "brightness_inactive_fraction": float(np.mean(cand["dimmer"] < 0.02)),
         "brightness_saturated_low_fraction": float(np.mean(cand["dimmer"] <= (1.0 / 255.0))),
         "brightness_saturated_high_fraction": float(np.mean(cand["dimmer"] >= (254.0 / 255.0))),
