@@ -331,6 +331,13 @@ reverse donor arm passed. This proves cached audio-stream dependence but remains
 `directional_only`: the unsafe arm is quarantined, the raw waveforms are absent,
 and no mapping or rendering was allowed.
 
+A changed bounded recipe interpolated target and donor feature streams at
+alpha=.25 and .50. Alpha=.50 stayed raw-safe in both directions and produced
+standardized effects **0.0714** (Shpongle target) and **0.0628** (Cure For Me
+target); alpha=.25 stayed below the 0.05 screen. This is safer cached evidence
+that audio identity is a causal native-dance lever, while full waveform phrase
+qualification remains open.
+
 The paired cached-body mapper diagnostic also patched the left arm before
 mapper-01. Decoded assigned left-wrist/elbow/shoulder fixtures moved **3.91° RMS**
 on both songs versus **1.88°** for unassigned moving fixtures (ratio **2.08x**);
