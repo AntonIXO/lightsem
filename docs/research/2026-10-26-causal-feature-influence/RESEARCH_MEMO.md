@@ -299,6 +299,16 @@ hypothesis `h-dance-base92-role-20261027` and runbook
 `runbook-dance-base92-causal-20261027` commit the Base92 claim for a proper
 full-waveform test.
 
+A source-group matrix then masked the cached 16-D drums/bass/other/vocals block
+individually. Effects were tiny: **0.000003–0.000697 m** on Shpongle and
+**0.000400–0.000825 m** on Cure For Me; the largest standardized effect was
+**0.00232**, inside the measured cached noise floor and below the preregistered
+0.01 m screen MDE. Every arm stayed finite, rank 139, exactly repeatable, and
+under the raw-safety ratios. Base92 and MuQ controls were much larger. The
+source descriptors are therefore mechanistically present but weak at this
+recipe scale; this is a cached diagnostic null, not a full-song source-semantic
+conclusion.
+
 The paired cached-body mapper diagnostic also patched the left arm before
 mapper-01. Decoded assigned left-wrist/elbow/shoulder fixtures moved **3.91° RMS**
 on both songs versus **1.88°** for unassigned moving fixtures (ratio **2.08x**);
