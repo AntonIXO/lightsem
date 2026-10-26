@@ -247,6 +247,21 @@ architectural ideas; none establishes causal attribution for this LightSem
 checkpoint. The active goal remains an executed, one-seed frozen-model audit,
 not a paper-based promotion.
 
+The incremental search also surfaced two 2026 primary sources that I read
+directly. **DiscoForcing** (arXiv:2605.28491) factorizes strictly causal
+streaming audio into discrete rhythmic RVQ codes and continuous periodic-phase
+features, then uses root-relative incremental motion and diffusion forcing. Its
+ablation reports a learned VQ-PAE encoder improving realism over Librosa while
+the causal/latency protocol controls lookahead and stale-history confounds. The
+transferable LightSem test is a matched rhythmic-code versus phase-feature
+retain/remove matrix measured on raw body timing and safety, not a wholesale
+architecture swap. **SeqLight / Stage Light is Sequence^2** (arXiv:2605.03660)
+predicts global hue/value distributions and then decomposes them into
+venue-specific per-light controls with BC, AIRL/GRPO and HER-style goals. Its
+BC/AUX ablations show policy dependence, but the model is hue/value-only and
+does not establish pan/tilt or DMX motion attribution. It supports keeping
+palette/RGB and angular DMX as separate endpoints in the LightSem audit.
+
 The methods are novel relative to the old LightSem evidence when they add
 root-relative source patches, angular-DMX readouts, orthogonal modality controls,
 or causal hidden-path verification. MuQ/Base92 zeroing, donor/time-shift controls,
@@ -310,3 +325,8 @@ decoded DMX, RGB, brightness, body, choreography, or full-waveform own-audio
 claim follows. The next admissible lighting run must carry matched group
 retain/remove interventions through the mapper and emitted DMX while keeping the
 body fixed.
+
+Perplexity searches were not silently stopped: the authenticated account still
+had web/scholar search capacity, while the deep-research quota had reached zero.
+The earlier research sweep is complete; subsequent sources were searched with
+the search endpoint and then read from their primary arXiv pages directly.
