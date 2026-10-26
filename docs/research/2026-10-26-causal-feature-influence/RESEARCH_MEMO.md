@@ -318,6 +318,19 @@ were exact and raw safety passed. Timing inputs are therefore also weak at this
 cached native-body scale; the result does not replace full waveform phrase and
 donor controls.
 
+## Cached donor and time-shift counterfactual (2026-10-29)
+
+Replacing each target's cached audio stream with the other song's authenticated
+cached Base92/MuQ/descriptor/stereo stream changed the native body strongly in
+both directions: **0.03767 m** root-relative RMS and standardized effects
+**0.1253** (Shpongle target) and **0.1236** (Cure For Me target). A 15-second
+circular shift also changed the body, with standardized effects **0.0372** and
+**0.0859**. Rank stayed 139 and repeats were exact. The Shpongle-target/Cure-
+donor arm failed raw safety (speed **1.575×**, jerk **2.033×**), while the
+reverse donor arm passed. This proves cached audio-stream dependence but remains
+`directional_only`: the unsafe arm is quarantined, the raw waveforms are absent,
+and no mapping or rendering was allowed.
+
 The paired cached-body mapper diagnostic also patched the left arm before
 mapper-01. Decoded assigned left-wrist/elbow/shoulder fixtures moved **3.91° RMS**
 on both songs versus **1.88°** for unassigned moving fixtures (ratio **2.08x**);
