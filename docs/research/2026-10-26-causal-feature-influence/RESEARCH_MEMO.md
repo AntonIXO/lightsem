@@ -406,6 +406,11 @@ do not match the current authenticated waveform identities (Cure For Me
 `79fbcf...` versus timeline `5363ce...`; Shpongle is an older `95e438...`
 segment). They remain archival references, not admissible full-waveform inputs.
 
+A current filesystem re-audit also found `/root/shpongle.wav` (SHA256
+`d547ea...`, 277.307 s, “When Shall I Be Free”) and `/root/4 - Cure For Me.m4a`
+(SHA256 `872e73...`, 201.689 s). Neither matches the active fixed-C bindings
+(`95e438...` and `5363ce...`), so neither was substituted into the causal run.
+
 ## Additional primary-source method (2026-10-30)
 
 **Motion Attribution for Video Generation / Motive** (arXiv:2601.08828)
@@ -416,6 +421,13 @@ evidence. The transferable LightSem protocol is to screen windows that affect
 raw velocity, acceleration, jerk and phrase consistency, then validate with
 held-out leave-one-group-out or retraining runs; gradient scores alone do not
 establish MuQ/Base92 or lighting-bus causality.
+
+A cached FANS-style local replacement was considered and deliberately not run.
+A same-song block donor would create a cross-feature hybrid unless retained
+feature distance, temporal continuity and OOD/support gates were preregistered;
+without those controls it would be weaker than the existing authenticated
+matrices and alpha=.75 donor. Any future local replacement must commit those
+validity gates before execution.
 
 The corrected cached LightLayers donor endpoint was also executed. With target
 body, mapper, P2 delivery and dimmer fixed, opposite-song audio buses changed
