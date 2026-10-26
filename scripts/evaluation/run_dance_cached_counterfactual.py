@@ -83,7 +83,7 @@ def _run_target(args, config, config_path, target_name, target_spec, donor_spec,
     }
     if not args.interpolation_only:
         arms["donor_audio"] = (donor_base, donor_extra, donor_stereo, "other_song_cached_audio")
-    for alpha in (0.25, 0.5):
+    for alpha in (0.25, 0.5, 0.75):
         arms[f"donor_mix_{int(alpha * 100):02d}"] = (
             target_base + alpha * (donor_base - target_base),
             target_extra + alpha * (donor_extra - target_extra),
