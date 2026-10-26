@@ -309,6 +309,15 @@ source descriptors are therefore mechanistically present but weak at this
 recipe scale; this is a cached diagnostic null, not a full-song source-semantic
 conclusion.
 
+A timing-group matrix then masked the remaining cached temporal inputs. Zeroing
+mixture summaries, beat/downbeat/section offsets, section labels, or the whole
+timing block produced maximum effects of **0.00293 m** on Shpongle and
+**0.00648 m** on Cure For Me; the conservative standardized effect was **0.00973**,
+below the preregistered 0.01 m / 0.05 screen targets. Rank stayed 139, repeats
+were exact and raw safety passed. Timing inputs are therefore also weak at this
+cached native-body scale; the result does not replace full waveform phrase and
+donor controls.
+
 The paired cached-body mapper diagnostic also patched the left arm before
 mapper-01. Decoded assigned left-wrist/elbow/shoulder fixtures moved **3.91° RMS**
 on both songs versus **1.88°** for unassigned moving fixtures (ratio **2.08x**);
