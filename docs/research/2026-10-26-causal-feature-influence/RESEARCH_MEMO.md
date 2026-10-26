@@ -332,20 +332,23 @@ The cached LightLayers masks were then carried through a patch-aware P2 two-grou
 RGB overlay onto the sealed selected-C mapper-01 DMX for both songs. The body,
 fixture geometry, 16-bit pan/tilt bytes, LUFS dimmer law and 40 Hz clock stayed
 fixed; only RGB channels were allowed to change. The authoritative receipt is
-`/mnt/lightsem-data/experiments/lightsem/light_audio_group_dmx_causal_cached_20261028_v3/PORTFOLIO_RECEIPT.json`.
+`/mnt/lightsem-data/experiments/lightsem/light_audio_group_dmx_causal_cached_20261028_v5/PORTFOLIO_RECEIPT.json`.
 
 - Shpongle maximum decoded RGB RMS: **0.2694** 8-bit units (mel group).
 - Cure For Me maximum decoded RGB RMS: **0.4110** 8-bit units (energy group).
-- Every masked arm had **0.0°** decoded angular-DMX effect and **0.0** brightness
-  RMS versus its full arm.
+- Every masked arm had **0.0°** decoded angular-DMX effect and **0.0** dimmer-byte
+  RMS, but emitted-luma RMS also changed: Shpongle **0.00628–0.01603** and
+  Cure For Me **0.00016–0.00315** across isolated groups. Emitted luma is
+  `dimmer × max(RGB)`, so dimmer-byte invariance is not brightness invariance.
 - DMX arrays were finite, exact duplicate fixture rate was **0.0**, and the
   selected bodies reused passing raw speed/acceleration/jerk safety receipts.
 
-This is the first output-stage result: cached audio groups reach decoded RGB but
-do not reach pan/tilt or brightness when the body and mapper are held fixed. It
-does not prove learned audio-conditioned geometry, full-waveform own-song
-conditioning, or choreography. Legacy compressed audio clips remain rejected
-because their hashes do not match the authenticated feature inputs.
+This is the first output-stage result: cached audio groups reach decoded RGB and
+emitted luma but do not reach pan/tilt or dimmer bytes when the body and mapper
+are held fixed. It does not prove learned audio-conditioned geometry,
+full-waveform own-song conditioning, or choreography. Legacy compressed audio
+clips remain rejected because their hashes do not match the authenticated feature
+inputs.
 
 Perplexity searches were not silently stopped: the authenticated account still
 had web/scholar search capacity, while the deep-research quota had reached zero.
