@@ -296,3 +296,11 @@ both mapper receipts. A paired 2-second block bootstrap over the saved 60-second
 body windows measured root-relative RMS sigma **0.00351 m** and standardized-effect
 sigma approximately **0.01157**; these measured floors are registered in
 Vibescience while full-waveform confirmation remains pending.
+
+A single-song cached LightLayers screen also ran on the sealed Cure For Me 94-D
+bus. Zeroing mel, energy, timbre or rhythm groups changed generated palette IDs by
+**0.334**, **0.992**, **0.663** and **0.987** of 10 Hz states respectively. This
+shows strong dependence of the lighting network's internal palette state on the
+audio bus, but it is only a one-song palette proxy: it does not establish decoded
+DMX, RGB/brightness retention, or two-song audio conditioning. The Shpongle 94-D
+bus cache is still missing, so the full lighting hypothesis remains open.
