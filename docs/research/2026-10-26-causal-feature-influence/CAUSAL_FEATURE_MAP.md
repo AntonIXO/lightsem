@@ -15,6 +15,7 @@ downstream interpretation.
 | Zero drums/bass/other/vocals separately | 0.000003–0.000697 m | 0.000400–0.000825 m | No individual source family reaches the 0.01 m screen MDE. |
 | Zero mixture/timing/section groups | max 0.00293 m | max 0.00648 m | Timing block is mechanically present but below the 0.01 m / 0.05 standardized cached screen. |
 | Opposite-song cached donor | 0.03767 m; standardized 0.1253 | 0.03767 m; 0.1236 | Strong audio-identity counterfactual beyond 15 s circular shifts (0.0372/0.0859), but Shpongle←Cure fails raw safety: speed 1.575x, jerk 2.033x. Directional-only. |
+| Alpha=0.50 donor interpolation | 0.02146 m; standardized 0.07138 | 0.01914 m; 0.06282 | Both directions raw-safe; Shpongle exceeds its shift control, Cure remains below its shift control 0.08591. Directional-only. |
 | Alpha=.50 donor interpolation | 0.02146 m; standardized 0.07138 | 0.01914 m; 0.06282 | Safe bounded audio-identity effect in both songs; all raw speed/acceleration/jerk ratios stay below 2x. Cached-only. |
 
 All cached dance matrices used seed 7001, exact repeat forwards, rank 139 and
