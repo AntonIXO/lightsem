@@ -76,12 +76,20 @@ def _run_target(args, config, config_path, target_name, target_spec, donor_spec,
     stereo_norms = norms[2] if model.config.stereo_dim else None
     arms = {
         "factual": (target_base, target_extra, target_stereo, "own_song"),
-        "donor_audio": (donor_base, donor_extra, donor_stereo, "other_song_cached_audio"),
         "time_shift": (np.roll(target_base, args.shift_frames, axis=0),
                         np.roll(target_extra, args.shift_frames, axis=0),
                         None if target_stereo is None else np.roll(target_stereo, args.shift_frames, axis=0),
                         f"circular_shift_{args.shift_frames}_frames"),
     }
+    if not args.interpolation_only:
+        arms["donor_audio"] = (donor_base, donor_extra, donor_stereo, "other_song_cached_audio")
+    for alpha in (0.25, 0.5):
+        arms[f"donor_mix_{int(alpha * 100):02d}"] = (
+            target_base + alpha * (donor_base - target_base),
+            target_extra + alpha * (donor_extra - target_extra),
+            None if target_stereo is None else target_stereo + alpha * (donor_stereo - target_stereo),
+            f"donor_interpolation_alpha_{alpha:.2f}",
+        )
     out = Path(args.out).resolve() / target_name
     out.mkdir(parents=True, exist_ok=False)
     factual_world = None
@@ -138,6 +146,8 @@ def main():
     p.add_argument("--out",required=True,type=Path);p.add_argument("--max-frames",type=int,default=1800)
     p.add_argument("--repeat-count",type=int,default=2);p.add_argument("--draw-seed",type=int,default=7001)
     p.add_argument("--shift-frames",type=int,default=450)
+    p.add_argument("--interpolation-only",action="store_true",
+                   help="Omit the known unsafe full donor arm; run factual, shift and alpha=.25/.50 mixes")
     a=p.parse_args();
     if a.out.exists(): raise FileExistsError(a.out)
     config, config_path=base._load_config(a.baseline.resolve())
