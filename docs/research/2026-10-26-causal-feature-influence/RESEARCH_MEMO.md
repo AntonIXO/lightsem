@@ -330,3 +330,8 @@ Perplexity searches were not silently stopped: the authenticated account still
 had web/scholar search capacity, while the deep-research quota had reached zero.
 The earlier research sweep is complete; subsequent sources were searched with
 the search endpoint and then read from their primary arXiv pages directly.
+
+An input audit found legacy 60-second `.m4a` clips, but their provenance hashes
+do not match the current authenticated waveform identities (Cure For Me
+`79fbcf...` versus timeline `5363ce...`; Shpongle is an older `95e438...`
+segment). They remain archival references, not admissible full-waveform inputs.
