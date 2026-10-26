@@ -42,6 +42,19 @@ def circular_deg(delta: np.ndarray) -> np.ndarray:
     return np.abs((delta + 180.0) % 360.0 - 180.0)
 
 
+def duplicate_fraction(dmx: np.ndarray, patch: list[dict]) -> tuple[float, list[list[str]]]:
+    streams = {}
+    for fixture in patch:
+        u = int(fixture["universe"])
+        a = int(fixture["address"]) - 1
+        w = int(fixture["n_channels"])
+        key = np.ascontiguousarray(dmx[:, u, a:a + w]).tobytes()
+        streams.setdefault(key, []).append(fixture["name"])
+    groups = [names for names in streams.values() if len(names) > 1]
+    duplicated = sum(len(names) for names in groups)
+    return duplicated / max(len(patch), 1), groups
+
+
 def run_song(args, song: str) -> dict:
     from lightsem.conductor.body_transfer import decode, sample_body
     from lightsem.conductor.body_transfer_v2 import make_outputs
@@ -85,6 +98,7 @@ def run_song(args, song: str) -> dict:
         patched, time40, outputs, left, right, loudness, transfer, mapper_id="01")
     baseline_decoded = decode(baseline_dmx, baseline_patch)
     patched_decoded = decode(patched_dmx, patched_patch)
+    duplicate_rate, duplicate_groups = duplicate_fraction(patched_dmx, patched_patch)
     names = [o["name"] for o in outputs]
     regions = [o.get("body_region") for o in outputs]
     moving = [i for i, o in enumerate(outputs) if o["kind"] in ("beam", "laser")]
@@ -121,6 +135,8 @@ def run_song(args, song: str) -> dict:
         "rgb_rms": float(np.sqrt(np.mean((patched_decoded["rgb"] - baseline_decoded["rgb"]) ** 2))),
         "brightness_rms": float(np.sqrt(np.mean((patched_decoded["dimmer"] - baseline_decoded["dimmer"]) ** 2))),
         "exact_dmx_equal": bool(np.array_equal(baseline_dmx, patched_dmx)),
+        "exact_duplicate_fixture_rate": duplicate_rate,
+        "exact_duplicate_groups": duplicate_groups,
         "baseline_hard_checks": baseline_hard,
         "patched_hard_checks": patched_hard,
         "raw_waveform_present": False,
@@ -132,6 +148,7 @@ def run_song(args, song: str) -> dict:
                         patched_dmx=patched_dmx, angular_delta=angular,
                         baseline_angles_deg=baseline_decoded["angles_deg"],
                         patched_angles_deg=patched_decoded["angles_deg"])
+    (out / "patch.json").write_text(json.dumps(patched_patch, indent=2, sort_keys=True) + "\n")
     (out / "RECEIPT.json").write_text(json.dumps(rec, indent=2, sort_keys=True) + "\n")
     return rec
 

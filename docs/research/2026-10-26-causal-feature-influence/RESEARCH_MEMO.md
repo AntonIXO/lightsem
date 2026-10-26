@@ -257,9 +257,8 @@ prior LightSem work and are retained as controls.
 
 Problem: `lightsem-causal-feature-influence-20261026`
 
-Synthesis: current state recorded in Vibescience on 2026-10-26
-No experiment has started; the next action is the one-seed paired matrix in the
-queued runbooks.
+Synthesis: current state recorded in Vibescience on 2026-10-27
+Three diagnostics have executed; full-waveform confirmation remains queued.
 
 ## Executed cache-backed diagnostic (2026-10-27)
 
@@ -291,3 +290,9 @@ RGB stayed fixed and brightness remained a separate small effect. This is
 mechanical source-transfer evidence only. The experiment closed
 `directional_only` because exact duplicate-rate evidence was missing and the raw
 waveforms were unavailable.
+
+The corrected duplicate audit measured exact duplicate fixture rate **0.0** on
+both mapper receipts. A paired 2-second block bootstrap over the saved 60-second
+body windows measured root-relative RMS sigma **0.00351 m** and standardized-effect
+sigma approximately **0.01157**; these measured floors are registered in
+Vibescience while full-waveform confirmation remains pending.
