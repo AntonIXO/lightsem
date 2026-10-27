@@ -508,3 +508,20 @@ versus the full arm are speed **1.040×**, acceleration **1.103×** and jerk
 causal screen and preserves the finding that Base92 changes this body more
 than MuQ. It does not qualify Cure For Me, restore the missing original bytes,
 or authorize downstream rendering by itself.
+
+The exhaustive converted-WAV follow-up then zeroed **all 92 named Base92
+channels** independently under the same fixed seed/noise and raw-body gate. Its
+canonical receipt is
+`/mnt/lightsem-data/experiments/lightsem/shpongle_converted_audio_recompute_20261027_v1/BASE92_CONVERTED_RECEIPT.json`,
+with the per-channel CSV at
+`/mnt/lightsem-data/experiments/lightsem/shpongle_converted_audio_recompute_20261027_v1/BASE92_CONVERTED_SUMMARY.csv`.
+The one-song top effects were `mel_50` **0.010273 m**, `mel_47` **0.009184 m**,
+`onset_ema` **0.008552 m**, `mel_63` **0.008483 m**, `mel_58` **0.007987 m**
+and `beat_period_s` **0.007534 m**. Their ranking is the same as the cached
+Shpongle map: Pearson **0.9999997**, Spearman **0.9999846**, MAE
+**3.43×10⁻⁶ m**. All 92 arms are finite, active, rank 139 and exact-repeat
+stable; maximum speed/acceleration/jerk ratios are **1.117×/1.388×/1.991×**.
+The 1.991× jerk ratio on `mel_50` is close to the 2× quarantine boundary.
+The six-channel list is a one-song screen; the two-song robust intersection
+remains `onset_ema`, `beat_period_s` and `mel_63` because Cure For Me has not
+been recomputed from an authorized full waveform.

@@ -51,6 +51,19 @@ sigmas. Its strongest effects were Shpongle `rolloff` 0.007175 m and Cure For
 Me `mel_63` 0.004410 m. This separates in-support sensitivity from the larger
 zero-mask distribution shift.
 
+The converted `/root/shpongle.wav` full-waveform screen repeated all 92 zero
+masks on Shpongle alone. The canonical receipt is
+`/mnt/lightsem-data/experiments/lightsem/shpongle_converted_audio_recompute_20261027_v1/BASE92_CONVERTED_RECEIPT.json`.
+Top one-song effects were `mel_50` 0.010273 m, `mel_47` 0.009184 m,
+`onset_ema` 0.008552 m, `mel_63` 0.008483 m, `mel_58` 0.007987 m and
+`beat_period_s` 0.007534 m. Converted-versus-cached channel rankings have
+Pearson 0.9999997, Spearman 0.9999846 and MAE 3.43e-6 m. Every arm passed
+finite, active, rank-139, exact-repeat and raw-safety checks; the maximum jerk
+ratio is 1.991x on `mel_50`, so that arm is near the quarantine boundary.
+These six are not a new two-song semantic set: the robust two-song intersection
+still requires the Cure For Me full-waveform run and remains `onset_ema`,
+`beat_period_s` and `mel_63` from the cached matrix.
+
 All cached dance matrices used seed 7001, exact repeat forwards, rank 139 and
 finite native bodies. The measured cached noise floor is root-relative RMS
 σ = **0.003514 m** and standardized-effect σ ≈ **0.01157**.
