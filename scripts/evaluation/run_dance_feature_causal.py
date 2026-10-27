@@ -28,6 +28,16 @@ SOURCE_NAMES = ("drums", "bass", "other", "vocals")
 SOURCE_FIELDS = ("rms", "onset", "flux", "sustain")
 MUQ_DIM = 1024
 BASE92_DIM = 92
+BASE92_NAMES = (
+    *(f"mel_{i}" for i in range(64)),
+    "rms", "rms_db", "flux", "flux_lf", "flux_lmid", "flux_mid", "flux_hmid", "flux_hf",
+    "energy_lf", "energy_lmid", "energy_mid", "energy_hmid", "energy_hf",
+    "onset", "onset_ema", "flux_ema", "flux_lf_ema", "flux_hf_ema",
+    "centroid", "flatness", "rolloff", "percussive_ratio", "pulse_clarity",
+    "beat_phase_sin", "beat_phase_cos", "beat_accent", "bar_phase", "beat_period_s",
+)
+if len(BASE92_NAMES) != BASE92_DIM:
+    raise RuntimeError(f"Fixed Base92 schema has {len(BASE92_NAMES)} names, expected {BASE92_DIM}")
 EXTRA_DIM = 1061
 NATIVE_DIM = 139
 FPS = 30.0
@@ -228,6 +238,18 @@ def _apply_arm(base: np.ndarray, extra: np.ndarray, arm: str) -> tuple[np.ndarra
     elif arm == "zero_base92":
         base[:, :] = 0.0
         changed = ["base92_0:92"]
+    elif arm.startswith("zero_base92_"):
+        selector = arm[len("zero_base92_"):]
+        if selector.isdigit():
+            index = int(selector)
+            if not 0 <= index < BASE92_DIM:
+                raise ValueError(f"Base92 channel index out of range: {index}")
+        else:
+            if selector not in BASE92_NAMES:
+                raise ValueError(f"Unknown Base92 channel: {selector}")
+            index = BASE92_NAMES.index(selector)
+        base[:, index] = 0.0
+        changed = [f"base92_{index}:{BASE92_NAMES[index]}"]
     elif arm == "zero_sources":
         extra[:, MUQ_DIM:MUQ_DIM + 16] = 0.0
         changed = ["drums", "bass", "other", "vocals"]
@@ -495,7 +517,7 @@ def main(argv: list[str] | None = None) -> None:
     parser.add_argument("--baseline", type=Path, default=DEFAULT_CONFIG)
     parser.add_argument("--checkpoint", type=Path)
     parser.add_argument("--arms", default=",".join(DEFAULT_ARMS),
-                        help="comma-separated arms: full,zero_muq,zero_base92,zero_sources,zero_source_<name>")
+                        help="comma-separated arms: full,zero_muq,zero_base92,zero_base92_<name|index>,zero_sources,zero_source_<name>")
     parser.add_argument("--draw-seed", type=int, default=7001)
     parser.add_argument("--repeat-count", type=int, default=2)
     parser.add_argument("--max-frames", type=int, help="optional short cached-window diagnostic")
