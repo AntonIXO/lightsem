@@ -42,6 +42,12 @@ exact-repeat deterministic and raw-safe. The screen is zero-mask sensitivity:
 correlated Base92 channels and off-distribution zeroing prevent unique semantic
 attribution. It remains cached-only and does not qualify phrase conditioning.
 
+The support-matched TRAIN-mean replacement of all 92 channels passed the same
+safety/rank/repeat gates but produced no two-song channel above two measured
+sigmas. Its strongest effects were Shpongle `rolloff` 0.007175 m and Cure For
+Me `mel_63` 0.004410 m. This separates in-support sensitivity from the larger
+zero-mask distribution shift.
+
 All cached dance matrices used seed 7001, exact repeat forwards, rank 139 and
 finite native bodies. The measured cached noise floor is root-relative RMS
 σ = **0.003514 m** and standardized-effect σ ≈ **0.01157**.

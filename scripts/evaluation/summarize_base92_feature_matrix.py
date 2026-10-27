@@ -28,14 +28,14 @@ BASE92_NAMES = (
 )
 
 
-def load_song(root: Path, song: str) -> dict:
+def load_song(root: Path, song: str, arm_prefix: str) -> dict:
     matrix_name = "shpongle_matrix60" if song == "shpongle" else "cure_matrix60"
     receipt = json.loads((root / matrix_name / "CAUSAL_RECEIPT.json").read_text())
     arms = {row["arm"]: row for row in receipt["arms"]}
     full = json.loads((root / matrix_name / "full" / "RECEIPT.json").read_text())
     out = {"song": song, "full": full, "channels": {}}
     for index, name in enumerate(BASE92_NAMES):
-        arm_name = f"zero_base92_{name}"
+        arm_name = f"{arm_prefix}_{name}"
         if arm_name not in arms:
             raise ValueError(f"Missing {song}/{arm_name}")
         arm = json.loads((root / matrix_name / arm_name / "RECEIPT.json").read_text())
@@ -63,9 +63,11 @@ def main() -> None:
     p = argparse.ArgumentParser()
     p.add_argument("--root", type=Path, required=True)
     p.add_argument("--out", type=Path, required=True)
+    p.add_argument("--arm-prefix", default="zero_base92",
+                   help="arm prefix, e.g. zero_base92 or mean_base92")
     args = p.parse_args()
     root = args.root.resolve()
-    songs = {song: load_song(root, song) for song in ("shpongle", "cure_for_me")}
+    songs = {song: load_song(root, song, args.arm_prefix) for song in ("shpongle", "cure_for_me")}
     rows = []
     for index, name in enumerate(BASE92_NAMES):
         per_song = {song: data["channels"][name] for song, data in songs.items()}
@@ -92,7 +94,7 @@ def main() -> None:
         "schema_version": 1,
         "status": "diagnostic_only",
         "qualification_status": "unqualified_cached_zero_mask_per_feature",
-        "scope": "fixed-C cached-only zero one Base92 channel at a time; raw native 30 Hz body only",
+        "scope": f"fixed-C cached-only {args.arm_prefix} one Base92 channel at a time; raw native 30 Hz body only",
         "feature_count": len(BASE92_NAMES),
         "songs": ["shpongle", "cure_for_me"],
         "noise_floor": {"root_relative_sigma_m": NOISE_SIGMA_M, "standardized_sigma": NOISE_SIGMA_STD,

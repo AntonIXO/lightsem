@@ -463,3 +463,13 @@ was 1.989× on Shpongle `mel_50`, below the 2× quarantine limit. Because the
 channels are correlated and zeroing is a distribution shift, this is a complete
 cached channel-sensitivity map, not a unique feature-semantic decomposition or
 full-waveform phrase result.
+
+The same 92 channels were then replaced one at a time with the checkpoint's
+TRAIN mean instead of zero. This support-matched matrix passed finite,
+raw-safety, rank and exact-repeat gates, but its strongest two-song effect was
+only **0.004410 m** (Cure For Me `mel_63`); Shpongle's strongest was `rolloff`
+at **0.007175 m**. No channel exceeded two measured sigmas in both songs. The
+comparison artifact is
+`/mnt/lightsem-data/experiments/lightsem/dance_base92_per_feature_mean_cached_only_20261101_v1/BASE92_ZERO_MEAN_COMPARISON.csv`.
+This powered null shows that much of the larger zero-mask response is
+distribution-shift sensitivity; it does not prove Base92 is unused.
