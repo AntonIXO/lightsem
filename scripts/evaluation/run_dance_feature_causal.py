@@ -225,7 +225,8 @@ def _expected_names() -> list[str]:
             + [f"section_{label}" for label in SECTION_LABELS])
 
 
-def _apply_arm(base: np.ndarray, extra: np.ndarray, arm: str) -> tuple[np.ndarray, np.ndarray, dict]:
+def _apply_arm(base: np.ndarray, extra: np.ndarray, arm: str,
+               base_mean: np.ndarray | None = None) -> tuple[np.ndarray, np.ndarray, dict]:
     base = np.asarray(base, dtype=np.float32).copy()
     extra = np.asarray(extra, dtype=np.float32).copy()
     if base.ndim != 2 or base.shape[1] != BASE92_DIM or extra.ndim != 2 or extra.shape[1] != EXTRA_DIM:
@@ -249,6 +250,20 @@ def _apply_arm(base: np.ndarray, extra: np.ndarray, arm: str) -> tuple[np.ndarra
                 raise ValueError(f"Unknown Base92 channel: {selector}")
             index = BASE92_NAMES.index(selector)
         base[:, index] = 0.0
+        changed = [f"base92_{index}:{BASE92_NAMES[index]}"]
+    elif arm.startswith("mean_base92_"):
+        selector = arm[len("mean_base92_"):]
+        if selector.isdigit():
+            index = int(selector)
+            if not 0 <= index < BASE92_DIM:
+                raise ValueError(f"Base92 channel index out of range: {index}")
+        else:
+            if selector not in BASE92_NAMES:
+                raise ValueError(f"Unknown Base92 channel: {selector}")
+            index = BASE92_NAMES.index(selector)
+        if base_mean is None or np.asarray(base_mean).shape != (BASE92_DIM,):
+            raise ValueError("Mean Base92 replacement requires the checkpoint Base92 normalizer mean")
+        base[:, index] = np.asarray(base_mean, dtype=np.float32)[index]
         changed = [f"base92_{index}:{BASE92_NAMES[index]}"]
     elif arm == "zero_sources":
         extra[:, MUQ_DIM:MUQ_DIM + 16] = 0.0
@@ -278,7 +293,8 @@ def _apply_arm(base: np.ndarray, extra: np.ndarray, arm: str) -> tuple[np.ndarra
         changed = ["mixture", "beat/downbeat/section offsets", "section labels"]
     else:
         raise ValueError(f"Unknown arm {arm!r}")
-    return base, extra, {"arm": arm, "replacement": "normalized TRAIN mean (zero)", "changed_groups": changed}
+    replacement = "checkpoint TRAIN mean" if arm.startswith("mean_base92_") else "zero"
+    return base, extra, {"arm": arm, "replacement": replacement, "changed_groups": changed}
 
 
 def _pool_extra(extra: np.ndarray) -> np.ndarray:
@@ -414,7 +430,8 @@ def run_song(args, config, config_path):
     for arm in arms:
         arm_root = out / arm
         arm_root.mkdir()
-        arm_base, arm_extra, intervention = _apply_arm(base, extra, arm)
+        base_mean = norms[0][0].detach().cpu().numpy()
+        arm_base, arm_extra, intervention = _apply_arm(base, extra, arm, base_mean=base_mean)
         native, plan, base_norm, extra_norm, stereo_binding = _prepare_generation(
             model, norms, arm_base, arm_extra, stereo, norms[2] if model.config.stereo_dim else None,
             n, noise)
@@ -517,7 +534,7 @@ def main(argv: list[str] | None = None) -> None:
     parser.add_argument("--baseline", type=Path, default=DEFAULT_CONFIG)
     parser.add_argument("--checkpoint", type=Path)
     parser.add_argument("--arms", default=",".join(DEFAULT_ARMS),
-                        help="comma-separated arms: full,zero_muq,zero_base92,zero_base92_<name|index>,zero_sources,zero_source_<name>")
+                        help="comma-separated arms: full,zero_muq,zero_base92,zero_base92_<name|index>,mean_base92_<name|index>,zero_sources,zero_source_<name>")
     parser.add_argument("--draw-seed", type=int, default=7001)
     parser.add_argument("--repeat-count", type=int, default=2)
     parser.add_argument("--max-frames", type=int, help="optional short cached-window diagnostic")
