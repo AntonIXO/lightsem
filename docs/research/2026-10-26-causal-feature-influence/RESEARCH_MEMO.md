@@ -440,3 +440,26 @@ fixture rate 0.0. The authoritative receipt is
 `/mnt/lightsem-data/experiments/lightsem/light_audio_donor_causal_cached_20261030_v2/PORTFOLIO_RECEIPT.json`.
 This is cached output-stage RGB/luma evidence only; the earlier v1 receipt is
 superseded because its overlay contaminated angular/dimmer measurements.
+
+## Complete Base92 channel screen (2026-11-01)
+
+The fixed-C runner was extended with named single-channel masks for all 92
+Base92 inputs: `mel_0`–`mel_63`, `rms`, `rms_db`, flux and energy bands, onset
+and EMA channels, spectral descriptors, percussive ratio, pulse clarity, beat
+phase, bar phase and beat period. Every channel was zeroed independently on
+1,800 frames of Shpongle and Cure For Me with draw seed `7001`, two exact
+repeats, unchanged MuQ/source/timing/stereo inputs, and no mapper or DMX.
+
+The complete receipt is
+`/mnt/lightsem-data/experiments/lightsem/dance_base92_per_feature_cached_only_20261101_v1/PORTFOLIO_RECEIPT.json`.
+The strongest per-song effects were Shpongle `mel_50` at **0.010282 m** and
+Cure For Me `rolloff` at **0.014321 m**. The only channels above two measured
+body-effect sigmas in both songs were **`onset_ema`**, **`beat_period_s`** and
+**`mel_63`**. Eighty channels exceeded the exploratory 0.05 standardized
+screen in both songs, but most stayed below two sigma; that long tail is weak
+sensitivity evidence, not independent causal attribution. Every arm retained
+rank 139, exact repeats, finite values and raw safety; the largest jerk ratio
+was 1.989× on Shpongle `mel_50`, below the 2× quarantine limit. Because the
+channels are correlated and zeroing is a distribution shift, this is a complete
+cached channel-sensitivity map, not a unique feature-semantic decomposition or
+full-waveform phrase result.

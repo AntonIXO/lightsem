@@ -18,6 +18,30 @@ downstream interpretation.
 | Alpha=0.50 donor interpolation | 0.02146 m; standardized 0.07138 | 0.01914 m; 0.06282 | Both directions raw-safe; Shpongle exceeds its shift control, Cure remains below its shift control 0.08591. Directional-only. |
 | Alpha=0.75 donor interpolation | 0.03139 m; standardized 0.10441 | 0.02927 m; 0.09605 | Both directions raw-safe and both exceed their circular-shift controls. Strong cached audio-identity evidence; waveform/phrase qualification remains missing. |
 
+### Base92 channel screen
+
+All 92 Base92 channels were zeroed one at a time on both cached songs with the
+same checkpoint, draw seed `7001`, stereo context, clock and two exact repeats.
+The canonical per-channel receipt is
+`/mnt/lightsem-data/experiments/lightsem/dance_base92_per_feature_cached_only_20261101_v1/PORTFOLIO_RECEIPT.json`.
+
+| Channel | Shpongle RMS | Cure For Me RMS | Minimum standardized effect |
+| --- | ---: | ---: | ---: |
+| `onset_ema` | 0.008564 m | 0.011843 m | 2.437 |
+| `beat_period_s` | 0.007542 m | 0.011763 m | 2.146 |
+| `mel_63` | 0.008505 m | 0.010246 m | 2.420 |
+| `mel_50` | 0.010282 m | 0.001436 m | 0.409 |
+| `rolloff` | 0.004009 m | 0.014321 m | 1.141 |
+
+Only `onset_ema`, `beat_period_s` and `mel_63` exceed two measured body-effect
+sigmas in both songs. Eighty channels exceed the exploratory 0.05 standardized
+screen in both songs, but that threshold is below two-sigma for most channels;
+the long tail is therefore sensitivity evidence, not a claim that every channel
+is independently causal. All 92 arms in both songs are finite, rank 139,
+exact-repeat deterministic and raw-safe. The screen is zero-mask sensitivity:
+correlated Base92 channels and off-distribution zeroing prevent unique semantic
+attribution. It remains cached-only and does not qualify phrase conditioning.
+
 All cached dance matrices used seed 7001, exact repeat forwards, rank 139 and
 finite native bodies. The measured cached noise floor is root-relative RMS
 σ = **0.003514 m** and standardized-effect σ ≈ **0.01157**.
