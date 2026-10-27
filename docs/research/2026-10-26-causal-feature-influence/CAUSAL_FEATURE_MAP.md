@@ -17,6 +17,9 @@ downstream interpretation.
 | Opposite-song cached donor | 0.03767 m; standardized 0.1253 | 0.03767 m; 0.1236 | Strong audio-identity counterfactual beyond 15 s circular shifts (0.0372/0.0859), but Shpongle←Cure fails raw safety: speed 1.575x, jerk 2.033x. Directional-only. |
 | Alpha=0.50 donor interpolation | 0.02146 m; standardized 0.07138 | 0.01914 m; 0.06282 | Both directions raw-safe; Shpongle exceeds its shift control, Cure remains below its shift control 0.08591. Directional-only. |
 | Alpha=0.75 donor interpolation | 0.03139 m; standardized 0.10441 | 0.02927 m; 0.09605 | Both directions raw-safe and both exceed their circular-shift controls. Strong cached audio-identity evidence; waveform/phrase qualification remains missing. |
+| `/root/shpongle.wav` full-waveform recompute: zero MuQ | **0.011360 m** | — | Separate converted-source binding reproduces cached Shpongle MuQ effect (0.011387 m) within 0.00003 m; finite, rank 139, repeats and raw safety pass. |
+| `/root/shpongle.wav` full-waveform recompute: zero Base92 | **0.025750 m** | — | Separate converted-source binding reproduces cached Shpongle Base92 effect (0.025804 m) within 0.00006 m; larger than MuQ and raw-safe. |
+| `/root/shpongle.wav` support-matched mean `onset_ema` | **0.002033 m** | — | In-support replacement is below the 2-sigma influence scale; the larger zero-mask response includes distribution-shift sensitivity. |
 
 ### Base92 channel screen
 
@@ -73,12 +76,16 @@ qualification.
 - Passed: finite values, deterministic repeats, rank/collapse checks, raw-body
   safety for accepted cached arms, two-song cached coverage, RGB/luma endpoint
   separation, and exact duplicate-stream checks.
-- Failed or incomplete: authenticated raw waveform recomputation, full-song
-  phrase timing, matched retain/remove plus donor/time-shift controls on original
-  waveforms, and safe two-direction donor generation.
-- The original waveform identities are still absent: Shpongle expects SHA256
-  `95e438…`; Cure For Me expects `5363ce…`. Legacy `.m4a` and archived WAV files
-  have different hashes and are rejected.
+- Failed or incomplete: exact hash-bound raw waveform recomputation for the
+  original bindings, Cure For Me full-waveform recomputation, full-song phrase
+  timing, matched retain/remove plus donor/time-shift controls on original
+  waveforms, and safe two-direction donor generation. The separate converted
+  Shpongle WAV binding is covered by the rows above.
+- The original hash-bound waveform identities are still absent: Shpongle expects
+  SHA256 `95e438…`; Cure For Me expects `5363ce…`. The user-authorized
+  `/root/shpongle.wav` conversion is validated above as a separate versioned
+  binding (`d547ea…` source SHA), not substituted for that original. Cure For Me
+  has no analogous full-waveform recompute in this run.
 
 Authoritative detailed memo: [RESEARCH_MEMO.md](./RESEARCH_MEMO.md). The active
 full-waveform runbook is recorded in Vibescience as

@@ -473,3 +473,38 @@ comparison artifact is
 `/mnt/lightsem-data/experiments/lightsem/dance_base92_per_feature_mean_cached_only_20261101_v1/BASE92_ZERO_MEAN_COMPARISON.csv`.
 This powered null shows that much of the larger zero-mask response is
 distribution-shift sensitivity; it does not prove Base92 is unused.
+
+## Converted Shpongle WAV recompute (2026-10-27)
+
+The user-authorized `/root/shpongle.wav` was tested as a separate, versioned
+full-waveform source binding. It is a stereo 277.307 s WAV with source SHA
+`d547ea832141221ed24b0cc6b24bb94e24316e6fe49f443efd27c96b9b5de603`; its
+decoded analyzed-waveform SHA is
+`6cc158b1eece2527c4d7032494045c0f222222634c2ee77cc45d59042fdd8e6c`.
+Fresh MuQ/Base92/timeline extraction produced timeline SHA
+`ddb392b717abf376f1d32ae1c0fde50a58a96d5c0ccf51d9bc62e7e41b266e93` and
+Base92 SHA `adc3ab2289c2cfb525f5df3a6a34f2486a0c8e5dd67294c03b0eb8d5431d3482`.
+The converted source is not the missing old hash-bound input (`95e438…`), so
+its results remain a distinct provenance line.
+
+The authoritative full-waveform causal receipt is
+`/mnt/lightsem-data/experiments/lightsem/shpongle_converted_audio_recompute_20261027_v1/causal_family_matrix60/CAUSAL_RECEIPT.json`.
+All four 60 s/1,800-frame arms were generated from the fresh waveform, with
+the same fixed-C checkpoint, seed/noise and automatic stereo context as the
+cached screen. Every arm was finite, active, rank 139, exact-repeat stable and
+passed the raw safety gate before any mapper or DMX stage:
+
+- zero MuQ: **0.011360 m** root-relative RMS;
+- zero Base92: **0.025750 m**;
+- support-matched mean replacement of `onset_ema`: **0.002033 m**.
+
+The converted effects reproduce the cached Shpongle values (0.011387 m and
+0.025804 m) within **0.00006 m**. The converted and cached full bodies have
+world-position RMS difference **0.000324 m** and correlation **0.99999986**;
+root-relative effects are 0.011360 m versus 0.011387 m for MuQ and 0.025750 m
+versus 0.025804 m for Base92. The worst converted intervention safety ratios
+versus the full arm are speed **1.040×**, acceleration **1.103×** and jerk
+**1.119×**. This confirms the WAV conversion is suitable for the Shpongle
+causal screen and preserves the finding that Base92 changes this body more
+than MuQ. It does not qualify Cure For Me, restore the missing original bytes,
+or authorize downstream rendering by itself.
