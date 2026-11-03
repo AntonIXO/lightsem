@@ -33,6 +33,40 @@ copy when present and the global path otherwise.
 Do not load unrelated skills merely because they are available. If multiple
 rules apply, use all listed skills and preserve the strictest shared gate.
 
+## Failure-driven completion rule — 2026-10-27
+
+- For native causal audits, do not stop at a protocol implementation or a
+  generic receipt. Complete the missing forward intervention, collapse cause
+  analysis, endpoint audit, and own-song demo when the user requests them.
+- A paper-derived idea must be labeled as one of: executed forward evidence,
+  screening-only evidence, deferred training hypothesis, or not applicable.
+  “Not trained” requires a concrete reason and a next gate; it must not be an
+  unexplained omission.
+- Hidden-state attribution requires a saved planner/fusion state swap plus
+  donor, time-shift and random-location controls. A Jacobian, CKA, PNS score,
+  hash difference, or output RMS alone is not a hidden-state causal result.
+- When LightLayers appears collapsed, compare context/latent diversity with
+  logit, cue, palette occupancy, RGB/luma/brightness, saturation and decoded
+  angular endpoints. Distinguish output-head collapse from representation
+  collapse, inactivity, saturation, exact duplicates, and intentionally fixed
+  controls.
+- If the user asks for a visible demo after a failed gate, produce a measured
+  bright representative own-song demo for both required songs only from the
+  saved raw-safe body and actual mapper/DMX. Never manufacture activity with an
+  oscillator, reused body, soundtrack swap, smoothing, retiming, or fixture
+  caps; label diagnostic failures in the receipt.
+- Preserve every failed dependency, manifest, retry root, and partial artifact.
+  Fix bookkeeping in a new root instead of overwriting the failed attempt.
+- When the user requests an exhaustive paper-method campaign, create a
+  per-method campaign manifest before GPU work. Train every defensible
+  LightSem adaptation with one serialized seed, run real diagnostics for
+  attribution/metric methods, and mark missing data/training contracts
+  explicitly instead of silently skipping them.
+- The final delivery must include one row per cited method with the method
+  class, arm or diagnostic, receipt, raw/phrase/endpoint result, and status.
+  List unresolved promotion/default/architecture decisions separately and
+  present them to the user before declaring the campaign complete.
+
 ## Selected default — 2026-10-11
 
 - The user explicitly selected the RTMPose BF16 full-fit seed0 checkpoint as

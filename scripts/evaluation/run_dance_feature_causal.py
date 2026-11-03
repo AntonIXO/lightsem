@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""CPU-only fixed-C feature interventions with deterministic noise repeats.
+"""Fixed-C feature interventions with deterministic noise repeats.
 
 This runner is deliberately narrower than the native generation CLI.  It
 reuses the selected checkpoint, frozen MuQ/Base92 caches, stereo context and
@@ -9,6 +9,10 @@ It writes a new artifact root and never overwrites an existing receipt.
 The output is a mechanism diagnostic.  It stops at the raw 30 Hz body and
 does not map, interpolate, render or apply D4/D6.  A downstream raw-health
 audit must run before any mapper/DMX use.
+
+The default device is CPU for historical replay.  ``--device cuda`` is an
+explicit opt-in for full-song arm matrices; it uses the same fixed seed/noise
+and never changes the intervention or downstream safety contract.
 """
 from __future__ import annotations
 
@@ -226,11 +230,30 @@ def _expected_names() -> list[str]:
 
 
 def _apply_arm(base: np.ndarray, extra: np.ndarray, arm: str,
-               base_mean: np.ndarray | None = None) -> tuple[np.ndarray, np.ndarray, dict]:
+               base_mean: np.ndarray | None = None,
+               extra_mean: np.ndarray | None = None,
+               local_seed: int = 0) -> tuple[np.ndarray, np.ndarray, dict]:
     base = np.asarray(base, dtype=np.float32).copy()
     extra = np.asarray(extra, dtype=np.float32).copy()
     if base.ndim != 2 or base.shape[1] != BASE92_DIM or extra.ndim != 2 or extra.shape[1] != EXTRA_DIM:
         raise ValueError("Unexpected fixed-C feature dimensions")
+    def local(array: np.ndarray, indices: list[int], label: str):
+        from lightsem.eval.causal_attribution import support_matched_local_replace
+        replaced, replacement = support_matched_local_replace(array, channel_indices=indices, seed=local_seed)
+        replacement["changed_groups"] = [label]
+        return replaced.astype(np.float32), replacement
+
+    base_groups = {
+        "rhythm_phase": [BASE92_NAMES.index(name) for name in
+                         ("beat_phase_sin", "beat_phase_cos", "beat_accent", "bar_phase", "beat_period_s")],
+        "event": [BASE92_NAMES.index(name) for name in ("onset", "onset_ema", "flux", "flux_ema")],
+        "timbre_chroma": [*range(64), *[BASE92_NAMES.index(name) for name in
+                         ("centroid", "flatness", "rolloff", "percussive_ratio")]],
+    }
+    extra_groups = {
+        "events": list(range(MUQ_DIM + 16 + 4, MUQ_DIM + 16 + 4 + 6)),
+        "style_history": list(range(MUQ_DIM + 16 + 4 + 6, EXTRA_DIM)),
+    }
     if arm == "full":
         changed = []
     elif arm == "zero_muq":
@@ -265,6 +288,37 @@ def _apply_arm(base: np.ndarray, extra: np.ndarray, arm: str,
             raise ValueError("Mean Base92 replacement requires the checkpoint Base92 normalizer mean")
         base[:, index] = np.asarray(base_mean, dtype=np.float32)[index]
         changed = [f"base92_{index}:{BASE92_NAMES[index]}"]
+    elif arm == "mean_muq":
+        if extra_mean is None or np.asarray(extra_mean).shape != (EXTRA_DIM,):
+            raise ValueError("Mean MuQ replacement requires the checkpoint extra-feature mean")
+        extra[:, :MUQ_DIM] = np.asarray(extra_mean, dtype=np.float32)[:MUQ_DIM]
+        changed = ["muq_0:1024"]
+    elif arm.startswith("local_base92_"):
+        selector = arm[len("local_base92_"):]
+        if selector in base_groups:
+            indices = base_groups[selector]
+            label = f"base92_{selector}"
+        else:
+            if selector.isdigit():
+                index = int(selector)
+                if not 0 <= index < BASE92_DIM:
+                    raise ValueError(f"Base92 channel index out of range: {index}")
+            elif selector in BASE92_NAMES:
+                index = BASE92_NAMES.index(selector)
+            else:
+                raise ValueError(f"Unknown local Base92 arm: {arm}")
+            indices, label = [index], f"base92_{index}:{BASE92_NAMES[index]}"
+        base, replacement = local(base, indices, label)
+        changed = replacement["changed_groups"]
+    elif arm == "local_muq":
+        extra, replacement = local(extra, list(range(MUQ_DIM)), "muq_0:1024")
+        changed = replacement["changed_groups"]
+    elif arm.startswith("local_extra_"):
+        selector = arm[len("local_extra_"):]
+        if selector not in extra_groups:
+            raise ValueError(f"Unknown local extra arm: {arm}")
+        extra, replacement = local(extra, extra_groups[selector], f"extra_{selector}")
+        changed = replacement["changed_groups"]
     elif arm == "zero_sources":
         extra[:, MUQ_DIM:MUQ_DIM + 16] = 0.0
         changed = ["drums", "bass", "other", "vocals"]
@@ -293,7 +347,8 @@ def _apply_arm(base: np.ndarray, extra: np.ndarray, arm: str,
         changed = ["mixture", "beat/downbeat/section offsets", "section labels"]
     else:
         raise ValueError(f"Unknown arm {arm!r}")
-    replacement = "checkpoint TRAIN mean" if arm.startswith("mean_base92_") else "zero"
+    replacement = "checkpoint TRAIN mean" if arm.startswith("mean_") else (
+        "support-matched local" if arm.startswith("local_") else "zero")
     return base, extra, {"arm": arm, "replacement": replacement, "changed_groups": changed}
 
 
@@ -312,18 +367,20 @@ def _prepare_generation(model, norms, base: np.ndarray, extra: np.ndarray, stere
 
     base_mean, base_std = (x.detach().cpu().numpy() for x in norms[0])
     extra_mean, extra_std = (x.detach().cpu().numpy() for x in norms[1])
+    device = norms[0][0].device
     base_norm = (base - base_mean) / base_std
     extra_norm = (extra - extra_mean) / extra_std
     bins = (n + 14) // 15
     planner_bins = max(CONTEXT_BINS, bins)
     coarse_raw = _pool_extra(extra)
     coarse_norm = (coarse_raw - extra_mean) / extra_std
-    fine = torch.from_numpy(np.concatenate((base_norm, extra_norm), axis=1)).float()[None]
-    coarse = torch.zeros((1, planner_bins, EXTRA_DIM), dtype=torch.float32)
-    coarse[:, :bins] = torch.from_numpy(coarse_norm).float()[None]
-    valid = torch.zeros((1, planner_bins), dtype=torch.bool)
+    fine = torch.from_numpy(np.concatenate((base_norm, extra_norm), axis=1)).float()[None].to(device)
+    coarse = torch.zeros((1, planner_bins, EXTRA_DIM), dtype=torch.float32, device=device)
+    coarse[:, :bins] = torch.from_numpy(coarse_norm).float()[None].to(device)
+    valid = torch.zeros((1, planner_bins), dtype=torch.bool, device=device)
     valid[:, :bins] = True
-    indices = torch.arange(n, dtype=torch.long)[None]
+    indices = torch.arange(n, dtype=torch.long, device=device)[None]
+    noise = noise.to(device)
     stereo_fine = stereo_coarse = stereo_binding = None
     if model.config.stereo_dim:
         if stereo is None or stereo_norms is None:
@@ -337,9 +394,9 @@ def _prepare_generation(model, norms, base: np.ndarray, extra: np.ndarray, stere
             stereo_pool = spad.reshape(sbins, 15, stereo.shape[1]).sum(1) / np.minimum(15, n - np.arange(sbins) * 15)[:, None]
         stereo_coarse_raw = stereo_pool
         stereo_coarse_norm = (stereo_coarse_raw - stereo_mean) / stereo_std
-        stereo_fine = torch.from_numpy(stereo_norm).float()[None]
-        stereo_coarse = torch.zeros((1, planner_bins, model.config.stereo_dim), dtype=torch.float32)
-        stereo_coarse[:, :bins] = torch.from_numpy(stereo_coarse_norm).float()[None]
+        stereo_fine = torch.from_numpy(stereo_norm).float()[None].to(device)
+        stereo_coarse = torch.zeros((1, planner_bins, model.config.stereo_dim), dtype=torch.float32, device=device)
+        stereo_coarse[:, :bins] = torch.from_numpy(stereo_coarse_norm).float()[None].to(device)
         stereo_binding = {"stereo_context_sha256": array_sha(stereo), "stereo_dim": int(stereo.shape[1])}
     with torch.inference_mode():
         native, plan = model.generate(fine, coarse, valid, indices, noise,
@@ -405,7 +462,7 @@ def run_song(args, config, config_path):
     if list(names) != _expected_names() or extra.shape != (n, EXTRA_DIM):
         raise ValueError("Native feature schema differs from the fixed 1061-D contract")
     config_path = Path(config_path).resolve()
-    model, norms, checkpoint_identity = load_model(config, device="cpu", checkpoint=args.checkpoint)
+    model, norms, checkpoint_identity = load_model(config, device=args.device, checkpoint=args.checkpoint)
     if args.cached_only:
         stereo, stereo_identity = _load_cached_stereo_context(timeline, config)
     else:
@@ -418,7 +475,7 @@ def run_song(args, config, config_path):
     setup()
     seed = int(args.draw_seed)
     noise = cpu_noise(model.flow, max(int(config["noise_reference_frames"]), n), seed)[:, :n].contiguous()
-    noise_np = noise.numpy().copy()
+    noise_np = noise.detach().cpu().numpy().copy()
     arms = tuple(dict.fromkeys(args.arms))
     out = Path(args.out).expanduser().resolve()
     if out.exists():
@@ -431,12 +488,15 @@ def run_song(args, config, config_path):
         arm_root = out / arm
         arm_root.mkdir()
         base_mean = norms[0][0].detach().cpu().numpy()
-        arm_base, arm_extra, intervention = _apply_arm(base, extra, arm, base_mean=base_mean)
+        extra_mean = norms[1][0].detach().cpu().numpy()
+        arm_base, arm_extra, intervention = _apply_arm(
+            base, extra, arm, base_mean=base_mean, extra_mean=extra_mean,
+            local_seed=seed)
         native, plan, base_norm, extra_norm, stereo_binding = _prepare_generation(
             model, norms, arm_base, arm_extra, stereo, norms[2] if model.config.stereo_dim else None,
             n, noise)
-        native_np = native[0].cpu().numpy().astype(np.float32)
-        world_t = joints_from_features(native)[0].cpu().numpy().astype(np.float32)
+        native_np = native[0].detach().cpu().numpy().astype(np.float32)
+        world_t = joints_from_features(native)[0].detach().cpu().numpy().astype(np.float32)
         contacts = native_np[:, -4:]
         finite = bool(np.isfinite(native_np).all() and np.isfinite(world_t).all())
         motion = _body_metrics(world_t) if finite else {"finite": False}
@@ -454,7 +514,7 @@ def run_song(args, config, config_path):
             repeat_native, _, _, _, _ = _prepare_generation(
                 model, norms, arm_base, arm_extra, stereo, norms[2] if model.config.stereo_dim else None,
                 n, noise)
-            rep = repeat_native[0].cpu().numpy().astype(np.float32)
+            rep = repeat_native[0].detach().cpu().numpy().astype(np.float32)
             repeat_deltas.append({"repeat": repeat + 1,
                                   "max_abs_native": float(np.max(np.abs(rep - native_np))),
                                   "exact_native": bool(np.array_equal(rep, native_np))})
@@ -506,7 +566,7 @@ def run_song(args, config, config_path):
         "status": "diagnostic_only" if args.cached_only else "complete",
         "qualification_status": "unqualified_missing_raw_waveform" if args.cached_only else "diagnostic_only",
         "song": args.label,
-        "device": "cpu",
+            "device": args.device,
         "arms": arm_receipts,
         "input_identity": input_identity,
         "baseline_config": {"path": str(config_path), "sha256": baseline_sha(config_path)},
@@ -514,7 +574,7 @@ def run_song(args, config, config_path):
         "draw_seed": seed,
         "repeat_count": int(args.repeat_count),
         "max_frames": None if args.max_frames is None else int(args.max_frames),
-        "no_gpu": True,
+        "no_gpu": args.device == "cpu",
         "cached_only": bool(args.cached_only),
         "raw_waveform_required_for_own_song_recompute": bool(args.cached_only),
         "downstream": "blocked until raw safety/collapse audit; no mapper/DMX/video",
@@ -536,6 +596,8 @@ def main(argv: list[str] | None = None) -> None:
     parser.add_argument("--arms", default=",".join(DEFAULT_ARMS),
                         help="comma-separated arms: full,zero_muq,zero_base92,zero_base92_<name|index>,mean_base92_<name|index>,zero_sources,zero_source_<name>")
     parser.add_argument("--draw-seed", type=int, default=7001)
+    parser.add_argument("--device", choices=("cpu", "cuda"), default="cpu",
+                        help="Native forward device; CPU preserves historical replay, CUDA accelerates full arm matrices")
     parser.add_argument("--repeat-count", type=int, default=2)
     parser.add_argument("--max-frames", type=int, help="optional short cached-window diagnostic")
     parser.add_argument("--max-speed-ratio", type=float, default=1.5)

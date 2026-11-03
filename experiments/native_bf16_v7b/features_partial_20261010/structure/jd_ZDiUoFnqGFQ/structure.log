@@ -1,28 +1,0 @@
-/mnt/lightsem-data/venv-dynamic-structure/lib/python3.12/site-packages/natten/functional.py:127: FutureWarning: `torch.cuda.amp.custom_fwd(args...)` is deprecated. Please use `torch.amp.custom_fwd(args..., device_type='cuda')` instead.
-  @custom_fwd
-/mnt/lightsem-data/venv-dynamic-structure/lib/python3.12/site-packages/natten/functional.py:218: FutureWarning: `torch.cuda.amp.custom_bwd(args...)` is deprecated. Please use `torch.amp.custom_bwd(args..., device_type='cuda')` instead.
-  @custom_bwd
-/mnt/lightsem-data/venv-dynamic-structure/lib/python3.12/site-packages/natten/functional.py:263: FutureWarning: `torch.cuda.amp.custom_fwd(args...)` is deprecated. Please use `torch.amp.custom_fwd(args..., device_type='cuda')` instead.
-  @custom_fwd
-/mnt/lightsem-data/venv-dynamic-structure/lib/python3.12/site-packages/natten/functional.py:361: FutureWarning: `torch.cuda.amp.custom_bwd(args...)` is deprecated. Please use `torch.amp.custom_bwd(args..., device_type='cuda')` instead.
-  @custom_bwd
-/mnt/lightsem-data/venv-dynamic-structure/lib/python3.12/site-packages/natten/functional.py:404: FutureWarning: `torch.cuda.amp.custom_fwd(args...)` is deprecated. Please use `torch.amp.custom_fwd(args..., device_type='cuda')` instead.
-  @custom_fwd
-/mnt/lightsem-data/venv-dynamic-structure/lib/python3.12/site-packages/natten/functional.py:494: FutureWarning: `torch.cuda.amp.custom_bwd(args...)` is deprecated. Please use `torch.amp.custom_bwd(args..., device_type='cuda')` instead.
-  @custom_bwd
-/mnt/lightsem-data/venv-dynamic-structure/lib/python3.12/site-packages/natten/functional.py:539: FutureWarning: `torch.cuda.amp.custom_fwd(args...)` is deprecated. Please use `torch.amp.custom_fwd(args..., device_type='cuda')` instead.
-  @custom_fwd
-/mnt/lightsem-data/venv-dynamic-structure/lib/python3.12/site-packages/natten/functional.py:637: FutureWarning: `torch.cuda.amp.custom_bwd(args...)` is deprecated. Please use `torch.amp.custom_bwd(args..., device_type='cuda')` instead.
-  @custom_bwd
-/mnt/lightsem-data/venv-dynamic-structure/lib/python3.12/site-packages/natten/functional.py:680: FutureWarning: `torch.cuda.amp.custom_fwd(args...)` is deprecated. Please use `torch.amp.custom_fwd(args..., device_type='cuda')` instead.
-  @custom_fwd
-/mnt/lightsem-data/venv-dynamic-structure/lib/python3.12/site-packages/natten/functional.py:790: FutureWarning: `torch.cuda.amp.custom_bwd(args...)` is deprecated. Please use `torch.amp.custom_bwd(args..., device_type='cuda')` instead.
-  @custom_bwd
-/mnt/lightsem-data/venv-dynamic-structure/lib/python3.12/site-packages/natten/functional.py:844: FutureWarning: `torch.cuda.amp.custom_fwd(args...)` is deprecated. Please use `torch.amp.custom_fwd(args..., device_type='cuda')` instead.
-  @custom_fwd
-/mnt/lightsem-data/venv-dynamic-structure/lib/python3.12/site-packages/natten/functional.py:965: FutureWarning: `torch.cuda.amp.custom_bwd(args...)` is deprecated. Please use `torch.amp.custom_bwd(args..., device_type='cuda')` instead.
-  @custom_bwd
-=> Found 0 spectrograms already extracted, 1 to extract.
-Extracting spectrograms:   0%|          | 0/1 [00:00<?, ?it/s]/mnt/lightsem-data/venv-dynamic-structure/lib/python3.12/site-packages/madmom/io/audio.py:643: WavFileWarning: Chunk (non-data) not understood, skipping it.
-  file_sample_rate, signal = wavfile.read(filename, mmap=True)
-Extracting spectrograms: 100%|██████████| 1/1 [00:01<00:00,  1.45s/it]Extracting spectrograms: 100%|██████████| 1/1 [00:01<00:00,  1.45s/it]

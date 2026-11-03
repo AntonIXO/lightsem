@@ -25,14 +25,18 @@ def masked_energy_quantile(energy, valid, quantile):
 
 class LocalAudioFusion(nn.Module):
     OFFSETS = (-60, -30, -15, -5, 0, 5, 15, 30, 60)
+    CAUSAL_OFFSETS = (-60, -30, -15, -5, 0)
 
     def __init__(self, audio_dim, motion_dim, width=64, heads=4, mode='attention',
                  energy_gate=False, energy_threshold=0.0, energy_temperature=.5,
-                 energy_relative=False, energy_quantile=.3, energy_smooth_frames=1):
+                 energy_relative=False, energy_quantile=.3, energy_smooth_frames=1,
+                 causal=False, decomposed=False):
         super().__init__()
         if mode not in ('attention', 'film', 'hybrid') or heads < 1 or width % heads:
             raise ValueError('Invalid local fusion mode/dimensions')
         self.mode, self.width, self.heads = mode, width, heads
+        self.causal, self.decomposed = bool(causal), bool(decomposed)
+        self.offsets = self.CAUSAL_OFFSETS if self.causal else self.OFFSETS
         self.energy_gate = bool(energy_gate)
         self.energy_threshold = float(energy_threshold)
         self.energy_temperature = float(energy_temperature)
@@ -48,10 +52,27 @@ class LocalAudioFusion(nn.Module):
         if self.energy_gate and audio_dim <= 1040:
             raise ValueError('Energy gate requires the native mixture-RMS channel')
         self.audio = nn.Linear(audio_dim, width)
+        self.causal_conv = nn.ModuleList()
+        self.rhythm_logits = None
+        self.rhythm_codebook = None
+        self.phase_projection = None
+        if self.causal:
+            self.causal_conv = nn.ModuleList([
+                nn.Conv1d(audio_dim, width, 3),
+                nn.Conv1d(width, width, 3, dilation=2),
+                nn.Conv1d(width, width, 3, dilation=4),
+            ])
+        if self.decomposed:
+            if not self.causal:
+                raise ValueError('Decomposed rhythm/phase conditioning requires causal audio')
+            code_dim = max(8, width // 2)
+            self.rhythm_logits = nn.Linear(width, 32)
+            self.rhythm_codebook = nn.Parameter(torch.randn(32, code_dim) * 0.02)
+            self.phase_projection = nn.Linear(width, code_dim)
         self.query = nn.Linear(motion_dim, width)
         self.key = nn.Linear(width, width)
         self.value = nn.Linear(width, width)
-        self.relative_position = nn.Parameter(torch.zeros(len(self.OFFSETS), width))
+        self.relative_position = nn.Parameter(torch.zeros(len(self.offsets), width))
         self.output = nn.Linear(width * (2 if mode == 'hybrid' else 1), motion_dim)
         nn.init.zeros_(self.output.weight)
         nn.init.zeros_(self.output.bias)
@@ -66,7 +87,22 @@ class LocalAudioFusion(nn.Module):
         clean = torch.where(valid[..., None], audio, 0.)
         h = F.silu(self.audio(clean))
         n = audio.shape[1]
-        index = torch.arange(n, device=audio.device)[:, None] + audio.new_tensor(self.OFFSETS, dtype=torch.long)[None]
+        if self.causal:
+            h = clean.transpose(1, 2)
+            for conv in self.causal_conv:
+                left = 2 * conv.dilation[0]
+                h = F.pad(h, (left, 0))
+                h = F.silu(conv(h))
+            h = h.transpose(1, 2)
+            if self.decomposed:
+                rhythm = torch.softmax(self.rhythm_logits(h), dim=-1) @ self.rhythm_codebook
+                phase = torch.sin(self.phase_projection(h))
+                h = torch.cat((rhythm, phase), -1)
+            else:
+                h = F.silu(h)
+        else:
+            h = F.silu(self.audio(clean))
+        index = torch.arange(n, device=audio.device)[:, None] + audio.new_tensor(self.offsets, dtype=torch.long)[None]
         inside = (index >= 0) & (index < n)
         index = index.clamp(0, n - 1)
         mask = inside[None] & valid[:, index] & valid[:, :, None]

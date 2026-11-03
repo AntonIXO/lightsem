@@ -35,6 +35,8 @@ class Config:
     quiet_energy_temperature:float=.5
     stereo_fusion:str='concat'
     audio_fusion:str='none'
+    audio_causal:bool=False
+    audio_decomposed:bool=False
     audio_cross_width:int=64
     audio_cross_heads:int=4
     audio_cross_scale:float=.2
@@ -58,11 +60,12 @@ class Config:
         if self.arm not in ('continued','dynamics','joint'):raise ValueError('Unknown registered arm')
         if self.steps!=32 or not 1<=self.gradient_steps<=self.steps:raise ValueError('Declared32-step native solver required')
         if self.extra_dim<1 or self.stereo_dim<0 or self.adapter_scale<=0 or (self.stereo_adapter_scale is not None and self.stereo_adapter_scale<=0) or (self.stereo_plan_scale is not None and self.stereo_plan_scale<=0):raise ValueError('Invalid audio dimensions/scales')
-        if self.stereo_fusion not in ('concat','gated_residual','role_specialized','dual_cross_attention'):raise ValueError('Unknown stereo fusion')
+        if self.stereo_fusion not in ('concat','gated_residual','role_specialized','dual_cross_attention','best_of_five'):raise ValueError('Unknown stereo fusion')
         if self.stereo_fusion!='concat' and self.stereo_dim!=128:raise ValueError('Learned fusion requires concat128 context')
         if self.quiet_adapter_scale<=0 or self.quiet_adapter_scale>1:raise ValueError('Invalid quiet adapter scale')
         if self.quiet_energy_temperature<=0:raise ValueError('Invalid quiet energy temperature')
         if self.audio_fusion not in ('none','attention','film','hybrid'):raise ValueError('Unknown local audio fusion')
+        if self.audio_decomposed and not self.audio_causal:raise ValueError('Decomposed audio requires causal audio')
         if self.audio_cross_width<8 or self.audio_cross_heads<1 or self.audio_cross_width%self.audio_cross_heads!=0:raise ValueError('Invalid audio cross-attention dimensions')
         if self.audio_cross_scale<=0 or self.audio_cross_scale>1:raise ValueError('Invalid audio cross-attention scale')
         if self.audio_energy_temperature<=0:raise ValueError('Invalid audio energy temperature')
@@ -140,6 +143,21 @@ class Flow(DynamicFlow):
                     nn.init.zeros_(attention.out_proj.weight)
                     nn.init.zeros_(attention.out_proj.bias)
                 projection_dim=128
+            elif config.stereo_fusion=='best_of_five':
+                # One model-level branch containing the five tested ideas:
+                # concat (EDGE), gated residual (Listen), role split
+                # (DanceMeld), cross-attention (MoMu), plus the temporal
+                # adapter configured below (DiscoForcing).  The branch is
+                # zero-adaptered downstream, so initialization remains the
+                # incumbent exactly; no saved body trajectories are blended.
+                self.stereo_gate=nn.Sequential(nn.Linear(config.stereo_dim,64),nn.SiLU(),nn.Linear(64,64))
+                nn.init.zeros_(self.stereo_gate[-1].weight);nn.init.zeros_(self.stereo_gate[-1].bias)
+                self.stereo_cross_fast=nn.MultiheadAttention(64,4,batch_first=True)
+                self.stereo_cross_slow=nn.MultiheadAttention(64,4,batch_first=True)
+                for attention in (self.stereo_cross_fast,self.stereo_cross_slow):
+                    nn.init.zeros_(attention.out_proj.weight)
+                    nn.init.zeros_(attention.out_proj.bias)
+                projection_dim=384  # concat128 + gated64 + role64 + cross128
             self.stereo_projection=nn.Linear(projection_dim,32)
             self.stereo_adapters=nn.ModuleList(nn.Linear(32,base_config.width) for _ in self.blocks)
             for layer in self.stereo_adapters:nn.init.zeros_(layer.weight);nn.init.zeros_(layer.bias)
@@ -156,7 +174,9 @@ class Flow(DynamicFlow):
                 energy_temperature=config.audio_energy_temperature,
                 energy_relative=config.audio_energy_relative,
                 energy_quantile=config.audio_energy_quantile,
-                energy_smooth_frames=config.audio_energy_smooth_frames)
+                energy_smooth_frames=config.audio_energy_smooth_frames,
+                causal=config.audio_causal,
+                decomposed=config.audio_decomposed)
         if config.temporal_adapter:
             # A channel-mixing temporal residual gives the Fourier/jerk
             # objective enough capacity to separate articulated modes. Only
@@ -190,6 +210,22 @@ class Flow(DynamicFlow):
             # no cross-chunk values are invented or dropped.
             return torch.cat([attend(value[:, start:start+chunk_frames])
                               for start in range(0, value.shape[1], chunk_frames)], dim=1)
+        if self.native_config.stereo_fusion=='best_of_five':
+            fast, slow = value[...,:64], value[...,64:]
+            gated = fast + torch.tanh(self.stereo_gate(value))*slow
+            def attend(chunk):
+                f,s=chunk[...,:64],chunk[...,64:]
+                f2,_=self.stereo_cross_fast(f,s,s,need_weights=False)
+                s2,_=self.stereo_cross_slow(s,f,f,need_weights=False)
+                return torch.cat((f+f2,s+s2),-1)
+            if chunk_frames is None or value.shape[1] <= chunk_frames:
+                cross=attend(value)
+            else:
+                if type(chunk_frames) is not int or chunk_frames < 1:
+                    raise ValueError('Stereo attention chunk_frames must be a positive integer')
+                cross=torch.cat([attend(value[:, start:start+chunk_frames])
+                                 for start in range(0,value.shape[1],chunk_frames)],dim=1)
+            return torch.cat((value,gated,fast,cross),-1)
         return value
     def planner_stereo(self,value):
         if self.native_config.stereo_fusion=='role_specialized':
@@ -252,7 +288,7 @@ class Flow(DynamicFlow):
         return self.prepared_vector_field(*self.prepare_conditioning(audio),state,t,self.prepare_audio_context(audio))
 
     def config_dict(self):
-        return {**super().config_dict(),'native_control_channels':80,'legacy34_plan_projection_unused':True,'conditioning':'Base92+1061frozenaudio+48learneddynamics+32continuousmotif+optionalStereoV1+optionalQuietAdapter+optionalLocalAudioFusion+optionalTemporalAdapter; onlyjointconsumescontrol','stereo_dim':self.native_config.stereo_dim,'stereo_fusion':self.native_config.stereo_fusion,'stereo_attention_window_frames':self.native_config.frames if self.native_config.stereo_fusion=='dual_cross_attention' else None,'quiet_adapter':self.native_config.quiet_adapter,'audio_fusion':self.native_config.audio_fusion,'temporal_adapter':self.native_config.temporal_adapter,'audio_context':'fine native audio with +/-60,+/-30,+/-15,+/-5,0 frame offsets; no playback clock','retiming':False}
+        return {**super().config_dict(),'native_control_channels':80,'legacy34_plan_projection_unused':True,'conditioning':'Base92+1061frozenaudio+48learneddynamics+32continuousmotif+optionalStereoV1+optionalQuietAdapter+optionalLocalAudioFusion+optionalTemporalAdapter; onlyjointconsumescontrol','stereo_dim':self.native_config.stereo_dim,'stereo_fusion':self.native_config.stereo_fusion,'stereo_attention_window_frames':self.native_config.frames if self.native_config.stereo_fusion in ('dual_cross_attention','best_of_five') else None,'quiet_adapter':self.native_config.quiet_adapter,'audio_fusion':self.native_config.audio_fusion,'audio_causal':self.native_config.audio_causal,'audio_decomposed':self.native_config.audio_decomposed,'temporal_adapter':self.native_config.temporal_adapter,'audio_context':'causal offsets -60,-30,-15,-5,0' if self.native_config.audio_causal else 'fine native audio with +/-60,+/-30,+/-5,0 frame offsets; no playback clock','retiming':False}
 
 
 
@@ -262,7 +298,7 @@ class NativeDynamicsModel(nn.Module):
         self.noise_energy_scale=nn.Parameter(torch.zeros(())) if config.noise_energy_gate else None
         self.stereo_plan=None
         if config.stereo_dim:
-            plan_dim=64 if config.stereo_fusion in ('gated_residual','role_specialized') else config.stereo_dim
+            plan_dim=64 if config.stereo_fusion in ('gated_residual','role_specialized') else (384 if config.stereo_fusion=='best_of_five' else config.stereo_dim)
             self.stereo_plan=nn.Linear(plan_dim,CONDITION_DIM)
             nn.init.zeros_(self.stereo_plan.weight);nn.init.zeros_(self.stereo_plan.bias)
         # All arms retain identical pretrained early3D filters. Candidatelearns
